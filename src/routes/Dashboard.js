@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
 import { Row, Col, Card, Table, Icon } from 'antd';
-import styles from './Dashboard.css';
 
 const columns = [{
   title: 'Name',
@@ -92,7 +91,11 @@ function Dashboard() {
       </Row>
       <Row gutter={16} style={{ marginTop: 16 }}>
         <Col span={24}>
-          <Card bordered={false}>
+          <Card
+            title="业务表格"
+            bordered={false}
+            extra={<Icon type="setting" />}
+          >
             <Table dataSource={data} columns={columns} />
           </Card>
         </Col>
