@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Tooltip } from 'antd';
 import { Link } from 'dva/router';
 import styles from './BasicLayout.less';
 
@@ -10,7 +10,11 @@ export default class BasicLayout extends React.Component {
   state = {
     collapsed: false,
     mode: 'inline',
+    openKeys: ['patterns'],
   };
+  onOpenChange = (openKeys) => {
+    this.setState({ openKeys });
+  }
   getCurrentMenuSelectedKeys() {
     const { location: { pathname } } = this.props;
     const keys = pathname.split('/').slice(1);
@@ -19,13 +23,21 @@ export default class BasicLayout extends React.Component {
     }
     return keys;
   }
+  inlineOpenKeys = [];
   toggle = () => {
+    const { collapsed } = this.state;
+    const inlineOpenKeys = [...this.state.openKeys];
     this.setState({
-      collapsed: !this.state.collapsed,
-      mode: this.state.collapsed ? 'inline' : 'vertical',
+      collapsed: !collapsed,
+      mode: collapsed ? 'inline' : 'vertical',
+      openKeys: collapsed ? this.inlineOpenKeys : [],
     });
+    if (!collapsed) {
+      this.inlineOpenKeys = inlineOpenKeys;
+    }
   }
   render() {
+    const { collapsed, openKeys } = this.state;
     return (
       <Layout>
         <Sider
@@ -34,37 +46,55 @@ export default class BasicLayout extends React.Component {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
           style={{ height: '100vh' }}
+          width={272}
         >
           <div className={styles.logo} />
           <Menu
             theme="dark"
             mode={this.state.mode}
-            defaultOpenKeys={['patterns']}
+            openKeys={openKeys}
+            onOpenChange={this.onOpenChange}
             defaultSelectedKeys={this.getCurrentMenuSelectedKeys()}
           >
             <Menu.Item key="dashboard">
-              <Link to="/">
-                <Icon type="setting" />
-                <span className={styles.navText}>Dashboard</span>
-              </Link>
+              <Tooltip
+                title={collapsed ? 'Dashboard' : ''}
+                placement="right"
+                overlayStyle={{ paddingLeft: 16 }}
+              >
+                <Link to="/">
+                  <Icon type="setting" />
+                  <span className={styles.navText}>
+                    Dashboard
+                  </span>
+                </Link>
+              </Tooltip>
             </Menu.Item>
-            <SubMenu title={<span><Icon type="video-camera" />常用页面</span>} key="patterns">
+            <SubMenu
+              title={
+                <span>
+                  <Icon type="setting" />
+                  <span className={styles.navText}>常用页面</span>
+                </span>
+              }
+              key="patterns"
+            >
               <Menu.Item key="forms">
                 <Link to="/patterns/forms">
-                  <Icon type="video-camera" />
-                  <span className={styles.navText}>表单页</span>
+                  <Icon type="setting" />
+                  <span>表单页</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="list">
                 <Link to="/patterns/list">
-                  <Icon type="video-camera" />
-                  <span className={styles.navText}>列表页</span>
+                  <Icon type="setting" />
+                  <span>列表页</span>
                 </Link>
               </Menu.Item>
               <Menu.Item key="profile" icon="upload">
                 <Link to="/patterns/profile">
-                  <Icon type="video-camera" />
-                  <span className={styles.navText}>详情页</span>
+                  <Icon type="setting" />
+                  <span>详情页</span>
                 </Link>
               </Menu.Item>
             </SubMenu>

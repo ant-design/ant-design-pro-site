@@ -16,10 +16,36 @@
   margin: 16px;
 }
 
-:global(.ant-layout-sider-collapsed) {
-  :global(.anticon) {
-    font-size: 16px;
+:global {
+  .ant-layout-sider-collapsed {
+    .ant-menu-item,
+    .ant-menu-submenu-title {
+      text-align: center;
+      .anticon {
+        font-size: 16px;
+      }
+    }
+  
+    .ant-menu-submenu-title:after {
+      display: none;
+    }
+
+    .ant-menu-sub {
+      .ant-menu-item,
+      .ant-menu-submenu-title {
+        text-align: left;
+        .anticon {
+          font-size: 14px;
+        }
+      }
+      .ant-menu-submenu-title:after {
+        display: block;
+      }
+    }
   }
+}
+
+:global(.ant-layout-sider-collapsed) {
   .navText {
     display: none;
   }
