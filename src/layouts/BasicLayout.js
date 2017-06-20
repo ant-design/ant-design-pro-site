@@ -4,15 +4,22 @@ import DocumentTitle from 'react-document-title';
 import { Link } from 'dva/router';
 import styles from './BasicLayout.less';
 import PageHeader from '../components/PageHeader/PageHeader';
+import { menus } from '../common/nav';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
+
+function getDefaultCollapsedSubMenus() {
+  return menus
+    .filter(item => (item.children && item.defaultCollapsed))
+    .map(item => item.key || item.path);
+}
 
 export default class BasicLayout extends React.Component {
   state = {
     collapsed: false,
     mode: 'inline',
-    openKeys: ['patterns'],
+    openKeys: getDefaultCollapsedSubMenus(),
   };
   onOpenChange = (openKeys) => {
     this.setState({ openKeys });
@@ -21,9 +28,46 @@ export default class BasicLayout extends React.Component {
     const { location: { pathname } } = this.props;
     const keys = pathname.split('/').slice(1);
     if (keys.length === 1 && keys[0] === '') {
-      return ['dashboard'];
+      return [menus[0].key];
     }
     return keys;
+  }
+  getNavMenuItems(menusData, level = 0, parentPath = '') {
+    const { collapsed } = this.state;
+    return menusData.map((item) => {
+      if (item.children) {
+        return (
+          <SubMenu
+            title={
+              <span>
+                <Icon type={item.icon} />
+                <span className={styles.navText}>{item.name}</span>
+              </span>
+            }
+            key={item.key || item.path}
+          >
+            {this.getNavMenuItems(item.children, level + 1, parentPath + item.path)}
+          </SubMenu>
+        );
+      }
+      const itemPath = `${parentPath}/${item.path}`.replace('//', '/');
+      return (
+        <Menu.Item key={item.key || item.path}>
+          <Tooltip
+            title={(level === 0 && collapsed) ? item.name : ''}
+            placement="right"
+            overlayStyle={{ paddingLeft: 16 }}
+          >
+            <Link to={itemPath}>
+              <Icon type={item.icon} />
+              <span className={level === 0 ? styles.navText : ''}>
+                {item.name}
+              </span>
+            </Link>
+          </Tooltip>
+        </Menu.Item>
+      );
+    });
   }
   inlineOpenKeys = [];
   toggle = () => {
@@ -40,7 +84,7 @@ export default class BasicLayout extends React.Component {
   }
   render() {
     const { routes, params, children, header, main } = this.props;
-    const { collapsed, openKeys } = this.state;
+    const { openKeys } = this.state;
     const pageTitle = routes[routes.length - 1].breadcrumbName;
 
     return (
@@ -62,48 +106,7 @@ export default class BasicLayout extends React.Component {
               onOpenChange={this.onOpenChange}
               defaultSelectedKeys={this.getCurrentMenuSelectedKeys()}
             >
-              <Menu.Item key="dashboard">
-                <Tooltip
-                  title={collapsed ? 'Dashboard' : ''}
-                  placement="right"
-                  overlayStyle={{ paddingLeft: 16 }}
-                >
-                  <Link to="/">
-                    <Icon type="setting" />
-                    <span className={styles.navText}>
-                      Dashboard
-                    </span>
-                  </Link>
-                </Tooltip>
-              </Menu.Item>
-              <SubMenu
-                title={
-                  <span>
-                    <Icon type="setting" />
-                    <span className={styles.navText}>常用页面</span>
-                  </span>
-                }
-                key="patterns"
-              >
-                <Menu.Item key="forms">
-                  <Link to="/patterns/forms">
-                    <Icon type="setting" />
-                    <span>表单页</span>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item key="list">
-                  <Link to="/patterns/list">
-                    <Icon type="setting" />
-                    <span>列表页</span>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item key="profile" icon="upload">
-                  <Link to="/patterns/profile">
-                    <Icon type="setting" />
-                    <span>详情页</span>
-                  </Link>
-                </Menu.Item>
-              </SubMenu>
+              {this.getNavMenuItems(menus)}
             </Menu>
           </Sider>
           <Layout>

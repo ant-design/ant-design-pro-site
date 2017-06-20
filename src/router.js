@@ -19,7 +19,7 @@ function getRoutes(data) {
     }
     return (
       <Route
-        key={item.path || ''}
+        key={item.key || item.path || ''}
         path={item.path}
         breadcrumbName={item.name}
         {...componentProps}
