@@ -1,15 +1,10 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Breadcrumb } from 'antd';
 
-function Profile(props) {
-  const { routes, params } = props;
+function Forms() {
   return (
-    <div>
-      <h1>详情页</h1>
-      <Breadcrumb routes={routes} params={params} />
-    </div>
+    <div>789</div>
   );
 }
 
-export default connect()(Profile);
+export default connect()(Forms);

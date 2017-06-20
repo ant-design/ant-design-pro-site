@@ -1,20 +1,39 @@
 import React from 'react';
 import { Router, Route } from 'dva/router';
-import BasicLayout from './layouts/BasicLayout';
-import Dashboard from './routes/Dashboard';
-import ListPage from './routes/ListPage';
-import Profile from './routes/Profile';
-import Forms from './routes/Forms';
+import navData from './common/nav';
+
+function getRoutes(data) {
+  return data.map((item) => {
+    let children;
+    if (item.children) {
+      children = getRoutes(item.children);
+    }
+    const componentProps = {};
+    if ('pageHeader' in item) {
+      componentProps.components = {
+        header: item.pageHeader,
+        main: item.component,
+      };
+    } else {
+      componentProps.component = item.component;
+    }
+    return (
+      <Route
+        key={item.path || ''}
+        path={item.path}
+        breadcrumbName={item.name}
+        {...componentProps}
+      >
+        {children}
+      </Route>
+    );
+  });
+}
 
 function RouterConfig({ history }) {
   return (
     <Router history={history}>
-      <Route component={BasicLayout} breadcrumbName="首页">
-        <Route path="/" component={Dashboard} />
-        <Route path="/patterns/forms" component={Forms} breadcrumbName="表单页" />
-        <Route path="/patterns/list" component={ListPage} breadcrumbName="列表页" />
-        <Route path="/patterns/profile" component={Profile} breadcrumbName="详情页" />
-      </Route>
+      {getRoutes(navData)}
     </Router>
   );
 }
