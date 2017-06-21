@@ -14,5 +14,8 @@
         ["import", { "libraryName": "antd", "style": true }]
       ]
     }
+  },
+  "theme": {
+    "font-size-base": "14px"
   }
 }
