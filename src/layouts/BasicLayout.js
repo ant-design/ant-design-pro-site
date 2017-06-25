@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Icon, Tooltip } from 'antd';
+import { Layout, Menu, Icon, Tooltip, Avatar, Popover } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'dva/router';
 import styles from './BasicLayout.less';
@@ -84,7 +84,7 @@ export default class BasicLayout extends React.Component {
   }
   render() {
     const { routes, params, children, header, main } = this.props;
-    const { openKeys } = this.state;
+    const { openKeys, collapsed } = this.state;
     const pageTitle = routes[routes.length - 1].breadcrumbName;
 
     return (
@@ -95,10 +95,14 @@ export default class BasicLayout extends React.Component {
             collapsible
             collapsed={this.state.collapsed}
             onCollapse={this.onCollapse}
-            style={{ height: '100vh' }}
+            style={{ minHeight: '100vh' }}
             width={272}
           >
-            <div className={styles.logo} />
+            <div className={styles.logo}>
+              <Link to="/">
+                <img src="https://gw.alipayobjects.com/zos/rmsportal/ElBVfakcgrgjarOUnuvx.svg" alt="logo" />
+              </Link>
+            </div>
             <Menu
               theme="dark"
               mode={this.state.mode}
@@ -111,11 +115,26 @@ export default class BasicLayout extends React.Component {
           </Sider>
           <Layout>
             <Header className={styles.header}>
-              <Icon
-                className={styles.trigger}
-                type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                onClick={this.toggle}
-              />
+              <Tooltip
+                placement="bottom"
+                title={collapsed ? '展开菜单' : '收起菜单'}
+                mouseLeaveDelay={0}
+                transitionName=""
+              >
+                <Icon
+                  className={styles.trigger}
+                  type={collapsed ? 'menu-unfold' : 'menu-fold'}
+                  onClick={this.toggle}
+                />
+              </Tooltip>
+              <div className={styles.right}>
+                <Icon className={styles.action} type="search" />
+                <Popover title="通知栏" content="内容">
+                  <Icon className={styles.action} type="bell" />
+                </Popover>
+                <Avatar size="small" className={styles.avatar}>毛</Avatar>
+                momo.zxy
+              </div>
             </Header>
             <PageHeader title={pageTitle} routes={routes} params={params}>
               {header}

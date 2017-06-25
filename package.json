@@ -14,7 +14,9 @@
     "dva": "^1.2.1",
     "react": "^15.4.0",
     "react-document-title": "^2.0.3",
-    "react-dom": "^15.4.0"
+    "react-dom": "^15.4.0",
+    "react-redux": "4.x || 5.x",
+    "react-router": "2.x || 3.x"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
