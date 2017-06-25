@@ -46,7 +46,7 @@ export default class BasicLayout extends React.Component {
             }
             key={item.key || item.path}
           >
-            {this.getNavMenuItems(item.children, level + 1, parentPath + item.path)}
+            {this.getNavMenuItems(item.children, level + 1, `${parentPath}/${item.path}`)}
           </SubMenu>
         );
       }
