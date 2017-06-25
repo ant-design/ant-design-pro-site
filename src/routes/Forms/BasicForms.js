@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'dva';
 import { Card } from 'antd';
 import HorizontalForm from './HorizontalForm';
+import MultipleColForm from './MultipleColForm';
+import StandardForm from './StandardForm';
 import styles from './style.less';
 
 function BasicForms() {
@@ -11,10 +13,10 @@ function BasicForms() {
         <HorizontalForm />
       </Card>
       <Card title="分组表单" className={styles.card}>
-        111
+        <MultipleColForm />
       </Card>
       <Card title="标准表单" className={styles.card}>
-        111
+        <StandardForm />
       </Card>
     </div>
   );
