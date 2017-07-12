@@ -1,9 +1,11 @@
 import React from 'react';
-import { Layout, Menu, Icon, Tooltip, Avatar, Popover } from 'antd';
+import { Layout, Menu, Icon, Tooltip, Avatar } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'dva/router';
 import styles from './BasicLayout.less';
 import PageHeader from '../components/PageHeader/PageHeader';
+import HeaderSearch from '../components/HeaderSearch/HeaderSearch';
+import NotificationIcon from '../components/NotificationIcon/NotificationIcon';
 import { menus } from '../common/nav';
 
 const { Header, Sider, Content } = Layout;
@@ -119,10 +121,8 @@ export default class BasicLayout extends React.Component {
                 />
               </Tooltip>
               <div className={styles.right}>
-                <Icon className={styles.action} type="search" />
-                <Popover title="通知栏" content="内容">
-                  <Icon className={styles.action} type="bell" />
-                </Popover>
+                <HeaderSearch className={styles.action} placeholder="站内搜索" />
+                <NotificationIcon className={styles.action} count={5} />
                 <Avatar size="small" className={styles.avatar}>毛</Avatar>
                 momo.zxy
               </div>
