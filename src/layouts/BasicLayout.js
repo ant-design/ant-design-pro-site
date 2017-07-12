@@ -32,8 +32,7 @@ export default class BasicLayout extends React.Component {
     }
     return keys;
   }
-  getNavMenuItems(menusData, level = 0, parentPath = '') {
-    const { collapsed } = this.state;
+  getNavMenuItems(menusData, parentPath = '') {
     return menusData.map((item) => {
       if (item.children) {
         return (
@@ -41,30 +40,22 @@ export default class BasicLayout extends React.Component {
             title={
               <span>
                 <Icon type={item.icon} />
-                <span className={styles.navText}>{item.name}</span>
+                <span>{item.name}</span>
               </span>
             }
             key={item.key || item.path}
           >
-            {this.getNavMenuItems(item.children, level + 1, `${parentPath}/${item.path}`)}
+            {this.getNavMenuItems(item.children, `${parentPath}/${item.path}`)}
           </SubMenu>
         );
       }
       const itemPath = `${parentPath}/${item.path}`.replace('//', '/');
       return (
         <Menu.Item key={item.key || item.path}>
-          <Tooltip
-            title={(level === 0 && collapsed) ? item.name : ''}
-            placement="right"
-            overlayStyle={{ paddingLeft: 16 }}
-          >
-            <Link to={itemPath}>
-              <Icon type={item.icon} />
-              <span className={level === 0 ? styles.navText : ''}>
-                {item.name}
-              </span>
-            </Link>
-          </Tooltip>
+          <Link to={itemPath}>
+            <Icon type={item.icon} />
+            <span>{item.name}</span>
+          </Link>
         </Menu.Item>
       );
     });
