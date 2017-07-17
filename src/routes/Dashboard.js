@@ -50,7 +50,7 @@ const data = [{
 function Dashboard() {
   return (
     <div>
-      <Row gutter={16}>
+      <Row gutter={24}>
         <Col span={8}>
           <Card bordered={false}>
             <p>卡片内容</p>
@@ -73,7 +73,7 @@ function Dashboard() {
           </Card>
         </Col>
       </Row>
-      <Row gutter={16} style={{ marginTop: 16 }}>
+      <Row gutter={24} style={{ marginTop: 24 }}>
         <Col span={12}>
           <Card bordered={false}>
             <p>卡片内容</p>
@@ -89,7 +89,7 @@ function Dashboard() {
           </Card>
         </Col>
       </Row>
-      <Row gutter={16} style={{ marginTop: 16 }}>
+      <Row gutter={24} style={{ marginTop: 24 }}>
         <Col span={24}>
           <Card
             title="业务表格"

@@ -9,13 +9,13 @@ import styles from './style.less';
 function BasicForms() {
   return (
     <div>
-      <Card title="横向表单" className={styles.card}>
+      <Card title="横向表单" className={styles.card} bordered={false}>
         <HorizontalForm />
       </Card>
-      <Card title="分组表单" className={styles.card}>
+      <Card title="分组表单" className={styles.card} bordered={false}>
         <MultipleColForm />
       </Card>
-      <Card title="标准表单" className={styles.card}>
+      <Card title="标准表单" className={styles.card} bordered={false}>
         <StandardForm />
       </Card>
     </div>

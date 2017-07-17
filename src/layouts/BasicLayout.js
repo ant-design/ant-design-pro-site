@@ -23,8 +23,8 @@ export default class BasicLayout extends React.Component {
     mode: 'inline',
     openKeys: getDefaultCollapsedSubMenus(),
   };
-  onOpenChange = (openKeys) => {
-    this.setState({ openKeys });
+  onCollapse = (collapsed) => {
+    this.setState({ collapsed });
   }
   getCurrentMenuSelectedKeys() {
     const { location: { pathname } } = this.props;
@@ -62,18 +62,10 @@ export default class BasicLayout extends React.Component {
       );
     });
   }
-  inlineOpenKeys = [];
   toggle = () => {
-    const { collapsed } = this.state;
-    const inlineOpenKeys = [...this.state.openKeys];
     this.setState({
-      collapsed: !collapsed,
-      mode: collapsed ? 'inline' : 'vertical',
-      openKeys: collapsed ? this.inlineOpenKeys : [],
+      collapsed: !this.state.collapsed,
     });
-    if (!collapsed) {
-      this.inlineOpenKeys = inlineOpenKeys;
-    }
   }
   render() {
     const { routes, params, children, header, main } = this.props;
@@ -87,6 +79,7 @@ export default class BasicLayout extends React.Component {
             trigger={null}
             collapsible
             collapsed={this.state.collapsed}
+            breakpoint="md"
             onCollapse={this.onCollapse}
             style={{ minHeight: '100vh' }}
             width={272}
@@ -98,9 +91,8 @@ export default class BasicLayout extends React.Component {
             </div>
             <Menu
               theme="dark"
-              mode={this.state.mode}
-              openKeys={openKeys}
-              onOpenChange={this.onOpenChange}
+              mode="inline"
+              defaultOpenKeys={openKeys}
               defaultSelectedKeys={this.getCurrentMenuSelectedKeys()}
             >
               {this.getNavMenuItems(menus)}
