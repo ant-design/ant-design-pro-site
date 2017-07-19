@@ -7,9 +7,10 @@ import BasicForms from '../routes/Forms/BasicForms';
 export const menus = [{
   name: 'Dashboard',
   icon: 'setting',
+  path: 'dashboard',
   children: [{
     name: '分析页',
-    path: '/',
+    path: 'analysis',
     component: Dashboard,
     pageHeader: null,  // 去掉页面标题通栏
     icon: 'setting',
@@ -30,25 +31,19 @@ export const menus = [{
   name: '表单页',
   path: 'form',
   icon: 'setting',
-  defaultCollapsed: true,
   children: [{
     name: '基础表单',
-    path: 'basic',
+    path: 'basic-form',
     component: BasicForms,
     icon: 'setting',
   }, {
     name: '分组表单',
-    path: 'group',
-    component: null,
-    icon: 'setting',
-  }, {
-    name: '表格表单',
-    path: 'table',
+    path: 'group-form',
     component: null,
     icon: 'setting',
   }, {
     name: '分步表单',
-    path: 'step',
+    path: 'step-form',
     component: null,
     icon: 'setting',
   }],
@@ -58,7 +53,7 @@ export const menus = [{
   icon: 'setting',
   children: [{
     name: '标准表格',
-    path: 'table',
+    path: 'table-list',
     component: null,
     icon: 'setting',
   }, {
@@ -68,12 +63,12 @@ export const menus = [{
     icon: 'setting',
   }, {
     name: '卡片列表',
-    path: 'card',
+    path: 'card-list',
     component: null,
     icon: 'setting',
   }, {
     name: '卡片列表（封面）',
-    path: 'cover-card',
+    path: 'cover-card-list',
     component: null,
     icon: 'setting',
   }, {
