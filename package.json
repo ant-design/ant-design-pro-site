@@ -1,0 +1,70 @@
+{
+  "name": "antd-pro",
+  "version": "0.1.0",
+  "title": "Ant Design Pro",
+  "description": "An enterprise-class UI design language and React-based implementation",
+  "homepage": "http://ant.design/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/test"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "antd": "^2.12.1",
+    "react-copy-to-clipboard": "^5.0.0",
+    "react-document-title": "^2.0.3",
+    "react-github-button": "^0.1.11",
+    "react-intl": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.0",
+    "babel-jest": "^19.0.0",
+    "babel-plugin-antd": "^0.5.1",
+    "babel-plugin-import": "^1.2.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "bisheng": "^0.24.0",
+    "bisheng-plugin-antd": "^0.15.0",
+    "bisheng-plugin-description": "^0.1.1",
+    "bisheng-plugin-react": "^0.5.0",
+    "bisheng-plugin-toc": "^0.4.0",
+    "concurrently": "^3.5.0",
+    "css-split-webpack-plugin": "^0.2.3",
+    "eslint": "^3.0.1",
+    "eslint-config-airbnb": "latest",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-markdown": "~1.0.0-beta.4",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-tinker": "^0.4.0",
+    "npm-run-all": "^4.0.2",
+    "style-loader": "^0.18.2",
+    "webpack": "^1.14.0"
+  },
+  "scripts": {
+    "install-other": "npm-run-all scaffold-install tool-install",
+    "start": "concurrently --kill-others \"npm run bisheng-start\" \"npm run scaffold-start\"",
+    "site": "npm-run-all bisheng-build scaffold-build scaffold-move",
+    "lerna": "lerna",
+
+    "publish-components": "lerna publish",
+
+    "bisheng-start": "bisheng start -c ./site/bisheng.config.js",
+    "bisheng-build": "bisheng build --ssr -c ./site/bisheng.config.js",
+
+    "scaffold-install": "cd ./scaffold && npm install",
+    "scaffold-start": "cd ./scaffold && npm start",
+    "scaffold-move": "./tool/bin/let -m",
+    "scaffold-build": "cd ./scaffold && npm run build",
+    "tool-install": "cd ./tool && npm install"
+  }
+}
