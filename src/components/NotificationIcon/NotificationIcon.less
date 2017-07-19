@@ -1,0 +1,51 @@
+@import "~antd/lib/style/themes/default.less";
+
+.popover {
+  width: 336px;
+  :global(.ant-popover-inner-content) {
+    padding: 0;
+  }
+}
+
+.badge {
+  margin-right: 24px;
+}
+
+.icon {
+  padding: 0 4px !important;
+  margin: 0 !important;
+}
+
+.tabs {
+  :global {
+    .ant-tabs-nav-container {
+      font-size: 14px;
+    }
+    .ant-tabs-nav-scroll {
+      text-align: center;
+    }
+    .ant-tabs-bar {
+      margin-bottom: 0;
+    }
+    .ant-tabs-nav .ant-tabs-tab {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+  }
+}
+
+.clear {
+  background: #FBFBFB;
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  color: @text-color-secondary;
+  border-radius: 0 0 @border-radius-base @border-radius-base;
+  border-top: 1px solid @border-color-split;
+  transition: all .3s;
+  cursor: pointer;
+
+  &:hover {
+    color: @text-color;
+  }
+}
