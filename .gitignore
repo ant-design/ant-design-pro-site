@@ -1,11 +1,38 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-
-# production
-/dist
-
-# misc
+*.iml
+.idea/
+.ipr
+.iws
+*~
+~*
+*.diff
+*.patch
+*.bak
 .DS_Store
-npm-debug.log*
+Thumbs.db
+.project
+.*proj
+.svn/
+*.swp
+*.swo
+*.log
+*.log.*
+*.json.gzip
+node_modules/
+.buildpath
+.settings
+npm-debug.log
+nohup.out
+_site
+_data
+dist
+/lib
+/es
+elasticsearch-*
+config/base.yaml
+/.vscode/
+/coverage
+yarn.lock
+components/**/*.js
+components/**/*.jsx
+!components/**/__tests__/*.js
+!components/**/__tests__/*.js.snap
