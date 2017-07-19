@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 
-const host = window.location.host;
-
-let assets = {
-  css: '/s.css',
-  js: '/s.js',
-};
-if (/(127\.0\.0\.1)|localhost/ig.test(host)) {
-  assets = {
-    css: 'http://localhost:8000/index.css',
-    js: 'http://localhost:8000/index.js',
-  }
-}
-
 class Iframe extends Component {
   componentDidMount() {
+    const host = window.location.host;
+
+    let assets = {
+      css: '/s.css',
+      js: '/s.js',
+    };
+    if (/(127\.0\.0\.1)|localhost/ig.test(host)) {
+      assets = {
+        css: 'http://localhost:8000/index.css',
+        js: 'http://localhost:8000/index.js',
+      }
+    }
 
     const html = `<!DOCTYPE html>
     <html lang="en">

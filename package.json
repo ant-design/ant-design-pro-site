@@ -55,12 +55,9 @@
     "start": "concurrently --kill-others \"npm run bisheng-start\" \"npm run scaffold-start\"",
     "site": "npm-run-all bisheng-build scaffold-build scaffold-move",
     "lerna": "lerna",
-
     "publish-components": "lerna publish",
-
     "bisheng-start": "bisheng start -c ./site/bisheng.config.js",
     "bisheng-build": "bisheng build --ssr -c ./site/bisheng.config.js",
-
     "scaffold-install": "cd ./scaffold && npm install",
     "scaffold-start": "cd ./scaffold && npm start",
     "scaffold-move": "./tool/bin/let -m",

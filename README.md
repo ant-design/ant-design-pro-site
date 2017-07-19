@@ -51,7 +51,7 @@ npm run tool-install
 
 #### 如何写组件
 
-在 components 目录下书写 markdown 和代码, 跟 ant.design 网站一致, 后续可以考虑采用工具单独调试某一个组件, 方便组件开发。
+在 components/src 目录下书写 markdown 和代码, 跟 ant.design 网站一致, 后续可以考虑采用工具单独调试某一个组件, 方便组件开发。
 
 #### 如何写脚手架
 
