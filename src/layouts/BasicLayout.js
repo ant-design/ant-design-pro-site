@@ -36,6 +36,7 @@ export default class BasicLayout extends React.Component {
   }
   getNavMenuItems(menusData, parentPath = '') {
     return menusData.map((item) => {
+      const itemPath = `${parentPath}/${item.path || ''}`.replace(/\/+/g, '/');
       if (item.children) {
         return (
           <SubMenu
@@ -45,15 +46,14 @@ export default class BasicLayout extends React.Component {
                 <span>{item.name}</span>
               </span>
             }
-            key={item.key || item.path}
+            key={item.key || itemPath}
           >
-            {this.getNavMenuItems(item.children, `${parentPath}/${item.path}`)}
+            {this.getNavMenuItems(item.children, itemPath)}
           </SubMenu>
         );
       }
-      const itemPath = `${parentPath}/${item.path}`.replace('//', '/');
       return (
-        <Menu.Item key={item.key || item.path}>
+        <Menu.Item key={item.key || itemPath}>
           <Link to={itemPath}>
             <Icon type={item.icon} />
             <span>{item.name}</span>
