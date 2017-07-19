@@ -23,12 +23,12 @@ npm run install-other # 安装工具和脚手架依赖, 在 npm install 之后�
 npm run start # 启动站点 ( 包含脚手架站点 )
 npm run site # 部署站点 ( 包含脚手架 )
 
-npm run publish-compnents # 发布组件到 npm
+npm run publish-components # 发布组件到 npm
 
 # 分解命令
 npm run lerna
 
-npm run bisheng-start 
+npm run bisheng-start
 npm run bisheng-build
 
 npm run scaffold-install
