@@ -11,20 +11,22 @@ import { menus } from '../common/nav';
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
-function getDefaultCollapsedSubMenus() {
-  return menus
-    .filter(item => (item.children && item.defaultCollapsed))
-    .map(item => item.key || item.path);
-}
-
 export default class BasicLayout extends React.Component {
   state = {
     collapsed: false,
     mode: 'inline',
-    openKeys: getDefaultCollapsedSubMenus(),
+    openKeys: this.getDefaultCollapsedSubMenus(),
   };
   onCollapse = (collapsed) => {
     this.setState({ collapsed });
+  }
+  onOpenChange = (openKeys) => {
+    this.setState({ openKeys });
+  }
+  getDefaultCollapsedSubMenus() {
+    const currentMenuSelectedKeys = [...this.getCurrentMenuSelectedKeys()];
+    currentMenuSelectedKeys.splice(-1, 1);
+    return currentMenuSelectedKeys;
   }
   getCurrentMenuSelectedKeys() {
     const { location: { pathname } } = this.props;
@@ -46,14 +48,14 @@ export default class BasicLayout extends React.Component {
                 <span>{item.name}</span>
               </span>
             }
-            key={item.key || itemPath}
+            key={item.key || item.path}
           >
             {this.getNavMenuItems(item.children, itemPath)}
           </SubMenu>
         );
       }
       return (
-        <Menu.Item key={item.key || itemPath}>
+        <Menu.Item key={item.key || item.path}>
           <Link to={itemPath}>
             <Icon type={item.icon} />
             <span>{item.name}</span>
@@ -92,8 +94,9 @@ export default class BasicLayout extends React.Component {
             <Menu
               theme="dark"
               mode="inline"
-              defaultOpenKeys={openKeys}
+              openKeys={openKeys}
               defaultSelectedKeys={this.getCurrentMenuSelectedKeys()}
+              onOpenChange={this.onOpenChange}
             >
               {this.getNavMenuItems(menus)}
             </Menu>
