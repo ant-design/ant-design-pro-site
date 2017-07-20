@@ -23,6 +23,7 @@ node_modules/
 npm-debug.log
 nohup.out
 _site
+_scaffold_site
 _data
 dist
 /lib
