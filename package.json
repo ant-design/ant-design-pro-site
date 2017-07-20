@@ -50,7 +50,9 @@
     "lerna": "^2.0.0",
     "npm-run-all": "^4.0.2",
     "style-loader": "^0.18.2",
-    "webpack": "^1.14.0"
+    "webpack": "^1.14.0",
+    "commander": "~2.8.1",
+    "fs-extra": "^4.0.0"
   },
   "scripts": {
     "bisheng-start": "bisheng start -c ./site/bisheng.config.js",
@@ -59,9 +61,7 @@
     "scaffold-move": "./tool/bin/let -m",
     "scaffold-build": "cd ./scaffold && npm run build && ../tool/bin/let -b",
     "scaffold-inpm nstall": "cd ./scaffold && ../tool/bin/i",
-    "tool-install": "cd ./tool && ../tool/bin/i",
     "preinstall": "cd ./scaffold && ../tool/bin/i",
-    "postinstall": "cd ./tool && ../tool/bin/i",
     "start": "concurrently --kill-others \"npm run bisheng-start\" \"npm run scaffold-start\"",
     "site": "npm-run-all bisheng-build scaffold-build scaffold-move",
     "lerna": "lerna",
