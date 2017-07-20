@@ -24,8 +24,6 @@ export default collect(async (nextProps) => {
     return;
   }
 
-  console.log(path);
-
   if (!pageData) {
     throw 404; // eslint-disable-line no-throw-literal
   }

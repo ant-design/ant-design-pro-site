@@ -26,12 +26,14 @@ module.exports = {
   pick: {
     components(markdownData) {
       const filename = markdownData.meta.filename;
-      if (!/^components/.test(filename) ||
+
+      if (!/^scaffold\/src\/ant-design-pro/.test(filename) ||
         /[/\\]demo$/.test(path.dirname(filename))) return;
 
       return {
         meta: markdownData.meta,
       };
+
     },
     changelog(markdownData) {
       if (/CHANGELOG/.test(markdownData.meta.filename)) {
