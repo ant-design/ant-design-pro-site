@@ -54,3 +54,8 @@ npm run tool-install
 #### 如何写脚手架
 
 可以启动整个网站, 也可以 `npm run scaffold-start`, 进入 scaffold 文件夹进行开发
+
+#### 如何部署(内部)
+
+1. `tnpm run site`
+2. `git push gitlab master`

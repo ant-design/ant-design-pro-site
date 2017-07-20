@@ -1,4 +1,4 @@
-import Sample from './src/sample/index';
+import Sample from './sample/index';
 
 export default {
   Sample,
