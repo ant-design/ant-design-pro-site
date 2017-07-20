@@ -20,6 +20,7 @@
 # 常用命令
 npm run start # 启动站点 ( 包含脚手架站点 )
 npm run site # 部署站点 ( 包含脚手架 )
+npm run scaffold-build # 部署脚手架 ( 单独 )
 
 npm run publish-components # 发布组件到 npm
 

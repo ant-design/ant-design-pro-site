@@ -47,6 +47,7 @@
     "eslint-plugin-markdown": "~1.0.0-beta.4",
     "eslint-plugin-react": "^7.0.1",
     "eslint-tinker": "^0.4.0",
+    "lerna": "^2.0.0",
     "npm-run-all": "^4.0.2",
     "style-loader": "^0.18.2",
     "webpack": "^1.14.0"
