@@ -14,15 +14,6 @@ module.exports = function (layout) {
 
   fs.ensureDirSync(siteDir)
 
-  // change name
-  //try {
-    //fs.moveSync(path.join(scaffoldDir, './index.css'), path.join(scaffoldDir, './s.css'));
-    //fs.moveSync(path.join(scaffoldDir, './index.js'), path.join(scaffoldDir, './s.js'));
-    //fs.moveSync(path.join(scaffoldDir, './index.html'), path.join(scaffoldDir, './s.html'));
-  //} catch(e) {
-  //  throw new Error(e);
-  //}
-
   // move
   try {
     fs.copySync(scaffoldDir, siteDir);
