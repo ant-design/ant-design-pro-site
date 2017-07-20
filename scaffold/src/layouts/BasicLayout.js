@@ -3,9 +3,9 @@ import { Layout, Menu, Icon, Tooltip, Avatar } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'dva/router';
 import styles from './BasicLayout.less';
-import PageHeader from '../components/PageHeader/PageHeader';
-import HeaderSearch from '../components/HeaderSearch/HeaderSearch';
-import NotificationIcon from '../components/NotificationIcon/NotificationIcon';
+import PageHeader from '../components/PageHeader';
+import HeaderSearch from '../components/HeaderSearch';
+import NotificationIcon from '../components/NotificationIcon';
 import { menus } from '../common/nav';
 
 const { Header, Sider, Content } = Layout;

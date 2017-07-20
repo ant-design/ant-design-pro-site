@@ -10,9 +10,14 @@ export default collect(async (nextProps) => {
   const pathname = nextProps.location.pathname;
 
   let path = pathname.replace('-cn', '');
-  path = pathname.replace(/(components)/, 'components/src');
+  path = pathname.toLowerCase();
 
-  const pageDataPath = path.split('/');
+  let pageDataPath = path.split('/');
+
+  if (/components/.test(path) && pageDataPath[1]) {
+    let str = pageDataPath[1];
+    pageDataPath[1] = str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
   const pageData = isChangelog(pathname) ?
     nextProps.data.changelog.CHANGELOG :

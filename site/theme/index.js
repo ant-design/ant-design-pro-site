@@ -27,7 +27,9 @@ module.exports = {
     components(markdownData) {
       const filename = markdownData.meta.filename;
 
-      if (!/^scaffold\/src\/ant-design-pro/.test(filename) ||
+      console.log(filename);
+
+      if (!/^scaffold\/src\/components/.test(filename) ||
         /[/\\]demo$/.test(path.dirname(filename))) return;
 
       return {

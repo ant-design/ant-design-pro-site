@@ -4,7 +4,7 @@ const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 module.exports = {
   port: 8001,
   source: {
-    components: './scaffold/src/ant-design-pro',
+    components: './scaffold/src/components',
     docs: './docs',
   },
   theme: './site/theme',
@@ -40,7 +40,7 @@ module.exports = {
     config.resolve.alias = {
       //'antd/lib': path.join(process.cwd(), 'components'),
       //antd: path.join(process.cwd(), 'index'),
-      'antd-pro': path.join(process.cwd(), 'scaffold/src/ant-design-pro'),
+      'antd-pro': path.join(process.cwd(), 'ant-design-pro'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };

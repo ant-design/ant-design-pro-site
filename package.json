@@ -65,7 +65,7 @@
     "start": "concurrently --kill-others \"npm run bisheng-start\" \"npm run scaffold-start\"",
     "site": "npm-run-all bisheng-build scaffold-build scaffold-move",
     "lerna": "lerna",
-    "publish-components": "lerna publish",
+    "components-publish": "lerna publish",
     "lint": "eslint scaffold/src --ext '.js,.jsx'"
   },
   "pre-commit": [

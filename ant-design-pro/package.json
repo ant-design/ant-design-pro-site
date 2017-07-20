@@ -10,8 +10,8 @@
   },
   "scripts": {
     "build": "npm run build:lib && npm run build:umd",
-    "build:lib": "../node_modules/.bin/babel src -d lib --copy-files",
-    "build:umd": "../node_modules/.bin/webpack ./index.js dist/index.js --config ./webpack.component.js",
+    "build:lib": "../node_modules/.bin/babel ./.babelrc ../scaffold/src/components -d lib --copy-files",
+    "build:umd": "../node_modules/.bin/webpack index.js dist/index.js --config ./webpack.component.js",
     "prepublish": "npm run build"
   },
   "files": [
