@@ -1,4 +1,4 @@
 before_deploy:
 options:
   dist: '_site'
-cname: 'antd-pro.alipay.com'
+cname: 'antd-pro.alibaba.net'
