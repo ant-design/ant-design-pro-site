@@ -94,7 +94,7 @@ export default class BasicLayout extends React.Component {
             <Menu
               theme="dark"
               mode="inline"
-              openKeys={openKeys}
+              defaultOpenKeys={this.getDefaultCollapsedSubMenus()}
               defaultSelectedKeys={this.getCurrentMenuSelectedKeys()}
               onOpenChange={this.onOpenChange}
             >
