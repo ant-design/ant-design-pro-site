@@ -15,13 +15,9 @@ export default class BasicLayout extends React.Component {
   state = {
     collapsed: false,
     mode: 'inline',
-    openKeys: this.getDefaultCollapsedSubMenus(),
   };
   onCollapse = (collapsed) => {
     this.setState({ collapsed });
-  }
-  onOpenChange = (openKeys) => {
-    this.setState({ openKeys });
   }
   getDefaultCollapsedSubMenus() {
     const currentMenuSelectedKeys = [...this.getCurrentMenuSelectedKeys()];
@@ -71,7 +67,7 @@ export default class BasicLayout extends React.Component {
   }
   render() {
     const { routes, params, children, header, main } = this.props;
-    const { openKeys, collapsed } = this.state;
+    const { collapsed } = this.state;
     const pageTitle = routes[routes.length - 1].breadcrumbName;
 
     return (
@@ -94,9 +90,8 @@ export default class BasicLayout extends React.Component {
             <Menu
               theme="dark"
               mode="inline"
-              openKeys={openKeys}
+              defaultOpenKeys={this.getDefaultCollapsedSubMenus()}
               defaultSelectedKeys={this.getCurrentMenuSelectedKeys()}
-              onOpenChange={this.onOpenChange}
             >
               {this.getNavMenuItems(menus)}
             </Menu>
