@@ -58,4 +58,5 @@ npm run tool-install
 #### 如何部署(内部)
 
 1. `tnpm run site`
-2. `git push gitlab master`
+2. `git push gitlab site`
+3. 去 gitlab mr
