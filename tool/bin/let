@@ -11,6 +11,7 @@ var build = require('../lib/build');
 program.version('0.1.0')
     .option('-m, --move', 'move scaffold to bisheng _site')
     .option('-b, --build', 'build scaffold _site')
+    .option('-i, --install', 'smart install tnpm/npm')
     .parse(process.argv);
 
 if ( program.move ) {
@@ -19,4 +20,8 @@ if ( program.move ) {
 
 if ( program.build ) {
   build(program.build);
+}
+
+if ( program.install ) {
+  install(program.install);
 }
