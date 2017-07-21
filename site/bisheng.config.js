@@ -30,16 +30,10 @@ module.exports = {
   },
   doraConfig: {
   },
-  webpackConfig(config, webpack) {
-
-    //config.babel.plugins.push('transform-runtime');
-    //config.babel.plugins.push(['antd', {
-    //  style: 'css'  // if true, use less
-    //}]);
-
+  webpackConfig(config) {
     config.resolve.alias = {
-      //'antd/lib': path.join(process.cwd(), 'components'),
-      //antd: path.join(process.cwd(), 'index'),
+      // 'antd/lib': path.join(process.cwd(), 'components'),
+      // antd: path.join(process.cwd(), 'index'),
       'antd-pro': path.join(process.cwd(), 'ant-design-pro'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',

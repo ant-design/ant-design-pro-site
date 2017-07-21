@@ -22,7 +22,7 @@ function getModuleData(props) {
 
   const moduleData = moduleName === 'components' || moduleName === 'docs/react' ||
   moduleName === 'changelog' || moduleName === 'changelog-cn' ?
-    //[...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
+    // [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
     [...props.picked.components] :
     props.picked[moduleName];
 
@@ -46,7 +46,9 @@ export default class MainContent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {openKeys: this.getSideBarOpenKeys(props) || []};
+    this.state = {
+      openKeys: this.getSideBarOpenKeys(props) || [],
+    };
   }
 
   componentDidMount() {
@@ -56,7 +58,9 @@ export default class MainContent extends React.Component {
   componentWillReceiveProps(nextProps) {
     const openKeys = this.getSideBarOpenKeys(nextProps);
     if (openKeys) {
-      this.setState({openKeys});
+      this.setState({
+        openKeys,
+      });
     }
   }
 
@@ -79,7 +83,9 @@ export default class MainContent extends React.Component {
   }
 
   handleMenuOpenChange = (openKeys) => {
-    this.setState({openKeys});
+    this.setState({
+      openKeys,
+    });
   }
 
   getSideBarOpenKeys(nextProps) {
@@ -115,9 +121,14 @@ export default class MainContent extends React.Component {
         {text}
       </Link>
     ) : (
-      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}
-         className="menu-item-link-outside">
-        {text} <Icon type="export"/>
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        disabled={disabled}
+        className="menu-item-link-outside"
+      >
+        {text} <Icon type="export" />
       </a>
     );
 
@@ -172,23 +183,6 @@ export default class MainContent extends React.Component {
       });
 
     const result = [...topLevel, ...subMenu];
-    //const categories = Object.keys(menuItems).filter(isNotTopLevel);
-    //const topLevel = this.generateSubMenuItems(menuItems.topLevel);
-    //const result = [...topLevel];
-    //result.forEach((item, i) => {
-    //  const insertCategory = categories.filter(
-    //    cat => (themeConfig.categoryOrder[cat] ? themeConfig.categoryOrder[cat] <= i : i === result.length - 1)
-    //  )[0];
-    //  if (insertCategory) {
-    //    const target = (
-    //      <SubMenu title={<h4>{insertCategory}</h4>} key={insertCategory}>
-    //        {this.generateSubMenuItems(menuItems[insertCategory])}
-    //      </SubMenu>
-    //    );
-    //    result.splice(i + 1, 0, target);
-    //    categories.splice(categories.indexOf(insertCategory), 1);
-    //  }
-    //});
     return result;
   }
 
@@ -214,7 +208,10 @@ export default class MainContent extends React.Component {
     });
     const prev = menuItemsList[activeMenuItemIndex - 1];
     const next = menuItemsList[activeMenuItemIndex + 1];
-    return {prev, next};
+    return {
+      prev,
+      next,
+    };
   }
 
   render() {
@@ -243,8 +240,8 @@ export default class MainContent extends React.Component {
           <Col lg={20} md={18} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos}/> :
-                <Article {...props} content={localizedPageData}/>
+                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
+                <Article {...props} content={localizedPageData} />
             }
           </Col>
         </Row>
@@ -259,12 +256,12 @@ export default class MainContent extends React.Component {
             <section className="prev-next-nav">
               {
                 prev ?
-                  React.cloneElement(prev.props.children, {className: 'prev-page'}) :
+                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
                   null
               }
               {
                 next ?
-                  React.cloneElement(next.props.children, {className: 'next-page'}) :
+                  React.cloneElement(next.props.children, { className: 'next-page' }) :
                   null
               }
             </section>

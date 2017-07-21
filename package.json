@@ -66,7 +66,8 @@
     "site": "npm-run-all bisheng-build scaffold-build scaffold-move",
     "lerna": "lerna",
     "components-publish": "lerna publish",
-    "lint": "eslint scaffold/src --ext '.js,.jsx'"
+    "lint": "eslint ./ --ext '.js,.jsx'",
+    "test": "npm run lint"
   },
   "pre-commit": [
     "lint"

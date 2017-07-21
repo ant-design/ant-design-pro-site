@@ -12,10 +12,10 @@ export default collect(async (nextProps) => {
   let path = pathname.replace('-cn', '');
   path = pathname.toLowerCase();
 
-  let pageDataPath = path.split('/');
+  const pageDataPath = path.split('/');
 
   if (/components/.test(path) && pageDataPath[1]) {
-    let str = pageDataPath[1];
+    const str = pageDataPath[1];
     pageDataPath[1] = str.charAt(0).toUpperCase() + str.slice(1);
   }
 
@@ -39,7 +39,7 @@ export default collect(async (nextProps) => {
   const demosFetcher = nextProps.utils.get(nextProps.data, [...pageDataPath, 'demo']);
   if (demosFetcher) {
     const [localizedPageData, demos] = await Promise.all([pageDataPromise, demosFetcher()]);
-    return {localizedPageData, demos};
+    return { localizedPageData, demos };
   }
-  return {localizedPageData: await pageDataPromise};
+  return { localizedPageData: await pageDataPromise };
 })(MainContent);

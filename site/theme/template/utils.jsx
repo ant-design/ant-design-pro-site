@@ -19,9 +19,9 @@ export function getMenuItems(moduleData, locale) {
   return menuItems;
 }
 
-export function isZhCN(pathname) {
+export function isZhCN() {
   return true;
-  //return /-cn\/?$/.test(pathname);
+  // return /-cn\/?$/.test(pathname);
 }
 
 export function getLocalizedPathname(path, zhCN) {

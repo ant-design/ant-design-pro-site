@@ -3,8 +3,7 @@ const fs = require('fs-extra');
 
 const cwd = process.cwd();
 
-module.exports = function (layout) {
-
+module.exports = function () {
   const scaffoldDir = path.join(cwd, './scaffold/dist');
   const siteDir = path.join(cwd, './_site');
 
@@ -23,7 +22,5 @@ module.exports = function (layout) {
   } catch (e) {
     throw new Error(e);
   }
-
-  console.log('scaffold move success');
-}
+};
 
