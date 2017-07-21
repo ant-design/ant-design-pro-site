@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layout, Menu, Icon, Tooltip, Avatar } from 'antd';
 import DocumentTitle from 'react-document-title';
+import { connect } from 'dva';
 import { Link } from 'dva/router';
 import styles from './BasicLayout.less';
 import PageHeader from '../components/PageHeader';
@@ -11,11 +12,16 @@ import { menus } from '../common/nav';
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
-export default class BasicLayout extends React.Component {
+class BasicLayout extends React.Component {
   state = {
     collapsed: false,
     mode: 'inline',
   };
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'user/fetchCurrent',
+    });
+  }
   onCollapse = (collapsed) => {
     this.setState({ collapsed });
   }
@@ -66,7 +72,7 @@ export default class BasicLayout extends React.Component {
     });
   }
   render() {
-    const { routes, params, children, header, main } = this.props;
+    const { routes, params, children, header, main, currentUser } = this.props;
     const { collapsed } = this.state;
     const pageTitle = routes[routes.length - 1].breadcrumbName;
 
@@ -112,9 +118,9 @@ export default class BasicLayout extends React.Component {
               </Tooltip>
               <div className={styles.right}>
                 <HeaderSearch className={styles.action} placeholder="站内搜索" />
-                <NotificationIcon className={styles.action} count={5} />
-                <Avatar size="small" className={styles.avatar}>毛</Avatar>
-                momo.zxy
+                <NotificationIcon className={styles.action} count={currentUser.notifyCount} />
+                <Avatar size="small" className={styles.avatar} src={currentUser.avatar} />
+                {currentUser.name}
               </div>
             </Header>
             <PageHeader title={pageTitle} routes={routes} params={params}>
@@ -129,3 +135,7 @@ export default class BasicLayout extends React.Component {
     );
   }
 }
+
+export default connect(state => ({
+  currentUser: state.user.currentUser,
+}))(BasicLayout);
