@@ -1,12 +1,12 @@
 {
   "name": "ant-design-pro",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An enterprise-class UI design language and React-based implementation",
   "main": "lib/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/test"
+    "url": "https://github.com/ant-design/test/ant-design-pro"
   },
   "scripts": {
     "build": "npm run build:lib && npm run build:umd",
