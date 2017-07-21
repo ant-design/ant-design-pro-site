@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { addLocaleData, IntlProvider } from 'react-intl';
@@ -36,7 +36,7 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const { children, ...restProps } = this.props;
+    const { children } = this.props;
     const { appLocale } = this.state;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>

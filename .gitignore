@@ -23,6 +23,7 @@ node_modules/
 npm-debug.log
 nohup.out
 _site
+_scaffold_site
 _data
 dist
 /lib
@@ -36,3 +37,5 @@ components/**/*.js
 components/**/*.jsx
 !components/**/__tests__/*.js
 !components/**/__tests__/*.js.snap
+ant-design-pro/lib
+ant-design-pro/dist

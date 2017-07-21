@@ -10,9 +10,14 @@ export default collect(async (nextProps) => {
   const pathname = nextProps.location.pathname;
 
   let path = pathname.replace('-cn', '');
-  path = pathname.replace(/(components)/, 'components/src');
+  path = pathname.toLowerCase();
 
   const pageDataPath = path.split('/');
+
+  if (/components/.test(path) && pageDataPath[1]) {
+    const str = pageDataPath[1];
+    pageDataPath[1] = str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
   const pageData = isChangelog(pathname) ?
     nextProps.data.changelog.CHANGELOG :
@@ -24,8 +29,6 @@ export default collect(async (nextProps) => {
     return;
   }
 
-  console.log(path);
-
   if (!pageData) {
     throw 404; // eslint-disable-line no-throw-literal
   }
@@ -36,7 +39,7 @@ export default collect(async (nextProps) => {
   const demosFetcher = nextProps.utils.get(nextProps.data, [...pageDataPath, 'demo']);
   if (demosFetcher) {
     const [localizedPageData, demos] = await Promise.all([pageDataPromise, demosFetcher()]);
-    return {localizedPageData, demos};
+    return { localizedPageData, demos };
   }
-  return {localizedPageData: await pageDataPromise};
+  return { localizedPageData: await pageDataPromise };
 })(MainContent);

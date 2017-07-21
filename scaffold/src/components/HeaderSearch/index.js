@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Icon } from 'antd';
 import classNames from 'classnames';
-import styles from './HeaderSearch.less';
+import styles from './index.less';
 
 export default class HeaderSearch extends Component {
   state = {

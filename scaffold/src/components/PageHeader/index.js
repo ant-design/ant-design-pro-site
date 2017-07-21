@@ -1,7 +1,7 @@
 import React from 'react';
 import { Breadcrumb } from 'antd';
 import { Link } from 'dva/router';
-import styles from './PageHeader.less';
+import styles from './index.less';
 
 function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;

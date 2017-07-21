@@ -26,7 +26,8 @@ module.exports = {
   pick: {
     components(markdownData) {
       const filename = markdownData.meta.filename;
-      if (!/^components/.test(filename) ||
+
+      if (!/^scaffold\/src\/components/.test(filename) ||
         /[/\\]demo$/.test(path.dirname(filename))) return;
 
       return {
@@ -51,7 +52,7 @@ module.exports = {
   routes: {
     path: '/',
     component: './template/Layout/index',
-    indexRoute: {component: homeTmpl},
+    indexRoute: { component: homeTmpl },
     childRoutes: [
       {
         path: '/',
@@ -72,7 +73,7 @@ module.exports = {
       {
         path: '/scaffold',
         component: scaffoldTmpl,
-      }
+      },
     ],
   },
 };

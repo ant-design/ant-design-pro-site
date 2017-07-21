@@ -4,7 +4,7 @@ const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 module.exports = {
   port: 8001,
   source: {
-    components: './components',
+    components: './scaffold/src/components',
     docs: './docs',
   },
   theme: './site/theme',
@@ -30,17 +30,11 @@ module.exports = {
   },
   doraConfig: {
   },
-  webpackConfig(config, webpack) {
-
-    //config.babel.plugins.push('transform-runtime');
-    //config.babel.plugins.push(['antd', {
-    //  style: 'css'  // if true, use less
-    //}]);
-
+  webpackConfig(config) {
     config.resolve.alias = {
-      //'antd/lib': path.join(process.cwd(), 'components'),
-      //antd: path.join(process.cwd(), 'index'),
-      'antd-pro': path.join(process.cwd(), 'components'),
+      // 'antd/lib': path.join(process.cwd(), 'components'),
+      // antd: path.join(process.cwd(), 'index'),
+      'antd-pro': path.join(process.cwd(), 'ant-design-pro'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };

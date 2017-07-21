@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Popover, Icon, Tabs, Badge } from 'antd';
 import classNames from 'classnames';
 import List from './NotificationList';
-import styles from './NotificationIcon.less';
+import styles from './index.less';
 
 const { TabPane } = Tabs;
 

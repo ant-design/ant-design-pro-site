@@ -8,11 +8,12 @@ class Iframe extends Component {
       css: '/s.css',
       js: '/s.js',
     };
+
     if (/(127\.0\.0\.1)|localhost/ig.test(host)) {
       assets = {
         css: 'http://localhost:8000/index.css',
         js: 'http://localhost:8000/index.js',
-      }
+      };
     }
 
     const html = `<!DOCTYPE html>
@@ -31,7 +32,6 @@ class Iframe extends Component {
 
     this.node.contentWindow.document.write(html);
     this.node.contentWindow.document.close();
-
   }
 
   render() {
@@ -43,17 +43,21 @@ class Iframe extends Component {
       bottom: 0,
       zIndex: 999,
     };
-    return <div style={style}>
-      <iframe
-        frameBorder="0"
-        style={{
-          border: 'none',
-          width: '100%',
-          height: '100%',
-        }}
-        ref={n=>this.node=n}
-      />
-    </div>
+    return (
+      <div style={style}>
+        <iframe
+          title="scaffold-iframe"
+          frameBorder="0"
+          style={{
+            border: 'none',
+            width: '100%',
+            height: '100%',
+          }}
+          ref={n => this.node = n}
+        />
+      </div>
+    );
   }
 }
+
 export default Iframe;

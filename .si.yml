@@ -1,0 +1,4 @@
+before_deploy:
+options:
+  dist: '_scaffold_site'
+cname: 'antd-pro.alibaba.net'

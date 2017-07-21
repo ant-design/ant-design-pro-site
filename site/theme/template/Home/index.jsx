@@ -6,7 +6,7 @@ import DocumentTitle from 'react-document-title';
 function Home(props) {
   return (
     <DocumentTitle title={`Ant Design - ${props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
-      <div style={{textAlign: 'center', padding: '16px'}}>
+      <div style={{ textAlign: 'center', padding: '16px' }}>
         hello antd pro
         <ul>
           <li>
