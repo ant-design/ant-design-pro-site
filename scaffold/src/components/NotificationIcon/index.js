@@ -79,6 +79,7 @@ export default class NotificationIcon extends Component {
         content={this.getNotificationBox()}
         popupClassName={styles.popover}
         trigger="click"
+        arrowPointAtCenter
       >
         <Badge count={count} className={styles.badge}>
           <Icon className={iconClass} type="bell" />
