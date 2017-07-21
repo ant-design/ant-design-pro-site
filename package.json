@@ -66,6 +66,7 @@
     "site": "npm-run-all bisheng-build scaffold-build scaffold-move",
     "lerna": "lerna",
     "components-publish": "lerna publish",
+    "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "lint": "eslint ./ --ext '.js,.jsx'",
     "test": "npm run lint"
   },
