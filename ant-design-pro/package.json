@@ -1,6 +1,6 @@
 {
   "name": "ant-design-pro",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An enterprise-class UI design language and React-based implementation",
   "main": "lib/index.js",
   "license": "MIT",
@@ -9,7 +9,8 @@
     "url": "https://github.com/ant-design/test/ant-design-pro"
   },
   "scripts": {
-    "build": "npm run build:lib && npm run build:umd",
+    "build": "npm run build:lib && npm run build:index && npm run build:umd",
+    "build:index": "../node_modules/.bin/babel ./index.js -d lib --copy-files",
     "build:lib": "../node_modules/.bin/babel ../scaffold/src/components -d lib --copy-files",
     "build:umd": "../node_modules/.bin/webpack index.js dist/index.js --config ./webpack.component.js",
     "prepublish": "npm run build"
@@ -17,8 +18,5 @@
   "files": [
     "lib",
     "dist"
-  ],
-  "devDependencies": {
-    "webpack": "^3.3.0"
-  }
+  ]
 }
