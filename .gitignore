@@ -39,3 +39,4 @@ components/**/*.jsx
 !components/**/__tests__/*.js.snap
 ant-design-pro/lib
 ant-design-pro/dist
+ant-design-pro/es
