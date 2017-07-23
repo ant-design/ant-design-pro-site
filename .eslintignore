@@ -4,4 +4,6 @@ node_modules/
 scaffold/node_modules/
 _site
 _scaffold_site
-config
+config/ant-design-pro/es
+config/ant-design-pro/lib
+config/ant-design-pro/dist
