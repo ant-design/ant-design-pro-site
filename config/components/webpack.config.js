@@ -4,13 +4,14 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
 const cwd = process.cwd();
+const filename = 'ant-design-pro';
 
 module.exports = function (webpackConfig) {
 
   webpackConfig.entry = './index.js';
 
   webpackConfig.output.libraryTarget = 'umd';
-  webpackConfig.output.filename = 'index.min.js';
+  webpackConfig.output.filename = filename + '.min.js';
 
   if (!webpackConfig.output.externals) {
     webpackConfig.output.externals = {};
@@ -44,13 +45,13 @@ module.exports = function (webpackConfig) {
     },
   };
   webpackConfig.plugins.push(
-    new ExtractTextPlugin('index.css', {
+    new ExtractTextPlugin(filename + '.css', {
       disable: false,
       allChunks: true,
     })
   );
   webpackConfig.plugins.push(
-    new ExtractTextPlugin('index.min.css', {
+    new ExtractTextPlugin(filename + '.min.css', {
       disable: false,
       allChunks: true,
     })
