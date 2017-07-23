@@ -53,6 +53,7 @@
     "fs-extra": "^4.0.0",
     "lerna": "2.0.0",
     "npm-run-all": "^4.0.2",
+    "optimize-css-assets-webpack-plugin": "^2.0.0",
     "style-loader": "^0.18.2",
     "unminified-webpack-plugin": "^1.2.0",
     "webpack": "^1.14.0"

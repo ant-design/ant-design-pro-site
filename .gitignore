@@ -40,3 +40,6 @@ components/**/*.jsx
 ant-design-pro/lib
 ant-design-pro/dist
 ant-design-pro/es
+config/ant-design-pro/lib
+config/ant-design-pro/dist
+config/ant-design-pro/es
