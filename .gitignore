@@ -37,9 +37,6 @@ components/**/*.js
 components/**/*.jsx
 !components/**/__tests__/*.js
 !components/**/__tests__/*.js.snap
-ant-design-pro/lib
-ant-design-pro/dist
-ant-design-pro/es
 config/ant-design-pro/lib
 config/ant-design-pro/dist
 config/ant-design-pro/es
