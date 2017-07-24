@@ -1,0 +1,33 @@
+{
+  "name": "ant-design-pro",
+  "version": "0.0.8",
+  "description": "An enterprise-class UI design language and React-based implementation",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/test/ant-design-pro"
+  },
+  "scripts": {
+    "build": "npm run build:es && npm run build:index && npm run build:lib && npm run build:umd",
+    "build:index": "../../node_modules/.bin/babel ./index.js -d lib --copy-files",
+    "build:lib": "rm -rf lib && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib --copy-files",
+    "build:umd": "rm -rf dist && ../../node_modules/.bin/atool-build --devtool source-map",
+    "build:es": "rm -rf es && cp -apvX ../../scaffold/src/components es && cp index.js es",
+    "prepublish": "npm run build"
+  },
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "devDependencies": {
+    "webpack": "^3.3.0"
+  },
+  "dependencies": {
+    "antd": "^2.12.1",
+    "parallelshell": "^3.0.1",
+    "react-copy-to-clipboard": "^5.0.0",
+    "react-document-title": "^2.0.3",
+    "react-github-button": "^0.1.11",
+    "react-intl": "^2.3.0"
+  }
+}

@@ -1,7 +1,8 @@
 {
-  "lerna": "2.0.3",
+  "lerna": "2.0.0",
   "packages": [
-    "ant-design-pro"
+    "config/components"
   ],
   "version": "independent"
 }
+

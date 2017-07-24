@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
-require('iconv-lite').extendNodeEncodings();
-
-var pkg = require('../package');
 var program = require('commander');
 
 var move = require('../lib/move');
 var build = require('../lib/build');
+var copy = require('../lib/copy');
 
 program.version('0.1.0')
     .option('-m, --move', 'move scaffold to bisheng _site')
     .option('-b, --build', 'build scaffold _site')
     .option('-i, --install', 'smart install tnpm/npm')
+    .option('-c, --copy', 'copy dependency to ant-design-pro')
     .parse(process.argv);
 
 if ( program.move ) {
@@ -22,6 +21,6 @@ if ( program.build ) {
   build(program.build);
 }
 
-if ( program.install ) {
-  install(program.install);
+if ( program.copy ) {
+  copy(program.copy);
 }
