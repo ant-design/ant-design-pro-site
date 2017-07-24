@@ -1,5 +1,9 @@
 import BasicLayout from '../layouts/BasicLayout';
-import Dashboard from '../routes/Dashboard';
+
+import Analysis from '../routes/Dashboard/Analysis';
+import Monitor from '../routes/Dashboard/Monitor';
+import Workplace from '../routes/Dashboard/Workplace';
+
 import ListPage from '../routes/ListPage';
 import Profile from '../routes/Profile';
 import BasicForms from '../routes/Forms/BasicForms';
@@ -11,19 +15,19 @@ export const menus = [{
   children: [{
     name: '分析页',
     path: 'analysis',
-    component: Dashboard,
+    component: Analysis,
     pageHeader: null,  // 去掉页面标题通栏
     icon: 'setting',
   }, {
     name: '监控页',
     path: 'monitor',
-    component: null,
+    component: Monitor,
     pageHeader: null,  // 去掉页面标题通栏
     icon: 'setting',
   }, {
     name: '工作台',
     path: 'workplace',
-    component: null,
+    component: Workplace,
     pageHeader: null,  // 去掉页面标题通栏
     icon: 'setting',
   }],

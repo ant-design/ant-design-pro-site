@@ -1,0 +1,52 @@
+@import "~antd/lib/style/themes/default.less";
+@import "../../utils/utils.less";
+
+.projectList {
+  margin-right: -1px;
+  margin-bottom: -1px;
+  overflow: hidden;
+  position: relative;
+  .projectItem {
+    border-bottom: 1px solid @border-color-split;
+    border-right: 1px solid @border-color-split;
+    float: left;
+    width: 33.333%;
+  }
+}
+
+.TrendList {
+  padding-bottom: 24px;
+}
+
+.members {
+  padding: 24px 24px 0 24px;
+  a {
+    display: block;
+    margin-bottom: 24px;
+    line-height: 24px;
+    height: 24px;
+    .textOverflow();
+    img {
+      border-radius: 24px;
+      display: inline;
+      position: relative;
+      top: -2px;
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+    span {
+      font-size: @font-size-lg;
+      color: @text-color;
+      line-height: 24px;
+      max-width: 100px;
+      .textOverflow();
+    }
+    &:hover {
+      span {
+        color: @primary-color;
+      }
+    }
+  }
+}

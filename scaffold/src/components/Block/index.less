@@ -1,0 +1,24 @@
+@import "~antd/lib/style/themes/default.less";
+
+.block {
+  background: #fff;
+  border-radius: @border-radius-sm;
+  .header {
+    border-bottom: 1px solid @border-color-split;
+    line-height: 24px;
+    padding: 16px 24px;
+    position: relative;
+    & > h3 {
+      color: @heading-color;
+      font-size: 16px;
+    }
+    .extraContent {
+      position: absolute;
+      right: 24px;
+      top: 16px;
+    }
+  }
+  .content {
+    overflow: hidden;
+  }
+}
