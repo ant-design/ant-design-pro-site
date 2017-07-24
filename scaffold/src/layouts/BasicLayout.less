@@ -1,18 +1,32 @@
 .header {
   background: #108ee9;
-  padding: 0 24px;
+  padding: 0 24px 0 0;
   color: #fff;
 }
 
 .logo {
   height: 64px;
   position: relative;
-  padding-top: 12px;
   margin-bottom: 24px;
   line-height: 64px;
   text-align: center;
   background: #108ee9;
   overflow: hidden;
+  position: relative;
+  > a {
+    display: inline-block;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .3s;
+    overflow: hidden;
+  }
+}
+
+:global(.ant-layout-sider-collapsed) .logo > a {
+  width: 32px;
 }
 
 .trigger {
@@ -21,21 +35,23 @@
   cursor: pointer;
   transition: color .3s;
   color: #fff;
+  padding: 0 24px;
 }
 
 .right {
   float: right;
   .avatar {
     margin: 0 8px;
-    vertical-align: middle;
     color: #108ee9;
     background: rgba(255, 255, 255, .85);
+  }
+  :global(.ant-badge) {
+    vertical-align: baseline;
   }
   .action {
     cursor: pointer;
     padding: 0 8px;
     margin-right: 16px;
     font-size: 16px;
-    vertical-align: middle;
   }
 }
