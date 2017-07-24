@@ -59,6 +59,10 @@ npm run tool-install
 #### 如何部署(内部)
 
 1. `git remote add gitlab git@gitlab.alipay-inc.com:ued/antd-pro.git`
+1. `git checkout site`
+1. `git merge master`
 1. `tnpm run scaffold-build`
+1. `git add ./`
+1. `git commit`
 1. `git push gitlab site`
 1. 去 gitlab mr
