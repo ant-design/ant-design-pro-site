@@ -33,7 +33,7 @@ module.exports = {
     config.resolve.alias = {
       // 'antd/lib': path.join(process.cwd(), 'components'),
       // antd: path.join(process.cwd(), 'index'),
-      'antd-pro': path.join(process.cwd(), 'config/components/index.js'),
+      'ant-design-pro': path.join(process.cwd(), 'config/components/index.js'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
