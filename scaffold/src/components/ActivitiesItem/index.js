@@ -7,7 +7,7 @@ import styles from './index.less';
 
 export default ({ data: { user, updatedAt, action } }) => (
   <div
-    className={styles.trendItem}
+    className={styles.activitiesItem}
   >
     <div className={styles.avatar}>
       {

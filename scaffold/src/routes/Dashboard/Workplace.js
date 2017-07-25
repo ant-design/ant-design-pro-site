@@ -4,7 +4,7 @@ import { Link } from 'dva/router';
 import { Row, Col, Card } from 'antd';
 
 import ProjectItem from '../../components/ProjectItem';
-import TrendItem from '../../components/TrendItem';
+import ActivitiesItem from '../../components/ActivitiesItem';
 import EditableLinkGroup from '../../components/EditableLinkGroup';
 
 import styles from './Workplace.less';
@@ -16,14 +16,14 @@ class Workplace extends Component {
       type: 'project/fetchNotice',
     });
     dispatch({
-      type: 'trend/fetchList',
+      type: 'activities/fetchList',
     });
   }
 
   render() {
     const {
       project: { loading: projectLoading, notice },
-      trend: { loading: trendLoading, list: trendList },
+      activities: { loading: activitiesLoading, list: activitiesList },
       } = this.props;
 
     const links = [
@@ -93,6 +93,7 @@ class Workplace extends Component {
             <Card
               title="进行中的项目"
               bodyStyle={{ padding: 0 }}
+              bordered={false}
               extra={<Link to="/">全部项目</Link>}
               loading={projectLoading}
             >
@@ -107,15 +108,14 @@ class Workplace extends Component {
             <Card
               style={{ marginTop: 24 }}
               bodyStyle={{ padding: 0 }}
+              bordered={false}
               title="动态"
-              loading={trendLoading}
+              loading={activitiesLoading}
             >
-              <div className={styles.TrendList}>
+              <div className={styles.activitiesList}>
                 {
-                  !trendLoading && trendList.length > 0 && trendList.map(item => (
-                    <div className={styles.trendItem} key={item.id}>
-                      <TrendItem data={item} />
-                    </div>
+                  !activitiesLoading && activitiesList.length > 0 && activitiesList.map(item => (
+                    <ActivitiesItem key={item.id} data={item} />
                   ))
                 }
               </div>
@@ -124,17 +124,17 @@ class Workplace extends Component {
           <Col span={8}>
             <Card
               title="快速开始 / 便捷导航"
+              bordered={false}
               bodyStyle={{ padding: 0 }}
             >
-              <div className={styles.quickMenu}>
-                <EditableLinkGroup
-                  onAdd={() => {}}
-                  links={links}
-                />
-              </div>
+              <EditableLinkGroup
+                onAdd={() => {}}
+                links={links}
+              />
             </Card>
             <Card
               style={{ marginTop: 24 }}
+              bordered={false}
               title="xx 指数"
             >
               <div className={styles.chart}>
@@ -151,6 +151,7 @@ class Workplace extends Component {
             <Card
               style={{ marginTop: 24 }}
               bodyStyle={{ paddingBottom: 0 }}
+              bordered={false}
               title="团队"
             >
               <div className={styles.members}>
@@ -175,5 +176,5 @@ class Workplace extends Component {
 
 export default connect(state => ({
   project: state.project,
-  trend: state.trend,
+  activities: state.activities,
 }))(Workplace);
