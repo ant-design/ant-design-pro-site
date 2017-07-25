@@ -28,13 +28,12 @@ module.exports = {
   filePathMapper(filePath) {
     return filePath;
   },
-  doraConfig: {
-  },
+  doraConfig: {},
   webpackConfig(config) {
     config.resolve.alias = {
       // 'antd/lib': path.join(process.cwd(), 'components'),
       // antd: path.join(process.cwd(), 'index'),
-      'antd-pro': path.join(process.cwd(), 'ant-design-pro'),
+      'antd-pro': path.join(process.cwd(), 'config/components/index.js'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
@@ -50,6 +49,20 @@ module.exports = {
         regenerator: true,
       },
     ]);
+
+    // components 下面的走 css module 其他不变
+    config.module.loaders.forEach((loader) => {
+      if (typeof loader.test === 'function' && loader.test.toString().indexOf('\\.less$') > -1) {
+        if (loader.exclude) {
+          loader.exclude.push(/components/);
+        } else {
+          loader.exclude = [/components/];
+        }
+      }
+      if (loader.test.toString() === '/\\.module\\.less$/') {
+        loader.test = /components.*.less$/;
+      }
+    });
 
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 

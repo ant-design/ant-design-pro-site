@@ -9,8 +9,7 @@ function isChangelog(pathname) {
 export default collect(async (nextProps) => {
   const pathname = nextProps.location.pathname;
 
-  let path = pathname.replace('-cn', '');
-  path = pathname.toLowerCase();
+  const path = pathname.replace('-cn', '');
 
   const pageDataPath = path.split('/');
 
