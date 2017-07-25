@@ -63,6 +63,7 @@
     "scaffold-start": "cd ./scaffold && npm start",
     "scaffold-move": "./tool/bin/let -m",
     "scaffold-build": "cd ./scaffold && npm run build && ../tool/bin/let -b",
+    "scaffold-build:static": "./tool/bin/let -s && cd ./scaffold && npm run build && ../tool/bin/let -b",
     "scaffold-install": "cd ./scaffold && ../tool/bin/i",
     "preinstall": "cd ./scaffold && ../tool/bin/i",
     "start": "concurrently --kill-others \"npm run bisheng-start\" \"npm run scaffold-start\"",

@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "antd": "^2.12.1",
-    "babel-plugin-import": "^1.2.1",
-    "babel-runtime": "^6.9.2",
     "dva": "^1.2.1",
+    "marked": "^0.3.6",
+    "prop-types": "^15.5.10",
     "react": "^15.4.0",
     "react-document-title": "^2.0.3",
     "react-dom": "^15.4.0",
@@ -19,6 +19,8 @@
     "react-router": "2.x || 3.x"
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.2.1",
+    "babel-runtime": "^6.9.2",
     "babel-eslint": "^7.1.1",
     "babel-plugin-dva-hmr": "^0.3.2",
     "babel-plugin-transform-runtime": "^6.9.0",

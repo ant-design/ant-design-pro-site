@@ -1,5 +1,8 @@
 import dva from 'dva';
 // import { browserHistory } from 'dva/router';
+import 'moment/locale/zh-cn';
+import models from './models';
+
 import './index.less';
 
 // 1. Initialize
@@ -11,7 +14,9 @@ const app = dva({
 // app.use({});
 
 // 3. Model
-app.model(require('./models/user'));
+models.forEach((m) => {
+  app.model(m);
+});
 
 // 4. Router
 app.router(require('./router'));

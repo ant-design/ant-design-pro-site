@@ -1,4 +1,5 @@
 before_deploy:
 options:
+  branch: 'site'
   dist: '_scaffold_site'
 cname: 'antd-pro.alibaba.net'
