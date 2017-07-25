@@ -1,5 +1,7 @@
+@import "~antd/lib/style/themes/default.less";
+
 .header {
-  background: #108ee9;
+  background: @primary-color;
   padding: 0 24px 0 0;
   color: #fff;
 }
@@ -10,7 +12,7 @@
   margin-bottom: 24px;
   line-height: 64px;
   text-align: center;
-  background: #108ee9;
+  background: @primary-color;
   overflow: hidden;
   position: relative;
   > a {
@@ -40,10 +42,16 @@
 
 .right {
   float: right;
-  .avatar {
-    margin: 0 8px;
-    color: #108ee9;
-    background: rgba(255, 255, 255, .85);
+  height: 100%;
+  .account {
+    cursor: pointer;
+    display: inline-block;
+    .avatar {
+      margin: 0 8px;
+      color: @primary-color;
+      background: rgba(255, 255, 255, .85);
+      vertical-align: middle;
+    }
   }
   :global(.ant-badge) {
     vertical-align: baseline;
@@ -52,6 +60,20 @@
     cursor: pointer;
     padding: 0 8px;
     margin-right: 16px;
-    font-size: 16px;
+    > i {
+      font-size: 16px;
+    }
+  }
+}
+
+.menu {
+  :global(.anticon) {
+    margin-right: 8px;
+  }
+  :global(.ant-dropdown-menu-item) {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 12px;
+    width: 160px;
   }
 }

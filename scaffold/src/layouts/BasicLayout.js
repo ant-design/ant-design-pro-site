@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Menu, Icon, Tooltip, Avatar } from 'antd';
+import { Layout, Menu, Icon, Tooltip, Avatar, Dropdown } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
@@ -76,6 +76,15 @@ class BasicLayout extends React.Component {
     const { collapsed } = this.state;
     const pageTitle = routes[routes.length - 1].breadcrumbName;
 
+    const menu = (
+      <Menu className={styles.menu} selectedKeys={[]}>
+        <Menu.Item><Icon type="user" />个人中心</Menu.Item>
+        <Menu.Item><Icon type="setting" />设置</Menu.Item>
+        <Menu.Divider />
+        <Menu.Item><Icon type="logout" />退出登录</Menu.Item>
+      </Menu>
+    );
+
     return (
       <DocumentTitle title={`${pageTitle} - Ant Design Admin`}>
         <Layout>
@@ -119,8 +128,12 @@ class BasicLayout extends React.Component {
               <div className={styles.right}>
                 <HeaderSearch className={styles.action} placeholder="站内搜索" />
                 <NotificationIcon className={styles.action} count={currentUser.notifyCount} />
-                <Avatar size="small" className={styles.avatar} src={currentUser.avatar} />
-                {currentUser.name}
+                <Dropdown overlay={menu}>
+                  <span className={styles.account}>
+                    <Avatar size="small" className={styles.avatar} src={currentUser.avatar} />
+                    {currentUser.name}
+                  </span>
+                </Dropdown>
               </div>
             </Header>
             <PageHeader title={pageTitle} routes={routes} params={params}>

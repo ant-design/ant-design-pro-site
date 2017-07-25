@@ -72,7 +72,7 @@ export default class NotificationIcon extends Component {
   }
   render() {
     const { className, count } = this.props;
-    const iconClass = classNames(className, styles.icon);
+    const badgeClass = classNames(className, styles.badge);
     return (
       <Popover
         placement="bottomRight"
@@ -81,8 +81,8 @@ export default class NotificationIcon extends Component {
         trigger="click"
         arrowPointAtCenter
       >
-        <Badge count={count} className={styles.badge}>
-          <Icon className={iconClass} type="bell" />
+        <Badge count={count} className={badgeClass}>
+          <Icon type="bell" />
         </Badge>
       </Popover>
     );
