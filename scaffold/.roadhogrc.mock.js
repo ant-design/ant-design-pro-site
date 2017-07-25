@@ -30,7 +30,7 @@ export default {
     age: 32,
     address: 'Sidney No. 1 Lake Park',
   }],
-  'GET /api/project/progressList': [
+  'GET /api/project/notice': [
     {
       id: 'xxx1',
       title: '消息列表体验优化',
@@ -80,7 +80,7 @@ export default {
       member: '成都超级小分队',
     },
   ],
-  'GET /api/trend/list': [
+  'GET /api/activities': [
     {
       id: 'trend-1',
       updatedAt: new Date(),

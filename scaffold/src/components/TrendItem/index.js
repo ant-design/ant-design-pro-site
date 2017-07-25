@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import marked from 'marked';
+import { Avatar } from 'antd';
 
 import styles from './index.less';
 
@@ -11,7 +12,7 @@ export default ({ data: { user, updatedAt, action } }) => (
     <div className={styles.avatar}>
       {
         user.link && <a href={user.link} target="_blank">
-          <img src={user.avatar} alt={user.title} />
+          <Avatar src={user.avatar} />
         </a>
       }
       {

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
-import { Row, Col, Spin } from 'antd';
+import { Row, Col, Card } from 'antd';
 
-import Block from '../../components/Block';
 import ProjectItem from '../../components/ProjectItem';
 import TrendItem from '../../components/TrendItem';
 import EditableLinkGroup from '../../components/EditableLinkGroup';
@@ -14,7 +13,7 @@ class Workplace extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
-      type: 'project/fetchProgressList',
+      type: 'project/fetchNotice',
     });
     dispatch({
       type: 'trend/fetchList',
@@ -23,7 +22,7 @@ class Workplace extends Component {
 
   render() {
     const {
-      project: { loading: projectLoading, progressList },
+      project: { loading: projectLoading, notice },
       trend: { loading: trendLoading, list: trendList },
       } = this.props;
 
@@ -56,26 +55,31 @@ class Workplace extends Component {
 
     const members = [
       {
+        id: 'members-1',
         title: '凤蝶精英小分队',
         logo: 'https://gw.alipayobjects.com/zos/rmsportal/CRxBvUggxBYzWBTGmkxF.png',
         link: 'http://github.com',
       },
       {
+        id: 'members-2',
         title: 'Ant Design',
         logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
         link: 'http://github.com',
       },
       {
+        id: 'members-3',
         title: 'DesignLab',
         logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
         link: 'http://github.com',
       },
       {
+        id: 'members-4',
         title: 'Basement',
         logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
         link: 'http://github.com',
       },
       {
+        id: 'members-5',
         title: 'Github',
         logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
         link: 'http://github.com',
@@ -86,35 +90,27 @@ class Workplace extends Component {
       <div>
         <Row gutter={24}>
           <Col span={16}>
-            <Block
+            <Card
               title="进行中的项目"
-              extraContent={<Link to="/">全部项目</Link>}
+              bodyStyle={{ padding: 0 }}
+              extra={<Link to="/">全部项目</Link>}
+              loading={projectLoading}
             >
-              <div className={styles.projectList}>
-                {
-                  projectLoading && <div style={{ padding: 24 }}>
-                    <Spin />
-                  </div>
-                }
-                {
-                  !projectLoading && progressList.length > 0 && progressList.map(item => (
-                    <div className={styles.projectItem} key={item.id}>
-                      <ProjectItem data={{ ...item, link: `/${item.id}` }} />
-                    </div>
-                  ))
-                }
-              </div>
-            </Block>
-            <Block
+              {
+                !projectLoading && notice.length > 0 && notice.map(item => (
+                  <Card.Grid style={{ width: '33.33%', padding: 0 }} key={item.id}>
+                    <ProjectItem data={{ ...item, link: `/${item.id}` }} />
+                  </Card.Grid>
+                ))
+              }
+            </Card>
+            <Card
               style={{ marginTop: 24 }}
+              bodyStyle={{ padding: 0 }}
               title="动态"
+              loading={trendLoading}
             >
               <div className={styles.TrendList}>
-                {
-                  trendLoading && <div style={{ padding: 24 }}>
-                    <Spin />
-                  </div>
-                }
                 {
                   !trendLoading && trendList.length > 0 && trendList.map(item => (
                     <div className={styles.trendItem} key={item.id}>
@@ -123,11 +119,12 @@ class Workplace extends Component {
                   ))
                 }
               </div>
-            </Block>
+            </Card>
           </Col>
           <Col span={8}>
-            <Block
+            <Card
               title="快速开始 / 便捷导航"
+              bodyStyle={{ padding: 0 }}
             >
               <div className={styles.quickMenu}>
                 <EditableLinkGroup
@@ -135,8 +132,8 @@ class Workplace extends Component {
                   links={links}
                 />
               </div>
-            </Block>
-            <Block
+            </Card>
+            <Card
               style={{ marginTop: 24 }}
               title="xx 指数"
             >
@@ -146,21 +143,21 @@ class Workplace extends Component {
                   alt="我是假的"
                   src="https://gw.alipayobjects.com/zos/rmsportal/IonyWHLYaRVZqUbiZHFR.png"
                   style={{
-                    width: 360,
-                    padding: '24px 40px',
+                    width: 300,
                   }}
                 />
               </div>
-            </Block>
-            <Block
+            </Card>
+            <Card
               style={{ marginTop: 24 }}
+              bodyStyle={{ paddingBottom: 0 }}
               title="团队"
             >
               <div className={styles.members}>
                 <Row gutter={48}>
                   {
                     members.map(item => (
-                      <Col span={12}><Link to={item.link} key={`members-item-${Math.random()}`}>
+                      <Col span={12} key={`members-item-${item.id}`}><Link to={item.link}>
                         <img src={item.logo} alt={item.title} />
                         <span>{item.title}</span>
                       </Link></Col>
@@ -168,7 +165,7 @@ class Workplace extends Component {
                   }
                 </Row>
               </div>
-            </Block>
+            </Card>
           </Col>
         </Row>
       </div>

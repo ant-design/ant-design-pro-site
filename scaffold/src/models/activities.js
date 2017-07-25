@@ -1,7 +1,7 @@
-import { queryTrendList } from '../services/api';
+import { queryActivities } from '../services/api';
 
 export default {
-  namespace: 'trend',
+  namespace: 'activities',
 
   state: {
     list: [],
@@ -14,7 +14,7 @@ export default {
         type: 'changeLoading',
         payload: true,
       });
-      const response = yield call(queryTrendList);
+      const response = yield call(queryActivities);
       yield put({
         type: 'saveList',
         payload: response.data,

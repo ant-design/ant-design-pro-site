@@ -26,7 +26,7 @@ class EditableLinkGroup extends Component {
     return (
       <div className={styles.linkGroup}>
         {
-          links.map(link => <Link key={`linkGroup-item-${Math.random()}`} to={link.href}>{link.title}</Link>)
+          links.map(link => <Link key={`linkGroup-item-${link.id || link.title}`} to={link.href}>{link.title}</Link>)
         }
         {
           <Button size="small" onClick={() => this.handleOnClick()}>

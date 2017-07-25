@@ -1,22 +1,22 @@
-import { queryProgressList } from '../services/api';
+import { queryProjectNotice } from '../services/api';
 
 export default {
   namespace: 'project',
 
   state: {
-    progressList: [],
+    notice: [],
     loading: true,
   },
 
   effects: {
-    *fetchProgressList({ payload }, { call, put }) {
+    *fetchNotice({ payload }, { call, put }) {
       yield put({
         type: 'changeLoading',
         payload: true,
       });
-      const response = yield call(queryProgressList);
+      const response = yield call(queryProjectNotice);
       yield put({
-        type: 'saveProgressList',
+        type: 'saveNotice',
         payload: response.data,
       });
       yield put({
@@ -27,10 +27,10 @@ export default {
   },
 
   reducers: {
-    saveProgressList(state, action) {
+    saveNotice(state, action) {
       return {
         ...state,
-        progressList: action.payload,
+        notice: action.payload,
       };
     },
     changeLoading(state, action) {
