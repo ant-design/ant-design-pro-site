@@ -5,12 +5,14 @@ const program = require('commander');
 const move = require('../lib/move');
 const build = require('../lib/build');
 const copy = require('../lib/copy');
+const staticFunc = require('../lib/static');
 
 program.version('0.1.0')
   .option('-m, --move', 'move scaffold to bisheng _site')
-  .option('-b, --build', 'build scaffold _site')
+  .option('-b, --build', 'build scaffold _scaffold_site')
   .option('-i, --install', 'smart install tnpm/npm')
-  .option('-c, --copy', 'copy dependency to ant-design-pro')
+  .option('-c, --copy', 'copy dependency to config/components')
+  .option('-s, --static', 'transform roadhog mock data to static')
   .parse(process.argv);
 
 if (program.move) {
@@ -23,4 +25,8 @@ if (program.build) {
 
 if (program.copy) {
   copy(program.copy);
+}
+
+if (program.static) {
+  staticFunc(program.static);
 }

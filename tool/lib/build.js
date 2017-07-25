@@ -6,14 +6,25 @@ const cwd = process.cwd();
 module.exports = function () {
   const scaffoldDir = path.join(cwd, './dist');
   const siteDir = path.join(cwd, '../_scaffold_site');
+  const utilsDir = `${cwd}/src/utils`;
 
-  fs.ensureDirSync(siteDir);
-
-  // move
   try {
-    fs.copySync(scaffoldDir, siteDir);
+    // clean
+    fs.copySync(`${utilsDir}/request-temp.js`, `${utilsDir}/request.js`);
+    fs.removeSync(`${utilsDir}/request-temp.js`);
+    fs.removeSync(`${cwd}/src/.roadhogrc.mock.js`);
+    /* eslint no-empty: 0 */
   } catch (e) {
-    throw new Error(e);
+  } finally {
+    try {
+      fs.ensureDirSync(siteDir);
+
+      // move
+      fs.copySync(scaffoldDir, siteDir);
+    } catch (e) {
+      /* eslint no-unsafe-finally: 0 */
+      throw new Error(e);
+    }
   }
 };
 

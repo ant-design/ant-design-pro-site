@@ -21,6 +21,7 @@
 npm run start # 启动站点 ( 包含脚手架站点 )
 npm run site # 部署站点 ( 包含脚手架 )
 npm run scaffold-build # 部署脚手架 ( 单独 )
+npm run scaffold-build:static # 部署脚手架, mock 数据静态化
 
 npm run publish-components # 发布组件到 npm
 
@@ -61,7 +62,7 @@ npm run tool-install
 1. `git remote add gitlab git@gitlab.alipay-inc.com:ued/antd-pro.git`
 1. `git checkout site`
 1. `git merge master`
-1. `tnpm run scaffold-build`
+1. `tnpm run scaffold-build:static`
 1. `git add ./`
 1. `git commit`
 1. `git push gitlab site`
