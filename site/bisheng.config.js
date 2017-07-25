@@ -38,9 +38,12 @@ module.exports = {
       'react-router': 'react-router/umd/ReactRouter',
     };
 
-    config.externals = {
-      'react-router-dom': 'ReactRouterDOM',
-    };
+    config.externals = config.externals || {};
+    config.externals['react-router-dom'] = 'ReactRouterDOM';
+    config.externals.react = 'React';
+    config.externals.React = 'React';
+    config.externals['react-dom'] = 'ReactDOM';
+    config.externals.ReactDOM = 'ReactDOM';
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-transform-runtime'),
