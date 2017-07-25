@@ -1,26 +1,26 @@
 #!/usr/bin/env node
 
-var program = require('commander');
+const program = require('commander');
 
-var move = require('../lib/move');
-var build = require('../lib/build');
-var copy = require('../lib/copy');
+const move = require('../lib/move');
+const build = require('../lib/build');
+const copy = require('../lib/copy');
 
 program.version('0.1.0')
-    .option('-m, --move', 'move scaffold to bisheng _site')
-    .option('-b, --build', 'build scaffold _site')
-    .option('-i, --install', 'smart install tnpm/npm')
-    .option('-c, --copy', 'copy dependency to ant-design-pro')
-    .parse(process.argv);
+  .option('-m, --move', 'move scaffold to bisheng _site')
+  .option('-b, --build', 'build scaffold _site')
+  .option('-i, --install', 'smart install tnpm/npm')
+  .option('-c, --copy', 'copy dependency to ant-design-pro')
+  .parse(process.argv);
 
-if ( program.move ) {
+if (program.move) {
   move(program.move);
 }
 
-if ( program.build ) {
+if (program.build) {
   build(program.build);
 }
 
-if ( program.copy ) {
+if (program.copy) {
   copy(program.copy);
 }
