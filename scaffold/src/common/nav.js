@@ -4,6 +4,8 @@ import Analysis from '../routes/Dashboard/Analysis';
 import Monitor from '../routes/Dashboard/Monitor';
 import Workplace from '../routes/Dashboard/Workplace';
 
+import TableList from '../routes/List/TableList';
+
 import ListPage from '../routes/ListPage';
 import Profile from '../routes/Profile';
 import BasicForms from '../routes/Forms/BasicForms';
@@ -56,9 +58,9 @@ export const menus = [{
   path: 'list',
   icon: 'setting',
   children: [{
-    name: '标准表格',
+    name: '标准表格（表格查询）',
     path: 'table-list',
-    component: null,
+    component: TableList,
     icon: 'setting',
   }, {
     name: '标准列表',
