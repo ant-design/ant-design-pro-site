@@ -234,17 +234,18 @@ export default {
     }
 
   },
-  'POST /api/rule': (req, res, u, body) => {
+  'POST /api/rule': (req, res, u, b) => {
     let url = u;
     if (!url || Object.prototype.toString.call(url) !== '[object String]') {
       url = req.url;
     }
 
-    const method = req.body.method;
+    const body = (b && b.body) || req.body;
+    const method = body.method;
 
     switch (method) {
       case 'delete':
-        const no = req.body.no;
+        const no = body.no;
         tableListDataSource = tableListDataSource.filter(item => no.indexOf(item.no) === -1);
         break;
       default:

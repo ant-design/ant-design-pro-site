@@ -19,7 +19,6 @@ export default function request(url, params) {
     let res = query[currentKey];
     if (typeof res === 'function') {
       res = res(null, null, url, params);
-      console.log(res);
     }
     resolve(res);
   });
