@@ -5,12 +5,26 @@ const cwd = process.cwd();
 module.exports = function () {
   const utilsDir = `${cwd}/scaffold/src/utils`;
   const tpl = `import query from '../.roadhogrc.mock.js';
-export default function request(url) {
+
+export default function request(url, params) {
   return new Promise((resolve) => {
-    resolve({ data: query[\`
-      GET \${url}\`] });
-    });
-}`;
+    const keys = Object.keys(query);
+    let u = url;
+    if (params && params.method) {
+      u = \`\${params.method} \${u}\`;
+    } else {
+      u = \`GET \${u}\`;
+    }
+    const currentKey = keys.filter(key => new RegExp(key).test(u))[0];
+    let res = query[currentKey];
+    if (typeof res === 'function') {
+      res = res(null, null, url, params);
+      console.log(res);
+    }
+    resolve(res);
+  });
+}
+`;
 
   try {
     // 1. move ./.roadhogrc.mock.js to ./src/.roadhogrc.mock.js

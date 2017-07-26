@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Tabs } from 'antd';
+import { Breadcrumb } from 'antd';
 import { Link } from 'dva/router';
 import styles from './index.less';
 
@@ -16,9 +16,6 @@ export default ({ routes, params, title, children }) => {
   }
   return (
     <div className={styles.pageHeader}>
-      <Tabs>
-        <Tabs.TabPane tab="test">1</Tabs.TabPane>
-      </Tabs>
       <Breadcrumb routes={routes} params={params} itemRender={itemRender} />
       <h1>{title}</h1>
     </div>

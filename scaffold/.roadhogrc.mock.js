@@ -1,9 +1,59 @@
+// 代码中会兼容本地 service mock 以及部署站点的静态数据
+
 const imgMap = {
   a: 'https://gw.alipayobjects.com/zos/rmsportal/ZrkcSjizAKNWwJTwcadT.png',
   b: 'https://gw.alipayobjects.com/zos/rmsportal/KYlwHMeomKQbhJDRUVvt.png',
   c: 'https://gw.alipayobjects.com/zos/rmsportal/gabvleTstEvzkbQRfjxu.png',
   d: 'https://gw.alipayobjects.com/zos/rmsportal/jvpNzacxUYLlNsHTtrAD.png',
 };
+
+// refers: https://www.sitepoint.com/get-url-parameters-with-javascript/
+function getUrlParams(url) {
+  var d = decodeURIComponent;
+  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+  var obj = {};
+  if (queryString) {
+    queryString = queryString.split('#')[0];
+    var arr = queryString.split('&');
+    for (var i = 0; i < arr.length; i++) {
+      var a = arr[i].split('=');
+      var paramNum = undefined;
+      var paramName = a[0].replace(/\[\d*\]/, function (v) {
+        paramNum = v.slice(1, -1);
+        return '';
+      });
+      var paramValue = typeof(a[1]) === 'undefined' ? true : a[1];
+      if (obj[paramName]) {
+        if (typeof obj[paramName] === 'string') {
+          obj[paramName] = d([obj[paramName]]);
+        }
+        if (typeof paramNum === 'undefined') {
+          obj[paramName].push(d(paramValue));
+        }
+        else {
+          obj[paramName][paramNum] = d(paramValue);
+        }
+      }
+      else {
+        obj[paramName] = d(paramValue);
+      }
+    }
+  }
+  return obj;
+}
+
+// mock tableListDataSource
+let tableListDataSource = [];
+for (let i = 0; i < 46; i += 1) {
+  tableListDataSource.push({
+    key: i,
+    no: `TradeCode ${i}`,
+    description: '这是一段描述',
+    callNo: Math.floor(Math.random() * 1000),
+    status: Math.floor(Math.random() * 10) % 2,
+    updatedAt: new Date(`2017-07-${Math.floor(i / 2) + 1} ${Math.floor(i / 2) + 1}:00:00`),
+  });
+}
 
 export default {
   // 支持值为 Object 和 Array
@@ -136,4 +186,82 @@ export default {
       action: '在 [云雀](http://github.com/) 新建项目 [品牌迭代](http://github.com/)',
     },
   ],
+
+  'GET /api/rule': (req, res, u) => {
+    let url = u;
+    if (!url || Object.prototype.toString.call(url) !== '[object String]') {
+      url = req.url;
+    }
+
+    const params = new getUrlParams(url);
+
+    let dataSource = [...tableListDataSource];
+
+    if (params.sorter) {
+      const s = params.sorter.split('_');
+      dataSource = dataSource.sort((prev, next) => {
+        if (s[1] === 'descend') {
+          return next[s[0]] - prev[s[0]];
+        }
+        return prev[s[0]] - next[s[0]];
+      });
+    }
+
+    if (params.status) {
+      const s = params.status.split(',');
+      if (s.length === 1) {
+        dataSource = dataSource.filter(data => data.status == s[0]);
+      }
+    }
+
+    if (params.no) {
+      dataSource = dataSource.filter(data => data.no.indexOf(params.no) > -1);
+    }
+
+    const result = {
+      list: dataSource,
+      pagination: {
+        total: dataSource.length,
+        pageSize: 10,
+        current: parseInt(params.currentPage) || 1,
+      }
+    };
+
+    if (res && res.json) {
+      res.json(result);
+    } else {
+      return result;
+    }
+
+  },
+  'POST /api/rule': (req, res, u, body) => {
+    let url = u;
+    if (!url || Object.prototype.toString.call(url) !== '[object String]') {
+      url = req.url;
+    }
+
+    const method = req.body.method;
+
+    switch (method) {
+      case 'delete':
+        const no = req.body.no;
+        tableListDataSource = tableListDataSource.filter(item => no.indexOf(item.no) === -1);
+        break;
+      default:
+        break;
+    }
+
+    const result = {
+      list: tableListDataSource,
+      pagination: {
+        total: tableListDataSource.length,
+      }
+    };
+
+    if (res && res.json) {
+      res.json(result);
+    } else {
+      return result;
+    }
+  },
 };

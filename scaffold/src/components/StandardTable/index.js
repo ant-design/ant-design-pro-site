@@ -3,42 +3,44 @@ import moment from 'moment';
 import { Table, Alert, Badge } from 'antd';
 import styles from './index.less';
 
-const dataSource = [];
-for (let i = 0; i < 46; i += 1) {
-  dataSource.push({
-    key: i,
-    no: `TradeCode ${i}`,
-    description: '这是一段描述',
-    callNo: Math.floor(Math.random() * 1000),
-    status: Math.floor(Math.random() * 10) % 2,
-    updatedAt: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
-  });
-}
-
 class StandardTable extends Component {
   state = {
-    currentPage: 1,
     selectedRowKeys: [],
     selectedRows: [],
+    totalCallNo: 0,
     loading: false,
   };
 
-  handleRowSelectChange = (selectedRowKeys, selectedRows) => {
-    this.setState({ selectedRowKeys, selectedRows });
+  componentWillReceiveProps(nextProps) {
+    // clean state
+    if (nextProps.selectedRows.length === 0) {
+      this.setState({
+        selectedRows: [],
+        selectedRowKeys: [],
+        totalCallNo: 0,
+      });
+    }
   }
 
-  handlePageChange = (currentPage) => {
-    this.setState({
-      currentPage,
-    });
+  handleRowSelectChange = (selectedRowKeys, selectedRows) => {
+    const totalCallNo = selectedRows.reduce((sum, val) => {
+      return sum + parseFloat(val.callNo, 10);
+    }, 0);
+
+    if (this.props.onSelectRow) {
+      this.props.onSelectRow(selectedRows);
+    }
+
+    this.setState({ selectedRowKeys, selectedRows, totalCallNo });
   }
 
   handleTableChange = (pagination, filters, sorter) => {
-    console.log(pagination, filters, sorter);
+    this.props.onChange(pagination, filters, sorter);
   }
 
   render() {
-    const { selectedRowKeys, currentPage } = this.state;
+    const { selectedRowKeys, totalCallNo } = this.state;
+    const { data: { list, pagination }, loading } = this.props;
 
     const status = ['关闭', '运行中'];
 
@@ -55,6 +57,11 @@ class StandardTable extends Component {
         title: '服务调用次数',
         dataIndex: 'callNo',
         sorter: true,
+        render: val => (
+          <p style={{ textAlign: 'center' }}>
+            {val} 万
+          </p>
+        ),
       },
       {
         title: '状态',
@@ -81,6 +88,7 @@ class StandardTable extends Component {
         title: '更新时间',
         dataIndex: 'updatedAt',
         sorter: true,
+        render: val => <span>{moment(val).format('YYYY-MM-DD HH:mm:ss')}</span>,
       },
       {
         title: '操作',
@@ -94,13 +102,10 @@ class StandardTable extends Component {
       },
     ];
 
-    const pagination = {
+    const paginationProps = {
       showSizeChanger: true,
       showQuickJumper: true,
-      pageSize: 10,
-      total: 111,
-      current: currentPage,
-      onChange: this.handlePageChange,
+      ...pagination,
     };
 
     const rowSelection = {
@@ -111,15 +116,24 @@ class StandardTable extends Component {
     return (
       <div className={styles.StandardTable}>
         <div className={styles.tableAlert}>
-          <Alert message="Informational Notes" type="info" showIcon />
+          <Alert
+            message={(
+              <p>
+                已选择 <a>{selectedRowKeys.length}</a> 项&nbsp;&nbsp;
+                服务调用总计 <span style={{ fontWeight: 600 }}>{totalCallNo}</span> 万
+              </p>
+            )}
+            type="info"
+            showIcon
+          />
         </div>
-
         <Table
+          loading={loading}
           rowKey={record => record.key}
           rowSelection={rowSelection}
-          dataSource={dataSource}
+          dataSource={list}
           columns={columns}
-          pagination={pagination}
+          pagination={paginationProps}
           onChange={this.handleTableChange}
         />
       </div>
