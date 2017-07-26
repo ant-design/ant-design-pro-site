@@ -1,6 +1,6 @@
 import React from 'react';
+import classNames from 'classnames';
 import styles from './index.less';
-
 
 function getChild(children, type) {
   if (Array.isArray(children)) {
@@ -11,22 +11,23 @@ function getChild(children, type) {
   return null;
 }
 
-export default ({ title, logo, action, content, extraContent, children }) => {
+export default ({ title, logo, action, content, extraContent, children, className }) => {
   const breadcrumb = getChild(children, '__ANT_PRO_PAGEHEADER_BREADCRUMB');
   const tabs = getChild(children, '__ANT_PRO_PAGEHEADER_TABS');
+  const clsString = classNames(styles.pageHeader, className);
   return (
-    <div className={styles.pageHeader}>
+    <div className={clsString}>
       { breadcrumb }
-      <div className={styles.row}>
-        {logo && <div className={styles.logo}>logo</div>}
+      <div className={styles.detail}>
+        {logo && <div className={styles.logo}>{logo}</div>}
         <div className={styles.main}>
           <div className={styles.row}>
-            {title && <div className={styles.title}>title</div>}
-            {action && <div className={styles.action}>action</div>}
+            {title && <div className={styles.title}>{title}</div>}
+            {action && <div className={styles.action}>{action}</div>}
           </div>
           <div className={styles.row}>
-            {content && <div className={styles.content}>content</div>}
-            {extraContent && <div className={styles.extraContent}>extra</div>}
+            {content && <div className={styles.content}>{content}</div>}
+            {extraContent && <div className={styles.extraContent}>{extraContent}</div>}
           </div>
         </div>
       </div>
