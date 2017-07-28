@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Breadcrumb } from 'antd';
 import { Link } from 'dva/router';
 import styles from './index.less';
@@ -10,14 +11,29 @@ function itemRender(route, params, routes, paths) {
     : <Link to={paths.join('/')}>{route.breadcrumbName}</Link>;
 }
 
-export default ({ routes, params, title, children }) => {
-  if (children === null) {
-    return children;
+export default class PageHeader extends Component {
+  static contextTypes = {
+    routes: PropTypes.array,
+    params: PropTypes.object,
   }
-  return (
-    <div className={styles.pageHeader}>
-      <Breadcrumb routes={routes} params={params} itemRender={itemRender} />
-      <h1>{title}</h1>
-    </div>
-  );
-};
+  getBreadcrumbProps() {
+    return {
+      routes: this.props.routes || this.context.routes,
+      params: this.props.params || this.context.params,
+    };
+  }
+  render() {
+    const { routes, params } = this.getBreadcrumbProps();
+    const { title, children } = this.props;
+    const defaultTitle = routes[routes.length - 1].breadcrumbName;
+    return (
+      <div>
+        <div className={styles.pageHeader}>
+          <Breadcrumb routes={routes} params={params} itemRender={itemRender} />
+          <h1>{title || defaultTitle}</h1>
+        </div>
+        {children ? <div className={styles.content}>{children}</div> : null}
+      </div>
+    );
+  }
+}

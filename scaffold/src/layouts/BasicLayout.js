@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Layout, Menu, Icon, Tooltip, Avatar, Dropdown } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
 import styles from './BasicLayout.less';
-import PageHeader from '../components/PageHeader';
 import HeaderSearch from '../components/HeaderSearch';
 import NotificationIcon from '../components/NotificationIcon';
 import { menus } from '../common/nav';
@@ -13,10 +13,18 @@ const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 class BasicLayout extends React.Component {
+  static childContextTypes = {
+    routes: PropTypes.array,
+    params: PropTypes.object,
+  }
   state = {
     collapsed: false,
     mode: 'inline',
   };
+  getChildContext() {
+    const { routes, params } = this.props;
+    return { routes, params };
+  }
   componentDidMount() {
     this.props.dispatch({
       type: 'user/fetchCurrent',
@@ -72,7 +80,7 @@ class BasicLayout extends React.Component {
     });
   }
   render() {
-    const { routes, params, children, header, main, currentUser } = this.props;
+    const { routes, children, main, currentUser } = this.props;
     const { collapsed } = this.state;
     const pageTitle = routes[routes.length - 1].breadcrumbName;
 
@@ -136,10 +144,7 @@ class BasicLayout extends React.Component {
                 </Dropdown>
               </div>
             </Header>
-            <PageHeader title={pageTitle} routes={routes} params={params}>
-              {header}
-            </PageHeader>
-            <Content style={{ margin: 24, minHeight: 280, overflow: 'visible' }}>
+            <Content style={{ margin: 24, minHeight: 280 }}>
               {main || children}
             </Content>
           </Layout>
