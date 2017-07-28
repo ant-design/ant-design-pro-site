@@ -37,7 +37,7 @@ export default {
     if (params.status) {
       const s = params.status.split(',');
       if (s.length === 1) {
-        dataSource = dataSource.filter(data => parseInt(data.status, 10) === s[0]);
+        dataSource = dataSource.filter(data => parseInt(data.status, 10) === parseInt(s[0], 10));
       }
     }
 
