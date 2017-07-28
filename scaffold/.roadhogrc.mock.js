@@ -8,7 +8,7 @@ export default {
   // 支持值为 Object 和 Array
   'GET /api/currentUser': {
     name: 'momo.zxy',
-    avatar: imgMap.a,
+    avatar: imgMap.user,
     userid: '00000001',
     notifyCount: 5,
   },
