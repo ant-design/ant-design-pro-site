@@ -36,4 +36,3 @@ export default function request(url, options) {
     .then(response => response.json())
     .catch(err => ({ err }));
 }
-

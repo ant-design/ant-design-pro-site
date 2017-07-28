@@ -29,10 +29,8 @@ export default function request(url, params) {
     // 1. move ./.roadhogrc.mock.js to ./src/.roadhogrc.mock.js
     fs.copySync(`${cwd}/scaffold/.roadhogrc.mock.js`, `${cwd}/scaffold/src/.roadhogrc.mock.js`);
 
-    // 2. modifier ./src/.roadhogrc.mock.js dependence source
-    let content = fs.readFileSync(`${cwd}/scaffold/src/.roadhogrc.mock.js`, 'utf8');
-    content = content.replace(/\.\/mock/ig, '../src/mock');
-    fs.writeFileSync(`${cwd}/scaffold/src/.roadhogrc.mock.js`, content, 'utf8');
+    // 2. move ./mock to ./src/mock
+    fs.copySync(`${cwd}/scaffold/mock`, `${cwd}/scaffold/src/mock`);
 
     // 3. save old request.js
     fs.copySync(`${utilsDir}/request.js`, `${utilsDir}/request-temp.js`);
@@ -43,4 +41,3 @@ export default function request(url, params) {
     throw new Error(e);
   }
 };
-
