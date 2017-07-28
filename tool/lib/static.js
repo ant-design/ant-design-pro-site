@@ -5,21 +5,39 @@ const cwd = process.cwd();
 module.exports = function () {
   const utilsDir = `${cwd}/scaffold/src/utils`;
   const tpl = `import query from '../.roadhogrc.mock.js';
-export default function request(url) {
+
+export default function request(url, params) {
   return new Promise((resolve) => {
-    resolve({ data: query[\`
-      GET \${url}\`] });
-    });
-}`;
+    const keys = Object.keys(query);
+    let u = url;
+    if (params && params.method) {
+      u = \`\${params.method} \${u}\`;
+    } else {
+      u = \`GET \${u}\`;
+    }
+    const currentKey = keys.filter(key => new RegExp(key).test(u))[0];
+    let res = query[currentKey];
+    if (typeof res === 'function') {
+      res = res(null, null, url, params);
+    }
+    resolve(res);
+  });
+}
+`;
 
   try {
     // 1. move ./.roadhogrc.mock.js to ./src/.roadhogrc.mock.js
     fs.copySync(`${cwd}/scaffold/.roadhogrc.mock.js`, `${cwd}/scaffold/src/.roadhogrc.mock.js`);
 
-    // 2. save old request.js
+    // 2. modifier ./src/.roadhogrc.mock.js dependence source
+    let content = fs.readFileSync(`${cwd}/scaffold/src/.roadhogrc.mock.js`, 'utf8');
+    content = content.replace(/\.\/mock/ig, '../src/mock');
+    fs.writeFileSync(`${cwd}/scaffold/src/.roadhogrc.mock.js`, content, 'utf8');
+
+    // 3. save old request.js
     fs.copySync(`${utilsDir}/request.js`, `${utilsDir}/request-temp.js`);
 
-    // 3. modifier ./src/utils/request.js
+    // 4. modifier ./src/utils/request.js
     fs.writeFileSync(`${utilsDir}/request.js`, tpl, 'utf8');
   } catch (e) {
     throw new Error(e);

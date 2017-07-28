@@ -17,7 +17,7 @@ export default {
       const response = yield call(queryActivities);
       yield put({
         type: 'saveList',
-        payload: response.data,
+        payload: response,
       });
       yield put({
         type: 'changeLoading',
