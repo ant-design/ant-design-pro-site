@@ -3,7 +3,6 @@ webpack.config.js
 node_modules/
 scaffold/node_modules/
 scaffold/dist/
-scaffold/mock/
 scaffold/public/
 _site
 _scaffold_site

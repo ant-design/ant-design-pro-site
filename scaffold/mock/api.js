@@ -51,7 +51,7 @@ export default {
       member: '成都超级小分队',
     },
   ],
-  getActivities:  [
+  getActivities: [
     {
       id: 'trend-1',
       updatedAt: new Date(),
@@ -107,4 +107,4 @@ export default {
       action: '在 [云雀](http://github.com/) 新建项目 [品牌迭代](http://github.com/)',
     },
   ],
-}
+};

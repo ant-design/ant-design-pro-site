@@ -20,7 +20,7 @@ export default {
       url = req.url;
     }
 
-    const params = new getUrlParams(url);
+    const params = getUrlParams(url);
 
     let dataSource = [...tableListDataSource];
 
@@ -37,7 +37,7 @@ export default {
     if (params.status) {
       const s = params.status.split(',');
       if (s.length === 1) {
-        dataSource = dataSource.filter(data => data.status == s[0]);
+        dataSource = dataSource.filter(data => parseInt(data.status, 10) === s[0]);
       }
     }
 
@@ -50,8 +50,8 @@ export default {
       pagination: {
         total: dataSource.length,
         pageSize: 10,
-        current: parseInt(params.currentPage) || 1,
-      }
+        current: parseInt(params.currentPage, 10) || 1,
+      },
     };
 
     if (res && res.json) {
@@ -59,7 +59,6 @@ export default {
     } else {
       return result;
     }
-
   },
   postRule: (req, res, u, b) => {
     let url = u;
@@ -71,6 +70,7 @@ export default {
     const method = body.method;
 
     switch (method) {
+      /* eslint no-case-declarations:0 */
       case 'delete':
         const no = body.no;
         tableListDataSource = tableListDataSource.filter(item => no.indexOf(item.no) === -1);
@@ -83,7 +83,7 @@ export default {
       list: tableListDataSource,
       pagination: {
         total: tableListDataSource.length,
-      }
+      },
     };
 
     if (res && res.json) {
@@ -92,4 +92,4 @@ export default {
       return result;
     }
   },
-}
+};
