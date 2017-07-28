@@ -54,6 +54,8 @@
     "npm-run-all": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
     "style-loader": "^0.18.2",
+    "stylelint": "^8.0.0",
+    "stylelint-config-standard": "^17.0.0",
     "unminified-webpack-plugin": "^1.2.0",
     "webpack": "^1.14.0"
   },
@@ -71,7 +73,9 @@
     "lerna": "lerna",
     "components-publish": "./tool/bin/let -c && lerna publish --always",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
-    "lint": "eslint ./ --ext '.js,.jsx'",
+    "lint": "npm run lint:es && npm run lint:style",
+    "lint:es": "eslint ./ --ext '.js,.jsx'",
+    "lint:style": "stylelint \"scaffold/**/*.less\" --syntax less",
     "test": "npm run lint"
   },
   "pre-commit": [
