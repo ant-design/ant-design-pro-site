@@ -29,10 +29,15 @@ export default function request(url, params) {
     // 1. move ./.roadhogrc.mock.js to ./src/.roadhogrc.mock.js
     fs.copySync(`${cwd}/scaffold/.roadhogrc.mock.js`, `${cwd}/scaffold/src/.roadhogrc.mock.js`);
 
-    // 2. save old request.js
+    // 2. modifier ./src/.roadhogrc.mock.js dependence source
+    let content = fs.readFileSync(`${cwd}/scaffold/src/.roadhogrc.mock.js`, 'utf8');
+    content = content.replace(/\.\/mock/ig, '../src/mock');
+    fs.writeFileSync(`${cwd}/scaffold/src/.roadhogrc.mock.js`, content, 'utf8');
+
+    // 3. save old request.js
     fs.copySync(`${utilsDir}/request.js`, `${utilsDir}/request-temp.js`);
 
-    // 3. modifier ./src/utils/request.js
+    // 4. modifier ./src/utils/request.js
     fs.writeFileSync(`${utilsDir}/request.js`, tpl, 'utf8');
   } catch (e) {
     throw new Error(e);
