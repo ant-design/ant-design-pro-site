@@ -10,17 +10,18 @@ import { GlobalFooter } from 'ant-design-pro';
 import { Icon } from 'antd';
 
 const data = {
-	links: [{
-		title: '帮助',
-		href: '',
-	}, {
-		title: '隐私',
-		href: '',
-	}, {
-		title: '条款',
-		href: '',
-	}],
-	copyright: <div>Copyright <Icon type="copyright" /> 2017 蚂蚁金服体验技术部出品</div>,
+  links: [{
+    title: '帮助',
+    href: '',
+  }, {
+    title: '隐私',
+    href: '',
+  }, {
+    title: '条款',
+    href: '',
+    blankTarget: true,
+  }],
+  copyright: <div>Copyright <Icon type="copyright" /> 2017 蚂蚁金服体验技术部出品</div>,
 };
 
 ReactDOM.render(

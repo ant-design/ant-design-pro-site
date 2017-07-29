@@ -12,4 +12,4 @@ cols: 1
 
 | 参数      | 说明                                      | 类型         | 默认值 |
 |----------|------------------------------------------|-------------|-------|
-| data | 展示数据 | object { links: array<{ title: ReactNode, href: string }>, copyright: ReactNode } | - |
+| data | 展示数据 | object { links: array<{ title: ReactNode, href: string, blankTarget?: boolean }>, copyright: ReactNode } | - |
