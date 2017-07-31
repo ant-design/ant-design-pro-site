@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'dva';
+import PageHeaderLayout from '../layouts/PageHeaderLayout';
 
 function Forms() {
   return (
-    <div>789</div>
+    <PageHeaderLayout>
+      789
+    </PageHeaderLayout>
   );
 }
 

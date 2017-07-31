@@ -4,11 +4,12 @@ import { Card } from 'antd';
 import HorizontalForm from './HorizontalForm';
 import MultipleColForm from './MultipleColForm';
 import StandardForm from './StandardForm';
+import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import styles from './style.less';
 
 function BasicForms() {
   return (
-    <div>
+    <PageHeaderLayout>
       <Card title="横向表单" className={styles.card} bordered={false}>
         <HorizontalForm />
       </Card>
@@ -18,7 +19,7 @@ function BasicForms() {
       <Card title="标准表单" className={styles.card} bordered={false}>
         <StandardForm />
       </Card>
-    </div>
+    </PageHeaderLayout>
   );
 }
 
