@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Form, Card, Select } from 'antd';
 
+import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import StandardFormRow from '../../components/StandardFormRow';
 import TagSelect from '../../components/TagSelect';
 
@@ -28,63 +29,65 @@ class CoverCardList extends Component {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <div className={styles.coverCardList}>
-        <Card
-          noHovering
-        >
-          <Form
-            layout="inline"
+      <PageHeaderLayout>
+        <div className={styles.coverCardList}>
+          <Card
+            noHovering
           >
-            <StandardFormRow title="所属类目">
-              <FormItem>
-                {getFieldDecorator('category')(
-                  <TagSelect onChange={this.handleFormSubmit}>
-                    <TagOption value="cat1">类目一</TagOption>
-                    <TagOption value="cat2">类目二</TagOption>
-                    <TagOption value="cat3">类目三</TagOption>
-                    <TagOption value="cat4">类目四</TagOption>
-                    <TagExpand>
-                      <TagOption value="cat5">类目五</TagOption>
-                      <TagOption value="cat6">类目六</TagOption>
-                    </TagExpand>
-                  </TagSelect>
-                )}
-              </FormItem>
-            </StandardFormRow>
-            <StandardFormRow
-              last
-              title="其它选项"
+            <Form
+              layout="inline"
             >
-              <FormItem
-                label="作者"
+              <StandardFormRow title="所属类目">
+                <FormItem>
+                  {getFieldDecorator('category')(
+                    <TagSelect onChange={this.handleFormSubmit}>
+                      <TagOption value="cat1">类目一</TagOption>
+                      <TagOption value="cat2">类目二</TagOption>
+                      <TagOption value="cat3">类目三</TagOption>
+                      <TagOption value="cat4">类目四</TagOption>
+                      <TagExpand>
+                        <TagOption value="cat5">类目五</TagOption>
+                        <TagOption value="cat6">类目六</TagOption>
+                      </TagExpand>
+                    </TagSelect>
+                  )}
+                </FormItem>
+              </StandardFormRow>
+              <StandardFormRow
+                last
+                title="其它选项"
               >
-                {getFieldDecorator('author', {})(
-                  <Select
-                    onChange={this.handleFormSubmit}
-                    placeholder="不限"
-                    style={{ width: 200 }}
-                  >
-                    <Option value="lisa">李三</Option>
-                  </Select>
-                )}
-              </FormItem>
-              <FormItem
-                label="好评度"
-              >
-                {getFieldDecorator('rate', {})(
-                  <Select
-                    onChange={this.handleFormSubmit}
-                    placeholder="不限"
-                    style={{ width: 200 }}
-                  >
-                    <Option value="good">优秀</Option>
-                  </Select>
-                )}
-              </FormItem>
-            </StandardFormRow>
-          </Form>
-        </Card>
-      </div>
+                <FormItem
+                  label="作者"
+                >
+                  {getFieldDecorator('author', {})(
+                    <Select
+                      onChange={this.handleFormSubmit}
+                      placeholder="不限"
+                      style={{ width: 200 }}
+                    >
+                      <Option value="lisa">李三</Option>
+                    </Select>
+                  )}
+                </FormItem>
+                <FormItem
+                  label="好评度"
+                >
+                  {getFieldDecorator('rate', {})(
+                    <Select
+                      onChange={this.handleFormSubmit}
+                      placeholder="不限"
+                      style={{ width: 200 }}
+                    >
+                      <Option value="good">优秀</Option>
+                    </Select>
+                  )}
+                </FormItem>
+              </StandardFormRow>
+            </Form>
+          </Card>
+        </div>
+      </PageHeaderLayout>
     );
   }
 }
