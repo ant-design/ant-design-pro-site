@@ -8,15 +8,6 @@ function getRoutes(data, level = 0) {
     if (item.children) {
       children = getRoutes(item.children, level + 1);
     }
-    const componentProps = {};
-    if ('pageHeader' in item) {
-      componentProps.components = {
-        header: item.pageHeader,
-        main: item.component,
-      };
-    } else {
-      componentProps.component = item.component;
-    }
     let homePageRedirect;
     if (level === 1 && i === 0) {
       let indexPath;
@@ -33,7 +24,7 @@ function getRoutes(data, level = 0) {
         key={item.key || item.path || ''}
         path={item.path}
         breadcrumbName={item.name}
-        {...componentProps}
+        component={item.component}
       >
         {homePageRedirect}
         {children}

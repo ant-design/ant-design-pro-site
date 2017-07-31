@@ -80,7 +80,7 @@ class BasicLayout extends React.Component {
     });
   }
   render() {
-    const { routes, children, main, currentUser } = this.props;
+    const { routes, children, currentUser } = this.props;
     const { collapsed } = this.state;
     const pageTitle = routes[routes.length - 1].breadcrumbName;
 
@@ -145,7 +145,7 @@ class BasicLayout extends React.Component {
               </div>
             </Header>
             <Content style={{ margin: 24, minHeight: 280 }}>
-              {main || children}
+              {children}
             </Content>
           </Layout>
         </Layout>
