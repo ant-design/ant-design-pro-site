@@ -7,33 +7,34 @@ title: Structure
 
 ````jsx
 import { PageHeader } from 'ant-design-pro';
-import { Breadcrumb } from 'antd';
 
+const breadcrumbList = [{
+  title: '面包屑',
+}];
 
 const tabList = [{
-	key: '1', tab: '页签一'
+  key: '1',
+  tab: '页签一',
 }, {
-	key: '2', tab: '页签二'
+  key: '2',
+  tab: '页签二',
 }, {
-  key: '3', tab: '页签三'
+  key: '3',
+  tab: '页签三',
 }];
 
 ReactDOM.render(
   <div>
     <PageHeader
-    	title={<div className="title">Title</div>}
-    	logo={<div className="logo">logo</div>}
-    	action={<div className="action">action</div>}
-    	content={<div className="content">content</div>}
-    	extraContent={<div className="extraContent">extraContent</div>}
-    >
-		  <PageHeader.Breadcrumb className="breadcrumb">
-		    <Breadcrumb.Item><a href="">一级菜单</a></Breadcrumb.Item>
-        <Breadcrumb.Item><a href="">二级菜单</a></Breadcrumb.Item>
-        <Breadcrumb.Item>三级菜单</Breadcrumb.Item>
-		  </PageHeader.Breadcrumb>
-    	<PageHeader.Tabs className="tabs" tabList={tabList} />
-    </PageHeader>
+      className="tabs"
+      title={<div className="title">Title</div>}
+      logo={<div className="logo">logo</div>}
+      action={<div className="action">action</div>}
+      content={<div className="content">content</div>}
+      extraContent={<div className="extraContent">extraContent</div>}
+      breadcrumbList={breadcrumbList}
+      tabList={tabList}
+    />
   </div>
 , mountNode);
 ````
@@ -64,4 +65,3 @@ ReactDOM.render(
   color: #fff;
 }
 </style>
-

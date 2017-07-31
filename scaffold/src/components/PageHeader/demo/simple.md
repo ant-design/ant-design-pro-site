@@ -7,18 +7,20 @@ title: Simple
 
 ````jsx
 import { PageHeader } from 'ant-design-pro';
-import { Breadcrumb } from 'antd';
 
+const breadcrumbList = [{
+  title: '一级菜单',
+  href: '/',
+}, {
+  title: '二级菜单',
+  href: '/',
+}, {
+  title: '三级菜单',
+}];
 
 ReactDOM.render(
   <div>
-    <PageHeader title="页面标题">
-		  <PageHeader.Breadcrumb>
-		    <Breadcrumb.Item><a href="">一级菜单</a></Breadcrumb.Item>
-		    <Breadcrumb.Item><a href="">二级菜单</a></Breadcrumb.Item>
-		    <Breadcrumb.Item>三级菜单</Breadcrumb.Item>
-		  </PageHeader.Breadcrumb>
-    </PageHeader>
+    <PageHeader title="页面标题" breadcrumbList={breadcrumbList} />
   </div>
 , mountNode);
 ````

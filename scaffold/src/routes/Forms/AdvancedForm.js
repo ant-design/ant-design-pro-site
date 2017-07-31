@@ -9,7 +9,7 @@ import styles from './style.less';
 
 function AdvancedForm() {
   return (
-    <PageHeaderLayout>
+    <PageHeaderLayout title="基础表单">
       <Card title="横向表单" className={styles.card} bordered={false}>
         <HorizontalForm />
       </Card>
