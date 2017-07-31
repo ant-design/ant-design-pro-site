@@ -18,19 +18,16 @@ export const menus = [{
     name: '分析页',
     path: 'analysis',
     component: Analysis,
-    pageHeader: null,  // 去掉页面标题通栏
     icon: 'setting',
   }, {
     name: '监控页',
     path: 'monitor',
     component: Monitor,
-    pageHeader: null,  // 去掉页面标题通栏
     icon: 'setting',
   }, {
     name: '工作台',
     path: 'workplace',
     component: Workplace,
-    pageHeader: null,  // 去掉页面标题通栏
     icon: 'setting',
   }],
 }, {

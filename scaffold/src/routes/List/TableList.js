@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Card, Row, Col, Form, Input, Select, Icon, Button, Dropdown, Menu, InputNumber, DatePicker } from 'antd';
 import StandardTable from '../../components/StandardTable';
+import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
 import styles from './TableList.less';
 
@@ -131,7 +132,7 @@ class TableList extends Component {
     );
 
     return (
-      <div>
+      <PageHeaderLayout>
         <Card noHovering>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>
@@ -205,7 +206,7 @@ class TableList extends Component {
             />
           </div>
         </Card>
-      </div>
+      </PageHeaderLayout>
     );
   }
 }
