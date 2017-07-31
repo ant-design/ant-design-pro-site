@@ -99,7 +99,8 @@ class BasicLayout extends React.Component {
           >
             <div className={styles.logo}>
               <Link to="/">
-                <img src="https://gw.alipayobjects.com/zos/rmsportal/ElBVfakcgrgjarOUnuvx.svg" alt="logo" />
+                <img src="https://gw.alipayobjects.com/zos/rmsportal/osjtaBtmmQzWRvMbcKeb.svg" alt="logo" />
+                <h1>Ant Design Pro</h1>
               </Link>
             </div>
             <Menu
