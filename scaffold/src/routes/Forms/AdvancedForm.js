@@ -7,7 +7,7 @@ import StandardForm from './StandardForm';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import styles from './style.less';
 
-function BasicForms() {
+function AdvancedForm() {
   return (
     <PageHeaderLayout>
       <Card title="横向表单" className={styles.card} bordered={false}>
@@ -23,4 +23,4 @@ function BasicForms() {
   );
 }
 
-export default connect()(BasicForms);
+export default connect()(AdvancedForm);
