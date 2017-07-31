@@ -1,0 +1,36 @@
+@import "~antd/lib/style/themes/default.less";
+
+.exception {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  .imgBlock {
+    flex: 1 1 66%;
+    text-align: right;
+    padding-right: 152px;
+  }
+
+  .content {
+    flex: auto;
+
+    h1 {
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 68px;
+      line-height: 68px;
+      margin-bottom: 16px;
+    }
+
+    .desc {
+      color: rgba(0, 0, 0, 0.43);
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .actions {
+      button:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
+}
