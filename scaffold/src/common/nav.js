@@ -8,7 +8,10 @@ import TableList from '../routes/List/TableList';
 
 import ListPage from '../routes/ListPage';
 import Profile from '../routes/Profile';
-import BasicForms from '../routes/Forms/BasicForms';
+import BasicForm from '../routes/Forms/BasicForm';
+import AdvancedForm from '../routes/Forms/AdvancedForm';
+import StepForm from '../routes/Forms/StepForm';
+import LongForm from '../routes/Forms/LongForm';
 
 export const menus = [{
   name: 'Dashboard',
@@ -37,17 +40,22 @@ export const menus = [{
   children: [{
     name: '基础表单',
     path: 'basic-form',
-    component: BasicForms,
-    icon: 'setting',
-  }, {
-    name: '分组表单',
-    path: 'group-form',
-    component: null,
+    component: BasicForm,
     icon: 'setting',
   }, {
     name: '分步表单',
     path: 'step-form',
-    component: null,
+    component: StepForm,
+    icon: 'setting',
+  }, {
+    name: '高级表单',
+    path: 'advanced-form',
+    component: AdvancedForm,
+    icon: 'setting',
+  }, {
+    name: '长表单',
+    path: 'long-form',
+    component: LongForm,
     icon: 'setting',
   }],
 }, {
