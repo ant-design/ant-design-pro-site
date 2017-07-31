@@ -1,39 +1,11 @@
 import React, { Component } from 'react';
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete, Alert } from 'antd';
+import { Form, Input, DatePicker, Select, Button } from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
-
-const residences = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-  children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-    children: [{
-      value: 'xihu',
-      label: 'West Lake',
-    }],
-  }],
-}, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
-  children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
-    children: [{
-      value: 'zhonghuamen',
-      label: 'Zhong Hua Men',
-    }],
-  }],
-}];
+const { RangePicker } = DatePicker;
 
 class RegistrationForm extends Component {
-  state = {
-    confirmDirty: false,
-    autoCompleteResult: [],
-  };
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
@@ -43,205 +15,115 @@ class RegistrationForm extends Component {
       }
     });
   }
-  handleConfirmBlur = (e) => {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
-  checkPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
-    } else {
-      callback();
-    }
-  }
-  checkConfirm = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && this.state.confirmDirty) {
-      form.validateFields(['confirm'], { force: true });
-    }
-    callback();
-  }
-
-  handleWebsiteChange = (value) => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-    }
-    this.setState({ autoCompleteResult });
-  }
-
   render() {
     const { getFieldDecorator } = this.props.form;
-    const { autoCompleteResult } = this.state;
 
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 6 },
+        sm: { span: 3 },
       },
       wrapperCol: {
         xs: { span: 24 },
         sm: { span: 10 },
       },
     };
-    const tailFormItemLayout = {
+
+    const submitFormLayout = {
       wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0,
-        },
-        sm: {
-          span: 10,
-          offset: 6,
-        },
+        xs: { span: 24, offset: 0 },
+        sm: { span: 10, offset: 3 },
       },
     };
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 60 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    );
-
-    const websiteOptions = autoCompleteResult.map(website => (
-      <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-    ));
 
     return (
-      <Form onSubmit={this.handleSubmit} hideRequiredMark>
-        <Alert message="共有 5 处内容校验错误。" type="error" showIcon style={{ marginBottom: 24 }} />
+      <Form onSubmit={this.handleSubmit} hideRequiredMark style={{ marginTop: 24 }}>
         <FormItem
           {...formItemLayout}
-          label="E-mail"
+          label="应用类型"
           hasFeedback
         >
-          {getFieldDecorator('email', {
+          {getFieldDecorator('appType', {
             rules: [{
-              type: 'email', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
+              required: true, message: '应用类型',
             }],
           })(
-            <Input />
+            <Select placeholder="请选择应用类型">
+              <Option value="type1">类型一</Option>
+              <Option value="type2">类型二</Option>
+              <Option value="type3">类型三</Option>
+            </Select>
           )}
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="Password"
+          label="产品名"
           hasFeedback
         >
-          {getFieldDecorator('password', {
+          {getFieldDecorator('productName', {
             rules: [{
-              required: true, message: 'Please input your password!',
-            }, {
-              validator: this.checkConfirm,
+              required: true, message: '请输入产品名',
             }],
           })(
-            <Input type="password" />
+            <Input placeholder="产品名" />
           )}
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="Confirm Password"
+          label="应用名"
           hasFeedback
         >
-          {getFieldDecorator('confirm', {
+          {getFieldDecorator('appName', {
             rules: [{
-              required: true, message: 'Please confirm your password!',
-            }, {
-              validator: this.checkPassword,
+              required: true, message: '请输入应用名',
             }],
           })(
-            <Input type="password" onBlur={this.handleConfirmBlur} />
+            <Input placeholder="只能输入中文、数字、中划线" />
           )}
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label={(
-            <span>
-              Nickname&nbsp;
-              <Tooltip title="What do you want other to call you?">
-                <Icon type="question-circle-o" />
-              </Tooltip>
-            </span>
-          )}
+          label="中文名"
           hasFeedback
         >
-          {getFieldDecorator('nickname', {
-            rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
+          {getFieldDecorator('appChineseName', {
+            rules: [{ required: true, message: '请输入应用中文名' }],
           })(
-            <Input />
+            <Input placeholder="应用中文名" />
           )}
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="Habitual Residence"
+          label="生效日期"
         >
-          {getFieldDecorator('residence', {
-            initialValue: ['zhejiang', 'hangzhou', 'xihu'],
-            rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
+          {getFieldDecorator('dateRange', {
+            rules: [{ type: 'array', required: true, message: '请选择生效日期' }],
           })(
-            <Cascader options={residences} />
+            <RangePicker
+              showTime
+              format="YYYY-MM-DD HH:mm:ss"
+              placeholder={['开始日期', '结束日期']}
+              style={{ width: '100%' }}
+            />
           )}
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="Phone Number"
+          label="域名"
         >
-          {getFieldDecorator('phone', {
-            rules: [{ required: true, message: 'Please input your phone number!' }],
+          {getFieldDecorator('domain', {
+            rules: [{ required: true, message: '请输入域名' }],
           })(
-            <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+            <Input addonBefore="http://" addonAfter=".com" placeholder="facebook" style={{ width: '100%' }} />
           )}
         </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Website"
-        >
-          {getFieldDecorator('website', {
-            rules: [{ required: true, message: 'Please input website!' }],
-          })(
-            <AutoComplete
-              dataSource={websiteOptions}
-              onChange={this.handleWebsiteChange}
-              placeholder="website"
-            >
-              <Input />
-            </AutoComplete>
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Captcha"
-          extra="We must make sure that your are a human."
-        >
-          <Row gutter={8}>
-            <Col span={12}>
-              {getFieldDecorator('captcha', {
-                rules: [{ required: true, message: 'Please input the captcha you got!' }],
-              })(
-                <Input size="large" />
-              )}
-            </Col>
-            <Col span={12}>
-              <Button size="large">Get captcha</Button>
-            </Col>
-          </Row>
-        </FormItem>
-        <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
-          {getFieldDecorator('agreement', {
-            valuePropName: 'checked',
-          })(
-            <Checkbox>I have read the <a href="">agreement</a></Checkbox>
-          )}
-        </FormItem>
-        <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit" size="large">Register</Button>
+        <FormItem {...submitFormLayout}>
+          <Button type="primary" htmlType="submit">
+            提交
+          </Button>
+          <Button style={{ marginLeft: 8 }}>
+            取消
+          </Button>
         </FormItem>
       </Form>
     );

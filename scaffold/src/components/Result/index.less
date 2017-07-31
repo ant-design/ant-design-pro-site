@@ -1,0 +1,49 @@
+@import "~antd/lib/style/themes/default.less";
+
+.result {
+  padding: 32px 120px;
+  text-align: center;
+
+  .icon {
+    font-size: 72px;
+    line-height: 72px;
+    margin-bottom: 24px;
+
+    & > .success {
+      color: @success-color;
+    }
+
+    & > .error {
+      color: @error-color;
+    }
+
+    & > .warning {
+      color: @warning-color;
+    }
+  }
+
+  .title {
+    font-size: 24px;
+    color: @heading-color;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .desc {
+    font-size: 14px;
+    color: @text-color-secondary;
+    margin-bottom: 24px;
+  }
+
+  .extra {
+    background: rgba(245, 245, 245, 0.5);
+    padding: 24px 40px;
+    margin-bottom: 32px;
+    border-radius: @border-radius-sm;
+    text-align: left;
+  }
+
+  .actions button:not(:last-child) {
+    margin-right: 8px;
+  }
+}
