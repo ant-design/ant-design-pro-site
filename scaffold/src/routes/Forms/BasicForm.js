@@ -6,7 +6,7 @@ import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
 function BasicForms() {
   return (
-    <PageHeaderLayout>
+    <PageHeaderLayout title="基础表单">
       <Card bordered={false} noHovering>
         <StandardForm />
       </Card>

@@ -5,7 +5,7 @@ import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
 function LongForm() {
   return (
-    <PageHeaderLayout>
+    <PageHeaderLayout title="长表单">
       <Card bordered={false}>
         ...
       </Card>
