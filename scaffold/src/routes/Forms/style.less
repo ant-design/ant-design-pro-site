@@ -1,3 +1,5 @@
+@import "~antd/lib/style/themes/default.less";
+
 .card {
   margin-bottom: 24px;
 }
@@ -10,7 +12,16 @@
 
 .divider {
   border: 0;
-  border-top: 1px dashed #e9e9e9;
+  border-top: 1px dashed @border-color-split;
   height: 1px;
   margin: 0 0 16px 0;
+}
+
+.stepContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.stepForm {
+  margin: 40px 0;
 }
