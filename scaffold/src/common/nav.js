@@ -6,6 +6,7 @@ import Workplace from '../routes/Dashboard/Workplace';
 
 import TableList from '../routes/List/TableList';
 import CoverCardList from '../routes/List/CoverCardList';
+import SearchList from '../routes/List/SearchList';
 
 import ListPage from '../routes/ListPage';
 import Profile from '../routes/Profile';
@@ -102,7 +103,7 @@ export const menus = [{
   }, {
     name: '搜索列表',
     path: 'search',
-    component: null,
+    component: SearchList,
     icon: 'setting',
   }],
 }, {

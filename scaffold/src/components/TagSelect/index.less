@@ -4,6 +4,7 @@
 .tagSelect {
   user-select: none;
   margin-left: -8px;
+  position: relative;
   .expand {
     transition: all 0.32s ease;
     overflow: hidden;
@@ -12,6 +13,11 @@
   .fold {
     .expand();
     max-height: 0;
+  }
+  .trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 
