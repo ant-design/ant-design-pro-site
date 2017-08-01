@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Card, Steps, Form, Input, Button } from 'antd';
+import { Card, Steps, Form, Input, Button, Alert } from 'antd';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import styles from './style.less';
 
@@ -10,25 +10,33 @@ class StepForm extends Component {
   state = {
     current: 0,
   }
+  prev = () => {
+    this.setState({
+      current: this.state.current - 1,
+    });
+  }
   next = () => {
     this.setState({
       current: this.state.current + 1,
     });
   }
+  submit = () => {
+    this.next();
+  }
   render() {
     const formItemLayout = {
       labelCol: {
-        span: 6,
+        span: 5,
       },
       wrapperCol: {
-        span: 12,
+        span: 19,
       },
     };
     return (
       <PageHeaderLayout title="分步表单">
         <Card bordered={false}>
-          <div className={styles.stepContainer}>
-            <Steps current={this.state.current}>
+          <div>
+            <Steps current={this.state.current} className={styles.steps}>
               <Step title="填写转账信息" />
               <Step title="确认转账信息" />
               <Step title="完成" />
@@ -61,7 +69,7 @@ class StepForm extends Component {
                     <Input />
                   </Form.Item>
                   <Form.Item
-                    wrapperCol={{ offset: 6 }}
+                    wrapperCol={{ offset: 5 }}
                     label=""
                   >
                     <Button type="primary" onClick={this.next}>
@@ -80,10 +88,58 @@ class StepForm extends Component {
               </div>
             ) : null}
             {this.state.current === 1 ? (
-              <div>111</div>
+              <Form mode="horizontal" className={styles.stepForm}>
+                <Alert
+                  showIcon
+                  message="确认转账后，资金将直接打入对方账户，无法退回。"
+                  style={{ marginBottom: 24 }}
+                />
+                <Form.Item
+                  {...formItemLayout}
+                  label="付款账户"
+                >
+                  AntDesign@example.com
+                </Form.Item>
+                <Form.Item
+                  {...formItemLayout}
+                  label="收款账户"
+                >
+                  XXXX XXXX XXXX XXXX 某银行储蓄卡
+                </Form.Item>
+                <Form.Item
+                  {...formItemLayout}
+                  label="收款人姓名"
+                >
+                  张三
+                </Form.Item>
+                <Form.Item
+                  {...formItemLayout}
+                  label="转账金额"
+                >
+                  50,000.00
+                </Form.Item>
+                <hr className={styles.divider} />
+                <Form.Item
+                  {...formItemLayout}
+                  label="支付密码"
+                >
+                  <Input type="password" />
+                </Form.Item>
+                <Form.Item
+                  wrapperCol={{ offset: 5 }}
+                  label=""
+                >
+                  <Button type="primary" onClick={this.submit}>
+                    提交
+                  </Button>
+                  <Button onClick={this.prev} style={{ marginLeft: 8 }}>
+                    上一步
+                  </Button>
+                </Form.Item>
+              </Form>
             ) : null}
             {this.state.current === 2 ? (
-              <div>222</div>
+              <div>结果</div>
             ) : null}
           </div>
         </Card>
