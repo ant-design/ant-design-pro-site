@@ -13,6 +13,7 @@ module.exports = function () {
     fs.copySync(`${utilsDir}/request-temp.js`, `${utilsDir}/request.js`);
     fs.removeSync(`${utilsDir}/request-temp.js`);
     fs.removeSync(`${cwd}/src/.roadhogrc.mock.js`);
+    fs.removeSync(`${cwd}/src/mock`);
     /* eslint no-empty: 0 */
   } catch (e) {
   } finally {
