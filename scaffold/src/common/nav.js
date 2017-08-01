@@ -5,6 +5,7 @@ import Monitor from '../routes/Dashboard/Monitor';
 import Workplace from '../routes/Dashboard/Workplace';
 
 import TableList from '../routes/List/TableList';
+import CoverCardList from '../routes/List/CoverCardList';
 
 import ListPage from '../routes/ListPage';
 import Profile from '../routes/Profile';
@@ -80,7 +81,7 @@ export const menus = [{
   }, {
     name: '卡片列表（封面）',
     path: 'cover-card-list',
-    component: null,
+    component: CoverCardList,
     icon: 'setting',
   }, {
     name: '搜索列表',
