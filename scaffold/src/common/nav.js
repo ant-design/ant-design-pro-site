@@ -14,6 +14,10 @@ import AdvancedForm from '../routes/Forms/AdvancedForm';
 import StepForm from '../routes/Forms/StepForm';
 import LongForm from '../routes/Forms/LongForm';
 
+import Exception403 from '../routes/Exception/403';
+import Exception404 from '../routes/Exception/404';
+import Exception500 from '../routes/Exception/500';
+
 export const menus = [{
   name: 'Dashboard',
   icon: 'setting',
@@ -136,17 +140,17 @@ export const menus = [{
   children: [{
     name: '403',
     path: '403',
-    component: null,
+    component: Exception403,
     icon: 'setting',
   }, {
     name: '404',
     path: '404',
-    component: null,
+    component: Exception404,
     icon: 'setting',
   }, {
     name: '500',
     path: '500',
-    component: null,
+    component: Exception500,
     icon: 'setting',
   }],
 }];

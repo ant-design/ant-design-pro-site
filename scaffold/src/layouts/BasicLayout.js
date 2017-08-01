@@ -145,7 +145,7 @@ class BasicLayout extends React.Component {
                 </Dropdown>
               </div>
             </Header>
-            <Content style={{ margin: 24, minHeight: 280 }}>
+            <Content style={{ margin: 24, height: '100%' }}>
               {children}
             </Content>
           </Layout>
