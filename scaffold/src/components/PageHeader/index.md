@@ -21,6 +21,6 @@ cols: 1
 | params | 面包屑相关属性，路由的参数 | object | - |
 | breadcrumbList | 面包屑数据，配置了 `routes` `params` 时此属性无效 | array<{title: ReactNode, href?: string}> | - |
 | tabList | tab 标题列表 | array<{key: string, tab: ReactNode}> | -  |
-| onTabsChange | 切换面板的回调 | (key) => void | -  |
+| onTabChange | 切换面板的回调 | (key) => void | -  |
 
 > 面包屑的配置方式有两种，一是结合 `react-router`，通过配置 `routes` 及 `params` 实现，类似 [面包屑 Demo](https://ant.design/components/breadcrumb-cn/#components-breadcrumb-demo-router)；二是直接配置 `breadcrumbList`。 你也可以将 `routes` 及 `params` 放到 context 中，`PageHeader` 组件会自动获取。

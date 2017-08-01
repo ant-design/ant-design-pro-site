@@ -20,8 +20,8 @@ export default class PageHeader extends Component {
     params: PropTypes.object,
   };
   onChange = (key) => {
-    if (this.props.onTabsChange) {
-      this.props.onTabsChange(key);
+    if (this.props.onTabChange) {
+      this.props.onTabChange(key);
     }
   };
   getBreadcrumbProps = () => {

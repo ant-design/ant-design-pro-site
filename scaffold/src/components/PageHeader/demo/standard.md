@@ -60,7 +60,7 @@ const tabList = [{
   tab: '规则',
 }];
 
-function onTabsChange(key) {
+function onTabChange(key) {
   console.log(key);
 }
 
@@ -74,7 +74,7 @@ ReactDOM.render(
       extraContent={extra}
       breadcrumbList={breadcrumbList}
       tabList={tabList}
-      onTabsChange={onTabsChange}
+      onTabChange={onTabChange}
     />
   </div>
 , mountNode);
