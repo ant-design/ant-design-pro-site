@@ -1,0 +1,49 @@
+@import "~antd/lib/style/themes/default.less";
+
+.stepForm {
+  margin: 40px auto 0;
+  width: 500px;
+}
+
+.result {
+  margin: 0 auto 24px;
+  width: 780px;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid @border-color-split;
+  height: 1px;
+  margin: 0 0 24px 0;
+}
+
+.desc {
+  h3 {
+    font-size: 14px;
+    margin: 8px 0;
+    color: @text-color-secondary;
+  }
+  h4 {
+    margin: 2px 0;
+    color: @text-color-secondary;
+  }
+  p {
+    margin-bottom: 16px;
+  }
+  padding: 0 34px;
+  color: @text-color-secondary;
+  font-size: 12px;
+}
+
+.information {
+  :global {
+    .ant-row:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+  .label {
+    font-weight: 500;
+    text-align: right;
+    padding-right: 8px;
+  }
+}
