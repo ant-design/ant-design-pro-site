@@ -19,6 +19,7 @@ class CoverCardList extends Component {
     setTimeout(() => {
       this.props.form.validateFields((err, values) => {
         if (!err) {
+          // eslint-disable-next-line
           console.log(values);
         }
       });

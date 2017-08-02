@@ -77,7 +77,7 @@
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint:es": "eslint ./ --ext '.js,.jsx'",
     "lint:style": "stylelint \"scaffold/**/*.less\" --syntax less",
-    "lint:demo": "cross-env RUN_ENV=DEMO eslint ./ --ext '.md'",
+    "lint:demo": "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
     "test": "npm run lint"
   },
   "pre-commit": [
