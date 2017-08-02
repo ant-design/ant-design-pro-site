@@ -132,7 +132,7 @@ class TableList extends Component {
     );
 
     return (
-      <PageHeaderLayout>
+      <PageHeaderLayout title="标准表格">
         <Card noHovering>
           <div className={styles.tableList}>
             <div className={styles.tableListForm}>

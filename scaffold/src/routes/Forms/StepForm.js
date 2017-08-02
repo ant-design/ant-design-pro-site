@@ -5,7 +5,7 @@ import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
 function StepForm() {
   return (
-    <PageHeaderLayout>
+    <PageHeaderLayout title="分步表单">
       <Card bordered={false}>
         ...
       </Card>

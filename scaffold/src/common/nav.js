@@ -14,6 +14,13 @@ import AdvancedForm from '../routes/Forms/AdvancedForm';
 import StepForm from '../routes/Forms/StepForm';
 import LongForm from '../routes/Forms/LongForm';
 
+import Exception403 from '../routes/Exception/403';
+import Exception404 from '../routes/Exception/404';
+import Exception500 from '../routes/Exception/500';
+
+import Success from '../routes/Result/Success';
+import Error from '../routes/Result/Error';
+
 export const menus = [{
   name: 'Dashboard',
   icon: 'setting',
@@ -116,17 +123,12 @@ export const menus = [{
   children: [{
     name: '成功',
     path: 'success',
-    component: null,
+    component: Success,
     icon: 'setting',
   }, {
     name: '失败',
     path: 'fail',
-    component: null,
-    icon: 'setting',
-  }, {
-    name: '处理中',
-    path: 'wait',
-    component: null,
+    component: Error,
     icon: 'setting',
   }],
 }, {
@@ -136,17 +138,17 @@ export const menus = [{
   children: [{
     name: '403',
     path: '403',
-    component: null,
+    component: Exception403,
     icon: 'setting',
   }, {
     name: '404',
     path: '404',
-    component: null,
+    component: Exception404,
     icon: 'setting',
   }, {
     name: '500',
     path: '500',
-    component: null,
+    component: Exception500,
     icon: 'setting',
   }],
 }];
