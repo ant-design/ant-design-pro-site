@@ -10,7 +10,7 @@ import { Result } from 'ant-design-pro';
 
 ReactDOM.render(
   <Result
-    type="warning"
+    type="success"
     title={<div style={{ background: '#7dbcea', color: '#fff' }}>标题</div>}
     desc={<div style={{ background: 'rgba(16, 142, 233, 1)', color: '#fff' }}>结果描述</div>}
     extra="其他补充信息，自带灰底效果"

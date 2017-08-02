@@ -18,6 +18,9 @@ import Exception403 from '../routes/Exception/403';
 import Exception404 from '../routes/Exception/404';
 import Exception500 from '../routes/Exception/500';
 
+import Success from '../routes/Result/Success';
+import Error from '../routes/Result/Error';
+
 export const menus = [{
   name: 'Dashboard',
   icon: 'setting',
@@ -120,17 +123,12 @@ export const menus = [{
   children: [{
     name: '成功',
     path: 'success',
-    component: null,
+    component: Success,
     icon: 'setting',
   }, {
     name: '失败',
     path: 'fail',
-    component: null,
-    icon: 'setting',
-  }, {
-    name: '处理中',
-    path: 'wait',
-    component: null,
+    component: Error,
     icon: 'setting',
   }],
 }, {

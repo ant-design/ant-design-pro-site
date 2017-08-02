@@ -8,8 +8,6 @@ export default ({ className, type, title, desc, extra, actions }) => {
   switch (type) {
     case 'error': icon = <Icon className={styles.error} type="close-circle" />;
       break;
-    case 'warning': icon = <Icon className={styles.warning} type="exclamation-circle" />;
-      break;
     case 'success': icon = <Icon className={styles.success} type="check-circle" />;
       break;
     default: icon = null;
