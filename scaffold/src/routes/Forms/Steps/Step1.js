@@ -15,7 +15,7 @@ export default ({ formItemLayout, onNext, form }) => {
   };
   return (
     <div>
-      <Form mode="horizontal" className={styles.stepForm}>
+      <Form mode="horizontal" className={styles.stepForm} hideRequiredMark>
         <Form.Item
           {...formItemLayout}
           label="付款账户"

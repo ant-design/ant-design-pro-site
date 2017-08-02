@@ -46,6 +46,7 @@ export default ({ formItemLayout, onPrev, onNext, form, data }) => {
       <Form.Item
         {...formItemLayout}
         label="支付密码"
+        required={false}
       >
         {getFieldDecorator('password', {
           rules: [{
