@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import G2 from 'g2';
 import styles from '../index.less';
 
-class MiniArea extends Component {
+class Bar extends Component {
   componentDidMount() {
     this.renderChart(this.props.data);
   }
@@ -18,7 +18,7 @@ class MiniArea extends Component {
   }
 
   renderChart(data) {
-    const { height = 0, fit = true, color = '#33abfb', line } = this.props;
+    const { height = 0, fit = true, color = '#33abfb', margin = [32, 0, 32, 40] } = this.props;
 
     if (!data || (data && data.length < 1)) {
       return;
@@ -33,19 +33,25 @@ class MiniArea extends Component {
     const chart = new G2.Chart({
       container: this.node,
       forceFit: fit,
-      height: height + 54,
-      plotCfg: {
-        margin: [36, 0, 30, 0],
-      },
+      height: height - 22,
       legend: null,
+      plotCfg: {
+        margin,
+      },
     });
 
-    chart.axis(false);
+    chart.axis('x', {
+      title: false,
+    });
+    chart.axis('y', {
+      title: false,
+      line: false,
+      tickLine: false,
+    });
 
     chart.source(frame, {
       x: {
         type: 'cat',
-        range: [0, 1],
       },
       y: {
         min: 0,
@@ -59,19 +65,17 @@ class MiniArea extends Component {
         name: 'x',
       },
     });
-    chart.area().position('x*y').color(color).shape('smooth');
-    if (line) {
-      chart.line().position('x*y').color(color).shape('smooth');
-    }
+    chart.interval().position('x*y').color(color);
     chart.render();
   }
 
   render() {
-    const { height } = this.props;
+    const { height, title } = this.props;
 
     return (
-      <div className={styles.miniChart} style={{ height }}>
+      <div className={styles.chart} style={{ height }}>
         <div>
+          { title && <h4>{title}</h4>}
           <div ref={this.handleRef} />
         </div>
       </div>
@@ -79,4 +83,4 @@ class MiniArea extends Component {
   }
 }
 
-export default MiniArea;
+export default Bar;

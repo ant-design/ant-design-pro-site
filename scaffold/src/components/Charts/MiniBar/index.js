@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import G2 from 'g2';
 import styles from '../index.less';
 
-class MiniArea extends Component {
+class MiniBar extends Component {
   componentDidMount() {
     this.renderChart(this.props.data);
   }
@@ -18,7 +18,7 @@ class MiniArea extends Component {
   }
 
   renderChart(data) {
-    const { height = 0, fit = true, color = '#33abfb', line } = this.props;
+    const { height = 0, fit = true, color = '#33ABFB' } = this.props;
 
     if (!data || (data && data.length < 1)) {
       return;
@@ -45,7 +45,6 @@ class MiniArea extends Component {
     chart.source(frame, {
       x: {
         type: 'cat',
-        range: [0, 1],
       },
       y: {
         min: 0,
@@ -59,10 +58,7 @@ class MiniArea extends Component {
         name: 'x',
       },
     });
-    chart.area().position('x*y').color(color).shape('smooth');
-    if (line) {
-      chart.line().position('x*y').color(color).shape('smooth');
-    }
+    chart.interval().position('x*y').color(color);
     chart.render();
   }
 
@@ -79,4 +75,4 @@ class MiniArea extends Component {
   }
 }
 
-export default MiniArea;
+export default MiniBar;
