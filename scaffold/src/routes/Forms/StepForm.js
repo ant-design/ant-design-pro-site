@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Card, Steps } from 'antd';
+import { Card, Steps, Form } from 'antd';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import Step1 from './Steps/Step1';
 import Step2 from './Steps/Step2';
@@ -9,6 +9,14 @@ import styles from './style.less';
 
 const Step = Steps.Step;
 
+@Form.create({
+  onValuesChange(props, values) {
+    props.dispatch({
+      type: 'form/saveStepFormData',
+      payload: values,
+    });
+  },
+})
 class StepForm extends Component {
   state = {
     current: 0,
@@ -30,6 +38,7 @@ class StepForm extends Component {
     this.next();
   }
   render() {
+    const { form, stepFormData } = this.props;
     const formItemLayout = {
       labelCol: {
         span: 5,
@@ -48,13 +57,19 @@ class StepForm extends Component {
               <Step title="完成" />
             </Steps>
             {this.state.current === 0 ? (
-              <Step1 formItemLayout={formItemLayout} onNext={this.next} />
+              <Step1 formItemLayout={formItemLayout} onNext={this.next} form={form} />
             ) : null}
             {this.state.current === 1 ? (
-              <Step2 formItemLayout={formItemLayout} onPrev={this.prev} onNext={this.next} />
+              <Step2
+                formItemLayout={formItemLayout}
+                onPrev={this.prev}
+                onNext={this.next}
+                form={form}
+                data={stepFormData}
+              />
             ) : null}
             {this.state.current === 2 ? (
-              <Step3 onNext={() => this.go(0)} />
+              <Step3 onNext={() => this.go(0)} data={stepFormData} />
             ) : null}
           </div>
         </Card>
@@ -63,4 +78,6 @@ class StepForm extends Component {
   }
 }
 
-export default connect()(StepForm);
+export default connect(state => ({
+  stepFormData: state.form.step,
+}))(StepForm);

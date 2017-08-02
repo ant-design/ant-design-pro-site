@@ -3,31 +3,36 @@ import { Button, Row, Col } from 'antd';
 import Result from '../../../components/Result';
 import styles from './style.less';
 
-export default ({ onNext }) => {
+export default ({ onNext, data }) => {
   const information = (
     <div className={styles.information}>
       <Row>
         <Col span={8} className={styles.label}>付款账户：</Col>
-        <Col span={16}>AntDesign@example.com</Col>
+        <Col span={16}>{data.payAccount}</Col>
       </Row>
       <Row>
         <Col span={8} className={styles.label}>收款账户：</Col>
-        <Col span={16}>XXXX XXXX XXXX XXXX 某银行储蓄卡</Col>
+        <Col span={16}>{data.receiverAccount}</Col>
       </Row>
       <Row>
         <Col span={8} className={styles.label}>收款人姓名：</Col>
-        <Col span={16}>张三</Col>
+        <Col span={16}>{data.receiverName}</Col>
       </Row>
       <Row>
         <Col span={8} className={styles.label}>转账金额：</Col>
-        <Col span={16}>50,000.00</Col>
+        <Col span={16}>{data.amount} 元</Col>
       </Row>
     </div>
   );
   const actions = (
-    <Button type="primary" size="large" onClick={onNext}>
-      再转一笔
-    </Button>
+    <div>
+      <Button type="primary" size="large" onClick={onNext}>
+        再转一笔
+      </Button>
+      <Button size="large">
+        查看账单
+      </Button>
+    </div>
   );
   return (
     <Result
