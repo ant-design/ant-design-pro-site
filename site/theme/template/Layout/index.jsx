@@ -19,7 +19,7 @@ if (typeof window !== 'undefined') {
   /* eslint-enable global-require */
 }
 
-export default class Layout extends React.Component {
+export default class Layout extends React.PureComponent {
   static contextTypes = {
     router: PropTypes.object.isRequired,
   }

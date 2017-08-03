@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
 import { Row, Col, Card } from 'antd';
@@ -9,7 +9,7 @@ import EditableLinkGroup from '../../components/EditableLinkGroup';
 
 import styles from './Workplace.less';
 
-class Workplace extends Component {
+class Workplace extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
@@ -92,7 +92,6 @@ class Workplace extends Component {
           <Col span={16}>
             <Card
               title="进行中的项目"
-              bodyStyle={{ padding: 0 }}
               bordered={false}
               extra={<Link to="/">全部项目</Link>}
               loading={projectLoading}

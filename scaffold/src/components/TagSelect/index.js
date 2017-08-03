@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Tag, Icon } from 'antd';
 
 import styles from './index.less';
@@ -25,7 +25,7 @@ TagSelectExpand.defaultProps = {
   displayName: 'TagSelectExpand',
 };
 
-class TagSelect extends Component {
+class TagSelect extends PureComponent {
   static defaultProps = {
     initialValue: [],
   };

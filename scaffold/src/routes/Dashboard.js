@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Row, Col, Card, Table, Icon } from 'antd';
 
@@ -30,7 +30,7 @@ const columns = [{
   ),
 }];
 
-class Dashboard extends Component {
+class Dashboard extends PureComponent {
   componentDidMount() {
     this.props.dispatch({
       type: 'user/fetch',

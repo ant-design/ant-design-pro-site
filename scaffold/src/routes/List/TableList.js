@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Card, Row, Col, Form, Input, Select, Icon, Button, Dropdown, Menu, InputNumber, DatePicker } from 'antd';
 import StandardTable from '../../components/StandardTable';
@@ -10,7 +10,7 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const getValue = obj => Object.keys(obj).map(key => obj[key]).join(',');
 
-class TableList extends Component {
+class TableList extends PureComponent {
 
   state = {
     expandForm: false,

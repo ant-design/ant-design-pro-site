@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'dva/router';
 import { Button, Icon } from 'antd';
@@ -6,7 +6,7 @@ import styles from './index.less';
 
 // TODO: 添加逻辑
 
-class EditableLinkGroup extends Component {
+class EditableLinkGroup extends PureComponent {
   static defaultProps = {
     links: [],
     onAdd: () => {
@@ -44,4 +44,3 @@ EditableLinkGroup.propTypes = {
 };
 
 export default EditableLinkGroup;
-

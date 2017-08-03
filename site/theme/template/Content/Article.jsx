@@ -8,7 +8,7 @@ import delegate from 'delegate';
 import EditButton from './EditButton';
 import { ping } from '../utils';
 
-export default class Article extends React.Component {
+export default class Article extends React.PureComponent {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
   }

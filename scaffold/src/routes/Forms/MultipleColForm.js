@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Form, Tooltip, Icon, Input, Select, Row, Col, AutoComplete, Cascader,
   TreeSelect, DatePicker, InputNumber,
@@ -9,7 +9,7 @@ const { Option } = Select;
 const { TreeNode } = TreeSelect;
 const { RangePicker } = DatePicker;
 
-class MultipleColForm extends Component {
+class MultipleColForm extends PureComponent {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {

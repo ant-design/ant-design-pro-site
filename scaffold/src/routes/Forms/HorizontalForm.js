@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Form, Tooltip, Icon, Input, Button, Select } from 'antd';
 
 const { Option } = Select;
 
-class HorizontalForm extends Component {
+class HorizontalForm extends PureComponent {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {

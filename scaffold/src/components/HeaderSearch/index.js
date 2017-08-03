@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Input, Icon } from 'antd';
 import classNames from 'classnames';
 import styles from './index.less';
 
-export default class HeaderSearch extends Component {
+export default class HeaderSearch extends PureComponent {
   state = {
     searchMode: false,
   };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Popover, Icon, Tabs, Badge } from 'antd';
 import classNames from 'classnames';
 import List from './NotificationList';
@@ -39,7 +39,7 @@ const data = [{
   extra: '2017-07-12',
 }];
 
-export default class NotificationIcon extends Component {
+export default class NotificationIcon extends PureComponent {
   static defaultProps = {
     onItemClick: () => {},
   };
