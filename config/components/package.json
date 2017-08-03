@@ -19,6 +19,10 @@
   "devDependencies": {
     "webpack": "^3.3.0"
   },
+  "peerDependencies": {
+    "react": ">=15.3.0",
+    "react-dom": ">=15.3.0"
+  },
   "dependencies": {
     "antd": "^2.12.1",
     "dva": "^1.2.1",
