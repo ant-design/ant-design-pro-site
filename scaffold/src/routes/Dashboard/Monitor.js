@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon, Card, Tabs, Table, Radio } from 'antd';
+import { Row, Col, Icon, Card, Tabs, Table, Radio, DatePicker } from 'antd';
 import moment from 'moment';
 
 import { ChartCard, Trend, numeral, MiniArea, MiniBar, MiniProgress, Field, Bar, Pie, NumberInfo, IconUp, IconDown } from '../../components/Charts';
 
+import TimelineChart from '../../components/TimelineChart';
+import RadioText from '../../components/RadioText';
+import FitWidthTabs from '../../components/FitWidthTabs';
+
 import styles from './Monitor.less';
 
 const TabPane = Tabs.TabPane;
+const RadioGroup = Radio.Group;
+const { RangePicker } = DatePicker;
 
 // mock data
 const visitData = [];
@@ -60,10 +66,26 @@ const salesTypeData = [
     y: 1231,
   },
 ];
+const offlineData = [];
+for (let i = 0; i < 10; i += 1) {
+  offlineData.push({
+    name: `门店${i}`,
+    cvr: Math.ceil(Math.random() * 9) / 10,
+  });
+}
+const offlineChartData = [];
+for (let i = 0; i < 20; i += 1) {
+  offlineChartData.push({
+    x: (new Date().getTime()) + (1000 * 60 * 30 * i),
+    y1: Math.floor(Math.random() * 100) + 10,
+    y2: Math.floor(Math.random() * 100) + 10,
+  });
+}
 
 class Monitor extends Component {
   state = {
     salesType: 'all',
+    currentTabKey: '',
   }
 
   handleChangeSalesType = (e) => {
@@ -72,14 +94,30 @@ class Monitor extends Component {
     });
   }
 
+  handleTabChange = (key) => {
+    this.setState({
+      currentTabKey: key,
+    });
+  }
+
   render() {
-    const { salesType } = this.state;
+    const { salesType, currentTabKey } = this.state;
 
     const iconGroup = (
       <span className={styles.iconGroup}>
         <Icon type="camera-o" /><Icon type="export" /><Icon type="ellipsis" />
       </span>
     );
+
+    const salesExtra = (<div>
+      <RadioGroup style={{ marginRight: 12 }} onChange={e => console.log(e.target.value)}>
+        <RadioText value="day">今日</RadioText>
+        <RadioText value="week">本周</RadioText>
+        <RadioText value="month">本月</RadioText>
+        <RadioText value="year">全年</RadioText>
+      </RadioGroup>
+      <RangePicker style={{ width: 256 }} />
+    </div>);
 
     const columns = [
       {
@@ -109,6 +147,26 @@ class Monitor extends Component {
         ),
       },
     ];
+
+    const CustomTab = ({ data, currentTabKey: currentKey }) => (
+      <Row gutter={8} style={{ width: 138, margin: '8px 28px' }}>
+        <Col span={12}>
+          <NumberInfo title={data.name} subTitle="转化率" total={`${data.cvr * 100}%`} />
+        </Col>
+        <Col span={12} style={{ paddingTop: 36 }}>
+          <Pie
+            animate={(currentKey === data.name)}
+            color={(currentKey !== data.name) && '#99d5fd'}
+            inner={0.55}
+            selected={false}
+            tooltip={false}
+            margin={[0, 0, 0, 0]}
+            percent={data.cvr * 100}
+            height={64}
+          />
+        </Col>
+      </Row>
+    );
 
     return (
       <div>
@@ -173,8 +231,11 @@ class Monitor extends Component {
           </Col>
         </Row>
 
-        <Card style={{ marginTop: 24 }}>
-          <Tabs tabBarExtraContent={<span>123</span>}>
+        <Card
+          bodyStyle={{ padding: '16px 24px' }}
+          style={{ marginTop: 24 }}
+        >
+          <Tabs tabBarExtraContent={salesExtra}>
             <TabPane tab="销售额" key="sales">
               <Row gutter={72}>
                 <Col span={16}>
@@ -202,7 +263,7 @@ class Monitor extends Component {
               <Row gutter={68}>
                 <Col span={12}>
                   <NumberInfo
-                    title={<span>搜索用户数量 <Icon style={{ marginLeft: 8 }} type="info-circle-o" /></span>}
+                    subTitle={<span>搜索用户数量 <Icon style={{ marginLeft: 8 }} type="info-circle-o" /></span>}
                     total={numeral(12321).format('0,0')}
                     status="up"
                     subTotal={17.1}
@@ -216,7 +277,7 @@ class Monitor extends Component {
                 </Col>
                 <Col span={12}>
                   <NumberInfo
-                    title="人均搜索次数"
+                    subTitle="人均搜索次数"
                     total={2.7}
                     status="down"
                     subTotal={26.2}
@@ -266,11 +327,32 @@ class Monitor extends Component {
             </Card>
           </Col>
         </Row>
+
+        <Card style={{ marginTop: 24 }} bodyStyle={{ padding: '0 0 24px 0' }}>
+          <FitWidthTabs
+            defaultActiveKey={offlineData[0] && offlineData[0].name}
+            onChange={this.handleTabChange}
+          >
+            {
+              offlineData.map(shop => (
+                <TabPane
+                  tab={<CustomTab data={shop} currentTabKey={currentTabKey} />}
+                  key={shop.name}
+                >
+                  <div style={{ padding: '0 24px' }}>
+                    <TimelineChart
+                      data={offlineChartData}
+                      titleMap={{ y1: '客流量', y2: '支付笔数' }}
+                    />
+                  </div>
+                </TabPane>)
+              )
+            }
+          </FitWidthTabs>
+        </Card>
       </div>
     );
   }
 }
 
-export
-default
-Monitor;
+export default Monitor;

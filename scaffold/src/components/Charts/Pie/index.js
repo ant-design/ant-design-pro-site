@@ -45,20 +45,52 @@ class Pie extends Component {
   }
 
   renderChart(data) {
-    const { title, height = 0, hasLegend, fit = true, margin } = this.props;
+    const {
+      title, height = 0,
+      hasLegend, fit = true,
+      margin, percent, color,
+      tooltip = true, selected = true,
+      inner = 0.75,
+      animate = true,
+      } = this.props;
+
+    let formatColor;
+    if (percent) {
+      formatColor = (value) => {
+        if (value === '占比') {
+          return color || '#0096fa';
+        } else {
+          return '#e9e9e9';
+        }
+      };
+
+      /* eslint no-param-reassign: */
+      data = [
+        {
+          x: '占比',
+          y: parseFloat(percent),
+        },
+        {
+          x: '反比',
+          y: 100 - parseFloat(percent),
+        },
+      ];
+    }
 
     if (!data || (data && data.length < 1)) {
       return;
     }
 
-    let m = [];
-    if (hasLegend) {
-      m = [0, 240, 0, 0];
-    } else {
-      m = [0, 0, 0, 0];
+    let m = margin;
+    if (!margin) {
+      if (hasLegend) {
+        m = [24, 240, 24, 0];
+      } else {
+        m = [24, 0, 24, 0];
+      }
     }
 
-    const h = title ? (height - 46) : height;
+    const h = title ? (height + m[0] + m[2] + (-46)) : (height + m[0] + m[2]);
 
     // clean
     this.node.innerHTML = '';
@@ -70,13 +102,18 @@ class Pie extends Component {
       forceFit: fit,
       height: h,
       plotCfg: {
-        margin: margin || m,
+        margin: m,
       },
+      animate,
     });
 
-    chart.tooltip({
-      title: null,
-    });
+    if (!tooltip) {
+      chart.tooltip(false);
+    } else {
+      chart.tooltip({
+        title: null,
+      });
+    }
 
     chart.axis(false);
     chart.legend(false);
@@ -92,13 +129,16 @@ class Pie extends Component {
     });
 
     chart.coord('theta', {
-      inner: 0.75,
+      inner,
     });
 
-    chart.intervalStack().position(Stat.summary.percent('y')).color('x');
+    chart.intervalStack().position(Stat.summary.percent('y')).color('x', formatColor).selected(selected);
     chart.render();
 
-    const left = -((this.totalNode.offsetWidth / 2) + ((margin || m)[1] / 2));
+    let left = 0;
+    if (this.totalNode) {
+      left = -((this.totalNode.offsetWidth / 2) + ((margin || m)[1] / 2));
+    }
 
     this.chart = chart;
 
@@ -124,7 +164,7 @@ class Pie extends Component {
   render() {
     const { height, title, valueFormat, subTitle, total, hasLegend } = this.props;
     const { legendData, left } = this.state;
-    const mt = -(((legendData.length * 38) - 16) / 2) + 16;
+    const mt = -(((legendData.length * 38) - 16) / 2) + 12;
 
     return (
       <div className={styles.pie} style={{ height }}>
