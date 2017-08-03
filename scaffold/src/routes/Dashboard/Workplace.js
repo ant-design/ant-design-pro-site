@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
 import { Row, Col, Card } from 'antd';
@@ -9,7 +9,7 @@ import EditableLinkGroup from '../../components/EditableLinkGroup';
 
 import styles from './Workplace.less';
 
-class Workplace extends Component {
+class Workplace extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({

@@ -8,7 +8,7 @@ import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
 
-export default class ComponentDoc extends React.Component {
+export default class ComponentDoc extends React.PureComponent {
   static contextTypes = {
     intl: PropTypes.object,
   }

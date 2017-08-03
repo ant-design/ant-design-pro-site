@@ -9,7 +9,7 @@ import EditButton from './EditButton';
 import BrowserFrame from '../BrowserFrame';
 import { ping } from '../utils';
 
-export default class Demo extends React.Component {
+export default class Demo extends React.PureComponent {
   static contextTypes = {
     intl: PropTypes.object,
   }

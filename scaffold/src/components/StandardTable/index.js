@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import moment from 'moment';
 import { Table, Alert, Badge } from 'antd';
 import styles from './index.less';
 
-class StandardTable extends Component {
+class StandardTable extends PureComponent {
   state = {
     selectedRowKeys: [],
     selectedRows: [],

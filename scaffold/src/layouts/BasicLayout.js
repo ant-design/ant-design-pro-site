@@ -12,7 +12,7 @@ import { menus } from '../common/nav';
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
-class BasicLayout extends React.Component {
+class BasicLayout extends React.PureComponent {
   static childContextTypes = {
     routes: PropTypes.array,
     params: PropTypes.object,

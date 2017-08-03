@@ -39,7 +39,7 @@ function isNotTopLevel(level) {
   return level !== 'topLevel';
 }
 
-export default class MainContent extends React.Component {
+export default class MainContent extends React.PureComponent {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
   }

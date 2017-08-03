@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Form, Card, Select } from 'antd';
 
@@ -13,7 +13,7 @@ const FormItem = Form.Item;
 const TagOption = TagSelect.Option;
 const TagExpand = TagSelect.Expand;
 
-class CoverCardList extends Component {
+class CoverCardList extends PureComponent {
   handleFormSubmit = () => {
     // setTimeout 用于保证获取表单值是在所有表单字段更新完毕的时候
     setTimeout(() => {

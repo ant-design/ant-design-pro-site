@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class Iframe extends Component {
+class Iframe extends PureComponent {
   componentDidMount() {
     const host = window.location.host;
 

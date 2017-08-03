@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Breadcrumb, Tabs } from 'antd';
 import { Link } from 'dva/router';
@@ -14,7 +14,7 @@ function itemRender(route, params, routes, paths) {
     : <Link to={paths.join('/')}>{route.breadcrumbName}</Link>;
 }
 
-export default class PageHeader extends Component {
+export default class PageHeader extends PureComponent {
   static contextTypes = {
     routes: PropTypes.array,
     params: PropTypes.object,
