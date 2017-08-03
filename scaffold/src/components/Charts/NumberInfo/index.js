@@ -1,10 +1,18 @@
 import React from 'react';
 import { Icon } from 'antd';
+import classNames from 'classnames';
 
 import styles from './index.less';
 
-export default ({ title, subTitle, total, subTotal, status, ...rest }) => (
-  <div className={styles.numberInfo} {...rest}>
+export default ({ theme, title, subTitle, total, subTotal, status, ...rest }) => (
+  <div
+    className={
+      classNames(styles.numberInfo, {
+        [styles[`numberInfo${theme}`]]: theme,
+      })
+    }
+    {...rest}
+  >
     {
       title && <h4>{title}</h4>
     }

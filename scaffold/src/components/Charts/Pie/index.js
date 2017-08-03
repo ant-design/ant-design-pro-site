@@ -49,13 +49,17 @@ class Pie extends Component {
       title, height = 0,
       hasLegend, fit = true,
       margin, percent, color,
-      tooltip = true, selected = true,
       inner = 0.75,
       animate = true,
       } = this.props;
 
+    let selected = this.props.selected || true;
+    let tooltip = this.props.tooltips || true;
+
     let formatColor;
     if (percent) {
+      selected = false;
+      tooltip = false;
       formatColor = (value) => {
         if (value === '占比') {
           return color || '#0096fa';
@@ -85,6 +89,8 @@ class Pie extends Component {
     if (!margin) {
       if (hasLegend) {
         m = [24, 240, 24, 0];
+      } else if (percent) {
+        m = [0, 0, 0, 0];
       } else {
         m = [24, 0, 24, 0];
       }
