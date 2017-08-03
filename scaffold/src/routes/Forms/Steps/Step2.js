@@ -10,11 +10,14 @@ export default ({ formItemLayout, form, data, dispatch }) => {
   };
   const onValidateForm = (e) => {
     e.preventDefault();
-    validateFields((err) => {
+    validateFields((err, values) => {
       if (!err) {
         dispatch({
           type: 'form/submit',
-          payload: {},
+          payload: {
+            ...data,
+            ...values,
+          },
         });
       }
     });
