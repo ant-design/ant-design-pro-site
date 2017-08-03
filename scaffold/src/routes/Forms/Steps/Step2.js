@@ -1,18 +1,26 @@
 import React from 'react';
 import { Form, Input, Button, Alert } from 'antd';
+import { routerRedux } from 'dva/router';
 import styles from './style.less';
 
-export default ({ formItemLayout, onPrev, onNext, form, data }) => {
+export default ({ formItemLayout, form, data, dispatch }) => {
   const { getFieldDecorator, validateFields } = form;
-  const onValidateForm = () => {
+  const onPrev = () => {
+    dispatch(routerRedux.push('/form/step-form'));
+  };
+  const onValidateForm = (e) => {
+    e.preventDefault();
     validateFields((err) => {
       if (!err) {
-        onNext();
+        dispatch({
+          type: 'form/submit',
+          payload: {},
+        });
       }
     });
   };
   return (
-    <Form mode="horizontal" className={styles.stepForm}>
+    <Form layout="horizontal" className={styles.stepForm}>
       <Alert
         showIcon
         message="确认转账后，资金将直接打入对方账户，无法退回。"
@@ -61,7 +69,7 @@ export default ({ formItemLayout, onPrev, onNext, form, data }) => {
         wrapperCol={{ offset: 5 }}
         label=""
       >
-        <Button type="primary" onClick={onValidateForm}>
+        <Button type="primary" onClick={onValidateForm} loading={data.submitting}>
           提交
         </Button>
         <Button onClick={onPrev} style={{ marginLeft: 8 }}>

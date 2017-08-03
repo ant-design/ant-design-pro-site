@@ -11,8 +11,10 @@ export default class RegistrationForm extends PureComponent {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        // eslint-disable-next-line
-        console.log('Received values of form: ', values);
+        this.props.dispatch({
+          type: 'form/submit',
+          payload: values,
+        });
       }
     });
   }

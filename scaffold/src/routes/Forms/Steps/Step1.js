@@ -1,21 +1,22 @@
 import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
+import { routerRedux } from 'dva/router';
 import styles from './style.less';
 
 const Option = Select.Option;
 
-export default ({ formItemLayout, onNext, form }) => {
+export default ({ formItemLayout, form, dispatch }) => {
   const { getFieldDecorator, validateFields } = form;
   const onValidateForm = () => {
     validateFields((err) => {
       if (!err) {
-        onNext();
+        dispatch(routerRedux.push('/form/step-form/confirm'));
       }
     });
   };
   return (
     <div>
-      <Form mode="horizontal" className={styles.stepForm} hideRequiredMark>
+      <Form layout="horizontal" className={styles.stepForm} hideRequiredMark>
         <Form.Item
           {...formItemLayout}
           label="付款账户"

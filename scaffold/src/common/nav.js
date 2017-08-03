@@ -13,6 +13,8 @@ import BasicForm from '../routes/Forms/BasicForm';
 import AdvancedForm from '../routes/Forms/AdvancedForm';
 import StepForm from '../routes/Forms/StepForm';
 import LongForm from '../routes/Forms/LongForm';
+import Step2 from '../routes/Forms/Steps/Step2';
+import Step3 from '../routes/Forms/Steps/Step3';
 
 import Exception403 from '../routes/Exception/403';
 import Exception404 from '../routes/Exception/404';
@@ -55,6 +57,13 @@ export const menus = [{
     path: 'step-form',
     component: StepForm,
     icon: 'setting',
+    children: [{
+      path: 'confirm',
+      component: Step2,
+    }, {
+      path: 'result',
+      component: Step3,
+    }],
   }, {
     name: '高级表单',
     path: 'advanced-form',

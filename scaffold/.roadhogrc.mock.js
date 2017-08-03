@@ -33,4 +33,7 @@ export default {
   'GET /api/activities': getActivities,
   'GET /api/rule': getRule,
   'POST /api/rule': postRule,
+  'POST /api/forms': (req, res) => {
+    setTimeout(function() { res.send('Ok'); }, 1000);
+  },
 };

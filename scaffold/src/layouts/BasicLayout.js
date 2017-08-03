@@ -48,8 +48,11 @@ class BasicLayout extends React.PureComponent {
   }
   getNavMenuItems(menusData, parentPath = '') {
     return menusData.map((item) => {
+      if (!item.name) {
+        return null;
+      }
       const itemPath = `${parentPath}/${item.path || ''}`.replace(/\/+/g, '/');
-      if (item.children) {
+      if (item.children && item.children.some(child => child.name)) {
         return (
           <SubMenu
             title={
@@ -74,15 +77,23 @@ class BasicLayout extends React.PureComponent {
       );
     });
   }
+  getPageTitle() {
+    const { routes } = this.props;
+    for (let i = routes.length - 1; i >= 0; i -= 1) {
+      if (routes[i].breadcrumbName) {
+        return `${routes[i].breadcrumbName} - Ant Design Pro`;
+      }
+    }
+    return 'Ant Design Pro';
+  }
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed,
     });
   }
   render() {
-    const { routes, children, currentUser } = this.props;
+    const { children, currentUser } = this.props;
     const { collapsed } = this.state;
-    const pageTitle = routes[routes.length - 1].breadcrumbName;
 
     const menu = (
       <Menu className={styles.menu} selectedKeys={[]}>
@@ -94,7 +105,7 @@ class BasicLayout extends React.PureComponent {
     );
 
     return (
-      <DocumentTitle title={`${pageTitle} - Ant Design Admin`}>
+      <DocumentTitle title={this.getPageTitle()}>
         <Layout>
           <Sider
             trigger={null}

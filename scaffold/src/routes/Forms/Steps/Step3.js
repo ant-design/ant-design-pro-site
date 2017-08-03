@@ -1,9 +1,13 @@
 import React from 'react';
 import { Button, Row, Col } from 'antd';
+import { routerRedux } from 'dva/router';
 import Result from '../../../components/Result';
 import styles from './style.less';
 
-export default ({ onNext, data }) => {
+export default ({ dispatch, data }) => {
+  const onFinish = () => {
+    dispatch(routerRedux.push('/form/step-form'));
+  };
   const information = (
     <div className={styles.information}>
       <Row>
@@ -26,7 +30,7 @@ export default ({ onNext, data }) => {
   );
   const actions = (
     <div>
-      <Button type="primary" size="large" onClick={onNext}>
+      <Button type="primary" size="large" onClick={onFinish}>
         再转一笔
       </Button>
       <Button size="large">
