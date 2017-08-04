@@ -5,13 +5,16 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const { RangePicker } = DatePicker;
 
-class RegistrationForm extends PureComponent {
+@Form.create()
+export default class RegistrationForm extends PureComponent {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        // eslint-disable-next-line
-        console.log('Received values of form: ', values);
+        this.props.dispatch({
+          type: 'form/submit',
+          payload: values,
+        });
       }
     });
   }
@@ -129,5 +132,3 @@ class RegistrationForm extends PureComponent {
     );
   }
 }
-
-export default Form.create()(RegistrationForm);
