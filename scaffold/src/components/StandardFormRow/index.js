@@ -1,16 +1,23 @@
 import React from 'react';
-
+import classNames from 'classnames';
 import styles from './index.less';
 
-export default ({ title, children, last, ...rest }) => (
-  <div className={last ? styles.standardFormRowLast : styles.standardFormRow} {...rest}>
-    {
-      title && <div className={styles.label}>
-        <span>{title}</span>
+export default ({ title, children, last, block, ...rest }) => {
+  const cls = classNames(styles.standardFormRow, {
+    [styles.standardFormRowBlock]: block,
+    [styles.standardFormRowLast]: last,
+  });
+
+  return (
+    <div className={cls} {...rest}>
+      {
+        title && <div className={styles.label}>
+          <span>{title}</span>
+        </div>
+      }
+      <div className={styles.content}>
+        {children}
       </div>
-    }
-    <div className={styles.content}>
-      {children}
     </div>
-  </div>
-);
+  );
+};

@@ -133,7 +133,7 @@ class TagSelect extends PureComponent {
           }))
         }
         {
-          expandNode && <a onClick={this.handleExpand}>
+          expandNode && <a className={styles.trigger} onClick={this.handleExpand}>
             { expand ? '收起' : '展开'} <Icon type={expand ? 'up' : 'down'} />
           </a>
         }
