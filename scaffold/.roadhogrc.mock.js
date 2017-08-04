@@ -1,6 +1,7 @@
 import mockjs from 'mockjs';
 import { getRule, postRule } from './mock/rule';
 import { getActivities, getNotice } from './mock/api';
+import { getFakeChartData } from './mock/chart';
 import { imgMap } from './mock/utils';
 
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
@@ -42,4 +43,5 @@ export default {
   'GET /api/tags': mockjs.mock({
     'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }]
   }),
+  'GET /api/fake_chart_data': getFakeChartData,
 };

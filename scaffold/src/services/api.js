@@ -30,6 +30,10 @@ export async function fakeSubmitForm(params) {
   });
 }
 
+export async function fakeChartData() {
+  return request('/api/fake_chart_data');
+}
+
 export async function queryTags() {
   return request('/api/tags');
 }

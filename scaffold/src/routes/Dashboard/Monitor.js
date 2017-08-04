@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Row, Col, Card } from 'antd';
 import { NumberInfo, numeral, MiniArea, Pie, WaterWave } from '../../components/Charts';
+import MapChart from '../../components/MapChart';
 import TagCloud from '../../components/TagCloud';
 
 const activeData = [];
@@ -9,6 +10,14 @@ for (let i = 0; i < 24; i += 1) {
   activeData.push({
     x: `${i}:00`,
     y: (i * 50) + (Math.floor(Math.random() * 200)),
+  });
+}
+const MapData = [];
+for (let i = 0; i < 50; i += 1) {
+  MapData.push({
+    x: Math.floor(Math.random() * 600),
+    y: Math.floor(Math.random() * 400),
+    value: Math.floor(Math.random() * 1000) + 500,
   });
 }
 
@@ -54,7 +63,11 @@ class Monitor extends PureComponent {
                   />
                 </Col>
               </Row>
-              <div style={{ height: 424 }}>地图占位</div>
+              <div style={{ height: 424, paddingTop: 32 }}>
+                <MapChart
+                  data={MapData}
+                />
+              </div>
             </Card>
           </Col>
           <Col span={8}>
