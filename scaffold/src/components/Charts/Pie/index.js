@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import G2 from 'g2';
 import styles from './index.less';
 
-class Pie extends Component {
+class Pie extends PureComponent {
   state = {
     legendData: [],
     left: undefined,

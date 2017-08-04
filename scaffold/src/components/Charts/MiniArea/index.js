@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import G2 from 'g2';
 import styles from '../index.less';
 
-class MiniArea extends Component {
+class MiniArea extends PureComponent {
   componentDidMount() {
     this.renderChart(this.props.data);
   }

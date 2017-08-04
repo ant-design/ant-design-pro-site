@@ -6,15 +6,13 @@ import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import StandardFormRow from '../../components/StandardFormRow';
 import TagSelect from '../../components/TagSelect';
 
-import styles from './SearchList.less';
-
 const Option = Select.Option;
 const FormItem = Form.Item;
 const TagOption = TagSelect.Option;
 const TagExpand = TagSelect.Expand;
 
+@Form.create()
 class SearchList extends Component {
-
   setOwner = () => {
     const { form } = this.props;
     form.setFieldsValue({
@@ -50,7 +48,7 @@ class SearchList extends Component {
 
     return (
       <PageHeaderLayout>
-        <div className={styles.searchList}>
+        <div>
           <Card
             noHovering
           >
@@ -134,4 +132,4 @@ class SearchList extends Component {
 
 export default connect(state => ({
   rule: state.rule,
-}))(Form.create()(SearchList));
+}))(SearchList);

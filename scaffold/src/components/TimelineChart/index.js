@@ -74,7 +74,6 @@ class TimelineChart extends Component {
 
     chart.line().position('x*y1').color('#4FAAEB');
     chart.line().position('x*y2').color('#9AD681');
-    chart.render();
 
     /* eslint new-cap:0 */
     const slider = new Slider({
