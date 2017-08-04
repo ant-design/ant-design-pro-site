@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import G2 from 'g2';
 import styles from './index.less';
 
+/* eslint react/no-danger:0 */
 class Pie extends PureComponent {
   state = {
     legendData: [],
@@ -188,6 +189,7 @@ class Pie extends PureComponent {
                   subTitle && <h4>{subTitle}</h4>
                 }
                 {
+                  // eslint-disable-next-line
                   total && <p dangerouslySetInnerHTML={{ __html: total }} />
                 }
               </div>

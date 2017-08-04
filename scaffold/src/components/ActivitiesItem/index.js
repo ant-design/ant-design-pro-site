@@ -5,6 +5,7 @@ import { Avatar } from 'antd';
 
 import styles from './index.less';
 
+/* eslint react/no-danger:0 */
 export default ({ data: { user, updatedAt, action } }) => (
   <div
     className={styles.activitiesItem}
