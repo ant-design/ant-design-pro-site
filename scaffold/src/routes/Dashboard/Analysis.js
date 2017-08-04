@@ -82,7 +82,7 @@ for (let i = 0; i < 20; i += 1) {
   });
 }
 
-class Monitor extends Component {
+class Analysis extends Component {
   state = {
     salesType: 'all',
     currentTabKey: '',
@@ -359,4 +359,4 @@ class Monitor extends Component {
   }
 }
 
-export default Monitor;
+export default Analysis;

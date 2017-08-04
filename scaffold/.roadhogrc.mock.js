@@ -1,3 +1,4 @@
+import mockjs from 'mockjs';
 import { getRule, postRule } from './mock/rule';
 import { getActivities, getNotice } from './mock/api';
 import { imgMap } from './mock/utils';
@@ -34,6 +35,11 @@ export default {
   'GET /api/rule': getRule,
   'POST /api/rule': postRule,
   'POST /api/forms': (req, res) => {
-    setTimeout(function() { res.send('Ok'); }, 1000);
+    setTimeout(function () {
+      res.send('Ok');
+    }, 1000);
   },
+  'GET /api/tags': mockjs.mock({
+    'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }]
+  }),
 };

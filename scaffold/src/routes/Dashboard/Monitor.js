@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
-import { Row, Col, Card, Progress } from 'antd';
-import { NumberInfo, numeral, MiniArea, Pie } from '../../components/Charts';
+import React, { PureComponent } from 'react';
+import { connect } from 'dva';
+import { Row, Col, Card } from 'antd';
+import { NumberInfo, numeral, MiniArea, Pie, WaterWave } from '../../components/Charts';
+import TagCloud from '../../components/TagCloud';
 
 const activeData = [];
 for (let i = 0; i < 24; i += 1) {
@@ -10,8 +12,17 @@ for (let i = 0; i < 24; i += 1) {
   });
 }
 
-class Monitor extends Component {
+class Monitor extends PureComponent {
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'monitor/fetchTags',
+    });
+  }
+
   render() {
+    const { monitor } = this.props;
+    const { tags } = monitor;
+
     return (
       <div>
         <Row gutter={24}>
@@ -54,21 +65,20 @@ class Monitor extends Component {
               />
               <MiniArea
                 line
-                color="#5dd1dd"
+                color="#5DD1DD"
                 height={132}
                 data={activeData}
               />
             </Card>
             <Card title="券核效率" style={{ marginTop: 24, textAlign: 'center' }}>
-              <h4 style={{ marginBottom: 16 }}>跳出率</h4>
-              <Progress type="dashboard" percent={75} />
+              占位
             </Card>
           </Col>
         </Row>
         <Row gutter={24} style={{ marginTop: 24 }}>
           <Col span={12}>
             <Card title="各品类占比">
-              <Row>
+              <Row style={{ padding: '18px 0 19px 0' }}>
                 <Col span={8}>
                   <Pie
                     percent={28}
@@ -100,12 +110,19 @@ class Monitor extends Component {
           </Col>
           <Col span={6}>
             <Card title="热门搜索">
-              标签云占位
+              <TagCloud
+                data={tags}
+                height={161}
+              />
             </Card>
           </Col>
           <Col span={6}>
-            <Card title="资源剩余">
-              占位
+            <Card title="资源剩余" style={{ textAlign: 'center' }}>
+              <WaterWave
+                height={161}
+                title="补贴资金剩余"
+                percent={34}
+              />
             </Card>
           </Col>
         </Row>
@@ -114,4 +131,7 @@ class Monitor extends Component {
   }
 }
 
-export default Monitor;
+export default connect(state => ({
+  monitor: state.monitor,
+}))(Monitor);
+

@@ -23,10 +23,13 @@ export async function removeRule(params) {
   });
 }
 
-// fake API for all form submitting
 export async function fakeSubmitForm(params) {
   return request('/api/forms', {
     method: 'POST',
     body: params,
   });
+}
+
+export async function queryTags() {
+  return request('/api/tags');
 }

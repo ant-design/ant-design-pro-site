@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import G2 from 'g2';
 import styles from './index.less';
 
 /* eslint react/no-danger:0 */
-class Pie extends PureComponent {
+class Pie extends Component {
   state = {
     legendData: [],
     left: undefined,
@@ -171,7 +171,7 @@ class Pie extends PureComponent {
   render() {
     const { height, title, valueFormat, subTitle, total, hasLegend } = this.props;
     const { legendData, left } = this.state;
-    const mt = -(((legendData.length * 38) - 16) / 2) + 12;
+    const mt = -(((legendData.length * 38) - 16) / 2);
 
     return (
       <div className={styles.pie} style={{ height }}>
