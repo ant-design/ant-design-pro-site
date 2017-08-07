@@ -3,6 +3,7 @@ import ChartCard from './ChartCard';
 import Bar from './Bar';
 import Pie from './Pie';
 import Radar from './Radar';
+import Gauge from './Gauge';
 import MiniArea from './MiniArea';
 import MiniBar from './MiniBar';
 import MiniProgress from './MiniProgress';
@@ -20,6 +21,7 @@ export default {
   numeral,
   Bar,
   Pie,
+  Gauge,
   Radar,
   MiniBar,
   MiniArea,

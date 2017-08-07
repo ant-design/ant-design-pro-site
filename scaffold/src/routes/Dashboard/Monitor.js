@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Row, Col, Card } from 'antd';
-import { NumberInfo, numeral, MiniArea, Pie, WaterWave } from '../../components/Charts';
+import { NumberInfo, numeral, MiniArea, Pie, WaterWave, Gauge } from '../../components/Charts';
 import MapChart from '../../components/MapChart';
 import TagCloud from '../../components/TagCloud';
 
@@ -84,7 +84,11 @@ class Monitor extends PureComponent {
               />
             </Card>
             <Card title="券核效率" style={{ marginTop: 24, textAlign: 'center' }}>
-              占位
+              <Gauge
+                title="跳出率"
+                height={164}
+                percent={87}
+              />
             </Card>
           </Col>
         </Row>
