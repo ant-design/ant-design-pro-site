@@ -6,12 +6,10 @@ const Shape = G2.Shape;
 /* eslint no-underscore-dangle: 0 */
 class Gauge extends PureComponent {
   componentDidMount() {
-    this.initChart();
     this.renderChart();
   }
 
   componentWillReceiveProps(nextProps) {
-    this.initChart();
     this.renderChart(nextProps);
   }
 
@@ -19,8 +17,8 @@ class Gauge extends PureComponent {
     this.node = n;
   }
 
-  initChart() {
-    const { title, color = '#00b1f8' } = this.props;
+  initChart(nextProps) {
+    const { title, color = '#00b1f8' } = nextProps || this.props;
 
     Shape.registShape('point', 'dashBoard', {
       drawShape(cfg, group) {
@@ -105,6 +103,8 @@ class Gauge extends PureComponent {
     if (this.node) {
       this.node.innerHTML = '';
     }
+
+    this.initChart(nextProps);
 
     const chart = new G2.Chart({
       container: this.node,
