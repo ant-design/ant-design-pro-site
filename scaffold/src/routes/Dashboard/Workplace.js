@@ -6,8 +6,10 @@ import { Row, Col, Card } from 'antd';
 import ProjectItem from '../../components/ProjectItem';
 import ActivitiesItem from '../../components/ActivitiesItem';
 import EditableLinkGroup from '../../components/EditableLinkGroup';
+import { Radar } from '../../components/Charts';
 
 import styles from './Workplace.less';
+
 
 class Workplace extends PureComponent {
   componentDidMount() {
@@ -18,12 +20,16 @@ class Workplace extends PureComponent {
     dispatch({
       type: 'activities/fetchList',
     });
+    dispatch({
+      type: 'chart/fetch',
+    });
   }
 
   render() {
     const {
       project: { loading: projectLoading, notice },
       activities: { loading: activitiesLoading, list: activitiesList },
+      chart: { radarData },
       } = this.props;
 
     const links = [
@@ -137,13 +143,10 @@ class Workplace extends PureComponent {
               title="xx 指数"
             >
               <div className={styles.chart}>
-                <img
-                  title="我是假的"
-                  alt="我是假的"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/IonyWHLYaRVZqUbiZHFR.png"
-                  style={{
-                    width: 300,
-                  }}
+                <Radar
+                  hasLegend
+                  height={286}
+                  data={radarData}
                 />
               </div>
             </Card>
@@ -176,4 +179,5 @@ class Workplace extends PureComponent {
 export default connect(state => ({
   project: state.project,
   activities: state.activities,
+  chart: state.chart,
 }))(Workplace);

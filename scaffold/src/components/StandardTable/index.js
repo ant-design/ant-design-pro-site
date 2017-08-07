@@ -114,7 +114,7 @@ class StandardTable extends PureComponent {
     };
 
     return (
-      <div className={styles.StandardTable}>
+      <div className={styles.standardTable}>
         <div className={styles.tableAlert}>
           <Alert
             message={(

@@ -34,10 +34,18 @@
     flex: 1 1 0;
   }
 }
-.standardFormRowLast {
-  .standardFormRow();
 
+.standardFormRowLast {
   border: none;
   padding-bottom: 0;
   margin-bottom: 0;
+}
+
+.standardFormRowBlock {
+  :global {
+    .ant-form-item,
+    div.ant-form-item-control-wrapper {
+      display: block;
+    }
+  }
 }
