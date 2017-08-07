@@ -137,8 +137,7 @@ class Gauge extends PureComponent {
       },
       labelOffset: -12,
       formatter(val) {
-        const v = val * 1;
-        switch (v) {
+        switch (val * 1) {
           case 20:
             return '差';
           case 40:
