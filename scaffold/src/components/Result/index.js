@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Icon } from 'antd';
 import styles from './index.less';
 
-export default ({ className, type, title, desc, extra, actions }) => {
+export default ({ className, type, title, desc, extra, actions, ...restProps }) => {
   let icon;
   switch (type) {
     case 'error': icon = <Icon className={styles.error} type="close-circle" />;
@@ -14,7 +14,7 @@ export default ({ className, type, title, desc, extra, actions }) => {
   }
   const clsString = classNames(styles.result, className);
   return (
-    <div className={clsString}>
+    <div className={clsString} {...restProps}>
       <div className={styles.icon}>{icon}</div>
       <div className={styles.title}>{title}</div>
       {desc && <div className={styles.desc}>{desc}</div>}
