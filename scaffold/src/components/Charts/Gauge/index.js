@@ -94,8 +94,8 @@ class Gauge extends PureComponent {
   }
 
   renderChart(nextProps) {
-    const { height, color = '#00b1f8', bgColor = '#d3f3fe' } = nextProps || this.props;
-    const data = [{ name: 'any', value: 87 }];
+    const { height, color = '#00b1f8', bgColor = '#d3f3fe', title, percent } = nextProps || this.props;
+    const data = [{ name: title, value: percent }];
 
     if (this.chart) {
       this.chart.clear();
