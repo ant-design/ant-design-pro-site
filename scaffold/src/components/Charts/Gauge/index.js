@@ -20,7 +20,7 @@ class Gauge extends PureComponent {
   }
 
   initChart() {
-    const { title } = this.props;
+    const { title, color = '#00b1f8' } = this.props;
 
     Shape.registShape('point', 'dashBoard', {
       drawShape(cfg, group) {
@@ -43,7 +43,7 @@ class Gauge extends PureComponent {
             radius: 2,
             lineWidth: 2,
             arrow: false,
-            fill: '#00b1f8',
+            fill: color,
           },
         });
 
@@ -51,7 +51,7 @@ class Gauge extends PureComponent {
           attrs: {
             symbol: 'circle',
             lineWidth: 2,
-            fill: '#00b1f8',
+            fill: color,
             radius: 8,
             x: center.x,
             y: center.y,
@@ -96,7 +96,7 @@ class Gauge extends PureComponent {
   }
 
   renderChart(nextProps) {
-    const { height } = nextProps || this.props;
+    const { height, color = '#00b1f8', bgColor = '#d3f3fe' } = nextProps || this.props;
     const data = [{ name: 'any', value: 87 }];
 
     if (this.chart) {
@@ -133,7 +133,7 @@ class Gauge extends PureComponent {
     });
     chart.axis('value', {
       tickLine: {
-        stroke: '#00b1f8',
+        stroke: color,
       },
       labelOffset: -12,
       formatter(val) {
@@ -166,7 +166,7 @@ class Gauge extends PureComponent {
       }, () => {
         return [val, 0.95];
       }, {
-        stroke: '#00b1f8',
+        stroke: color,
         lineWidth,
       });
 
@@ -175,7 +175,7 @@ class Gauge extends PureComponent {
       }, (arg) => {
         return [arg.max, 0.95];
       }, {
-        stroke: '#d3f3fe',
+        stroke: bgColor,
         lineWidth,
       });
 
@@ -187,9 +187,7 @@ class Gauge extends PureComponent {
 
   render() {
     return (
-      <div>
-        <div ref={this.handleRef} />
-      </div>
+      <div ref={this.handleRef} />
     );
   }
 }
