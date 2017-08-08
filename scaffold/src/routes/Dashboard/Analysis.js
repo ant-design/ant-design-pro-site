@@ -6,7 +6,6 @@ import { ChartCard, Trend, numeral, MiniArea, MiniBar, MiniProgress, Field, Bar,
 
 import TimelineChart from '../../components/TimelineChart';
 import RadioText from '../../components/RadioText';
-import FitWidthTabs from '../../components/FitWidthTabs';
 
 import styles from './Analysis.less';
 
@@ -275,7 +274,7 @@ class Analysis extends Component {
         </Row>
 
         <Card style={{ marginTop: 24 }} bodyStyle={{ padding: '0 0 24px 0' }}>
-          <FitWidthTabs
+          <Tabs
             activeKey={currentTabKey || (offlineData[0] && offlineData[0].name)}
             onChange={this.handleTabChange}
           >
@@ -294,7 +293,7 @@ class Analysis extends Component {
                 </TabPane>)
               )
             }
-          </FitWidthTabs>
+          </Tabs>
         </Card>
       </div>
     );
@@ -304,4 +303,3 @@ class Analysis extends Component {
 export default connect(state => ({
   chart: state.chart,
 }))(Analysis);
-
