@@ -59,7 +59,7 @@ const fieldLabels = {
   type2: '仓库类型',
 };
 
-function LongForm({ form }) {
+function AdvancedForm({ form }) {
   const { getFieldDecorator, validateFieldsAndScroll, getFieldsError } = form;
   const validate = () => {
     validateFieldsAndScroll((error, values) => {
@@ -268,4 +268,4 @@ function LongForm({ form }) {
   );
 }
 
-export default Form.create()(LongForm);
+export default Form.create()(AdvancedForm);
