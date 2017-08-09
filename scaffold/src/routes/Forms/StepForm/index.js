@@ -1,9 +1,9 @@
 import React, { cloneElement, PureComponent } from 'react';
 import { connect } from 'dva';
 import { Card, Steps, Form } from 'antd';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
-import Step1 from './Steps/Step1';
-import styles from './style.less';
+import PageHeaderLayout from '../../../layouts/PageHeaderLayout';
+import Step1 from './Step1';
+import styles from '../style.less';
 
 const Step = Steps.Step;
 
