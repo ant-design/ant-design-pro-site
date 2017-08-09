@@ -13,7 +13,6 @@ import Profile from '../routes/Profile';
 import BasicForm from '../routes/Forms/BasicForm';
 import AdvancedForm from '../routes/Forms/AdvancedForm';
 import StepForm from '../routes/Forms/StepForm';
-import LongForm from '../routes/Forms/LongForm';
 import Step2 from '../routes/Forms/StepForm/Step2';
 import Step3 from '../routes/Forms/StepForm/Step3';
 
@@ -65,11 +64,6 @@ export const menus = [{
       path: 'result',
       component: Step3,
     }],
-  }, {
-    name: '长表单',
-    path: 'long-form',
-    component: LongForm,
-    icon: 'setting',
   }, {
     name: '高级表单',
     path: 'advanced-form',
