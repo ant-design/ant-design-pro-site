@@ -82,11 +82,12 @@ export default class RegistrationForm extends PureComponent {
           hasFeedback
         >
           {getFieldDecorator('appName', {
-            rules: [{
-              required: true, message: '请输入应用名',
-            }],
+            rules: [
+              { required: true, message: '请输入应用名' },
+              { pattern: /^[a-zA-Z0-9-]+$/, message: '只能输入英文、数字、中划线' },
+            ],
           })(
-            <Input placeholder="只能输入中文、数字、中划线" />
+            <Input placeholder="只能输入英文、数字、中划线" />
           )}
         </FormItem>
         <FormItem
@@ -95,7 +96,10 @@ export default class RegistrationForm extends PureComponent {
           hasFeedback
         >
           {getFieldDecorator('appChineseName', {
-            rules: [{ required: true, message: '请输入应用中文名' }],
+            rules: [
+              { required: true, message: '请输入应用中文名' },
+              { pattern: /^[\u4e00-\u9fa5]+$/, message: '请输入中文' },
+            ],
           })(
             <Input placeholder="应用中文名" />
           )}
