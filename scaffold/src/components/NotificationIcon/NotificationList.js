@@ -15,8 +15,11 @@ export default ({ data = [], onClick }) => {
             <div className={styles.wrapper}>
               <Avatar className={styles.avatar} src={item.avatar} />
               <div className={styles.content}>
-                <h4 className={styles.title}>{item.title}</h4>
-                <div className={styles.description}>{item.description}</div>
+                <h4 className={styles.title} title={item.title}>{item.title}</h4>
+                <div className={styles.description} title={item.description}>
+                  {item.description}
+                </div>
+                <div className={styles.datetime}>{item.datetime}</div>
                 <div className={styles.extra}>{item.extra}</div>
               </div>
             </div>
