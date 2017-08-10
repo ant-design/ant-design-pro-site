@@ -1,10 +1,14 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'dva';
 import { Form, Input, DatePicker, Select, Button } from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
 const { RangePicker } = DatePicker;
 
+@connect(state => ({
+  submitting: state.form.regularFormSubmitting,
+}))
 @Form.create()
 export default class RegistrationForm extends PureComponent {
   handleSubmit = (e) => {
@@ -12,13 +16,14 @@ export default class RegistrationForm extends PureComponent {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         this.props.dispatch({
-          type: 'form/submit',
+          type: 'form/submitRegularForm',
           payload: values,
         });
       }
     });
   }
   render() {
+    const { submitting } = this.props;
     const { getFieldDecorator } = this.props.form;
 
     const formItemLayout = {
@@ -121,7 +126,7 @@ export default class RegistrationForm extends PureComponent {
           )}
         </FormItem>
         <FormItem {...submitFormLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={submitting}>
             提交
           </Button>
           <Button style={{ marginLeft: 8 }}>

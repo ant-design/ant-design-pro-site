@@ -3,7 +3,7 @@ import { Form, Input, Button, Alert } from 'antd';
 import { routerRedux } from 'dva/router';
 import styles from './style.less';
 
-export default ({ formItemLayout, form, data, dispatch }) => {
+export default ({ formItemLayout, form, data, dispatch, submitting }) => {
   const { getFieldDecorator, validateFields } = form;
   const onPrev = () => {
     dispatch(routerRedux.push('/form/step-form'));
@@ -13,7 +13,7 @@ export default ({ formItemLayout, form, data, dispatch }) => {
     validateFields((err, values) => {
       if (!err) {
         dispatch({
-          type: 'form/submit',
+          type: 'form/submitStepForm',
           payload: {
             ...data,
             ...values,
@@ -72,7 +72,7 @@ export default ({ formItemLayout, form, data, dispatch }) => {
         wrapperCol={{ offset: 5 }}
         label=""
       >
-        <Button type="primary" onClick={onValidateForm} loading={data.submitting}>
+        <Button type="primary" onClick={onValidateForm} loading={submitting}>
           提交
         </Button>
         <Button onClick={onPrev} style={{ marginLeft: 8 }}>

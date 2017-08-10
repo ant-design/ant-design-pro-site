@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Button, Form, Icon, Col, Row, DatePicker, Input, Select, Popover } from 'antd';
+import { connect } from 'dva';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import FooterToolbar from '../../components/FooterToolbar';
 import TableForm from './TableForm';
@@ -40,14 +41,16 @@ const tableData = [{
   department: 'Sidney No. 1 Lake Park',
 }];
 
-function AdvancedForm({ form }) {
+function AdvancedForm({ form, dispatch, submitting }) {
   const { getFieldDecorator, validateFieldsAndScroll, getFieldsError } = form;
   const validate = () => {
     validateFieldsAndScroll((error, values) => {
       if (!error) {
         // submit the values
-        // eslint-disable-next-line
-        console.log(values);
+        dispatch({
+          type: 'form/submitAdvancedForm',
+          payload: values,
+        });
       }
     });
   };
@@ -245,10 +248,15 @@ function AdvancedForm({ form }) {
       <FooterToolbar>
         {getErrorInfo()}
         <Button size="large">取消</Button>
-        <Button type="primary" size="large" onClick={validate}>提交</Button>
+        <Button type="primary" size="large" onClick={validate} loading={submitting}>
+          提交
+        </Button>
       </FooterToolbar>
     </PageHeaderLayout>
   );
 }
 
-export default Form.create()(AdvancedForm);
+export default connect(state => ({
+  collapsed: state.global.collapsed,
+  submitting: state.form.advancedFormSubmitting,
+}))(Form.create()(AdvancedForm));

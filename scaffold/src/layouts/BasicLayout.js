@@ -18,7 +18,6 @@ class BasicLayout extends React.PureComponent {
     params: PropTypes.object,
   }
   state = {
-    collapsed: false,
     mode: 'inline',
   };
   getChildContext() {
@@ -31,7 +30,10 @@ class BasicLayout extends React.PureComponent {
     });
   }
   onCollapse = (collapsed) => {
-    this.setState({ collapsed });
+    this.props.dispatch({
+      type: 'global/changeLayoutCollapsed',
+      payload: collapsed,
+    });
   }
   getDefaultCollapsedSubMenus() {
     const currentMenuSelectedKeys = [...this.getCurrentMenuSelectedKeys()];
@@ -87,13 +89,14 @@ class BasicLayout extends React.PureComponent {
     return 'Ant Design Pro';
   }
   toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
+    const { collapsed } = this.props;
+    this.props.dispatch({
+      type: 'global/changeLayoutCollapsed',
+      payload: !collapsed,
     });
   }
   render() {
-    const { children, currentUser } = this.props;
-    const { collapsed } = this.state;
+    const { children, currentUser, collapsed } = this.props;
 
     const menu = (
       <Menu className={styles.menu} selectedKeys={[]}>
@@ -110,7 +113,7 @@ class BasicLayout extends React.PureComponent {
           <Sider
             trigger={null}
             collapsible
-            collapsed={this.state.collapsed}
+            collapsed={collapsed}
             breakpoint="md"
             onCollapse={this.onCollapse}
             style={{ minHeight: '100vh' }}
@@ -168,4 +171,5 @@ class BasicLayout extends React.PureComponent {
 
 export default connect(state => ({
   currentUser: state.user.currentUser,
+  collapsed: state.global.collapsed,
 }))(BasicLayout);
