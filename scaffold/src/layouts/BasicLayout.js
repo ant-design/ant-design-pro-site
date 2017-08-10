@@ -130,6 +130,7 @@ class BasicLayout extends React.PureComponent {
               mode="inline"
               defaultOpenKeys={this.getDefaultCollapsedSubMenus()}
               selectedKeys={this.getCurrentMenuSelectedKeys()}
+              style={{ margin: '24px 0' }}
             >
               {this.getNavMenuItems(menus)}
             </Menu>

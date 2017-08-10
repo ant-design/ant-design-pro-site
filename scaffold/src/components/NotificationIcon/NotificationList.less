@@ -4,15 +4,19 @@
   max-height: 400px;
   overflow: auto;
   .item {
-    padding: 16px 36px 16px 32px;
-    border-bottom: 1px solid @border-color-split;
     transition: all .3s;
     overflow: hidden;
     cursor: pointer;
-    &.read .content {
+
+    .wrapper {
+      margin: 0 32px;
+      padding: 12px 0;
+      border-bottom: 1px solid @border-color-split;
+    }
+    &.read {
       opacity: .4;
     }
-    &:last-child {
+    &:last-child .wrapper {
       border-bottom: 0;
     }
     &:hover {
@@ -26,13 +30,24 @@
       margin-right: 16px;
       float: left;
       margin-top: 4px;
+      background: #fff;
     }
     .title {
-      font-weight: 500;
+      font-weight: normal;
+      color: @text-color;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .description {
       color: @text-color-secondary;
       font-size: 12px;
+      margin-top: 8px;
+    }
+    .datetime {
+      color: @text-color-secondary;
+      font-size: 12px;
+      margin-top: 4px;
     }
     .extra {
       position: absolute;
