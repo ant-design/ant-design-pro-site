@@ -44,4 +44,14 @@ export default {
     'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }]
   }),
   'GET /api/fake_chart_data': getFakeChartData,
+  'POST /api/login/account': (req, res) => {
+    setTimeout(function () {
+      res.send({ status: 'error', type: 'account' });
+    }, 1000);
+  },
+  'POST /api/login/mobile': (req, res) => {
+    setTimeout(function () {
+      res.send({ status: 'ok', type: 'mobile' });
+    }, 1000);
+  },
 };

@@ -37,3 +37,17 @@ export async function fakeChartData() {
 export async function queryTags() {
   return request('/api/tags');
 }
+
+export async function fakeAccountLogin(params) {
+  return request('/api/login/account', {
+    method: 'POST',
+    body: params,
+  });
+}
+
+export async function fakeMobileLogin(params) {
+  return request('/api/login/mobile', {
+    method: 'POST',
+    body: params,
+  });
+}
