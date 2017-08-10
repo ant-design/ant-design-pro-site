@@ -45,4 +45,14 @@ export default {
   }),
   'GET /api/fake_list': getFakeList,
   'GET /api/fake_chart_data': getFakeChartData,
+  'POST /api/login/account': (req, res) => {
+    setTimeout(function () {
+      res.send({ status: 'error', type: 'account' });
+    }, 1000);
+  },
+  'POST /api/login/mobile': (req, res) => {
+    setTimeout(function () {
+      res.send({ status: 'ok', type: 'mobile' });
+    }, 1000);
+  },
 };
