@@ -4,15 +4,19 @@
   max-height: 400px;
   overflow: auto;
   .item {
-    padding: 16px 36px 16px 32px;
-    border-bottom: 1px solid @border-color-split;
     transition: all .3s;
     overflow: hidden;
     cursor: pointer;
+
+    .wrapper {
+      margin: 0 32px;
+      padding: 12px 0;
+      border-bottom: 1px solid @border-color-split;
+    }
     &.read .content {
       opacity: .4;
     }
-    &:last-child {
+    &:last-child .wrapper {
       border-bottom: 0;
     }
     &:hover {

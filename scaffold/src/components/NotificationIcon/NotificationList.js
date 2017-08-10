@@ -12,11 +12,13 @@ export default ({ data = [], onClick }) => {
         });
         return (
           <li className={itemCls} key={item.key} onClick={() => onClick(item)}>
-            <Avatar className={styles.avatar} src={item.avatar} />
-            <div className={styles.content}>
-              <h4 className={styles.title}>{item.title}</h4>
-              <div className={styles.description}>{item.description}</div>
-              <div className={styles.extra}>{item.extra}</div>
+            <div className={styles.wrapper}>
+              <Avatar className={styles.avatar} src={item.avatar} />
+              <div className={styles.content}>
+                <h4 className={styles.title}>{item.title}</h4>
+                <div className={styles.description}>{item.description}</div>
+                <div className={styles.extra}>{item.extra}</div>
+              </div>
             </div>
           </li>
         );

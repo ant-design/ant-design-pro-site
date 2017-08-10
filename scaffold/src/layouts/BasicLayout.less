@@ -2,16 +2,15 @@
 
 .header {
   background: @primary-color;
-  padding: 0 24px 0 0;
+  padding: 0 16px 0 0;
   color: #fff;
 }
 
 .logo {
   height: 64px;
   position: relative;
-  margin-bottom: 24px;
   line-height: 64px;
-  padding: 0 24px;
+  padding: 0 16px;
   background: @primary-color;
   overflow: hidden;
   img {
@@ -52,11 +51,15 @@
   .account {
     cursor: pointer;
     display: inline-block;
+    padding: 0 12px;
     .avatar {
-      margin: 20px 8px;
+      margin: 20px 8px 20px 0;
       color: @primary-color;
       background: rgba(255, 255, 255, .85);
       vertical-align: top;
+    }
+    &:hover {
+      background: @primary-7;
     }
   }
   :global(.ant-badge) {
@@ -64,10 +67,9 @@
   }
   .action {
     cursor: pointer;
-    padding: 0 8px;
-    margin-right: 16px;
+    padding: 0 12px;
     > i {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 }
@@ -79,8 +81,7 @@
   :global(.ant-dropdown-menu-item) {
     padding-left: 16px;
     padding-right: 16px;
-    font-size: 12px;
-    width: 160px;
+    width: 190px;
   }
 }
 

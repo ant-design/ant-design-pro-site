@@ -72,19 +72,21 @@ export default class NotificationIcon extends PureComponent {
   }
   render() {
     const { className, count } = this.props;
-    const badgeClass = classNames(className, styles.badge);
+    const noticeButtonClass = classNames(className, styles.noticeButton);
     return (
-      <Popover
-        placement="bottomRight"
-        content={this.getNotificationBox()}
-        popupClassName={styles.popover}
-        trigger="click"
-        arrowPointAtCenter
-      >
-        <Badge count={count} className={badgeClass}>
-          <Icon type="bell" />
-        </Badge>
-      </Popover>
+      <span className={noticeButtonClass}>
+        <Popover
+          placement="bottomRight"
+          content={this.getNotificationBox()}
+          popupClassName={styles.popover}
+          trigger="click"
+          arrowPointAtCenter
+        >
+          <Badge count={count} className={styles.badge}>
+            <Icon type="bell" className={styles.icon} />
+          </Badge>
+        </Popover>
+      </span>
     );
   }
 }
