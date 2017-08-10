@@ -116,19 +116,20 @@ export default class NotificationIcon extends PureComponent {
     const { className, count } = this.props;
     const noticeButtonClass = classNames(className, styles.noticeButton);
     return (
-      <span className={noticeButtonClass}>
-        <Popover
-          placement="bottomRight"
-          content={this.getNotificationBox()}
-          popupClassName={styles.popover}
-          trigger="click"
-          arrowPointAtCenter
-        >
+      <Popover
+        placement="bottomRight"
+        content={this.getNotificationBox()}
+        popupClassName={styles.popover}
+        trigger="click"
+        arrowPointAtCenter
+        popupAlign={{ offset: [20, -16] }}
+      >
+        <span className={noticeButtonClass}>
           <Badge count={count} className={styles.badge}>
             <Icon type="bell" className={styles.icon} />
           </Badge>
-        </Popover>
-      </span>
+        </span>
+      </Popover>
     );
   }
 }
