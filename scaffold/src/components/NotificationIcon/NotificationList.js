@@ -13,7 +13,7 @@ export default ({ data = [], onClick }) => {
         return (
           <li className={itemCls} key={item.key} onClick={() => onClick(item)}>
             <div className={styles.wrapper}>
-              <Avatar className={styles.avatar} src={item.avatar} />
+              {item.avatar ? <Avatar className={styles.avatar} src={item.avatar} /> : null}
               <div className={styles.content}>
                 <h4 className={styles.title} title={item.title}>{item.title}</h4>
                 <div className={styles.description} title={item.description}>
