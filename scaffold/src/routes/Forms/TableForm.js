@@ -1,27 +1,21 @@
 import React, { PureComponent } from 'react';
-import { Table, Button, Input } from 'antd';
-
-const data = [{
-  key: '1',
-  workId: '00001',
-  name: 'John Brown',
-  department: 'New York No. 1 Lake Park',
-}, {
-  key: '2',
-  workId: '00002',
-  name: 'Jim Green',
-  department: 'London No. 1 Lake Park',
-}, {
-  key: '3',
-  workId: '00003',
-  name: 'Joe Black',
-  department: 'Sidney No. 1 Lake Park',
-}];
+import { Table, Button, Input, message } from 'antd';
 
 export default class TableForm extends PureComponent {
-  state = {
-    data,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: props.value,
+    };
+  }
+  componentWillReceiveProps(nextProps) {
+    if ('value' in nextProps) {
+      this.setState({
+        data: nextProps.value,
+      });
+    }
+  }
   getRowByKey(key) {
     return this.state.data.filter(item => item.key === key)[0];
   }
@@ -54,6 +48,7 @@ export default class TableForm extends PureComponent {
     e.preventDefault();
     const newData = this.state.data.filter(item => item.key !== key);
     this.setState({ data: newData });
+    this.props.onChange(newData);
   }
   newMember = () => {
     const newData = [...this.state.data];
@@ -76,7 +71,13 @@ export default class TableForm extends PureComponent {
     }
   }
   saveRow(e, key) {
+    const target = this.getRowByKey(key);
+    if (!target.workId || !target.name || !target.department) {
+      message.error('请填写完整成员信息。');
+      return;
+    }
     this.toggleEditable(e, key);
+    this.props.onChange(this.state.data);
   }
   cancel(e, key) {
     e.preventDefault();
@@ -96,7 +97,14 @@ export default class TableForm extends PureComponent {
       width: '20%',
       render: (text, record) => {
         if (record.editable) {
-          return <Input value={text} onChange={e => this.handleFieldChange(e, 'name', record.key)} />;
+          return (
+            <Input
+              value={text}
+              autoFocus
+              onChange={e => this.handleFieldChange(e, 'name', record.key)}
+              placeholder="成员姓名"
+            />
+          );
         }
         return text;
       },
@@ -107,7 +115,13 @@ export default class TableForm extends PureComponent {
       width: '20%',
       render: (text, record) => {
         if (record.editable) {
-          return <Input value={text} onChange={e => this.handleFieldChange(e, 'workId', record.key)} />;
+          return (
+            <Input
+              value={text}
+              onChange={e => this.handleFieldChange(e, 'workId', record.key)}
+              placeholder="工号"
+            />
+          );
         }
         return text;
       },
@@ -118,7 +132,13 @@ export default class TableForm extends PureComponent {
       width: '40%',
       render: (text, record) => {
         if (record.editable) {
-          return <Input value={text} onChange={e => this.handleFieldChange(e, 'department', record.key)} />;
+          return (
+            <Input
+              value={text}
+              onChange={e => this.handleFieldChange(e, 'department', record.key)}
+              placeholder="所属部门"
+            />
+          );
         }
         return text;
       },

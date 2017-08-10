@@ -23,6 +23,23 @@ const fieldLabels = {
   type2: '仓库类型',
 };
 
+const tableData = [{
+  key: '1',
+  workId: '00001',
+  name: 'John Brown',
+  department: 'New York No. 1 Lake Park',
+}, {
+  key: '2',
+  workId: '00002',
+  name: 'Jim Green',
+  department: 'London No. 1 Lake Park',
+}, {
+  key: '3',
+  workId: '00003',
+  name: 'Joe Black',
+  department: 'Sidney No. 1 Lake Park',
+}];
+
 function AdvancedForm({ form }) {
   const { getFieldDecorator, validateFieldsAndScroll, getFieldsError } = form;
   const validate = () => {
@@ -221,7 +238,9 @@ function AdvancedForm({ form }) {
         </Form>
       </Card>
       <Card title="成员管理" className={styles.card} bordered={false} style={{ marginBottom: 84 }}>
-        <TableForm />
+        {getFieldDecorator('members', {
+          initialValue: tableData,
+        })(<TableForm />)}
       </Card>
       <FooterToolbar>
         {getErrorInfo()}
