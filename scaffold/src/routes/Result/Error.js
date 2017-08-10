@@ -27,7 +27,7 @@ export default () => (
       <Result
         type="error"
         title="提交失败"
-        desc="请核对并修改以下信息后，再重新提交。"
+        description="请核对并修改以下信息后，再重新提交。"
         extra={extra}
         actions={actions}
         style={{ margin: '30px 120px' }}

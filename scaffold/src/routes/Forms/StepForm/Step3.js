@@ -42,7 +42,7 @@ export default ({ dispatch, data }) => {
     <Result
       type="success"
       title="操作成功"
-      desc="预计两小时内到账"
+      description="预计两小时内到账"
       extra={information}
       actions={actions}
       className={styles.result}
