@@ -6,7 +6,7 @@ import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
 function BasicForms() {
   return (
-    <PageHeaderLayout title="基础表单">
+    <PageHeaderLayout title="基础表单" content="表单页是向后台提交数据的标准场景。">
       <Card bordered={false} noHovering>
         <StandardForm />
       </Card>
