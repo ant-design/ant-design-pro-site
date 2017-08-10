@@ -14,9 +14,8 @@ import Profile from '../routes/Profile';
 import BasicForm from '../routes/Forms/BasicForm';
 import AdvancedForm from '../routes/Forms/AdvancedForm';
 import StepForm from '../routes/Forms/StepForm';
-import LongForm from '../routes/Forms/LongForm';
-import Step2 from '../routes/Forms/Steps/Step2';
-import Step3 from '../routes/Forms/Steps/Step3';
+import Step2 from '../routes/Forms/StepForm/Step2';
+import Step3 from '../routes/Forms/StepForm/Step3';
 
 import Exception403 from '../routes/Exception/403';
 import Exception404 from '../routes/Exception/404';
@@ -26,6 +25,7 @@ import Success from '../routes/Result/Success';
 import Error from '../routes/Result/Error';
 
 import Login from '../routes/User/Login';
+import Register from '../routes/User/Register';
 
 export const menus = [{
   name: 'Dashboard',
@@ -72,11 +72,6 @@ export const menus = [{
     name: '高级表单',
     path: 'advanced-form',
     component: AdvancedForm,
-    icon: 'setting',
-  }, {
-    name: '长表单',
-    path: 'long-form',
-    component: LongForm,
     icon: 'setting',
   }],
 }, {
@@ -162,8 +157,8 @@ export const user = [{
     icon: 'setting',
   }, {
     name: '注册',
-    path: 'registry',
-    component: null,
+    path: 'register',
+    component: Register,
     icon: 'setting',
   }],
 }];

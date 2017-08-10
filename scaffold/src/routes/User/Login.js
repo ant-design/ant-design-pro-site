@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { routerRedux } from 'dva/router';
+import { routerRedux, Link } from 'dva/router';
 import { Form, Input, Tabs, Button, Icon, Checkbox, Row, Col, Alert } from 'antd';
 import styles from './Login.less';
 
@@ -19,6 +19,10 @@ class Login extends Component {
     }
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   onSwitch = (key) => {
     this.setState({
       type: key,
@@ -28,11 +32,11 @@ class Login extends Component {
   onGetCaptcha = () => {
     let count = 59;
     this.setState({ count });
-    const interval = setInterval(() => {
+    this.interval = setInterval(() => {
       count -= 1;
       this.setState({ count });
       if (count === 0) {
-        clearInterval(interval);
+        clearInterval(this.interval);
       }
     }, 1000);
   }
@@ -146,7 +150,7 @@ class Login extends Component {
             )}
             <a className={styles.forgot} href="">忘记密码</a>
             <Button loading={login.submitting} className={styles.submit} type="primary" htmlType="submit">
-              登 录
+              登录
             </Button>
           </FormItem>
         </Form>
@@ -156,7 +160,7 @@ class Login extends Component {
           <span className={styles.iconAlipay} />
           <span className={styles.iconTaobao} />
           <span className={styles.iconWeibo} />
-          <a className={styles.register} href="">注册账户</a>
+          <Link className={styles.register} to="/user/register">注册账户</Link>
         </div>
       </div>
     );

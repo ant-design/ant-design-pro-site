@@ -1,4 +1,5 @@
 import { routerRedux } from 'dva/router';
+import { message } from 'antd';
 import { fakeSubmitForm } from '../services/api';
 
 export default {
@@ -6,14 +7,28 @@ export default {
 
   state: {
     step: {
-      submitting: false,
     },
+    regularFormSubmitting: false,
+    stepFormSubmitting: false,
+    advancedFormSubmitting: false,
   },
 
   effects: {
-    *submit({ payload }, { call, put }) {
+    *submitRegularForm({ payload }, { call, put }) {
       yield put({
-        type: 'changeSubmitting',
+        type: 'changeRegularFormSubmitting',
+        payload: true,
+      });
+      yield call(fakeSubmitForm, payload);
+      yield put({
+        type: 'changeRegularFormSubmitting',
+        payload: false,
+      });
+      message.success('提交成功');
+    },
+    *submitStepForm({ payload }, { call, put }) {
+      yield put({
+        type: 'changeStepFormSubmitting',
         payload: true,
       });
       yield call(fakeSubmitForm, payload);
@@ -22,10 +37,22 @@ export default {
         payload,
       });
       yield put({
-        type: 'changeSubmitting',
+        type: 'changeStepFormSubmitting',
         payload: false,
       });
       yield put(routerRedux.push('/form/step-form/result'));
+    },
+    *submitAdvancedForm({ payload }, { call, put }) {
+      yield put({
+        type: 'changeAdvancedFormSubmitting',
+        payload: true,
+      });
+      yield call(fakeSubmitForm, payload);
+      yield put({
+        type: 'changeAdvancedFormSubmitting',
+        payload: false,
+      });
+      message.success('提交成功');
     },
   },
 
@@ -39,13 +66,22 @@ export default {
         },
       };
     },
-    changeSubmitting(state, { payload }) {
+    changeRegularFormSubmitting(state, { payload }) {
       return {
         ...state,
-        step: {
-          ...state.step,
-          submitting: payload,
-        },
+        regularFormSubmitting: payload,
+      };
+    },
+    changeStepFormSubmitting(state, { payload }) {
+      return {
+        ...state,
+        stepFormSubmitting: payload,
+      };
+    },
+    changeAdvancedFormSubmitting(state, { payload }) {
+      return {
+        ...state,
+        advancedFormSubmitting: payload,
       };
     },
   },

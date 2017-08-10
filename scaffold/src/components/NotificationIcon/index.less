@@ -7,13 +7,16 @@
   }
 }
 
-.badge {
-  margin-right: 24px;
+.noticeButton {
+  display: inline-block;
+  transition: all .3s;
+  &:global(.ant-popover-open) {
+    background: @primary-7;
+  }
 }
 
 .icon {
-  padding: 0 4px !important;
-  margin: 0 !important;
+  font-size: 18px;
 }
 
 .tabs {
@@ -35,7 +38,6 @@
 }
 
 .clear {
-  background: #fbfbfb;
   height: 46px;
   line-height: 46px;
   text-align: center;
