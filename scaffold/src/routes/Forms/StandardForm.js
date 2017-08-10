@@ -1,10 +1,14 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'dva';
 import { Form, Input, DatePicker, Select, Button } from 'antd';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
 const { RangePicker } = DatePicker;
 
+@connect(state => ({
+  submitting: state.form.regularFormSubmitting,
+}))
 @Form.create()
 export default class RegistrationForm extends PureComponent {
   handleSubmit = (e) => {
@@ -12,13 +16,14 @@ export default class RegistrationForm extends PureComponent {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         this.props.dispatch({
-          type: 'form/submit',
+          type: 'form/submitRegularForm',
           payload: values,
         });
       }
     });
   }
   render() {
+    const { submitting } = this.props;
     const { getFieldDecorator } = this.props.form;
 
     const formItemLayout = {
@@ -77,11 +82,12 @@ export default class RegistrationForm extends PureComponent {
           hasFeedback
         >
           {getFieldDecorator('appName', {
-            rules: [{
-              required: true, message: '请输入应用名',
-            }],
+            rules: [
+              { required: true, message: '请输入应用名' },
+              { pattern: /^[a-zA-Z0-9-]+$/, message: '只能输入英文、数字、中划线' },
+            ],
           })(
-            <Input placeholder="只能输入中文、数字、中划线" />
+            <Input placeholder="只能输入英文、数字、中划线" />
           )}
         </FormItem>
         <FormItem
@@ -90,7 +96,10 @@ export default class RegistrationForm extends PureComponent {
           hasFeedback
         >
           {getFieldDecorator('appChineseName', {
-            rules: [{ required: true, message: '请输入应用中文名' }],
+            rules: [
+              { required: true, message: '请输入应用中文名' },
+              { pattern: /^[\u4e00-\u9fa5]+$/, message: '请输入中文' },
+            ],
           })(
             <Input placeholder="应用中文名" />
           )}
@@ -121,7 +130,7 @@ export default class RegistrationForm extends PureComponent {
           )}
         </FormItem>
         <FormItem {...submitFormLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={submitting}>
             提交
           </Button>
           <Button style={{ marginLeft: 8 }}>

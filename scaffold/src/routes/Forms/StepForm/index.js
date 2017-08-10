@@ -1,9 +1,9 @@
 import React, { cloneElement, PureComponent } from 'react';
 import { connect } from 'dva';
 import { Card, Steps, Form } from 'antd';
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
-import Step1 from './Steps/Step1';
-import styles from './style.less';
+import PageHeaderLayout from '../../../layouts/PageHeaderLayout';
+import Step1 from './Step1';
+import styles from '../style.less';
 
 const Step = Steps.Step;
 
@@ -26,7 +26,7 @@ class StepForm extends PureComponent {
     }
   }
   render() {
-    const { form, stepFormData, dispatch, children } = this.props;
+    const { form, stepFormData, submitting, dispatch, children } = this.props;
     const formItemLayout = {
       labelCol: {
         span: 5,
@@ -36,7 +36,7 @@ class StepForm extends PureComponent {
       },
     };
     return (
-      <PageHeaderLayout title="分步表单">
+      <PageHeaderLayout title="分步表单" content="将表单内容进行分步可以提高用户处理的专注度，降低页面复杂性。">
         <Card bordered={false}>
           <div>
             <Steps current={this.getCurrentStep()} className={styles.steps}>
@@ -48,6 +48,7 @@ class StepForm extends PureComponent {
               form,
               formItemLayout,
               data: stepFormData,
+              submitting,
               dispatch,
             }) : (
               <Step1
@@ -65,4 +66,5 @@ class StepForm extends PureComponent {
 
 export default connect(state => ({
   stepFormData: state.form.step,
+  submitting: state.form.stepFormSubmitting,
 }))(StepForm);
