@@ -55,4 +55,9 @@ export default {
       res.send({ status: 'ok', type: 'mobile' });
     }, 1000);
   },
+  'POST /api/register': (req, res) => {
+    setTimeout(function () {
+      res.send({ status: 'ok' });
+    }, 1000);
+  },
 };

@@ -27,6 +27,7 @@ import Success from '../routes/Result/Success';
 import Error from '../routes/Result/Error';
 
 import Login from '../routes/User/Login';
+import Register from '../routes/User/Register';
 
 export const menus = [{
   name: 'Dashboard',
@@ -163,8 +164,8 @@ export const user = [{
     icon: 'setting',
   }, {
     name: '注册',
-    path: 'registry',
-    component: null,
+    path: 'register',
+    component: Register,
     icon: 'setting',
   }],
 }];
