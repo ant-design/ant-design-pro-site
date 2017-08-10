@@ -1,0 +1,59 @@
+@import "~antd/lib/style/themes/default.less";
+@import "../../utils/utils.less";
+
+.standardList {
+  :global {
+    .ant-list-pagination {
+      text-align: right;
+    }
+  }
+  .headerInfo {
+    position: relative;
+    text-align: center;
+    & > span {
+      color: @text-color-secondary;
+      display: inline-block;
+      font-size: @font-size-base;
+      line-height: 22px;
+      margin-bottom: 4px;
+    }
+    & > p {
+      color: @heading-color;
+      font-size: 24px;
+      line-height: 32px;
+    }
+    & > em {
+      background-color: @border-color-split;
+      position: absolute;
+      height: 56px;
+      width: 1px;
+      top: 0;
+      right: 0;
+    }
+  }
+  .extraContent {
+    position: relative;
+    top: -2px;
+  }
+  .listContent {
+    .clearfix();
+    margin-left: 24px;
+    font-size: 0;
+    & > div {
+      color: @text-color-secondary;
+      display: inline-block;
+      font-size: @font-size-base;
+      margin-right: 24px;
+      & > span {
+        line-height: 20px;
+      }
+      & > p {
+        margin-top: 4px;
+        line-height: 22px;
+      }
+    }
+    & > div:last-child {
+      width: 188px;
+    }
+  }
+}

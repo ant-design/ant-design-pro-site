@@ -44,8 +44,8 @@ ReactDOM.render(
   background: #eee;
 }
 #scaffold-src-components-PageHeader-demo-structure .logo {
-	background: #3ba0e9;
-	color: #fff;
+  background: #3ba0e9;
+  color: #fff;
   height: 100%;
 }
 #scaffold-src-components-PageHeader-demo-structure .title {

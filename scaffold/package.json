@@ -8,7 +8,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "antd": "^2.12.1",
+    "antd": "^3.0.0-alpha.0",
     "dva": "^1.2.1",
     "g-cloud": "^1.0.2-beta",
     "g2": "^2.3.8",

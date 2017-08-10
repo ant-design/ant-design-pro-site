@@ -6,9 +6,11 @@ import Workplace from '../routes/Dashboard/Workplace';
 
 import TableList from '../routes/List/TableList';
 import CoverCardList from '../routes/List/CoverCardList';
+import CardList from '../routes/List/CardList';
+import FilterCardList from '../routes/List/FilterCardList';
 import SearchList from '../routes/List/SearchList';
+import BasicList from '../routes/List/BasicList';
 
-import ListPage from '../routes/ListPage';
 import Profile from '../routes/Profile';
 import BasicForm from '../routes/Forms/BasicForm';
 import AdvancedForm from '../routes/Forms/AdvancedForm';
@@ -82,17 +84,22 @@ export const menus = [{
   }, {
     name: '标准列表',
     path: 'basic-list',
-    component: ListPage,
+    component: BasicList,
     icon: 'setting',
   }, {
     name: '卡片列表',
     path: 'card-list',
-    component: null,
+    component: CardList,
     icon: 'setting',
   }, {
     name: '卡片列表（封面）',
     path: 'cover-card-list',
     component: CoverCardList,
+    icon: 'setting',
+  }, {
+    name: '带筛选卡片列表',
+    path: 'filter-card-list',
+    component: FilterCardList,
     icon: 'setting',
   }, {
     name: '搜索列表',
