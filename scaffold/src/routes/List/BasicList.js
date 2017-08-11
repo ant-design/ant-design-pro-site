@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
 import { connect } from 'dva';
-import { List, Card, Row, Col, Radio, Input, Progress } from 'antd';
+import { List, Card, Row, Col, Radio, Input, Progress, Button, Icon, Dropdown, Menu } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
@@ -57,7 +57,7 @@ class BasicList extends PureComponent {
       },
     };
 
-    const ListContent = ({ data: { owner, createdAt, percent } }) => (
+    const ListContent = ({ data: { owner, createdAt, percent, status } }) => (
       <div className={styles.listContent}>
         <div>
           <span>Owner</span>
@@ -68,9 +68,28 @@ class BasicList extends PureComponent {
           <p>{moment(createdAt).format('YYYY-MM-DD hh:mm')}</p>
         </div>
         <div>
-          <Progress percent={percent} />
+          <Progress percent={percent} status={status} strokeWidth={6} />
         </div>
       </div>
+    );
+
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <a>编辑</a>
+        </Menu.Item>
+        <Menu.Item>
+          <a>删除</a>
+        </Menu.Item>
+      </Menu>
+    );
+
+    const MoreBtn = () => (
+      <Dropdown overlay={menu}>
+        <a>
+          更多 <Icon type="down" />
+        </a>
+      </Dropdown>
     );
 
     return (
@@ -95,6 +114,9 @@ class BasicList extends PureComponent {
             style={{ marginTop: 16 }}
             extra={extraContent}
           >
+            <Button type="dashed" style={{ width: '100%' }}>
+              <Icon type="plus" /> 添加
+            </Button>
             <List
               loading={loading}
               pagination={paginationProps}
@@ -103,7 +125,7 @@ class BasicList extends PureComponent {
                 list && list.map(item => (
                   <List.Item
                     key={item.id}
-                    actions={[<a>编辑</a>, <a>更多</a>]}
+                    actions={[<a>编辑</a>, <MoreBtn />]}
                   >
                     <List.Item.Meta
                       avatar={<img src={item.logo} alt={item.title} />}

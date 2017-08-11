@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import { connect } from 'dva';
-import { Form, Card, Select, Input, Button, List, Tag, Icon } from 'antd';
+import { Form, Card, Select, Input, Button, List, Tag, Icon, Avatar } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import StandardFormRow from '../../components/StandardFormRow';
@@ -14,11 +15,17 @@ const TagExpand = TagSelect.Expand;
 
 @Form.create()
 class SearchList extends Component {
+  state = {
+    count: 3,
+    showLoadMore: true,
+  }
+
   componentDidMount() {
+    const { count } = this.state;
     this.props.dispatch({
       type: 'list/fetch',
       payload: {
-        count: 3,
+        count,
       },
     });
   }
@@ -30,8 +37,31 @@ class SearchList extends Component {
     });
   }
 
+  handleLoadMore = () => {
+    const { count } = this.state;
+    const nextCount = count + 5;
+
+    this.setState({
+      count: nextCount,
+    });
+    this.props.dispatch({
+      type: 'list/fetch',
+      payload: {
+        count: nextCount,
+      },
+    });
+
+    // fack count
+    if (nextCount < 10) {
+      this.setState({
+        showLoadMore: false,
+      });
+    }
+  }
+
   render() {
-    const { form, list: { list, loading } } = this.props;
+    const { showLoadMore } = this.state;
+    const { form, list: { list } } = this.props;
     const { getFieldDecorator } = form;
 
     const owners = [
@@ -72,7 +102,7 @@ class SearchList extends Component {
       },
     ];
 
-    const content = (
+    const pageHeaderContent = (
       <div className={styles.search}>
         <Input
           style={{ width: 522 }}
@@ -90,10 +120,20 @@ class SearchList extends Component {
       </span>
     );
 
+    const ListContent = ({ data: { content, updatedAt, avatar, owner, href } }) => (
+      <div className={styles.listContent}>
+        <p>{content}</p>
+        <div>
+          <Avatar src={avatar} size="small" />{owner} 发布在 <a href={href}>{href}</a>
+          <em>{moment(updatedAt).format('YYYY-MM-DD hh:mm')}</em>
+        </div>
+      </div>
+    );
+
     return (
       <PageHeaderLayout
         title="搜索列表"
-        content={<div style={{ textAlign: 'center' }}>{content}</div>}
+        content={<div style={{ textAlign: 'center' }}>{pageHeaderContent}</div>}
         tabList={tabList}
       >
         <div>
@@ -174,15 +214,14 @@ class SearchList extends Component {
           </Card>
           <Card style={{ marginTop: 16 }}>
             <List
-              loading={loading}
-              showLoadMore
-              onLoadMore={() => {}}
+              showLoadMore={(list.length > 0) && showLoadMore}
+              onLoadMore={this.handleLoadMore}
               itemLayout="vertical"
             >
               {
                 list && list.map(item => (
                   <List.Item
-                    key={item.title}
+                    key={item.id}
                     actions={[<IconText type="star-o" text={item.star} />, <IconText type="like-o" text={item.like} />, <IconText type="message" text={item.message} />]}
                     extra={<div style={{ width: 272, height: 1 }} />}
                   >
@@ -190,7 +229,7 @@ class SearchList extends Component {
                       title={<a href={item.href}>{item.title}</a>}
                       description={<div><Tag>Ant Design</Tag><Tag>设计语言</Tag><Tag>蚂蚁金服</Tag></div>}
                     />
-                    {item.content}
+                    <ListContent data={item} />
                   </List.Item>
                 ))
               }

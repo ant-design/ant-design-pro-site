@@ -19,3 +19,32 @@
     line-height: 40px;
   }
 }
+
+.listContent {
+  & > div {
+    color: @text-color-secondary;
+    margin-top: 16px;
+    height: 22px;
+    line-height: 22px;
+    img {
+      margin-right: 16px;
+    }
+    & > span {
+      vertical-align: top;
+      margin-right: 16px;
+      width: 20px;
+      height: 20px;
+    }
+    & > em {
+      color: @disabled-color;
+      font-style: normal;
+      margin-left: 24px;
+    }
+    a {
+      color: @text-color-secondary;
+      &:hover {
+        color: @primary-color;
+      }
+    }
+  }
+}
