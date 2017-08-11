@@ -45,11 +45,11 @@ class Login extends Component {
     e.preventDefault();
     const { type } = this.state;
     this.props.form.validateFields({ force: true },
-      (err) => {
+      (err, values) => {
         if (!err) {
           this.props.dispatch({
             type: `login/${type}Submit`,
-            payload: this.props.form.getFieldsValue(),
+            payload: values,
           });
         }
       }
