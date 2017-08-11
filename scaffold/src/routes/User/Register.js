@@ -38,11 +38,11 @@ class Register extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields({ force: true },
-      (err) => {
+      (err, values) => {
         if (!err) {
           this.props.dispatch({
             type: 'register/submit',
-            payload: this.props.form.getFieldsValue(),
+            payload: values,
           });
         }
       }
