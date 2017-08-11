@@ -2,7 +2,74 @@
 @import "../../utils/utils.less";
 
 .activitiesList {
-  padding-bottom: 24px;
+  padding: 0 24px 24px 24px;
+  :global {
+    .ant-list-item-meta-title:hover {
+      color: @text-color;
+    }
+  }
+}
+
+.pageHeaderTitle {
+  display: flex;
+  .titleAvatar {
+    flex: 0 1 80px;
+    & > span {
+      border-radius: 80px;
+      display: block;
+      width: 80px;
+      height: 80px;
+    }
+  }
+  .titleContent {
+    position: relative;
+    top: 8px;
+    margin-left: 32px;
+    flex: 1 1 auto;
+    & > p:last-child {
+      color: @text-color-secondary;
+      font-size: @font-size-base;
+      line-height: 22px;
+      margin-top: 12px;
+    }
+  }
+}
+
+.pageHeaderAction {
+  float: right;
+  .clearfix();
+  & > div {
+    text-align: right;
+    padding: 0 24px;
+    position: relative;
+    float: left;
+    & > p:first-child {
+      color: @text-color-secondary;
+      font-size: @font-size-base;
+      line-height: 22px;
+      margin-bottom: 2px;
+    }
+    & > p {
+      color: @text-color;
+      font-size: 30px;
+      line-height: 38px;
+      & > span {
+        color: @text-color-secondary;
+        font-size: 20px;
+      }
+    }
+    & > em {
+      background-color: @border-color-split;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 40px;
+    }
+  }
+  & > div:last-child {
+    padding-right: 0;
+  }
 }
 
 .members {
