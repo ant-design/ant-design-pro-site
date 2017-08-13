@@ -22,7 +22,7 @@ const copyright = <div>Copyright <Icon type="copyright" /> 2017 蚂蚁金服体�
 export default ({ children, footer, ...restProps }) => (
   <div style={{ margin: -24 }}>
     <PageHeader {...restProps} />
-    {children ? <div style={{ margin: '24px 24px 0 24px' }}>{children}</div> : null}
+    {children ? <div style={{ margin: (footer ? '24px 24px 0 24px' : 24) }}>{children}</div> : null}
     {
       footer && <Footer links={links} copyright={copyright} />
     }

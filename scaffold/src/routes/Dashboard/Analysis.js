@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Row, Col, Icon, Card, Tabs, Table, Radio, DatePicker } from 'antd';
+import { Row, Col, Icon, Card, Tabs, Table, Radio, DatePicker, Tooltip } from 'antd';
 
 import { ChartCard, Trend, numeral, MiniArea, MiniBar, MiniProgress, Field, Bar, Pie, NumberInfo, IconUp, IconDown } from '../../components/Charts';
 
@@ -130,7 +130,7 @@ class Analysis extends Component {
           <Col span={6}>
             <ChartCard
               title="销售额"
-              action={<Icon type="exclamation-circle-o" />}
+              action={<Tooltip title="我是一段说明"><Icon type="exclamation-circle-o" /></Tooltip>}
               total={numeral.yuan(126560)}
               footer={<Field label="日均销售额" value={numeral(12423).format('0,0')} />}
               contentHeight={46}
