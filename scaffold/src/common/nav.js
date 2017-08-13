@@ -1,4 +1,5 @@
 import BasicLayout from '../layouts/BasicLayout';
+import UserLayout from '../layouts/UserLayout';
 
 import Analysis from '../routes/Dashboard/Analysis';
 import Monitor from '../routes/Dashboard/Monitor';
@@ -24,6 +25,10 @@ import Exception500 from '../routes/Exception/500';
 
 import Success from '../routes/Result/Success';
 import Error from '../routes/Result/Error';
+
+import Login from '../routes/User/Login';
+import Register from '../routes/User/Register';
+import RegisterResult from '../routes/User/RegisterResult';
 
 export const menus = [{
   name: 'Dashboard',
@@ -113,21 +118,6 @@ export const menus = [{
   component: Profile,
   icon: 'setting',
 }, {
-  name: '帐户',
-  icon: 'setting',
-  path: 'user',
-  children: [{
-    name: '登录',
-    path: 'login',
-    component: null,
-    icon: 'setting',
-  }, {
-    name: '注册',
-    path: 'registry',
-    component: null,
-    icon: 'setting',
-  }],
-}, {
   name: '结果',
   path: 'result',
   icon: 'setting',
@@ -164,8 +154,34 @@ export const menus = [{
   }],
 }];
 
+export const user = [{
+  name: '帐户',
+  icon: 'setting',
+  path: 'user',
+  children: [{
+    name: '登录',
+    path: 'login',
+    component: Login,
+    icon: 'setting',
+  }, {
+    name: '注册',
+    path: 'register',
+    component: Register,
+    icon: 'setting',
+  }, {
+    name: '注册结果',
+    path: 'register-result',
+    component: RegisterResult,
+    icon: 'setting',
+  }],
+}];
+
 export default [{
   component: BasicLayout,
   name: '首页',
   children: menus,
+}, {
+  component: UserLayout,
+  name: '账户',
+  children: user,
 }];
