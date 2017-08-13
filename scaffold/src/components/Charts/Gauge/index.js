@@ -130,6 +130,7 @@ class Gauge extends PureComponent {
       min: 0,
       max: 100,
       tickCount: 6,
+      subTick: false,
     });
     chart.axis('value', {
       tickLine: {

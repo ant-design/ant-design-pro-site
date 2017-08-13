@@ -8,9 +8,32 @@ class WaterWave extends PureComponent {
   static defaultProps = {
     height: 160,
   }
+  state = {
+    radio: 1,
+  }
 
   componentDidMount() {
     this.renderChart();
+    this.resize();
+
+    window.addEventListener('resize', () => {
+      this.resize();
+    });
+  }
+
+  resize() {
+    const { height } = this.props;
+    const realWidth = this.root.parentNode.offsetWidth;
+    if (realWidth < this.props.height) {
+      const radio = realWidth / height;
+      this.setState({
+        radio,
+      });
+    } else {
+      this.setState({
+        radio: 1,
+      });
+    }
   }
 
   renderChart() {
@@ -147,9 +170,10 @@ class WaterWave extends PureComponent {
   }
 
   render() {
+    const { radio } = this.state;
     const { percent, title, height } = this.props;
     return (
-      <div className={styles.waterWave} ref={n => (this.root = n)}>
+      <div className={styles.waterWave} ref={n => (this.root = n)} style={{ transform: `scale(${radio})` }}>
         <canvas ref={n => (this.node = n)} width={height} height={height} />
         <div className={styles.text} style={{ width: height }}>
           {

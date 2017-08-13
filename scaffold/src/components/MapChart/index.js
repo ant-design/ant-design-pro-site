@@ -18,7 +18,7 @@ class MapChart extends Component {
     };
   }
   renderChart() {
-    console.log(this.props.data);
+    console.log('todo render chart', this.root.offsetWidth);
   }
   render() {
     return (
