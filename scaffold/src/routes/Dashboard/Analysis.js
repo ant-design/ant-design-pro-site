@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Row, Col, Icon, Card, Tabs, Table, Radio, DatePicker } from 'antd';
+import { Row, Col, Icon, Card, Tabs, Table, Radio, DatePicker, Tooltip } from 'antd';
 
 import { ChartCard, Trend, numeral, MiniArea, MiniBar, MiniProgress, Field, Bar, Pie, NumberInfo, IconUp, IconDown } from '../../components/Charts';
 
+import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import TimelineChart from '../../components/TimelineChart';
 import RadioText from '../../components/RadioText';
 
@@ -12,6 +13,14 @@ import styles from './Analysis.less';
 const TabPane = Tabs.TabPane;
 const RadioGroup = Radio.Group;
 const { RangePicker } = DatePicker;
+
+const rankingListData = [];
+for (let i = 0; i < 7; i += 1) {
+  rankingListData.push({
+    title: `工专路 ${i} 号店`,
+    total: 323234,
+  });
+}
 
 class Analysis extends Component {
   state = {
@@ -114,12 +123,14 @@ class Analysis extends Component {
     );
 
     return (
-      <div>
+      <PageHeaderLayout
+        title="业务分析"
+      >
         <Row gutter={24}>
           <Col span={6}>
             <ChartCard
               title="销售额"
-              action={<Icon type="exclamation-circle-o" />}
+              action={<Tooltip title="我是一段说明"><Icon type="exclamation-circle-o" /></Tooltip>}
               total={numeral.yuan(126560)}
               footer={<Field label="日均销售额" value={numeral(12423).format('0,0')} />}
               contentHeight={46}
@@ -192,7 +203,17 @@ class Analysis extends Component {
                 </Col>
                 <Col span={8}>
                   <h4>门店销售额排名</h4>
-                  <p>列表组件占位</p>
+                  <ul className={styles.rankingList}>
+                    {
+                      rankingListData.map((item, i) => (
+                        <li key={item.title}>
+                          <span className={(i < 3) && styles.active}>{i + 1}</span>
+                          <span>{item.title}</span>
+                          <span>{numeral(item.total).format('0,0')}</span>
+                        </li>
+                      ))
+                    }
+                  </ul>
                 </Col>
               </Row>
             </TabPane>
@@ -295,7 +316,7 @@ class Analysis extends Component {
             }
           </Tabs>
         </Card>
-      </div>
+      </PageHeaderLayout>
     );
   }
 }

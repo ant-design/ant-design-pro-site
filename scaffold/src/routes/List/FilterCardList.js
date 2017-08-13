@@ -1,23 +1,34 @@
 import React, { PureComponent } from 'react';
-import moment from 'moment';
+import numeral from 'numeral';
 import { connect } from 'dva';
-import { Row, Col, Form, Card, Select, Spin } from 'antd';
+import { Row, Col, Form, Card, Select, Spin, Icon, Avatar, Input, Button } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import StandardFormRow from '../../components/StandardFormRow';
 import TagSelect from '../../components/TagSelect';
-import AvatarList from '../../components/AvatarList';
 
-import styles from './CoverCardList.less';
+import styles from './FilterCardList.less';
 
 const Option = Select.Option;
 const FormItem = Form.Item;
 const TagOption = TagSelect.Option;
 const TagExpand = TagSelect.Expand;
 
+const formatWan = (val) => {
+  const v = val * 1;
+  if (!v || isNaN(v)) return '';
+
+  let result = val;
+  if (val > 10000) {
+    result = Math.floor(val / 10000);
+    result = <span>{result}<em className={styles.wan}>万</em></span>;
+  }
+  return result;
+};
+
 /* eslint react/no-array-index-key: 0 */
 @Form.create()
-class CoverCardList extends PureComponent {
+class FilterCardList extends PureComponent {
   componentDidMount() {
     this.props.dispatch({
       type: 'list/fetch',
@@ -31,10 +42,9 @@ class CoverCardList extends PureComponent {
     const { form, dispatch } = this.props;
     // setTimeout 用于保证获取表单值是在所有表单字段更新完毕的时候
     setTimeout(() => {
-      form.validateFields((err, values) => {
+      form.validateFields((err) => {
         if (!err) {
           // eslint-disable-next-line
-          console.log(values);
           dispatch({
             type: 'list/fetch',
             payload: {
@@ -50,9 +60,53 @@ class CoverCardList extends PureComponent {
     const { list: { list, loading }, form } = this.props;
     const { getFieldDecorator } = form;
 
+    const tabList = [
+      {
+        key: 'docs',
+        tab: '文章',
+      },
+      {
+        key: 'app',
+        tab: '应用',
+      },
+      {
+        key: 'project',
+        tab: '项目',
+      },
+    ];
+
+    const CardInfo = ({ activeUser, newUser }) => (
+      <div className={styles.cardInfo}>
+        <div>
+          <p>活跃用户</p>
+          <p>{activeUser}</p>
+          <span />
+        </div>
+        <div>
+          <p>新增用户</p>
+          <p>{newUser}</p>
+        </div>
+      </div>
+    );
+
+    const content = (
+      <div className={styles.search}>
+        <Input
+          style={{ width: 522 }}
+          placeholder="请输入"
+          size="large"
+          addonAfter={<Button onClick={this.handleFormSubmit} style={{ width: 86 }} type="primary">搜索</Button>}
+        />
+      </div>
+    );
+
     return (
-      <PageHeaderLayout>
-        <div className={styles.coverCardList}>
+      <PageHeaderLayout
+        title="带筛选列表"
+        content={<div style={{ textAlign: 'center' }}>{content}</div>}
+        tabList={tabList}
+      >
+        <div className={styles.filterCardList}>
           <Card
             noHovering
           >
@@ -117,27 +171,17 @@ class CoverCardList extends PureComponent {
               !loading && list && list.map(item => (
                 <Col span={6} style={{ marginBottom: 16 }} key={item.id}>
                   <Card
-                    cover={<img alt={item.title} src={item.cover} />}
+                    actions={[<Icon type="copy" />, <Icon type="solution" />, <Icon type="setting" />, <Icon type="delete" />]}
                   >
                     <Card.Meta
+                      avatar={<Avatar size="large" src={item.avatar} />}
                       title={item.title}
-                      description={item.subDescription}
                     />
                     <div className={styles.cardItemContent}>
-                      <span>{moment(item.updatedAt).fromNow()}</span>
-                      <div className={styles.avatarList}>
-                        <AvatarList size="small">
-                          {
-                            item.members.map((member, i) => (
-                              <AvatarList.Item
-                                key={`${item.id}-avatar-${i}`}
-                                src={member.avatar}
-                                tips={member.name}
-                              />
-                            ))
-                          }
-                        </AvatarList>
-                      </div>
+                      <CardInfo
+                        activeUser={formatWan(item.activeUser)}
+                        newUser={numeral(item.newUser).format('0,0')}
+                      />
                     </div>
                   </Card>
                 </Col>
@@ -152,4 +196,4 @@ class CoverCardList extends PureComponent {
 
 export default connect(state => ({
   list: state.list,
-}))(CoverCardList);
+}))(FilterCardList);
