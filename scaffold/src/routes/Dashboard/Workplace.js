@@ -11,6 +11,67 @@ import { Radar } from '../../components/Charts';
 
 import styles from './Workplace.less';
 
+const links = [
+  {
+    title: '操作一',
+    href: '/#operator1',
+  },
+  {
+    title: '操作二',
+    href: '/#operator1',
+  },
+  {
+    title: '操作三',
+    href: '/#operator1',
+  },
+  {
+    title: '操作四',
+    href: '/#operator1',
+  },
+  {
+    title: '操作五',
+    href: '/#operator1',
+  },
+  {
+    title: '操作六',
+    href: '/#operator1',
+  },
+];
+
+const members = [
+  {
+    id: 'members-1',
+    title: '凤蝶精英小分队',
+    logo: 'https://gw.alipayobjects.com/zos/rmsportal/CRxBvUggxBYzWBTGmkxF.png',
+    link: 'http://github.com',
+  },
+  {
+    id: 'members-2',
+    title: 'Ant Design',
+    logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
+    link: 'http://github.com',
+  },
+  {
+    id: 'members-3',
+    title: 'DesignLab',
+    logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
+    link: 'http://github.com',
+  },
+  {
+    id: 'members-4',
+    title: 'Basement',
+    logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
+    link: 'http://github.com',
+  },
+  {
+    id: 'members-5',
+    title: 'Github',
+    logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
+    link: 'http://github.com',
+  },
+];
+
+
 class Workplace extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
@@ -31,66 +92,6 @@ class Workplace extends PureComponent {
       activities: { loading: activitiesLoading, list: activitiesList },
       chart: { radarData },
       } = this.props;
-
-    const links = [
-      {
-        title: '操作一',
-        href: '/#operator1',
-      },
-      {
-        title: '操作二',
-        href: '/#operator1',
-      },
-      {
-        title: '操作三',
-        href: '/#operator1',
-      },
-      {
-        title: '操作四',
-        href: '/#operator1',
-      },
-      {
-        title: '操作五',
-        href: '/#operator1',
-      },
-      {
-        title: '操作六',
-        href: '/#operator1',
-      },
-    ];
-
-    const members = [
-      {
-        id: 'members-1',
-        title: '凤蝶精英小分队',
-        logo: 'https://gw.alipayobjects.com/zos/rmsportal/CRxBvUggxBYzWBTGmkxF.png',
-        link: 'http://github.com',
-      },
-      {
-        id: 'members-2',
-        title: 'Ant Design',
-        logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
-        link: 'http://github.com',
-      },
-      {
-        id: 'members-3',
-        title: 'DesignLab',
-        logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
-        link: 'http://github.com',
-      },
-      {
-        id: 'members-4',
-        title: 'Basement',
-        logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
-        link: 'http://github.com',
-      },
-      {
-        id: 'members-5',
-        title: 'Github',
-        logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
-        link: 'http://github.com',
-      },
-    ];
 
     const pageHeaderContent = (
       <Alert
@@ -140,6 +141,7 @@ class Workplace extends PureComponent {
         <Row gutter={24}>
           <Col span={16}>
             <Card
+              noHovering
               title="进行中的项目"
               bordered={false}
               extra={<Link to="/">全部项目</Link>}
@@ -154,6 +156,7 @@ class Workplace extends PureComponent {
               }
             </Card>
             <Card
+              noHovering
               style={{ marginTop: 24 }}
               bodyStyle={{ padding: 0 }}
               bordered={false}
@@ -179,6 +182,7 @@ class Workplace extends PureComponent {
           </Col>
           <Col span={8}>
             <Card
+              noHovering
               title="快速开始 / 便捷导航"
               bordered={false}
               bodyStyle={{ padding: 0 }}
@@ -189,6 +193,7 @@ class Workplace extends PureComponent {
               />
             </Card>
             <Card
+              noHovering
               style={{ marginTop: 24 }}
               bordered={false}
               title="xx 指数"
@@ -202,6 +207,7 @@ class Workplace extends PureComponent {
               </div>
             </Card>
             <Card
+              noHovering
               style={{ marginTop: 24 }}
               bodyStyle={{ paddingBottom: 0 }}
               bordered={false}

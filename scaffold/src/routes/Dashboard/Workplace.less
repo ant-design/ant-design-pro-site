@@ -61,7 +61,7 @@
     & > em {
       background-color: @border-color-split;
       position: absolute;
-      top: 0;
+      top: 8px;
       right: 0;
       width: 1px;
       height: 40px;
@@ -99,6 +99,27 @@
     &:hover {
       span {
         color: @primary-color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1400px)  and (min-width: 1280px){
+  .pageHeaderAction {
+    margin-left: -44px;
+    & > div {
+      padding: 0 16px;
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  .pageHeaderAction {
+    margin-left: -64px;
+    & > div {
+      padding: 0 16px;
+      text-align: left;
+      & > em {
+        display: none;
       }
     }
   }
