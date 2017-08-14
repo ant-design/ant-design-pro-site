@@ -6,7 +6,7 @@ import { imgMap } from './mock/utils';
 
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 
-export default {
+const proxy = {
   // 支持值为 Object 和 Array
   'GET /api/currentUser': {
     name: 'momo.zxy',
@@ -36,9 +36,7 @@ export default {
   'GET /api/rule': getRule,
   'POST /api/rule': postRule,
   'POST /api/forms': (req, res) => {
-    setTimeout(function () {
-      res.send('Ok');
-    }, 1000);
+    res.send('Ok');
   },
   'GET /api/tags': mockjs.mock({
     'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }]
@@ -46,18 +44,32 @@ export default {
   'GET /api/fake_list': getFakeList,
   'GET /api/fake_chart_data': getFakeChartData,
   'POST /api/login/account': (req, res) => {
-    setTimeout(function () {
-      res.send({ status: 'error', type: 'account' });
-    }, 1000);
+    res.send({ status: 'error', type: 'account' });
   },
   'POST /api/login/mobile': (req, res) => {
-    setTimeout(function () {
-      res.send({ status: 'ok', type: 'mobile' });
-    }, 1000);
+    res.send({ status: 'ok', type: 'mobile' });
   },
   'POST /api/register': (req, res) => {
-    setTimeout(function () {
-      res.send({ status: 'ok' });
-    }, 1000);
+    res.send({ status: 'ok' });
   },
 };
+
+const mockApi = {};
+Object.keys(proxy).forEach(key => {
+  mockApi[key] = (req, res, u, b) => {
+    const result = proxy[key];
+    if (Object.prototype.toString.call(result) === '[object Function]') {
+      setTimeout(()=> {
+        result(req, res, u, b);
+      }, 1000);
+    } else {
+      if (res && res.json) {
+        res.json(result);
+      } else {
+        return result;
+      }
+    }
+  }
+});
+
+export default mockApi;
