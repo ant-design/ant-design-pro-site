@@ -57,15 +57,11 @@ npm run tool-install
 
 可以启动整个网站, 也可以 `npm run scaffold-start`, 进入 scaffold 文件夹进行开发
 
-#### 如何部署(内部)
+#### 如何部署（内部）
 
-1. `git remote add gitlab git@gitlab.alipay-inc.com:ued/antd-pro.git`
-1. `git checkout master`
-1. `git pull --rebase origin master`
-1. `git branch -D site`
-1. `git checkout -b site`
-1. `tnpm run scaffold-build:static`
-1. `change .gitignore, remove _scaffold_site`
-1. `git add ./`
-1. `git commit`
-1. `git push gitlab site --force`
+```bash
+$ git remote add gitlab {gitlab_url}
+$ git checkout -b site gitlab/site
+$ git rebase master
+$ git push gitlab site -f
+```
