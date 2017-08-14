@@ -7,6 +7,8 @@ import { NumberInfo, numeral, MiniArea, Pie, WaterWave, Gauge } from '../../comp
 import MapChart from '../../components/MapChart';
 import TagCloud from '../../components/TagCloud';
 
+import styles from './Monitor.less';
+
 const activeData = [];
 for (let i = 0; i < 24; i += 1) {
   activeData.push({
@@ -67,7 +69,7 @@ class Monitor extends PureComponent {
                   />
                 </Col>
               </Row>
-              <div style={{ height: 424, paddingTop: 32 }}>
+              <div style={{ height: 436, paddingTop: 46 }}>
                 <MapChart
                   data={MapData}
                 />
@@ -76,16 +78,44 @@ class Monitor extends PureComponent {
           </Col>
           <Col span={8}>
             <Card title="活动情况预测">
-              <NumberInfo
-                subTitle="目标评估"
-                total="有望达到预期"
-              />
-              <MiniArea
-                line
-                color="#5DD1DD"
-                height={132}
-                data={activeData}
-              />
+              <div className={styles.activeChart}>
+                <NumberInfo
+                  subTitle="目标评估"
+                  total="有望达到预期"
+                />
+                <div style={{ marginTop: 32 }}>
+                  <MiniArea
+                    line
+                    color="#5DD1DD"
+                    height={84}
+                    yAxis={{
+                      tickCount: 3,
+                      tickLine: false,
+                      labels: false,
+                      title: false,
+                      line: false,
+                    }}
+                    data={activeData}
+                  />
+                </div>
+                {
+                  activeData && (
+                    <div className={styles.activeChartGrid}>
+                      <p>{activeData.sort()[activeData.length - 1].y + 200} 亿元</p>
+                      <p>{activeData.sort()[Math.floor(activeData.length / 2)].y} 亿元</p>
+                    </div>
+                  )
+                }
+                {
+                  activeData && (
+                    <div className={styles.activeChartLegend}>
+                      <span>00:00</span>
+                      <span>{activeData[Math.floor(activeData.length / 2)].x}</span>
+                      <span>{activeData[activeData.length - 1].x}</span>
+                    </div>
+                  )
+                }
+              </div>
             </Card>
             <Card title="券核效率" style={{ marginTop: 24, textAlign: 'center' }}>
               <Gauge
