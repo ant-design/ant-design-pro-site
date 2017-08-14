@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Tooltip } from 'antd';
 
 import styles from './index.less';
 
@@ -17,15 +18,17 @@ class MapChart extends Component {
     };
   }
   renderChart() {
-    console.log(this.props.data);
+    console.log('todo render chart', this.root.offsetWidth);
   }
   render() {
     return (
       <div className={styles.mapChart} ref={n => (this.root = n)}>
-        <div className={styles.canvas} ref={n => (this.root = n)}>
-          <img src="https://gw.alipayobjects.com/zos/rmsportal/rjzMUIkBLueJsRYFzfKh.png" alt="map" />
-          <div ref={n => (this.node = n)} />
-        </div>
+        <Tooltip title="等待实现">
+          <div className={styles.canvas} ref={n => (this.root = n)}>
+            <img src="https://gw.alipayobjects.com/zos/rmsportal/fBcAYoxWIjlUXwDjqvzg.png" alt="map" />
+            <div ref={n => (this.node = n)} />
+          </div>
+        </Tooltip>
       </div>
     );
   }

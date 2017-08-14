@@ -1,4 +1,5 @@
 import BasicLayout from '../layouts/BasicLayout';
+import UserLayout from '../layouts/UserLayout';
 
 import Analysis from '../routes/Dashboard/Analysis';
 import Monitor from '../routes/Dashboard/Monitor';
@@ -6,9 +7,11 @@ import Workplace from '../routes/Dashboard/Workplace';
 
 import TableList from '../routes/List/TableList';
 import CoverCardList from '../routes/List/CoverCardList';
+import CardList from '../routes/List/CardList';
+import FilterCardList from '../routes/List/FilterCardList';
 import SearchList from '../routes/List/SearchList';
+import BasicList from '../routes/List/BasicList';
 
-import ListPage from '../routes/ListPage';
 import Profile from '../routes/Profile';
 import BasicForm from '../routes/Forms/BasicForm';
 import AdvancedForm from '../routes/Forms/AdvancedForm';
@@ -22,6 +25,10 @@ import Exception500 from '../routes/Exception/500';
 
 import Success from '../routes/Result/Success';
 import Error from '../routes/Result/Error';
+
+import Login from '../routes/User/Login';
+import Register from '../routes/User/Register';
+import RegisterResult from '../routes/User/RegisterResult';
 
 export const menus = [{
   name: 'Dashboard',
@@ -82,17 +89,22 @@ export const menus = [{
   }, {
     name: '标准列表',
     path: 'basic-list',
-    component: ListPage,
+    component: BasicList,
     icon: 'setting',
   }, {
     name: '卡片列表',
     path: 'card-list',
-    component: null,
+    component: CardList,
     icon: 'setting',
   }, {
     name: '卡片列表（封面）',
     path: 'cover-card-list',
     component: CoverCardList,
+    icon: 'setting',
+  }, {
+    name: '带筛选卡片列表',
+    path: 'filter-card-list',
+    component: FilterCardList,
     icon: 'setting',
   }, {
     name: '搜索列表',
@@ -105,21 +117,6 @@ export const menus = [{
   path: 'profile',
   component: Profile,
   icon: 'setting',
-}, {
-  name: '帐户',
-  icon: 'setting',
-  path: 'user',
-  children: [{
-    name: '登录',
-    path: 'login',
-    component: null,
-    icon: 'setting',
-  }, {
-    name: '注册',
-    path: 'registry',
-    component: null,
-    icon: 'setting',
-  }],
 }, {
   name: '结果',
   path: 'result',
@@ -157,8 +154,34 @@ export const menus = [{
   }],
 }];
 
+export const user = [{
+  name: '帐户',
+  icon: 'setting',
+  path: 'user',
+  children: [{
+    name: '登录',
+    path: 'login',
+    component: Login,
+    icon: 'setting',
+  }, {
+    name: '注册',
+    path: 'register',
+    component: Register,
+    icon: 'setting',
+  }, {
+    name: '注册结果',
+    path: 'register-result',
+    component: RegisterResult,
+    icon: 'setting',
+  }],
+}];
+
 export default [{
   component: BasicLayout,
   name: '首页',
   children: menus,
+}, {
+  component: UserLayout,
+  name: '账户',
+  children: user,
 }];

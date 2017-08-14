@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Row, Col, Card } from 'antd';
+
+import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import { NumberInfo, numeral, MiniArea, Pie, WaterWave, Gauge } from '../../components/Charts';
 import MapChart from '../../components/MapChart';
 import TagCloud from '../../components/TagCloud';
@@ -33,7 +35,9 @@ class Monitor extends PureComponent {
     const { tags } = monitor;
 
     return (
-      <div>
+      <PageHeaderLayout
+        title="大盘监控"
+      >
         <Row gutter={24}>
           <Col span={16}>
             <Card title="活动实时交易情况">
@@ -143,7 +147,7 @@ class Monitor extends PureComponent {
             </Card>
           </Col>
         </Row>
-      </div>
+      </PageHeaderLayout>
     );
   }
 }
