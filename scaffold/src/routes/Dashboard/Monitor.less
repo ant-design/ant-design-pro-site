@@ -1,5 +1,30 @@
-.normal {
-  font-family: Georgia, sans-serif;
-  margin-top: 3em;
-  text-align: center;
+.activeChart {
+  position: relative;
+}
+.activeChartGrid {
+  p {
+    position: absolute;
+    top: 80px;
+  }
+  p:last-child {
+    top: 115px;
+  }
+}
+.activeChartLegend {
+  margin-top: 8px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 0;
+  span {
+    display: inline-block;
+    font-size: 12px;
+    text-align: center;
+    width: 33.33%;
+  }
+  span:first-child {
+    text-align: left;
+  }
+  span:last-child {
+    text-align: right;
+  }
 }
