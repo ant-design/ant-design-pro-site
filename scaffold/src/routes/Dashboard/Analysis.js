@@ -60,7 +60,7 @@ class Analysis extends Component {
     );
 
     const salesExtra = (<div>
-      <RadioGroup style={{ marginRight: 12 }} onChange={e => console.log(e.target.value)}>
+      <RadioGroup style={{ marginRight: 12 }}>
         <RadioText value="day">今日</RadioText>
         <RadioText value="week">本周</RadioText>
         <RadioText value="month">本月</RadioText>

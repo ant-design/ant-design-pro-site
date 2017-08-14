@@ -5,9 +5,6 @@ import styles from './index.less';
 
 /* eslint no-return-assign: 0 */
 class MapChart extends Component {
-  componentDidMount() {
-    this.renderChart();
-  }
   getRect() {
     // 0.4657 = 708 / 1520 (img origin size)
     const width = this.root.offsetWidth;
@@ -17,9 +14,7 @@ class MapChart extends Component {
       height,
     };
   }
-  renderChart() {
-    console.log('todo render chart', this.root.offsetWidth);
-  }
+
   render() {
     return (
       <div className={styles.mapChart} ref={n => (this.root = n)}>

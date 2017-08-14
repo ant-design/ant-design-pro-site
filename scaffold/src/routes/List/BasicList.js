@@ -42,7 +42,7 @@ class BasicList extends PureComponent {
         <Search
           placeholder="请输入"
           style={{ width: 272, marginLeft: 16 }}
-          onSearch={value => console.log(value)}
+          onSearch={() => ({})}
         />
       </div>
     );
@@ -52,9 +52,6 @@ class BasicList extends PureComponent {
       showQuickJumper: true,
       pageSize: 5,
       total: 50,
-      onChange: (page) => {
-        console.log(page);
-      },
     };
 
     const ListContent = ({ data: { owner, createdAt, percent, status } }) => (
