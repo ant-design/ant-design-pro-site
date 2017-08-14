@@ -58,17 +58,22 @@ const mockApi = {};
 Object.keys(proxy).forEach(key => {
   mockApi[key] = (req, res, u, b) => {
     const result = proxy[key];
+    let func;
     if (Object.prototype.toString.call(result) === '[object Function]') {
-      setTimeout(()=> {
-        result(req, res, u, b);
-      }, 1000);
+      func = result;
     } else {
-      if (res && res.json) {
-        res.json(result);
-      } else {
-        return result;
+      func = (req, res, u, b) => {
+        if (res && res.json) {
+          res.json(result);
+        } else {
+          return result;
+        }
       }
     }
+
+    setTimeout(() => {
+      func(req, res, u, b);
+    }, 1000);
   }
 });
 
