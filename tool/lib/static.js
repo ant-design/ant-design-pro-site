@@ -16,11 +16,14 @@ export default function request(url, params) {
       u = \`GET \${u}\`;
     }
     const currentKey = keys.filter(key => new RegExp(key).test(u))[0];
-    let res = query[currentKey];
+    const res = query[currentKey];
+    let result;
     if (typeof res === 'function') {
-      res = res(null, null, url, params);
+      result = res(null, null, url, params);
     }
-    resolve(res);
+    setTimeout(() => {
+      resolve(result);
+    }, 1000);
   });
 }
 `;
