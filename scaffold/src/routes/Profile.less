@@ -1,0 +1,37 @@
+@import "~antd/lib/style/themes/default.less";
+
+.card {
+  margin-bottom: 24px;
+}
+
+.tabsCard {
+  margin-bottom: 24px;
+
+  // Card bug to be fixed in 3.0.0-alpha.2
+  :global {
+    .ant-card-head-title {
+      display: none;
+    }
+  }
+}
+
+.noData {
+  color: @disabled-color;
+  text-align: center;
+}
+
+.heading {
+  color: @heading-color;
+  font-size: 20px;
+}
+
+.textSecondary {
+  color: @text-color-secondary;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid @border-color-split;
+  height: 1px;
+  margin: 0 0 24px 0;
+}

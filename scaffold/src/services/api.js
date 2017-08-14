@@ -37,3 +37,7 @@ export async function fakeChartData() {
 export async function queryTags() {
   return request('/api/tags');
 }
+
+export async function queryProfile() {
+  return request('/api/profile');
+}
