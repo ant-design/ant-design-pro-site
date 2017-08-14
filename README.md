@@ -62,6 +62,7 @@ npm run tool-install
 ```bash
 $ git remote add gitlab {gitlab_url}
 $ git checkout -b site gitlab/site
+$ git pull gitlab site
 $ git rebase master
 $ git push gitlab site -f
 ```
