@@ -14,7 +14,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "antd": "3.0.0-alpha.1",
+    "antd": "^3.0.0-alpha.1",
     "parallelshell": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.0",
     "react-document-title": "^2.0.3",
