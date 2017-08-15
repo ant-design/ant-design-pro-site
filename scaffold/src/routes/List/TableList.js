@@ -10,8 +10,11 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const getValue = obj => Object.keys(obj).map(key => obj[key]).join(',');
 
-class TableList extends PureComponent {
-
+@connect(state => ({
+  rule: state.rule,
+}))
+@Form.create()
+export default class TableList extends PureComponent {
   state = {
     expandForm: false,
     selectedRows: [],
@@ -86,7 +89,7 @@ class TableList extends PureComponent {
     }
   }
 
-  handleSelectRow = (rows) => {
+  handleSelectRows = (rows) => {
     this.setState({
       selectedRows: rows,
     });
@@ -201,7 +204,7 @@ class TableList extends PureComponent {
               selectedRows={selectedRows}
               loading={ruleLoading}
               data={data}
-              onSelectRow={this.handleSelectRow}
+              onSelectRow={this.handleSelectRows}
               onChange={this.handleStandardTableChange}
             />
           </div>
@@ -210,7 +213,3 @@ class TableList extends PureComponent {
     );
   }
 }
-
-export default connect(state => ({
-  rule: state.rule,
-}))(Form.create()(TableList));
