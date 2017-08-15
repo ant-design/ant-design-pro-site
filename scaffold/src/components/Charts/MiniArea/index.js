@@ -18,7 +18,7 @@ class MiniArea extends PureComponent {
   }
 
   renderChart(data) {
-    const { height = 0, fit = true, color = '#33abfb', line } = this.props;
+    const { height = 0, fit = true, color = '#33abfb', line, xAxis, yAxis } = this.props;
 
     if (!data || (data && data.length < 1)) {
       return;
@@ -26,9 +26,6 @@ class MiniArea extends PureComponent {
 
     // clean
     this.node.innerHTML = '';
-
-    const Frame = G2.Frame;
-    const frame = new Frame(data);
 
     const chart = new G2.Chart({
       container: this.node,
@@ -40,15 +37,31 @@ class MiniArea extends PureComponent {
       legend: null,
     });
 
-    chart.axis(false);
+    if (!xAxis && !yAxis) {
+      chart.axis(false);
+    }
 
-    chart.source(frame, {
+    if (xAxis) {
+      chart.axis('x', xAxis);
+    } else {
+      chart.axis('x', false);
+    }
+
+    if (yAxis) {
+      chart.axis('y', yAxis);
+    } else {
+      chart.axis('y', false);
+    }
+
+    chart.source(data, {
       x: {
         type: 'cat',
         range: [0, 1],
+        ...xAxis,
       },
       y: {
         min: 0,
+        ...yAxis,
       },
     });
 

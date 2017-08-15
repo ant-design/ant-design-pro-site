@@ -36,7 +36,7 @@ const proxy = {
   'GET /api/rule': getRule,
   'POST /api/rule': postRule,
   'POST /api/forms': (req, res) => {
-    res.send('Ok');
+    return res.send('Ok');
   },
   'GET /api/tags': mockjs.mock({
     'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }]
@@ -44,26 +44,40 @@ const proxy = {
   'GET /api/fake_list': getFakeList,
   'GET /api/fake_chart_data': getFakeChartData,
   'POST /api/login/account': (req, res) => {
-    res.send({ status: 'error', type: 'account' });
+    return res.send({ status: 'error', type: 'account' });
   },
   'POST /api/login/mobile': (req, res) => {
-    res.send({ status: 'ok', type: 'mobile' });
+    return res.send({ status: 'ok', type: 'mobile' });
   },
   'POST /api/register': (req, res) => {
-    res.send({ status: 'ok' });
+    return res.send({ status: 'ok' });
   },
 };
 
 const mockApi = {};
 Object.keys(proxy).forEach(key => {
   mockApi[key] = (req, res, u, b) => {
+
+    // tricks
+    const isStatic = !(res && res.json);
+    if (isStatic) {
+      res = {
+        send: (data) => {
+          return data;
+        },
+        json: (data) => {
+          return data;
+        },
+      }
+    }
+
     const result = proxy[key];
     let func;
     if (Object.prototype.toString.call(result) === '[object Function]') {
       func = result;
     } else {
       func = (req, res, u, b) => {
-        if (res && res.json) {
+        if (!isStatic) {
           res.json(result);
         } else {
           return result;
@@ -71,9 +85,13 @@ Object.keys(proxy).forEach(key => {
       }
     }
 
-    setTimeout(() => {
-      func(req, res, u, b);
-    }, 1000);
+    if (!isStatic) {
+      setTimeout(() => {
+        func(req, res, u, b);
+      }, 1000);
+    } else {
+      return func(null, null, u, b);
+    }
   }
 });
 
