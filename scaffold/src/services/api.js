@@ -38,6 +38,10 @@ export async function queryTags() {
   return request('/api/tags');
 }
 
+export async function queryProfile() {
+  return request('/api/profile');
+}
+
 export async function queryFakeList(params) {
   return request(`/api/fake_list?${stringify(params)}`);
 }

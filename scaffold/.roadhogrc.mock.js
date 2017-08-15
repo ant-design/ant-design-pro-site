@@ -3,6 +3,7 @@ import { getRule, postRule } from './mock/rule';
 import { getActivities, getNotice, getFakeList } from './mock/api';
 import { getFakeChartData } from './mock/chart';
 import { imgMap } from './mock/utils';
+import { getProfileData } from './mock/profile';
 
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 
@@ -43,6 +44,7 @@ const proxy = {
   }),
   'GET /api/fake_list': getFakeList,
   'GET /api/fake_chart_data': getFakeChartData,
+  'GET /api/profile': getProfileData,
   'POST /api/login/account': (req, res) => {
     return res.send({ status: 'error', type: 'account' });
   },

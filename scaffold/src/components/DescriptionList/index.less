@@ -1,0 +1,29 @@
+@import "~antd/lib/style/themes/default.less";
+
+.descriptionList {
+
+  .title {
+    color: @heading-color;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .term {
+    margin-bottom: 8px;
+    margin-right: 8px;
+    color: @heading-color;
+    white-space: nowrap;
+
+    &:after {
+      content: ":";
+      margin: 0 8px 0 2px;
+      position: relative;
+      top: -.5px;
+    }
+  }
+
+  .description {
+    margin-bottom: 16px;
+    color: @text-color;
+  }
+}
