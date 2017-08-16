@@ -4,14 +4,12 @@ import { Row, Col, Icon, Card, Tabs, Table, Radio, DatePicker, Tooltip } from 'a
 
 import { ChartCard, Trend, numeral, MiniArea, MiniBar, MiniProgress, Field, Bar, Pie, NumberInfo, IconUp, IconDown } from '../../components/Charts';
 
-import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import TimelineChart from '../../components/TimelineChart';
-import RadioText from '../../components/RadioText';
+import { getTimeDistance } from '../../utils/utils';
 
 import styles from './Analysis.less';
 
 const TabPane = Tabs.TabPane;
-const RadioGroup = Radio.Group;
 const { RangePicker } = DatePicker;
 
 const rankingListData = [];
@@ -26,6 +24,7 @@ class Analysis extends Component {
   state = {
     salesType: 'all',
     currentTabKey: '',
+    rangePickerValue: [],
   }
 
   componentDidMount() {
@@ -46,8 +45,24 @@ class Analysis extends Component {
     });
   }
 
+  handleRangePickerChange = (rangePickerValue) => {
+    this.setState({
+      rangePickerValue,
+    });
+  }
+
+  selectDate = (type) => {
+    this.setState({
+      rangePickerValue: getTimeDistance(type),
+    });
+
+    this.props.dispatch({
+      type: 'chart/fetchSalesData',
+    });
+  }
+
   render() {
-    const { salesType, currentTabKey } = this.state;
+    const { rangePickerValue, salesType, currentTabKey } = this.state;
     const { chart } = this.props;
     const {
       visitData, salesData, searchData, offlineData, offlineChartData, salesTypeData,
@@ -60,13 +75,17 @@ class Analysis extends Component {
     );
 
     const salesExtra = (<div>
-      <RadioGroup style={{ marginRight: 12 }}>
-        <RadioText value="day">今日</RadioText>
-        <RadioText value="week">本周</RadioText>
-        <RadioText value="month">本月</RadioText>
-        <RadioText value="year">全年</RadioText>
-      </RadioGroup>
-      <RangePicker style={{ width: 256 }} />
+      <div className={styles.salesExtra}>
+        <a onClick={() => this.selectDate('today')}>今日</a>
+        <a onClick={() => this.selectDate('week')}>本周</a>
+        <a onClick={() => this.selectDate('month')}>本月</a>
+        <a onClick={() => this.selectDate('year')}>全年</a>
+      </div>
+      <RangePicker
+        value={rangePickerValue}
+        onChange={this.handleRangePickerChange}
+        style={{ width: 256 }}
+      />
     </div>);
 
     const columns = [
@@ -123,12 +142,11 @@ class Analysis extends Component {
     );
 
     return (
-      <PageHeaderLayout
-        title="业务分析"
-      >
+      <div>
         <Row gutter={24}>
           <Col span={6}>
             <ChartCard
+              bordered={false}
               title="销售额"
               action={<Tooltip title="我是一段说明"><Icon type="exclamation-circle-o" /></Tooltip>}
               total={numeral.yuan(126560)}
@@ -143,8 +161,9 @@ class Analysis extends Component {
           </Col>
           <Col span={6}>
             <ChartCard
+              bordered={false}
               title="访问量"
-              action={<Icon type="exclamation-circle-o" />}
+              action={<Tooltip title="访问量是关键指标"><Icon type="exclamation-circle-o" /></Tooltip>}
               total={numeral(8846).format('0,0')}
               footer={<Field label="日访问量" value={numeral(1234).format('0,0')} />}
               contentHeight={46}
@@ -159,8 +178,9 @@ class Analysis extends Component {
           </Col>
           <Col span={6}>
             <ChartCard
+              bordered={false}
               title="支付笔数"
-              action={<Icon type="exclamation-circle-o" />}
+              action={<Tooltip title="支付笔数反应交易质量"><Icon type="exclamation-circle-o" /></Tooltip>}
               total={numeral(6560).format('0,0')}
               footer={<Field label="转化率" value="60%" />}
               contentHeight={46}
@@ -173,8 +193,9 @@ class Analysis extends Component {
           </Col>
           <Col span={6}>
             <ChartCard
+              bordered={false}
               title="线上购物转化率"
-              action={<Icon type="exclamation-circle-o" />}
+              action={<Tooltip title="购买效率"><Icon type="exclamation-circle-o" /></Tooltip>}
               total="78%"
               footer={<Trend>
                 <Trend.Item title="周同比" flag="up">12.3%</Trend.Item>
@@ -188,6 +209,7 @@ class Analysis extends Component {
         </Row>
 
         <Card
+          bordered={false}
           bodyStyle={{ padding: '16px 24px' }}
           style={{ marginTop: 24 }}
         >
@@ -225,7 +247,12 @@ class Analysis extends Component {
 
         <Row gutter={24}>
           <Col span={12}>
-            <Card title="线上热门搜索" extra={iconGroup} style={{ marginTop: 24 }}>
+            <Card
+              bordered={false}
+              title="线上热门搜索"
+              extra={iconGroup}
+              style={{ marginTop: 24 }}
+            >
               <Row gutter={68}>
                 <Col span={12}>
                   <NumberInfo
@@ -273,7 +300,12 @@ class Analysis extends Component {
             </Card>
           </Col>
           <Col span={12}>
-            <Card title="销售额类别占比" extra={iconGroup} style={{ marginTop: 24 }}>
+            <Card
+              bordered={false}
+              title="销售额类别占比"
+              extra={iconGroup}
+              style={{ marginTop: 24 }}
+            >
               <Radio.Group value={salesType} onChange={this.handleChangeSalesType}>
                 <Radio.Button value="all">全部渠道</Radio.Button>
                 <Radio.Button value="online">线上</Radio.Button>
@@ -294,7 +326,11 @@ class Analysis extends Component {
           </Col>
         </Row>
 
-        <Card style={{ marginTop: 24 }} bodyStyle={{ padding: '0 0 24px 0' }}>
+        <Card
+          bordered={false}
+          bodyStyle={{ padding: '0 0 24px 0' }}
+          style={{ marginTop: 24 }}
+        >
           <Tabs
             activeKey={currentTabKey || (offlineData[0] && offlineData[0].name)}
             onChange={this.handleTabChange}
@@ -316,7 +352,7 @@ class Analysis extends Component {
             }
           </Tabs>
         </Card>
-      </PageHeaderLayout>
+      </div>
     );
   }
 }

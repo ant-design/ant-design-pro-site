@@ -21,6 +21,15 @@ export default {
         payload: response,
       });
     },
+    *fetchSalesData({ payload }, { call, put }) {
+      const response = yield call(fakeChartData);
+      yield put({
+        type: 'save',
+        payload: {
+          salesData: response.salesData,
+        },
+      });
+    },
   },
 
   reducers: {
