@@ -65,8 +65,20 @@ class Analysis extends Component {
     const { rangePickerValue, salesType, currentTabKey } = this.state;
     const { chart } = this.props;
     const {
-      visitData, salesData, searchData, offlineData, offlineChartData, salesTypeData,
+      visitData,
+      salesData,
+      searchData,
+      offlineData,
+      offlineChartData,
+      salesTypeData,
+      salesTypeDataOnline,
+      salesTypeDataOffline,
       } = chart;
+
+    const salesPieData = salesType === 'all' ?
+      salesTypeData
+      :
+      (salesType === 'online' ? salesTypeDataOnline : salesTypeDataOffline);
 
     const iconGroup = (
       <span className={styles.iconGroup}>
@@ -210,39 +222,41 @@ class Analysis extends Component {
 
         <Card
           bordered={false}
-          bodyStyle={{ padding: '16px 24px' }}
+          bodyStyle={{ padding: 0 }}
           style={{ marginTop: 24 }}
         >
-          <Tabs tabBarExtraContent={salesExtra}>
-            <TabPane tab="销售额" key="sales">
-              <Row gutter={72}>
-                <Col span={16}>
-                  <Bar
-                    height={292}
-                    title="销售额趋势"
-                    data={salesData}
-                  />
-                </Col>
-                <Col span={8}>
-                  <h4>门店销售额排名</h4>
-                  <ul className={styles.rankingList}>
-                    {
-                      rankingListData.map((item, i) => (
-                        <li key={item.title}>
-                          <span className={(i < 3) && styles.active}>{i + 1}</span>
-                          <span>{item.title}</span>
-                          <span>{numeral(item.total).format('0,0')}</span>
-                        </li>
-                      ))
-                    }
-                  </ul>
-                </Col>
-              </Row>
-            </TabPane>
-            <TabPane tab="访问量" key="visits">
-              访问量没有, 因为偷懒了
-            </TabPane>
-          </Tabs>
+          <div className={styles.salesCard}>
+            <Tabs tabBarExtraContent={salesExtra}>
+              <TabPane tab="销售额" key="sales">
+                <Row gutter={72}>
+                  <Col span={16}>
+                    <Bar
+                      height={292}
+                      title="销售额趋势"
+                      data={salesData}
+                    />
+                  </Col>
+                  <Col span={8}>
+                    <h4>门店销售额排名</h4>
+                    <ul className={styles.rankingList}>
+                      {
+                        rankingListData.map((item, i) => (
+                          <li key={item.title}>
+                            <span className={(i < 3) && styles.active}>{i + 1}</span>
+                            <span>{item.title}</span>
+                            <span>{numeral(item.total).format('0,0')}</span>
+                          </li>
+                        ))
+                      }
+                    </ul>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane tab="访问量" key="visits">
+                访问量没有, 因为偷懒了
+              </TabPane>
+            </Tabs>
+          </div>
         </Card>
 
         <Row gutter={24}>
@@ -316,8 +330,8 @@ class Analysis extends Component {
                   hasLegend
                   title="销售额"
                   subTitle="销售额"
-                  total={numeral.yuan(123224)}
-                  data={salesTypeData}
+                  total={numeral.yuan(salesPieData.reduce((pre, now) => now.y + pre, 0))}
+                  data={salesPieData}
                   valueFormat={val => numeral.yuan(val)}
                   height={294}
                 />

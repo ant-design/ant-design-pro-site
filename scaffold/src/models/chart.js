@@ -10,6 +10,8 @@ export default {
     offlineData: [],
     offlineChartData: [],
     salesTypeData: [],
+    salesTypeDataOnline: [],
+    salesTypeDataOffline: [],
     radarData: [],
   },
 
