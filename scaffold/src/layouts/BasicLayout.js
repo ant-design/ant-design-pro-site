@@ -7,6 +7,7 @@ import { Link } from 'dva/router';
 import styles from './BasicLayout.less';
 import HeaderSearch from '../components/HeaderSearch';
 import NotificationIcon from '../components/NotificationIcon';
+import GlobalFooter from '../components/GlobalFooter';
 import { menus } from '../common/nav';
 
 const { Header, Sider, Content } = Layout;
@@ -162,6 +163,20 @@ class BasicLayout extends React.PureComponent {
             </Header>
             <Content style={{ margin: 24, height: '100%' }}>
               {children}
+              <GlobalFooter
+                links={[{
+                  title: '帮助',
+                  href: '',
+                }, {
+                  title: '隐私',
+                  href: '',
+                }, {
+                  title: '条款',
+                  href: '',
+                  blankTarget: true,
+                }]}
+                copyright={<div>Copyright <Icon type="copyright" /> 2017 蚂蚁金服体验技术部出品</div>}
+              />
             </Content>
           </Layout>
         </Layout>
