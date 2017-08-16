@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Row, Col, Icon, Card, Tabs, Table, Radio, DatePicker, Tooltip } from 'antd';
+import numeral from 'numeral';
 
-import { ChartCard, Trend, numeral, MiniArea, MiniBar, MiniProgress, Field, Bar, Pie, NumberInfo, IconUp, IconDown } from '../../components/Charts';
+import { ChartCard, Trend, yuan, MiniArea, MiniBar, MiniProgress, Field, Bar, Pie, NumberInfo, IconUp, IconDown } from '../../components/Charts';
 
 import TimelineChart from '../../components/TimelineChart';
 import { getTimeDistance } from '../../utils/utils';
@@ -161,7 +162,7 @@ class Analysis extends Component {
               bordered={false}
               title="销售额"
               action={<Tooltip title="我是一段说明"><Icon type="exclamation-circle-o" /></Tooltip>}
-              total={numeral.yuan(126560)}
+              total={yuan(126560)}
               footer={<Field label="日均销售额" value={numeral(12423).format('0,0')} />}
               contentHeight={46}
             >
@@ -330,9 +331,9 @@ class Analysis extends Component {
                   hasLegend
                   title="销售额"
                   subTitle="销售额"
-                  total={numeral.yuan(salesPieData.reduce((pre, now) => now.y + pre, 0))}
+                  total={yuan(salesPieData.reduce((pre, now) => now.y + pre, 0))}
                   data={salesPieData}
-                  valueFormat={val => numeral.yuan(val)}
+                  valueFormat={val => yuan(val)}
                   height={294}
                 />
               </div>

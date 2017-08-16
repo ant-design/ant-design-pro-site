@@ -13,12 +13,12 @@ import NumberInfo from './NumberInfo';
 import WaterWave from './WaterWave';
 import { IconUp, IconDown } from './Icon';
 
-numeral.yuan = val => `&yen; ${numeral(val).format('0,0')}`;
+const yuan = val => `&yen; ${numeral(val).format('0,0')}`;
 
 export default {
   IconUp,
   IconDown,
-  numeral,
+  yuan,
   Bar,
   Pie,
   Gauge,
