@@ -15,6 +15,35 @@
     margin-bottom: 16px;
   }
 
+  .mobileGroup {
+    :global {
+      .ant-form-item {
+        margin-bottom: 0;
+        display: table-cell;
+        vertical-align: top;
+
+        &:first-child {
+          width: 20%;
+
+          .ant-select-selection {
+            border-right-width: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        &:last-child {
+          width: 80%;
+
+          .ant-input {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+
   .getCaptcha {
     display: block;
     width: 100%;

@@ -6,6 +6,7 @@ import styles from './Register.less';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
+const InputGroup = Input.Group;
 
 class Register extends Component {
   state = {
@@ -75,14 +76,6 @@ class Register extends Component {
     const { form, register } = this.props;
     const { getFieldDecorator } = form;
     const { count } = this.state;
-    const prefixSelector = getFieldDecorator('prefix', {
-      initialValue: '86',
-    })(
-      <Select style={{ width: 78 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    );
     return (
       <div className={styles.main}>
         <h3>注册</h3>
@@ -129,15 +122,29 @@ class Register extends Component {
             )}
           </FormItem>
           <FormItem>
-            {getFieldDecorator('mobile', {
-              rules: [{
-                required: true, message: '请输入手机号！',
-              }, {
-                pattern: /^1\d{10}$/, message: '手机号格式错误！',
-              }],
-            })(
-              <Input placeholder="11位手机号" addonBefore={prefixSelector} style={{ width: '100%' }} />
-            )}
+            <InputGroup className={styles.mobileGroup} compact>
+              <FormItem>
+                {getFieldDecorator('prefix', {
+                  initialValue: '86',
+                })(
+                  <Select size="large">
+                    <Option value="86">+86</Option>
+                    <Option value="87">+87</Option>
+                  </Select>
+                )}
+              </FormItem>
+              <FormItem>
+                {getFieldDecorator('mobile', {
+                  rules: [{
+                    required: true, message: '请输入手机号！',
+                  }, {
+                    pattern: /^1\d{10}$/, message: '手机号格式错误！',
+                  }],
+                })(
+                  <Input placeholder="11位手机号" />
+                )}
+              </FormItem>
+            </InputGroup>
           </FormItem>
           <FormItem>
             <Row gutter={8}>
@@ -160,7 +167,7 @@ class Register extends Component {
                   size="large"
                   onClick={this.onGetCaptcha}
                 >
-                  {count ? `${count} S` : '获取验证码'}
+                  {count ? `${count} s` : '获取验证码'}
                 </Button>
               </Col>
             </Row>
