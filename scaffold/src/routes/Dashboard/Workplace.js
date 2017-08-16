@@ -137,7 +137,6 @@ class Workplace extends PureComponent {
         action={pageHeaderAction}
         title={pageHeaderTitle}
         content={pageHeaderContent}
-        footer
       >
         <Row gutter={24}>
           <Col span={16}>
