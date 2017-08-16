@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Layout, Menu, Icon, Tooltip, Avatar, Dropdown } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
-import { Link } from 'dva/router';
+import { Link, routerRedux } from 'dva/router';
 import styles from './BasicLayout.less';
 import HeaderSearch from '../components/HeaderSearch';
 import NotificationIcon from '../components/NotificationIcon';
@@ -34,6 +34,11 @@ class BasicLayout extends React.PureComponent {
       type: 'global/changeLayoutCollapsed',
       payload: collapsed,
     });
+  }
+  onMenuClick = ({ key }) => {
+    if (key === 'logout') {
+      this.props.dispatch(routerRedux.push('/user/login'));
+    }
   }
   getDefaultCollapsedSubMenus() {
     const currentMenuSelectedKeys = [...this.getCurrentMenuSelectedKeys()];
@@ -99,11 +104,11 @@ class BasicLayout extends React.PureComponent {
     const { children, currentUser, collapsed } = this.props;
 
     const menu = (
-      <Menu className={styles.menu} selectedKeys={[]}>
+      <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick}>
         <Menu.Item><Icon type="user" />个人中心</Menu.Item>
         <Menu.Item><Icon type="setting" />设置</Menu.Item>
         <Menu.Divider />
-        <Menu.Item><Icon type="logout" />退出登录</Menu.Item>
+        <Menu.Item key="logout"><Icon type="logout" />退出登录</Menu.Item>
       </Menu>
     );
 
