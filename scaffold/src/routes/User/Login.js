@@ -134,7 +134,7 @@ class Login extends Component {
                       size="large"
                       onClick={this.onGetCaptcha}
                     >
-                      {count ? `${count} S` : '获取验证码'}
+                      {count ? `${count} s` : '获取验证码'}
                     </Button>
                   </Col>
                 </Row>
