@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Menu, Icon, Tooltip, Avatar, Dropdown } from 'antd';
+import { Layout, Menu, Icon, Avatar, Dropdown } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
 import { Link, routerRedux } from 'dva/router';
@@ -143,18 +143,11 @@ class BasicLayout extends React.PureComponent {
           </Sider>
           <Layout>
             <Header className={styles.header}>
-              <Tooltip
-                placement="bottom"
-                title={collapsed ? '展开菜单' : '收起菜单'}
-                mouseLeaveDelay={0}
-                transitionName=""
-              >
-                <Icon
-                  className={styles.trigger}
-                  type={collapsed ? 'menu-unfold' : 'menu-fold'}
-                  onClick={this.toggle}
-                />
-              </Tooltip>
+              <Icon
+                className={styles.trigger}
+                type={collapsed ? 'menu-unfold' : 'menu-fold'}
+                onClick={this.toggle}
+              />
               <div className={styles.right}>
                 <HeaderSearch className={styles.action} placeholder="站内搜索" />
                 <NotificationIcon className={styles.action} count={currentUser.notifyCount} />
