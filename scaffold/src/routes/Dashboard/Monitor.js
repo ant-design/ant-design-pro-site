@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Row, Col, Card } from 'antd';
+import numeral from 'numeral';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
-import { NumberInfo, numeral, MiniArea, Pie, WaterWave, Gauge } from '../../components/Charts';
+import { NumberInfo, MiniArea, Pie, WaterWave, Gauge } from '../../components/Charts';
 import MapChart from '../../components/MapChart';
 import TagCloud from '../../components/TagCloud';
+import Countdown from '../../components/Countdown';
 
 import styles from './Monitor.less';
 
@@ -24,6 +26,7 @@ for (let i = 0; i < 50; i += 1) {
     value: Math.floor(Math.random() * 1000) + 500,
   });
 }
+const targetTime = new Date().getTime() + 3900000;
 
 class Monitor extends PureComponent {
   componentDidMount() {
@@ -59,7 +62,7 @@ class Monitor extends PureComponent {
                 <Col span={6}>
                   <NumberInfo
                     subTitle="活动剩余时间"
-                    total="01:10:12"
+                    total={<Countdown target={targetTime} />}
                   />
                 </Col>
                 <Col span={6}>
