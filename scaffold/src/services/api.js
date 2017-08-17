@@ -23,6 +23,16 @@ export async function removeRule(params) {
   });
 }
 
+export async function addRule(params) {
+  return request('/api/rule', {
+    method: 'POST',
+    body: {
+      ...params,
+      method: 'post',
+    },
+  });
+}
+
 export async function fakeSubmitForm(params) {
   return request('/api/forms', {
     method: 'POST',

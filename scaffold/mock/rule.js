@@ -51,11 +51,16 @@ export default {
       dataSource = dataSource.filter(data => data.no.indexOf(params.no) > -1);
     }
 
+    let pageSize = 10;
+    if (params.pageSize) {
+      pageSize = params.pageSize * 1;
+    }
+
     const result = {
       list: dataSource,
       pagination: {
         total: dataSource.length,
-        pageSize: 10,
+        pageSize,
         current: parseInt(params.currentPage, 10) || 1,
       },
     };
@@ -80,6 +85,24 @@ export default {
       case 'delete':
         const no = body.no;
         tableListDataSource = tableListDataSource.filter(item => no.indexOf(item.no) === -1);
+        break;
+      case 'post':
+        const description = body.description;
+        const i = Math.ceil(Math.random() * 10000);
+        tableListDataSource.unshift({
+          key: i,
+          href: 'https://ant.design',
+          avatar: ['https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png', 'https://gw.alipayobjects.com/zos/rmsportal/udxAbMEhpwthVVcjLXik.png'][i % 2],
+          no: `TradeCode ${i}`,
+          title: `一个任务名称 ${i}`,
+          owner: '曲丽丽',
+          description,
+          callNo: Math.floor(Math.random() * 1000),
+          status: Math.floor(Math.random() * 10) % 2,
+          updatedAt: new Date(),
+          createdAt: new Date(),
+          progress: Math.ceil(Math.random() * 100),
+        });
         break;
       default:
         break;
