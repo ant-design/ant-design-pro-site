@@ -149,10 +149,10 @@ class BasicLayout extends React.PureComponent {
                 onClick={this.toggle}
               />
               <div className={styles.right}>
-                <HeaderSearch className={styles.action} placeholder="站内搜索" />
+                <HeaderSearch className={`${styles.action} ${styles.search}`} placeholder="站内搜索" />
                 <NotificationIcon className={styles.action} count={currentUser.notifyCount} />
                 <Dropdown overlay={menu}>
-                  <span className={styles.account}>
+                  <span className={`${styles.action} ${styles.account}`}>
                     <Avatar size="small" className={styles.avatar} src={currentUser.avatar} />
                     {currentUser.name}
                   </span>

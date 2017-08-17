@@ -40,6 +40,7 @@
   transition: all .3s;
   color: #fff;
   padding: 0 28px;
+  vertical-align: middle;
   &:hover {
     background: @primary-7;
   }
@@ -48,28 +49,28 @@
 .right {
   float: right;
   height: 100%;
-  .account {
+  .action {
     cursor: pointer;
-    display: inline-block;
     padding: 0 12px;
-    .avatar {
-      margin: 20px 8px 20px 0;
-      color: @primary-color;
-      background: rgba(255, 255, 255, .85);
-      vertical-align: top;
+    display: inline-block;
+    transition: all .3s;
+    > i {
+      font-size: 20px;
+      vertical-align: middle;
     }
     &:hover {
       background: @primary-7;
     }
   }
-  :global(.ant-badge) {
-    vertical-align: baseline;
+  .search:hover {
+    background: transparent;
   }
-  .action {
-    cursor: pointer;
-    padding: 0 12px;
-    > i {
-      font-size: 18px;
+  .account {
+    .avatar {
+      margin: 20px 8px 20px 0;
+      color: @primary-color;
+      background: rgba(255, 255, 255, .85);
+      vertical-align: top;
     }
   }
 }

@@ -41,22 +41,18 @@ const data2 = [{
   title: '曲丽丽 评论了你',
   description: '描述信息描述信息描述信息',
   datetime: moment('2017-08-07').fromNow(),
-  extra: '2017-07-12',
 }, {
   key: '2',
   avatar: 'https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg',
   title: '朱偏右 回复了你',
   description: '这种模板用于提醒谁与你发生了互动，左侧放『谁』的头像',
   datetime: moment('2017-08-07').fromNow(),
-  extra: '2017-07-12',
 }, {
   key: '3',
   avatar: 'https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg',
   title: '标题',
   description: '这种模板用于提醒谁与你发生了互动，左侧放『谁』的头像',
   datetime: moment('2017-08-07').fromNow(),
-  extra: '2017-07-12',
-  read: true,
 }];
 
 const data3 = [{

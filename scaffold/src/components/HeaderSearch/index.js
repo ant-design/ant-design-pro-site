@@ -7,12 +7,15 @@ export default class HeaderSearch extends PureComponent {
   state = {
     searchMode: false,
   };
-  toggleSearchMode = () => {
-    this.setState({ searchMode: !this.state.searchMode }, () => {
+  enterSearchMode = () => {
+    this.setState({ searchMode: true }, () => {
       if (this.state.searchMode) {
         this.input.refs.input.focus();
       }
     });
+  }
+  leaveSearchMode = () => {
+    this.setState({ searchMode: false });
   }
   render() {
     const { className, placeholder } = this.props;
@@ -21,12 +24,12 @@ export default class HeaderSearch extends PureComponent {
     });
     return (
       <span className={className}>
-        <Icon type="search" onClick={this.toggleSearchMode} />
+        <Icon type="search" onClick={this.enterSearchMode} />
         <Input
           className={inputClass}
           placeholder={placeholder}
           ref={(node) => { this.input = node; }}
-          onBlur={this.toggleSearchMode}
+          onBlur={this.leaveSearchMode}
         />
       </span>
     );
