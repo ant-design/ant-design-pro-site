@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import G2 from 'g2';
 import { Row, Col } from 'antd';
 import styles from './index.less';
 
 /* eslint react/no-danger:0 */
-class Radar extends Component {
+class Radar extends PureComponent {
   state = {
     legendData: [],
   }

@@ -50,5 +50,6 @@ function getTimeDistance(type) {
 }
 
 export default {
+  fixedZero,
   getTimeDistance,
 };

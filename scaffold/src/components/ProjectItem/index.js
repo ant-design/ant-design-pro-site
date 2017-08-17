@@ -4,7 +4,7 @@ import moment from 'moment';
 
 import styles from './index.less';
 
-export default ({ data: { title, logo, description, updatedAt, member } }) => (
+export default ({ data: { title, logo, description, updatedAt, member, link, memberLink } }) => (
   <div
     className={styles.projectItem}
   >
@@ -12,10 +12,10 @@ export default ({ data: { title, logo, description, updatedAt, member } }) => (
       <img src={logo} alt={title} />
     </div>
     <div className={styles.content}>
-      <Link to="/">{title}</Link>
+      <Link to={link}>{title}</Link>
       <p>{description || ''}</p>
       <div>
-        <Link to="/">{member || ''}</Link>
+        <Link to={memberLink}>{member || ''}</Link>
         {
           updatedAt && <span>{moment(updatedAt).fromNow()}</span>
         }

@@ -34,6 +34,13 @@ class Analysis extends Component {
     });
   }
 
+  componentWillUnmount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'chart/clear',
+    });
+  }
+
   handleChangeSalesType = (e) => {
     this.setState({
       salesType: e.target.value,

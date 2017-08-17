@@ -14,27 +14,27 @@ import styles from './Workplace.less';
 const links = [
   {
     title: '操作一',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作二',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作三',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作四',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作五',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作六',
-    href: '/#operator1',
+    href: '',
   },
 ];
 
@@ -43,31 +43,31 @@ const members = [
     id: 'members-1',
     title: '凤蝶精英小分队',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/CRxBvUggxBYzWBTGmkxF.png',
-    link: 'http://github.com',
+    link: '',
   },
   {
     id: 'members-2',
     title: 'Ant Design',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
-    link: 'http://github.com',
+    link: '',
   },
   {
     id: 'members-3',
     title: 'DesignLab',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
-    link: 'http://github.com',
+    link: '',
   },
   {
     id: 'members-4',
     title: 'Basement',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
-    link: 'http://github.com',
+    link: '',
   },
   {
     id: 'members-5',
     title: 'Github',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
-    link: 'http://github.com',
+    link: '',
   },
 ];
 
@@ -86,12 +86,19 @@ class Workplace extends PureComponent {
     });
   }
 
+  componentWillUnmount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'chart/clear',
+    });
+  }
+
   render() {
     const {
       project: { loading: projectLoading, notice },
       activities: { loading: activitiesLoading, list: activitiesList },
       chart: { radarData },
-      } = this.props;
+    } = this.props;
 
     const pageHeaderContent = (
       <Alert
@@ -108,7 +115,7 @@ class Workplace extends PureComponent {
         </div>
         <div className={styles.titleContent}>
           <p>早安, 曲丽丽, 祝你开心每一天</p>
-          <p>交互专家 | 蚂蚁金服－平台数据技术事业群－基础平台部－用户体验技术部－UED</p>
+          <p>交互专家 | 蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED</p>
         </div>
       </div>
     );
@@ -150,7 +157,7 @@ class Workplace extends PureComponent {
               {
                 !projectLoading && notice.length > 0 && notice.map(item => (
                   <Card.Grid style={{ width: '33.33%', padding: 0 }} key={item.id}>
-                    <ProjectItem data={{ ...item, link: `/${item.id}` }} />
+                    <ProjectItem data={{ ...item }} />
                   </Card.Grid>
                 ))
               }
@@ -199,11 +206,13 @@ class Workplace extends PureComponent {
               title="xx 指数"
             >
               <div className={styles.chart}>
-                <Radar
-                  hasLegend
-                  height={286}
-                  data={radarData}
-                />
+                {
+                  <Radar
+                    hasLegend
+                    height={286}
+                    data={radarData}
+                  />
+                }
               </div>
             </Card>
             <Card
@@ -217,10 +226,12 @@ class Workplace extends PureComponent {
                 <Row gutter={48}>
                   {
                     members.map(item => (
-                      <Col span={12} key={`members-item-${item.id}`}><Link to={item.link}>
-                        <img src={item.logo} alt={item.title} />
-                        <span>{item.title}</span>
-                      </Link></Col>
+                      <Col span={12} key={`members-item-${item.id}`}>
+                        <Link to={item.link}>
+                          <img src={item.logo} alt={item.title} />
+                          <span>{item.title}</span>
+                        </Link>
+                      </Col>
                     ))
                   }
                 </Row>

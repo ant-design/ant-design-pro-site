@@ -8,16 +8,18 @@ import { NumberInfo, MiniArea, Pie, WaterWave, Gauge } from '../../components/Ch
 import MapChart from '../../components/MapChart';
 import TagCloud from '../../components/TagCloud';
 import Countdown from '../../components/Countdown';
+import { fixedZero } from '../../utils/utils';
 
 import styles from './Monitor.less';
 
 const activeData = [];
 for (let i = 0; i < 24; i += 1) {
   activeData.push({
-    x: `${i}:00`,
+    x: `${fixedZero(i)}:00`,
     y: (i * 50) + (Math.floor(Math.random() * 200)),
   });
 }
+
 const MapData = [];
 for (let i = 0; i < 50; i += 1) {
   MapData.push({
@@ -104,8 +106,8 @@ class Monitor extends PureComponent {
                 {
                   activeData && (
                     <div className={styles.activeChartGrid}>
-                      <p>{activeData.sort()[activeData.length - 1].y + 200} 亿元</p>
-                      <p>{activeData.sort()[Math.floor(activeData.length / 2)].y} 亿元</p>
+                      <p>{[...activeData].sort()[activeData.length - 1].y + 200} 亿元</p>
+                      <p>{[...activeData].sort()[Math.floor(activeData.length / 2)].y} 亿元</p>
                     </div>
                   )
                 }
@@ -120,7 +122,7 @@ class Monitor extends PureComponent {
                 }
               </div>
             </Card>
-            <Card title="券核效率" style={{ marginTop: 24, textAlign: 'center' }}>
+            <Card title="券核效率" style={{ marginTop: 24 }} bodyStyle={{ textAlign: 'center' }}>
               <Gauge
                 title="跳出率"
                 height={164}
@@ -171,7 +173,7 @@ class Monitor extends PureComponent {
             </Card>
           </Col>
           <Col span={6}>
-            <Card title="资源剩余" style={{ textAlign: 'center' }}>
+            <Card title="资源剩余" bodyStyle={{ textAlign: 'center' }}>
               <WaterWave
                 height={161}
                 title="补贴资金剩余"

@@ -41,5 +41,24 @@ export default {
         ...payload,
       };
     },
+    setter(state, { payload }) {
+      return {
+        ...state,
+        ...payload,
+      };
+    },
+    clear() {
+      return {
+        visitData: [],
+        salesData: [],
+        searchData: [],
+        offlineData: [],
+        offlineChartData: [],
+        salesTypeData: [],
+        salesTypeDataOnline: [],
+        salesTypeDataOffline: [],
+        radarData: [],
+      };
+    },
   },
 };
