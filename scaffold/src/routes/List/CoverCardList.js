@@ -7,6 +7,7 @@ import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import StandardFormRow from '../../components/StandardFormRow';
 import TagSelect from '../../components/TagSelect';
 import AvatarList from '../../components/AvatarList';
+import SearchInput from '../../components/SearchInput';
 
 import styles from './CoverCardList.less';
 
@@ -46,11 +47,71 @@ class CoverCardList extends PureComponent {
   }
 
   render() {
-    const { list: { list, loading }, form } = this.props;
+    const { list: { list = [], loading }, form } = this.props;
     const { getFieldDecorator } = form;
 
+    const cardList = list ? (
+      <Row gutter={16} style={{ marginTop: 16 }}>
+        {
+          list.map(item => (
+            <Col span={6} style={{ marginBottom: 16 }} key={item.id}>
+              <Card
+                cover={<img alt={item.title} src={item.cover} />}
+              >
+                <Card.Meta
+                  title={item.title}
+                  description={item.subDescription}
+                />
+                <div className={styles.cardItemContent}>
+                  <span>{moment(item.updatedAt).fromNow()}</span>
+                  <div className={styles.avatarList}>
+                    <AvatarList size="small">
+                      {
+                        item.members.map((member, i) => (
+                          <AvatarList.Item
+                            key={`${item.id}-avatar-${i}`}
+                            src={member.avatar}
+                            tips={member.name}
+                          />
+                        ))
+                      }
+                    </AvatarList>
+                  </div>
+                </div>
+              </Card>
+            </Col>
+          ))
+        }
+      </Row>
+    ) : null;
+
+    const tabList = [
+      {
+        key: 'docs',
+        tab: '文章',
+      },
+      {
+        key: 'app',
+        tab: '应用',
+      },
+      {
+        key: 'project',
+        tab: '项目',
+      },
+    ];
+
+    const pageHeaderContent = (
+      <div style={{ textAlign: 'center' }}>
+        <SearchInput onSearch={this.handleFormSubmit} />
+      </div>
+    );
+
     return (
-      <PageHeaderLayout>
+      <PageHeaderLayout
+        title="带封面的卡片列表"
+        content={pageHeaderContent}
+        tabList={tabList}
+      >
         <div className={styles.coverCardList}>
           <Card
             noHovering
@@ -108,41 +169,17 @@ class CoverCardList extends PureComponent {
               </StandardFormRow>
             </Form>
           </Card>
-          <Row gutter={16} style={{ marginTop: 16 }}>
-            {
-              loading && <Spin />
-            }
-            {
-              !loading && list && list.map(item => (
-                <Col span={6} style={{ marginBottom: 16 }} key={item.id}>
-                  <Card
-                    cover={<img alt={item.title} src={item.cover} />}
-                  >
-                    <Card.Meta
-                      title={item.title}
-                      description={item.subDescription}
-                    />
-                    <div className={styles.cardItemContent}>
-                      <span>{moment(item.updatedAt).fromNow()}</span>
-                      <div className={styles.avatarList}>
-                        <AvatarList size="small">
-                          {
-                            item.members.map((member, i) => (
-                              <AvatarList.Item
-                                key={`${item.id}-avatar-${i}`}
-                                src={member.avatar}
-                                tips={member.name}
-                              />
-                            ))
-                          }
-                        </AvatarList>
-                      </div>
-                    </div>
-                  </Card>
-                </Col>
-              ))
-            }
-          </Row>
+          {
+            loading && (list.length > 0) && <Spin>
+              {cardList}
+            </Spin>
+          }
+          {
+            loading && (list.length < 1) && <div style={{ marginTop: 16 }}><Spin /></div>
+          }
+          {
+            !loading && cardList
+          }
         </div>
       </PageHeaderLayout>
     );

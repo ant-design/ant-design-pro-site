@@ -1,0 +1,21 @@
+@import "~antd/lib/style/themes/default.less";
+@import "../../utils/utils.less";
+
+.search {
+  display: inline-block;
+  :global {
+    .ant-input-group-addon {
+      border: none;
+      padding: 0;
+      button {
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+        width: 100%;
+        height: 40px;
+      }
+    }
+  }
+  input {
+    height: 40px;
+    line-height: 40px;
+  }
+}

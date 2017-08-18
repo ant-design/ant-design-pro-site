@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
 import { connect } from 'dva';
-import { List, Card, Row, Col, Radio, Input, Progress, Button, Icon, Dropdown, Menu } from 'antd';
+import { List, Card, Row, Col, Radio, Input, Progress, Button, Icon, Dropdown, Menu, Avatar } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
@@ -125,7 +125,7 @@ class BasicList extends PureComponent {
                     actions={[<a>编辑</a>, <MoreBtn />]}
                   >
                     <List.Item.Meta
-                      avatar={<img src={item.logo} alt={item.title} />}
+                      avatar={<Avatar src={item.logo} shape="square" size="large" />}
                       title={<a href={item.href}>{item.title}</a>}
                       description={item.subDescription}
                     />

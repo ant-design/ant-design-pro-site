@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import numeral from 'numeral';
 import { connect } from 'dva';
-import { Row, Col, Form, Card, Select, Spin, Icon, Avatar, Input, Button } from 'antd';
+import { Row, Col, Form, Card, Select, Spin, Icon, Avatar } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import StandardFormRow from '../../components/StandardFormRow';
 import TagSelect from '../../components/TagSelect';
+import SearchInput from '../../components/SearchInput';
 
 import styles from './FilterCardList.less';
 
@@ -89,21 +90,16 @@ class FilterCardList extends PureComponent {
       </div>
     );
 
-    const content = (
-      <div className={styles.search}>
-        <Input
-          style={{ width: 522 }}
-          placeholder="请输入"
-          size="large"
-          addonAfter={<Button onClick={this.handleFormSubmit} style={{ width: 86 }} type="primary">搜索</Button>}
-        />
+    const pageHeaderContent = (
+      <div style={{ textAlign: 'center' }}>
+        <SearchInput onSearch={this.handleFormSubmit} />
       </div>
     );
 
     return (
       <PageHeaderLayout
         title="带筛选列表"
-        content={<div style={{ textAlign: 'center' }}>{content}</div>}
+        content={pageHeaderContent}
         tabList={tabList}
       >
         <div className={styles.filterCardList}>

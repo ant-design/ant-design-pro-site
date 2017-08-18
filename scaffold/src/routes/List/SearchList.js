@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'dva';
-import { Form, Card, Select, Input, Button, List, Tag, Icon, Avatar } from 'antd';
+import { Form, Card, Select, List, Tag, Icon, Avatar } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import StandardFormRow from '../../components/StandardFormRow';
 import TagSelect from '../../components/TagSelect';
+import SearchInput from '../../components/SearchInput';
 import styles from './SearchList.less';
 
 const Option = Select.Option;
@@ -102,17 +103,6 @@ class SearchList extends Component {
       },
     ];
 
-    const pageHeaderContent = (
-      <div className={styles.search}>
-        <Input
-          style={{ width: 522 }}
-          placeholder="请输入"
-          size="large"
-          addonAfter={<Button onClick={this.handleFormSubmit} style={{ width: 86 }} type="primary">搜索</Button>}
-        />
-      </div>
-    );
-
     const IconText = ({ type, text }) => (
       <span>
         <Icon type={type} style={{ marginRight: 8 }} />
@@ -130,10 +120,16 @@ class SearchList extends Component {
       </div>
     );
 
+    const pageHeaderContent = (
+      <div style={{ textAlign: 'center' }}>
+        <SearchInput onSearch={this.handleFormSubmit} />
+      </div>
+    );
+
     return (
       <PageHeaderLayout
         title="搜索列表"
-        content={<div style={{ textAlign: 'center' }}>{pageHeaderContent}</div>}
+        content={pageHeaderContent}
         tabList={tabList}
       >
         <div>
@@ -227,7 +223,7 @@ class SearchList extends Component {
                   >
                     <List.Item.Meta
                       title={<a href={item.href}>{item.title}</a>}
-                      description={<div><Tag>Ant Design</Tag><Tag>设计语言</Tag><Tag>蚂蚁金服</Tag></div>}
+                      description={<span><Tag>Ant Design</Tag><Tag>设计语言</Tag><Tag>蚂蚁金服</Tag></span>}
                     />
                     <ListContent data={item} />
                   </List.Item>
