@@ -1,9 +1,9 @@
 import React from 'react';
 import { Avatar } from 'antd';
 import classNames from 'classnames';
-import styles from './NotificationList.less';
+import styles from './NoticeList.less';
 
-export default ({ data = [], onClick }) => {
+export default function NoticeList({ data = [], onClick }) {
   return (
     <ul className={styles.list}>
       {data.map((item) => {
@@ -28,4 +28,4 @@ export default ({ data = [], onClick }) => {
       })}
     </ul>
   );
-};
+}

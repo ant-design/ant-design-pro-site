@@ -1,5 +1,5 @@
 import HeaderSearch from '../../scaffold/src/components/HeaderSearch';
-import NotificationIcon from '../../scaffold/src/components/NotificationIcon';
+import NoticeIcon from '../../scaffold/src/components/NoticeIcon';
 import PageHeader from '../../scaffold/src/components/PageHeader';
 import Exception from '../../scaffold/src/components/Exception';
 import GlobalFooter from '../../scaffold/src/components/GlobalFooter';
@@ -8,7 +8,7 @@ import DescriptionList from '../../scaffold/src/components/DescriptionList';
 
 export default {
   HeaderSearch,
-  NotificationIcon,
+  NoticeIcon,
   PageHeader,
   Exception,
   GlobalFooter,
