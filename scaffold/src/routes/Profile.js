@@ -83,7 +83,7 @@ const desc2 = (
 );
 
 const popoverContent = (
-  <div>
+  <div style={{ width: 160 }}>
     吴加号
     <span className={styles.textSecondary} style={{ float: 'right' }}>
       <Badge status="default" text="未响应" />
@@ -135,7 +135,10 @@ const columns = [{
   key: 'memo',
 }];
 
-class Profile extends Component {
+@connect(state => ({
+  profile: state.profile,
+}))
+export default class Profile extends Component {
   state = {
     operationkey: 'tab1',
   }
@@ -184,7 +187,7 @@ class Profile extends Component {
         extraContent={extra}
         tabList={tabList}
       >
-        <Card noHovering title="流程进度" className={styles.card} bordered={false}>
+        <Card noHovering title="流程进度" style={{ marginBottom: 24 }} bordered={false}>
           <Steps progressDot={customDot} current={1}>
             <Step title="创建项目" description={desc1} />
             <Step title="部门初审" description={desc2} />
@@ -192,7 +195,7 @@ class Profile extends Component {
             <Step title="完成" />
           </Steps>
         </Card>
-        <Card noHovering title="用户信息" className={styles.card} bordered={false}>
+        <Card noHovering title="用户信息" style={{ marginBottom: 24 }} bordered={false}>
           <DescriptionList>
             <Term>用户姓名</Term>
             <Description>付小小</Description>
@@ -210,7 +213,11 @@ class Profile extends Component {
             <Description>725</Description>
             <Term>该数据更新时间</Term>
             <Description>2017-08-08</Description>
-            <Term>某某数据 <Tooltip title="数据说明"><Icon type="info-circle-o" /></Tooltip></Term>
+            <Term>某某数据
+              <Tooltip title="数据说明">
+                <Icon style={{ color: 'rgba(0, 0, 0, 0.43)', marginLeft: 4 }} type="info-circle-o" />
+              </Tooltip>
+            </Term>
             <Description>725</Description>
             <Term>该数据更新时间</Term>
             <Description>2017-08-08</Description>
@@ -244,7 +251,7 @@ class Profile extends Component {
             </DescriptionList>
           </Card>
         </Card>
-        <Card noHovering title="用户近半年来电记录" className={styles.card} bordered={false}>
+        <Card noHovering title="用户近半年来电记录" style={{ marginBottom: 24 }} bordered={false}>
           <div className={styles.noData}>
             <Icon type="frown-o" /> 暂无数据
           </div>
@@ -262,8 +269,3 @@ class Profile extends Component {
     );
   }
 }
-
-export default connect(state => ({
-  profile: state.profile,
-}))(Profile);
-

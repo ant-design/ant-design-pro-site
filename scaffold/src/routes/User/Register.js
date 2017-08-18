@@ -8,7 +8,11 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const InputGroup = Input.Group;
 
-class Register extends Component {
+@connect(state => ({
+  register: state.register,
+}))
+@Form.create()
+export default class Register extends Component {
   state = {
     count: 0,
     confirmDirty: false,
@@ -183,7 +187,3 @@ class Register extends Component {
     );
   }
 }
-
-export default connect(state => ({
-  register: state.register,
-}))(Form.create()(Register));
