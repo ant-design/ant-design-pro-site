@@ -67,11 +67,12 @@ class FilterCardList extends PureComponent {
         tab: '文章',
       },
       {
-        key: 'app',
+        key: 'apps',
         tab: '应用',
+        default: true,
       },
       {
-        key: 'project',
+        key: 'projects',
         tab: '项目',
       },
     ];
@@ -98,7 +99,7 @@ class FilterCardList extends PureComponent {
 
     return (
       <PageHeaderLayout
-        title="带筛选列表"
+        title="带筛选卡片列表"
         content={pageHeaderContent}
         tabList={tabList}
       >

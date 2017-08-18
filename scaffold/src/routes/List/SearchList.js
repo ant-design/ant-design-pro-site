@@ -19,6 +19,7 @@ class SearchList extends Component {
   state = {
     count: 3,
     showLoadMore: true,
+    loadMoreLoading: false,
   }
 
   componentDidMount() {
@@ -44,11 +45,17 @@ class SearchList extends Component {
 
     this.setState({
       count: nextCount,
+      loadMoreLoading: true,
     });
     this.props.dispatch({
       type: 'list/fetch',
       payload: {
         count: nextCount,
+      },
+      callback: () => {
+        this.setState({
+          loadMoreLoading: false,
+        });
       },
     });
 
@@ -61,7 +68,7 @@ class SearchList extends Component {
   }
 
   render() {
-    const { showLoadMore } = this.state;
+    const { showLoadMore, loadMoreLoading } = this.state;
     const { form, list: { list } } = this.props;
     const { getFieldDecorator } = form;
 
@@ -210,6 +217,7 @@ class SearchList extends Component {
           </Card>
           <Card style={{ marginTop: 16 }}>
             <List
+              loadMoreLoading={loadMoreLoading}
               showLoadMore={(list.length > 0) && showLoadMore}
               onLoadMore={this.handleLoadMore}
               itemLayout="vertical"
