@@ -46,28 +46,28 @@ class Monitor extends PureComponent {
         title="大盘监控"
       >
         <Row gutter={24}>
-          <Col span={16}>
+          <Col lg={16} md={24} sm={24} xs={24} style={{ marginBottom: 24 }}>
             <Card title="活动实时交易情况">
               <Row>
-                <Col span={6}>
+                <Col sm={6} xs={12}>
                   <NumberInfo
                     subTitle="今日交易总额"
                     total={numeral(124543233).format('0,0')}
                   />
                 </Col>
-                <Col span={6}>
+                <Col sm={6} xs={12}>
                   <NumberInfo
                     subTitle="销售目标完成率"
                     total="92%"
                   />
                 </Col>
-                <Col span={6}>
+                <Col sm={6} xs={12}>
                   <NumberInfo
                     subTitle="活动剩余时间"
                     total={<Countdown target={targetTime} />}
                   />
                 </Col>
-                <Col span={6}>
+                <Col sm={6} xs={12}>
                   <NumberInfo
                     subTitle="每秒交易总额"
                     total={numeral(234).format('0,0')}
@@ -81,8 +81,8 @@ class Monitor extends PureComponent {
               </div>
             </Card>
           </Col>
-          <Col span={8}>
-            <Card title="活动情况预测">
+          <Col lg={8} md={24} sm={24} xs={24}>
+            <Card title="活动情况预测" style={{ marginBottom: 24 }}>
               <div className={styles.activeChart}>
                 <NumberInfo
                   subTitle="目标评估"
@@ -122,7 +122,7 @@ class Monitor extends PureComponent {
                 }
               </div>
             </Card>
-            <Card title="券核效率" style={{ marginTop: 24 }} bodyStyle={{ textAlign: 'center' }}>
+            <Card title="券核效率" style={{ marginBottom: 24 }} bodyStyle={{ textAlign: 'center' }}>
               <Gauge
                 title="跳出率"
                 height={164}
@@ -131,9 +131,9 @@ class Monitor extends PureComponent {
             </Card>
           </Col>
         </Row>
-        <Row gutter={24} style={{ marginTop: 24 }}>
-          <Col span={12}>
-            <Card title="各品类占比">
+        <Row gutter={24}>
+          <Col sm={8} xs={24}>
+            <Card title="各品类占比" style={{ marginBottom: 24 }}>
               <Row style={{ padding: '18px 0 19px 0' }}>
                 <Col span={8}>
                   <Pie
@@ -164,7 +164,7 @@ class Monitor extends PureComponent {
               </Row>
             </Card>
           </Col>
-          <Col span={6}>
+          <Col sm={8} xs={24} style={{ marginBottom: 24 }}>
             <Card title="热门搜索">
               <TagCloud
                 data={tags}
@@ -172,7 +172,7 @@ class Monitor extends PureComponent {
               />
             </Card>
           </Col>
-          <Col span={6}>
+          <Col sm={8} xs={24} style={{ marginBottom: 24 }}>
             <Card title="资源剩余" bodyStyle={{ textAlign: 'center' }}>
               <WaterWave
                 height={161}
