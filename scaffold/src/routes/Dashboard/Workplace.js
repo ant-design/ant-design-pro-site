@@ -146,8 +146,9 @@ class Workplace extends PureComponent {
         content={pageHeaderContent}
       >
         <Row gutter={24}>
-          <Col span={16}>
+          <Col lg={16} md={24} sm={24} xs={24}>
             <Card
+              style={{ marginBottom: 24 }}
               noHovering
               title="进行中的项目"
               bordered={false}
@@ -164,7 +165,7 @@ class Workplace extends PureComponent {
             </Card>
             <Card
               noHovering
-              style={{ marginTop: 24 }}
+              style={{ marginBottom: 24 }}
               bodyStyle={{ padding: 0 }}
               bordered={false}
               title="动态"
@@ -187,8 +188,9 @@ class Workplace extends PureComponent {
               </List>
             </Card>
           </Col>
-          <Col span={8}>
+          <Col lg={8} md={24} sm={24} xs={24}>
             <Card
+              style={{ marginBottom: 24 }}
               noHovering
               title="快速开始 / 便捷导航"
               bordered={false}
@@ -200,8 +202,8 @@ class Workplace extends PureComponent {
               />
             </Card>
             <Card
+              style={{ marginBottom: 24 }}
               noHovering
-              style={{ marginTop: 24 }}
               bordered={false}
               title="xx 指数"
             >
@@ -217,7 +219,6 @@ class Workplace extends PureComponent {
             </Card>
             <Card
               noHovering
-              style={{ marginTop: 24 }}
               bodyStyle={{ paddingBottom: 0 }}
               bordered={false}
               title="团队"
