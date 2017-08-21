@@ -21,7 +21,10 @@ for (let i = 0; i < 7; i += 1) {
   });
 }
 
-class Analysis extends Component {
+@connect(state => ({
+  chart: state.chart,
+}))
+export default class Analysis extends Component {
   state = {
     salesType: 'all',
     currentTabKey: '',
@@ -94,7 +97,7 @@ class Analysis extends Component {
       </span>
     );
 
-    const salesExtra = (<div>
+    const salesExtra = (<div className={styles.salesExtraWrap}>
       <div className={styles.salesExtra}>
         <a onClick={() => this.selectDate('today')}>今日</a>
         <a onClick={() => this.selectDate('week')}>本周</a>
@@ -161,10 +164,17 @@ class Analysis extends Component {
       </Row>
     );
 
+    const topColResponsiveProps = {
+      xs: 24,
+      sm: 12,
+      md: 6,
+      style: { marginBottom: 24 },
+    };
+
     return (
       <div>
         <Row gutter={24}>
-          <Col span={6}>
+          <Col {...topColResponsiveProps}>
             <ChartCard
               bordered={false}
               title="销售额"
@@ -179,7 +189,7 @@ class Analysis extends Component {
               </Trend>
             </ChartCard>
           </Col>
-          <Col span={6}>
+          <Col {...topColResponsiveProps}>
             <ChartCard
               bordered={false}
               title="访问量"
@@ -196,7 +206,7 @@ class Analysis extends Component {
               />
             </ChartCard>
           </Col>
-          <Col span={6}>
+          <Col {...topColResponsiveProps}>
             <ChartCard
               bordered={false}
               title="支付笔数"
@@ -211,7 +221,7 @@ class Analysis extends Component {
               />
             </ChartCard>
           </Col>
-          <Col span={6}>
+          <Col {...topColResponsiveProps}>
             <ChartCard
               bordered={false}
               title="线上购物转化率"
@@ -231,20 +241,19 @@ class Analysis extends Component {
         <Card
           bordered={false}
           bodyStyle={{ padding: 0 }}
-          style={{ marginTop: 24 }}
         >
           <div className={styles.salesCard}>
             <Tabs tabBarExtraContent={salesExtra}>
               <TabPane tab="销售额" key="sales">
                 <Row gutter={72}>
-                  <Col span={16}>
+                  <Col sm={16} xs={24}>
                     <Bar
                       height={292}
                       title="销售额趋势"
                       data={salesData}
                     />
                   </Col>
-                  <Col span={8}>
+                  <Col sm={8} xs={24}>
                     <h4>门店销售额排名</h4>
                     <ul className={styles.rankingList}>
                       {
@@ -268,7 +277,7 @@ class Analysis extends Component {
         </Card>
 
         <Row gutter={24}>
-          <Col span={12}>
+          <Col lg={12} sm={24} xs={24}>
             <Card
               bordered={false}
               title="线上热门搜索"
@@ -276,7 +285,7 @@ class Analysis extends Component {
               style={{ marginTop: 24 }}
             >
               <Row gutter={68}>
-                <Col span={12}>
+                <Col sm={12} xs={24} style={{ marginBottom: 24 }}>
                   <NumberInfo
                     subTitle={<span>搜索用户数量 <Icon style={{ marginLeft: 8 }} type="info-circle-o" /></span>}
                     total={numeral(12321).format('0,0')}
@@ -290,7 +299,7 @@ class Analysis extends Component {
                     data={visitData}
                   />
                 </Col>
-                <Col span={12}>
+                <Col sm={12} xs={24} style={{ marginBottom: 24 }}>
                   <NumberInfo
                     subTitle="人均搜索次数"
                     total={2.7}
@@ -306,7 +315,6 @@ class Analysis extends Component {
                 </Col>
               </Row>
               <Table
-                style={{ marginTop: 24 }}
                 Bordered={false}
                 rowKey={record => record.index}
                 size="middle"
@@ -321,7 +329,7 @@ class Analysis extends Component {
               />
             </Card>
           </Col>
-          <Col span={12}>
+          <Col lg={12} sm={24} xs={24}>
             <Card
               bordered={false}
               title="销售额类别占比"
@@ -378,7 +386,3 @@ class Analysis extends Component {
     );
   }
 }
-
-export default connect(state => ({
-  chart: state.chart,
-}))(Analysis);

@@ -71,11 +71,29 @@
   }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: @screen-lg) {
   .rankingList {
     li {
       span:first-child {
         margin-right: 8px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @screen-sm) {
+  .salesExtra {
+    display: none;
+  }
+  .salesExtraWrap {
+    position: absolute;
+    top: 50px;
+    left: 24px;
+  }
+  .salesCard {
+    :global {
+      .ant-tabs-content {
+        padding-top: 30px;
       }
     }
   }

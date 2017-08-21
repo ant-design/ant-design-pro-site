@@ -19,7 +19,7 @@ class SearchList extends Component {
   state = {
     count: 3,
     showLoadMore: true,
-    loadMoreLoading: false,
+    loadingMore: false,
   }
 
   componentDidMount() {
@@ -45,7 +45,7 @@ class SearchList extends Component {
 
     this.setState({
       count: nextCount,
-      loadMoreLoading: true,
+      loadingMore: true,
     });
     this.props.dispatch({
       type: 'list/fetch',
@@ -54,21 +54,21 @@ class SearchList extends Component {
       },
       callback: () => {
         this.setState({
-          loadMoreLoading: false,
+          loadingMore: false,
         });
+
+        // fack count
+        if (nextCount < 10) {
+          this.setState({
+            showLoadMore: false,
+          });
+        }
       },
     });
-
-    // fack count
-    if (nextCount < 10) {
-      this.setState({
-        showLoadMore: false,
-      });
-    }
   }
 
   render() {
-    const { showLoadMore, loadMoreLoading } = this.state;
+    const { showLoadMore, loadingMore } = this.state;
     const { form, list: { list } } = this.props;
     const { getFieldDecorator } = form;
 
@@ -140,12 +140,8 @@ class SearchList extends Component {
         tabList={tabList}
       >
         <div>
-          <Card
-            noHovering
-          >
-            <Form
-              layout="inline"
-            >
+          <Card noHovering>
+            <Form layout="inline">
               <StandardFormRow title="所属类目" block>
                 <FormItem>
                   {getFieldDecorator('category')(
@@ -217,7 +213,7 @@ class SearchList extends Component {
           </Card>
           <Card style={{ marginTop: 16 }}>
             <List
-              loadMoreLoading={loadMoreLoading}
+              loadingMore={loadingMore}
               showLoadMore={(list.length > 0) && showLoadMore}
               onLoadMore={this.handleLoadMore}
               itemLayout="vertical"
