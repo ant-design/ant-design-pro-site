@@ -8,10 +8,12 @@
     }
   }
 }
+
 .extraImg {
   margin-top: -60px;
   text-align: center;
 }
+
 .newButton {
   background-color: transparent;
   border-color: @border-color-base;
@@ -22,10 +24,15 @@
     background-color: transparent;
   }
 }
+
 .cardDescription {
   .textOverflowMulti();
-  width: 252px;
 }
+
+.pageHeaderContent {
+  position: relative;
+}
+
 .contentLink {
   margin-top: 16px;
   a {
@@ -34,5 +41,31 @@
   img {
     vertical-align: middle;
     margin-right: 8px;
+  }
+}
+
+@media screen and (max-width: @screen-lg) {
+  .contentLink {
+    a {
+      margin-right: 16px;
+    }
+  }
+}
+
+@media screen and (max-width: @screen-sm) {
+  .pageHeaderContent {
+    padding-bottom: 30px;
+  }
+  .contentLink {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 1000px;
+    a {
+      margin-right: 16px;
+    }
+    img {
+      margin-right: 4px;
+    }
   }
 }
