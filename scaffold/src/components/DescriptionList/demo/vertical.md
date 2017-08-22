@@ -1,9 +1,9 @@
 ---
-order: 0
-title: Basic
+order: 1
+title: Vertical
 ---
 
-基本描述列表。
+垂直布局。
 
 ````jsx
 import { DescriptionList } from 'ant-design-pro';
@@ -11,7 +11,7 @@ import { DescriptionList } from 'ant-design-pro';
 const { Description } = DescriptionList;
 
 ReactDOM.render(
-  <DescriptionList title="title">
+  <DescriptionList title="title" layout="vertical">
     <Description term="Firefox">
       A free, open source, cross-platform,
       graphical web browser developed by the
