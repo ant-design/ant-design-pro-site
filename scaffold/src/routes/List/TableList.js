@@ -177,14 +177,14 @@ export default class TableList extends PureComponent {
             <div className={styles.tableListForm}>
               <Form onSubmit={this.handleSearch}>
                 <Row>
-                  <Col span={8}>
+                  <Col md={8} sm={12} xs={24}>
                     <FormItem {...formItemLayout} label="规则编号">
                       {getFieldDecorator('no')(
                         <Input placeholder="请输入" />
                       )}
                     </FormItem>
                   </Col>
-                  <Col span={8}>
+                  <Col md={8} sm={12} xs={24}>
                     <FormItem {...formItemLayout} label="状态">
                       {getFieldDecorator('status')(
                         <Select placeholder="请选择" style={{ width: '100%' }}>
@@ -194,7 +194,7 @@ export default class TableList extends PureComponent {
                       )}
                     </FormItem>
                   </Col>
-                  <Col span={8}>
+                  <Col md={8} sm={12} xs={24} style={{ marginBottom: 24 }}>
                     <div className={styles.formButton}>
                       <Button type="primary" htmlType="submit">查询</Button>
                       <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>重置</Button>
@@ -206,14 +206,14 @@ export default class TableList extends PureComponent {
                 </Row>
                 {
                   this.state.expandForm && <Row>
-                    <Col span={8}>
+                    <Col md={8} sm={12} xs={24}>
                       <FormItem {...formItemLayout} label="更新时间">
                         {getFieldDecorator('updatedAt')(
                           <DatePicker style={{ width: '100%' }} />
                         )}
                       </FormItem>
                     </Col>
-                    <Col span={8}>
+                    <Col md={8} sm={12} xs={24}>
                       <FormItem {...formItemLayout} label="调用次数">
                         {getFieldDecorator('callNo')(
                           <InputNumber
