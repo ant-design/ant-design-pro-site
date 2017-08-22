@@ -30,7 +30,10 @@ for (let i = 0; i < 50; i += 1) {
 }
 const targetTime = new Date().getTime() + 3900000;
 
-class Monitor extends PureComponent {
+@connect(state => ({
+  monitor: state.monitor,
+}))
+export default class Monitor extends PureComponent {
   componentDidMount() {
     this.props.dispatch({
       type: 'monitor/fetchTags',
@@ -186,8 +189,3 @@ class Monitor extends PureComponent {
     );
   }
 }
-
-export default connect(state => ({
-  monitor: state.monitor,
-}))(Monitor);
-

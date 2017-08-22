@@ -18,7 +18,10 @@ const TagExpand = TagSelect.Expand;
 
 /* eslint react/no-array-index-key: 0 */
 @Form.create()
-class CoverCardList extends PureComponent {
+@connect(state => ({
+  list: state.list,
+}))
+export default class CoverCardList extends PureComponent {
   componentDidMount() {
     this.props.dispatch({
       type: 'list/fetch',
@@ -185,7 +188,3 @@ class CoverCardList extends PureComponent {
     );
   }
 }
-
-export default connect(state => ({
-  list: state.list,
-}))(CoverCardList);

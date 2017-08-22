@@ -15,7 +15,10 @@ const TagOption = TagSelect.Option;
 const TagExpand = TagSelect.Expand;
 
 @Form.create()
-class SearchList extends Component {
+@connect(state => ({
+  list: state.list,
+}))
+export default class SearchList extends Component {
   state = {
     count: 3,
     showLoadMore: true,
@@ -240,7 +243,3 @@ class SearchList extends Component {
     );
   }
 }
-
-export default connect(state => ({
-  list: state.list,
-}))(SearchList);

@@ -6,7 +6,10 @@ import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
 import styles from './CardList.less';
 
-class CardList extends PureComponent {
+@connect(state => ({
+  list: state.list,
+}))
+export default class CardList extends PureComponent {
   componentDidMount() {
     this.props.dispatch({
       type: 'list/fetch',
@@ -86,7 +89,3 @@ class CardList extends PureComponent {
     );
   }
 }
-
-export default connect(state => ({
-  list: state.list,
-}))(CardList);

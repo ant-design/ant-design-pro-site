@@ -29,7 +29,10 @@ const formatWan = (val) => {
 
 /* eslint react/no-array-index-key: 0 */
 @Form.create()
-class FilterCardList extends PureComponent {
+@connect(state => ({
+  list: state.list,
+}))
+export default class FilterCardList extends PureComponent {
   componentDidMount() {
     this.props.dispatch({
       type: 'list/fetch',
@@ -190,7 +193,3 @@ class FilterCardList extends PureComponent {
     );
   }
 }
-
-export default connect(state => ({
-  list: state.list,
-}))(FilterCardList);

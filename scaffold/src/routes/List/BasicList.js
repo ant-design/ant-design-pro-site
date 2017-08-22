@@ -11,7 +11,10 @@ const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 const Search = Input.Search;
 
-class BasicList extends PureComponent {
+@connect(state => ({
+  list: state.list,
+}))
+export default class BasicList extends PureComponent {
   componentDidMount() {
     this.props.dispatch({
       type: 'list/fetch',
@@ -140,7 +143,3 @@ class BasicList extends PureComponent {
     );
   }
 }
-
-export default connect(state => ({
-  list: state.list,
-}))(BasicList);

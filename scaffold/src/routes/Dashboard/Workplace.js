@@ -71,8 +71,12 @@ const members = [
   },
 ];
 
-
-class Workplace extends PureComponent {
+@connect(state => ({
+  project: state.project,
+  activities: state.activities,
+  chart: state.chart,
+}))
+export default class Workplace extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
@@ -244,9 +248,3 @@ class Workplace extends PureComponent {
     );
   }
 }
-
-export default connect(state => ({
-  project: state.project,
-  activities: state.activities,
-  chart: state.chart,
-}))(Workplace);
