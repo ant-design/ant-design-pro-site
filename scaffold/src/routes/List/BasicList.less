@@ -32,7 +32,6 @@
     }
   }
   .listContent {
-    .clearfix();
     margin-left: 24px;
     font-size: 0;
     & > div {
@@ -70,6 +69,34 @@
       margin-bottom: 16px;
       & > em {
         display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @screen-md) {
+  .standardList {
+    .listContent {
+      & > div {
+        display: block;
+      }
+      & > div:last-child {
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @screen-lg) and (min-width: @screen-md) {
+  .standardList {
+    .listContent {
+      & > div {
+        display: block;
+      }
+      & > div:last-child {
+        top: 0;
+        width: 100%;
       }
     }
   }
