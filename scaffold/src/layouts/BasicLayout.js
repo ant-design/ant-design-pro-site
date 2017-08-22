@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Menu, Icon, Avatar, Dropdown, Tag } from 'antd';
+import { Layout, Menu, Icon, Avatar, Dropdown, Tag, message } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
 import { Link, routerRedux } from 'dva/router';
 import moment from 'moment';
+import groupBy from 'lodash/groupBy';
 import styles from './BasicLayout.less';
 import HeaderSearch from '../components/HeaderSearch';
 import NoticeIcon from '../components/NoticeIcon';
@@ -13,76 +14,6 @@ import { menus } from '../common/nav';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
-
-const data1 = [{
-  key: '1',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png',
-  title: '你收到了 14 份新周报',
-  datetime: moment('2017-08-09').fromNow(),
-}, {
-  key: '2',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/OKJXDXrmkNshAMvwtvhu.png',
-  title: '你推荐的 曲妮妮 已通过第三轮面试',
-  datetime: moment('2017-08-08').fromNow(),
-}, {
-  key: '3',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/kISTdvpyTAhtGxpovNWd.png',
-  title: '这种模板可以区分多种通知类型',
-  datetime: moment('2017-08-07').fromNow(),
-  read: true,
-}, {
-  key: '4',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/GvqBnKhFgObvnSGkDsje.png',
-  title: '左侧图标用于区分不同的类型',
-  datetime: moment('2017-08-07').fromNow(),
-}, {
-  key: '5',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png',
-  title: '内容不要超过两行字，超出时自动截断',
-  datetime: moment('2017-08-07').fromNow(),
-}];
-
-const data2 = [{
-  key: '1',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg',
-  title: '曲丽丽 评论了你',
-  description: '描述信息描述信息描述信息',
-  datetime: moment('2017-08-07').fromNow(),
-}, {
-  key: '2',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg',
-  title: '朱偏右 回复了你',
-  description: '这种模板用于提醒谁与你发生了互动，左侧放『谁』的头像',
-  datetime: moment('2017-08-07').fromNow(),
-}, {
-  key: '3',
-  avatar: 'https://gw.alipayobjects.com/zos/rmsportal/fcHMVNCjPOsbUGdEduuv.jpeg',
-  title: '标题',
-  description: '这种模板用于提醒谁与你发生了互动，左侧放『谁』的头像',
-  datetime: moment('2017-08-07').fromNow(),
-}];
-
-const data3 = [{
-  key: '1',
-  title: '任务名称',
-  description: '任务需要在 2017-01-12 20:00 前启动',
-  extra: <Tag color="red">马上到期</Tag>,
-}, {
-  key: '2',
-  title: '第三方紧急代码变更',
-  description: '冠霖提交于 2017-01-06，需在 2017-01-07 前完成代码变更任务',
-  extra: <Tag color="red">马上到期</Tag>,
-}, {
-  key: '3',
-  title: '信息安全考试',
-  description: '指派竹尔于 2017-01-09 前完成更新并发布',
-  extra: <Tag color="yellow">已耗时 8 天</Tag>,
-}, {
-  key: '4',
-  title: 'ABCD 版本发布',
-  description: '冠霖提交于 2017-01-06，需在 2017-01-07 前完成代码变更任务',
-  extra: <Tag color="blue">进行中</Tag>,
-}];
 
 class BasicLayout extends React.PureComponent {
   static childContextTypes = {
@@ -165,6 +96,32 @@ class BasicLayout extends React.PureComponent {
     }
     return 'Ant Design Pro';
   }
+  getNoticeData() {
+    const { notices = [] } = this.props;
+    if (notices.length === 0) {
+      return {};
+    }
+    const newNotices = notices.map((notice) => {
+      const newNotice = { ...notice };
+      if (newNotice.datetime) {
+        newNotice.datetime = moment(notice.datetime).fromNow();
+      }
+      // transform id to item key
+      if (newNotice.id) {
+        newNotice.key = newNotice.id;
+      }
+      if (newNotice.extra && newNotice.status) {
+        const color = ({
+          processing: 'blue',
+          urgent: 'red',
+          doing: 'yellow',
+        })[newNotice.status];
+        newNotice.extra = <Tag color={color}>{newNotice.extra}</Tag>;
+      }
+      return newNotice;
+    });
+    return groupBy(newNotices, 'type');
+  }
   toggle = () => {
     const { collapsed } = this.props;
     this.props.dispatch({
@@ -172,8 +129,22 @@ class BasicLayout extends React.PureComponent {
       payload: !collapsed,
     });
   }
+  handleNoticeClear = (type) => {
+    message.success(`清空了${type}`);
+    this.props.dispatch({
+      type: 'global/clearNotices',
+      payload: type,
+    });
+  }
+  handleNoticeVisibleChange = (visible) => {
+    if (visible) {
+      this.props.dispatch({
+        type: 'global/fetchNotices',
+      });
+    }
+  }
   render() {
-    const { children, currentUser, collapsed } = this.props;
+    const { children, currentUser, collapsed, fetchingNotices } = this.props;
 
     const menu = (
       <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick}>
@@ -183,6 +154,8 @@ class BasicLayout extends React.PureComponent {
         <Menu.Item key="logout"><Icon type="logout" />退出登录</Menu.Item>
       </Menu>
     );
+
+    const noticeData = this.getNoticeData();
 
     return (
       <DocumentTitle title={this.getPageTitle()}>
@@ -224,12 +197,16 @@ class BasicLayout extends React.PureComponent {
                 <NoticeIcon
                   className={styles.action}
                   count={currentUser.notifyCount}
-                  onItemClick={(item, tabProps) => console.log(item, tabProps)}
-                  onClear={type => console.log(type)}
+                  onItemClick={(item, tabProps) => {
+                    console.log(item, tabProps); // eslint-disable-line
+                  }}
+                  onClear={this.handleNoticeClear}
+                  onVisibleChange={this.handleNoticeVisibleChange}
+                  loading={fetchingNotices}
                 >
-                  <NoticeIcon.Tab list={data1} title="通知" />
-                  <NoticeIcon.Tab list={data2} title="消息" />
-                  <NoticeIcon.Tab list={data3} title="待办" />
+                  <NoticeIcon.Tab list={noticeData['通知']} title="通知" />
+                  <NoticeIcon.Tab list={noticeData['消息']} title="消息" />
+                  <NoticeIcon.Tab list={noticeData['待办']} title="待办" />
                 </NoticeIcon>
                 <Dropdown overlay={menu}>
                   <span className={`${styles.action} ${styles.account}`}>
@@ -266,4 +243,6 @@ class BasicLayout extends React.PureComponent {
 export default connect(state => ({
   currentUser: state.user.currentUser,
   collapsed: state.global.collapsed,
+  fetchingNotices: state.global.fetchingNotices,
+  notices: state.global.notices,
 }))(BasicLayout);

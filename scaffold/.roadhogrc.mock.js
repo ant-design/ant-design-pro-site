@@ -4,6 +4,7 @@ import { getActivities, getNotice, getFakeList } from './mock/api';
 import { getFakeChartData } from './mock/chart';
 import { imgMap } from './mock/utils';
 import { getProfileData } from './mock/profile';
+import { getNotices } from './mock/notices';
 
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 
@@ -13,7 +14,7 @@ const proxy = {
     name: 'momo.zxy',
     avatar: imgMap.user,
     userid: '00000001',
-    notifyCount: 5,
+    notifyCount: 12,
   },
   // GET POST 可省略
   'GET /api/users': [{
@@ -54,6 +55,7 @@ const proxy = {
   'POST /api/register': (req, res) => {
     return res.send({ status: 'ok' });
   },
+  'GET /api/notices': getNotices,
 };
 
 const mockApi = {};
@@ -90,7 +92,7 @@ Object.keys(proxy).forEach(key => {
     if (!isStatic) {
       setTimeout(() => {
         func(req, res, u, b);
-      }, 1000);
+      }, 600);
     } else {
       return func(null, null, u, b);
     }

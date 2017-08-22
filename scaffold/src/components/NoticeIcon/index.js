@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Popover, Icon, Tabs, Badge } from 'antd';
+import { Popover, Icon, Tabs, Badge, Spin } from 'antd';
 import classNames from 'classnames';
 import List from './NoticeList';
 import styles from './index.less';
@@ -9,6 +9,9 @@ const { TabPane } = Tabs;
 export default class NoticeIcon extends PureComponent {
   static defaultProps = {
     onItemClick: () => {},
+    onVisibleChange: () => {},
+    onTabChange: () => {},
+    onClear: () => {},
   };
   static Tab = TabPane;
   constructor(props) {
@@ -18,38 +21,39 @@ export default class NoticeIcon extends PureComponent {
       this.state.tabType = props.children[0].props.title;
     }
   }
-
   onItemClick = (item, tabProps) => {
     const { onItemClick } = this.props;
     onItemClick(item, tabProps);
   }
-  onTabChange = (key) => {
-    this.setState({
-      tabType: key,
-    });
+  onTabChange = (tabType) => {
+    this.setState({ tabType });
+    this.props.onTabChange(tabType);
   }
   getNotificationBox() {
-    const { children } = this.props;
+    const { children, loading } = this.props;
     if (!children) {
       return null;
     }
     const panes = children.map((child) => {
-      const title = `${child.props.title} (${child.props.list.length})`;
+      const title = child.props.list && child.props.list.length > 0
+        ? `${child.props.title} (${child.props.list.length})` : child.props.title;
       return (
         <TabPane tab={title} key={child.props.title}>
-          <List data={child.props.list} onClick={item => this.onItemClick(item, child.props)} />
+          <List
+            data={child.props.list}
+            onClick={item => this.onItemClick(item, child.props)}
+            onClear={() => this.props.onClear(child.props.title)}
+            title={child.props.title}
+          />
         </TabPane>
       );
     });
     return (
-      <div>
+      <Spin spinning={loading} delay={0}>
         <Tabs className={styles.tabs} onChange={this.onTabChange}>
           {panes}
         </Tabs>
-        <div className={styles.clear} onClick={() => this.props.onClear(this.state.tabType)}>
-          清空{this.state.tabType}
-        </div>
-      </div>
+      </Spin>
     );
   }
   render() {
@@ -74,6 +78,7 @@ export default class NoticeIcon extends PureComponent {
         trigger="click"
         arrowPointAtCenter
         popupAlign={{ offset: [20, -16] }}
+        onVisibleChange={this.props.onVisibleChange}
       >
         {trigger}
       </Popover>
