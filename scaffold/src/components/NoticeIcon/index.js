@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
-import moment from 'moment';
-import { Popover, Icon, Tabs, Badge, Tag } from 'antd';
+import { Popover, Icon, Tabs, Badge } from 'antd';
 import classNames from 'classnames';
 import List from './NoticeList';
-import Tab from './NoticeTab';
 import styles from './index.less';
 
 const { TabPane } = Tabs;
@@ -12,30 +10,44 @@ export default class NoticeIcon extends PureComponent {
   static defaultProps = {
     onItemClick: () => {},
   };
-  static Tab = Tab;
-  state = {
-    tabType: 'notice',
-  };
-  onItemClick = (item, type) => {
+  static Tab = TabPane;
+  constructor(props) {
+    super(props);
+    this.state = {};
+    if (props.children && props.children[0]) {
+      this.state.tabType = props.children[0].props.title;
+    }
+  }
+
+  onItemClick = (item, tabProps) => {
     const { onItemClick } = this.props;
-    onItemClick(item, type);
+    onItemClick(item, tabProps);
+  }
+  onTabChange = (key) => {
+    this.setState({
+      tabType: key,
+    });
   }
   getNotificationBox() {
+    const { children } = this.props;
+    if (!children) {
+      return null;
+    }
+    const panes = children.map((child) => {
+      const title = `${child.props.title} (${child.props.list.length})`;
+      return (
+        <TabPane tab={title} key={child.props.title}>
+          <List data={child.props.list} onClick={item => this.onItemClick(item, child.props)} />
+        </TabPane>
+      );
+    });
     return (
       <div>
-        <Tabs defaultActiveKey={this.state.tabType} className={styles.tabs}>
-          <TabPane tab="通知 (3)" key="notice">
-            <List data={data1} onClick={item => this.onItemClick(item, 'notice')} />
-          </TabPane>
-          <TabPane tab="消息 (4)" key="message" onClick={this.onItemClick}>
-            <List data={data2} onClick={item => this.onItemClick(item, 'notice')} />
-          </TabPane>
-          <TabPane tab="代办 (2)" key="todo" onClick={this.onItemClick}>
-            <List data={data3} onClick={item => this.onItemClick(item, 'notice')} />
-          </TabPane>
+        <Tabs className={styles.tabs} onChange={this.onTabChange}>
+          {panes}
         </Tabs>
-        <div className={styles.clear} onClick={this.props.onClearUnread}>
-          清空通知
+        <div className={styles.clear} onClick={() => this.props.onClear(this.state.tabType)}>
+          清空{this.state.tabType}
         </div>
       </div>
     );
@@ -43,20 +55,27 @@ export default class NoticeIcon extends PureComponent {
   render() {
     const { className, count } = this.props;
     const noticeButtonClass = classNames(className, styles.noticeButton);
+    const notificationBox = this.getNotificationBox();
+    const trigger = (
+      <span className={noticeButtonClass}>
+        <Badge count={count} className={styles.badge}>
+          <Icon type="bell" className={styles.icon} />
+        </Badge>
+      </span>
+    );
+    if (!notificationBox) {
+      return trigger;
+    }
     return (
       <Popover
         placement="bottomRight"
-        content={this.getNotificationBox()}
+        content={notificationBox}
         popupClassName={styles.popover}
         trigger="click"
         arrowPointAtCenter
         popupAlign={{ offset: [20, -16] }}
       >
-        <span className={noticeButtonClass}>
-          <Badge count={count} className={styles.badge}>
-            <Icon type="bell" className={styles.icon} />
-          </Badge>
-        </span>
+        {trigger}
       </Popover>
     );
   }

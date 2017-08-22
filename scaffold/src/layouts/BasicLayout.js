@@ -224,10 +224,12 @@ class BasicLayout extends React.PureComponent {
                 <NoticeIcon
                   className={styles.action}
                   count={currentUser.notifyCount}
+                  onItemClick={(item, tabProps) => console.log(item, tabProps)}
+                  onClear={type => console.log(type)}
                 >
-                  <NoticeIcon.Tab list={data1}>通知（4）</NoticeIcon.Tab>
-                  <NoticeIcon.Tab list={data2}>消息（4）</NoticeIcon.Tab>
-                  <NoticeIcon.Tab list={data3}>待办（4）</NoticeIcon.Tab>
+                  <NoticeIcon.Tab list={data1} title="通知" />
+                  <NoticeIcon.Tab list={data2} title="消息" />
+                  <NoticeIcon.Tab list={data3} title="待办" />
                 </NoticeIcon>
                 <Dropdown overlay={menu}>
                   <span className={`${styles.action} ${styles.account}`}>
