@@ -9,9 +9,14 @@ const { TabPane } = Tabs;
 export default class NoticeIcon extends PureComponent {
   static defaultProps = {
     onItemClick: () => {},
-    onVisibleChange: () => {},
+    onPopupVisibleChange: () => {},
     onTabChange: () => {},
     onClear: () => {},
+    loading: false,
+    locale: {
+      emptyText: '暂无数据',
+      clear: '清空',
+    },
   };
   static Tab = TabPane;
   constructor(props) {
@@ -30,7 +35,7 @@ export default class NoticeIcon extends PureComponent {
     this.props.onTabChange(tabType);
   }
   getNotificationBox() {
-    const { children, loading } = this.props;
+    const { children, loading, locale } = this.props;
     if (!children) {
       return null;
     }
@@ -44,6 +49,7 @@ export default class NoticeIcon extends PureComponent {
             onClick={item => this.onItemClick(item, child.props)}
             onClear={() => this.props.onClear(child.props.title)}
             title={child.props.title}
+            locale={locale}
           />
         </TabPane>
       );
@@ -57,7 +63,7 @@ export default class NoticeIcon extends PureComponent {
     );
   }
   render() {
-    const { className, count } = this.props;
+    const { className, count, popupAlign } = this.props;
     const noticeButtonClass = classNames(className, styles.noticeButton);
     const notificationBox = this.getNotificationBox();
     const trigger = (
@@ -77,8 +83,8 @@ export default class NoticeIcon extends PureComponent {
         popupClassName={styles.popover}
         trigger="click"
         arrowPointAtCenter
-        popupAlign={{ offset: [20, -16] }}
-        onVisibleChange={this.props.onVisibleChange}
+        popupAlign={popupAlign}
+        onVisibleChange={this.props.onPopupVisibleChange}
       >
         {trigger}
       </Popover>

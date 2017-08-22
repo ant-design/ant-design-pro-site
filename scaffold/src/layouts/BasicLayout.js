@@ -201,8 +201,9 @@ class BasicLayout extends React.PureComponent {
                     console.log(item, tabProps); // eslint-disable-line
                   }}
                   onClear={this.handleNoticeClear}
-                  onVisibleChange={this.handleNoticeVisibleChange}
+                  onPopupVisibleChange={this.handleNoticeVisibleChange}
                   loading={fetchingNotices}
+                  popupAlign={{ offset: [20, -16] }}
                 >
                   <NoticeIcon.Tab list={noticeData['通知']} title="通知" />
                   <NoticeIcon.Tab list={noticeData['消息']} title="消息" />
