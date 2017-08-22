@@ -120,6 +120,7 @@ class BasicLayout extends React.PureComponent {
             trigger={null}
             collapsible
             collapsed={collapsed}
+            collapsedWidth={80}
             breakpoint="md"
             onCollapse={this.onCollapse}
             style={{ minHeight: '100vh' }}
@@ -136,7 +137,7 @@ class BasicLayout extends React.PureComponent {
               mode="inline"
               defaultOpenKeys={this.getDefaultCollapsedSubMenus()}
               selectedKeys={this.getCurrentMenuSelectedKeys()}
-              style={{ margin: '24px 0' }}
+              style={{ margin: '24px 0', width: '100%' }}
             >
               {this.getNavMenuItems(menus)}
             </Menu>
