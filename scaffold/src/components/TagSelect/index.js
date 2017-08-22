@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import classNames from 'classnames';
 import { Tag, Icon } from 'antd';
 
 import styles from './index.less';
@@ -116,8 +117,12 @@ class TagSelect extends PureComponent {
 
     const expandNode = children.filter(child => child.props.displayName === 'TagSelectExpand')[0];
 
+    const cls = classNames(styles.tagSelect, {
+      [styles.expandTag]: expandNode,
+    });
+
     return (
-      <div className={styles.tagSelect}>
+      <div className={cls}>
         <CheckableTag
           checked={checkedAll}
           key="tag-select-__all__"

@@ -57,7 +57,7 @@ export default class CoverCardList extends PureComponent {
       <Row gutter={16} style={{ marginTop: 16 }}>
         {
           list.map(item => (
-            <Col span={6} style={{ marginBottom: 16 }} key={item.id}>
+            <Col lg={6} md={8} sm={12} xs={24} style={{ marginBottom: 16 }} key={item.id}>
               <Card
                 cover={<img alt={item.title} src={item.cover} />}
               >
@@ -109,6 +109,13 @@ export default class CoverCardList extends PureComponent {
       </div>
     );
 
+    const formItemLayout = {
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 16 },
+      },
+    };
+
     return (
       <PageHeaderLayout
         title="带封面的卡片列表"
@@ -139,36 +146,45 @@ export default class CoverCardList extends PureComponent {
                 </FormItem>
               </StandardFormRow>
               <StandardFormRow
-                last
                 title="其它选项"
+                grid
+                last
               >
-                <FormItem
-                  label="作者"
-                >
-                  {getFieldDecorator('author', {})(
-                    <Select
-                      onChange={this.handleFormSubmit}
-                      placeholder="不限"
-                      style={{ width: 200 }}
+                <Row gutter={16}>
+                  <Col lg={8} md={10} sm={10} xs={24}>
+                    <FormItem
+                      {...formItemLayout}
+                      label="作者"
                     >
-                      <Option value="lisa">王昭君</Option>
-                    </Select>
-                  )}
-                </FormItem>
-                <FormItem
-                  label="好评度"
-                >
-                  {getFieldDecorator('rate', {})(
-                    <Select
-                      onChange={this.handleFormSubmit}
-                      placeholder="不限"
-                      style={{ width: 200 }}
+                      {getFieldDecorator('author', {})(
+                        <Select
+                          onChange={this.handleFormSubmit}
+                          placeholder="不限"
+                          style={{ maxWidth: 200, width: '100%' }}
+                        >
+                          <Option value="lisa">王昭君</Option>
+                        </Select>
+                      )}
+                    </FormItem>
+                  </Col>
+                  <Col lg={8} md={10} sm={10} xs={24}>
+                    <FormItem
+                      {...formItemLayout}
+                      label="好评度"
                     >
-                      <Option value="good">优秀</Option>
-                      <Option value="normal">普通</Option>
-                    </Select>
-                  )}
-                </FormItem>
+                      {getFieldDecorator('rate', {})(
+                        <Select
+                          onChange={this.handleFormSubmit}
+                          placeholder="不限"
+                          style={{ maxWidth: 200, width: '100%' }}
+                        >
+                          <Option value="good">优秀</Option>
+                          <Option value="normal">普通</Option>
+                        </Select>
+                      )}
+                    </FormItem>
+                  </Col>
+                </Row>
               </StandardFormRow>
             </Form>
           </Card>
