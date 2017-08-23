@@ -194,7 +194,17 @@ class BasicLayout extends React.PureComponent {
                 onClick={this.toggle}
               />
               <div className={styles.right}>
-                <HeaderSearch className={`${styles.action} ${styles.search}`} placeholder="站内搜索" />
+                <HeaderSearch
+                  className={`${styles.action} ${styles.search}`}
+                  placeholder="站内搜索"
+                  dataSource={['搜索提示一', '搜索提示二', '搜索提示三']}
+                  onSearch={(value) => {
+                    console.log('input', value);  // eslint-disable-line
+                  }}
+                  onPressEnter={(value) => {
+                    console.log('enter', value);  // eslint-disable-line
+                  }}
+                />
                 <NoticeIcon
                   className={styles.action}
                   count={currentUser.notifyCount}
