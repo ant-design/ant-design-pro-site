@@ -77,7 +77,7 @@ export default class Monitor extends PureComponent {
                   />
                 </Col>
               </Row>
-              <div style={{ height: 436, paddingTop: 46 }}>
+              <div className={styles.mapChart}>
                 <MapChart
                   data={MapData}
                 />

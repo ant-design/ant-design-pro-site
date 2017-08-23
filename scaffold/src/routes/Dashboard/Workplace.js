@@ -5,7 +5,6 @@ import { Link } from 'dva/router';
 import { Row, Col, Card, List, Avatar, Alert, Icon } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
-import ProjectItem from '../../components/ProjectItem';
 import EditableLinkGroup from '../../components/EditableLinkGroup';
 import { Radar } from '../../components/Charts';
 
@@ -152,17 +151,31 @@ export default class Workplace extends PureComponent {
         <Row gutter={24}>
           <Col lg={16} md={24} sm={24} xs={24}>
             <Card
+              className={styles.projectList}
               style={{ marginBottom: 24 }}
               noHovering
               title="进行中的项目"
               bordered={false}
               extra={<Link to="/">全部项目</Link>}
               loading={projectLoading}
+              bodyStyle={{ padding: 0 }}
             >
               {
                 !projectLoading && notice.length > 0 && notice.map(item => (
-                  <Card.Grid style={{ width: '33.33%', padding: 0 }} key={item.id}>
-                    <ProjectItem data={{ ...item }} />
+                  <Card.Grid className={styles.projectGrid} key={item.id}>
+                    <Card noHovering bodyStyle={{ padding: 0 }} bordered={false}>
+                      <Card.Meta
+                        avatar={<Avatar src={item.logo} />}
+                        title={<Link to={item.href}>{item.title}</Link>}
+                        description={item.description}
+                      />
+                      <div className={styles.projectItemContent}>
+                        <Link to={item.memberLink}>{item.member || ''}</Link>
+                        {
+                          item.updatedAt && <span>{moment(item.updatedAt).fromNow()}</span>
+                        }
+                      </div>
+                    </Card>
                   </Card.Grid>
                 ))
               }
