@@ -99,4 +99,6 @@ Object.keys(proxy).forEach(key => {
   }
 });
 
+mockApi.__mockData = proxy;
+
 export default mockApi;
