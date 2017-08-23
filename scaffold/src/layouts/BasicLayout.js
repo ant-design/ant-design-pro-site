@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Menu, Icon, Avatar, Dropdown } from 'antd';
+import { Layout, Menu, Icon, Avatar, Dropdown, Tag, message } from 'antd';
 import DocumentTitle from 'react-document-title';
 import { connect } from 'dva';
 import { Link, routerRedux } from 'dva/router';
+import moment from 'moment';
+import groupBy from 'lodash/groupBy';
 import styles from './BasicLayout.less';
 import HeaderSearch from '../components/HeaderSearch';
-import NotificationIcon from '../components/NotificationIcon';
+import NoticeIcon from '../components/NoticeIcon';
 import GlobalFooter from '../components/GlobalFooter';
 import { menus } from '../common/nav';
 
@@ -94,6 +96,32 @@ class BasicLayout extends React.PureComponent {
     }
     return 'Ant Design Pro';
   }
+  getNoticeData() {
+    const { notices = [] } = this.props;
+    if (notices.length === 0) {
+      return {};
+    }
+    const newNotices = notices.map((notice) => {
+      const newNotice = { ...notice };
+      if (newNotice.datetime) {
+        newNotice.datetime = moment(notice.datetime).fromNow();
+      }
+      // transform id to item key
+      if (newNotice.id) {
+        newNotice.key = newNotice.id;
+      }
+      if (newNotice.extra && newNotice.status) {
+        const color = ({
+          processing: 'blue',
+          urgent: 'red',
+          doing: 'yellow',
+        })[newNotice.status];
+        newNotice.extra = <Tag color={color}>{newNotice.extra}</Tag>;
+      }
+      return newNotice;
+    });
+    return groupBy(newNotices, 'type');
+  }
   toggle = () => {
     const { collapsed } = this.props;
     this.props.dispatch({
@@ -101,8 +129,22 @@ class BasicLayout extends React.PureComponent {
       payload: !collapsed,
     });
   }
+  handleNoticeClear = (type) => {
+    message.success(`清空了${type}`);
+    this.props.dispatch({
+      type: 'global/clearNotices',
+      payload: type,
+    });
+  }
+  handleNoticeVisibleChange = (visible) => {
+    if (visible) {
+      this.props.dispatch({
+        type: 'global/fetchNotices',
+      });
+    }
+  }
   render() {
-    const { children, currentUser, collapsed } = this.props;
+    const { children, currentUser, collapsed, fetchingNotices } = this.props;
 
     const menu = (
       <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick}>
@@ -112,6 +154,8 @@ class BasicLayout extends React.PureComponent {
         <Menu.Item key="logout"><Icon type="logout" />退出登录</Menu.Item>
       </Menu>
     );
+
+    const noticeData = this.getNoticeData();
 
     return (
       <DocumentTitle title={this.getPageTitle()}>
@@ -151,7 +195,21 @@ class BasicLayout extends React.PureComponent {
               />
               <div className={styles.right}>
                 <HeaderSearch className={`${styles.action} ${styles.search}`} placeholder="站内搜索" />
-                <NotificationIcon className={styles.action} count={currentUser.notifyCount} />
+                <NoticeIcon
+                  className={styles.action}
+                  count={currentUser.notifyCount}
+                  onItemClick={(item, tabProps) => {
+                    console.log(item, tabProps); // eslint-disable-line
+                  }}
+                  onClear={this.handleNoticeClear}
+                  onPopupVisibleChange={this.handleNoticeVisibleChange}
+                  loading={fetchingNotices}
+                  popupAlign={{ offset: [20, -16] }}
+                >
+                  <NoticeIcon.Tab list={noticeData['通知']} title="通知" />
+                  <NoticeIcon.Tab list={noticeData['消息']} title="消息" />
+                  <NoticeIcon.Tab list={noticeData['待办']} title="待办" />
+                </NoticeIcon>
                 <Dropdown overlay={menu}>
                   <span className={`${styles.action} ${styles.account}`}>
                     <Avatar size="small" className={styles.avatar} src={currentUser.avatar} />
@@ -187,4 +245,6 @@ class BasicLayout extends React.PureComponent {
 export default connect(state => ({
   currentUser: state.user.currentUser,
   collapsed: state.global.collapsed,
+  fetchingNotices: state.global.fetchingNotices,
+  notices: state.global.notices,
 }))(BasicLayout);

@@ -58,3 +58,32 @@
     }
   }
 }
+
+.notFound {
+  text-align: center;
+  height: 120px;
+  line-height: 120px;
+  font-size: 14px;
+  color: @text-color-secondary;
+  > i {
+    font-size: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
+    margin-top: -1px;
+  }
+}
+
+.clear {
+  height: 46px;
+  line-height: 46px;
+  text-align: center;
+  color: @text-color-secondary;
+  border-radius: 0 0 @border-radius-base @border-radius-base;
+  border-top: 1px solid @border-color-split;
+  transition: all .3s;
+  cursor: pointer;
+
+  &:hover {
+    color: @text-color;
+  }
+}
