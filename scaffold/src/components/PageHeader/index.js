@@ -40,7 +40,7 @@ export default class PageHeader extends PureComponent {
       breadcrumb = (
         <Breadcrumb
           className={styles.breadcrumb}
-          routes={routes}
+          routes={routes.filter(route => route.breadcrumbName)}
           params={params}
           itemRender={itemRender}
         />
