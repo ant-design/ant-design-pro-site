@@ -10,6 +10,8 @@ export default {
     offlineData: [],
     offlineChartData: [],
     salesTypeData: [],
+    salesTypeDataOnline: [],
+    salesTypeDataOffline: [],
     radarData: [],
   },
 
@@ -21,6 +23,15 @@ export default {
         payload: response,
       });
     },
+    *fetchSalesData({ payload }, { call, put }) {
+      const response = yield call(fakeChartData);
+      yield put({
+        type: 'save',
+        payload: {
+          salesData: response.salesData,
+        },
+      });
+    },
   },
 
   reducers: {
@@ -28,6 +39,25 @@ export default {
       return {
         ...state,
         ...payload,
+      };
+    },
+    setter(state, { payload }) {
+      return {
+        ...state,
+        ...payload,
+      };
+    },
+    clear() {
+      return {
+        visitData: [],
+        salesData: [],
+        searchData: [],
+        offlineData: [],
+        offlineChartData: [],
+        salesTypeData: [],
+        salesTypeDataOnline: [],
+        salesTypeDataOffline: [],
+        radarData: [],
       };
     },
   },

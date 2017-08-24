@@ -9,7 +9,7 @@ export default {
   },
 
   effects: {
-    *fetch({ payload }, { call, put }) {
+    *fetch({ payload, callback }, { call, put }) {
       yield put({
         type: 'changeLoading',
         payload: true,
@@ -23,6 +23,9 @@ export default {
         type: 'changeLoading',
         payload: false,
       });
+      if (callback) {
+        callback();
+      }
     },
   },
 

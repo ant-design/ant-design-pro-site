@@ -62,10 +62,13 @@ const operation3 = [
     memo: '-',
   },
 ];
+
+export const getProfileData = {
+  operation1,
+  operation2,
+  operation3,
+};
+
 export default {
-  getProfileData: {
-    operation1,
-    operation2,
-    operation3,
-  },
+  getProfileData,
 };

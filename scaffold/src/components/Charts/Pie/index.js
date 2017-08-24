@@ -14,9 +14,7 @@ class Pie extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.data !== this.props.data) {
-      this.renderChart(nextProps.data);
-    }
+    this.renderChart(nextProps.data);
   }
 
   handleRef = (n) => {
@@ -142,11 +140,6 @@ class Pie extends Component {
     chart.intervalStack().position(Stat.summary.percent('y')).color('x', formatColor).selected(selected);
     chart.render();
 
-    let left = 0;
-    if (this.totalNode) {
-      left = -((this.totalNode.offsetWidth / 2) + ((margin || m)[1] / 2));
-    }
-
     this.chart = chart;
 
     let legendData = [];
@@ -163,8 +156,15 @@ class Pie extends Component {
     }
 
     this.setState({
-      left,
       legendData,
+    }, () => {
+      let left = 0;
+      if (this.totalNode) {
+        left = -((this.totalNode.offsetWidth / 2) + ((margin || m)[1] / 2));
+      }
+      this.setState({
+        left,
+      });
     });
   }
 

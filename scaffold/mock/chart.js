@@ -52,6 +52,57 @@ const salesTypeData = [
     y: 1231,
   },
 ];
+
+const salesTypeDataOnline = [
+  {
+    x: '家用电器',
+    y: 244,
+  },
+  {
+    x: '食用酒水',
+    y: 321,
+  },
+  {
+    x: '个护健康',
+    y: 311,
+  },
+  {
+    x: '服饰箱包',
+    y: 41,
+  },
+  {
+    x: '母婴产品',
+    y: 121,
+  },
+  {
+    x: '其他',
+    y: 111,
+  },
+];
+
+const salesTypeDataOffline = [
+  {
+    x: '家用电器',
+    y: 99,
+  },
+  {
+    x: '个护健康',
+    y: 188,
+  },
+  {
+    x: '服饰箱包',
+    y: 344,
+  },
+  {
+    x: '母婴产品',
+    y: 255,
+  },
+  {
+    x: '其他',
+    y: 65,
+  },
+];
+
 const offlineData = [];
 for (let i = 0; i < 10; i += 1) {
   offlineData.push({
@@ -116,14 +167,18 @@ radarOriginData.forEach((item) => {
   });
 });
 
+export const getFakeChartData = {
+  visitData,
+  salesData,
+  searchData,
+  offlineData,
+  offlineChartData,
+  salesTypeData,
+  salesTypeDataOnline,
+  salesTypeDataOffline,
+  radarData,
+};
+
 export default {
-  getFakeChartData: {
-    visitData,
-    salesData,
-    searchData,
-    offlineData,
-    offlineChartData,
-    salesTypeData,
-    radarData,
-  },
+  getFakeChartData,
 };

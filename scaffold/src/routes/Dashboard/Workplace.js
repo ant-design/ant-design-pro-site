@@ -5,7 +5,6 @@ import { Link } from 'dva/router';
 import { Row, Col, Card, List, Avatar, Alert, Icon } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
-import ProjectItem from '../../components/ProjectItem';
 import EditableLinkGroup from '../../components/EditableLinkGroup';
 import { Radar } from '../../components/Charts';
 
@@ -14,27 +13,27 @@ import styles from './Workplace.less';
 const links = [
   {
     title: '操作一',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作二',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作三',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作四',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作五',
-    href: '/#operator1',
+    href: '',
   },
   {
     title: '操作六',
-    href: '/#operator1',
+    href: '',
   },
 ];
 
@@ -43,36 +42,40 @@ const members = [
     id: 'members-1',
     title: '凤蝶精英小分队',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/CRxBvUggxBYzWBTGmkxF.png',
-    link: 'http://github.com',
+    link: '',
   },
   {
     id: 'members-2',
     title: 'Ant Design',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
-    link: 'http://github.com',
+    link: '',
   },
   {
     id: 'members-3',
     title: 'DesignLab',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
-    link: 'http://github.com',
+    link: '',
   },
   {
     id: 'members-4',
     title: 'Basement',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/HQVJYAXtWHEJvLxQjmPa.png',
-    link: 'http://github.com',
+    link: '',
   },
   {
     id: 'members-5',
     title: 'Github',
     logo: 'https://gw.alipayobjects.com/zos/rmsportal/RBytOnluTcyeyDazAbvs.png',
-    link: 'http://github.com',
+    link: '',
   },
 ];
 
-
-class Workplace extends PureComponent {
+@connect(state => ({
+  project: state.project,
+  activities: state.activities,
+  chart: state.chart,
+}))
+export default class Workplace extends PureComponent {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
@@ -86,12 +89,19 @@ class Workplace extends PureComponent {
     });
   }
 
+  componentWillUnmount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'chart/clear',
+    });
+  }
+
   render() {
     const {
       project: { loading: projectLoading, notice },
       activities: { loading: activitiesLoading, list: activitiesList },
       chart: { radarData },
-      } = this.props;
+    } = this.props;
 
     const pageHeaderContent = (
       <Alert
@@ -108,7 +118,7 @@ class Workplace extends PureComponent {
         </div>
         <div className={styles.titleContent}>
           <p>早安, 曲丽丽, 祝你开心每一天</p>
-          <p>交互专家 | 蚂蚁金服－平台数据技术事业群－基础平台部－用户体验技术部－UED</p>
+          <p>交互专家 | 蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED</p>
         </div>
       </div>
     );
@@ -139,25 +149,40 @@ class Workplace extends PureComponent {
         content={pageHeaderContent}
       >
         <Row gutter={24}>
-          <Col span={16}>
+          <Col lg={16} md={24} sm={24} xs={24}>
             <Card
+              className={styles.projectList}
+              style={{ marginBottom: 24 }}
               noHovering
               title="进行中的项目"
               bordered={false}
               extra={<Link to="/">全部项目</Link>}
               loading={projectLoading}
+              bodyStyle={{ padding: 0 }}
             >
               {
                 !projectLoading && notice.length > 0 && notice.map(item => (
-                  <Card.Grid style={{ width: '33.33%', padding: 0 }} key={item.id}>
-                    <ProjectItem data={{ ...item, link: `/${item.id}` }} />
+                  <Card.Grid className={styles.projectGrid} key={item.id}>
+                    <Card noHovering bodyStyle={{ padding: 0 }} bordered={false}>
+                      <Card.Meta
+                        avatar={<Avatar src={item.logo} />}
+                        title={<Link to={item.href}>{item.title}</Link>}
+                        description={item.description}
+                      />
+                      <div className={styles.projectItemContent}>
+                        <Link to={item.memberLink}>{item.member || ''}</Link>
+                        {
+                          item.updatedAt && <span>{moment(item.updatedAt).fromNow()}</span>
+                        }
+                      </div>
+                    </Card>
                   </Card.Grid>
                 ))
               }
             </Card>
             <Card
               noHovering
-              style={{ marginTop: 24 }}
+              style={{ marginBottom: 24 }}
               bodyStyle={{ padding: 0 }}
               bordered={false}
               title="动态"
@@ -180,8 +205,9 @@ class Workplace extends PureComponent {
               </List>
             </Card>
           </Col>
-          <Col span={8}>
+          <Col lg={8} md={24} sm={24} xs={24}>
             <Card
+              style={{ marginBottom: 24 }}
               noHovering
               title="快速开始 / 便捷导航"
               bordered={false}
@@ -193,22 +219,23 @@ class Workplace extends PureComponent {
               />
             </Card>
             <Card
+              style={{ marginBottom: 24 }}
               noHovering
-              style={{ marginTop: 24 }}
               bordered={false}
               title="xx 指数"
             >
               <div className={styles.chart}>
-                <Radar
-                  hasLegend
-                  height={286}
-                  data={radarData}
-                />
+                {
+                  <Radar
+                    hasLegend
+                    height={286}
+                    data={radarData}
+                  />
+                }
               </div>
             </Card>
             <Card
               noHovering
-              style={{ marginTop: 24 }}
               bodyStyle={{ paddingBottom: 0 }}
               bordered={false}
               title="团队"
@@ -217,10 +244,12 @@ class Workplace extends PureComponent {
                 <Row gutter={48}>
                   {
                     members.map(item => (
-                      <Col span={12} key={`members-item-${item.id}`}><Link to={item.link}>
-                        <img src={item.logo} alt={item.title} />
-                        <span>{item.title}</span>
-                      </Link></Col>
+                      <Col span={12} key={`members-item-${item.id}`}>
+                        <Link to={item.link}>
+                          <img src={item.logo} alt={item.title} />
+                          <span>{item.title}</span>
+                        </Link>
+                      </Col>
                     ))
                   }
                 </Row>
@@ -232,9 +261,3 @@ class Workplace extends PureComponent {
     );
   }
 }
-
-export default connect(state => ({
-  project: state.project,
-  activities: state.activities,
-  chart: state.chart,
-}))(Workplace);

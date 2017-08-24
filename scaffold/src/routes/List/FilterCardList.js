@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import numeral from 'numeral';
 import { connect } from 'dva';
-import { Row, Col, Form, Card, Select, Spin, Icon, Avatar, Input, Button } from 'antd';
+import { Row, Col, Form, Card, Select, Spin, Icon, Avatar } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import StandardFormRow from '../../components/StandardFormRow';
 import TagSelect from '../../components/TagSelect';
+import SearchInput from '../../components/SearchInput';
 
 import styles from './FilterCardList.less';
 
@@ -28,7 +29,10 @@ const formatWan = (val) => {
 
 /* eslint react/no-array-index-key: 0 */
 @Form.create()
-class FilterCardList extends PureComponent {
+@connect(state => ({
+  list: state.list,
+}))
+export default class FilterCardList extends PureComponent {
   componentDidMount() {
     this.props.dispatch({
       type: 'list/fetch',
@@ -66,11 +70,12 @@ class FilterCardList extends PureComponent {
         tab: '文章',
       },
       {
-        key: 'app',
+        key: 'apps',
         tab: '应用',
+        default: true,
       },
       {
-        key: 'project',
+        key: 'projects',
         tab: '项目',
       },
     ];
@@ -89,21 +94,23 @@ class FilterCardList extends PureComponent {
       </div>
     );
 
-    const content = (
-      <div className={styles.search}>
-        <Input
-          style={{ width: 522 }}
-          placeholder="请输入"
-          size="large"
-          addonAfter={<Button onClick={this.handleFormSubmit} style={{ width: 86 }} type="primary">搜索</Button>}
-        />
+    const pageHeaderContent = (
+      <div style={{ textAlign: 'center' }}>
+        <SearchInput onSearch={this.handleFormSubmit} />
       </div>
     );
 
+    const formItemLayout = {
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 16 },
+      },
+    };
+
     return (
       <PageHeaderLayout
-        title="带筛选列表"
-        content={<div style={{ textAlign: 'center' }}>{content}</div>}
+        title="带筛选卡片列表"
+        content={pageHeaderContent}
         tabList={tabList}
       >
         <div className={styles.filterCardList}>
@@ -130,36 +137,45 @@ class FilterCardList extends PureComponent {
                 </FormItem>
               </StandardFormRow>
               <StandardFormRow
-                last
                 title="其它选项"
+                grid
+                last
               >
-                <FormItem
-                  label="作者"
-                >
-                  {getFieldDecorator('author', {})(
-                    <Select
-                      onChange={this.handleFormSubmit}
-                      placeholder="不限"
-                      style={{ width: 200 }}
+                <Row gutter={16}>
+                  <Col lg={8} md={10} sm={10} xs={24}>
+                    <FormItem
+                      {...formItemLayout}
+                      label="作者"
                     >
-                      <Option value="lisa">王昭君</Option>
-                    </Select>
-                  )}
-                </FormItem>
-                <FormItem
-                  label="好评度"
-                >
-                  {getFieldDecorator('rate', {})(
-                    <Select
-                      onChange={this.handleFormSubmit}
-                      placeholder="不限"
-                      style={{ width: 200 }}
+                      {getFieldDecorator('author', {})(
+                        <Select
+                          onChange={this.handleFormSubmit}
+                          placeholder="不限"
+                          style={{ maxWidth: 200, width: '100%' }}
+                        >
+                          <Option value="lisa">王昭君</Option>
+                        </Select>
+                      )}
+                    </FormItem>
+                  </Col>
+                  <Col lg={8} md={10} sm={10} xs={24}>
+                    <FormItem
+                      {...formItemLayout}
+                      label="好评度"
                     >
-                      <Option value="good">优秀</Option>
-                      <Option value="normal">普通</Option>
-                    </Select>
-                  )}
-                </FormItem>
+                      {getFieldDecorator('rate', {})(
+                        <Select
+                          onChange={this.handleFormSubmit}
+                          placeholder="不限"
+                          style={{ maxWidth: 200, width: '100%' }}
+                        >
+                          <Option value="good">优秀</Option>
+                          <Option value="normal">普通</Option>
+                        </Select>
+                      )}
+                    </FormItem>
+                  </Col>
+                </Row>
               </StandardFormRow>
             </Form>
           </Card>
@@ -169,7 +185,7 @@ class FilterCardList extends PureComponent {
             }
             {
               !loading && list && list.map(item => (
-                <Col span={6} style={{ marginBottom: 16 }} key={item.id}>
+                <Col lg={6} md={8} sm={12} xs={24} style={{ marginBottom: 16 }} key={item.id}>
                   <Card
                     actions={[<Icon type="copy" />, <Icon type="solution" />, <Icon type="setting" />, <Icon type="delete" />]}
                   >
@@ -193,7 +209,3 @@ class FilterCardList extends PureComponent {
     );
   }
 }
-
-export default connect(state => ({
-  list: state.list,
-}))(FilterCardList);

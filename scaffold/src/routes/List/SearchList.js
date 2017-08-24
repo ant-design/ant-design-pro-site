@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'dva';
-import { Form, Card, Select, Input, Button, List, Tag, Icon, Avatar } from 'antd';
+import { Form, Card, Select, List, Tag, Icon, Avatar, Row, Col } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import StandardFormRow from '../../components/StandardFormRow';
 import TagSelect from '../../components/TagSelect';
+import SearchInput from '../../components/SearchInput';
 import styles from './SearchList.less';
 
 const Option = Select.Option;
@@ -14,10 +15,14 @@ const TagOption = TagSelect.Option;
 const TagExpand = TagSelect.Expand;
 
 @Form.create()
-class SearchList extends Component {
+@connect(state => ({
+  list: state.list,
+}))
+export default class SearchList extends Component {
   state = {
     count: 3,
     showLoadMore: true,
+    loadingMore: false,
   }
 
   componentDidMount() {
@@ -43,24 +48,30 @@ class SearchList extends Component {
 
     this.setState({
       count: nextCount,
+      loadingMore: true,
     });
     this.props.dispatch({
       type: 'list/fetch',
       payload: {
         count: nextCount,
       },
-    });
+      callback: () => {
+        this.setState({
+          loadingMore: false,
+        });
 
-    // fack count
-    if (nextCount < 10) {
-      this.setState({
-        showLoadMore: false,
-      });
-    }
+        // fack count
+        if (nextCount < 10) {
+          this.setState({
+            showLoadMore: false,
+          });
+        }
+      },
+    });
   }
 
   render() {
-    const { showLoadMore } = this.state;
+    const { showLoadMore, loadingMore } = this.state;
     const { form, list: { list } } = this.props;
     const { getFieldDecorator } = form;
 
@@ -102,17 +113,6 @@ class SearchList extends Component {
       },
     ];
 
-    const pageHeaderContent = (
-      <div className={styles.search}>
-        <Input
-          style={{ width: 522 }}
-          placeholder="请输入"
-          size="large"
-          addonAfter={<Button onClick={this.handleFormSubmit} style={{ width: 86 }} type="primary">搜索</Button>}
-        />
-      </div>
-    );
-
     const IconText = ({ type, text }) => (
       <span>
         <Icon type={type} style={{ marginRight: 8 }} />
@@ -130,19 +130,28 @@ class SearchList extends Component {
       </div>
     );
 
+    const pageHeaderContent = (
+      <div style={{ textAlign: 'center' }}>
+        <SearchInput onSearch={this.handleFormSubmit} />
+      </div>
+    );
+
+    const formItemLayout = {
+      wrapperCol: {
+        xs: { span: 24 },
+        sm: { span: 16 },
+      },
+    };
+
     return (
       <PageHeaderLayout
         title="搜索列表"
-        content={<div style={{ textAlign: 'center' }}>{pageHeaderContent}</div>}
+        content={pageHeaderContent}
         tabList={tabList}
       >
         <div>
-          <Card
-            noHovering
-          >
-            <Form
-              layout="inline"
-            >
+          <Card noHovering>
+            <Form layout="inline">
               <StandardFormRow title="所属类目" block>
                 <FormItem>
                   {getFieldDecorator('category')(
@@ -159,61 +168,84 @@ class SearchList extends Component {
                   )}
                 </FormItem>
               </StandardFormRow>
-              <StandardFormRow title="Owner">
-                <FormItem>
-                  {getFieldDecorator('owner', {
-                    initialValue: ['wjh', 'zxx'],
-                  })(
-                    <Select
-                      mode="multiple"
-                      style={{ width: 286 }}
-                      placeholder="选择 owner"
-                    >
-                      {
-                        owners.map(owner =>
-                          <Option key={owner.id} value={owner.id}>{owner.name}</Option>
-                        )
-                      }
-                    </Select>
-                  )}
-                  <a onClick={this.setOwner} style={{ marginLeft: 8 }}>只看自己的</a>
-                </FormItem>
+              <StandardFormRow
+                title="Owner"
+                grid
+              >
+                <Row>
+                  <Col lg={16} md={16} sm={20} xs={20}>
+                    <FormItem>
+                      {getFieldDecorator('owner', {
+                        initialValue: ['wjh', 'zxx'],
+                      })(
+                        <Select
+                          mode="multiple"
+                          style={{ maxWidth: 286, width: '100%' }}
+                          placeholder="选择 owner"
+                        >
+                          {
+                            owners.map(owner =>
+                              <Option key={owner.id} value={owner.id}>{owner.name}</Option>
+                            )
+                          }
+                        </Select>
+                      )}
+                      <a onClick={this.setOwner} style={{ marginLeft: 8 }}>只看自己的</a>
+                    </FormItem>
+                  </Col>
+                </Row>
               </StandardFormRow>
               <StandardFormRow
-                last
                 title="其它选项"
+                grid
+                last
               >
-                <FormItem
-                  label="活跃用户"
-                >
-                  {getFieldDecorator('user', {})(
-                    <Select
-                      onChange={this.handleFormSubmit}
-                      placeholder="不限"
-                      style={{ width: 200 }}
+                <Row gutter={16}>
+                  <Col lg={8} md={10} sm={10} xs={24}>
+                    <FormItem
+                      {...formItemLayout}
+                      label="活跃用户"
                     >
-                      <Option value="lisa">李三</Option>
-                    </Select>
-                  )}
-                </FormItem>
-                <FormItem
-                  label="好评度"
-                >
-                  {getFieldDecorator('rate', {})(
-                    <Select
-                      onChange={this.handleFormSubmit}
-                      placeholder="不限"
-                      style={{ width: 200 }}
+                      {getFieldDecorator('user', {})(
+                        <Select
+                          onChange={this.handleFormSubmit}
+                          placeholder="不限"
+                          style={{ maxWidth: 200, width: '100%' }}
+                        >
+                          <Option value="lisa">李三</Option>
+                        </Select>
+                      )}
+                    </FormItem>
+                  </Col>
+                  <Col lg={8} md={10} sm={10} xs={24}>
+                    <FormItem
+                      {...formItemLayout}
+                      label="好评度"
                     >
-                      <Option value="good">优秀</Option>
-                    </Select>
-                  )}
-                </FormItem>
+                      {getFieldDecorator('rate', {})(
+                        <FormItem
+                          label="好评度"
+                        >
+                          {getFieldDecorator('rate', {})(
+                            <Select
+                              onChange={this.handleFormSubmit}
+                              placeholder="不限"
+                              style={{ maxWidth: 200, width: '100%' }}
+                            >
+                              <Option value="good">优秀</Option>
+                            </Select>
+                          )}
+                        </FormItem>
+                      )}
+                    </FormItem>
+                  </Col>
+                </Row>
               </StandardFormRow>
             </Form>
           </Card>
           <Card style={{ marginTop: 16 }}>
             <List
+              loadingMore={loadingMore}
               showLoadMore={(list.length > 0) && showLoadMore}
               onLoadMore={this.handleLoadMore}
               itemLayout="vertical"
@@ -223,11 +255,11 @@ class SearchList extends Component {
                   <List.Item
                     key={item.id}
                     actions={[<IconText type="star-o" text={item.star} />, <IconText type="like-o" text={item.like} />, <IconText type="message" text={item.message} />]}
-                    extra={<div style={{ width: 272, height: 1 }} />}
+                    extra={<div className={styles.listItemExtra} />}
                   >
                     <List.Item.Meta
                       title={<a href={item.href}>{item.title}</a>}
-                      description={<div><Tag>Ant Design</Tag><Tag>设计语言</Tag><Tag>蚂蚁金服</Tag></div>}
+                      description={<span><Tag>Ant Design</Tag><Tag>设计语言</Tag><Tag>蚂蚁金服</Tag></span>}
                     />
                     <ListContent data={item} />
                   </List.Item>
@@ -240,7 +272,3 @@ class SearchList extends Component {
     );
   }
 }
-
-export default connect(state => ({
-  list: state.list,
-}))(SearchList);

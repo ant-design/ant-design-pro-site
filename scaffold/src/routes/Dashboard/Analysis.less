@@ -8,6 +8,7 @@
   }
 }
 .rankingList {
+  margin-top: 25px;
   li {
     .clearfix();
     margin-top: 16px;
@@ -38,11 +39,61 @@
   }
 }
 
-@media screen and (max-width: 1280px) {
+.salesExtra {
+  display: inline-block;
+  margin-right: 24px;
+  a {
+    color: @text-color;
+    margin-left: 24px;
+    &:hover {
+      color: @primary-color;
+    }
+  }
+}
+
+.salesCard {
+  :global {
+    .ant-tabs-content {
+      padding: 0 24px 24px 24px;
+    }
+    .ant-tabs-bar {
+      padding-left: 24px;
+      .ant-tabs-nav .ant-tabs-tab {
+        padding-top: 16px;
+        padding-bottom: 14px;
+        line-height: 24px;
+      }
+    }
+    .ant-tabs-extra-content {
+      padding-right: 24px;
+      line-height: 55px;
+    }
+  }
+}
+
+@media screen and (max-width: @screen-lg) {
   .rankingList {
     li {
       span:first-child {
         margin-right: 8px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @screen-sm) {
+  .salesExtra {
+    display: none;
+  }
+  .salesExtraWrap {
+    position: absolute;
+    top: 50px;
+    left: 24px;
+  }
+  .salesCard {
+    :global {
+      .ant-tabs-content {
+        padding-top: 30px;
       }
     }
   }

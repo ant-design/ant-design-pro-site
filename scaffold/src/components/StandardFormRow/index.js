@@ -2,10 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './index.less';
 
-export default ({ title, children, last, block, ...rest }) => {
+export default ({ title, children, last, block, grid, ...rest }) => {
   const cls = classNames(styles.standardFormRow, {
     [styles.standardFormRowBlock]: block,
     [styles.standardFormRowLast]: last,
+    [styles.standardFormRowGrid]: grid,
   });
 
   return (

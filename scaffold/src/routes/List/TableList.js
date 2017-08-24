@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
-import { Card, Row, Col, Form, Input, Select, Icon, Button, Dropdown, Menu, InputNumber, DatePicker } from 'antd';
+import { Card, Row, Col, Form, Input, Select, Icon, Button, Dropdown, Menu, InputNumber, DatePicker, Modal, message } from 'antd';
 import StandardTable from '../../components/StandardTable';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 
@@ -16,6 +16,8 @@ const getValue = obj => Object.keys(obj).map(key => obj[key]).join(',');
 @Form.create()
 export default class TableList extends PureComponent {
   state = {
+    addInputValue: '',
+    modalVisible: false,
     expandForm: false,
     selectedRows: [],
     formValues: {},
@@ -55,7 +57,12 @@ export default class TableList extends PureComponent {
   }
 
   handleFormReset = () => {
-    this.props.form.resetFields();
+    const { form, dispatch } = this.props;
+    form.resetFields();
+    dispatch({
+      type: 'rule/fetch',
+      payload: {},
+    });
   }
 
   toggleForm = () => {
@@ -119,9 +126,35 @@ export default class TableList extends PureComponent {
     });
   }
 
+  handleModalVisible = (flag) => {
+    this.setState({
+      modalVisible: !!flag,
+    });
+  }
+
+  handleAddInput = (e) => {
+    this.setState({
+      addInputValue: e.target.value,
+    });
+  }
+
+  handleAdd = () => {
+    this.props.dispatch({
+      type: 'rule/add',
+      payload: {
+        description: this.state.addInputValue,
+      },
+    });
+
+    message.success('添加成功');
+    this.setState({
+      modalVisible: false,
+    });
+  }
+
   render() {
     const { rule: { loading: ruleLoading, data }, form: { getFieldDecorator } } = this.props;
-    const { selectedRows } = this.state;
+    const { selectedRows, modalVisible, addInputValue } = this.state;
 
     const formItemLayout = {
       labelCol: { span: 5 },
@@ -129,8 +162,11 @@ export default class TableList extends PureComponent {
     };
 
     const menu = (
-      <Menu onClick={this.handleMenuClick}>
+      <Menu onClick={this.handleMenuClick} selectedKeys={[]}>
         <Menu.Item key="remove">删除</Menu.Item>
+        {
+          selectedRows.length > 1 && <Menu.Item key="approval">批量审批</Menu.Item>
+        }
       </Menu>
     );
 
@@ -141,14 +177,14 @@ export default class TableList extends PureComponent {
             <div className={styles.tableListForm}>
               <Form onSubmit={this.handleSearch}>
                 <Row>
-                  <Col span={8}>
+                  <Col md={8} sm={12} xs={24}>
                     <FormItem {...formItemLayout} label="规则编号">
                       {getFieldDecorator('no')(
                         <Input placeholder="请输入" />
                       )}
                     </FormItem>
                   </Col>
-                  <Col span={8}>
+                  <Col md={8} sm={12} xs={24}>
                     <FormItem {...formItemLayout} label="状态">
                       {getFieldDecorator('status')(
                         <Select placeholder="请选择" style={{ width: '100%' }}>
@@ -158,7 +194,7 @@ export default class TableList extends PureComponent {
                       )}
                     </FormItem>
                   </Col>
-                  <Col span={8}>
+                  <Col md={8} sm={12} xs={24} style={{ marginBottom: 24 }}>
                     <div className={styles.formButton}>
                       <Button type="primary" htmlType="submit">查询</Button>
                       <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>重置</Button>
@@ -170,14 +206,14 @@ export default class TableList extends PureComponent {
                 </Row>
                 {
                   this.state.expandForm && <Row>
-                    <Col span={8}>
+                    <Col md={8} sm={12} xs={24}>
                       <FormItem {...formItemLayout} label="更新时间">
                         {getFieldDecorator('updatedAt')(
                           <DatePicker style={{ width: '100%' }} />
                         )}
                       </FormItem>
                     </Col>
-                    <Col span={8}>
+                    <Col md={8} sm={12} xs={24}>
                       <FormItem {...formItemLayout} label="调用次数">
                         {getFieldDecorator('callNo')(
                           <InputNumber
@@ -192,7 +228,7 @@ export default class TableList extends PureComponent {
               </Form>
             </div>
             <div className={styles.tableListOperator}>
-              <Button icon="plus" type="primary">新建</Button>
+              <Button icon="plus" type="primary" onClick={() => this.handleModalVisible(true)}>新建</Button>
               <Button>批量操作</Button>
               <Dropdown overlay={menu}>
                 <Button>
@@ -209,6 +245,20 @@ export default class TableList extends PureComponent {
             />
           </div>
         </Card>
+        <Modal
+          title="新建规则"
+          visible={modalVisible}
+          onOk={this.handleAdd}
+          onCancel={() => this.handleModalVisible()}
+        >
+          <FormItem
+            labelCol={{ span: 5 }}
+            wrapperCol={{ span: 15 }}
+            label="描述"
+          >
+            <Input placeholder="请输入" onChange={this.handleAddInput} value={addInputValue} />
+          </FormItem>
+        </Modal>
       </PageHeaderLayout>
     );
   }

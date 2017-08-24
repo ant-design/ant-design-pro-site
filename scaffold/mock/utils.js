@@ -1,4 +1,4 @@
-const imgMap = {
+export const imgMap = {
   user: 'https://gw.alipayobjects.com/zos/rmsportal/YdMCpIJULitXfqHCFPbF.png',
   a: 'https://gw.alipayobjects.com/zos/rmsportal/ZrkcSjizAKNWwJTwcadT.png',
   b: 'https://gw.alipayobjects.com/zos/rmsportal/KYlwHMeomKQbhJDRUVvt.png',
@@ -7,7 +7,7 @@ const imgMap = {
 };
 
 // refers: https://www.sitepoint.com/get-url-parameters-with-javascript/
-function getUrlParams(url) {
+export function getUrlParams(url) {
   const d = decodeURIComponent;
   let queryString = url ? url.split('?')[1] : window.location.search.slice(1);
   const obj = {};

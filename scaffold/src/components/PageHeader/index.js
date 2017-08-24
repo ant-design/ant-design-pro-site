@@ -30,6 +30,7 @@ export default class PageHeader extends PureComponent {
       params: this.props.params || this.context.params,
     };
   };
+
   render() {
     const { routes, params } = this.getBreadcrumbProps();
     const { title, logo, action, content, extraContent,
@@ -49,9 +50,10 @@ export default class PageHeader extends PureComponent {
       breadcrumb = (
         <Breadcrumb className={styles.breadcrumb}>
           {
-            breadcrumbList.map(item => (<Breadcrumb.Item>
-              {item.href ? <a href="">{item.title}</a> : item.title}
-            </Breadcrumb.Item>)
+            breadcrumbList.map(item => (
+              <Breadcrumb.Item>
+                {item.href ? <a href="">{item.title}</a> : item.title}
+              </Breadcrumb.Item>)
             )
           }
         </Breadcrumb>
@@ -59,6 +61,9 @@ export default class PageHeader extends PureComponent {
     } else {
       breadcrumb = null;
     }
+
+    const tabDefaultValue = tabList && tabList.filter(item => item.default)[0];
+
     return (
       <div className={clsString}>
         {breadcrumb}
@@ -78,7 +83,11 @@ export default class PageHeader extends PureComponent {
         {
           tabList &&
           tabList.length &&
-          <Tabs className={styles.tabs} onChange={this.onChange}>
+          <Tabs
+            className={styles.tabs}
+            defaultActiveKey={(tabDefaultValue && tabDefaultValue.key)}
+            onChange={this.onChange}
+          >
             {
               tabList.map(item => <TabPane tab={item.tab} key={item.key} />)
             }

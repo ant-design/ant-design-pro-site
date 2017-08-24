@@ -38,6 +38,10 @@ class StandardTable extends PureComponent {
     this.props.onChange(pagination, filters, sorter);
   }
 
+  cleanSelectedKeys = () => {
+    this.handleRowSelectChange([], []);
+  }
+
   render() {
     const { selectedRowKeys, totalCallNo } = this.state;
     const { data: { list, pagination }, loading } = this.props;
@@ -121,6 +125,7 @@ class StandardTable extends PureComponent {
               <p>
                 已选择 <a>{selectedRowKeys.length}</a> 项&nbsp;&nbsp;
                 服务调用总计 <span style={{ fontWeight: 600 }}>{totalCallNo}</span> 万
+                <a onClick={this.cleanSelectedKeys} style={{ marginLeft: 8 }}>清空</a>
               </p>
             )}
             type="info"
