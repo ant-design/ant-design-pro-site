@@ -5,6 +5,7 @@ import { getFakeChartData } from './mock/chart';
 import { imgMap } from './mock/utils';
 import { getProfileData } from './mock/profile';
 import { getNotices } from './mock/notices';
+import { format } from 'roadhog-api-doc';
 
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 
@@ -99,6 +100,4 @@ Object.keys(proxy).forEach(key => {
   }
 });
 
-mockApi.__mockData = proxy;
-
-export default mockApi;
+export default format(mockApi);
