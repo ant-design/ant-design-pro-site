@@ -30,7 +30,6 @@ export default class PageHeader extends PureComponent {
       params: this.props.params || this.context.params,
     };
   };
-
   render() {
     const { routes, params } = this.getBreadcrumbProps();
     const { title, logo, action, content, extraContent,

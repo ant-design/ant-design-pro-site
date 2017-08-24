@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Select } from 'antd';
+import { Form, Input, Button, Select, Divider } from 'antd';
 import { routerRedux } from 'dva/router';
 import styles from './style.less';
 
@@ -33,14 +33,20 @@ export default ({ formItemLayout, form, dispatch }) => {
           {...formItemLayout}
           label="收款账户"
         >
-          {getFieldDecorator('receiverAccount', {
-            rules: [
-              { required: true, message: '请输入收款人账户' },
-              { type: 'email', message: '账户名应为邮箱格式' },
-            ],
-          })(
-            <Input placeholder="test@example.com" />
-          )}
+          <Input.Group compact>
+            <Select defaultValue="alipay" size="large" style={{ width: 80 }}>
+              <Option value="alipay">支付宝</Option>
+              <Option value="wepay">微信</Option>
+            </Select>
+            {getFieldDecorator('receiverAccount', {
+              rules: [
+                { required: true, message: '请输入收款人账户' },
+                { type: 'email', message: '账户名应为邮箱格式' },
+              ],
+            })(
+              <Input style={{ width: 'calc(100% - 80px)' }} placeholder="test@example.com" />
+            )}
+          </Input.Group>
         </Form.Item>
         <Form.Item
           {...formItemLayout}
@@ -62,7 +68,7 @@ export default ({ formItemLayout, form, dispatch }) => {
               { pattern: /^(\d+)((?:\.\d+)?)$/, message: '请输入合法金额数字' },
             ],
           })(
-            <Input prefix="￥" />
+            <Input prefix="￥" placeholder="请输入金额" />
           )}
         </Form.Item>
         <Form.Item
@@ -74,7 +80,7 @@ export default ({ formItemLayout, form, dispatch }) => {
           </Button>
         </Form.Item>
       </Form>
-      <hr className={styles.divider} />
+      <Divider style={{ margin: '48px 0 16px' }} />
       <div className={styles.desc}>
         <h3>说明</h3>
         <h4>转账到支付宝账户</h4>

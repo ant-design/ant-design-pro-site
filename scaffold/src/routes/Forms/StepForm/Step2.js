@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Alert } from 'antd';
+import { Form, Input, Button, Alert, Divider } from 'antd';
 import { routerRedux } from 'dva/router';
 import styles from './style.less';
 
@@ -31,29 +31,33 @@ export default ({ formItemLayout, form, data, dispatch, submitting }) => {
       />
       <Form.Item
         {...formItemLayout}
+        className={styles.stepFormText}
         label="付款账户"
       >
         {data.payAccount}
       </Form.Item>
       <Form.Item
         {...formItemLayout}
+        className={styles.stepFormText}
         label="收款账户"
       >
         {data.receiverAccount}
       </Form.Item>
       <Form.Item
         {...formItemLayout}
+        className={styles.stepFormText}
         label="收款人姓名"
       >
         {data.receiverName}
       </Form.Item>
       <Form.Item
         {...formItemLayout}
+        className={styles.stepFormText}
         label="转账金额"
       >
         {data.amount}
       </Form.Item>
-      <hr className={styles.divider} />
+      <Divider style={{ margin: '24px 0' }} />
       <Form.Item
         {...formItemLayout}
         label="支付密码"

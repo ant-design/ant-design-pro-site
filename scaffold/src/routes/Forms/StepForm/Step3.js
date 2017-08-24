@@ -24,7 +24,7 @@ export default ({ dispatch, data }) => {
       </Row>
       <Row>
         <Col span={8} className={styles.label}>转账金额：</Col>
-        <Col span={16}>{data.amount} 元</Col>
+        <Col span={16}><span className={styles.money}>{data.amount}</span> 元</Col>
       </Row>
     </div>
   );
