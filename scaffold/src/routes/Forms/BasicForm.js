@@ -132,12 +132,9 @@ export default class BasicForms extends PureComponent {
                 <Input addonBefore="http://" addonAfter=".com" placeholder="facebook" style={{ width: '100%' }} />
               )}
             </FormItem>
-            <FormItem {...submitFormLayout}>
+            <FormItem {...submitFormLayout} style={{ marginTop: 40 }}>
               <Button type="primary" htmlType="submit" loading={submitting}>
-                提交
-              </Button>
-              <Button style={{ marginLeft: 8 }}>
-                取消
+                新建应用
               </Button>
             </FormItem>
           </Form>

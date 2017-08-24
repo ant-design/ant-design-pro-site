@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Button, Form, Icon, Col, Row, DatePicker, Input, Select, Popover } from 'antd';
+import { Card, Button, Form, Icon, Col, Row, DatePicker, TimePicker, Input, Select, Popover } from 'antd';
 import { connect } from 'dva';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import FooterToolbar from '../../components/FooterToolbar';
@@ -10,18 +10,18 @@ const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 const fieldLabels = {
-  name: '仓库管理',
+  name: '仓库名',
   url: '仓库域名',
   owner: '仓库管理员',
   approver: '审批人',
   dateRange: '生效日期',
   type: '仓库类型',
-  name2: '仓库管理',
-  url2: '仓库域名',
-  owner2: '仓库管理员',
-  approver2: '审批人',
+  name2: '任务名',
+  url2: '任务描述',
+  owner2: '执行人',
+  approver2: '责任人',
   dateRange2: '生效日期',
-  type2: '仓库类型',
+  type2: '任务类型',
 };
 
 const tableData = [{
@@ -174,7 +174,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
           </Row>
         </Form>
       </Card>
-      <Card title="XX 管理" className={styles.card} bordered={false}>
+      <Card title="任务管理" className={styles.card} bordered={false}>
         <Form layout="vertical" hideRequiredMark>
           <Row gutter={16}>
             <Col md={6} sm={24}>
@@ -226,7 +226,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
                 {getFieldDecorator('dateRange2', {
                   rules: [{ required: true, message: '请输入' }],
                 })(
-                  <RangePicker placeholder={['开始日期', '结束日期']} style={{ width: '100%' }} />
+                  <TimePicker placeholder="提醒时间" style={{ width: '100%' }} />
                 )}
               </Form.Item>
             </Col>

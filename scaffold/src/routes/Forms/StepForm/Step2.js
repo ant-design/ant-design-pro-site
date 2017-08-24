@@ -55,7 +55,7 @@ export default ({ formItemLayout, form, data, dispatch, submitting }) => {
         className={styles.stepFormText}
         label="转账金额"
       >
-        {data.amount}
+        <span className={styles.money}>{data.amount}</span> 元
       </Form.Item>
       <Divider style={{ margin: '24px 0' }} />
       <Form.Item
