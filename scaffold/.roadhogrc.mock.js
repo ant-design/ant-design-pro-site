@@ -12,10 +12,18 @@ import { format } from 'roadhog-api-doc';
 const proxy = {
   // 支持值为 Object 和 Array
   'GET /api/currentUser': {
-    name: 'momo.zxy',
-    avatar: imgMap.user,
-    userid: '00000001',
-    notifyCount: 12,
+    $params: {
+      pageSize: {
+        desc: '分页',
+        exp: 2,
+      },
+    },
+    $body: {
+      name: 'momo.zxy',
+      avatar: imgMap.user,
+      userid: '00000001',
+      notifyCount: 12,
+    },
   },
   // GET POST 可省略
   'GET /api/users': [{
@@ -37,7 +45,15 @@ const proxy = {
   'GET /api/project/notice': getNotice,
   'GET /api/activities': getActivities,
   'GET /api/rule': getRule,
-  'POST /api/rule': postRule,
+  'POST /api/rule': {
+    $params: {
+      pageSize: {
+        desc: '分页',
+        exp: 2,
+      },
+    },
+    $body: postRule,
+  },
   'POST /api/forms': (req, res) => {
     return res.send('Ok');
   },
@@ -60,7 +76,7 @@ const proxy = {
 };
 
 const mockApi = {};
-Object.keys(proxy).forEach(key => {
+Object.keys(format({...proxy})).forEach(key => {
   mockApi[key] = (req, res, u, b) => {
 
     // tricks
@@ -100,4 +116,4 @@ Object.keys(proxy).forEach(key => {
   }
 });
 
-export default format(mockApi);
+export default format(mockApi, proxy);
