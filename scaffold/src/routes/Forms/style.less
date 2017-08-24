@@ -67,3 +67,12 @@
     margin-top: 4px;
   }
 }
+
+// 避免表格编辑模式切换时抖动
+.editable {
+  td {
+    transition: none !important;
+    padding-top: 12.5px !important;
+    padding-bottom: 12.5px !important;
+  }
+}

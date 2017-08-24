@@ -101,7 +101,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
       <Card title="仓库管理" className={styles.card} bordered={false}>
         <Form layout="vertical" hideRequiredMark>
           <Row gutter={16}>
-            <Col sm={6} xs={24}>
+            <Col md={6} sm={24}>
               <Form.Item label={fieldLabels.name}>
                 {getFieldDecorator('name', {
                   rules: [{ required: true, message: '请输入仓库名称' }],
@@ -110,7 +110,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
                 )}
               </Form.Item>
             </Col>
-            <Col md={{ span: 6, offset: 2 }} sm={{ span: 8 }} xs={24}>
+            <Col xl={{ span: 6, offset: 2 }} md={{ span: 8 }} sm={24}>
               <Form.Item label={fieldLabels.url}>
                 {getFieldDecorator('url', {
                   rules: [{ required: true, message: '请选择' }],
@@ -124,7 +124,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
                 )}
               </Form.Item>
             </Col>
-            <Col md={{ span: 8, offset: 2 }} sm={{ span: 10 }} xs={24}>
+            <Col xl={{ span: 8, offset: 2 }} md={{ span: 10 }} sm={24}>
               <Form.Item label={fieldLabels.owner}>
                 {getFieldDecorator('owner', {
                   rules: [{ required: true, message: '请选择管理员' }],
@@ -138,7 +138,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
             </Col>
           </Row>
           <Row gutter={16}>
-            <Col sm={6} xs={24}>
+            <Col md={6} sm={24}>
               <Form.Item label={fieldLabels.approver}>
                 {getFieldDecorator('approver', {
                   rules: [{ required: true, message: '请选择审批员' }],
@@ -150,16 +150,16 @@ function AdvancedForm({ form, dispatch, submitting }) {
                 )}
               </Form.Item>
             </Col>
-            <Col md={{ span: 6, offset: 2 }} sm={{ span: 8 }} xs={24}>
+            <Col xl={{ span: 6, offset: 2 }} md={{ span: 8 }} sm={24}>
               <Form.Item label={fieldLabels.dateRange}>
                 {getFieldDecorator('dateRange', {
                   rules: [{ required: true, message: '请选择生效日期' }],
                 })(
-                  <RangePicker placeholder={['开始日期', '结束日期']} />
+                  <RangePicker placeholder={['开始日期', '结束日期']} style={{ width: '100%' }} />
                 )}
               </Form.Item>
             </Col>
-            <Col md={{ span: 8, offset: 2 }} sm={{ span: 10 }} xs={24}>
+            <Col xl={{ span: 8, offset: 2 }} md={{ span: 10 }} sm={24}>
               <Form.Item label={fieldLabels.type}>
                 {getFieldDecorator('type', {
                   rules: [{ required: true, message: '请选择仓库类型' }],
@@ -177,7 +177,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
       <Card title="XX 管理" className={styles.card} bordered={false}>
         <Form layout="vertical" hideRequiredMark>
           <Row gutter={16}>
-            <Col sm={6} xs={24}>
+            <Col md={6} sm={24}>
               <Form.Item label={fieldLabels.name2}>
                 {getFieldDecorator('name2', {
                   rules: [{ required: true, message: '请输入' }],
@@ -186,7 +186,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
                 )}
               </Form.Item>
             </Col>
-            <Col md={{ span: 6, offset: 2 }} sm={{ span: 8 }} xs={24}>
+            <Col xl={{ span: 6, offset: 2 }} md={{ span: 8 }} sm={24}>
               <Form.Item label={fieldLabels.url2}>
                 {getFieldDecorator('url2', {
                   rules: [{ required: true, message: '请选择' }],
@@ -195,7 +195,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
                 )}
               </Form.Item>
             </Col>
-            <Col md={{ span: 8, offset: 2 }} sm={{ span: 10 }} xs={24}>
+            <Col xl={{ span: 8, offset: 2 }} md={{ span: 10 }} sm={24}>
               <Form.Item label={fieldLabels.owner2}>
                 {getFieldDecorator('owner2', {
                   rules: [{ required: true, message: '请选择管理员' }],
@@ -209,7 +209,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
             </Col>
           </Row>
           <Row gutter={16}>
-            <Col sm={6} xs={24}>
+            <Col md={6} sm={24}>
               <Form.Item label={fieldLabels.approver2}>
                 {getFieldDecorator('approver2', {
                   rules: [{ required: true, message: '请选择审批员' }],
@@ -221,16 +221,16 @@ function AdvancedForm({ form, dispatch, submitting }) {
                 )}
               </Form.Item>
             </Col>
-            <Col md={{ span: 6, offset: 2 }} sm={{ span: 8 }} xs={24}>
+            <Col xl={{ span: 6, offset: 2 }} md={{ span: 8 }} sm={24}>
               <Form.Item label={fieldLabels.dateRange2}>
                 {getFieldDecorator('dateRange2', {
                   rules: [{ required: true, message: '请输入' }],
                 })(
-                  <RangePicker placeholder={['开始日期', '结束日期']} />
+                  <RangePicker placeholder={['开始日期', '结束日期']} style={{ width: '100%' }} />
                 )}
               </Form.Item>
             </Col>
-            <Col md={{ span: 8, offset: 2 }} sm={{ span: 10 }} xs={24}>
+            <Col xl={{ span: 8, offset: 2 }} md={{ span: 10 }} sm={24}>
               <Form.Item label={fieldLabels.type2}>
                 {getFieldDecorator('type2', {
                   rules: [{ required: true, message: '请选择仓库类型' }],
@@ -245,7 +245,7 @@ function AdvancedForm({ form, dispatch, submitting }) {
           </Row>
         </Form>
       </Card>
-      <Card title="成员管理" className={styles.card} bordered={false} style={{ marginBottom: 84 }}>
+      <Card title="成员管理" className={styles.card} bordered={false}>
         {getFieldDecorator('members', {
           initialValue: tableData,
         })(<TableForm />)}

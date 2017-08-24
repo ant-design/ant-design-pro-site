@@ -8,8 +8,12 @@ const Option = Select.Option;
 export default ({ formItemLayout, form, dispatch }) => {
   const { getFieldDecorator, validateFields } = form;
   const onValidateForm = () => {
-    validateFields((err) => {
+    validateFields((err, values) => {
       if (!err) {
+        dispatch({
+          type: 'form/saveStepFormData',
+          payload: values,
+        });
         dispatch(routerRedux.push('/form/step-form/confirm'));
       }
     });
@@ -22,6 +26,7 @@ export default ({ formItemLayout, form, dispatch }) => {
           label="付款账户"
         >
           {getFieldDecorator('payAccount', {
+            initialValue: 'ant-design@alipay.com',
             rules: [{ required: true, message: '请选择付款账户' }],
           })(
             <Select placeholder="test@example.com">
@@ -39,6 +44,7 @@ export default ({ formItemLayout, form, dispatch }) => {
               <Option value="wepay">微信</Option>
             </Select>
             {getFieldDecorator('receiverAccount', {
+              initialValue: 'test@example.com',
               rules: [
                 { required: true, message: '请输入收款人账户' },
                 { type: 'email', message: '账户名应为邮箱格式' },
@@ -53,6 +59,7 @@ export default ({ formItemLayout, form, dispatch }) => {
           label="收款人姓名"
         >
           {getFieldDecorator('receiverName', {
+            initialValue: 'Alex',
             rules: [{ required: true, message: '请输入收款人姓名' }],
           })(
             <Input placeholder="请输入收款人姓名" />
@@ -63,6 +70,7 @@ export default ({ formItemLayout, form, dispatch }) => {
           label="转账金额"
         >
           {getFieldDecorator('amount', {
+            initialValue: '500',
             rules: [
               { required: true, message: '请输入转账金额' },
               { pattern: /^(\d+)((?:\.\d+)?)$/, message: '请输入合法金额数字' },

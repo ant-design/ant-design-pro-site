@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Table, Button, Input, message } from 'antd';
+import styles from './style.less';
 
 export default class TableForm extends PureComponent {
   constructor(props) {
@@ -147,6 +148,15 @@ export default class TableForm extends PureComponent {
       key: 'action',
       render: (text, record) => {
         if (record.editable) {
+          if (record.key.indexOf('NEW_TEMP_ID_') >= 0) {
+            return (
+              <span>
+                <a onClick={e => this.saveRow(e, record.key)}>保存</a>
+                <span className="ant-divider" />
+                <a onClick={e => this.remove(e, record.key)}>删除</a>
+              </span>
+            );
+          }
           return (
             <span>
               <a onClick={e => this.saveRow(e, record.key)}>保存</a>
@@ -171,6 +181,9 @@ export default class TableForm extends PureComponent {
           columns={columns}
           dataSource={this.state.data}
           pagination={false}
+          rowClassName={(record) => {
+            return record.editable ? styles.editable : '';
+          }}
         />
         <Button
           style={{ width: '100%', marginTop: 24 }}

@@ -7,14 +7,7 @@ import styles from '../style.less';
 
 const Step = Steps.Step;
 
-@Form.create({
-  onValuesChange(props, values) {
-    props.dispatch({
-      type: 'form/saveStepFormData',
-      payload: values,
-    });
-  },
-})
+@Form.create()
 class StepForm extends PureComponent {
   getCurrentStep() {
     const { routes } = this.props;

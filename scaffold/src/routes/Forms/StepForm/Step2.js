@@ -64,11 +64,12 @@ export default ({ formItemLayout, form, data, dispatch, submitting }) => {
         required={false}
       >
         {getFieldDecorator('password', {
+          initialValue: '123456',
           rules: [{
             required: true, message: '需要支付密码才能进行支付',
           }],
         })(
-          <Input type="password" autoComplete />
+          <Input type="password" autoComplete="off" style={{ width: '80%' }} />
         )}
 
       </Form.Item>

@@ -11,7 +11,7 @@ function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;
   return (last || !route.component)
     ? <span>{route.breadcrumbName}</span>
-    : <Link to={paths.join('/')}>{route.breadcrumbName}</Link>;
+    : <Link to={paths.join('/') || '/'}>{route.breadcrumbName}</Link>;
 }
 
 export default class PageHeader extends PureComponent {

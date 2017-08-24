@@ -180,6 +180,7 @@ export default [{
   component: BasicLayout,
   name: '首页',
   children: menus,
+  path: '',
 }, {
   component: UserLayout,
   name: '账户',
