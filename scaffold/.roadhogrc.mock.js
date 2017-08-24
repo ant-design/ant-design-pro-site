@@ -76,7 +76,8 @@ const proxy = {
 };
 
 const mockApi = {};
-Object.keys(format({...proxy})).forEach(key => {
+const formatProxy = format({...proxy});
+Object.keys(formatProxy).forEach(key => {
   mockApi[key] = (req, res, u, b) => {
 
     // tricks
@@ -92,7 +93,7 @@ Object.keys(format({...proxy})).forEach(key => {
       }
     }
 
-    const result = proxy[key];
+    const result = formatProxy[key];
     let func;
     if (Object.prototype.toString.call(result) === '[object Function]') {
       func = result;
