@@ -19,6 +19,9 @@ function getRoutes(data, level = 0) {
       }
       homePageRedirect = <Redirect from="/" to={indexPath} />;
     }
+    if (item.noRoute) {
+      return null;
+    }
     return (
       <Route
         key={item.key || item.path || ''}

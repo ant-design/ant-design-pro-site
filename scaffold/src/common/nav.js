@@ -30,6 +30,41 @@ import Login from '../routes/User/Login';
 import Register from '../routes/User/Register';
 import RegisterResult from '../routes/User/RegisterResult';
 
+function userAdapter(userData) {
+  userData.children.forEach((item) => {
+    if (item.children) {
+      userAdapter(item);
+    } else {
+      const userItem = item;
+      userItem.target = '_blank';
+      userItem.noRoute = true;
+    }
+  });
+  return userData;
+}
+
+export const user = [{
+  name: '帐户',
+  icon: 'setting',
+  path: 'user',
+  children: [{
+    name: '登录',
+    path: 'login',
+    component: Login,
+    icon: 'setting',
+  }, {
+    name: '注册',
+    path: 'register',
+    component: Register,
+    icon: 'setting',
+  }, {
+    name: '注册结果',
+    path: 'register-result',
+    component: RegisterResult,
+    icon: 'setting',
+  }],
+}];
+
 export const menus = [{
   name: 'Dashboard',
   icon: 'setting',
@@ -152,29 +187,8 @@ export const menus = [{
     component: Exception500,
     icon: 'setting',
   }],
-}];
+}, userAdapter(JSON.parse(JSON.stringify(user[0])))];
 
-export const user = [{
-  name: '帐户',
-  icon: 'setting',
-  path: 'user',
-  children: [{
-    name: '登录',
-    path: 'login',
-    component: Login,
-    icon: 'setting',
-  }, {
-    name: '注册',
-    path: 'register',
-    component: Register,
-    icon: 'setting',
-  }, {
-    name: '注册结果',
-    path: 'register-result',
-    component: RegisterResult,
-    icon: 'setting',
-  }],
-}];
 
 export default [{
   component: BasicLayout,
