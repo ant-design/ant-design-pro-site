@@ -5,13 +5,14 @@ import { getFakeChartData } from './mock/chart';
 import { imgMap } from './mock/utils';
 import { getProfileData } from './mock/profile';
 import { getNotices } from './mock/notices';
-import { format } from 'roadhog-api-doc';
+import { format, delay } from 'roadhog-api-doc';
 
 // 代码中会兼容本地 service mock 以及部署站点的静态数据
 
 const proxy = {
   // 支持值为 Object 和 Array
   'GET /api/currentUser': {
+    $desc: "获取当前用户接口",
     $params: {
       pageSize: {
         desc: '分页',
@@ -55,7 +56,7 @@ const proxy = {
     $body: postRule,
   },
   'POST /api/forms': (req, res) => {
-    return res.send('Ok');
+    res.send('Ok');
   },
   'GET /api/tags': mockjs.mock({
     'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }]
@@ -64,57 +65,15 @@ const proxy = {
   'GET /api/fake_chart_data': getFakeChartData,
   'GET /api/profile': getProfileData,
   'POST /api/login/account': (req, res) => {
-    return res.send({ status: 'error', type: 'account' });
+    res.send({ status: 'error', type: 'account' });
   },
   'POST /api/login/mobile': (req, res) => {
-    return res.send({ status: 'ok', type: 'mobile' });
+    res.send({ status: 'ok', type: 'mobile' });
   },
   'POST /api/register': (req, res) => {
-    return res.send({ status: 'ok' });
+    res.send({ status: 'ok' });
   },
   'GET /api/notices': getNotices,
 };
 
-const mockApi = {};
-const formatProxy = format({...proxy});
-Object.keys(formatProxy).forEach(key => {
-  mockApi[key] = (req, res, u, b) => {
-
-    // tricks
-    const isStatic = !(res && res.json);
-    if (isStatic) {
-      res = {
-        send: (data) => {
-          return data;
-        },
-        json: (data) => {
-          return data;
-        },
-      }
-    }
-
-    const result = formatProxy[key];
-    let func;
-    if (Object.prototype.toString.call(result) === '[object Function]') {
-      func = result;
-    } else {
-      func = (req, res, u, b) => {
-        if (!isStatic) {
-          res.json(result);
-        } else {
-          return result;
-        }
-      }
-    }
-
-    if (!isStatic) {
-      setTimeout(() => {
-        func(req, res, u, b);
-      }, 600);
-    } else {
-      return func(null, null, u, b);
-    }
-  }
-});
-
-export default format(mockApi, proxy);
+export default delay(proxy, 1000);

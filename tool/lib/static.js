@@ -17,13 +17,26 @@ export default function request(url, params) {
     }
     const currentKey = keys.filter(key => new RegExp(key).test(u))[0];
     const res = query[currentKey];
-    let result;
+
     if (typeof res === 'function') {
-      result = res(null, null, url, params);
+      const _req = {
+        url,
+        params,
+        query: params,
+        body: params,
+      };
+      const _res = {
+        json: (data) => {
+          resolve(data);
+        },
+        send: (data) => {
+          resolve(data);
+        },
+      };
+      res(_req, _res);
+    } else {
+      resolve(res);
     }
-    setTimeout(() => {
-      resolve(result);
-    }, 1000);
   });
 }
 `;
