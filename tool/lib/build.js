@@ -5,6 +5,8 @@ const shelljs = require('shelljs');
 
 const cwd = process.cwd();
 
+/* eslint prefer-arrow-callback:0 */
+/* eslint no-console:0 */
 module.exports = function () {
   const scaffoldDir = path.join(cwd, './dist');
   const siteDir = path.join(cwd, '../_scaffold_site');
@@ -14,13 +16,14 @@ module.exports = function () {
   });
 
   process.on('SIGINT', function () {
-
     fs.copySync(`${utilsDir}/request-temp.js`, `${utilsDir}/request.js`);
     fs.removeSync(`${utilsDir}/request-temp.js`);
     fs.removeSync(`${cwd}/src/.roadhogrc.mock.js`);
     fs.removeSync(`${cwd}/src/mock`);
 
-    program.runningCommand && program.runningCommand.kill('SIGKILL');
+    if (program.runningCommand) {
+      program.runningCommand.kill('SIGKILL');
+    }
     process.exit(0);
   });
 
