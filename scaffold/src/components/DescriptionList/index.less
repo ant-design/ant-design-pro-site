@@ -1,6 +1,13 @@
 @import "~antd/lib/style/themes/default.less";
 
 .descriptionList {
+  // offset the padding-bottom of last row
+  :global {
+    .ant-row {
+      margin-bottom: -16px;
+      overflow: hidden;
+    }
+  }
 
   .title {
     color: @heading-color;
@@ -9,10 +16,11 @@
   }
 
   .term {
-    margin-bottom: 8px;
+    padding-bottom: 16px;
     margin-right: 8px;
     color: @heading-color;
     white-space: nowrap;
+    display: table-cell;
 
     &:after {
       content: ":";
@@ -22,8 +30,21 @@
     }
   }
 
-  .description {
-    margin-bottom: 16px;
+  .detail {
+    padding-bottom: 16px;
     color: @text-color;
+    display: table-cell;
+  }
+
+  &.vertical {
+
+    .term {
+      padding-bottom: 8px;
+      display: block;
+    }
+
+    .detail {
+      display: block;
+    }
   }
 }

@@ -7,7 +7,11 @@ import styles from './Login.less';
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
 
-class Login extends Component {
+@connect(state => ({
+  login: state.login,
+}))
+@Form.create()
+export default class Login extends Component {
   state = {
     count: 0,
     type: 'account',
@@ -134,7 +138,7 @@ class Login extends Component {
                       size="large"
                       onClick={this.onGetCaptcha}
                     >
-                      {count ? `${count} S` : '获取验证码'}
+                      {count ? `${count} s` : '获取验证码'}
                     </Button>
                   </Col>
                 </Row>
@@ -166,7 +170,3 @@ class Login extends Component {
     );
   }
 }
-
-export default connect(state => ({
-  login: state.login,
-}))(Form.create()(Login));

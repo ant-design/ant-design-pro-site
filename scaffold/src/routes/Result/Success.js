@@ -7,14 +7,18 @@ const Step = Steps.Step;
 
 const desc1 = (
   <div style={{ fontSize: 14 }}>
-    <div style={{ marginTop: 4, marginBottom: 8 }}>曲丽丽 <Icon type="dingding-o" /></div>
+    <div style={{ margin: '4px 0' }}>
+      曲丽丽<Icon style={{ marginLeft: 8 }} type="dingding-o" />
+    </div>
     <div>2016-12-12 12:32</div>
   </div>
 );
 
 const desc2 = (
   <div style={{ fontSize: 14 }}>
-    <div style={{ marginTop: 4, marginBottom: 8 }}>周毛毛 <Icon type="dingding-o" style={{ color: '#00A0E9' }} /></div>
+    <div style={{ margin: '4px 0' }}>
+      周毛毛<Icon type="dingding-o" style={{ color: '#00A0E9', marginLeft: 8 }} />
+    </div>
     <div><a href="">催一下</a></div>
   </div>
 );

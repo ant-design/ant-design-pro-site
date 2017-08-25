@@ -6,7 +6,7 @@ import DescriptionList from '../components/DescriptionList';
 import styles from './Profile.less';
 
 const { Step } = Steps;
-const { Term, Description } = DescriptionList;
+const { Description } = DescriptionList;
 
 const menu = (
   <Menu>
@@ -43,16 +43,11 @@ const extra = (
 
 const description = (
   <DescriptionList col="2">
-    <Term>创建人</Term>
-    <Description>曲丽丽</Description>
-    <Term>关联单据</Term>
-    <Description><a href="">12421</a></Description>
-    <Term>创建时间</Term>
-    <Description>2017-07-07</Description>
-    <Term>生效日期</Term>
-    <Description>2017-07-07 ~ 2017-08-08</Description>
-    <Term>单据备注</Term>
-    <Description>修改公司地址：浙江省杭州市西湖区工专路</Description>
+    <Description term="创建人">曲丽丽</Description>
+    <Description term="关联单据"><a href="">12421</a></Description>
+    <Description term="创建时间">2017-07-07</Description>
+    <Description term="生效日期">2017-07-07 ~ 2017-08-08</Description>
+    <Description term="单据备注">修改公司地址：浙江省杭州市西湖区工专路</Description>
   </DescriptionList>
 );
 
@@ -83,7 +78,7 @@ const desc2 = (
 );
 
 const popoverContent = (
-  <div>
+  <div style={{ width: 160 }}>
     吴加号
     <span className={styles.textSecondary} style={{ float: 'right' }}>
       <Badge status="default" text="未响应" />
@@ -135,7 +130,10 @@ const columns = [{
   key: 'memo',
 }];
 
-class Profile extends Component {
+@connect(state => ({
+  profile: state.profile,
+}))
+export default class Profile extends Component {
   state = {
     operationkey: 'tab1',
   }
@@ -184,7 +182,7 @@ class Profile extends Component {
         extraContent={extra}
         tabList={tabList}
       >
-        <Card noHovering title="流程进度" className={styles.card} bordered={false}>
+        <Card noHovering title="流程进度" style={{ marginBottom: 24 }} bordered={false}>
           <Steps progressDot={customDot} current={1}>
             <Step title="创建项目" description={desc1} />
             <Step title="部门初审" description={desc2} />
@@ -192,59 +190,52 @@ class Profile extends Component {
             <Step title="完成" />
           </Steps>
         </Card>
-        <Card noHovering title="用户信息" className={styles.card} bordered={false}>
-          <DescriptionList>
-            <Term>用户姓名</Term>
-            <Description>付小小</Description>
-            <Term>会员卡号</Term>
-            <Description>32943898021309809423</Description>
-            <Term>身份证</Term>
-            <Description>3321944288191034921</Description>
-            <Term>联系方式</Term>
-            <Description>18322193472</Description>
-            <Term>联系地址</Term>
-            <Description>曲丽丽  18100000000  浙江省杭州市西湖区黄姑山路工专路交叉路口</Description>
+        <Card noHovering title="用户信息" style={{ marginBottom: 24 }} bordered={false}>
+          <DescriptionList style={{ marginBottom: 24 }}>
+            <Description term="用户姓名">付小小</Description>
+            <Description term="会员卡号">32943898021309809423</Description>
+            <Description term="身份证">3321944288191034921</Description>
+            <Description term="联系方式">18322193472</Description>
+            <Description term="联系地址">曲丽丽  18100000000  浙江省杭州市西湖区黄姑山路工专路交叉路口</Description>
           </DescriptionList>
-          <DescriptionList style={{ marginBottom: 8 }} title="信息组" col="2">
-            <Term>某某数据</Term>
-            <Description>725</Description>
-            <Term>该数据更新时间</Term>
-            <Description>2017-08-08</Description>
-            <Term>某某数据 <Tooltip title="数据说明"><Icon type="info-circle-o" /></Tooltip></Term>
-            <Description>725</Description>
-            <Term>该数据更新时间</Term>
-            <Description>2017-08-08</Description>
+          <DescriptionList style={{ marginBottom: 24 }} title="信息组" col="2">
+            <Description term="某某数据">725</Description>
+            <Description term="该数据更新时间">2017-08-08</Description>
+            <Description term={
+              <span>
+                某某数据
+                <Tooltip title="数据说明">
+                  <Icon style={{ color: 'rgba(0, 0, 0, 0.43)', marginLeft: 4 }} type="info-circle-o" />
+                </Tooltip>
+              </span>
+              }
+            >
+              725
+            </Description>
+            <Description term="该数据更新时间">2017-08-08</Description>
           </DescriptionList>
           <Card noHovering type="inner" title="多层级信息组">
-            <DescriptionList title="组名称">
-              <Term>负责人</Term>
-              <Description>林东东</Description>
-              <Term>角色码</Term>
-              <Description>1234567</Description>
-              <Term>所属部门</Term>
-              <Description>XX公司 - YY部</Description>
-              <Term>过期时间</Term>
-              <Description>2017-08-08</Description>
-              <Term>描述</Term>
-              <Description>这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长...</Description>
+            <DescriptionList style={{ marginBottom: 16 }} title="组名称">
+              <Description term="负责人">林东东</Description>
+              <Description term="角色码">1234567</Description>
+              <Description term="所属部门">XX公司 - YY部</Description>
+              <Description term="过期时间">2017-08-08</Description>
+              <Description term="描述">这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长...</Description>
             </DescriptionList>
             <div className={styles.divider} />
-            <DescriptionList title="组名称" col="1">
-              <Term>学名</Term>
-              <Description>
+            <DescriptionList style={{ marginBottom: 16 }} title="组名称" col="1">
+              <Description term="学名">
                 Citrullus lanatus (Thunb.) Matsum. et Nakai一年生蔓生藤本；茎、枝粗壮，具明显的棱。卷须较粗..
               </Description>
             </DescriptionList>
             <div className={styles.divider} />
             <DescriptionList title="组名称">
-              <Term>负责人</Term>
-              <Description>付小小</Description>
-              <Term>角色码</Term>
-              <Description>1234568</Description>
+              <Description term="负责人">付小小</Description>
+              <Description term="角色码">1234568</Description>
             </DescriptionList>
           </Card>
         </Card>
-        <Card noHovering title="用户近半年来电记录" className={styles.card} bordered={false}>
+        <Card noHovering title="用户近半年来电记录" style={{ marginBottom: 24 }} bordered={false}>
           <div className={styles.noData}>
             <Icon type="frown-o" /> 暂无数据
           </div>
@@ -262,8 +253,3 @@ class Profile extends Component {
     );
   }
 }
-
-export default connect(state => ({
-  profile: state.profile,
-}))(Profile);
-
