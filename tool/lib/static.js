@@ -41,6 +41,13 @@ export default function request(url, params) {
 }
 `;
 
+  const yml = `before_deploy:
+options:
+  branch: 'site'
+  dist: '_scaffold_site'
+cname: 'antd-pro.alibaba.net'
+`;
+
   try {
     // 1. move ./.roadhogrc.mock.js to ./src/.roadhogrc.mock.js
     fs.copySync(`${cwd}/scaffold/.roadhogrc.mock.js`, `${cwd}/scaffold/src/.roadhogrc.mock.js`);
@@ -53,6 +60,9 @@ export default function request(url, params) {
 
     // 4. modifier ./src/utils/request.js
     fs.writeFileSync(`${utilsDir}/request.js`, tpl, 'utf8');
+
+    // 5. create ./.si.yml file
+    fs.writeFileSync(`${cwd}/.si.yml`, yml, 'utf8');
   } catch (e) {
     throw new Error(e);
   }

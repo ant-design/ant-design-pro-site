@@ -1,3 +1,4 @@
+const program = require('commander');
 const path = require('path');
 const fs = require('fs-extra');
 
@@ -8,6 +9,19 @@ module.exports = function () {
   const siteDir = path.join(cwd, '../_scaffold_site');
   const utilsDir = `${cwd}/src/utils`;
 
+  process.on('exit', function () {
+  });
+
+  process.on('SIGINT', function () {
+
+    fs.copySync(`${utilsDir}/request-temp.js`, `${utilsDir}/request.js`);
+    fs.removeSync(`${utilsDir}/request-temp.js`);
+    fs.removeSync(`${cwd}/src/.roadhogrc.mock.js`);
+    fs.removeSync(`${cwd}/src/mock`);
+
+    program.runningCommand && program.runningCommand.kill('SIGKILL');
+    process.exit(0);
+  });
   try {
     // clean
     fs.copySync(`${utilsDir}/request-temp.js`, `${utilsDir}/request.js`);
