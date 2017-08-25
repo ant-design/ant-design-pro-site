@@ -1,6 +1,7 @@
 const program = require('commander');
 const path = require('path');
 const fs = require('fs-extra');
+const shelljs = require('shelljs');
 
 const cwd = process.cwd();
 
@@ -22,24 +23,31 @@ module.exports = function () {
     program.runningCommand && program.runningCommand.kill('SIGKILL');
     process.exit(0);
   });
-  try {
-    // clean
-    fs.copySync(`${utilsDir}/request-temp.js`, `${utilsDir}/request.js`);
-    fs.removeSync(`${utilsDir}/request-temp.js`);
-    fs.removeSync(`${cwd}/src/.roadhogrc.mock.js`);
-    fs.removeSync(`${cwd}/src/mock`);
-    /* eslint no-empty: 0 */
-  } catch (e) {
-  } finally {
-    try {
-      fs.ensureDirSync(siteDir);
 
-      // move
-      fs.copySync(scaffoldDir, siteDir);
+  shelljs.exec('roadhog-api-doc build', function (code, stdout, stderr) {
+    try {
+      // clean
+      fs.copySync(`${utilsDir}/request-temp.js`, `${utilsDir}/request.js`);
+      fs.removeSync(`${utilsDir}/request-temp.js`);
+      fs.removeSync(`${cwd}/src/.roadhogrc.mock.js`);
+      fs.removeSync(`${cwd}/src/mock`);
+      /* eslint no-empty: 0 */
     } catch (e) {
-      /* eslint no-unsafe-finally: 0 */
-      throw new Error(e);
+    } finally {
+      try {
+        fs.ensureDirSync(siteDir);
+
+        // move
+        fs.copySync(scaffoldDir, siteDir);
+      } catch (e) {
+        /* eslint no-unsafe-finally: 0 */
+        throw new Error(e);
+      }
     }
-  }
+
+    if (!stderr) {
+      console.log('build static success');
+    }
+  });
 };
 
