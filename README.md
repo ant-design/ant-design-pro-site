@@ -6,6 +6,14 @@
 - site // 站点
 - tool // 本地工具
 
+### git submodule 操作
+- pull: `git submodule update --recursive`
+- commit: 
+  - cd scaffold
+  - git add ./
+  - git commit -m ''
+  - git push
+
 ### 用法
 
 - `npm install`
