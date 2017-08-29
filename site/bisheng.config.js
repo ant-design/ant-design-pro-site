@@ -4,7 +4,7 @@ const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 module.exports = {
   port: 8001,
   source: {
-    components: './scaffold/src/components',
+  //  components: './scaffold/src/components',
     docs: './docs',
   },
   theme: './site/theme',
