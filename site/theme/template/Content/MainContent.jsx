@@ -112,10 +112,10 @@ export default class MainContent extends React.PureComponent {
       <span className="chinese" key="chinese">{item.subtitle}</span>,
     ];
     const disabled = item.disabled;
-    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
+    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').replace('scaffold/src/', '');
     const child = !item.link ? (
       <Link
-        to={utils.getLocalizedPathname(/^components/.test(url) ? `${url}/` : url, locale === 'zh-CN')}
+        to={url}
         disabled={disabled}
       >
         {text}
