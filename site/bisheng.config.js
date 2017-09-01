@@ -34,6 +34,7 @@ module.exports = {
       // 'antd/lib': path.join(process.cwd(), 'components'),
       // antd: path.join(process.cwd(), 'index'),
       'ant-design-pro': path.join(process.cwd(), 'config/components/index.js'),
+      'ant-design-pro/lib': path.join(process.cwd(), 'config/components'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
