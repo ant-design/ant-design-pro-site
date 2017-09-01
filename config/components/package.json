@@ -1,6 +1,6 @@
 {
   "name": "ant-design-pro",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "An enterprise-class UI design language and React-based implementation",
   "license": "MIT",
   "repository": {
@@ -15,7 +15,10 @@
     "build:es": "rm -rf es && cp -apvX ../../scaffold/src/components es && cp index.js es",
     "prepublish": "npm run build"
   },
-  "files": ["lib", "dist"],
+  "files": [
+    "lib",
+    "dist"
+  ],
   "devDependencies": {
     "webpack": "^3.3.0"
   },
@@ -24,14 +27,17 @@
     "react-dom": ">=15.3.0"
   },
   "dependencies": {
-    "antd": "^2.12.1",
+    "antd": "next",
     "dva": "^1.2.1",
-    "marked": "^0.3.6",
+    "g-cloud": "^1.0.2-beta",
+    "g2": "^2.3.8",
+    "g2-plugin-slider": "^1.2.1",
+    "lodash": "^4.17.4",
+    "numeral": "^2.0.6",
     "prop-types": "^15.5.10",
-    "react": "^15.4.0",
+    "qs": "^6.5.0",
+    "react": "^15.6.1",
     "react-document-title": "^2.0.3",
-    "react-dom": "^15.4.0",
-    "react-redux": "4.x || 5.x",
-    "react-router": "2.x || 3.x"
+    "react-dom": "^15.6.1"
   }
 }
