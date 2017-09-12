@@ -36,7 +36,7 @@ it('renders with Result', () => {
 });
 ```
 
-这里使用了 [enzyme](http://airbnb.io/enzyme/docs/api/index.html) 作为测试库，它提供了大量实用的 API 来帮助我们测试 React 组件。断言部分沿用了 [jest](https://facebook.github.io/jest/docs/en/expect.html#content) 默认的 expect 语法。
+这里使用了 [enzyme](http://airbnb.io/enzyme/docs/api/index.html) 作为测试库，它提供了大量实用的 API 来帮助我们测试 React 组件。断言部分沿用了 jest 默认的 [jasmine2 expect 语法](https://facebook.github.io/jest/docs/en/expect.html#content)。
 
 ### 本地执行
 
@@ -59,7 +59,7 @@ $ npm run unit-test -- src/routes                         // 测试 routes 下�
 $ npm run unit-test -- --watch
 ```
 
-使用 `--watch` 可以进入 watch 模式，当你修改和保存文件时，Jest 会自动执行相应用例。Jest 的命令行工具也提供了各种方便的快捷键来执行你需要的用例。
+添加 `--watch` 配置可以进入 watch 模式，当你修改和保存文件时，Jest 会自动执行相应用例。Jest 的命令行工具也提供了各种方便的快捷键来执行你需要的用例。
 
 ![](https://gw.alipayobjects.com/zos/rmsportal/jdJnrFUtvMLoFOZebeou.png)
 
@@ -67,9 +67,37 @@ $ npm run unit-test -- --watch
 
 被 dva `connect` 的 React 组件可以使用下面方式进行测试。
 
+```jsx
+import React from 'react';
+import { shallow } from 'enzyme';
+import Dashboard from './Dashboard';
+
+it('renders Dashboard', () => {
+  // 使用包装后的组件
+  const wrapper = shallow(
+    <Dashboard.WrappedComponent user={{ list: [] }} />
+  );
+  expect(wrapper.find('Table').props().dataSource).toEqual([]);
+});
+```
+
 ### 测试覆盖率
 
-更多单元测试的信息请参考 [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)。
+```
+$ npm run unit-test -- --coverage
+```
+
+添加 `--coverage` 配置可以显示项目的测试覆盖率。
+
+![](https://camo.githubusercontent.com/bd0bbda8e44ea747e4c199d0e212d40563ad2fcb/687474703a2f2f692e696d6775722e636f6d2f356246686e54532e706e67)
+
+### 聚焦和忽略用例
+
+使用 `xit()` 取代 `it()` 可以暂时忽略用例，`fit()` 可以聚焦当前用例并忽略其他所有用例。这两个方法可以帮助你在开发过程中只关注当前需要的用例。
+
+> 更多单元测试的信息请参考 [create-react-app](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests)。
+
+---
 
 ## E2E 测试
 
