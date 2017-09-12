@@ -43,20 +43,20 @@ it('renders with Result', () => {
 使用以下的命令执行所有的单元测试，将统一搜索和执行 `src` 下 `*.test.js` 格式的文件。
 
 ```
-$ npm run unit-test
+$ npm run unit
 ```
 
 #### 执行单个或一组用例
 
 ```
-$ npm run unit-test -- src/routes/Result/Success.test.js  // 测试 Success.test.js
-$ npm run unit-test -- src/routes                         // 测试 routes 下的所有 *.test.js
+$ npm run unit -- src/routes/Result/Success.test.js  // 测试 Success.test.js
+$ npm run unit -- src/routes                         // 测试 routes 下的所有 *.test.js
 ```
 
 #### watch 模式
 
 ```
-$ npm run unit-test -- --watch
+$ npm run unit -- --watch
 ```
 
 添加 `--watch` 配置可以进入 watch 模式，当你修改和保存文件时，Jest 会自动执行相应用例。Jest 的命令行工具也提供了各种方便的快捷键来执行你需要的用例。
@@ -84,7 +84,7 @@ it('renders Dashboard', () => {
 ### 测试覆盖率
 
 ```
-$ npm run unit-test -- --coverage
+$ npm run unit -- --coverage
 ```
 
 添加 `--coverage` 配置可以显示项目的测试覆盖率。
