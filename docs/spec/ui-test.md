@@ -101,9 +101,50 @@ $ npm run unit -- --coverage
 
 ## E2E 测试
 
-也叫冒烟测试，用于测试真实环境下前端应用的流程和表现，不拘于具体实现。
+也叫冒烟测试，用于测试真实浏览器环境下前端应用的流程和表现，相当于代替人工去操作应用。
+
+我们引入了 [nightmare](http://www.nightmarejs.org/) 作为 E2E 测试的工具，nightmare 默认使用 electron 作为浏览器环境运行你的应用，并且提供了非常语义化的 API 来描述业务逻辑。
+
+### 写一个用例
+
+假设有一个需求，用户在登录页面输入错误的用户名和密码，点击登录后，出现错误提示框。
+
+![](https://gw.alipayobjects.com/zos/rmsportal/oZeYewGOUJkmqXAPoOFC.gif)
+
+我们写一个用例来保障这个流程。在 `src/e2e/` 目录下建一个 `Login.e2e.js` 文件，按上述业务需求描述测试用例。
+
+```js
+import Nightmare from 'nightmare';
+
+describe('Login', () => {
+  it('should login with failure', async () => {
+    await Nightmare().goto('http://localhost:8000/#/user/login')
+      .type('#userName', 'mockuser')
+      .type('#password', 'wrong_password')
+      .click('button[type="submit"]')
+      .wait('.ant-alert-error')  // should display error
+      .end();
+  });
+});
+```
+
+更多 nightmare 的方法可以参考 [segmentio/nightmare#api](https://github.com/segmentio/nightmare#api)。
+
+### 运行用例
+
+运行下列命令将执行 src 下所有的 `*.e2e.js` 用例文件。
+
+```
+$ npm run e2e
+```
+
+![](https://gw.alipayobjects.com/zos/rmsportal/DoKrLMgtYgNJTnxqmgoN.png)
+
+> 注意，在本地运行 E2E 测试，需要用 `npm start` 开启调试服务。
 
 ## 接入集成测试服务
+
+[TODO]
 
 ## 参考链接
 
