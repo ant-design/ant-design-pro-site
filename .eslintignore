@@ -1,9 +1,7 @@
 docs/
 webpack.config.js
 node_modules/
-scaffold/node_modules/
-scaffold/dist/
-scaffold/public/
+scaffold
 _site
 _scaffold_site
 config/components/es
