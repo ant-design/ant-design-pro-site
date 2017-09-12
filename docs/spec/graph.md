@@ -5,14 +5,14 @@ title: 图表
 
 ---
 
-## 使用 ant design pro 的图表
+## 使用 Ant Design Pro 的图表
 
-ant design pro 在 [G2](https://antv.alipay.com/g2/doc/index.html) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。[查看更多](https://github.com/ant-design/test2/tree/master/src/components/Charts)
+Ant Design Pro 在 [G2](https://antv.alipay.com/g2/doc/index.html) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。[查看更多](https://github.com/ant-design/test2/tree/master/src/components/Charts)
 
-使用 ant design pro 图表，非常简单：
+使用 Ant Design Pro 图表，非常简单：
 
 ```jsx
-import { ChartCard, MiniBar, Field } from 'ant-design-pro';
+import { ChartCard, MiniBar, Field } from 'ant-design-pro/lib/Charts';
 import { Tooltip } from 'antd';
 
 const visitData = [
@@ -34,27 +34,28 @@ const visitData = [
   },
 ];
 
-ReactDOM.render(<ChartCard
-  bordered={false}
-  title="支付笔数"
-  action={<Tooltip title="支付笔数反应交易质量"><Icon type="exclamation-circle-o" /></Tooltip>}
-  total={numeral(6560).format('0,0')}
-  footer={<Field label="转化率" value="60%" />}
-  contentHeight={46}
->
-  <MiniBar
-    height={46}
-    data={visitData}
-  />
-</ChartCard>
+ReactDOM.render(
+  <ChartCard
+    bordered={false}
+    title="支付笔数"
+    action={<Tooltip title="支付笔数反应交易质量"><Icon type="exclamation-circle-o" /></Tooltip>}
+    total={numeral(6560).format('0,0')}
+    footer={<Field label="转化率" value="60%" />}
+    contentHeight={46}
+  >
+    <MiniBar
+      height={46}
+      data={visitData}
+    />
+  </ChartCard>
 , mountNode);
 ```
 
 ## 使用 G2 绘制图表 
 
-如果 ant design pro 不能满足你的业务需求，可以直接试用 [G2](https://antv.alipay.com/g2/doc/index.html) 封装自己的图表组件。
+如果 Ant Design Pro 不能满足你的业务需求，可以直接试用 [G2](https://antv.alipay.com/g2/doc/index.html) 封装自己的图表组件。
 
-#### 引入 G2
+### 引入 G2
 
 通过 npm 安装 g2 包
 ```
@@ -72,7 +73,7 @@ const chart = new G2.Chart({
 });
 ```
 
-#### 结合 G2 到 React 代码中
+### 结合 G2 到 React 代码中
 
 G2 本身是渲染在一个页面的 dom 中，所以在 React 中，我们常常通过 [refs](https://facebook.github.io/react/docs/refs-and-the-dom.html) 获取 G2 需要渲染的容器。
 
@@ -93,7 +94,7 @@ const MyCharts extends Component {
 
 并且由于 G2 依赖于 dom 结构，所以我们第一次渲染需要在 `componentDidMount` 中新建 G2 对象。
 
-#### 图表渲染更新
+### 图表渲染更新
 
 当数据发生变化，图表展示的更新变化，需要我们自己在图表组件中处理。
 
@@ -140,7 +141,7 @@ const MyCharts extends Component {
 
 其中需要注意的是，再次渲染图表的时候需要清理之前的内容。
 
-#### 图表重绘时机
+### 图表重绘时机
 
 G2 每一个属性变化，都需要重新绘制图表，但是如果数据或者配置没有发生变化，那么减少图表不必要的渲染能够提升网页的性能。
 
