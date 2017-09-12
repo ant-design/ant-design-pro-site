@@ -75,9 +75,8 @@
     "lerna": "lerna",
     "components-publish": "./tool/bin/let -c && lerna publish --always",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
-    "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
+    "lint": "npm run lint:es && npm run lint:demo",
     "lint:es": "eslint ./ --ext '.js,.jsx'",
-    "lint:style": "stylelint \"scaffold/**/*.less\" --syntax less",
     "lint:demo": "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
     "test": "npm run lint"
   },
