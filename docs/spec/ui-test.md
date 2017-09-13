@@ -139,7 +139,9 @@ $ npm test -- --coverage
 
 ## 接入集成测试服务
 
-[TODO]
+如果需要接入 travis、CircleCI、Gitlab CI 等集成测试环境，可以参考本仓库提供的 `.travis.yml`。
+
+注意 e2e 测试需要集成环境支持 electron，如果不支持，你可以使用 `npm test .test.js` 单独运行单元测试。
 
 ## 参考链接
 
