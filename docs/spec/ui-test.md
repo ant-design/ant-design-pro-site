@@ -11,6 +11,8 @@ Ant Design Pro 封装了一套简洁易用的 React 单元测试和 E2E 测试�
 $ npm run test:all  // 执行所有测试
 ```
 
+![](https://gw.alipayobjects.com/zos/rmsportal/KZNkLURmBJVomVJbZvHc.png)
+
 下面简单介绍如何在项目中书写你的业务测试用例。
 
 ## 单元测试
