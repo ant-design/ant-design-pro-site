@@ -32,7 +32,7 @@ app.get('/*', function (req, res) {
 });
 ```
 
-[egg](http://chair.alibaba-inc.com/) 的例子
+[egg](https://eggjs.org/) 的例子
 ```
 // controller
 exports.index = function* () {
