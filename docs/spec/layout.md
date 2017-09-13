@@ -36,7 +36,7 @@ React.Children.forEach(children, function[(thisArg)])
 
 ## Ant Design Pro 的布局
 
-在 Ant Design Pro 中，我们抽离了使用过程中的通用布局，分别为：
+在 Ant Design Pro 中，我们抽离了使用过程中的通用布局，都放在 `layouts` 目录中，分别为：
 
 - BasicLayout：基础页面布局，包含了头部导航，侧边栏和通知栏
 
