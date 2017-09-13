@@ -34,5 +34,52 @@ React.Children.forEach(children, function[(thisArg)])
 
 但是如果你需要传递额外的 `props` 给子元素，我们则推荐采用 [Context](https://facebook.github.io/react/docs/context.html) 的方式。
 
+## Ant Design Pro 的布局
 
+在 Ant Design Pro 中，我们抽离了使用过程中的通用布局，分别为：
+
+- BasicLayout：基础页面布局，包含了头部导航，侧边栏和通知栏
+
+<img src="https://gw.alipayobjects.com/zos/rmsportal/OmqkhYKhDFosRatrJgjx.png" width="600" />
+
+- BlankLayout：空白的布局
+- PageHeaderLayout：带有标准 PageHeader 的布局
+- UserLayout：抽离出用于登陆注册页面的通用布局
+
+<img src="https://gw.alipayobjects.com/zos/rmsportal/ddqzmJcpDCDIktgqWlox.png" width="600" />
+
+### 如何使用 Ant Design Pro 布局
+
+我们为了统一方便的管理路由和页面的关系，将配置信息统一抽离到 `common/nav.js` 下，通过如下配置：
+
+```jsx
+const data = [{
+  component: BasicLayout,
+  name: '首页',  // for breadcrumb
+  path: '',
+  children: [{...}],
+}, {
+  component: UserLayout,
+  children: [{
+    name: '帐户',
+    icon: 'user',
+    path: 'user',
+    children: [{
+      name: '登录',
+      path: 'login',
+      component: Login,
+    }, {
+      name: '注册',
+      path: 'register',
+      component: Register,
+    }, {
+      name: '注册结果',
+      path: 'register-result',
+      component: RegisterResult,
+    }],
+  }],
+}];
+```
+
+映射路由和页面布局（组件）的关系。详细的映射转换实现，参看 [router.js](https://github.com/ant-design/test2/blob/master/src/router.js)。
 
