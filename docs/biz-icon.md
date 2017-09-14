@@ -10,9 +10,7 @@ type: 进阶
 
 ## Step1 生成图标库代码
 
-<div class="preview-image-boxes clearfix">
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/jJQYzRyqVFBBamUOppXH.png" alt="" />
-</div>
+<img class="preview-img" align="right" alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/jJQYzRyqVFBBamUOppXH.png">
 
 首先，搜索并找到你需要的图标，将它采集到你的购物车里，在购物车里，你可以将选中的图标添加到项目中（没有的话，新建一个），后续生成的资源/代码都是以项目为维度的。
 
@@ -20,9 +18,7 @@ type: 进阶
 
 <br />
 
-<div class="preview-image-boxes clearfix">
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/DbDSgiRukSANKWyhULir.png" alt="" />
-</div>
+<img class="preview-img" align="right" alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/DbDSgiRukSANKWyhULir.png">
 
 来到刚才选中的项目页，点击『生成代码』的链接，会在下方生成三种引入方式的代码，下面会分别介绍。
 
