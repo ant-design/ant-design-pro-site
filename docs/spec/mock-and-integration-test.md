@@ -205,14 +205,6 @@ export default format(proxy);
 
 <img width="500" src="https://gw.alipayobjects.com/zos/rmsportal/TKmBIxyMTBiMJZtAlBgg.png" />
 
-### 模拟数据的静态部署
-
-如果你没有后台服务的支持，还是希望将模拟的数据同站点一起部署，如 `github pages` 等静态站点，那么你可能会需要转换模拟数据为静态的数据。
-
-roadhog-api-doc 提供了这样的功能，但是前提是你的结构满足 Ant Design Pro 脚手架结构，运行 `roadhog-api-doc static`，则会重写 `utils/request.js` 方法，使得所有请求都走本地文件。
-
-这样部署过后站点的模拟数据依旧生效，只不过全部转换为静态数据。
-
 ### 联调
 
 当本地开发完毕之后，如果服务器的接口满足之前的约定，那么你只需要不开本地代理或者重定向代理到目标服务器就可以访问真实的服务端数据，非常方便。

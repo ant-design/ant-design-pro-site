@@ -75,6 +75,8 @@ const chart = new G2.Chart({
 
 ### 结合 G2 到 React 代码中
 
+通常来说，G2 和 React 的结合都会抽象成一个 Chart 组件，放到 `components` 下，可参考 [Ant Design Pro 的结构](https://github.com/ant-design/test2/tree/master/src/components/Charts)。
+
 G2 本身是渲染在一个页面的 dom 中，所以在 React 中，我们常常通过 [refs](https://facebook.github.io/react/docs/refs-and-the-dom.html) 获取 G2 需要渲染的容器。
 
 ```jsx
@@ -93,6 +95,61 @@ const MyCharts extends Component {
 ```
 
 并且由于 G2 依赖于 dom 结构，所以我们第一次渲染需要在 `componentDidMount` 中新建 G2 对象。
+
+下面我们来看一个实际的例子，比如官网上：[G2 官网样例 - 男女身高体重分布](https://antv.alipay.com/g2/demo/01-point/scatter-a.html) 的这个例子，我们如何融入到 React 中。
+
+G2 本身的代码都是渲染图表的代码，所以可以整体移动到 `renderChart` 函数中，如：
+
+```jsx
+renderChart() {
+  var frame = new G2.Frame(data);
+  ...
+  var chart = new G2.Chart({
+    id: 'c1',
+    forceFit: true,
+    height: 450
+  });
+  ...
+}
+```
+
+接下来由于在 React 中引用 Dom 元素通常是通过 ref，所以需要改造 G2 的构造函数参数：
+
+```jsx
+renderChart() {
+  var frame = new G2.Frame(data);
+  ...
+  var chart = new G2.Chart({
+    container: this.node,
+    forceFit: true,
+    height: 450
+  });
+  ...
+}
+render() {
+  return <div ref={n => this.node = n} />
+}
+```
+
+剩下的关键步骤就是将图表配置按照需求抽离到 `props` 或者 `state` ，这样就大功告成。
+
+```jsx
+renderChart() {
+  const { data, height } = this.props;
+  const { forceFit } = this.state;
+  var frame = new G2.Frame(data);
+  ...
+  var chart = new G2.Chart({
+    container: this.node,
+    forceFit,,
+    height,
+  });
+  ...
+}
+render() {
+  return <div ref={n => this.node = n} />
+}
+```
 
 ### 图表渲染更新
 
