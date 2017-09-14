@@ -56,7 +56,9 @@ $ npm install
 $ npm start
 ```
 
-启动完成后会自动打开浏览器访问 [http://127.0.0.1:8000](http://127.0.0.1:8000)，你看到下面的页面就代表成功了。
+![](https://gw.alipayobjects.com/zos/rmsportal/VgAWyWGqPmXAXpNVPvNT.png)
+
+启动完成后会自动打开浏览器访问 [http://localhost:8000](http://localhost:8000)，你看到下面的页面就代表成功了。
 
 ![首页截图]()
 
