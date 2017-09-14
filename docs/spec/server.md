@@ -87,7 +87,16 @@ effects: {
 
 ## 从 mock 直接切换到服务端请求
 
-通常来讲只要 mock 的接口和真实的服务端接口保持一致，那么只需要关闭 mock 即可直接访问服务端接口。
+通常来讲只要 mock 的接口和真实的服务端接口保持一致，那么只需要重定向 mock 到对应的服务端接口即可。
+
+```js
+// .roadhogrc.mock.js
+export default {
+  'GET /api/*': 'https://your.server.com/api/',
+};
+```
+
+### 关闭 mock
 
 关闭 mock 的方法我们推荐采用环境变量，你可以在 `package.json` 中设置：
 

@@ -21,6 +21,8 @@ Ant Design Pro 中，前端路由使用的是 [React Router](https://github.com/
 
 两者的区别简单来说是对路由方式的处理不一样，`hashHistory` 是以 `#` 后面的路径进行处理，通过 [HTML 5 History](https://developer.mozilla.org/en-US/docs/Web/API/History_API) 进行前端路由管理，而 `browserHistory` 则是类似我们通常的页面访问路径，并没有 `#`，通过服务端的配置，能够访问指定的 url 都定向到当前页面，从而能够进行前端的路由管理。
 
+所以如果你的 url 里有 `#`，想去掉的话，需要切换为 `browserHistory`。
+
 如果你使用的是静态站点，那么使用 `browserHistory` 可能会无法访问你的应用，因为假设你访问 `http://localhost:8000/dashboard/monitor`，那么其实你的静态服务器并没有能够映射的文件，而使用 `hashHistory` 则不会有这个问题，因为它的页面路径是以 `#` 开始的，所有访问都在前端完成，如：`http://localhost:8000/#/dashboard/monitor`。
 
 不过如果你有对应的后台服务器，那么我们推荐采用 `browserHistory`，只需要在服务端做一个映射，比如：
