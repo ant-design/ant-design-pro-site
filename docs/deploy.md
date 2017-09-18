@@ -3,8 +3,6 @@ order: 12
 title: 构建和发布
 ---
 
----
-
 ## 构建
 
 由于 Ant Design Pro 底层使用的 [roadhog](https://github.com/sorrycc/roadhog) 工具，已经将复杂的流程封装完毕，对于大部分场景，构建打包文件只需要一个命令 `roadhog build`，构建打包成功之后，会在根目录生成 `dist` 文件夹，里面就是构建打包好的文件，通常是 `index.js`、`index.css`、`index.html` 三个静态文件。
@@ -52,4 +50,3 @@ app.get('home', '/*', 'home.index');
 ```
 
 更多可以参看 [React Router](https://github.com/ReactTraining/react-router) 。
-

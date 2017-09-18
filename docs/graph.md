@@ -3,8 +3,6 @@ order: 9
 title: 图表
 ---
 
----
-
 ## 使用 Ant Design Pro 的图表
 
 Ant Design Pro 在 [G2](https://antv.alipay.com/g2/doc/index.html) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。[查看更多](https://github.com/ant-design/test2/tree/master/src/components/Charts)
@@ -51,7 +49,7 @@ ReactDOM.render(
 , mountNode);
 ```
 
-## 使用 G2 绘制图表 
+## 使用 G2 绘制图表
 
 如果 Ant Design Pro 不能满足你的业务需求，可以直接试用 [G2](https://antv.alipay.com/g2/doc/index.html) 封装自己的图表组件。
 
@@ -85,7 +83,7 @@ import G2 from 'g2';
 const MyCharts extends Component {
   componentDidMount() {
     G2.Chart({
-      container: this.node, 
+      container: this.node,
     });
   }
   render() {
@@ -160,18 +158,18 @@ import G2 from 'g2';
 
 const MyCharts extends Component {
   componentDidMount() {
-    this.renderChart(); 
+    this.renderChart();
   }
   componentWillReceiveProps(nextProps) {
     if(this.props.data !== nextProps.data) {
-      this.renderChart(nextProps); 
-    } 
+      this.renderChart(nextProps);
+    }
   }
   renderChart(props) {
     const { data } = (props || this.props);
     if (!this.chart) {
       this.chart = G2.Chart({
-        container: this.node, 
+        container: this.node,
       });
       this.chart.source(data);
       this.chart.render();
@@ -181,11 +179,11 @@ const MyCharts extends Component {
     }
     // 或者为了处理复杂的 props 变化，可以直接
     if (this.chart) {
-      this.chart.destroy(); 
+      this.chart.destroy();
     }
-    // 每次重新渲染即可 
+    // 每次重新渲染即可
     this.chart = G2.Chart({
-      container: this.node, 
+      container: this.node,
     });
     this.chart.source(data);
     this.chart.render();

@@ -3,8 +3,6 @@ order: 18
 title: 错误处理
 ---
 
----
-
 ## 统一处理网络错误信息
 
 为了处理复杂的网络异常情况，一般需要统一处理错误信息，由于 Ant Design Pro 使用 `request.js` 统一处理请求，所以错误的处理也可以很方便的加入其中：
@@ -60,4 +58,3 @@ export default function request(url, options) {
     .catch(err => ({ err }));
 }
 ```
-

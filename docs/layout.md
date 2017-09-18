@@ -5,16 +5,15 @@ title: 布局
 
 页面整体布局是一个产品最外层的框架结构，往往会包含导航、页脚、侧边栏、通知栏以及内容等。在页面之中，也有很多区块的布局结构。Ant Design 目前提供了两套布局方案：[Layout](https://ant.design/components/layout/) 和 [Grid](https://ant.design/components/grid/) 。
 
-
 ---
 
-## 使用 Ant Design 栅格组件 
+## 使用 Ant Design 栅格组件
 
 栅格布局是网页中最常用的布局，其特点就是按照一定比例划分页面，能够随着屏幕的变化依旧保持比例，从而具有弹性布局的特点。
 
 而 Ant Design 的栅格组件提供的功能更为强大，能够设置间距、具有支持响应式的比例设置，以及支持 `flex` 模式，基本上涵盖了大部分的布局场景，详情参看：[Grid](https://ant.design/components/grid/)。
 
-## 使用 Ant Design Layout 组件 
+## 使用 Ant Design Layout 组件
 
 如果你需要辅助页面框架级别的布局设计，那么 [Layout](https://ant.design/components/layout/) 则是你最佳的选择，它抽象了大部分框架布局结构，使得只需要填空就可以开发规范专业的页面整体布局，详情参看：[Layout](https://ant.design/components/layout/)。
 
@@ -82,4 +81,3 @@ const data = [{
 ```
 
 映射路由和页面布局（组件）的关系。详细的映射转换实现，参看 [router.js](https://github.com/ant-design/test2/blob/master/src/router.js)。
-
