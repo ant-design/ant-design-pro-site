@@ -16,7 +16,7 @@ function Home(props) {
             <Link to="/components/sample">components</Link>
           </li>
           <li>
-            <Link to="/docs/spec/color">docs</Link>
+            <Link to="/docs/getting-started">docs</Link>
           </li>
           <li>
             <Link to="/scaffold">scaffold</Link>
