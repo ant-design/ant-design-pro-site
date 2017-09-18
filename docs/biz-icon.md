@@ -4,7 +4,7 @@ title: 业务图标
 type: 进阶
 ---
 
-如果你没有在 [antd Icon](https://ant.design/components/icon-cn/) 中找到需要的图标，可以到 [iconfont.cn/](http://iconfont.cn/) 上采集并生成自己的业务图标库，再进行使用。
+如果你没有在 [antd Icon](https://ant.design/components/icon-cn/) 中找到需要的图标，可以到 [iconfont.cn](http://iconfont.cn/) 上采集并生成自己的业务图标库，再进行使用。
 
 ---
 
@@ -122,10 +122,10 @@ Unicode 和 Font Class 本质上就是字体，你可以通过一些字体的样
 
 	```html
 	<svg class="icon" aria-hidden="true">
-	    <use xlink:href="#icon-ali-pay"></use>
+	  <use xlink:href="#icon-ali-pay"></use>
 	</svg>
 	```
 
 Symbol 方式可以支持多色图标，但仅兼容 ie9+，及现代浏览器。
 
-如果需要在原来的基础上新增图标，只需要将新图标添加到原来的项目中，重新生成字体库链接或 Symbol 代码即可。[iconfont.cn] 网站上也有详细的[使用介绍](http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8d11a391&helptype=code)可以参考。
+如果需要在原来的基础上新增图标，只需要将新图标添加到原来的项目中，重新生成字体库链接或 Symbol 代码即可。[iconfont.cn] 网站上也有详细的 [使用介绍](http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8d11a391&helptype=code) 可以参考。
