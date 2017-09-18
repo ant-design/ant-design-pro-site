@@ -4,14 +4,98 @@ title: 开发业务组件
 type: 入门
 ---
 
-开发业务组件
+对于一些可能被多处引用的功能模块，建议提炼成业务组件统一管理。这些组件一般有以下特征：
+
+- 只负责一块相对独立，稳定的功能；
+- 没有单独的路由配置；
+- 可能是纯静态的，也可能包含自己的 state，但不涉及 dva 的数据流，仅受父组件（通常是一个页面）传递的参数控制。
 
 ---
 
-## 段落标题一
+<img class="preview-img" align="right" alt="示意图" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png">
 
-段落一
+下面以一个简单的静态组件为例进行介绍。假设你的应用中经常需要展现图片，这些图片都展现在页面的右侧，宽度固定，有一个灰色的背景和一定的内边距，有文字介绍，就像右图这样：
 
-## 段落标题二
+<br />
 
-段落二
+你可以用一个组件来实现这一功能，它有默认的样式，同时可以接收父组件传递的参数进行展示。
+
+## 新建文件
+
+在 `src/components` 下新建一个以组件名命名的文件夹，注意首字母大写，命名尽量体现组件的功能，这里就叫 `ImageWrapper`。在此文件夹下新增 js 文件及样式文件（如果需要），命名为 `index.js` 和 `index.less`。
+
+> 在使用组件时，默认会在 `index.js` 中寻找 export 的对象，如果你的组件比较复杂，可以分为多个文件，最后在 `index.js` 中统一 export。
+
+你的代码大概是这个样子：
+
+```jsx
+// index.js
+import React from 'react';
+import styles from './index.less';
+
+export default ({ src, title, desc, style }) => (
+  <div style={style} className={styles.imageWrapper}>
+    <div className={styles.imgBlock}>
+      <img className={styles.img} src={src} alt={title}>
+    </div>
+    {title && <div className={styles.title}>{title}</div>}
+    {desc && <div className={styles.desc}>{desc}</div>}
+  </div>
+);
+```
+
+```css
+// index.less
+@import "~antd/lib/style/themes/default.less";
+
+.imageWrapper {
+  float: right;
+  background: @background-color-base;
+  margin: 0 0 70px 20px;
+  width: 608px;
+}
+
+.imgBlock {
+  padding: 16px;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.img {
+  max-width: 100%;
+  background: @body-background;
+  padding: 12px;
+  border-radius: @border-radius-base;
+}
+
+.title {
+  margin-top: 5px;
+  color: @text-color;
+}
+
+.desc {
+  margin-top: 2px;
+  color: @text-color-secondary;
+}
+```
+
+到这儿组件就建好了。
+
+## 使用
+
+在要使用这个组件的地方，按照组件定义的 API 传入参数，直接使用就好，不过别忘了先引入：
+
+```js
+import React from 'react';
+import ImageWrapper from '../../components/ImageWrapper';  // 注意保证引用路径的正确
+
+export default () => (
+  <ImageWrapper
+    src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png"
+    title="示意图"
+    desc="具体介绍"
+  />;
+)
+
+```

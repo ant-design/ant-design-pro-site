@@ -1,6 +1,7 @@
 ---
-order: 19
+order: 7
 title: 引入外部模块
+type: 入门
 ---
 
 除了 antd 组件以及脚手架内置的业务组件，有时我们还需要引入其他外部模块，这里以引入富文本组件 [react-quill](https://www.npmjs.com/package/react-quill) 为例进行介绍。
@@ -14,6 +15,8 @@ title: 引入外部模块
 ```bash
 $ npm install react-quill --save
 ```
+
+> 加上 `--save` 参数会自动添加依赖到 package.json 中去。
 
 ## 使用
 
@@ -31,13 +34,13 @@ export default class NewPage extends React.Component {
   };
 
   handleChange = (value) => {
-  	this.setState({
-  		value,
-  	})
+    this.setState({
+      value,
+    })
   };
 
   prompt = () => {
-  	notification.open({
+    notification.open({
       message: 'We got value:',
       description: <span dangerouslySetInnerHTML={{ __html: this.state.value }}></span>,
     });
@@ -47,7 +50,7 @@ export default class NewPage extends React.Component {
     return (
       <Card title="富文本编辑器">
         <ReactQuill value={this.state.value} onChange={this.handleChange} />
-      	<Button style={{ marginTop: 16 }} onClick={this.prompt}>Prompt</Button>
+        <Button style={{ marginTop: 16 }} onClick={this.prompt}>Prompt</Button>
       </Card>
     );
   }
@@ -60,5 +63,3 @@ export default class NewPage extends React.Component {
 
 - import 时需要注意组件暴露的数据结构；
 - 有一些组件需要额外引入样式，比如本例。
-
-

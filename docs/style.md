@@ -35,7 +35,7 @@ export default ({ title }) => <div className={styles.title}>{title}</div>;
 
 less 文件好像没什么改变，只是类名比较简单（实际项目中也是这样），js 文件的改变就是在设置 className 时，用一个对象属性取代了原来的字符串，属性名跟 less 文件中对应的类名相同，对象从 less 文件中引入。
 
-在上面的样式文件中，`.title` 只会在本文件生效，你可以在其他任意文件中使用同名选择器，也不会对这里造成影响。不过有的时候，我们就是想要一个全局生效的样式呢？可以使用 `:global`
+在上面的样式文件中，`.title` 只会在本文件生效，你可以在其他任意文件中使用同名选择器，也不会对这里造成影响。不过有的时候，我们就是想要一个全局生效的样式呢？可以使用 `:global`。
 
 ```css
 // example.less
@@ -159,12 +159,12 @@ ReactDOM.render(
 ```css
 // TestPage.less
 .customSelect {
-	:global {
-		.ant-select-selection {
-			max-height: 51px;
-			overflow: auto;
-		}
-	}
+  :global {
+    .ant-select-selection {
+      max-height: 51px;
+      overflow: auto;
+    }
+  }
 }
 ```
 
