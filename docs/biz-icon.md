@@ -10,17 +10,17 @@ type: 进阶
 
 ## Step1 生成图标库代码
 
-<img class="preview-img" align="right" alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/jJQYzRyqVFBBamUOppXH.png">
-
 首先，搜索并找到你需要的图标，将它采集到你的购物车里，在购物车里，你可以将选中的图标添加到项目中（没有的话，新建一个），后续生成的资源/代码都是以项目为维度的。
 
 > 如果你已经有了设计稿，只是需要生成相关代码，可以上传你的图标后，再进行上面的操作。
 
+<img alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/jJQYzRyqVFBBamUOppXH.png" />
+
 <br />
 
-<img class="preview-img" align="right" alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/DbDSgiRukSANKWyhULir.png">
-
 来到刚才选中的项目页，点击『生成代码』的链接，会在下方生成不同引入方式的代码，下面会分别介绍。
+
+<img alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/DbDSgiRukSANKWyhULir.png" />
 
 ## Step2 引入
 
@@ -76,7 +76,7 @@ type: 进阶
 1. 切换到 Font class 页签，在页面头部引入下面生成的 css 代码：
 
 	```html
-	  //at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.css
+	//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.css
 	```
 
 	> 如果不喜欢标签引入的方式，也可以直接拷贝上面链接中的代码到你的样式文件中。如果不喜欢网站默认生成的类名，自己重写这部分代码即可(使用时注意对应)。
@@ -87,34 +87,29 @@ type: 进阶
 
 2. 这时你可以选择拷贝图标对应代码（类名），直接使用：
 
-	```html
-	<i class="iconfont icon-ali-pay"></i>
-	```
+  ```html
+  <i class="iconfont icon-ali-pay"></i>
+  ```
 
-3. 不过我们更推荐你参照 antd Icon，将它封装一下：
+  不过我们更推荐你参照 antd Icon，将它封装一下：
 
-```js
+  ```js
+  
+  import React from 'react';
+  
+  const BizIcon = (props) => {
+    const { type } = props;
+    return <i className={`iconfont icon-${type}`} />;
+  };
+  export default BizIcon;
+  
+  ```
 
-import React from 'react';
-import classNames from 'classnames';
-import omit from 'omit.js';
+  现在可以更加方便地使用：
 
-const BizIcon = (props) => {
-    const { type, className = '' } = props;
-    const classString = classNames({
-        iconfont: true,
-        [`icon-${type}`]: true,
-    }, className);
-    return <i {...omit(props, ['type'])} className={classString}/>;
-};
-export default BizIcon;
-
-```
-现在可以更加方便地使用：
-
-```
-<BizIcon type="ali-pay" />
-```
+  ```
+  <BizIcon type="ali-pay" />
+  ```
 
 Unicode 和 Font Class 本质上就是字体，你可以通过一些字体的样式属性去控制这种图标的展现，同时浏览器兼容性很好，但不支持多色图标。
 
