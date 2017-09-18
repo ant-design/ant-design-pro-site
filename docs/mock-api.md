@@ -1,13 +1,12 @@
 ---
 order: 11
 title: Mock 和联调
+type: 进阶
 ---
 
 Mock 数据是前端开发过程中必不可少的一环，是分离前后端开发的关键链路。通过预先跟服务器端约定好的接口，模拟请求数据甚至逻辑，能够让前端开发独立自主，不会被服务端的开发所阻塞。
 
 在 Ant Design Pro 中，因为我们底层的工具是 roadhog，而它自带了代理请求功能，通过代理请求就能够轻松处理数据模拟的功能。
-
----
 
 ## 使用 roadhog 的请求代理功能
 
@@ -16,7 +15,7 @@ Mock 数据是前端开发过程中必不可少的一环，是分离前后端开
 ```js
 export default {
   // 支持值为 Object 和 Array
-  'GET /api/users': { users: [1,2] },
+  'GET /api/users': { users: [1, 2] },
 
   // GET POST 可省略
   '/api/users/1': { id: 1 },
@@ -76,7 +75,7 @@ export default {
 设置 `response` 的请求头即可：
 
 ```
-'POST /api/users/create': (req, res) => { 
+'POST /api/users/create': (req, res) => {
   ...
   res.setHeader('Access-Control-Allow-Origin', '*');
   ...
@@ -208,5 +207,3 @@ export default format(proxy);
 ### 联调
 
 当本地开发完毕之后，如果服务器的接口满足之前的约定，那么你只需要不开本地代理或者重定向代理到目标服务器就可以访问真实的服务端数据，非常方便。
-
-

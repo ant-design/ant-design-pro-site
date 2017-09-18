@@ -1,6 +1,7 @@
 ---
 order: 2
 title: 布局
+type: 入门
 ---
 
 页面整体布局是一个产品最外层的框架结构，往往会包含导航、页脚、侧边栏、通知栏以及内容等。在页面之中，也有很多区块的布局结构。Ant Design 目前提供了两套布局方案：[Layout](https://ant.design/components/layout/) 和 [Grid](https://ant.design/components/grid/) 。

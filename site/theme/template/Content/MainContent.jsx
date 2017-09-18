@@ -18,13 +18,10 @@ function getActiveMenuItem(props) {
 function getModuleData(props) {
   const pathname = props.location.pathname;
   const moduleName = /^\/?components/.test(pathname) ?
-    'components' : pathname.split('/').filter(item => item).slice(0, 2).join('/');
+    'components' : pathname.split('/').filter(item => item).slice(0, -1).join('/');
 
-  const moduleData = moduleName === 'components' || moduleName === 'docs/react' ||
-  moduleName === 'changelog' || moduleName === 'changelog-cn' ?
-    // [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
-    [...props.picked.components] :
-    props.picked[moduleName];
+  const moduleData = moduleName === 'components' ?
+    [...props.picked.components] : props.picked[moduleName];
 
   const excludedSuffix = utils.isZhCN(props.location.pathname) ? 'en-US.md' : 'zh-CN.md';
   return moduleData.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
@@ -147,8 +144,10 @@ export default class MainContent extends React.PureComponent {
       .sort((a, b) => themeConfig.typeOrder[a] - themeConfig.typeOrder[b])
       .map((type) => {
         const groupItems = obj[type].sort((a, b) => {
-          return a.title.charCodeAt(0) -
-            b.title.charCodeAt(0);
+          if ('order' in a && 'order' in b) {
+            return a.order - b.order;
+          }
+          return a.title.charCodeAt(0) - b.title.charCodeAt(0);
         }).map(this.generateMenuItem.bind(this, false));
         return (
           <Menu.ItemGroup title={type} key={type}>
@@ -160,7 +159,6 @@ export default class MainContent extends React.PureComponent {
   }
 
   getMenuItems() {
-    const { themeConfig } = this.props;
     const moduleData = getModuleData(this.props);
     const menuItems = utils.getMenuItems(
       moduleData, this.context.intl.locale
@@ -172,7 +170,6 @@ export default class MainContent extends React.PureComponent {
     }
 
     const subMenu = Object.keys(menuItems).filter(isNotTopLevel)
-      .sort((a, b) => themeConfig.categoryOrder[a] - themeConfig.categoryOrder[b])
       .map((category) => {
         const subMenuItems = this.generateSubMenuItems(menuItems[category]);
         return (

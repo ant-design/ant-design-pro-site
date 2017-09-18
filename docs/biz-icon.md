@@ -1,6 +1,7 @@
 ---
 order: 10
 title: 业务图标
+type: 进阶
 ---
 
 如果你没有在 [antd Icon](https://ant.design/components/icon-cn/) 中找到需要的图标，可以到 [iconfont.cn/](http://iconfont.cn/) 上采集并生成自己的业务图标库，再进行使用。

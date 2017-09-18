@@ -4,7 +4,7 @@ const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
 const scaffoldTmpl = './template/ScaffoldIframe';
 
-function pickerGenerator(module) {
+function pickerGenerator(module = '') {
   const tester = new RegExp(`^docs/${module}`);
   return (markdownData) => {
     const filename = markdownData.meta.filename;
@@ -41,7 +41,7 @@ module.exports = {
         };
       }
     },
-    'docs/spec': pickerGenerator('spec'),
+    docs: pickerGenerator(),
   },
   plugins: [
     'bisheng-plugin-description',
@@ -59,15 +59,15 @@ module.exports = {
         component: homeTmpl,
       },
       {
+        path: '/docs/:children',
+        component: contentTmpl,
+      },
+      {
         path: '/components',
         component: contentTmpl,
       },
       {
         path: '/components/:children',
-        component: contentTmpl,
-      },
-      {
-        path: '/docs/spec/:children',
         component: contentTmpl,
       },
       {

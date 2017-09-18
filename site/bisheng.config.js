@@ -10,19 +10,10 @@ module.exports = {
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   themeConfig: {
-    categoryOrder: {
-      设计原则: 2,
-      Principles: 2,
-    },
     typeOrder: {
-      General: 0,
-      Layout: 1,
-      Navigation: 2,
-      'Data Entry': 3,
-      'Data Display': 4,
-      Feedback: 5,
-      Localization: 6,
-      Other: 7,
+      入门: 0,
+      进阶: 1,
+      其他: 2,
     },
   },
   filePathMapper(filePath) {

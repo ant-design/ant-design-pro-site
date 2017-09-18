@@ -1,6 +1,7 @@
 ---
 order: 9
 title: 图表
+type: 进阶
 ---
 
 ## 使用 Ant Design Pro 的图表

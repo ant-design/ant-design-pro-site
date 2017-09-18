@@ -13,7 +13,7 @@ export default collect(async (nextProps) => {
 
   const pageDataPath = path.split('/');
 
-  if (/components/.test(path) && pageDataPath[1]) {
+  if (/\/components/.test(path) && pageDataPath[1]) {
     const str = pageDataPath[1];
     pageDataPath[1] = str.charAt(0).toUpperCase() + str.slice(1);
   }

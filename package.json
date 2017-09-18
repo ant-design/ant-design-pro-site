@@ -62,7 +62,7 @@
   "scripts": {
     "bisheng-start": "bisheng start -c ./site/bisheng.config.js",
     "bisheng-build": "bisheng build --ssr -c ./site/bisheng.config.js",
-    "scaffold-start": "cd ./scaffold && npm start",
+    "scaffold-start": "cd ./scaffold && BROWSER=none npm start",
     "scaffold-move": "./tool/bin/let -m",
     "scaffold-build": "cd ./scaffold && npm run build && ../tool/bin/let -b",
     "scaffold-build:static": "./tool/bin/let -s && cd ./scaffold && npm run build && ../tool/bin/let -b",

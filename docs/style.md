@@ -1,6 +1,7 @@
 ---
 order: 8
 title: 样式
+type: 入门
 ---
 
 样式

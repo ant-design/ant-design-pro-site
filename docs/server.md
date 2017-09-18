@@ -1,6 +1,7 @@
 ---
 order: 6
 title: 和服务端进行交互
+type: 入门
 ---
 
 ## 前端请求流程
@@ -49,7 +50,7 @@ effects: {
     const response = yield call(queryUsers);
     ...
   },
-}    
+}
 ```
 
 ### Effect 处理异步请求
