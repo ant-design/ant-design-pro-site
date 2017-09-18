@@ -75,17 +75,18 @@ type: 进阶
 
 1. 切换到 Font class 页签，在页面头部引入下面生成的 css 代码：
 
-	```html
-	//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.css
-	```
+  ```html
+  //at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.css
+  ```
 
-	> 如果不喜欢标签引入的方式，也可以直接拷贝上面链接中的代码到你的样式文件中。如果不喜欢网站默认生成的类名，自己重写这部分代码即可(使用时注意对应)。
+  > 如果不喜欢标签引入的方式，也可以直接拷贝上面链接中的代码到你的样式文件中。如果不喜欢网站默认生成的类名，自己重写这部分代码即可，比如：
 
-	> ```css
-	.your-prefix-ali-pay:before { content: "\e66b"; }
-	```
+    ```diff
+    - .icon-ali-pay:before { content: "\e66b"; }              // 修改前
+    + .monitor-icon-alipay:before { content: "\e66b"; }       // 修改后
+    ```
 
-2. 这时你可以选择拷贝图标对应代码（类名），直接使用：
+2. 这时你可以选择拷贝图标对应代码（就是类名，如果类名被重写过，这里记得用修改后的），直接使用：
 
   ```html
   <i class="iconfont icon-ali-pay"></i>
