@@ -12,9 +12,9 @@ type: 入门
 
 ---
 
-下面以一个简单的静态组件为例进行介绍。假设你的应用中经常需要展现图片，这些图片都展现在页面的右侧，宽度固定，有一个灰色的背景和一定的内边距，有文字介绍，就像下图这样：
+<img class="preview-img" alt="示意图" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png" />
 
-<img alt="示意图" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png">
+下面以一个简单的静态组件为例进行介绍。假设你的应用中经常需要展现图片，这些图片都展现在页面的右侧，宽度固定，有一个灰色的背景和一定的内边距，有文字介绍，就像右图这样：
 
 <br />
 

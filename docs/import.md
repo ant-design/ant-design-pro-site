@@ -57,7 +57,7 @@ export default class NewPage extends React.Component {
 }
 ```
 
-<img alt="富文本" src="hhttps://gw.alipayobjects.com/zos/rmsportal/rHQRmMxAbSOCsEFungwd.png">
+<img width="600" alt="富文本" src="https://gw.alipayobjects.com/zos/rmsportal/rHQRmMxAbSOCsEFungwd.png" />
 
 这样就成功引入了一个富文本组件。有几点值得注意：
 

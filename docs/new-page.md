@@ -12,7 +12,7 @@ type: 入门
 
 在 `src/routes` 下新建页面的 js 及 less 文件，如果相关页面有多个，可以新建一个文件夹来放置相关文件。
 
-<img alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/hjDyFTVOgRwDzAIHApMO.png">
+<img width="300" alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/hjDyFTVOgRwDzAIHApMO.png" />
 
 <br />
 
@@ -28,9 +28,9 @@ type: 入门
 
 脚手架可以自动从信息架构数据（页面关系数据）生成菜单和路由，我们内置了三种布局模式 —— 基础布局，账户相关布局（无页头和菜单）以及空白模式，前两种的样式如下所示：
 
-<img alt="基础布局" src="https://gw.alipayobjects.com/zos/rmsportal/nIaDNgQvbSHOzNtLTuHB.png">
+<img width="600" alt="基础布局" src="https://gw.alipayobjects.com/zos/rmsportal/nIaDNgQvbSHOzNtLTuHB.png" />
 
-<img alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/SxlaqGtdzMtEhFjMuuGx.png">
+<img width="600" alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/SxlaqGtdzMtEhFjMuuGx.png" />
 
 <br />
 
@@ -47,7 +47,7 @@ type: 入门
 
 菜单和路由就自动加好了，访问 `http://localhost:8000/#/new` 就可以看到新增的页面了。
 
-<img alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/xZIqExWKhdnzDBjajnZg.png">
+<img width="600" alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/xZIqExWKhdnzDBjajnZg.png" />
 
 <br />
 
