@@ -1,5 +1,5 @@
 ---
-order: 19
+order: 21
 title: 常见问题
 type: 其他
 ---
@@ -57,7 +57,7 @@ type: 其他
 For windows:
 
 ```js
-"start": "set BROWSER=none &&r oadhog server",
+"start": "set BROWSER=none && roadhog server",
 ```
 
 ---

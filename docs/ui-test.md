@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 14
 title: UI 测试
 type: 进阶
 ---

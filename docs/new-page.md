@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 3
 title: 新增页面
 type: 入门
 ---

@@ -1,7 +1,7 @@
 ---
-order: 12
+order: 7
 title: 构建和发布
-type: 进阶
+type: 入门
 ---
 
 ## 构建

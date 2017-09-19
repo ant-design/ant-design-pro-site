@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 5
 title: 样式
 type: 入门
 ---
