@@ -8,11 +8,11 @@ UI 测试是项目研发流程中的重要一环，有效的测试用例可以�
 
 Ant Design Pro 封装了一套简洁易用的 React 单元测试和 E2E 测试方案，在项目根目录运行以下命令就能运行测试用例。
 
-```
+```bash
 $ npm run test:all  // 执行所有测试
 ```
 
-![](https://gw.alipayobjects.com/zos/rmsportal/KZNkLURmBJVomVJbZvHc.png)
+<img src="https://gw.alipayobjects.com/zos/rmsportal/KZNkLURmBJVomVJbZvHc.png" width="700" />
 
 下面简单介绍如何在项目中书写你的业务测试用例。
 
@@ -44,13 +44,13 @@ it('renders with Result', () => {
 
 使用以下的命令将统一搜索和执行 `src` 下 `*.test.js` 格式的用例文件。
 
-```
+```bash
 $ npm test .test.js
 ```
 
 #### 执行单个或一组用例
 
-```
+```bash
 $ npm test src/routes/Result/Success.test.js  // 测试 Success.test.js
 $ npm test src/routes                         // 测试 routes 下的所有用例文件
 ```
@@ -83,7 +83,7 @@ it('renders Dashboard', () => {
 
 假设有一个需求，用户在登录页面输入错误的用户名和密码，点击登录后，出现错误提示框。
 
-![](https://gw.alipayobjects.com/zos/rmsportal/oZeYewGOUJkmqXAPoOFC.gif)
+<img src="https://gw.alipayobjects.com/zos/rmsportal/oZeYewGOUJkmqXAPoOFC.gif" width="400" />
 
 我们写一个用例来保障这个流程。在 `src/e2e/` 目录下建一个 `Login.e2e.js` 文件，按上述业务需求描述测试用例。
 
@@ -108,11 +108,11 @@ describe('Login', () => {
 
 运行下列命令将执行 src 下所有的 `*.e2e.js` 用例文件。
 
-```
+```bash
 $ npm test .e2e.js
 ```
 
-![](https://gw.alipayobjects.com/zos/rmsportal/DoKrLMgtYgNJTnxqmgoN.png)
+<img src="https://gw.alipayobjects.com/zos/rmsportal/DoKrLMgtYgNJTnxqmgoN.png" width="700" />
 
 > 注意，本地测试 e2e 用例需要启动 `npm start`，否则会报 `Failed: navigation error` 的错误。
 
@@ -124,7 +124,7 @@ $ npm test -- --watch
 
 添加 `--watch` 配置可以进入 watch 模式，当你修改和保存文件时，Jest 会自动执行相应用例。Jest 的命令行工具也提供了各种方便的快捷键来执行你需要的用例。
 
-![](https://gw.alipayobjects.com/zos/rmsportal/jdJnrFUtvMLoFOZebeou.png)
+<img src="https://gw.alipayobjects.com/zos/rmsportal/jdJnrFUtvMLoFOZebeou.png" width="700" />
 
 ## 测试覆盖率
 
@@ -134,7 +134,7 @@ $ npm test -- --coverage
 
 添加 `--coverage` 配置可以显示项目的测试覆盖率。
 
-![](https://camo.githubusercontent.com/bd0bbda8e44ea747e4c199d0e212d40563ad2fcb/687474703a2f2f692e696d6775722e636f6d2f356246686e54532e706e67)
+<img src="https://camo.githubusercontent.com/bd0bbda8e44ea747e4c199d0e212d40563ad2fcb/687474703a2f2f692e696d6775722e636f6d2f356246686e54532e706e67" width="700" />
 
 ## 聚焦和忽略用例
 
