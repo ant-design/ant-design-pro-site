@@ -1,14 +1,43 @@
 ---
-order: 12
+order: 7
 title: 构建和发布
-type: 进阶
+type: 入门
 ---
 
 ## 构建
 
+当项目开发完毕，只需要运行一行命令就可以打包你的应用：
+
+```bash
+$ npm run build
+```
+
 由于 Ant Design Pro 底层使用的 [roadhog](https://github.com/sorrycc/roadhog) 工具，已经将复杂的流程封装完毕，对于大部分场景，构建打包文件只需要一个命令 `roadhog build`，构建打包成功之后，会在根目录生成 `dist` 文件夹，里面就是构建打包好的文件，通常是 `index.js`、`index.css`、`index.html` 三个静态文件。
 
 不过你如果需要自定义构建，比如指定 `dist` 目录等，则需要通过 `.roadhogrc` 进行配置，详情参看：[roadhog 配置](https://github.com/sorrycc/roadhog#配置)。
+
+### 环境变量
+
+当你需要区别开发和部署以及测试环境的时候，可以通过在 `.roadhogrc` 中设置 [env](https://github.com/sorrycc/roadhog#env) 环境变量来实现。
+
+```
+"env": {
+  // server 环境
+  "development": {
+    "extraBabelPlugins": [
+      "dva-hmr",
+    ]
+  },
+  // build 环境
+  "production": {
+    "extraBabelPlugins": [
+      "transform-runtime",
+      "transform-decorators-legacy",
+      ["import", { "libraryName": "antd", "style": true }]
+    ]
+  } 
+},
+```
 
 ## 发布
 
@@ -50,4 +79,25 @@ exports.index = function* () {
 app.get('home', '/*', 'home.index');
 ```
 
-更多可以参看 [React Router](https://github.com/ReactTraining/react-router) 。
+### 在 Ant Design Pro 中使用前端路由
+
+路由包含的信息在 `router.js` 中，不过关于 `history` 的配置是在 `index.js` 入口文件中，传入配置信息给 [dva](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md#dva-api) 构造器即可。
+
+```
+import dva from 'dva';
+// 引入 browserHistory
+import { browserHistory } from 'dva/router';
+import models from './models';
+
+import './index.less';
+
+// use browserHistory
+const app = dva({
+  history: browserHistory,
+});
+
+// default hashHistroy
+const app = dva();
+```
+
+关于路由更多可以参看 [React Router](https://github.com/ReactTraining/react-router) 。

@@ -1,5 +1,5 @@
 ---
-order: 14
+order: 13
 title: 更换主题
 type: 进阶
 ---

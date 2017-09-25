@@ -1,5 +1,5 @@
 ---
-order: 16
+order: 15
 title: 独立使用 pro 组件
 type: 进阶
 ---

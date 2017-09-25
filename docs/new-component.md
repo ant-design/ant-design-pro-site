@@ -1,6 +1,6 @@
 ---
 order: 4
-title: 开发业务组件
+title: 新增业务组件
 type: 入门
 ---
 
