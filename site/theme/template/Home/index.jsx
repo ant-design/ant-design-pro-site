@@ -13,13 +13,10 @@ function Home(props) {
             <Link to="">home</Link>
           </li>
           <li>
-            <Link to="/components/sample">components</Link>
+            <Link to="/components/PageHeader">components</Link>
           </li>
           <li>
             <Link to="/docs/getting-started">docs</Link>
-          </li>
-          <li>
-            <Link to="/scaffold">scaffold</Link>
           </li>
         </ul>
       </div>
