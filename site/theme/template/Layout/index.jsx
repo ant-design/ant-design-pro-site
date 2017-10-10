@@ -10,6 +10,7 @@ import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 
 import Header from './Header';
+import Footer from './Footer';
 
 if (typeof window !== 'undefined') {
   /* eslint-disable global-require */
@@ -47,6 +48,7 @@ export default class Layout extends React.PureComponent {
           <div className="page-wrapper">
             <Header {...restProps} />
             {children}
+            <Footer {...restProps} />
           </div>
         </LocaleProvider>
       </IntlProvider>
