@@ -13,13 +13,17 @@
     "lib"
   ],
   "license": "MIT",
+  "peerDependencies": {
+    "react": "~0.14.0 || >=15.0.0",
+    "react-dom": "~0.14.0 || >=15.0.0"
+  },
   "dependencies": {
     "antd": "next",
     "parallelshell": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.0",
-    "react-document-title": "^2.0.3",
     "react-github-button": "^0.1.11",
-    "react-intl": "^2.3.0"
+    "react-intl": "^2.3.0",
+    "react-document-title": "^2.0.3"
   },
   "devDependencies": {
     "atool-build": "^1.0.0",
@@ -51,6 +55,7 @@
     "eslint-tinker": "^0.4.1",
     "extract-text-webpack-plugin": "~1.0.1",
     "fs-extra": "^4.0.0",
+    "gh-pages": "^1.0.0",
     "lerna": "^2.0.0",
     "npm-run-all": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "^2.0.0",
@@ -68,7 +73,7 @@
     "scaffold-build:static": "./tool/bin/let -s && cd ./scaffold && npm run build && ../tool/bin/let -b",
     "scaffold-install": "cd ./scaffold && ../tool/bin/i",
     "preinstall": "cd ./scaffold && ../tool/bin/i",
-    "site": "bisheng-build && gh-pages -d dist",
+    "site": "npm run bisheng-build && gh-pages -d _site",
     "lerna": "lerna",
     "components-publish": "./tool/bin/let -c && lerna publish --always",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",

@@ -2,29 +2,30 @@
   display: none;
   position: absolute;
   right: 30px;
-  top: 32px;
+  top: 25px;
   z-index: 1;
   width: 16px;
   height: 22px;
   cursor: pointer;
 }
 
-@media only screen and (min-width: 0) and (max-width: 1280px) {
-  .en-us #search-box {
+@media only screen and (min-width: 0) and (max-width: 1000px) {
+  #search-box {
     display: none;
   }
 }
 
-@media only screen and (min-width: 0) and (max-width: 1180px) {
-  .zh-cn #search-box {
-    display: none;
+@media only screen and (min-width: 0) and (max-width: 768px) {
+  #logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    width: 140px;
   }
 }
 
 @media only screen and (min-width: 0) and (max-width: 992px) {
-  #search-box {
-    display: none;
-  }
   .code-boxes-col-2-1, .code-boxes-col-1-1 {
     float: none;
     width: 100%;
@@ -37,14 +38,6 @@
   .preview-image-box {
     padding-left: 0;
     margin: 10px 0;
-  }
-
-  a#logo {
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
-    display: block;
   }
 
   .banner-entry {
@@ -132,22 +125,6 @@
       &-content {
         padding: 0;
       }
-    }
-  }
-
-  ul#nav,
-  ul#nav li {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  ul#nav li {
-    line-height: 60px;
-    height: 60px;
-    padding: 0 !important;
-    border: 0;
-    a {
-      color: #333;
     }
   }
 
