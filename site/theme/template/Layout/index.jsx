@@ -4,9 +4,13 @@ import PropTypes from 'prop-types';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import { LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
+
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
+
+import Header from './Header';
+import Footer from './Footer';
 
 if (typeof window !== 'undefined') {
   /* eslint-disable global-require */
@@ -36,12 +40,16 @@ export default class Layout extends React.PureComponent {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, ...restProps } = this.props;
     const { appLocale } = this.state;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <LocaleProvider locale={enUS}>
-          {children}
+          <div className="page-wrapper">
+            <Header {...restProps} />
+            {children}
+            <Footer {...restProps} />
+          </div>
         </LocaleProvider>
       </IntlProvider>
     );

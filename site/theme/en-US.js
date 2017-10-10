@@ -60,6 +60,8 @@ module.exports = {
     'app.footer.issues': 'Issues',
     'app.footer.version': 'Version: ',
     'app.footer.author': 'Created by AFX',
+    'app.footer.resources': 'Resource',
+    'app.footer.cloud': 'Alipay Experience Cloud',
     'app.publish.title': 'antd@2.0.0 is released!',
     'app.publish.greeting': 'Hello, ',
     'app.publish.intro': ' is released, and please upgrade. ',
