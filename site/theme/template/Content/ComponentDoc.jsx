@@ -39,7 +39,7 @@ export default class ComponentDoc extends React.PureComponent {
     const leftChildren = [];
     const rightChildren = [];
     const showedDemo = demos.some(demo => demo.meta.only) ?
-            demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
+      demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
     showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         const demoElem = (

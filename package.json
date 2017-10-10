@@ -44,7 +44,7 @@
     "concurrently": "^3.5.0",
     "cross-env": "^5.0.1",
     "css-split-webpack-plugin": "^0.2.3",
-    "eslint": "^3.0.1",
+    "eslint": "^4.8.0",
     "eslint-config-airbnb": "latest",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-babel": "^4.0.0",

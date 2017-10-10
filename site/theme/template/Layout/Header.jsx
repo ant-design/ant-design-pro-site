@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, AutoComplete, Input, Icon, Menu, Button, Popover } from 'antd';
 
-const LOGO_Url = 'https://gw.alipayobjects.com/zos/rmsportal/OwlbOqHNtDoZBwPdjpoz.svg';
+const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/OwlbOqHNtDoZBwPdjpoz.svg';
 const GITHUB_AVATAR = 'https://gw.alipayobjects.com/zos/rmsportal/YblseqNFOlQAVHYecdUR.svg';
 
 class Header extends React.Component {
@@ -85,23 +85,27 @@ class Header extends React.Component {
     const menu = (
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to='/'>介绍</Link>
+          <Link to="/">介绍</Link>
         </Menu.Item>
         <Menu.Item key="docs">
-          <Link to='/docs/getting-started'>文档</Link>
+          <Link to="/docs/getting-started">文档</Link>
         </Menu.Item>
         <Menu.Item key="components">
-          <Link to='/components/PageHeader'>业务组件</Link>
+          <Link to="/components/PageHeader">业务组件</Link>
         </Menu.Item>
         {
-          menuMode === 'inline' && (<Menu.Item key="preview">
-            <a target="_blank" href="https://ant-design.github.io/test2/">预览</a>
-          </Menu.Item>)
+          menuMode === 'inline' && (
+            <Menu.Item key="preview">
+              <a target="_blank" href="https://ant-design.github.io/test2/" rel="noopener noreferrer">预览</a>
+            </Menu.Item>
+          )
         }
         {
-          menuMode === 'inline' && (<Menu.Item key="github">
-            <a target="_blank" href="https://github.com/ant-design/test">GitHub</a>
-          </Menu.Item>)
+          menuMode === 'inline' && (
+            <Menu.Item key="github">
+              <a target="_blank" href="https://github.com/ant-design/test" rel="noopener noreferrer">GitHub</a>
+            </Menu.Item>
+          )
         }
       </Menu>
     );
@@ -128,7 +132,7 @@ class Header extends React.Component {
         <Row>
           <Col lg={4} md={8} sm={24} xs={24}>
             <Link id="logo" to="/">
-              <img src={LOGO_Url} alt="logo" />
+              <img src={LOGO_URL} alt="logo" />
               <span>Ant Design Pro</span>
             </Link>
           </Col>
@@ -137,7 +141,7 @@ class Header extends React.Component {
               <div id="search-box">
                 <AutoComplete
                   dataSource={[]}
-                  value=""
+                  value={inputValue}
                   dropdownClassName="component-select"
                   optionLabelProp="data-label"
                   filterOption={this.handleSelectFilter}
@@ -153,10 +157,15 @@ class Header extends React.Component {
                 </AutoComplete>
               </div>
               <div id="preview">
-                <a id="preview-button" target="_blank" href="https://ant-design.github.io/test2/">
+                <a
+                  id="preview-button"
+                  target="_blank"
+                  href="https://ant-design.github.io/test2/"
+                  rel="noopener noreferrer"
+                >
                   <Button>预览</Button>
                 </a>
-                <a href="https://github.com/ant-design/test" target="_blank">
+                <a href="https://github.com/ant-design/test" target="_blank" rel="noopener noreferrer">
                   <img src={GITHUB_AVATAR} alt="github" />
                 </a>
               </div>
@@ -165,7 +174,7 @@ class Header extends React.Component {
           </Col>
         </Row>
       </div>
-    )
+    );
   }
 }
 

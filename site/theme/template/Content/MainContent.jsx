@@ -103,8 +103,7 @@ export default class MainContent extends React.PureComponent {
   generateMenuItem(isTop, item) {
     const locale = this.context.intl.locale;
     const key = fileNameToPath(item.filename);
-    const text = isTop ?
-    item.title[locale] || item.title : [
+    const text = isTop ? (item.title[locale] || item.title) : [
       <span key="english">{item.title}</span>,
       <span className="chinese" key="chinese">{item.subtitle}</span>,
     ];
