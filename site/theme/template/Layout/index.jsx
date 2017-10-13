@@ -20,6 +20,8 @@ if (typeof window !== 'undefined') {
   window.react = React;
   window['react-dom'] = ReactDOM;
   window.antd = require('antd');
+  window['ant-design-pro/lib/GlobalFooter'] = require('ant-design-pro/lib/GlobalFooter');
+  window['ant-design-pro/lib/FooterToolbar'] = require('ant-design-pro/lib/FooterToolbar');
   /* eslint-enable global-require */
 }
 
