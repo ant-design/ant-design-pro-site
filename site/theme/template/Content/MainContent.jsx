@@ -129,7 +129,7 @@ export default class MainContent extends React.PureComponent {
     );
 
     return (
-      <Menu.Item key={key.toLowerCase()} disabled={disabled}>
+      <Menu.Item key={key} disabled={disabled}>
         {child}
       </Menu.Item>
     );
@@ -158,7 +158,9 @@ export default class MainContent extends React.PureComponent {
   }
 
   getMenuItems() {
+
     const moduleData = getModuleData(this.props);
+
     const menuItems = utils.getMenuItems(
       moduleData, this.context.intl.locale
     );
@@ -222,7 +224,7 @@ export default class MainContent extends React.PureComponent {
     return (
       <div className="main-wrapper">
         <Row>
-          <Col xl={4} lg={6} md={24} sm={24} xs={24}>
+          <Col lg={4} md={24} sm={24} xs={24}>
             <Menu
               className="aside-container"
               mode="inline"
@@ -233,7 +235,7 @@ export default class MainContent extends React.PureComponent {
               {menuItems}
             </Menu>
           </Col>
-          <Col xl={20} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
+          <Col lg={20} md={24} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
@@ -244,8 +246,7 @@ export default class MainContent extends React.PureComponent {
 
         <Row>
           <Col
-            xl={{ span: 20, offset: 4 }}
-            lg={{ span: 18, offset: 6 }}
+            lg={{ span: 20, offset: 4 }}
             md={24}
             sm={24}
             xs={24}
