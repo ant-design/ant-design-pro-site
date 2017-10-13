@@ -23,8 +23,6 @@ module.exports = {
   doraConfig: {},
   webpackConfig(config) {
     config.resolve.alias = {
-      // 'antd/lib': path.join(process.cwd(), 'components'),
-      // antd: path.join(process.cwd(), 'index'),
       'ant-design-pro/lib': path.join(process.cwd(), 'scaffold/src/components'),
       'ant-design-pro': path.join(process.cwd(), 'config/components/index'),
       site: path.join(process.cwd(), 'site'),

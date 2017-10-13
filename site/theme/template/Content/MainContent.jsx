@@ -158,7 +158,6 @@ export default class MainContent extends React.PureComponent {
   }
 
   getMenuItems() {
-
     const moduleData = getModuleData(this.props);
 
     const menuItems = utils.getMenuItems(
