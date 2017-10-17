@@ -1,5 +1,30 @@
 @import './colors';
 
+@padding-space: 114px;
+
+footer.dark {
+  background-color: #000;
+  a {
+    color: #fff;
+    span {
+      color: #fff;
+    }
+  }
+  div, span {
+    color: rgba(255, 255, 255, 0.65);
+  }
+  h2 {
+    color: rgba(255, 255, 255, 1);
+    & > span {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+  .bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+}
+
 footer {
   border-top: 1px solid @border-color;
   clear: both;
@@ -13,7 +38,7 @@ footer {
     > div {
       > h2 {
         font-size: 14px;
-        margin: 0 auto 12px;
+        margin: 0 auto 24px;
         font-weight: 500;
         position: relative;
         > .anticon {
@@ -25,31 +50,31 @@ footer {
         }
       }
       > div {
-        margin: 6px 0;
+        margin: 12px 0;
       }
     }
   }
   .footer-wrap {
     position: relative;
-    padding: 40px 80px;
-  }
-  .footer-split {
-    background-color: @border-color;
-    position: absolute;
-    right: 20%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
+    padding: 86px @padding-space 70px @padding-space;
   }
   .bottom-bar {
     border-top: 1px solid @border-color;
-    height: 56px;
-    line-height: 56px;
+    height: 64px;
+    line-height: 64px;
     p {
-      color: @grey-11;
       text-align: right;
-      padding-right: 80px;
+      padding-right: @padding-space;
     }
+  }
+  .footer-logo {
+    position: relative;
+    top: -2px;
+  }
+  .footer-flag {
+    position: relative;
+    top: -4px;
+    margin-right: 8px;
   }
 }
 

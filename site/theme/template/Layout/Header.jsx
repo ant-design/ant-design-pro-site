@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, AutoComplete, Input, Icon, Menu, Button, Popover } from 'antd';
 
-const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/OwlbOqHNtDoZBwPdjpoz.svg';
+const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/gVAKqIsuJCepKNbgbSwE.svg';
 const GITHUB_AVATAR = 'https://gw.alipayobjects.com/zos/rmsportal/YblseqNFOlQAVHYecdUR.svg';
 
 class Header extends React.Component {
@@ -85,13 +85,16 @@ class Header extends React.Component {
     const menu = (
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to="/">介绍</Link>
+          <Link to="/">首页</Link>
         </Menu.Item>
         <Menu.Item key="docs">
           <Link to="/docs/getting-started">文档</Link>
         </Menu.Item>
         <Menu.Item key="components">
-          <Link to="/components/PageHeader">业务组件</Link>
+          <Link to="/components/PageHeader">组件</Link>
+        </Menu.Item>
+        <Menu.Item key="design">
+          <Link to="/design">设计指引</Link>
         </Menu.Item>
         {
           menuMode === 'inline' && (
@@ -130,32 +133,32 @@ class Header extends React.Component {
           </Popover>
         ) : null}
         <Row>
-          <Col lg={4} md={8} sm={24} xs={24}>
+          <Col xl={12} lg={11} md={8} sm={24} xs={24}>
             <Link id="logo" to="/">
               <img src={LOGO_URL} alt="logo" />
-              <span>Ant Design Pro</span>
+              <span>ANT DESIGN PRO</span>
             </Link>
+            <div id="search-box">
+              <AutoComplete
+                dataSource={[]}
+                value={inputValue}
+                dropdownClassName="component-select"
+                optionLabelProp="data-label"
+                filterOption={this.handleSelectFilter}
+                onSelect={this.handleSearch}
+                onSearch={this.handleInputChange}
+                getPopupContainer={trigger => trigger.parentNode}
+              >
+                <Input
+                  placeholder={searchPlaceholder}
+                  prefix={<Icon type="search" />}
+                  ref={ref => this.searchInput = ref}
+                />
+              </AutoComplete>
+            </div>
           </Col>
-          <Col lg={20} md={16} sm={0} xs={0}>
+          <Col xl={12} lg={13} md={16} sm={0} xs={0}>
             <div className="header-meta">
-              <div id="search-box">
-                <AutoComplete
-                  dataSource={[]}
-                  value={inputValue}
-                  dropdownClassName="component-select"
-                  optionLabelProp="data-label"
-                  filterOption={this.handleSelectFilter}
-                  onSelect={this.handleSearch}
-                  onSearch={this.handleInputChange}
-                  getPopupContainer={trigger => trigger.parentNode}
-                >
-                  <Input
-                    placeholder={searchPlaceholder}
-                    prefix={<Icon type="search" />}
-                    ref={ref => this.searchInput = ref}
-                  />
-                </AutoComplete>
-              </div>
               <div id="preview">
                 <a
                   id="preview-button"
@@ -163,7 +166,7 @@ class Header extends React.Component {
                   href="https://ant-design.github.io/test2/"
                   rel="noopener noreferrer"
                 >
-                  <Button>预览</Button>
+                  <Button><Icon type="eye-o" /> 预览</Button>
                 </a>
                 <a href="https://github.com/ant-design/test" target="_blank" rel="noopener noreferrer">
                   <img src={GITHUB_AVATAR} alt="github" />

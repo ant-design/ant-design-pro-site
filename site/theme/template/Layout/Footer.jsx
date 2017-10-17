@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, Icon, Row, Col } from 'antd';
+import { Modal, Row, Col } from 'antd';
 import { isLocalStorageNameSupported } from '../utils';
 
 class Footer extends React.Component {
@@ -53,11 +53,11 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <footer id="footer">
+      <footer id="footer" className="dark">
         <div className="footer-wrap">
-          <Row gutter={80}>
-            <Col lg={5} sm={24} xs={24}>
-              <h2><Icon type="github" /> Ant Design</h2>
+          <Row>
+            <Col lg={6} sm={24} xs={24}>
+              <h2>Ant Design Pro</h2>
               <div>
                 <a target="_blank " href="https://github.com/ant-design/ant-design">
                   GitHub
@@ -77,29 +77,12 @@ class Footer extends React.Component {
                 </a>
               </div>
             </Col>
-            <Col lg={5} sm={24} xs={24}>
-              <h2><Icon type="link" /> <FormattedMessage id="app.footer.resources" /></h2>
+            <Col lg={6} sm={24} xs={24}>
+              <h2><FormattedMessage id="app.footer.resources" /></h2>
               <div>
                 <a href="http://scaffold.ant.design">Scaffolds</a>
                 <span> - </span>
                 <FormattedMessage id="app.footer.scaffolds" />
-              </div>
-              <div>
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
-              </div>
-              <div>
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
-                <FormattedMessage id="app.footer.dev-tools" />
-              </div>
-              <div>
-                <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">Egg</a>
-                <span> - </span>
-                <FormattedMessage id="app.footer.eggjs" />
-              </div>
-              <div>
-                <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
-                <span> - </span>
-                <FormattedMessage id="app.footer.data-vis" />
               </div>
               <div>
                 <a target="_blank" rel="noopener noreferrer" href="http://motion.ant.design">Ant Motion</a>
@@ -117,13 +100,15 @@ class Footer extends React.Component {
                 <FormattedMessage id="app.footer.antux" />
               </div>
               <div>
-                <a target="_blank" rel="noopener noreferrer" href="http://enclose.io/">Enclose.IO</a>
-                <span> - </span>
-                <FormattedMessage id="app.footer.encloseio" />
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
+              </div>
+              <div>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
+                <FormattedMessage id="app.footer.dev-tools" />
               </div>
             </Col>
-            <Col lg={5} sm={24} xs={24}>
-              <h2><Icon type="customer-service" /> <FormattedMessage id="app.footer.community" /></h2>
+            <Col lg={6} sm={24} xs={24}>
+              <h2><FormattedMessage id="app.footer.community" /></h2>
               <div>
                 <a href="/changelog">
                   <FormattedMessage id="app.footer.change-log" />
@@ -165,50 +150,36 @@ class Footer extends React.Component {
                 </a>
               </div>
             </Col>
-            <Col lg={5} sm={24} xs={24}>
-              <h2><Icon type="customer-service" /> <FormattedMessage id="app.footer.cloud" /></h2>
-            </Col>
-            <Col lg={4} sm={24} xs={24}>
-              <h2><Icon type="customer-service" /> <FormattedMessage id="app.footer.cloud" /></h2>
+            <Col lg={6} sm={24} xs={24}>
+              <h2>
+                <img className="footer-flag" alt="more" src="https://gw.alipayobjects.com/zos/rmsportal/iqWcVtKrlvzylbcQGApv.svg" />
+                <FormattedMessage id="app.footer.more-product" />
+              </h2>
               <div>
-                <a href="/changelog">
-                  AntG
-                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">Egg</a>
+                <span> - </span>
+                <FormattedMessage id="app.footer.eggjs" />
               </div>
               <div>
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/wiki/FAQ">
-                  AntV
-                </a>
+                <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
+                <span> - </span>
+                <FormattedMessage id="app.footer.data-vis" />
               </div>
               <div>
-                <a target="_blank" rel="noopener noreferrer" href="http://new-issue.ant.design/">
-                  Basement
-                </a>
-              </div>
-              <div>
-                <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design">
-                  九色鹿
-                </a>
-              </div>
-              <div>
-                <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-english">
-                  凤蝶
-                </a>
-              </div>
-              <div>
-                <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues">
-                  云雀
-                </a>
+                <a target="_blank" rel="noopener noreferrer" href="http://enclose.io/">Enclose.IO</a>
+                <span> - </span>
+                <FormattedMessage id="app.footer.encloseio" />
               </div>
             </Col>
           </Row>
-          <div className="footer-split" />
         </div>
         <div className="bottom-bar">
-          <p>Copyright © 2016 蚂蚁金融服务集团 ICP 证浙 B2-2-100257 & Powered By&nbsp;
-            <a target="_blank" rel="noopener noreferrer" href="https://github.com/benjycui/bisheng">
-              BiSheng
-            </a>
+          <p>
+            <span style={{ marginRight: 24 }}>隐私权政策</span>
+            <span style={{ marginRight: 24 }}>权益保障承诺书</span>
+            <span style={{ marginRight: 12 }}>ICP 证浙 B2-2-100257</span>
+            <span style={{ marginRight: 12 }}>Copyright © 蚂蚁金融服务集团</span>
+            <span><img className="footer-logo" src="https://gw.alipayobjects.com/zos/rmsportal/xAXLpIvVcjtarsXkXgUy.svg" alt="logo" /></span>
           </p>
         </div>
       </footer>

@@ -1,3 +1,5 @@
+@import "~antd/lib/style/themes/default.less";
+
 .nav-phone-icon {
   display: none;
   position: absolute;
@@ -9,23 +11,25 @@
   cursor: pointer;
 }
 
-@media only screen and (min-width: 0) and (max-width: 1000px) {
-  #search-box {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 0) and (max-width: 768px) {
+@media only screen and (max-width: @screen-md) {
   #logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
     float: none;
-    width: 140px;
+    width: 166px;
+  }
+  #footer {
+    .bottom-bar {
+      display: none;
+    }  
   }
 }
 
-@media only screen and (min-width: 0) and (max-width: 992px) {
+@media only screen and (max-width: @screen-lg) {
+  #search-box {
+    display: none;
+  }
   .code-boxes-col-2-1, .code-boxes-col-1-1 {
     float: none;
     width: 100%;
@@ -175,17 +179,19 @@
     margin: 0;
   }
 
-  footer {
+  #footer {
+    .footer-wrap {
+      padding: 40px;
+    }
     text-align: center;
-    .footer-split {
-      display: none;
+    h2 {
+      margin-top: 16px;
     }
-    .ant-row {
-      > div {
-        > h2 .anticon {
-          display: none;
-        }
-      }
-    }
+  }
+}
+
+@media only screen and (max-width: @screen-xl) {
+  #header {
+    padding: 0 40px;
   }
 }
