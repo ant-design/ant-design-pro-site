@@ -19,11 +19,12 @@
   },
   "dependencies": {
     "antd": "next",
+    "axios": "^0.16.2",
     "parallelshell": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.0",
+    "react-document-title": "^2.0.3",
     "react-github-button": "^0.1.11",
-    "react-intl": "^2.3.0",
-    "react-document-title": "^2.0.3"
+    "react-intl": "^2.3.0"
   },
   "devDependencies": {
     "atool-build": "^1.0.0",

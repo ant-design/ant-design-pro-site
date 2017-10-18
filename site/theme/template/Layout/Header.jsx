@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, AutoComplete, Input, Icon, Menu, Button, Popover } from 'antd';
+import axios from 'axios';
+import { Row, Col, AutoComplete, Input, Icon, Menu, Button, Popover, Select } from 'antd';
+
+const { Option, OptGroup }  = Select;
 
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/gVAKqIsuJCepKNbgbSwE.svg';
 const GITHUB_AVATAR = 'https://gw.alipayobjects.com/zos/rmsportal/YblseqNFOlQAVHYecdUR.svg';
+
+// https://www.algolia.com/apps/YEWBNYLVLW/
+const search_url = "https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176";
 
 class Header extends React.Component {
   static contextTypes = {
@@ -15,6 +21,8 @@ class Header extends React.Component {
     inputValue: '',
     menuVisible: false,
     menuMode: 'horizontal',
+    searchOption: [],
+    searching: false,
   };
 
   componentDidMount() {
@@ -38,6 +46,34 @@ class Header extends React.Component {
     /* eslint-enable global-require */
   }
 
+  search = (key, success, error) => {
+    clearTimeout(this.timer);
+    if (!key) {
+      success();
+      return;
+    }
+
+    this.timer = setTimeout(() => {
+      this.setState({
+        searching: true,
+      });
+      axios.post(search_url, {
+        params: `query=${key}&hitsPerPage=20&facets=*&maxValuesPerFacet=10&facetFilters=[]`,
+      }).then((response) => {
+        this.setState({
+          searching: false,
+        });
+        success && success(response);
+      }).catch((err) => {
+        this.setState({
+          searching: false,
+        });
+        error && error(err);
+      });
+    }, 200);
+
+  }
+
   handleHideMenu = () => {
     this.setState({
       menuVisible: false,
@@ -56,18 +92,28 @@ class Header extends React.Component {
     });
   }
 
-  handleSelectFilter = () => {
-
+  handleSelect = (value) => {
+    location.href = value;
   }
-  handleSearch = () => {
 
-  }
-  handleInputChange = () => {
+  handleChange = (value) => {
+    this.setState({ inputValue: value });
 
+    this.search(value, data => {
+      if (data && data.data && data.data.hits) {
+        this.setState({
+          searchOption: data.data.hits,
+        });
+      } else {
+        this.setState({
+          searchOption: [],
+        });
+      }
+    });
   }
 
   render() {
-    const { inputValue, menuMode, menuVisible } = this.state;
+    const { inputValue, menuMode, menuVisible, searchOption, searching } = this.state;
     const { location } = this.props;
     const path = location.pathname;
 
@@ -113,6 +159,19 @@ class Header extends React.Component {
       </Menu>
     );
 
+    const componentSearchOption = searchOption.filter(v => v.type === 'component').map(d => <Option
+      key={d.url}>{d.title}</Option>);
+    const docSearchOption = searchOption.filter(v => v.type === 'doc').map(d => <Option key={d.url}>{d.title}</Option>);
+
+    const options = [];
+
+    if (componentSearchOption) {
+      options.push(<OptGroup label="组件">{componentSearchOption}</OptGroup>);
+    }
+    if (docSearchOption) {
+      options.push(<OptGroup label="文档">{docSearchOption}</OptGroup>);
+    }
+
     return (
       <div id="header" className="header">
         {menuMode === 'inline' ? (
@@ -139,22 +198,24 @@ class Header extends React.Component {
               <span>ANT DESIGN PRO</span>
             </Link>
             <div id="search-box">
-              <AutoComplete
-                dataSource={[]}
+              <Icon type="search" />
+              <Select
+                mode="combobox"
                 value={inputValue}
-                dropdownClassName="component-select"
-                optionLabelProp="data-label"
-                filterOption={this.handleSelectFilter}
-                onSelect={this.handleSearch}
-                onSearch={this.handleInputChange}
-                getPopupContainer={trigger => trigger.parentNode}
+                placeholder={searchPlaceholder}
+                notFoundContent=""
+                defaultActiveFirstOption={false}
+                showArrow={false}
+                filterOption={false}
+                optionLabelProp="label"
+                onSelect={this.handleSelect}
+                onChange={this.handleChange}
               >
-                <Input
-                  placeholder={searchPlaceholder}
-                  prefix={<Icon type="search" />}
-                  ref={ref => this.searchInput = ref}
-                />
-              </AutoComplete>
+                {options}
+              </Select>
+              {
+                searching && <Icon type="loading" />
+              }
             </div>
           </Col>
           <Col xl={12} lg={13} md={16} sm={0} xs={0}>
