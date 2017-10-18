@@ -67,8 +67,4 @@ module.exports = {
 
     return config;
   },
-
-  htmlTemplateExtraData: {
-    isDev,
-  },
 };
