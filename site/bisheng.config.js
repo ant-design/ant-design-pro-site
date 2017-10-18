@@ -1,6 +1,8 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
   port: 8001,
   root: '/test/',
@@ -31,10 +33,13 @@ module.exports = {
 
     config.externals = config.externals || {};
     config.externals['react-router-dom'] = 'ReactRouterDOM';
-    config.externals.react = 'React';
-    config.externals.React = 'React';
-    config.externals['react-dom'] = 'ReactDOM';
-    config.externals.ReactDOM = 'ReactDOM';
+
+    if (isDev) {
+      config.externals = Object.assign({}, config.externals, {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+      });
+    }
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-transform-runtime'),
@@ -61,5 +66,9 @@ module.exports = {
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
+  },
+
+  htmlTemplateExtraData: {
+    isDev,
   },
 };

@@ -30,6 +30,9 @@
 <div id="react-content">
   {{ content | safe }}
 </div>
+{% if isDev %}
+  <script src="https://as.alipayobjects.com/g/component/??react/15.6.1/react.js,react/15.6.1/react-dom.js"></script>
+{% endif %}
 <script src="{{ root }}common.js"></script>
 <script src="{{ root }}index.js"></script>
 </body>

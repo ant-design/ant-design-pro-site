@@ -166,10 +166,10 @@ class Header extends React.Component {
     const options = [];
 
     if (componentSearchOption) {
-      options.push(<OptGroup label="组件">{componentSearchOption}</OptGroup>);
+      options.push(<OptGroup label="组件" key="component">{componentSearchOption}</OptGroup>);
     }
     if (docSearchOption) {
-      options.push(<OptGroup label="文档">{docSearchOption}</OptGroup>);
+      options.push(<OptGroup label="文档" key="doc">{docSearchOption}</OptGroup>);
     }
 
     return (
