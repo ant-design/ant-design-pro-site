@@ -9,6 +9,7 @@ import NoticeIcon from '../../scaffold/src/components/NoticeIcon';
 import PageHeader from '../../scaffold/src/components/PageHeader';
 import Result from '../../scaffold/src/components/Result';
 import TagSelect from '../../scaffold/src/components/TagSelect';
+import AvatarList from '../../scaffold/src/components/AvatarList';
 
 export default {
   Charts,
@@ -22,4 +23,5 @@ export default {
   PageHeader,
   Result,
   TagSelect,
+  AvatarList,
 };
