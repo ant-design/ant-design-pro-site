@@ -60,6 +60,20 @@ For windows:
 "start": "set BROWSER=none && roadhog server",
 ```
 
+### 是否可以在生产环境中使用 Ant Design Pro？
+
+Ant Design Pro 目前基于 antd@3.0 版本开发，antd 现在依然在 beta 开发阶段，因此建议在正式版本发布之后再使用。
+
+antd@3.0 预计在 11 月底发布：https://github.com/ant-design/ant-design/issues/5570
+
+### 站点是否支持国际化？
+
+这是 Ant Design Pro 的特性之一，目前第一个版本只有中文文案。国际化将是我们下一步的首要工作。
+
+### English Documentation?
+
+English Documentation will be translated soon and we'd like to expect your help!
+
 ---
 
 更多常见问题可以查看 [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) 和 [roadhog](https://github.com/sorrycc/roadhog)。如果这里未能解决你的问题，欢迎[报告给我们](https://github.com/ant-design/ant-design-pro/issues)。
