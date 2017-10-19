@@ -11,7 +11,8 @@ Ant Design Pro 是一个遵循 [Ant Design](http://ant.design) 设计规范的�
 有两种方式进行安装：
 
 ```bash
-$ git clone git@github.com:ant-design/ant-design-pro.git
+$ git clone --depth=1 git@github.com:ant-design/ant-design-pro.git my-project
+$ cd my-project
 ```
 
 或者点击 [https://github.com/ant-design/ant-design/archive/master.zip](https://github.com/ant-design/ant-design/archive/master.zip) 下载到本地后解压。
@@ -47,7 +48,6 @@ $ git clone git@github.com:ant-design/ant-design-pro.git
 安装依赖。
 
 ```bash
-$ cd ant-design-pro
 $ npm install
 ```
 
