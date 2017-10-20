@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import axios from 'axios';
-import { Row, Col, AutoComplete, Input, Icon, Menu, Button, Popover, Select } from 'antd';
+import { Row, Col, Icon, Menu, Button, Popover, Select } from 'antd';
 
-const { Option, OptGroup }  = Select;
+const { Option, OptGroup } = Select;
 
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/gVAKqIsuJCepKNbgbSwE.svg';
 const GITHUB_AVATAR = 'https://gw.alipayobjects.com/zos/rmsportal/YblseqNFOlQAVHYecdUR.svg';
 
 // https://www.algolia.com/apps/YEWBNYLVLW/
-const search_url = "https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176";
+const searchUrl = 'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176';
 
 class Header extends React.Component {
   static contextTypes = {
@@ -57,21 +57,24 @@ class Header extends React.Component {
       this.setState({
         searching: true,
       });
-      axios.post(search_url, {
+      axios.post(searchUrl, {
         params: `query=${key}&hitsPerPage=20&facets=*&maxValuesPerFacet=10&facetFilters=[]`,
       }).then((response) => {
         this.setState({
           searching: false,
         });
-        success && success(response);
+        if (success) {
+          success(response);
+        }
       }).catch((err) => {
         this.setState({
           searching: false,
         });
-        error && error(err);
+        if (error) {
+          error(err);
+        }
       });
     }, 200);
-
   }
 
   handleHideMenu = () => {
@@ -99,7 +102,7 @@ class Header extends React.Component {
   handleChange = (value) => {
     this.setState({ inputValue: value });
 
-    this.search(value, data => {
+    this.search((_, data) => {
       if (data && data.data && data.data.hits) {
         this.setState({
           searchOption: data.data.hits,
@@ -159,9 +162,12 @@ class Header extends React.Component {
       </Menu>
     );
 
-    const componentSearchOption = searchOption.filter(v => v.type === 'component').map(d => <Option
-      key={d.url}>{d.title}</Option>);
-    const docSearchOption = searchOption.filter(v => v.type === 'doc').map(d => <Option key={d.url}>{d.title}</Option>);
+    const componentSearchOption = searchOption.filter(v => v.type === 'component').map(
+      d => <Option key={d.url}>{d.title}</Option>
+    );
+    const docSearchOption = searchOption.filter(v => v.type === 'doc').map(
+      d => <Option key={d.url}>{d.title}</Option>
+    );
 
     const options = [];
 
