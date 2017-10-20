@@ -225,6 +225,7 @@ export default class MainContent extends React.PureComponent {
         <Row>
           <Col lg={4} md={24} sm={24} xs={24}>
             <Menu
+              inlineIndent="54"
               className="aside-container"
               mode="inline"
               openKeys={this.state.openKeys}
