@@ -102,7 +102,7 @@ class Header extends React.Component {
   handleChange = (value) => {
     this.setState({ inputValue: value });
 
-    this.search((_, data) => {
+    this.search(value, (data) => {
       if (data && data.data && data.data.hits) {
         this.setState({
           searchOption: data.data.hits,
