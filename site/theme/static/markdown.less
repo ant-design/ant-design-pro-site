@@ -1,7 +1,7 @@
 .markdown {
   color: @text-color;
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 2;
 }
 
 .highlight {
@@ -10,15 +10,15 @@
 
 .markdown img {
   vertical-align: middle;
-  max-width: 100%;
-  margin: 0.6em 0;
+  width: ~"calc(100% - 32px)";
+  margin: 2.4em 1em;
+  box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
 }
 
 .markdown h1 {
   color: @heading-color;
-  font-weight: 500;
-  line-height: 40px;
-  margin-bottom: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
   margin-top: 8px;
   font-family: Lato, @font-family;
 
@@ -41,8 +41,14 @@
   clear: both;
 }
 
-.markdown h1 { font-size: 28px; }
-.markdown h2 { font-size: 22px; }
+.markdown h1 {
+  font-size: 30px;
+  line-height: 38px;
+}
+.markdown h2 {
+  font-size: 24px;
+  line-height: 32px;
+}
 .markdown h3 { font-size: 18px; }
 .markdown h4 { font-size: 16px; }
 .markdown h5 { font-size: 14px; }
@@ -83,7 +89,7 @@
 
 .markdown code {
   margin: 0 1px;
-  background: #f7f7f7;
+  background: #f2f4f5;
   padding: .2em .4em;
   border-radius: 3px;
   font-size: .9em;
@@ -91,14 +97,14 @@
 }
 
 .markdown pre {
-  border-radius: @border-radius-base;
-  background: #f7f7f7;
+  border-radius: @border-radius-sm;
+  background: #f2f4f5;
   font-family: "Lucida Console", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 .markdown pre code {
   border: none;
-  background: #f7f7f7;
+  background: #f2f4f5;
   margin: 0;
   padding: 0;
   font-size: 13px;
@@ -134,7 +140,7 @@
 }
 
 .markdown > table th {
-  background: #f7f7f7;
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .markdown blockquote {
@@ -199,7 +205,6 @@
 .markdown.api-container table {
   font-size: 13px;
   td:first-child {
-    background: #fcfcfc;
     font-weight: 500;
     width: 20%;
     font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
