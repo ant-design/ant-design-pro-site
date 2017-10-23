@@ -15,7 +15,7 @@ $ git clone --depth=1 git@github.com:ant-design/ant-design-pro.git my-project
 $ cd my-project
 ```
 
-或者点击 [https://github.com/ant-design/ant-design/archive/master.zip](https://github.com/ant-design/ant-design/archive/master.zip) 下载到本地后解压。
+或者点击 [https://github.com/ant-design/ant-design-pro/archive/master.zip](https://github.com/ant-design/ant-design-pro/archive/master.zip) 下载到本地后解压。
 
 ## 目录结构
 
