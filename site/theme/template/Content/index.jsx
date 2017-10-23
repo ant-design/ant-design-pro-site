@@ -24,7 +24,7 @@ export default collect(async (nextProps) => {
 
   // 路由跳转统一处理
   if (pathname === 'components') {
-    location.href = '/components/PageHeader';
+    location.href = '/components/AvatarList';
     return;
   }
 
