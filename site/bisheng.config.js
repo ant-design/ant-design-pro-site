@@ -38,6 +38,16 @@ module.exports = {
       config.externals = Object.assign({}, config.externals, {
         react: 'React',
         'react-dom': 'ReactDOM',
+        'g2': 'G2',
+        'g-cloud': 'Cloud',
+        'g2-plugin-slider': 'G2.Plugin.slider',
+      });
+    } else {
+      config.externals = Object.assign({}, config.externals, {
+        'g2': 'G2',
+        'g-cloud': 'Cloud',
+        'g-cloud': 'Cloud',
+        'g2-plugin-slider': 'G2.Plugin.slider',
       });
     }
 
