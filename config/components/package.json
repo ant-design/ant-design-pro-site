@@ -1,22 +1,23 @@
 {
   "name": "ant-design-pro",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "An enterprise-class UI design language and React-based implementation",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/test/ant-design-pro"
+    "url": "https://github.com/ant-design/ant-design-pro"
   },
   "scripts": {
     "build": "npm run build:es && npm run build:index && npm run build:lib && npm run build:umd",
     "build:index": "../../node_modules/.bin/babel ./index.js -d lib --copy-files",
-    "build:lib": "rm -rf lib && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib --copy-files",
+    "build:lib": "rm -rf lib && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib --copy-files --presets=es2015,react,stage-0",
     "build:umd": "rm -rf dist && ../../node_modules/.bin/atool-build --devtool source-map",
     "build:es": "rm -rf es && cp -apvX ../../scaffold/src/components es && cp index.js es",
     "prepublish": "npm run build"
   },
   "prepublish": "npm run build",
   "files": [
+    "es",
     "lib",
     "dist"
   ],
@@ -34,6 +35,9 @@
     "lodash": "^4.17.4",
     "numeral": "^2.0.6",
     "prop-types": "^15.5.10",
-    "qs": "^6.5.0"
+    "qs": "^6.5.0",
+    "react": "^15.6.2",
+    "react-document-title": "^2.0.3",
+    "react-dom": "^15.6.2"
   }
 }
