@@ -1,17 +1,19 @@
 const webpack = require('atool-build/lib/webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
 const cwd = process.cwd();
 const filename = 'ant-design-pro';
 
 module.exports = function (webpackConfig) {
 
-  webpackConfig.entry = './index.js';
+  webpackConfig.entry = {
+    [filename]: './index.js',
+    [filename + '.min']: './index.js',
+  };
 
   webpackConfig.output.libraryTarget = 'umd';
-  webpackConfig.output.filename = filename + '.min.js';
+  webpackConfig.output.filename = '[name].js';
 
   if (!webpackConfig.output.externals) {
     webpackConfig.output.externals = {};
@@ -36,14 +38,6 @@ module.exports = function (webpackConfig) {
   });
 
   // compress
-  const UglifyJsPluginConfig = {
-    output: {
-      ascii_only: true,
-    },
-    compress: {
-      warnings: false,
-    },
-  };
   webpackConfig.plugins.push(
     new ExtractTextPlugin(filename + '.css', {
       disable: false,
@@ -57,10 +51,13 @@ module.exports = function (webpackConfig) {
     })
   );
   webpackConfig.plugins.push(
-    new webpack.optimize.UglifyJsPlugin(webpackConfig.UglifyJsPluginConfig)
-  );
-  webpackConfig.plugins.push(
-    new UnminifiedWebpackPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true,
+      compress: {
+        warnings: false,
+      },
+    })
   );
   webpackConfig.plugins.push(
     new OptimizeCssAssetsPlugin({
