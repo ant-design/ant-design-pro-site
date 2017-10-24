@@ -1,6 +1,6 @@
 {
   "name": "ant-design-pro",
-  "version": "0.0.16",
+  "version": "0.1.0",
   "description": "An enterprise-class UI design language and React-based implementation",
   "license": "MIT",
   "repository": {
@@ -29,16 +29,11 @@
   },
   "dependencies": {
     "antd": "next",
+    "classnames": "^2.2.5",
     "dva": "^1.2.1",
-    "g-cloud": "^1.0.2-beta",
-    "g2": "^2.3.8",
-    "g2-plugin-slider": "^1.2.1",
     "lodash": "^4.17.4",
     "numeral": "^2.0.6",
     "prop-types": "^15.5.10",
-    "qs": "^6.5.0",
-    "react": "^15.6.1",
-    "react-document-title": "^2.0.3",
-    "react-dom": "^15.6.1"
+    "qs": "^6.5.0"
   }
 }
