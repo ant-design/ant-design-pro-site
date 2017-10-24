@@ -34,6 +34,7 @@ module.exports = function (webpackConfig) {
     }
     if (loader.test.toString() === '/\\.module\\.less$/') {
       loader.test = /\.less$/;
+      loader.loader = loader.loader.replace('localIdentName=[local]___[hash:base64:5]', 'localIdentName=antd-pro[path][local]')
     }
   });
 
