@@ -26,32 +26,11 @@ type: 入门
 
 ## Step2 将文件加入菜单、路由
 
-脚手架可以自动从信息架构数据（页面关系数据）生成菜单和路由，我们内置了三种布局模式 —— 基础布局，账户相关布局（无页头和菜单）以及空白模式，前两种的样式如下所示：
-
-<img width="600" alt="基础布局" src="https://gw.alipayobjects.com/zos/rmsportal/nIaDNgQvbSHOzNtLTuHB.png" />
-
-<img width="600" alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/SxlaqGtdzMtEhFjMuuGx.png" />
-
-<br />
-
-如果你的页面布局属于其中的一种，你只需要添加页面相关的数据，就可以完成菜单及路由的设置。比如我们刚才新建的 `NewPage` ，它使用基本布局 `BasicLayout`。打开文件 `src/common/nav.js`，添加你的页面信息（和 `Dashboard` 平级）：
-
-```js
-{
-  name: '新页面',             // 页面名称，会展示在菜单栏中
-  path: 'new',               // 匹配的路由
-  icon: 'file',              // 页面图标，会展示在菜单栏中
-  component: NewPage,        // 渲染的组件，也就是刚才新建的 NewPage，记得在页头引入 `import NewPage from '../routes/NewPage';`
-}
-```
-
-菜单和路由就自动加好了，访问 `http://localhost:8000/#/new` 就可以看到新增的页面了。
+加入菜单和路由的方式请参照 [路由和菜单 - 添加路由/菜单](/docs/router-and-nav#添加路由/菜单) 中的介绍完成。加好后，访问 `http://localhost:8000/#/new` 就可以看到新增的页面了。
 
 <img width="600" alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/xZIqExWKhdnzDBjajnZg.png" />
 
 <br />
-
-> 如果你需要的布局并没有被内置，可以在 `src/layouts` 下新建你的布局，然后参照 `BasicLayout` `UserLayout` 那样在 `src/common/nav.js` 中使用，自动生成菜单的方式可以参考 `src/layouts/BasicLayout.js`。
 
 ## Step3 新增 model、service
 
