@@ -17,7 +17,7 @@
 ### 用法
 
 - `npm install`
-- `npm run install-start`
+- `npm start`
   - 8001 端口是文档组件站点 ( 可直接访问脚手架站点 )
   - 8000 是脚手架站点
 
@@ -26,7 +26,7 @@
 ```bash
 
 # 常用命令
-npm run start # 启动站点 ( 包含脚手架站点 )
+npm start # 启动站点 ( 包含脚手架站点 )
 npm run site # 部署站点 ( 包含脚手架 )
 npm run scaffold-build # 部署脚手架 ( 单独 )
 npm run scaffold-build:static # 部署脚手架, mock 数据静态化

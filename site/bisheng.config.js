@@ -28,7 +28,7 @@ module.exports = {
       'ant-design-pro/lib': path.join(process.cwd(), 'scaffold/src/components'),
       'ant-design-pro': path.join(process.cwd(), 'config/components/index'),
       site: path.join(process.cwd(), 'site'),
-      'react-router': 'react-router/umd/ReactRouter',
+      'react-router': 'react-router/umd/ReactRouter'
     };
 
     config.externals = config.externals || {};
@@ -50,16 +50,16 @@ module.exports = {
       });
     }
 
-    config.babel.plugins.push([
-      require.resolve('babel-plugin-transform-runtime'),
-      {
-        polyfill: false,
-        regenerator: true,
-      },
-    ]);
+    //config.babel.plugins.push([
+    //  require.resolve('babel-plugin-transform-runtime'),
+    //  {
+    //    polyfill: false,
+    //    regenerator: true,
+    //  },
+    //]);
 
     // components 下面的走 css module 其他不变
-    config.module.loaders.forEach((loader) => {
+    config.module.rules.forEach((loader) => {
       if (typeof loader.test === 'function' && loader.test.toString().indexOf('\\.less$') > -1) {
         if (loader.exclude) {
           loader.exclude.push(/components/);
