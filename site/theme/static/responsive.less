@@ -11,25 +11,19 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: @screen-md) {
-  #logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
-    width: 166px;
+@media only screen and (max-width: 1300px) {
+  #search-box {
+    display: none;
   }
-  #footer {
-    .bottom-bar {
-      display: none;
-    }  
+}
+
+@media only screen and (max-width: @screen-xl) {
+  #logo {
+    padding: 0 40px;
   }
 }
 
 @media only screen and (max-width: @screen-lg) {
-  #search-box {
-    display: none;
-  }
   .code-boxes-col-2-1, .code-boxes-col-1-1 {
     float: none;
     width: 100%;
@@ -195,8 +189,19 @@
   }
 }
 
-@media only screen and (max-width: @screen-xl) {
-  #header {
-    padding: 0 40px;
+@media only screen and (max-width: @screen-md) {
+  #logo {
+    padding: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    width: 200px;
+  }
+  #footer {
+    .bottom-bar {
+      display: none;
+    }  
   }
 }
+

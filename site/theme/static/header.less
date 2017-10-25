@@ -5,14 +5,19 @@
 
 #header {
   background-color: #fff;
-  padding: 0 40px;
+  box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
+  position: relative;
+  z-index: 10;
   height: 64px;
 }
 
 #logo {
+  overflow: hidden;
+  padding-left: 40px;
   float: left;
   line-height: 64px;
   text-decoration: none;
+  height: 64px;
   img {
     display: inline;
     vertical-align: middle;
@@ -29,6 +34,7 @@
 
 .header-meta {
   .clearfix();
+  padding-right: 40px;
 }
 
 #search-box {
@@ -38,7 +44,6 @@
   line-height: 22px;
   padding-left: 16px;
   margin-top: 19px;
-  margin-left: 20px;
   .anticon {
     color: #CED4D9;
     position: relative;
@@ -61,6 +66,7 @@
 
 #menu {
   float: right;
+  overflow: hidden;
   height: 64px;
   .ant-menu {
     line-height: 64px;

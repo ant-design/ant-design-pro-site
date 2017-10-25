@@ -28,6 +28,7 @@ module.exports = {
       'ant-design-pro/lib': path.join(process.cwd(), 'scaffold/src/components'),
       'ant-design-pro': path.join(process.cwd(), 'config/components/index'),
       site: path.join(process.cwd(), 'site'),
+      'dva/router': 'react-router',
       'react-router': 'react-router/umd/ReactRouter'
     };
 

@@ -198,11 +198,13 @@ class Header extends React.Component {
           </Popover>
         ) : null}
         <Row>
-          <Col xl={12} lg={11} md={8} sm={24} xs={24}>
+          <Col xl={4} lg={8} md={8} sm={24} xs={24}>
             <Link id="logo" to="/">
               <img src={LOGO_URL} alt="logo" />
               <span>ANT DESIGN PRO</span>
             </Link>
+          </Col>
+          <Col xl={20} lg={16} md={16} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
               <Select
@@ -223,8 +225,6 @@ class Header extends React.Component {
                 searching && <Icon type="loading" />
               }
             </div>
-          </Col>
-          <Col xl={12} lg={13} md={16} sm={0} xs={0}>
             <div className="header-meta">
               <div id="preview">
                 <a
