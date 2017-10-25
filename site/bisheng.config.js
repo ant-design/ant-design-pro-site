@@ -29,7 +29,7 @@ module.exports = {
       'ant-design-pro': path.join(process.cwd(), 'config/components/index'),
       site: path.join(process.cwd(), 'site'),
       'dva/router': 'react-router',
-      'react-router': 'react-router/umd/ReactRouter'
+      'react-router': 'react-router/umd/ReactRouter',
     };
 
     config.externals = config.externals || {};
@@ -50,14 +50,6 @@ module.exports = {
         'g2-plugin-slider': 'G2.Plugin.slider',
       });
     }
-
-    //config.babel.plugins.push([
-    //  require.resolve('babel-plugin-transform-runtime'),
-    //  {
-    //    polyfill: false,
-    //    regenerator: true,
-    //  },
-    //]);
 
     // components 下面的走 css module 其他不变
     config.module.rules.forEach((loader) => {
