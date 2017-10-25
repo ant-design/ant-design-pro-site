@@ -1,13 +1,5 @@
 # Ant Design Pro Site
 
-### Folders
-
-- docs // 文档目录
-- scaffold // 脚手架
-    - src/ant-design-pro // 业务组件目录
-- site // 站点
-- tool // 本地工具
-
 ### Development
 
 ```bash
