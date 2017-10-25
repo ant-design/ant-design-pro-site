@@ -10,6 +10,8 @@ import PageHeader from '../../scaffold/src/components/PageHeader';
 import Result from '../../scaffold/src/components/Result';
 import TagSelect from '../../scaffold/src/components/TagSelect';
 import AvatarList from '../../scaffold/src/components/AvatarList';
+import Trend from '../../scaffold/src/components/Trend';
+import NumberInfo from '../../scaffold/src/components/NumberInfo';
 
 export default {
   Charts,
@@ -24,4 +26,6 @@ export default {
   Result,
   TagSelect,
   AvatarList,
+  Trend,
+  NumberInfo,
 };
