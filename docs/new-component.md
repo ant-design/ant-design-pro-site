@@ -12,11 +12,10 @@ type: 入门
 
 ---
 
-<img class="preview-img" alt="示意图" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png" />
 
-下面以一个简单的静态组件为例进行介绍。假设你的应用中经常需要展现图片，这些图片都展现在页面的右侧，宽度固定，有一个灰色的背景和一定的内边距，有文字介绍，就像右图这样：
+下面以一个简单的静态组件为例进行介绍。假设你的应用中经常需要展现图片，这些图片都展现在页面的右侧，宽度固定，有一个灰色的背景和一定的内边距，有文字介绍，就像下图这样：
 
-<br />
+<img alt="示意图" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png" />
 
 你可以用一个组件来实现这一功能，它有默认的样式，同时可以接收父组件传递的参数进行展示。
 

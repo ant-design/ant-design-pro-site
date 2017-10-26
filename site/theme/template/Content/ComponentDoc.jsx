@@ -45,6 +45,7 @@ export default class ComponentDoc extends React.PureComponent {
         const demoElem = (
           <Demo
             {...demoData}
+            themeConfig={props.themeConfig}
             key={demoData.meta.filename}
             utils={props.utils}
             expand={expand}

@@ -13,6 +13,8 @@ module.exports = {
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   themeConfig: {
+    root: '/test',
+    isDev,
     typeOrder: {
       入门: 0,
       进阶: 1,

@@ -28,7 +28,7 @@ type: 入门
 
 加入菜单和路由的方式请参照 [路由和菜单 - 添加路由/菜单](/docs/router-and-nav#添加路由/菜单) 中的介绍完成。加好后，访问 `http://localhost:8000/#/new` 就可以看到新增的页面了。
 
-<img width="600" alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/xZIqExWKhdnzDBjajnZg.png" />
+<img alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/xZIqExWKhdnzDBjajnZg.png" />
 
 <br />
 

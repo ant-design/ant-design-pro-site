@@ -85,6 +85,7 @@ export default class Demo extends React.Component {
     const props = this.props;
     const {
       meta,
+      themeConfig,
       src,
       content,
       preview,
@@ -95,7 +96,7 @@ export default class Demo extends React.Component {
     } = props;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe
-        ? <BrowserFrame><iframe src={src} height={meta.iframe} title="demo" /></BrowserFrame>
+        ? <BrowserFrame><iframe src={`${(!themeConfig.isDev && themeConfig.root) || ''}${src}`} height={meta.iframe} title="demo" /></BrowserFrame>
         : preview(React, ReactDOM);
     }
     const codeExpand = state.codeExpand || expand;

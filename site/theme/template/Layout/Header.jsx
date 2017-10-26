@@ -142,20 +142,10 @@ class Header extends React.Component {
         <Menu.Item key="components">
           <Link to="/components/AvatarList">组件</Link>
         </Menu.Item>
-        <Menu.Item key="design">
-          <Link to="/design">设计指引</Link>
-        </Menu.Item>
         {
           menuMode === 'inline' && (
             <Menu.Item key="preview">
               <a target="_blank" href="https://ant-design.github.io/test2/" rel="noopener noreferrer">预览</a>
-            </Menu.Item>
-          )
-        }
-        {
-          menuMode === 'inline' && (
-            <Menu.Item key="github">
-              <a target="_blank" href="https://github.com/ant-design/test" rel="noopener noreferrer">GitHub</a>
             </Menu.Item>
           )
         }
@@ -198,13 +188,13 @@ class Header extends React.Component {
           </Popover>
         ) : null}
         <Row>
-          <Col xl={4} lg={8} md={8} sm={24} xs={24}>
+          <Col xl={5} lg={8} md={8} sm={24} xs={24}>
             <Link id="logo" to="/">
               <img src={LOGO_URL} alt="logo" />
               <span>ANT DESIGN PRO</span>
             </Link>
           </Col>
-          <Col xl={20} lg={16} md={16} sm={0} xs={0}>
+          <Col xl={19} lg={16} md={16} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
               <Select
@@ -234,9 +224,6 @@ class Header extends React.Component {
                   rel="noopener noreferrer"
                 >
                   <Button><Icon type="eye-o" /> 预览</Button>
-                </a>
-                <a href="https://github.com/ant-design/test" target="_blank" rel="noopener noreferrer">
-                  <img src={GITHUB_AVATAR} alt="github" />
                 </a>
               </div>
               { menuMode === 'horizontal' ? (<div id="menu">{menu}</div>) : null }

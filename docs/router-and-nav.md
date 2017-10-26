@@ -29,9 +29,9 @@ type: 入门
 
 脚手架默认提供了两种布局模板：`基础布局 - BasicLayout` 以及 `账户相关布局 - UserLayout`：
 
-<img width="600" alt="基础布局" src="https://gw.alipayobjects.com/zos/rmsportal/nIaDNgQvbSHOzNtLTuHB.png" />
+<img alt="基础布局" src="https://gw.alipayobjects.com/zos/rmsportal/nIaDNgQvbSHOzNtLTuHB.png" />
 
-<img width="600" alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/SxlaqGtdzMtEhFjMuuGx.png" />
+<img alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/SxlaqGtdzMtEhFjMuuGx.png" />
 
 如果你的页面可以利用这两种布局，那么只需要在导航数据中增加一条即可。打开文件 `src/common/nav.js`，添加你的页面信息：
 
