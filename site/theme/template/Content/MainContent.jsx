@@ -223,7 +223,7 @@ export default class MainContent extends React.PureComponent {
     return (
       <div className="main-wrapper">
         <Row>
-          <Col xl={5} lg={6} md={24} sm={24} xs={24}>
+          <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24}>
             <Menu
               inlineIndent="54"
               className="aside-container"
@@ -235,7 +235,7 @@ export default class MainContent extends React.PureComponent {
               {menuItems}
             </Menu>
           </Col>
-          <Col xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
+          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :

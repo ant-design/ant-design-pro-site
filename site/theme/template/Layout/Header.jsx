@@ -188,13 +188,13 @@ class Header extends React.Component {
           </Popover>
         ) : null}
         <Row>
-          <Col xl={5} lg={8} md={8} sm={24} xs={24}>
+          <Col xxl={4} xl={5} lg={8} md={8} sm={24} xs={24}>
             <Link id="logo" to="/">
               <img src={LOGO_URL} alt="logo" />
               <span>ANT DESIGN PRO</span>
             </Link>
           </Col>
-          <Col xl={19} lg={16} md={16} sm={0} xs={0}>
+          <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
               <Select
