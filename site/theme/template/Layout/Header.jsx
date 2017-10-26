@@ -140,7 +140,7 @@ class Header extends React.Component {
           <Link to="/docs/getting-started">文档</Link>
         </Menu.Item>
         <Menu.Item key="components">
-          <Link to="/components/PageHeader">组件</Link>
+          <Link to="/components/AvatarList">组件</Link>
         </Menu.Item>
         <Menu.Item key="design">
           <Link to="/design">设计指引</Link>

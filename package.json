@@ -71,7 +71,7 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
-    "bisheng-build": "cross-env NODE_ENV=production bisheng build --ssr -c ./site/bisheng.config.js",
+    "bisheng-build": "cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js",
     "scaffold-start": "cd ./scaffold && BROWSER=none npm start",
     "scaffold-move": "./tool/bin/let -m",
     "scaffold-build": "cd ./scaffold && npm run build && ../tool/bin/let -b",

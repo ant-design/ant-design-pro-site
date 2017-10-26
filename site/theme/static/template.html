@@ -58,7 +58,11 @@
 <div id="react-content">
   {{ content | safe }}
 </div>
-<script src="https://as.alipayobjects.com/g/component/??react/15.6.1/react.js,react/15.6.1/react-dom.js"></script>
+{% if isDev %}
+  <script src="https://as.alipayobjects.com/g/component/??react/15.6.1/react.js,react/15.6.1/react-dom.js"></script>
+{% else %}
+  <script src="https://as.alipayobjects.com/g/component/??react/15.6.1/react.min.js,react/15.6.1/react-dom.min.js"></script>
+{% endif %}
 <script src="https://gw.alipayobjects.com/as/g/datavis/g2/2.3.12/index.js"></script>
 <script src="https://a.alipayobjects.com/g/datavis/g-cloud/1.0.2/index.js"></script>
 <script src="https://a.alipayobjects.com/g/datavis/g2-plugin-slider/1.2.1/slider.js"></script>
