@@ -7,7 +7,6 @@ import { Row, Col, Icon, Menu, Button, Popover, Select } from 'antd';
 const { Option, OptGroup } = Select;
 
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/gVAKqIsuJCepKNbgbSwE.svg';
-const GITHUB_AVATAR = 'https://gw.alipayobjects.com/zos/rmsportal/YblseqNFOlQAVHYecdUR.svg';
 
 // https://www.algolia.com/apps/YEWBNYLVLW/
 const searchUrl = 'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176';
