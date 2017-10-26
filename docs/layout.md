@@ -38,15 +38,15 @@ React.Children.forEach(children, function[(thisArg)])
 
 在 Ant Design Pro 中，我们抽离了使用过程中的通用布局，都放在 `layouts` 目录中，分别为：
 
-- BasicLayout：基础页面布局，包含了头部导航，侧边栏和通知栏
+- BasicLayout：基础页面布局，包含了头部导航，侧边栏和通知栏：
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/OmqkhYKhDFosRatrJgjx.png" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/OmqkhYKhDFosRatrJgjx.png" width="650" />
 
 - BlankLayout：空白的布局
 - PageHeaderLayout：带有标准 PageHeader 的布局
 - UserLayout：抽离出用于登陆注册页面的通用布局
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/ddqzmJcpDCDIktgqWlox.png" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/ddqzmJcpDCDIktgqWlox.png" width="650" />
 
 ### 如何使用 Ant Design Pro 布局
 

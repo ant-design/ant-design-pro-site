@@ -36,6 +36,10 @@ type: 其他
 <img src={require('../assets/picture.png')} />
 ```
 
+### 我的 url 里怎么有 `#` 号？要如何去掉？
+
+请参考文档 [前端路由与服务端的结合](/docs/deploy#前端路由与服务端的结合)。
+
 ### 如何添加 scss 支持？
 
 在 `.roadhogrc` 中开启 `sass` 配置，详见 [sass](https://github.com/sorrycc/roadhog#sass)。
