@@ -17,8 +17,43 @@ export default class ComponentDoc extends React.PureComponent {
     super(props);
 
     this.state = {
+      affixMode: true,
       expandAll: false,
     };
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const tocNode = document.getElementById('demo-toc');
+    const dh = document.body.scrollHeight;
+    const of = window.scrollY + ((tocNode && tocNode.offsetHeight) || this.tocHeight);
+
+    if (dh - of <= 600) {
+      if (this.state.affixMode) {
+        this.tocHeight = tocNode.offsetHeight;
+        this.setState({
+          affixMode: false,
+        });
+      }
+    } else {
+      if (!this.state.affixMode) {
+        this.setState({
+          affixMode: true,
+        });
+      }
+    }
+  }
+
+  handleAffixChange() {
+    const tocNode = document.getElementById('demo-toc-bottom').parentNode;
+    tocNode.style.position = 'static';
   }
 
   handleExpandToggle = () => {
@@ -33,7 +68,7 @@ export default class ComponentDoc extends React.PureComponent {
     const { content, meta } = doc;
     const locale = this.context.intl.locale;
     const demos = Object.keys(props.demos).map(key => props.demos[key]);
-    const expand = this.state.expandAll;
+    const { affixMode, expand } = this.state;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
@@ -79,8 +114,22 @@ export default class ComponentDoc extends React.PureComponent {
     return (
       <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
         <article>
-          <Affix className="toc-affix" offsetTop={16}>
-            <ul className="toc">
+          <Affix
+            className="toc-affix"
+            offsetTop={16}
+            style={affixMode ? {opacity: 1} : {opacity:0, zIndex:-99}}
+          >
+            <ul id="demo-toc" className="toc">
+              {jumper}
+            </ul>
+          </Affix>
+          <Affix
+            className="toc-affix-bottom"
+            onChange={this.handleAffixChange}
+            offsetTop={16}
+            style={affixMode ? {opacity:0, zIndex:-99}: {opacity: 1}}
+          >
+            <ul id="demo-toc-bottom" className="toc">
               {jumper}
             </ul>
           </Affix>
@@ -110,7 +159,7 @@ export default class ComponentDoc extends React.PureComponent {
           </section>
           <Row gutter={16}>
             <Col span={isSingleCol ? '24' : '12'}
-              className={isSingleCol ?
+                 className={isSingleCol ?
                 'code-boxes-col-1-1' :
                 'code-boxes-col-2-1'
               }

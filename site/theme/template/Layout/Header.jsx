@@ -7,6 +7,7 @@ import { Row, Col, Icon, Menu, Button, Popover, Select } from 'antd';
 const { Option, OptGroup } = Select;
 
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/gVAKqIsuJCepKNbgbSwE.svg';
+const textSearchUrl = 'https://www.google.com/search?q=site:pro.ant.design+';
 
 // https://www.algolia.com/apps/YEWBNYLVLW/
 const searchUrl = 'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176';
@@ -106,10 +107,6 @@ class Header extends React.Component {
         this.setState({
           searchOption: data.data.hits,
         });
-      } else {
-        this.setState({
-          searchOption: [],
-        });
       }
     });
   }
@@ -165,6 +162,10 @@ class Header extends React.Component {
     }
     if (docSearchOption) {
       options.push(<OptGroup label="文档" key="doc">{docSearchOption}</OptGroup>);
+    }
+
+    if (inputValue) {
+      options.push(<Option key={`${textSearchUrl}${inputValue}`}>全文本搜索: {inputValue}</Option>);
     }
 
     return (

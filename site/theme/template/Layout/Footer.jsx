@@ -60,8 +60,13 @@ class Footer extends React.Component {
               <div className="footer-center">
                 <h2>Ant Design Pro</h2>
                 <div>
-                  <a target="_blank " href="https://github.com/ant-design/ant-design">
+                  <a target="_blank " href="https://github.com/ant-design/ant-design-pro">
                     GitHub
+                  </a>
+                </div>
+                <div>
+                  <a target="_blank " href="https://github.com/ant-design/ant-design">
+                    Ant Design
                   </a>
                 </div>
                 <div>
@@ -116,32 +121,32 @@ class Footer extends React.Component {
               <div className="footer-center">
                 <h2><FormattedMessage id="app.footer.community" /></h2>
                 <div>
-                  <a href="/changelog">
+                  <a href="/docs/history">
                     <FormattedMessage id="app.footer.change-log" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/wiki/FAQ">
+                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design-pro/wiki/FAQ">
                     <FormattedMessage id="app.footer.faq" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design">
+                  <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-pro">
                     <FormattedMessage id="app.footer.discuss-cn" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-english">
+                  <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-pro-english">
                     <FormattedMessage id="app.footer.discuss-en" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://new-issue.ant.design/">
+                  <a target="_blank" rel="noopener noreferrer" href="http://new-issue.pro.ant.design/">
                     <FormattedMessage id="app.footer.bug-report" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues">
+                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design-pro/issues">
                     <FormattedMessage id="app.footer.issues" />
                   </a>
                 </div>
