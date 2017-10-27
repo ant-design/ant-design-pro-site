@@ -7,7 +7,7 @@ import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 
-const SubMenu = Menu.SubMenu;
+const { SubMenu } = Menu;
 
 function getActiveMenuItem(props) {
   const children = props.params.children;
@@ -103,8 +103,8 @@ export default class MainContent extends React.PureComponent {
   generateMenuItem(isTop, item) {
     const locale = this.context.intl.locale;
     const key = fileNameToPath(item.filename);
-    const text = isTop ? (item.title[locale] || item.title) : [
-      <span key="english">{item.title}</span>,
+    const text = [
+      <span key="english">{item.title[locale] || item.title}</span>,
       <span className="chinese" key="chinese">{item.subtitle}</span>,
     ];
     const disabled = item.disabled;
