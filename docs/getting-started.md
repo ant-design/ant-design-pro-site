@@ -61,6 +61,6 @@ $ npm start
 
 启动完成后会自动打开浏览器访问 [http://localhost:8000](http://localhost:8000)，你看到下面的页面就代表成功了。
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/jJxtirdBrKfVmfVWWMlt.png" width="700" alt="首页截图" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/oXmyfmffJVvdbmDoGvuF.png" width="700" alt="首页截图" />
 
 接下来你可以修改代码进行业务开发了，我们内建了典型业务模板、常用业务组件、模拟数据、HMR 实时预览、状态管理、国际化、全局路由等等各种实用的功能辅助开发，你可以继续阅读和探索左侧的其他文档。

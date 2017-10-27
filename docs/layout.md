@@ -40,13 +40,13 @@ React.Children.forEach(children, function[(thisArg)])
 
 - BasicLayout：基础页面布局，包含了头部导航，侧边栏和通知栏：
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/OmqkhYKhDFosRatrJgjx.png" width="650" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/oXmyfmffJVvdbmDoGvuF.png" />
 
 - BlankLayout：空白的布局
 - PageHeaderLayout：带有标准 PageHeader 的布局
 - UserLayout：抽离出用于登陆注册页面的通用布局
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/ddqzmJcpDCDIktgqWlox.png" width="650" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/mXsydBXvLqBVEZLMssEy.png" />
 
 ### 如何使用 Ant Design Pro 布局
 
