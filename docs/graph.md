@@ -6,7 +6,7 @@ type: 进阶
 
 ## 使用 Ant Design Pro 的图表
 
-Ant Design Pro 在 [G2](https://antv.alipay.com/g2/doc/index.html) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。[查看更多](https://github.com/ant-design/test2/tree/master/src/components/Charts)
+Ant Design Pro 在 [G2](https://antv.alipay.com/g2/doc/index.html) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。[查看更多](https://github.com/ant-design/ant-design-pro/tree/master/src/components/Charts)
 
 使用 Ant Design Pro 图表，非常简单：
 
@@ -74,7 +74,7 @@ const chart = new G2.Chart({
 
 ### 结合 G2 到 React 代码中
 
-通常来说，G2 和 React 的结合都会抽象成一个 Chart 组件，放到 `components` 下，可参考 [Ant Design Pro 的结构](https://github.com/ant-design/test2/tree/master/src/components/Charts)。
+通常来说，G2 和 React 的结合都会抽象成一个 Chart 组件，放到 `components` 下，可参考 [Ant Design Pro 的结构](https://github.com/ant-design/ant-design-pro/tree/master/src/components/Charts)。
 
 G2 本身是渲染在一个页面的 dom 中，所以在 React 中，我们常常通过 [refs](https://facebook.github.io/react/docs/refs-and-the-dom.html) 获取 G2 需要渲染的容器。
 

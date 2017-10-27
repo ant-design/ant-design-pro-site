@@ -1,30 +1,12 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Modal, Row, Col } from 'antd';
-import { isLocalStorageNameSupported } from '../utils';
 
 class Footer extends React.Component {
   constructor(props) {
     super(props);
 
     this.lessLoaded = false;
-  }
-
-  componentDidMount() {
-    // for some iOS
-    // http://stackoverflow.com/a/14555361
-    if (!isLocalStorageNameSupported()) {
-      return;
-    }
-    // 大版本发布后全局弹窗提示
-    //   1. 点击『知道了』之后不再提示
-    //   2. 超过截止日期后不再提示
-    if (
-      localStorage.getItem('antd@2.0.0-notification-sent') !== 'true' &&
-      Date.now() < new Date('2016/10/14').getTime()
-    ) {
-      this.infoNewVersion();
-    }
   }
 
   infoNewVersion() {
@@ -58,10 +40,10 @@ class Footer extends React.Component {
           <Row>
             <Col lg={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2>Ant Design Pro</h2>
+                <h2>Ant Design</h2>
                 <div>
                   <a target="_blank " href="https://github.com/ant-design/ant-design-pro">
-                    GitHub
+                    Ant Design Pro GitHub
                   </a>
                 </div>
                 <div>
@@ -126,7 +108,7 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design-pro/wiki/FAQ">
+                  <a href="/docs/faq">
                     <FormattedMessage id="app.footer.faq" />
                   </a>
                 </div>
@@ -136,28 +118,8 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-pro-english">
-                    <FormattedMessage id="app.footer.discuss-en" />
-                  </a>
-                </div>
-                <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://new-issue.pro.ant.design/">
-                    <FormattedMessage id="app.footer.bug-report" />
-                  </a>
-                </div>
-                <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design-pro/issues">
                     <FormattedMessage id="app.footer.issues" />
-                  </a>
-                </div>
-                <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://stackoverflow.com/questions/tagged/antd">
-                    <FormattedMessage id="app.footer.stackoverflow" />
-                  </a>
-                </div>
-                <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://segmentfault.com/t/antd">
-                    <FormattedMessage id="app.footer.segmentfault" />
                   </a>
                 </div>
               </div>
@@ -181,11 +143,6 @@ class Footer extends React.Component {
                   <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.data-vis" />
-                </div>
-                <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://enclose.io/">Enclose.IO</a>
-                  <span> - </span>
-                  <FormattedMessage id="app.footer.encloseio" />
                 </div>
               </div>
             </Col>

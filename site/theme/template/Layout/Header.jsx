@@ -141,7 +141,7 @@ class Header extends React.Component {
         {
           menuMode === 'inline' && (
             <Menu.Item key="preview">
-              <a target="_blank" href="https://ant-design.github.io/test2/" rel="noopener noreferrer">预览</a>
+              <a target="_blank" href="http://pro.ant.design/" rel="noopener noreferrer">预览</a>
             </Menu.Item>
           )
         }
@@ -220,7 +220,7 @@ class Header extends React.Component {
                 <a
                   id="preview-button"
                   target="_blank"
-                  href="https://ant-design.github.io/test2/"
+                  href="https://ant-design.github.io/ant-design-pro/"
                   rel="noopener noreferrer"
                 >
                   <Button><Icon type="eye-o" /> 预览</Button>

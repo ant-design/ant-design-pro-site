@@ -14,20 +14,24 @@ function Page2() {
         <OverPack>
           <QueueAnim type="bottom" leaveReverse>
             <p key="p" className="page-content">
-              推荐使用 npm 或 yarn 的方式进行开发不仅可在开发环境轻松调试，
-              也可放心地在生产环境打包部署使用,享受整个生态圈和工具链带来的诸多好处
+              命令行运行下列命令，快速启动开发服务：
             </p>
             <div key="code1" className="home-code">
-              $ <span>npm install</span> antd --save
+              <div>$ <span>git clone</span> git@github.com:ant-design/ant-design-pro.git --depth=1</div>
+              <div>$ cd ant-design-pro</div>
+              <div>$ npm install</div>
+              <div>
+                $ npm start <span className="home-code-comment">{'//'} 打开浏览器访问 http://localhost:8000</span>
+              </div>
             </div>
-            <div key="code2" className="home-code">
-              $ yarn add antd
-            </div>
-            <p key="p2" className="page-content cnpm-text">
-              如果网络环境不佳，推荐使用 <span>cnpm</span>
+            <p key="p2" className="page-content">
+              需要帮助？请先阅读 <a href="/docs/getting-started">开发文档</a> 和 <a href="/docs/faq">常见问题</a>，
+              如果未能解决，可以到 GitHub 上 <a href="https://github.com/ant-design/ant-design-pro/issues">进行提问</a>。
             </p>
-            <div key="button">
-              <Button type="primary">Pro 下载</Button>
+            <div key="button" style={{ marginTop: 88 }}>
+              <a href="http://github.com/ant-design/ant-design-pro" target="_blank" rel="noopener noreferrer">
+                <Button type="primary">下载 Pro</Button>
+              </a>
             </div>
           </QueueAnim>
         </OverPack>

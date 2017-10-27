@@ -2,21 +2,13 @@
   "name": "ant-design-pro-site",
   "version": "0.0.1",
   "title": "Ant Design Pro",
-  "description": "An enterprise-class UI design language and React-based implementation",
-  "homepage": "http://ant.design/",
+  "description": "site of Ant Design Pro",
+  "homepage": "http://pro.ant.design/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/test"
+    "url": "https://github.com/ant-design/ant-design-pro-site"
   },
-  "files": [
-    "dist",
-    "lib"
-  ],
   "license": "MIT",
-  "peerDependencies": {
-    "react": "~0.14.0 || >=15.0.0",
-    "react-dom": "~0.14.0 || >=15.0.0"
-  },
   "dependencies": {
     "antd": "next",
     "axios": "^0.16.2",
@@ -75,7 +67,7 @@
     "webpack": "^3.6.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
+    "start": "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js --no-livereload",
     "bisheng-build": "cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js",
     "scaffold-start": "cd ./scaffold && BROWSER=none npm start",
     "scaffold-move": "./tool/bin/let -m",

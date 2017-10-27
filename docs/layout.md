@@ -20,7 +20,7 @@ type: 入门
 
 ## 根据不同场景区分抽离布局组件
 
-在大部分场景下，我们需要基于上面两个组件封装一些适用于当下具体业务的组件，包含了通用的导航、侧边栏、顶部通知、页面标题等元素。例如 Ant Design Pro 的 [BasicLayout](https://github.com/ant-design/test2/blob/master/src/layouts/BasicLayout.js)。
+在大部分场景下，我们需要基于上面两个组件封装一些适用于当下具体业务的组件，包含了通用的导航、侧边栏、顶部通知、页面标题等元素。例如 Ant Design Pro 的 [BasicLayout](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js)。
 
 通常，我们会把抽象出来的布局组件，放到跟 `routes`、 `components` 平行的 `layouts` 文件夹中方便管理。需要注意的是，这些布局组件和我们平时使用的其它组件并没有什么不同，只不过功能性上是为了处理布局问题。
 
@@ -81,4 +81,4 @@ const data = [{
 }];
 ```
 
-映射路由和页面布局（组件）的关系。详细的映射转换实现，参看 [router.js](https://github.com/ant-design/test2/blob/master/src/router.js)。
+映射路由和页面布局（组件）的关系。详细的映射转换实现，参看 [router.js](https://github.com/ant-design/ant-design-pro/blob/master/src/router.js)。
