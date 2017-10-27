@@ -4,11 +4,11 @@ title: 业务图标
 type: 进阶
 ---
 
-如果你没有在 [antd Icon](https://ant.design/components/icon-cn/) 中找到需要的图标，可以到 [iconfont.cn](http://iconfont.cn/) 上采集并生成自己的业务图标库，再进行使用。
+如果你没有在 [antd Icon](http://ant.design/components/icon-cn/) 中找到需要的图标，可以到 [iconfont.cn](http://iconfont.cn/) 上采集并生成自己的业务图标库，再进行使用。
 
 ---
 
-## Step1 生成图标库代码
+## 一、生成图标库代码
 
 首先，搜索并找到你需要的图标，将它采集到你的购物车里，在购物车里，你可以将选中的图标添加到项目中（没有的话，新建一个），后续生成的资源/代码都是以项目为维度的。
 
@@ -22,7 +22,7 @@ type: 进阶
 
 <img width="600" alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/DbDSgiRukSANKWyhULir.png" />
 
-## Step2 引入
+## 二、引入
 
 现在推荐两种引入方式供你选择：Unicode 及 Font class。
 
@@ -95,15 +95,15 @@ type: 进阶
   不过我们更推荐你参照 antd Icon，将它封装一下：
 
   ```js
-  
+
   import React from 'react';
-  
+
   const BizIcon = (props) => {
     const { type } = props;
     return <i className={`iconfont icon-${type}`} />;
   };
   export default BizIcon;
-  
+
   ```
 
   现在可以更加方便地使用：

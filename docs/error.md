@@ -48,11 +48,11 @@ type: 进阶
 
 ### 实现
 
-关于表单项报错，请参考 [antd Form](https://ant.design/components/form-cn/) 中的实现。对于操作反馈和网络请求错误提示，有一些组件可能会用到：
+关于表单项报错，请参考 [antd Form](http://ant.design/components/form-cn/) 中的实现。对于操作反馈和网络请求错误提示，有一些组件可能会用到：
 
-- [Alert](https://ant.design/components/alert-cn/)
-- [message](https://ant.design/components/message-cn/)
-- [notification](https://ant.design/components/notification-cn/)
+- [Alert](http://ant.design/components/alert-cn/)
+- [message](http://ant.design/components/message-cn/)
+- [notification](http://ant.design/components/notification-cn/)
 
 在单页应用中，最常见的需求就是处理网络错误信息，一般我们需要对此进行统一处理，由于 Ant Design Pro 使用 `request.js` 统一处理请求，所以错误的处理也可以很方便的加入其中：
 
