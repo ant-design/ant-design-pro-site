@@ -12,7 +12,7 @@ function Page2() {
         </div>
         <h2>Let’s <span>Pro</span></h2>
         <OverPack>
-          <QueueAnim type="bottom" leaveReverse>
+          <QueueAnim type="bottom" leaveReverse className="page2-content">
             <p key="p" className="page-content">
               命令行运行下列命令，快速启动开发服务：
             </p>
