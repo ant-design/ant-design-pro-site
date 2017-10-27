@@ -1,5 +1,7 @@
 # Ant Design Pro Site
 
+The documentation source of [Ant Design Pro](https://github.com/ant-design/ant-design-pro).
+
 ### Development
 
 ```bash
