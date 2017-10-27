@@ -159,7 +159,7 @@ class Page1 extends React.PureComponent {
           </div>
         </li>
       );
-      children[i % 3].push(child);
+      children[Math.floor(i / 3)].push(child);
     });
 
     children = children.map((item, i) => (
