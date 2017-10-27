@@ -13,9 +13,12 @@ type: 入门
 ---
 
 
-下面以一个简单的静态组件为例进行介绍。假设你的应用中经常需要展现图片，这些图片都展现在页面的右侧，宽度固定，有一个灰色的背景和一定的内边距，有文字介绍，就像下图这样：
+下面以一个简单的静态组件为例进行介绍。假设你的应用中经常需要展现图片，这些图片宽度固定，有一个灰色的背景和一定的内边距，有文字介绍，就像下图这样：
 
-<img alt="示意图" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png" />
+<div style="padding: 0 20px 8px; background: #f2f4f5; width: 400px; margin: 0 auto; text-align: center;">
+  <img alt="这是一张示意图" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png" />
+  这是一张示意图
+</div>
 
 你可以用一个组件来实现这一功能，它有默认的样式，同时可以接收父组件传递的参数进行展示。
 
@@ -52,12 +55,9 @@ export default MainComponent;
 import React from 'react';
 import styles from './index.less';    // 按照 CSS Modules 的方式引入样式文件。
 
-export default ({ src, title, desc, style }) => (
+export default ({ src, desc, style }) => (
   <div style={style} className={styles.imageWrapper}>
-    <div className={styles.imgBlock}>
-      <img className={styles.img} src={src} alt={title}>
-    </div>
-    {title && <div className={styles.title}>{title}</div>}
+    <img className={styles.img} src={src} alt={desc}>
     {desc && <div className={styles.desc}>{desc}</div>}
   </div>
 );
@@ -65,37 +65,19 @@ export default ({ src, title, desc, style }) => (
 
 ```css
 // index.less
-@import "~antd/lib/style/themes/default.less";
-
 .imageWrapper {
-  float: right;
-  background: @background-color-base;
-  margin: 0 0 70px 20px;
-  width: 608px;
-}
-
-.imgBlock {
-  padding: 16px;
-  display: inline-block;
+  padding: 0 20px 8px;
+  background: #f2f4f5;
+  width: 400px;
+  margin: 0 auto;
   text-align: center;
-  width: 100%;
 }
 
 .img {
-  max-width: 100%;
-  background: @body-background;
-  padding: 12px;
-  border-radius: @border-radius-base;
-}
-
-.title {
-  margin-top: 5px;
-  color: @text-color;
-}
-
-.desc {
-  margin-top: 2px;
-  color: @text-color-secondary;
+  vertical-align: middle;
+  max-width: calc(100% - 32px);
+  margin: 2.4em 1em;
+  box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
 }
 ```
 
@@ -112,8 +94,7 @@ import ImageWrapper from '../../components/ImageWrapper';  // 注意保证引用
 export default () => (
   <ImageWrapper
     src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png"
-    title="示意图"
-    desc="具体介绍"
+    desc="示意图"
   />;
 )
 
