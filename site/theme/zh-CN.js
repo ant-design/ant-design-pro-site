@@ -20,7 +20,7 @@ module.exports = {
     'app.demo.copied': '复制成功',
     'app.demo.codepen': '在 CodePen 中打开',
     'app.demo.riddle': '在 Riddle 中打开',
-    'app.home.slogan': '一个 UI 设计语言',
+    'app.home.slogan': '开箱即用的中台前端/设计解决方案',
     'app.home.introduce': '设计规范',
     'app.home.start': '开发指引',
     'app.home.best-practice': '最佳实践',
