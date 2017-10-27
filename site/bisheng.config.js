@@ -7,8 +7,8 @@ module.exports = {
   port: 8001,
   root: '/test/',
   source: {
-    components: './scaffold/src/components',
-    docs: './docs',
+    // components: './scaffold/src/components',
+    // docs: './docs',
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',

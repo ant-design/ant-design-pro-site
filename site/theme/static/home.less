@@ -1,175 +1,286 @@
-.banner-wrapper {
-  position: relative;
+.home-wrapper{
   width: 100%;
-  overflow: hidden;
-  background: url("https://os.alipayobjects.com/rmsportal/GhjqstwSgxBXrZS.png") no-repeat center / cover;
-}
-.banner-text-wrapper {
-  position: absolute;
-  left: 13%;
-  top: 53%;
-  color: #fff;
-  text-align: right;
-  font-family: Lato, @font-family;
-}
-.banner-text-wrapper h2 {
-  font-size: 40px;
-  font-weight: normal;
-  font-family: 'Raleway', 'Hiragino Sans GB';
-  white-space: nowrap;
-  color: #fff;
-}
-.banner-text-wrapper h2 p {
-  color: #ff3171;
-  display: inline-block;
-}
-.banner-text-wrapper .line {
-  width: 0.8px;
-  height: 76px;
-  position: absolute;
-  background: rgba(255, 255, 255, .44);
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
-  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
-  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
-  top: 16px;
-  right: -25px;
-}
-.banner-text-wrapper > p {
-  margin: 10px auto 24px;
-  font-size: 16px;
+  color: #697B8C;
 }
 
-.banner-text-wrapper .start-button {
-  @start-button-color: tint(@primary-color, 20%);
-  margin-bottom: 24px;
-  text-align: right;
-  > a {
-    display: inline-block;
-    height: 40px;
-    padding: 0 16px;
-    font-weight: 500;
-    border-radius: @border-radius-base;
-    border: 1px solid @start-button-color;
-    text-decoration: none;
-    color: #0ae;
-    font-size: 15px;
-    background: transparent;
-    transition: all .45s;
+.banner-wrapper{
+  height: 526px;
+  position: relative;
+  .banner-title-wrapper{
+    width: 480px;
+    height: 245px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 8%;
+    margin: auto;
+    h1{
+      font-family: "Futura", "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 54px;
+      margin: 12px 0; 
+    }
+    p{
+      font-size: 20px; 
+    }
+    .button-wrapper{
+      margin-top: 64px;
+      line-height: 40px;
+      align-items: center;
+      display: flex;
+      .ant-btn{
+        // padding: 24px;
+        width: 112px;
+        height: 40px;
+        font-size: 16px;
+        border-radius: 20px;
+        
+      }
+      .github-btn{
+        display: inline-block;
+        height: 28px;
+        .gh-btn{
+          height: 28px;
+          border-radius: 4px;
+          background: rgba(243,243,243,1);
+          background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(243,243,243,1) 100%);
+          border: 1px solid #EBEDF0;
+          align-items: center;
+          display: flex;
+          padding: 0 12px;
+          color: #697B8C;
+          &:hover{
+            color: #1890FF;
+          }
+          .gh-ico{
+            margin-right: 8px;
+          }
+        }
+        .gh-count{
+          margin-right: 8px;
+          height: 28px;
+          line-height: 24px;
+          background: #fff;
+          border: 1px solid #EBEDF0;
+          border-radius: 4px;
+        }
+      }
+    }
+    .title-line{
+      transform: translateX(-64px);
+      animation: bannerTitleLine 3s ease-in-out 0s infinite;
+    }
+  }
+  .banner-image-wrapper{
+    width: 520px;
+    height: 324px;
+    position: absolute;
+    right: 8%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.title-line-wrapper{
+  height: 2px;
+  width: 100%;
+  overflow: hidden;
+  .title-line{
+    height: 100%;
+    width: 64px;
+    background: #1890FF;
+    transform: translateX(-64px);
+    background: linear-gradient(to right, rgba(24,144,255,0) 0%,rgba(24,144,255,1) 100%);
+  }
+}
+
+.home-page{
+  margin: 50px auto;
+  h2{
     text-align: center;
-    line-height: 36px;
-    margin-left: 8px;
-    &:hover {
-      color: #fff;
-      background: @start-button-color;
+    font-weight: lighter;
+    font-size: 28px;
+    color: #314659;
+    span{
+      font-weight: 400;
     }
   }
 }
 
-.banner-text-wrapper .github-btn {
-  float: right;
-  line-height: 14px;
-  text-align: left;
-
-  a:hover {
-    color: #333;
-  }
-}
-
-.down {
-  text-align: center;
-  position: absolute;
-  bottom: 30px;
-  color: rgba(255, 255, 255, .75);
-  left: 50%;
-  margin-left: -7px;
-  animation: upDownMove 1.2s ease-in-out infinite alternate;
-}
-
-.page {
-  min-height: 700px;
-  height: 100vh;
-}
-
-.content-wrapper {
+.home-page-wrapper{
+  max-width: 1280px;
   width: 100%;
-  max-width: 1500px;
   margin: auto;
-  overflow: hidden;
-  background: #fff;
+  position: relative;
+}
 
-  .image-wrapper {
-    width: 65%;
-    float: left;
-    position: relative;
-  }
-
-  .text-wrapper {
-    width: 35%;
-    float: left;
-    position: relative;
-    top: 20%;
-    left: -30px;
-    font-family: Lato, @font-family;
-    z-index: 1;
-  }
-  .text-wrapper h2,
-  .text-wrapper-bottom h2 {
-    font-size: 32px;
-    color: @text-color;
-    font-weight: normal;
-    white-space: nowrap;
-  }
-  .text-wrapper p {
-    margin: 10px 0 20px;
-    font-size: 16px;
-    line-height: 28px;
-    color: #999;
-  }
-  .left-text {
-    padding-left: 10%;
+/** page1 **/
+.page1{
+  height: 960px;
+}
+.page1-line.title-line-wrapper{
+  width: 312px;
+  margin: 24px auto 76px;
+  .title-line{
+    animation: page1TitleLine 3s ease-in-out 1.5s infinite;
   }
 }
 
-.image1 {
-  background: url("https://t.alipayobjects.com/images/T1Ch8kXfpdXXXXXXXX.png") no-repeat right / 841px;
-  height: 511px;
-  top: 50%;
-  margin-top: -256px;
-}
-.image2 {
-  background: url("https://t.alipayobjects.com/images/T1r5RkXotXXXXXXXXX.png") no-repeat left / 800px;
-  height: 474px;
-  top: 50%;
-  margin-top: -266px;
-}
-.image3 {
-  padding-right: 10%;
-  background: url("https://t.alipayobjects.com/images/T1nx0kXdFfXXXXXXXX.png") no-repeat right / 639px;
-  background-origin: content-box;
-  height: 500px;
-  top: 50%;
-  margin-top: -250px;
-}
-.image4 {
-  background: url("https://t.alipayobjects.com/images/T1lyJkXg4aXXXXXXXX.png") no-repeat center / 615px;
-  height: 364px;
-  margin: auto;
-}
-
-.text-wrapper-bottom {
+.page1-bg{
+  font-size: 320px;
+  color: #EBEDF0;
+  position: absolute;
+  width: 100%;
   text-align: center;
-  margin: 10% auto 40px;
-}
-.text-wrapper-bottom p {
-  margin: 20px auto;
-  font-size: 16px;
-  line-height: 28px;
-  color: #999;
+  opacity: .25;
+  top: 0;
+  transform: translateY(960px);
 }
 
-@keyframes upDownMove {
-  to {
-    transform: translateY(10px);
+.page1-box-wrapper{
+  margin-bottom: 62px;
+  display: flex;
+  align-items: flex-start;
+  li{
+    width: 33.33%;
+    display: inline-block;
+    .page1-box{
+      width: 216px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      .page1-image{
+        width: 80px;
+        height: 80px;
+        border-radius: 40px;
+        margin: 20px auto 32px;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        transition: box-shadow .3s ease-out, transform .3s ease-out;
+      }
+      &:hover .page1-image{
+        transform: translateY(-5px);
+      }
+      h3{
+        color: #0D1A26;
+        font-size: 16px;
+        margin: 8px auto;
+      }
+    }
+  }
+}
+.page1-point-wrapper{
+  position: absolute;
+  width: 0px;
+  left: 50%;
+  top: 0px;
+  .point-0{
+    width: 4px;
+    height: 4px;
+  }
+  .point-2, .point-ring{
+    width: 10px;
+    height: 10px;
+  }
+  .point-ring{
+    border-style: solid;
+    border-width: 1px;
+    background: transparent !important;
+  }
+  .point-1{
+    width: 6px;
+    height: 6px;
+  }
+  .point-3{
+    width: 15px;
+    height: 15px;
+  }
+  i{
+    display: inline-block;
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0;
+    transform: translate(0px, 30px);
+  }
+}
+/** page2 **/
+.page2{
+  text-align: center;
+  height: 588px;
+  .ant-btn{
+    width: 110px;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(24, 144, 255, .4);
+    font-size: 16px;
+    &:hover{
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(24,144,255,.4);
+    }
+  }
+}
+.page2-line{
+  margin: 148px auto 24px;
+  width: 114px;
+  
+  .title-line{
+    animation: page2TitleLine 3s ease-in-out 0s infinite;
+  }
+}
+
+.page-content{
+  width: 760px;
+  margin: 24px auto 32px;
+  line-height: 28px;
+  span{
+    color: #1890FF
+  }
+  &.cnpm-text{
+    margin: 40px auto 88px;
+  }
+}
+
+.home-code{
+  width: 960px;
+  border-radius: 4px;
+  background: #F2F4F5;
+  line-height: 56px;
+  margin: 16px auto;
+  color: #151E26;
+  font-size: 16px;
+  span{
+    color: #F5222D;
+  }
+}
+
+
+@keyframes bannerTitleLine {
+  0%, 25%{
+    transform: translateX(-64px);
+  }
+  75%, 100%{
+    transform: translateX(544px);
+  }
+}
+
+@keyframes page1TitleLine {
+  0%, 25%{
+    transform: translateX(-64px);
+  }
+  75%, 100%{
+    transform: translateX(376px);
+  }
+}
+
+@keyframes page2TitleLine {
+  0%, 25%{
+    transform: translateX(-64px);
+  }
+  75%, 100%{
+    transform: translateX(178px);
   }
 }
