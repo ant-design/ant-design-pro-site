@@ -15,7 +15,7 @@ const pluginAntdConfig = {
 
 module.exports = {
   port: 8001,
-  root: '/test/',
+  root: '/',
   source: {
     components: './scaffold/src/components',
     docs: './docs',
@@ -23,7 +23,7 @@ module.exports = {
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   themeConfig: {
-    root: '/test',
+    root: '/',
     isDev,
     typeOrder: {
       入门: 0,
