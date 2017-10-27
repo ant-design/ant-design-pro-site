@@ -21,24 +21,27 @@ $ cd my-project
 
 我们已经为您生成了一个完整的开发框架，提供了涵盖中后台开发的各类功能和坑位，下面是整个项目的目录结构。
 
-```
-├── mock                     // 模拟数据
+```bash
+├── mock                     # 本地模拟数据
 ├── public
-│   ├── favicon.ico
-│   └── index.html           // HTML 入口模板
+│   ├── favicon.ico          # Favicon
+│   └── index.html           # HTML 入口模板
 ├── src
-│   ├── common               // 应用公用配置，如导航信息
-│   ├── components           // 业务通用组件
-│   ├── e2e                  // 集成测试用例
-│   ├── layouts              // 通用布局
-│   ├── models               // dva model
-│   ├── routes               // 业务页面入口和常用模板
-│   ├── services             // 后台接口服务
-│   ├── utils                // 工具库
-│   ├── index.js             // 应用入口
-│   ├── index.less           // 全局样式
-│   └── router.js            // 全局路由
-├── tests                    // 测试工具
+│   ├── common               # 应用公用配置，如导航信息
+│   ├── components           # 业务通用组件
+│   ├── e2e                  # 集成测试用例
+│   ├── layouts              # 通用布局
+│   ├── models               # dva model
+│   ├── routes               # 业务页面入口和常用模板
+│   ├── services             # 后台接口服务
+│   ├── utils                # 工具库
+│   ├── g2.js                # 可视化图形配置
+│   ├── polyfill.js          # 兼容性垫片
+│   ├── theme.js             # 主题配置
+│   ├── index.js             # 应用入口
+│   ├── index.less           # 全局样式
+│   └── router.js            # 路由入口
+├── tests                    # 测试工具
 ├── README.md
 └── package.json
 ```
