@@ -16,10 +16,10 @@ function Banner() {
         <h1 key="h1">ANT DESIGN PRO</h1>
         <p key="content">开箱即用的中台前端/设计解决方案</p>
         <div key="button" className="button-wrapper">
-          <a href="http://pro.ant.design" target="_blank" rel="noopener noreferrer">
+          <a href="http://preview.pro.ant.design" target="_blank" rel="noopener noreferrer">
             <Button type="primary">预览</Button>
           </a>
-          <a href="/docs/getting-started" target="_blank">
+          <a href="/docs/getting-started">
             <Button style={{ margin: '0 16px' }} type="primary" ghost>开始使用</Button>
           </a>
           <GitHubButton

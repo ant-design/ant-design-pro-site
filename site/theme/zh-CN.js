@@ -55,7 +55,7 @@ module.exports = {
     'app.footer.stackoverflow': 'StackOverflow',
     'app.footer.segmentfault': 'SegmentFault',
     'app.footer.discuss-en': '在线讨论 (English)',
-    'app.footer.discuss-cn': '在线讨论 (中文)',
+    'app.footer.discuss-cn': '在线讨论',
     'app.footer.bug-report': '报告 Bug',
     'app.footer.issues': '讨论列表',
     'app.footer.version': '文档版本：',
