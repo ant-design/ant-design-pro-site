@@ -3,6 +3,16 @@ const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 
 const isDev = process.env.NODE_ENV === 'development';
 
+const pluginAntdConfig = {
+  babelConfig: JSON.stringify({
+    plugins: [
+      'transform-class-properties',
+      'transform-object-rest-spread',
+      'transform-decorators-legacy',
+    ],
+  }),
+};
+
 module.exports = {
   port: 8001,
   root: '/test/',
@@ -25,6 +35,9 @@ module.exports = {
     return filePath;
   },
   doraConfig: {},
+  plugins: [
+    `bisheng-plugin-react?${JSON.stringify(pluginAntdConfig)}`,
+  ],
   webpackConfig(config) {
     config.resolve.alias = {
       'ant-design-pro/lib': path.join(process.cwd(), 'scaffold/src/components'),
