@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
-import classNames from 'classnames';
-import { Row, Col, Icon, Affix } from 'antd';
+import { Row, Col, Affix } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
@@ -18,14 +17,9 @@ export default class ComponentDoc extends React.PureComponent {
     intl: PropTypes.object,
   }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      affixMode: true,
-      expandAll: false,
-    };
-  }
+  state = {
+    affixMode: true,
+  };
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
@@ -52,12 +46,6 @@ export default class ComponentDoc extends React.PureComponent {
         affixMode: true,
       });
     }
-  }
-
-  handleExpandToggle = () => {
-    this.setState({
-      expandAll: !this.state.expandAll,
-    });
   }
 
   render() {
@@ -91,10 +79,6 @@ export default class ComponentDoc extends React.PureComponent {
           rightChildren.push(demoElem);
         }
       });
-    const expandTriggerClass = classNames({
-      'code-box-expand-trigger': true,
-      'code-box-expand-trigger-active': expand,
-    });
 
     const jumper = showedDemo.map((demo) => {
       const title = demo.meta.title;
@@ -145,14 +129,8 @@ export default class ComponentDoc extends React.PureComponent {
                   .concat(getChildren(content))
               )
             }
-            <h2>
+            <h2 style={{ marginBottom: 32 }}>
               <FormattedMessage id="app.component.examples" />
-              <Icon
-                type="appstore"
-                className={expandTriggerClass}
-                title="展开全部代码"
-                onClick={this.handleExpandToggle}
-              />
             </h2>
           </section>
           <Row gutter={16}>

@@ -55,7 +55,7 @@ export default class Demo extends React.Component {
     });
   }
 
-  handleCodeExapnd = () => {
+  handleCodeExpand = () => {
     this.setState({ codeExpand: !this.state.codeExpand });
   }
 
@@ -117,7 +117,7 @@ export default class Demo extends React.Component {
       'highlight-wrapper-expand': codeExpand,
     });
 
-    const prefillStyle = `@import 'antd/dist/antd.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const prefillStyle = `@import 'ant-design-pro/dist/ant-design-pro.min.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
 
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
@@ -157,10 +157,29 @@ export default class Demo extends React.Component {
             <a href={`#${meta.id}`} ref={this.saveAnchor}>
               {localizedTitle}
             </a>
-            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={meta.filename} />
+            <EditButton
+              title={<FormattedMessage id="app.content.edit-page" />}
+              filename={meta.filename.replace('scaffold/', '')}
+              sourcePath="https://github.com/ant-design/ant-design-pro/edit/master/"
+            />
           </div>
           {introChildren}
-          <Icon type="down-circle-o" title="Show Code" className="collapse" onClick={this.handleCodeExapnd} />
+          <Tooltip title={codeExpand ? 'Hide Code' : 'Show Code'}>
+            <span className="code-expand-icon">
+              <img
+                alt="expand code"
+                src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"
+                className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
+                onClick={this.handleCodeExpand}
+              />
+              <img
+                alt="expand code"
+                src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg"
+                className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
+                onClick={this.handleCodeExpand}
+              />
+            </span>
+          </Tooltip>
         </section>
         <section className={highlightClass}
           key="code"

@@ -25,7 +25,6 @@ module.exports = {
   pick: {
     components(markdownData) {
       const filename = markdownData.meta.filename;
-
       if (!/^scaffold\/src\/components/.test(filename) ||
         /[/\\]demo$/.test(path.dirname(filename))) return;
 
