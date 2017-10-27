@@ -6,6 +6,8 @@ type: 其他
 
 提问之前，请先查阅下面的常见问题。
 
+---
+
 ### 如何使用 Ant Design Pro？
 
 请阅读文档 [开始使用](./getting-started)。
@@ -80,4 +82,4 @@ English Documentation will be translated soon and we'd like to expect your help!
 
 ---
 
-更多常见问题可以查看 [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) 和 [roadhog](https://github.com/sorrycc/roadhog)。如果这里未能解决你的问题，欢迎[报告给我们](https://github.com/ant-design/ant-design-pro/issues)。
+更多常见问题可以查看 [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) 和 [roadhog](https://github.com/sorrycc/roadhog)。如果这里未能解决你的问题，欢迎 [报告给我们](https://github.com/ant-design/ant-design-pro/issues)。
