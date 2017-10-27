@@ -1,9 +1,11 @@
-.home-wrapper{
+@import "~antd/lib/style/themes/default.less";
+
+.home-wrapper {
   width: 100%;
   color: #697B8C;
 }
 
-.banner-wrapper{
+.banner-wrapper {
   height: 526px;
   position: relative;
   .banner-title-wrapper{
@@ -17,31 +19,29 @@
     > * {
       will-change: transform;
     }
-    h1{
+    h1 {
       font-family: "Futura", "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-size: 54px;
       margin: 12px 0;
     }
-    p{
+    p {
       font-size: 20px;
     }
-    .button-wrapper{
+    .button-wrapper {
       margin-top: 64px;
       line-height: 40px;
       align-items: center;
       display: flex;
-      .ant-btn{
-        // padding: 24px;
+      .ant-btn {
         width: 112px;
         height: 40px;
         font-size: 16px;
         border-radius: 20px;
-
       }
-      .github-btn{
+      .github-btn {
         display: inline-block;
         height: 28px;
-        .gh-btn{
+        .gh-btn {
           height: 28px;
           border-radius: 4px;
           background: rgba(243,243,243,1);
@@ -50,30 +50,31 @@
           align-items: center;
           display: flex;
           padding: 0 12px;
-          color: #697B8C;
-          &:hover{
-            color: #1890FF;
+          font-size: 13px;
+          &:hover {
+            color: @primary-color;
           }
-          .gh-ico{
+          .gh-ico {
             margin-right: 8px;
           }
         }
-        .gh-count{
-          margin-right: 8px;
+        .gh-count {
           height: 28px;
-          line-height: 24px;
+          line-height: 22px;
           background: #fff;
           border: 1px solid #EBEDF0;
           border-radius: 4px;
+          padding: 2px 8px;
+          font-size: 13px;
         }
       }
     }
-    .title-line{
+    .title-line {
       transform: translateX(-64px);
       animation: bannerTitleLine 3s ease-in-out 0s infinite;
     }
   }
-  .banner-image-wrapper{
+  .banner-image-wrapper {
     width: 520px;
     height: 324px;
     position: absolute;
@@ -84,20 +85,20 @@
   }
 }
 
-.title-line-wrapper{
+.title-line-wrapper {
   height: 2px;
   width: 100%;
   overflow: hidden;
   .title-line{
     height: 100%;
     width: 64px;
-    background: #1890FF;
+    background: @primary-color;
     transform: translateX(-64px);
     background: linear-gradient(to right, rgba(24,144,255,0) 0%,rgba(24,144,255,1) 100%);
   }
 }
 
-.home-page{
+.home-page {
   margin: 50px auto;
   h2{
     text-align: center;
@@ -110,7 +111,7 @@
   }
 }
 
-.home-page-wrapper{
+.home-page-wrapper {
   max-width: 1280px;
   width: 100%;
   margin: auto;
@@ -118,10 +119,10 @@
 }
 
 /** page1 **/
-.page1{
+.page1 {
   height: 960px;
 }
-.page1-line.title-line-wrapper{
+.page1-line.title-line-wrapper {
   width: 312px;
   margin: 24px auto 76px;
   .title-line{
@@ -129,7 +130,7 @@
   }
 }
 
-.page1-bg{
+.page1-bg {
   font-size: 320px;
   color: #EBEDF0;
   position: absolute;
@@ -140,7 +141,7 @@
   transform: translateY(960px);
 }
 
-.page1-box-wrapper{
+.page1-box-wrapper {
   margin-bottom: 62px;
   display: flex;
   align-items: flex-start;
@@ -177,33 +178,33 @@
     }
   }
 }
-.page1-point-wrapper{
+.page1-point-wrapper {
   position: absolute;
   width: 0px;
   left: 50%;
   top: 0px;
-  .point-0{
+  .point-0 {
     width: 4px;
     height: 4px;
   }
-  .point-2, .point-ring{
+  .point-2, .point-ring {
     width: 10px;
     height: 10px;
   }
-  .point-ring{
+  .point-ring {
     border-style: solid;
     border-width: 1px;
     background: transparent !important;
   }
-  .point-1{
+  .point-1 {
     width: 6px;
     height: 6px;
   }
-  .point-3{
+  .point-3 {
     width: 15px;
     height: 15px;
   }
-  i{
+  i {
     display: inline-block;
     border-radius: 100%;
     position: absolute;
@@ -236,17 +237,17 @@
   margin: 148px auto 24px;
   width: 114px;
 
-  .title-line{
+  .title-line {
     animation: page2TitleLine 3s ease-in-out 0s infinite;
   }
 }
 
-.page-content{
+.page-content {
   width: 760px;
   margin: 24px auto 32px;
   line-height: 28px;
   span {
-    color: #1890FF;
+    color: @primary-color;
   }
 }
 
@@ -271,28 +272,28 @@
 }
 
 @keyframes bannerTitleLine {
-  0%, 25%{
+  0%, 25% {
     transform: translateX(-64px);
   }
-  75%, 100%{
+  75%, 100% {
     transform: translateX(544px);
   }
 }
 
 @keyframes page1TitleLine {
-  0%, 25%{
+  0%, 25% {
     transform: translateX(-64px);
   }
-  75%, 100%{
+  75%, 100% {
     transform: translateX(376px);
   }
 }
 
 @keyframes page2TitleLine {
-  0%, 25%{
+  0%, 25% {
     transform: translateX(-64px);
   }
-  75%, 100%{
+  75%, 100% {
     transform: translateX(178px);
   }
 }

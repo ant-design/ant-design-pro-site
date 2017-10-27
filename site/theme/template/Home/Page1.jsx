@@ -66,7 +66,7 @@ const childrenData = [
     title: 'UI 测试',
     content: '自动化测试保障前端产品质量',
     src: 'https://gw.alipayobjects.com/zos/rmsportal/RpJIQitGbSCHwLMimybX.svg',
-    color: '#1890FF',
+    color: '@primary-color',
     shadowColor: 'rgba(24,144,255,.12)',
   },
 ];
