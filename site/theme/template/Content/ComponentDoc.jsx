@@ -8,6 +8,11 @@ import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
 
+function handleAffixChange() {
+  const tocNode = document.getElementById('demo-toc-bottom').parentNode;
+  tocNode.style.position = 'static';
+}
+
 export default class ComponentDoc extends React.PureComponent {
   static contextTypes = {
     intl: PropTypes.object,
@@ -42,18 +47,11 @@ export default class ComponentDoc extends React.PureComponent {
           affixMode: false,
         });
       }
-    } else {
-      if (!this.state.affixMode) {
-        this.setState({
-          affixMode: true,
-        });
-      }
+    } else if (!this.state.affixMode) {
+      this.setState({
+        affixMode: true,
+      });
     }
-  }
-
-  handleAffixChange() {
-    const tocNode = document.getElementById('demo-toc-bottom').parentNode;
-    tocNode.style.position = 'static';
   }
 
   handleExpandToggle = () => {
@@ -117,7 +115,7 @@ export default class ComponentDoc extends React.PureComponent {
           <Affix
             className="toc-affix"
             offsetTop={16}
-            style={affixMode ? {opacity: 1} : {opacity:0, zIndex:-99}}
+            style={affixMode ? { opacity: 1 } : { opacity: 0, zIndex: -99 }}
           >
             <ul id="demo-toc" className="toc">
               {jumper}
@@ -125,9 +123,9 @@ export default class ComponentDoc extends React.PureComponent {
           </Affix>
           <Affix
             className="toc-affix-bottom"
-            onChange={this.handleAffixChange}
+            onChange={handleAffixChange}
             offsetTop={16}
-            style={affixMode ? {opacity:0, zIndex:-99}: {opacity: 1}}
+            style={affixMode ? { opacity: 0, zIndex: -99 } : { opacity: 1 }}
           >
             <ul id="demo-toc-bottom" className="toc">
               {jumper}
@@ -158,11 +156,9 @@ export default class ComponentDoc extends React.PureComponent {
             </h2>
           </section>
           <Row gutter={16}>
-            <Col span={isSingleCol ? '24' : '12'}
-                 className={isSingleCol ?
-                'code-boxes-col-1-1' :
-                'code-boxes-col-2-1'
-              }
+            <Col
+              span={isSingleCol ? '24' : '12'}
+              className={isSingleCol ? 'code-boxes-col-1-1' : 'code-boxes-col-2-1'}
             >
               {leftChildren}
             </Col>
