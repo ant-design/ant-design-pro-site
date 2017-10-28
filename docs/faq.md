@@ -60,7 +60,7 @@ antd@3.0 预计在 11 月底发布：https://github.com/ant-design/ant-design/is
 
 ### 如何禁止 `npm start` 时自动打开浏览器？
 
-将 `package.json` 里的 `scripts.start`。
+修改 `package.json` 里的 `scripts.start` 为：
 
 ```js
 "start": "BROWSER=none roadhog server",
