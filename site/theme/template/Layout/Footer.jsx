@@ -47,7 +47,7 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
-                  <a target="_blank " href="https://github.com/ant-design/ant-design">
+                  <a target="_blank " href="http://ant.design">
                     Ant Design
                   </a>
                 </div>
@@ -80,7 +80,7 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.motion" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">AntD Library</a>
+                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">Axure Library</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antd-library" />
                 </div>
