@@ -196,7 +196,10 @@ class Header extends React.Component {
           </Col>
           <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
             <div id="search-box">
-              <Icon type="search" />
+              <Icon
+                type={searching ? 'loading' : 'search'}
+                style={{ color: searching ? '#1890ff' : '' }}
+              />
               <Select
                 mode="combobox"
                 value={inputValue}
@@ -211,9 +214,6 @@ class Header extends React.Component {
               >
                 {options}
               </Select>
-              {
-                searching && <Icon type="loading" />
-              }
             </div>
             <div className="header-meta">
               <div id="preview">
