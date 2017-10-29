@@ -35,9 +35,23 @@ $ npm run build
       "transform-decorators-legacy",
       ["import", { "libraryName": "antd", "style": true }]
     ]
-  } 
+  }
 },
 ```
+
+### 分析构建文件体积
+
+如果你的构建文件很大，你可以通过 `analyze` 命令构建并分析依赖模块的体积分步，从而优化你的代码。
+
+```bash
+$ npm run analyze
+```
+
+<img src="https://gw.alipayobjects.com/zos/rmsportal/jibuOPHTyWMpMGvrlFDl.png" width="600" />
+
+然后打开 `dist/stats.html` 查看体积分步数据。
+
+<img src="https://gw.alipayobjects.com/zos/rmsportal/sjzZbbsgthNtruKKHbiG.png" width="400" />
 
 ## 发布
 
