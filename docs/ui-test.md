@@ -12,7 +12,7 @@ Ant Design Pro 封装了一套简洁易用的 React 单元测试和 E2E 测试�
 $ npm run test:all  // 执行所有测试
 ```
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/svHwpZnAeUDvAmrQkjge.png" width="700" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/bNkhdMosBxuEhhKgnROo.png" width="700" />
 
 下面简单介绍如何在项目中书写你的业务测试用例。
 
@@ -112,7 +112,7 @@ describe('Login', () => {
 $ npm test .e2e.js
 ```
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/JxRZLdqOUlPdhPENAcKH.png" width="700" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/LGCXopksUYMUhjRgdYSz.png" width="700" />
 
 > 注意，本地测试 e2e 用例需要启动 `npm start`，否则会报 `Failed: navigation error` 的错误。
 
@@ -124,7 +124,7 @@ $ npm test -- --watch
 
 添加 `--watch` 配置可以进入 watch 模式，当你修改和保存文件时，Jest 会自动执行相应用例。Jest 的命令行工具也提供了各种方便的快捷键来执行你需要的用例。
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/TVGCFdJXaIwIZTpHxrIT.png" width="700" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/MnmxiavystfcBDskyKRg.png" width="700" />
 
 ## 测试覆盖率
 
