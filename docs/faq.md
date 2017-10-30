@@ -78,7 +78,7 @@ For windows:
 
 ### English Documentation?
 
-English Documentation will be translated soon and we'd like to expect your help!
+English Documentation will be translated in next couple of monthes.
 
 ---
 
