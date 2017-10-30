@@ -201,7 +201,7 @@ const MyCharts extends Component {
 
 G2 每一个属性变化，都需要重新绘制图表，但是如果数据或者配置没有发生变化，那么减少图表不必要的渲染能够提升网页的性能。
 
-在 `componentWillReceiveProps` 中直接对比 `this.props` 和 `nextProps` 是不严禁的，我们建议使用对象的对比函数：
+在 `componentWillReceiveProps` 中直接对比 `this.props` 和 `nextProps` 是不严谨的，我们建议使用对象的对比函数：
 
 ```js
 function equal(old, target) {
