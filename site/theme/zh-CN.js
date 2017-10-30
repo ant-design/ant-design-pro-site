@@ -61,7 +61,7 @@ module.exports = {
     'app.footer.version': '文档版本：',
     'app.footer.author': '蚂蚁金服体验技术部出品 @ AFX',
     'app.footer.resources': '相关资源',
-    'app.footer.more-product': '更多产品',
+    'app.footer.more-product': '蚂蚁体验云',
     'app.publish.title': 'antd@2.0.0 发布！',
     'app.publish.greeting': '你好，',
     'app.publish.intro': ' 已正式发布，欢迎升级。',

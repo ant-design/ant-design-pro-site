@@ -58,7 +58,7 @@ export default class Layout extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    const pathname = props.location.pathname;
+    const { pathname } = props.location;
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
 
@@ -69,11 +69,13 @@ export default class Layout extends React.PureComponent {
 
   render() {
     const { children, ...restProps } = this.props;
+    const { pathname } = this.props.location;
     const { appLocale } = this.state;
+
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <LocaleProvider locale={enUS}>
-          <div className="page-wrapper">
+          <div className={`page-wrapper ${pathname === '/' && 'index-page-wrapper'}`}>
             <Header {...restProps} />
             {children}
             <Footer {...restProps} />
