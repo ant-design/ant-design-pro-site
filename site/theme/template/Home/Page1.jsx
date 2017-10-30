@@ -66,7 +66,7 @@ const childrenData = [
     title: 'UI 测试',
     content: '自动化测试保障前端产品质量',
     src: 'https://gw.alipayobjects.com/zos/rmsportal/RpJIQitGbSCHwLMimybX.svg',
-    color: '@primary-color',
+    color: '#1890FF',
     shadowColor: 'rgba(24,144,255,.12)',
   },
 ];
@@ -182,22 +182,6 @@ class Page1 extends React.PureComponent {
             className="page1-bg"
             animation={{ translateY: 200, ease: 'linear', playScale: [0, 1.65] }}
             location="page1-wrapper"
-          >
-            Feature
-          </Parallax>
-          <Parallax
-            className="page1-bg"
-            animation={{ translateY: 200, ease: 'linear', playScale: [0, 1.7] }}
-            location="page1-wrapper"
-            style={{ opacity: 0.1 }}
-          >
-            Feature
-          </Parallax>
-          <Parallax
-            className="page1-bg"
-            animation={{ translateY: 200, ease: 'linear', playScale: [0, 1.75] }}
-            location="page1-wrapper"
-            style={{ opacity: 0.05 }}
           >
             Feature
           </Parallax>
