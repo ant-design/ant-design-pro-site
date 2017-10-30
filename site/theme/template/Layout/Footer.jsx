@@ -127,11 +127,6 @@ class Footer extends React.Component {
             <Col lg={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2>
-                  <img
-                    className="footer-flag"
-                    alt="more"
-                    src="https://gw.alipayobjects.com/zos/rmsportal/iqWcVtKrlvzylbcQGApv.svg"
-                  />
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
@@ -153,9 +148,23 @@ class Footer extends React.Component {
             <span
               style={{ lineHeight: '16px', paddingRight: 12, marginRight: 11, borderRight: '1px solid rgba(255, 255, 255, 0.55)' }}
             >
-              隐私权政策
+              <a
+                href="https://docs.alipay.com/policies/privacy/antfin"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                隐私权政策
+              </a>
             </span>
-            <span style={{ marginRight: 24 }}>权益保障承诺书</span>
+            <span style={{ marginRight: 24 }}>
+              <a
+                href="https://render.alipay.com/p/f/fd-izto3cem/index.html"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                权益保障承诺书
+              </a>
+            </span>
             <span style={{ marginRight: 12 }}>ICP 证浙 B2-2-100257</span>
             <span style={{ marginRight: 12 }}>Copyright © 蚂蚁金融服务集团</span>
             {/*
