@@ -4,15 +4,36 @@ title: 图表
 type: 进阶
 ---
 
+Ant Design Pro 提供了由设计师精心设计抽象的业务常用的图表类型。 
+
+是在 [G2](https://antv.alipay.com/g2/doc/index.html) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。
+
+> 需要注意的是后期底层会换成基于 G2 的 React 图表库 BizCharts，会更加快速轻量
+
+目前一共包涵 10 个图表类型，以及 2 个图表套件：
+
+- 饼状图（Pie）
+- 柱状图（Bar）
+- 仪表盘（Gauge）
+- 雷达图（Radar）
+- 标签云（TagCloud）
+- 水波图（WaterWave）
+- 迷你柱状图（MiniBar）
+- 迷你区域图（MiniArea）
+- 迷你进度条（MiniProgress）
+- 带有时间轴的折线图（TimelineChart）
+- 图表卡片（ChartCard）
+- 图表字段（Field）
+
+[查看图表组件](http://pro.ant.design/components/Charts)
+
 ## 使用 Ant Design Pro 的图表
 
-Ant Design Pro 在 [G2](https://antv.alipay.com/g2/doc/index.html) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。[查看更多](https://github.com/ant-design/ant-design-pro/tree/master/src/components/Charts)
-
-使用 Ant Design Pro 图表，非常简单：
+Charts 图表套件是在 `ant-design-pro/lib/Charts` 包中，引用到项目就像使用其它组件一样：
 
 ```jsx
-import { ChartCard, MiniBar, Field } from 'ant-design-pro/lib/Charts';
-import { Tooltip } from 'antd';
+import { ChartCard, MiniBar } from 'ant-design-pro/lib/Charts';
+import { Tooltip, Icon } from 'antd';
 
 const visitData = [
   {
@@ -35,11 +56,9 @@ const visitData = [
 
 ReactDOM.render(
   <ChartCard
-    bordered={false}
     title="支付笔数"
     action={<Tooltip title="支付笔数反应交易质量"><Icon type="exclamation-circle-o" /></Tooltip>}
-    total={numeral(6560).format('0,0')}
-    footer={<Field label="转化率" value="60%" />}
+    total="6,500"
     contentHeight={46}
   >
     <MiniBar
@@ -49,6 +68,10 @@ ReactDOM.render(
   </ChartCard>
 , mountNode);
 ```
+
+就可以实现一个最简单的图表组合：
+
+<img width="260" src="https://gw.alipayobjects.com/zos/rmsportal/yzmUFELvhCXXhsIRZOLT.png" />
 
 ## 使用 G2 绘制图表
 
