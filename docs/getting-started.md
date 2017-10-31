@@ -64,7 +64,7 @@ $ cd my-project
 你可以使用集成化的命令行工具 [ant-design-pro-cli](https://github.com/ant-design/ant-design-pro-cli)。
 
 ```bash
-$ npm install ant-design-pro -g
+$ npm install ant-design-pro-cli -g
 $ pro init // 安装脚手架
 $ pro new // 新建快捷模板
 ```
