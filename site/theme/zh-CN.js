@@ -42,7 +42,7 @@ module.exports = {
     'app.footer.links': '相关站点',
     'app.footer.mobile': '移动版',
     'app.footer.data-vis': '蚂蚁数据可视化方案',
-    'app.footer.ant-design': '蚂蚁 UI 设计与技术体系',
+    'app.footer.ant-design': '蚂蚁 UI 设计体系',
     'app.footer.eggjs': '企业级 Node Web 开发框架',
     'app.footer.encloseio': 'Node.js 编译器',
     'app.footer.motion': '设计动效',
