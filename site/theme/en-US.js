@@ -42,6 +42,7 @@ module.exports = {
     'app.footer.links': 'Links',
     'app.footer.mobile': 'Mobile UI',
     'app.footer.data-vis': 'Data Visualization',
+    'app.footer.ant-design': 'UI Design Language',
     'app.footer.eggjs': 'Enterprise Node Framework',
     'app.footer.encloseio': 'Node.js Compiler',
     'app.footer.motion': 'Motion Solution',

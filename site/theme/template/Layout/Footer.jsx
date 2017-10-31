@@ -130,14 +130,19 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">Egg</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://ant.design/">Ant Design</a>
                   <span> - </span>
-                  <FormattedMessage id="app.footer.eggjs" />
+                  <FormattedMessage id="app.footer.ant-design" />
                 </div>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.data-vis" />
+                </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">Egg</a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.eggjs" />
                 </div>
               </div>
             </Col>
