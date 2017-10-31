@@ -172,6 +172,9 @@ class Footer extends React.Component {
             </span>
             <span style={{ marginRight: 12 }}>ICP 证浙 B2-2-100257</span>
             <span style={{ marginRight: 12 }}>Copyright © 蚂蚁金融服务集团</span>
+            <span className="home-by-motion">
+              <span>Home Powered by <a href="https://motion.ant.design" target="_blank">Ant Motion</a></span>
+            </span>
             {/*
              <span><img className="footer-logo" src="https://gw.alipayobjects.com/zos/rmsportal/xAXLpIvVcjtarsXkXgUy.svg"
              alt="logo" /></span>

@@ -66,7 +66,7 @@ const childrenData = [
     title: 'UI 测试',
     content: '自动化测试保障前端产品质量',
     src: 'https://gw.alipayobjects.com/zos/rmsportal/RpJIQitGbSCHwLMimybX.svg',
-    color: '@primary-color',
+    color: '#1890FF',
     shadowColor: 'rgba(24,144,255,.12)',
   },
 ];
@@ -143,7 +143,7 @@ class Page1 extends React.PureComponent {
               leave={{ x: 0, y: 30, opacity: 0, duration: 300, ease: 'easeInBack' }}
               resetStyleBool={false}
             >
-              {isHover && pointChild}
+              {(this.props.isMobile || isHover) && pointChild}
             </TweenOneGroup>
             <div
               className="page1-image"
@@ -174,33 +174,18 @@ class Page1 extends React.PureComponent {
         {item}
       </QueueAnim>
     ));
-
     return (
       <div className="home-page page1" >
         <div className="home-page-wrapper" id="page1-wrapper">
-          <Parallax
-            className="page1-bg"
-            animation={{ translateY: 200, ease: 'linear', playScale: [0, 1.65] }}
-            location="page1-wrapper"
-          >
-            Feature
-          </Parallax>
-          <Parallax
-            className="page1-bg"
-            animation={{ translateY: 200, ease: 'linear', playScale: [0, 1.7] }}
-            location="page1-wrapper"
-            style={{ opacity: 0.1 }}
-          >
-            Feature
-          </Parallax>
-          <Parallax
-            className="page1-bg"
-            animation={{ translateY: 200, ease: 'linear', playScale: [0, 1.75] }}
-            location="page1-wrapper"
-            style={{ opacity: 0.05 }}
-          >
-            Feature
-          </Parallax>
+          {!this.props.isMobile && (
+            <Parallax
+              className="page1-bg"
+              animation={{ translateY: 200, ease: 'linear', playScale: [0, 1.65] }}
+              location="page1-wrapper"
+            >
+              Feature
+            </Parallax>
+          )}
           <h2>What can <span>Pro</span> do for you </h2>
           <div className="title-line-wrapper page1-line">
             <div className="title-line" />

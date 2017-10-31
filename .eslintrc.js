@@ -47,7 +47,8 @@ const eslintrc = {
     'function-paren-newline': 0,
     'object-curly-newline': 0,
     'no-restricted-globals': 0,
-    'jsx-a11y/mouse-events-have-key-events': 0
+    'jsx-a11y/mouse-events-have-key-events': 0,
+    'react/jsx-no-target-blank': 0
   },
 };
 

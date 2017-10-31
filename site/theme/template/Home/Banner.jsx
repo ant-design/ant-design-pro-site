@@ -3,11 +3,22 @@ import GitHubButton from 'react-github-button';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 import { Button } from 'antd';
+import BannerSVGAnim from './component/BannerSVGAnim';
 
-function Banner() {
+function Banner(props) {
   return (
     <div className="banner-wrapper">
-      <QueueAnim className="banner-title-wrapper">
+      {props.isMobile && (
+        <TweenOne animation={{ opacity: 1 }} className="banner-image-wrapper">
+          <div className="home-banner-image">
+            <img alt="banner"
+              src="https://gw.alipayobjects.com/zos/rmsportal/rqKQOpnMxeJKngVvulsF.svg"
+              width="100%"
+            />
+          </div>
+        </TweenOne>
+      )}
+      <QueueAnim className="banner-title-wrapper" type={props.isMobile ? 'bottom' : 'left'}>
         <div key="line" className="title-line-wrapper">
           <div className="title-line"
             style={{ transform: 'translateX(-64px)' }}
@@ -30,16 +41,11 @@ function Banner() {
           />
         </div>
       </QueueAnim>
-      <TweenOne
-        className="banner-image-wrapper"
-        animation={{ opacity: 0, x: 30, type: 'from', delay: 200, ease: 'easeOutQuad' }}
-      >
-        <img
-          alt="banner"
-          src="https://gw.alipayobjects.com/zos/rmsportal/rqKQOpnMxeJKngVvulsF.svg"
-          width="520"
-        />
-      </TweenOne>
+      {!props.isMobile && (
+        <TweenOne animation={{ opacity: 1 }} className="banner-image-wrapper">
+          <BannerSVGAnim />
+        </TweenOne>
+      )}
     </div>
   );
 }

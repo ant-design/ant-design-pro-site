@@ -4,6 +4,8 @@ import { Link } from 'bisheng/router';
 import axios from 'axios';
 import { Row, Col, Icon, Menu, Button, Popover, Select } from 'antd';
 
+import { enquireScreen } from '../utils';
+
 const { Option, OptGroup } = Select;
 
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/gVAKqIsuJCepKNbgbSwE.svg';
@@ -28,22 +30,14 @@ class Header extends React.Component {
   componentDidMount() {
     this.context.router.listen(this.handleHideMenu);
     const { searchInput } = this;
-    /* eslint-disable global-require */
-    require('enquire.js')
-      .register('only screen and (min-width: 0) and (max-width: 768px)', {
-        match: () => {
-          this.setState({ menuMode: 'inline' });
-        },
-        unmatch: () => {
-          this.setState({ menuMode: 'horizontal' });
-        },
-      });
+    enquireScreen((b) => {
+      this.setState({ menuMode: b ? 'inline' : 'horizontal' });
+    });
     document.addEventListener('keyup', (event) => {
       if (event.keyCode === 83 && event.target === document.body) {
         searchInput.focus();
       }
     });
-    /* eslint-enable global-require */
   }
 
   search = (key, success, error) => {
@@ -230,7 +224,7 @@ class Header extends React.Component {
                   <Button icon="eye-o">预览</Button>
                 </a>
               </div>
-              { menuMode === 'horizontal' ? (<div id="menu">{menu}</div>) : null }
+              {menuMode === 'horizontal' ? (<div id="menu">{menu}</div>) : null}
             </div>
           </Col>
         </Row>
