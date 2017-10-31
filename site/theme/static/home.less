@@ -27,13 +27,15 @@ svg{
   margin: auto;
   position: relative;
   .banner-title-wrapper{
-    width: 480px;
+    width: 40%;
+    max-width: 480px;
     height: 245px;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 8%;
     margin: auto;
+    z-index: 1;
     > * {
       will-change: transform;
     }
@@ -87,7 +89,7 @@ svg{
     }
   }
   .banner-image-wrapper {
-    width: 520px;
+    width: 45%;
     height: 324px;
     position: absolute;
     right: 8%;
@@ -258,7 +260,8 @@ svg{
 }
 
 .home-code {
-  width: 840px;
+  width: 90%;
+  max-width: 840px;
   border-radius: 4px;
   background: #F2F4F5;
   line-height: 28px;
