@@ -18,7 +18,7 @@ function Banner(props) {
           </div>
         </TweenOne>
       )}
-      <QueueAnim className="banner-title-wrapper" type={props.isMobile ? 'bottom' : 'left'}>
+      <QueueAnim className="banner-title-wrapper" type={props.isMobile ? 'bottom' : 'right'}>
         <div key="line" className="title-line-wrapper">
           <div className="title-line"
             style={{ transform: 'translateX(-64px)' }}
