@@ -8,7 +8,7 @@ export default function EditButton({
 }) {
   return (
     <Tooltip title={title}>
-      <a className="edit-button" href={`${sourcePath}${filename}`}>
+      <a className="edit-button" target="_blank" href={`${sourcePath}${filename}`}>
         <Icon type="edit" />
       </a>
     </Tooltip>

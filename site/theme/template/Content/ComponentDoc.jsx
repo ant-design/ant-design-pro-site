@@ -121,7 +121,11 @@ export default class ComponentDoc extends React.PureComponent {
               {
                 !subtitle ? null : <span className="subtitle">{subtitle}</span>
               }
-              <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
+              <EditButton
+                title={<FormattedMessage id="app.content.edit-page" />}
+                filename={filename.replace('scaffold/', '')}
+                sourcePath="https://github.com/ant-design/ant-design-pro/edit/master/"
+              />
             </h1>
             {
               props.utils.toReactComponent(

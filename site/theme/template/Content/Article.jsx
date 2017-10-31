@@ -92,7 +92,13 @@ export default class Article extends React.PureComponent {
               !subtitle || locale === 'en-US' ? null :
               <span className="subtitle">{subtitle}</span>
             }
-            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
+            <EditButton
+              title={<FormattedMessage id="app.content.edit-page" />}
+              filename={
+                filename.indexOf('scaffold/src/components') >= 0
+                  ? 'xxx' : filename
+              }
+            />
           </h1>
           {
             !description ? null :
