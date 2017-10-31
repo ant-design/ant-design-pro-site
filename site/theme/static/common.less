@@ -11,7 +11,7 @@ body {
 body {
   font-family: @font-family;
   line-height: 1.5;
-  color: @text-color;
+  color: @site-text-color;
   font-size: 14px;
   background: #fff;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -102,4 +102,8 @@ a {
 
 .outside-link.internal {
   display: none;
+}
+
+.ant-menu-item > a {
+  color: @site-text-color !important;
 }
