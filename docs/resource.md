@@ -12,7 +12,7 @@ Ant Design Pro 配套的设计资源。
 
 Ant Design 3.0 和 Ant Design Pro 的配套 Axure 资源包。
 
-- 链接：Coming Soon
+- 链接：http://library.ant.design/
 
 ## Ant Design Pro Sketch <img src="https://zos.alipayobjects.com/rmsportal/vfxJzCLqZxehgquvQNqX.png" width="24" />
 
