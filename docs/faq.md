@@ -10,7 +10,7 @@ type: 其他
 
 ### 如何使用 Ant Design Pro？
 
-请阅读文档 [开始使用](./getting-started)。
+请阅读文档 [开始使用](/docs/getting-started)。
 
 ### 是否可以在生产环境中使用 Ant Design Pro？
 

@@ -8,7 +8,7 @@ Ant Design Pro 脚手架内提供了一套默认[业务组件](http://pro.ant.de
 
 ## 如何使用
 
-对于脚手架的用户，你可以在脚手架中直接使用，新增和改造组件，操作方式可参考 [新增组件](./new-component)。
+对于脚手架的用户，你可以在脚手架中直接使用，新增和改造组件，操作方式可参考 [新增组件](/docs/new-component)。
 
 对于没有使用这套脚手架的开发者，我们提供了一种方式来调用这套内建组件。
 
@@ -33,4 +33,4 @@ ReactDOM.render(<Result type="success" />, mountNode);
 组件会随着脚手架的更新而不断迭代，有任何问题和需求可以反馈到 [这里](http://github.com/ant-design/ant-design-pro/issues)。
 
 - 最新版本：[![ant-design-pro](https://img.shields.io/npm/v/ant-design-pro.svg?style=flat-square)](http://npmjs.com/ant-design-pro)
-- [更新日志](./changelog)
+- [更新日志](/docs/history)
