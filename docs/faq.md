@@ -8,6 +8,10 @@ type: 其他
 
 ---
 
+### Ant Design Pro 和 Ant Design React 有什么区别？
+
+可以理解为后者是 React 组件库，前者是 React 脚手架。
+
 ### 如何使用 Ant Design Pro？
 
 请阅读文档 [开始使用](/docs/getting-started)。
