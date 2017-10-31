@@ -14,9 +14,17 @@
     }
   }
 }
+svg{
+  g{
+    transform-origin: 50% 50%;
+  }
+}
 
 .banner-wrapper {
   height: 526px;
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
   position: relative;
   .banner-title-wrapper{
     width: 480px;
@@ -86,7 +94,11 @@
     margin: auto;
     top: 0;
     bottom: 0;
+    opacity: 0;
   }
+}
+.home-banner-image{
+  display: none;
 }
 
 .title-line-wrapper {

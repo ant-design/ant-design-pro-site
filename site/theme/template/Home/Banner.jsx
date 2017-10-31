@@ -3,6 +3,7 @@ import GitHubButton from 'react-github-button';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 import { Button } from 'antd';
+import BannerSVGAnim from './component/BannerSVGAnim';
 
 function Banner() {
   return (
@@ -30,15 +31,14 @@ function Banner() {
           />
         </div>
       </QueueAnim>
-      <TweenOne
-        className="banner-image-wrapper"
-        animation={{ opacity: 0, x: 30, type: 'from', delay: 200, ease: 'easeOutQuad' }}
-      >
-        <img
-          alt="banner"
-          src="https://gw.alipayobjects.com/zos/rmsportal/rqKQOpnMxeJKngVvulsF.svg"
-          width="520"
-        />
+      <TweenOne animation={{ opacity: 1 }} className="banner-image-wrapper">
+        <BannerSVGAnim />
+        <div className="home-banner-image">
+          <img alt="banner"
+            src="https://gw.alipayobjects.com/zos/rmsportal/rqKQOpnMxeJKngVvulsF.svg"
+            width="520"
+          />
+        </div>
       </TweenOne>
     </div>
   );

@@ -50,7 +50,7 @@ const childrenData = [
   },
   {
     title: '最佳实践',
-    content: '良好的工程实践助您持续产出高质量代码',
+    content: '良好的工程实践助你持续产出高质量代码',
     src: 'https://gw.alipayobjects.com/zos/rmsportal/pbmKMSFpLurLALLNliUQ.svg',
     color: '#FA8C16',
     shadowColor: 'rgba(250,140,22,.12)',
