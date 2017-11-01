@@ -10,13 +10,14 @@ type: 其他
 
 - 📱 模板响应式全面优化升级。
 - 🌟 模板整体设计细节全面优化升级。
-- 🐞 问题修复
+- 脚手架
+  - 🐞 修复了登出失效的问题。[#52](https://github.com/ant-design/ant-design-pro/issues/52)
+  - 🐞 修复了监控页布局样式问题。 [#40](https://github.com/ant-design/ant-design-pro/issues/40)
+- 组件
   - 🌟 优化了 PageHeader `logo` 尺寸。[0d177915](https://github.com/ant-design/ant-design-pro/commit/0d1779157883ad456b5efd0a04f2f50fb65db05c)
   - 🌟 优化了图表加载的显示效果。 [#33](https://github.com/ant-design/ant-design-pro/issues/33)
   - 🐞 修复了 Pie 图表响应式展示的标题样式问题。 [34027103](https://github.com/ant-design/ant-design-pro/issues/33#issuecomment-340271035)
-  - 🐞 修复了监控页布局样式问题。 [#40](https://github.com/ant-design/ant-design-pro/issues/40)
   - 🐞 修复了雷达图在 safari 下样式超出的问题。 [39](https://github.com/ant-design/ant-design-pro/pull/39)
-  - 🐞 修复了登出失效的问题。[#52](https://github.com/ant-design/ant-design-pro/issues/52)
 
 ### 0.1.10
 
