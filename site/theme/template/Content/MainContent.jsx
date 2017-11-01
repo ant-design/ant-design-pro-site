@@ -237,7 +237,7 @@ export default class MainContent extends React.PureComponent {
       <div className="main-wrapper">
         <Row>
           {props.isMobile ? (
-            <MobileMenu level="">
+            <MobileMenu>
               {menuChild}
             </MobileMenu>) :
             (
