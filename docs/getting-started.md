@@ -73,8 +73,8 @@ $ cd my-project
 
 ```bash
 $ npm install ant-design-pro-cli -g
-$ pro init // 安装脚手架
-$ pro new // 新建快捷模板
+$ mkdir my-project && cd my-project
+$ pro init  # 安装脚手架
 ```
 
 ## 目录结构
