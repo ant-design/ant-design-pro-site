@@ -3,6 +3,7 @@ import { OverPack } from 'rc-scroll-anim';
 import QueueAnim from 'rc-queue-anim';
 import { Link } from 'dva/router';
 import { Button } from 'antd';
+import { FormattedMessage } from 'react-intl';
 
 function Page2() {
   return (
@@ -15,23 +16,29 @@ function Page2() {
         <OverPack>
           <QueueAnim key="queue" type="bottom" leaveReverse className="page2-content">
             <p key="p" className="page-content">
-              命令行运行下列命令，快速启动开发服务：
+              <FormattedMessage id="app.home.letspro" />
             </p>
             <div key="code1" className="home-code">
               <div>$ <span>git clone</span> git@github.com:ant-design/ant-design-pro.git --depth=1</div>
               <div>$ cd ant-design-pro</div>
               <div>$ npm install</div>
               <div>
-                $ npm start <span className="home-code-comment">{'//'} 打开浏览器访问 http://localhost:8000</span>
+                $ npm start <span className="home-code-comment">{'//'} <FormattedMessage id="app.home.openbrowser" /> http://localhost:8000</span>
               </div>
             </div>
             <p key="p2" className="page-content">
-              需要帮助？请先阅读 <Link to="/docs/getting-started">开发文档</Link> 和 <Link to="/docs/faq">常见问题</Link>，
-              如果未能解决，可以到 GitHub 上 <a href="https://github.com/ant-design/ant-design-pro/issues">进行提问</a>。
+              <FormattedMessage
+                id="app.home.needhelp"
+                values={{
+                  docs: <Link to="/docs/getting-started"><FormattedMessage id="app.home.docs" /></Link>,
+                  faq: <Link to="/docs/faq"><FormattedMessage id="app.home.faq" /></Link>,
+                  ask: <a href="https://github.com/ant-design/ant-design-pro/issues"><FormattedMessage id="app.home.ask" /></a>,
+                }}
+              />
             </p>
             <div key="button" style={{ marginTop: 88 }}>
               <a href="http://github.com/ant-design/ant-design-pro" target="_blank" rel="noopener noreferrer">
-                <Button type="primary">下载 Pro</Button>
+                <Button type="primary"><FormattedMessage id="app.home.download" /> Pro</Button>
               </a>
             </div>
           </QueueAnim>

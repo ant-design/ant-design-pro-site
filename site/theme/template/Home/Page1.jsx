@@ -3,9 +3,11 @@ import OverPack from 'rc-scroll-anim/lib/ScrollOverPAck';
 import Parallax from 'rc-scroll-anim/lib/ScrollParallax';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
+import PropTypes from 'prop-types';
+import { injectIntl } from 'react-intl';
 
 const TweenOneGroup = TweenOne.TweenOneGroup;
-const childrenData = [
+const featuresCN = [
   {
     title: '优雅美观',
     content: '基于 Ant Design 体系精心设计',
@@ -71,6 +73,72 @@ const childrenData = [
   },
 ];
 
+const featuresEN = [
+  {
+    title: ' Neat Design',
+    content: 'Follow Ant Design specification',
+    src: 'https://gw.alipayobjects.com/zos/rmsportal/VriUmzNjDnjoFoFFZvuh.svg',
+    color: '#13C2C2',
+    shadowColor: 'rgba(19,194,194,.12)',
+  },
+  {
+    title: 'Common Templates',
+    content: 'Typical templates for enterprise applications',
+    src: 'https://gw.alipayobjects.com/zos/rmsportal/smwQOoxCjXVbNAKMqvWk.svg',
+    color: '#2F54EB',
+    shadowColor: 'rgba(47,84,235,.12)',
+  },
+  {
+    title: 'Up-to-date Dev Stack',
+    content: 'Newest development stack of React/dva/antd',
+    src: 'https://gw.alipayobjects.com/zos/rmsportal/hBbIHzUsSbSxrhoRFYzi.svg',
+    color: '#F5222D',
+    shadowColor: 'rgba(245,34,45,.12)',
+  },
+  {
+    title: 'Responsive',
+    content: 'Designed for varies of screen size',
+    src: 'https://gw.alipayobjects.com/zos/rmsportal/BISfzKcCNCYFmTYcUygW.svg',
+    color: '#1AC44D',
+    shadowColor: 'rgba(26,196,77,.12)',
+  },
+  {
+    title: 'Themeing',
+    content: 'Customizable theme with simple config',
+    src: 'https://gw.alipayobjects.com/zos/rmsportal/XxqEexmShHOofjMYOCHi.svg',
+    color: '#FAAD14',
+    shadowColor: 'rgba(250,173,20,.12)',
+  },
+  {
+    title: 'International',
+    content: 'Built-in i18n solution (coming soon)',
+    src: 'https://gw.alipayobjects.com/zos/rmsportal/JsixxWSViARJnQbAAPkI.svg',
+    color: '#722ED1',
+    shadowColor: 'rgba(114,46,209,.12)',
+  },
+  {
+    title: 'Best Practice',
+    content: 'Solid workflow make your code health',
+    src: 'https://gw.alipayobjects.com/zos/rmsportal/pbmKMSFpLurLALLNliUQ.svg',
+    color: '#FA8C16',
+    shadowColor: 'rgba(250,140,22,.12)',
+  },
+  {
+    title: 'Mock Data',
+    content: 'Easy to use mock development solution',
+    src: 'https://gw.alipayobjects.com/zos/rmsportal/aLQyKyUyssIUhHTZqCIb.svg',
+    color: '#EB2F96',
+    shadowColor: 'rgba(235,45,150,.12)',
+  },
+  {
+    title: 'UI Test',
+    content: 'Fly safely with unit test and e2e test',
+    src: 'https://gw.alipayobjects.com/zos/rmsportal/RpJIQitGbSCHwLMimybX.svg',
+    color: '#1890FF',
+    shadowColor: 'rgba(24,144,255,.12)',
+  },
+];
+
 const pointPos = [
   { x: -30, y: -10 },
   { x: 20, y: -20 },
@@ -81,6 +149,9 @@ const pointPos = [
 ];
 
 class Page1 extends React.PureComponent {
+  static contextTypes = {
+    intl: PropTypes.object.isRequired,
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -113,8 +184,9 @@ class Page1 extends React.PureComponent {
   }
   render() {
     const { hoverNum } = this.state;
+    const { intl } = this.props;
     let children = [[], [], []];
-    childrenData.forEach((item, i) => {
+    (intl.locale === 'zh-CN' ? featuresCN : featuresEN).forEach((item, i) => {
       const isHover = hoverNum === i;
       const pointChild = [
         'point-0 left', 'point-0 right',
@@ -199,4 +271,4 @@ class Page1 extends React.PureComponent {
   }
 }
 
-export default Page1;
+export default injectIntl(Page1);

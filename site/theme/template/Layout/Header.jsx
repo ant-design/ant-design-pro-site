@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import axios from 'axios';
@@ -18,7 +18,6 @@ const searchUrl = 'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x
 class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
-    intl: PropTypes.object.isRequired,
   }
 
   state = {
@@ -109,11 +108,8 @@ class Header extends React.Component {
 
   render() {
     const { inputValue, menuMode, menuVisible, searchOption, searching } = this.state;
-    const { location } = this.props;
+    const { location, intl } = this.props;
     const path = location.pathname;
-
-    const { locale } = this.context.intl;
-    const searchPlaceholder = locale === 'zh-CN' ? '搜索...' : 'Search...';
 
     let activeMenuItem = '';
     if (/components/.test(path)) {
@@ -205,7 +201,7 @@ class Header extends React.Component {
               <Select
                 mode="combobox"
                 value={inputValue}
-                placeholder={searchPlaceholder}
+                placeholder={intl.formatMessage({ id: 'app.header.search' })}
                 notFoundContent=""
                 defaultActiveFirstOption={false}
                 showArrow={false}
@@ -246,4 +242,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default injectIntl(Header);
