@@ -4,6 +4,19 @@ title: 更新日志
 type: 其他
 ---
 
+`2017-11-02`
+
+### 0.2.1
+
+- 🐞 修复组件包依赖错误以及 `module export` 异常的问题。[#73](https://github.com/ant-design/ant-design-pro/issues/73)
+- 脚手架
+  - 🐞 修复分析页饼状图位置偏移的问题。[#76](https://github.com/ant-design/ant-design-pro/issues/76)
+  - 🐞 修复 Editable Table 编辑保存的问题。 [#68](https://github.com/ant-design/ant-design-pro/issues/68)
+  - 📱 增加查询表格搜索表单的响应式支持。[9709268](https://github.com/ant-design/ant-design-pro/commit/97092686cfbcc69b29b1f038c18b17a98a25d8d5)
+
+- 组件
+  - 📱 优化 Pie 组件的响应式。[8d9b7cf](https://github.com/ant-design/ant-design-pro/commit/8d9b7cfd94bc45adb4b26e44ff9ec83ea760dacd) [84ebabf](https://github.com/ant-design/ant-design-pro/commit/84ebabf53daa609c830d331594dd03772bbf3599)
+
 `2017-10-31`
 
 ### 0.2.0
