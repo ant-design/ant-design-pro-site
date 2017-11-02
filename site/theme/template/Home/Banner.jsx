@@ -3,6 +3,7 @@ import GitHubButton from 'react-github-button';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 import { Button } from 'antd';
+import { Link } from 'dva/router';
 import BannerSVGAnim from './component/BannerSVGAnim';
 
 function Banner(props) {
@@ -30,9 +31,9 @@ function Banner(props) {
           <a href="http://preview.pro.ant.design" target="_blank" rel="noopener noreferrer">
             <Button type="primary">预览</Button>
           </a>
-          <a href="/docs/getting-started">
+          <Link to="/docs/getting-started">
             <Button style={{ margin: '0 16px' }} type="primary" ghost>开始使用</Button>
-          </a>
+          </Link>
           <GitHubButton
             key="github-button"
             type="stargazers"

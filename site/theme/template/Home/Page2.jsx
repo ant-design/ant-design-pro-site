@@ -1,6 +1,7 @@
 import React from 'react';
 import { OverPack } from 'rc-scroll-anim';
 import QueueAnim from 'rc-queue-anim';
+import { Link } from 'dva/router';
 import { Button } from 'antd';
 
 function Page2() {
@@ -25,7 +26,7 @@ function Page2() {
               </div>
             </div>
             <p key="p2" className="page-content">
-              需要帮助？请先阅读 <a href="/docs/getting-started">开发文档</a> 和 <a href="/docs/faq">常见问题</a>，
+              需要帮助？请先阅读 <Link to="/docs/getting-started">开发文档</Link> 和 <Link to="/docs/faq">常见问题</Link>，
               如果未能解决，可以到 GitHub 上 <a href="https://github.com/ant-design/ant-design-pro/issues">进行提问</a>。
             </p>
             <div key="button" style={{ marginTop: 88 }}>

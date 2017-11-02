@@ -224,7 +224,7 @@ class Header extends React.Component {
                   <Button icon="eye-o">预览</Button>
                 </a>
               </div>
-              {menuMode === 'horizontal' ? (<div id="menu">{menu}</div>) : null}
+              {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
             </div>
           </Col>
         </Row>

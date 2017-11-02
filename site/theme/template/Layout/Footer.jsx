@@ -1,5 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import { Link } from 'dva/router';
 import { Modal, Row, Col } from 'antd';
 
 class Footer extends React.Component {
@@ -103,14 +104,14 @@ class Footer extends React.Component {
               <div className="footer-center">
                 <h2><FormattedMessage id="app.footer.community" /></h2>
                 <div>
-                  <a href="/docs/history">
+                  <Link to="/docs/history">
                     <FormattedMessage id="app.footer.change-log" />
-                  </a>
+                  </Link>
                 </div>
                 <div>
-                  <a href="/docs/faq">
+                  <Link to="/docs/faq">
                     <FormattedMessage id="app.footer.faq" />
-                  </a>
+                  </Link>
                 </div>
                 <div>
                   <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-pro">
@@ -130,7 +131,7 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://ant.design/">Ant Design</a>
+                  <a target="_blank" rel="noopener noreferrer" href="http://ant.design/">Ant Design</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.ant-design" />
                 </div>
