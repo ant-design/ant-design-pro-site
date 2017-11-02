@@ -51,6 +51,11 @@ if (typeof window !== 'undefined') {
   /* eslint-enable global-require */
 }
 
+
+let isMobile;
+utils.enquireScreen((b) => {
+  isMobile = b;
+});
 export default class Layout extends React.PureComponent {
   static contextTypes = {
     router: PropTypes.object.isRequired,
@@ -64,7 +69,16 @@ export default class Layout extends React.PureComponent {
 
     this.state = {
       appLocale,
+      isMobile,
     };
+  }
+
+  componentDidMount() {
+    utils.enquireScreen((b) => {
+      this.setState({
+        isMobile: !!b,
+      });
+    });
   }
 
   render() {
@@ -77,7 +91,7 @@ export default class Layout extends React.PureComponent {
         <LocaleProvider locale={enUS}>
           <div className={`page-wrapper ${pathname === '/' && 'index-page-wrapper'}`}>
             <Header {...restProps} />
-            {children}
+            {React.cloneElement(children, { ...children.props, isMobile: this.state.isMobile })}
             <Footer {...restProps} />
           </div>
         </LocaleProvider>
