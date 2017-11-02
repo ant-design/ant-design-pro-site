@@ -5,7 +5,7 @@ import { Link } from 'bisheng/router';
 import axios from 'axios';
 import { Row, Col, Icon, Menu, Button, Popover, Select } from 'antd';
 
-import { enquireScreen } from '../utils';
+import { enquireScreen, getLocalizedPathname } from '../utils';
 
 const { Option, OptGroup } = Select;
 
@@ -111,7 +111,8 @@ class Header extends React.Component {
     const { location, intl } = this.props;
     const path = location.pathname;
 
-    let activeMenuItem = '';
+    const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
+    let activeMenuItem = module || 'home';
     if (/components/.test(path)) {
       activeMenuItem = 'components';
     } else if (/docs/.test(path)) {
@@ -120,10 +121,12 @@ class Header extends React.Component {
       activeMenuItem = 'home';
     }
 
+    const isZhCN = intl.locale === 'zh-CN';
+
     const menu = (
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to="/">
+          <Link to={getLocalizedPathname('/', isZhCN)}>
             <FormattedMessage id="app.header.menu.home" />
           </Link>
         </Menu.Item>
