@@ -5,6 +5,7 @@ import { Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
+import MobileMenu from './MobileMenu';
 import * as utils from '../utils';
 
 const { SubMenu } = Menu;
@@ -115,18 +116,18 @@ export default class MainContent extends React.PureComponent {
         disabled={disabled}
       >
         {text}
-      </Link>
-    ) : (
-      <a
-        href={item.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        disabled={disabled}
-        className="menu-item-link-outside"
-      >
-        {text} <Icon type="export" />
-      </a>
-    );
+      </Link>) :
+      (
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          disabled={disabled}
+          className="menu-item-link-outside"
+        >
+          {text} <Icon type="export" />
+        </a>
+      );
 
     return (
       <Menu.Item key={key} disabled={disabled}>
@@ -220,21 +221,30 @@ export default class MainContent extends React.PureComponent {
     const mainContainerClass = classNames('main-container', {
       'main-container-component': !!props.demos,
     });
+    const menuChild = (
+      <Menu
+        inlineIndent="54"
+        className="aside-container"
+        mode="inline"
+        openKeys={this.state.openKeys}
+        selectedKeys={[activeMenuItem]}
+        onOpenChange={this.handleMenuOpenChange}
+      >
+        {menuItems}
+      </Menu>
+    );
     return (
       <div className="main-wrapper">
         <Row>
-          <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24}>
-            <Menu
-              inlineIndent="54"
-              className="aside-container"
-              mode="inline"
-              openKeys={this.state.openKeys}
-              selectedKeys={[activeMenuItem]}
-              onOpenChange={this.handleMenuOpenChange}
-            >
-              {menuItems}
-            </Menu>
-          </Col>
+          {props.isMobile ? (
+            <MobileMenu>
+              {menuChild}
+            </MobileMenu>) :
+            (
+              <Col xxl={4} xl={5} lg={6} md={14} sm={14} xs={14} className="main-menu">
+                {menuChild}
+              </Col>
+            )}
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?
