@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import axios from 'axios';
@@ -17,6 +18,7 @@ const searchUrl = 'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x
 class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
   }
 
   state = {
@@ -110,7 +112,8 @@ class Header extends React.Component {
     const { location } = this.props;
     const path = location.pathname;
 
-    const searchPlaceholder = '搜索';
+    const { locale } = this.context.intl;
+    const searchPlaceholder = locale === 'zh-CN' ? '搜索...' : 'Search...';
 
     let activeMenuItem = '';
     if (/components/.test(path)) {
@@ -124,18 +127,26 @@ class Header extends React.Component {
     const menu = (
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to="/">首页</Link>
+          <Link to="/">
+            <FormattedMessage id="app.header.menu.home" />
+          </Link>
         </Menu.Item>
         <Menu.Item key="docs">
-          <Link to="/docs/getting-started">文档</Link>
+          <Link to="/docs/getting-started">
+            <FormattedMessage id="app.header.menu.docs" />
+          </Link>
         </Menu.Item>
         <Menu.Item key="components">
-          <Link to="/components/AvatarList">组件</Link>
+          <Link to="/components/AvatarList">
+            <FormattedMessage id="app.header.menu.components" />
+          </Link>
         </Menu.Item>
         {
           menuMode === 'inline' && (
             <Menu.Item key="preview">
-              <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">预览</a>
+              <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">
+                <FormattedMessage id="app.home.preview" />
+              </a>
             </Menu.Item>
           )
         }
@@ -221,7 +232,9 @@ class Header extends React.Component {
                   href="http://preview.pro.ant.design"
                   rel="noopener noreferrer"
                 >
-                  <Button icon="eye-o">预览</Button>
+                  <Button icon="eye-o">
+                    <FormattedMessage id="app.home.preview" />
+                  </Button>
                 </a>
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
