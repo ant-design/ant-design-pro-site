@@ -8,8 +8,8 @@ const filename = 'ant-design-pro';
 module.exports = function (webpackConfig) {
 
   webpackConfig.entry = {
-    [filename]: './index.js',
-    [filename + '.min']: './index.js',
+    [filename]: './umd.js',
+    [filename + '.min']: './umd.js',
   };
 
   webpackConfig.output.libraryTarget = 'umd';
