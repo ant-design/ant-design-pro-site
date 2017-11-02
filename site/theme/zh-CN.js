@@ -12,7 +12,7 @@ module.exports = {
     'app.header.menu.spec': '指引',
     'app.header.menu.resource': '资源',
     'app.header.menu.mobile': '移动版',
-    'app.header.lang': 'EN',
+    'app.header.lang': 'English',
     'app.content.edit-page': '在 Github 上编辑此页！',
     'app.content.edit-demo': '在 Github 上编辑此示例！',
     'app.component.examples': '代码演示',

@@ -53,7 +53,7 @@ module.exports = {
     indexRoute: { component: homeTmpl },
     childRoutes: [
       {
-        path: '/',
+        path: 'index-cn',
         component: homeTmpl,
       },
       {

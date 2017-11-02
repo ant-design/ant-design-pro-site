@@ -1,37 +1,23 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'dva/router';
-import { Modal, Row, Col } from 'antd';
+import { Row, Col, Button } from 'antd';
+import * as utils from '../utils';
 
 class Footer extends React.Component {
-  constructor(props) {
-    super(props);
+  handleLangChange = () => {
+    const { pathname } = this.props.location;
+    const currentProtocol = `${window.location.protocol}//`;
+    const currentHref = window.location.href.substr(currentProtocol.length);
 
-    this.lessLoaded = false;
-  }
+    if (utils.isLocalStorageNameSupported()) {
+      localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
+    }
 
-  infoNewVersion() {
-    const { messages } = this.props.intl;
-    Modal.info({
-      title: messages['app.publish.title'],
-      content: (
-        <div>
-          <img src="https://os.alipayobjects.com/rmsportal/nyqBompsynAQCpJ.svg" alt="Ant Design" />
-          <p>
-            {messages['app.publish.greeting']}
-            <a target="_blank" rel="noopener noreferrer" href="/changelog">antd@2.0.0</a>
-            {messages['app.publish.intro']}
-            {messages['app.publish.old-version-guide']}
-            <a target="_blank" rel="noopener noreferrer" href="http://1x.ant.design">1x.ant.design</a>
-            {messages['app.publish.old-version-tips']}
-          </p>
-        </div>
-      ),
-      okText: 'OK',
-      onOk: () => localStorage.setItem('antd@2.0.0-notification-sent', 'true'),
-      className: 'new-version-info-modal',
-      width: 470,
-    });
+    window.location.href = currentProtocol + currentHref.replace(
+      window.location.pathname,
+      utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
+    );
   }
 
   render() {
@@ -150,7 +136,14 @@ class Footer extends React.Component {
           </Row>
         </div>
         <div className="bottom-bar">
-          <p>
+          <div>
+            <Col span={6}>
+              <div style={{ textAlign: 'left', width: 200, margin: '0 auto' }}>
+                <Button ghost size="small" onClick={this.handleLangChange}>
+                  <FormattedMessage id="app.header.lang" />
+                </Button>
+              </div>
+            </Col>
             <span
               style={{ lineHeight: '16px', paddingRight: 12, marginRight: 11, borderRight: '1px solid rgba(255, 255, 255, 0.55)' }}
             >
@@ -177,7 +170,7 @@ class Footer extends React.Component {
              <span><img className="footer-logo" src="https://gw.alipayobjects.com/zos/rmsportal/xAXLpIvVcjtarsXkXgUy.svg"
              alt="logo" /></span>
             */}
-          </p>
+          </div>
         </div>
       </footer>
     );
