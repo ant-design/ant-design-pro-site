@@ -1,10 +1,11 @@
 import React from 'react';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import axios from 'axios';
 import { Row, Col, Icon, Menu, Button, Popover, Select } from 'antd';
 
-import { enquireScreen } from '../utils';
+import { enquireScreen, getLocalizedPathname } from '../utils';
 
 const { Option, OptGroup } = Select;
 
@@ -107,12 +108,11 @@ class Header extends React.Component {
 
   render() {
     const { inputValue, menuMode, menuVisible, searchOption, searching } = this.state;
-    const { location } = this.props;
+    const { location, intl } = this.props;
     const path = location.pathname;
 
-    const searchPlaceholder = '搜索';
-
-    let activeMenuItem = '';
+    const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
+    let activeMenuItem = module || 'home';
     if (/components/.test(path)) {
       activeMenuItem = 'components';
     } else if (/docs/.test(path)) {
@@ -121,21 +121,31 @@ class Header extends React.Component {
       activeMenuItem = 'home';
     }
 
+    const isZhCN = intl.locale === 'zh-CN';
+
     const menu = (
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to="/">首页</Link>
+          <Link to={getLocalizedPathname('/', isZhCN)}>
+            <FormattedMessage id="app.header.menu.home" />
+          </Link>
         </Menu.Item>
         <Menu.Item key="docs">
-          <Link to="/docs/getting-started">文档</Link>
+          <Link to="/docs/getting-started">
+            <FormattedMessage id="app.header.menu.docs" />
+          </Link>
         </Menu.Item>
         <Menu.Item key="components">
-          <Link to="/components/AvatarList">组件</Link>
+          <Link to="/components/AvatarList">
+            <FormattedMessage id="app.header.menu.components" />
+          </Link>
         </Menu.Item>
         {
           menuMode === 'inline' && (
             <Menu.Item key="preview">
-              <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">预览</a>
+              <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">
+                <FormattedMessage id="app.home.preview" />
+              </a>
             </Menu.Item>
           )
         }
@@ -194,7 +204,7 @@ class Header extends React.Component {
               <Select
                 mode="combobox"
                 value={inputValue}
-                placeholder={searchPlaceholder}
+                placeholder={intl.formatMessage({ id: 'app.header.search' })}
                 notFoundContent=""
                 defaultActiveFirstOption={false}
                 showArrow={false}
@@ -221,7 +231,9 @@ class Header extends React.Component {
                   href="http://preview.pro.ant.design"
                   rel="noopener noreferrer"
                 >
-                  <Button icon="eye-o">预览</Button>
+                  <Button icon="eye-o">
+                    <FormattedMessage id="app.home.preview" />
+                  </Button>
                 </a>
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
@@ -233,4 +245,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default injectIntl(Header);

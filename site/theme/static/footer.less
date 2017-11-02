@@ -4,14 +4,9 @@
 
 footer.dark {
   background-color: #000;
+  color: rgba(255, 255, 255, 0.65);
   a {
     color: #fff;
-    span {
-      color: #fff;
-    }
-  }
-  div, span {
-    color: rgba(255, 255, 255, 0.65);
   }
   h2 {
     color: rgba(255, 255, 255, 1);
@@ -21,9 +16,7 @@ footer.dark {
   }
   .bottom-bar {
     border-top: 1px solid rgba(255, 255, 255, 0.25);
-  }
-  p {
-    background-color: #000;
+    overflow: hidden;
   }
 }
 
@@ -73,7 +66,7 @@ footer {
         color: #fff;
       }
     }
-    p {
+    > div {
       text-align: right;
       padding: 0 @padding-space;
       margin: 0;
