@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const shell = require('shelljs');
 
 const cwd = process.cwd();
 
@@ -6,6 +7,16 @@ module.exports = function () {
   const pkg = JSON.parse(fs.readFileSync(`${cwd}/scaffold/package.json`, 'utf8'));
   const antdProPkg = JSON.parse(fs.readFileSync(`${cwd}/config/components/package.json`, 'utf8'));
   antdProPkg.version = pkg.version;
+
+  shell.exec('./node_modules/.bin/autod -p ./scaffold/src/components/', (code, stdout, stderr) => {
+    if (!stderr) {
+      const deps = JSON.parse(stdout.match(/{[^{}]*}/)[0]);
+      antdProPkg.dependencies = deps;
+    } else {
+      throw new Error(stderr);
+    }
+  });
+
   antdProPkg.dependencies = pkg.dependencies;
 
   const dumps = [
@@ -14,8 +25,6 @@ module.exports = function () {
     'react-dom',
     'core-js',
     'dva',
-    'qs',
-    'react-document-title',
   ];
 
   dumps.forEach((dump) => {
