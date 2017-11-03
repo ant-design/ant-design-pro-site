@@ -17,24 +17,24 @@ type: 进阶
 
 针对页面级的报错，我们提供了两个业务组件供你选择，可以很方便地实现一个报错页面：
 
-`Exception 异常页`
+- [Exception 异常页](http://preview.pro.ant.design/#/exception/404)
 
-```js
-<Exception type="404" />
-```
+  ```js
+  <Exception type="404" />
+  ```
 
 默认支持 404，403，500 三种错误，也可自定义文案等内容。
 
-`Result 结果页`
+- [Result 结果页](http://preview.pro.ant.design/#/result/fail)
 
-```js
-<Result
-  type="error"
-  title="提交失败"
-  description="请核对并修改以下信息后，再重新提交。"
-  actions={<Button size="large" type="primary">返回修改</Button>}
+  ```js
+  <Result
+    type="error"
+    title="提交失败"
+    description="请核对并修改以下信息后，再重新提交。"
+    actions={<Button size="large" type="primary">返回修改</Button>}
   />
-```
+  ```
 
 这个组件一般用在提交结果展示，文案操作等均可自定义。
 
@@ -54,56 +54,34 @@ type: 进阶
 - [message](http://ant.design/components/message-cn/)
 - [notification](http://ant.design/components/notification-cn/)
 
-在单页应用中，最常见的需求就是处理网络错误信息，一般我们需要对此进行统一处理，由于 Ant Design Pro 使用 `request.js` 统一处理请求，所以错误的处理也可以很方便的加入其中：
+在单页应用中，最常见的需求就是处理网络错误信息，我们可以利用 message 和 notification 来吐出响应的接口/网络/业务数据错误。
+
+<img src="https://gw.alipayobjects.com/zos/rmsportal/cVTaurnfguplvNbctgBN.png" width="400" />
 
 ```js
 import fetch from 'dva/fetch';
-
-// 结合 antd 信息组件显示错误信息
 import { notification } from 'antd';
 
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
+...
 
-  // 判断返回的异常，进行统一反馈
-  return response.json().then((result) => {
-    if (result.code) {
+fetch(url)
+  .then(response => response.json())
+  .catch((error) => {
+    // 处理接口返回的数据格式错误的逻辑
+    if (error.code) {
       notification.error({
-        message: result.name,
-        description: result.message,
+        message: error.name,
+        description: error.message,
       });
     }
-    if (result.stack) {
+    if ('stack' in error && 'message' in error) {
       notification.error({
-        message: '请求错误',
-        description: result.message,
+        message: `请求错误: ${url}`,
+        description: error.message,
       });
     }
-    const error = new Error(result.message);
-    error.response = response;
-    throw error;
+    return error;
   });
-}
-
-export default function request(url, options) {
-  const defaultOptions = {
-    credentials: 'include',
-  };
-  const newOptions = { ...defaultOptions, ...options };
-  if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
-    newOptions.headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json; charset=utf-8',
-      ...newOptions.headers,
-    };
-    newOptions.body = JSON.stringify(newOptions.body);
-  }
-
-  return fetch(url, newOptions)
-    .then(checkStatus)
-    .then(response => response.json())
-    .catch(err => ({ err }));
-}
 ```
+
+Ant Design Pro 封装了一个 `request.js` 统一处理请求，完整代码可参考：https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js
