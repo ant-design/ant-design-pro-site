@@ -16,7 +16,7 @@ type: 入门
 6. 然后调用 reducer 改变 state；
 7. 更新 model。
 
-从上面的流程可以看出，为了方便管理维护，统一的请求处理都放在 `services` 文件夹中，并且一般按照 model 纬度进行拆分文件，如：
+从上面的流程可以看出，为了方便管理维护，统一的请求处理都放在 `services` 文件夹中，并且一般按照 model 维度进行拆分文件，如：
 
 ```
 services/
@@ -27,10 +27,10 @@ services/
 
 其中，`utils/request.js` 是基于 [fetch](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch) 的封装，便于统一处理 POST，GET 等请求参数，请求头，以及错误提示信息等。具体可以参看 [request.js](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js)。
 
-例如在 servers 中的一个请求用户信息的例子：
+例如在 services 中的一个请求用户信息的例子：
 
 ```
-// servers/user.js
+// services/user.js
 import request from '../utils/request';
 
 export async function query() {
