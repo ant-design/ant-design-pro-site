@@ -15,15 +15,6 @@ module.exports = function (webpackConfig) {
   webpackConfig.output.libraryTarget = 'umd';
   webpackConfig.output.filename = '[name].js';
 
-  if (!webpackConfig.output.externals) {
-    webpackConfig.output.externals = {};
-  }
-  webpackConfig.output.externals['react'] = 'React';
-  webpackConfig.output.externals['React'] = 'React';
-  webpackConfig.output.externals['ReactDOM'] = 'ReactDOM';
-  webpackConfig.output.externals['react-dom'] = 'ReactDOM';
-  webpackConfig.output.externals['antd'] = 'antd';
-
   // remove CommonsChunkPlugin
   webpackConfig.plugins.splice(0, 2);
 

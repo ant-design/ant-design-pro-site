@@ -9,9 +9,9 @@
   },
   "scripts": {
     "build": "npm run build:lib && npm run build:index && npm run build:es && npm run build:umd",
-    "build:index": "../../node_modules/.bin/babel ./index.js -d lib --copy-files --presets=es2015,react,stage-0 --plugins=add-module-exports,transform-decorators-legacy",
-    "build:lib": "rm -rf lib && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib --copy-files --presets=es2015,react,stage-0 --plugins=add-module-exports,transform-decorators-legacy",
-    "build:umd": "rm -rf dist && ../../node_modules/.bin/atool-build --no-compress --devtool source-map",
+    "build:index": "../../node_modules/.bin/babel ./index.js -d lib",
+    "build:lib": "rm -rf lib && cp ./.babelrc ../../scaffold && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib",
+    "build:umd": "rm -rf dist && rm ../../scaffold/.babelrc && ../../node_modules/.bin/atool-build --no-compress --devtool source-map",
     "build:es": "rm -rf es && cp -apvX ../../scaffold/src/components es && cp index.js es",
     "prepublish": "npm run build"
   },
