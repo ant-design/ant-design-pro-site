@@ -81,7 +81,7 @@ export default class Article extends React.PureComponent {
               message={(
                 <span>
                   This article has not been translated, hope that your can PR to translated it.
-                  <a href="https://github.com/ant-design/ant-design/issues/1471"> Help us!</a>
+                  <a href="https://github.com/ant-design/ant-design-pro/issues/120"> Help us!</a>
                 </span>
               )}
             />

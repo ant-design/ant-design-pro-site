@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 布局
+title:
+  en-US: Layout 
+  zh-CN: 布局 
 type: 入门
 ---
 

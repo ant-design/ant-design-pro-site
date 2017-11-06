@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 开始使用
+title:
+  en-US: Getting started
+  zh-CN: 开始使用
 type: 入门
 ---
 

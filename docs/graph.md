@@ -1,6 +1,8 @@
 ---
 order: 10
-title: 图表
+title:
+  en-US: Charts 
+  zh-CN: 图表
 type: 进阶
 ---
 

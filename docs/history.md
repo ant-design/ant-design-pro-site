@@ -1,6 +1,8 @@
 ---
 order: 20
-title: 更新日志
+title:
+  en-US: History 
+  zh-CN: 更新日志
 type: 其他
 ---
 

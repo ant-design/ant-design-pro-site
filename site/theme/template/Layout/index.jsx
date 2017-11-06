@@ -67,6 +67,11 @@ export default class Layout extends React.PureComponent {
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
 
+    // trigger to redirect to /-cn
+    // if (!/-cn$/.test(pathname)) {
+    //  this.props.router.push(`${pathname}-cn`);
+    // }
+
     this.state = {
       appLocale,
       isMobile,
@@ -89,7 +94,7 @@ export default class Layout extends React.PureComponent {
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <LocaleProvider locale={enUS}>
-          <div className={`page-wrapper ${pathname === '/' && 'index-page-wrapper'}`}>
+          <div className={`page-wrapper ${(pathname === '/' || pathname === '/index-cn') && 'index-page-wrapper'}`}>
             <Header {...restProps} />
             {React.cloneElement(children, { ...children.props, isMobile: this.state.isMobile })}
             <Footer {...restProps} />

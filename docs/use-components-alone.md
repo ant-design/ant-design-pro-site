@@ -1,6 +1,8 @@
 ---
 order: 15
-title: 独立使用 pro 组件
+title:
+  en-US: Use Pro Components Alone
+  zh-CN: 独立使用 Pro 组件 
 type: 进阶
 ---
 

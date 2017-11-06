@@ -1,6 +1,8 @@
 ---
 order: 17
-title: 使用 CLI 工具 
+title:
+  en-US: CLI Tool
+  zh-CN: 使用 CLI 工具
 type: 进阶
 ---
 

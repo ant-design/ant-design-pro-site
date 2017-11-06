@@ -1,6 +1,8 @@
 ---
 order: 12
-title: Mock 和联调
+title:
+  en-US: Mock Data 
+  zh-CN: Mock 和联调 
 type: 进阶
 ---
 

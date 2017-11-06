@@ -131,12 +131,12 @@ class Header extends React.Component {
           </Link>
         </Menu.Item>
         <Menu.Item key="docs">
-          <Link to="/docs/getting-started">
+          <Link to={getLocalizedPathname('/docs/getting-started', isZhCN)}>
             <FormattedMessage id="app.header.menu.docs" />
           </Link>
         </Menu.Item>
         <Menu.Item key="components">
-          <Link to="/components/AvatarList">
+          <Link to={getLocalizedPathname('/components/AvatarList', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>

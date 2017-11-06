@@ -1,6 +1,8 @@
 ---
 order: 21
-title: 常见问题
+title:
+  en-US: FAQ
+  zh-CN: 常见问题
 type: 其他
 ---
 

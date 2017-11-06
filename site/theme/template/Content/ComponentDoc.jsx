@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
-import { Row, Col, Affix } from 'antd';
+import { Row, Col, Affix, Alert } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
@@ -93,6 +93,7 @@ export default class ComponentDoc extends React.PureComponent {
     });
 
     const { title, subtitle, filename } = meta;
+    const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     return (
       <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
         <article>
@@ -115,6 +116,17 @@ export default class ComponentDoc extends React.PureComponent {
               {jumper}
             </ul>
           </Affix>
+          {isNotTranslated && (
+            <Alert
+              type="warning"
+              message={(
+                <span>
+                  This article has not been translated, hope that your can PR to translated it.
+                  <a href="https://github.com/ant-design/ant-design-pro/issues/120"> Help us!</a>
+                </span>
+              )}
+            />
+          )}
           <section className="markdown">
             <h1>
               {title[locale] || title}
