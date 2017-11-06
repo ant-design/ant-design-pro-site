@@ -95,7 +95,9 @@ app.get('home', '/*', 'home.index');
 
 ### 在 Ant Design Pro 中使用前端路由
 
-由于使用了 `react-router@4`，所以引入 `browserHistory` 与原本 `dva` 的方式有所改变，路由包含的信息在 `router.js` 中，不过关于 `history` 的配置是在 `index.js` 入口文件中，传入配置信息给 [dva](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md#dva-api) 构造器即可。
+路由包含的信息在 `router.js` 中，不过关于 `history` 的配置是在 `index.js` 入口文件中，传入配置信息给 [dva](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md#dva-api) 构造器即可。
+
+由于使用了 `react-router@4`，所以引入 `browserHistory` 与原本 `dva` 的方式有所改变。
 
 ```jsx
 import dva from 'dva';
@@ -114,7 +116,7 @@ const app = dva({
 const app = dva();
 ```
 
-接着你需要吧根目录下的 `public/index.html` 文件中引用静态文件的方式改为 __相对路径__：
+接着你需要把根目录下的 `public/index.html` 文件中引用静态文件的方式改为 __相对路径__：
 
 ```diff
 - <link rel="stylesheet" href="index.css" />
@@ -158,3 +160,4 @@ export default RouterConfig;
 可以看到，这里已经使用 `react-router@4` 的方式，按照去中心化的方式设置路由配置。
 
 关于路由更多可以参看 [React Router](https://github.com/ReactTraining/react-router) 。
+关于 `react-router@4` 更多可以参看 [All About React Router 4](https://css-tricks.com/react-router-4/) 。
