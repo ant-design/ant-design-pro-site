@@ -1,6 +1,8 @@
 ---
 order: 14
-title: UI 测试
+title:
+  en-US: UI Test 
+  zh-CN: UI 测试 
 type: 进阶
 ---
 

@@ -1,8 +1,8 @@
 ---
 order: 11
-title: 
+title:
+  en-US: BIZ Icon
   zh-CN: 业务图标
-  en-US: BIZ Icon 
 type: 进阶
 ---
 

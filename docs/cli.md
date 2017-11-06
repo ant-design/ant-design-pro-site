@@ -1,7 +1,9 @@
 ---
 order: 17
-title: CLI 
-type: Advance
+title:
+  en-US: CLI Tool
+  zh-CN: 使用 CLI 工具
+type: 进阶
 ---
 
 为了更好以及高效的开发效率，我们提供了配套的 [ant-design-pro-cli](https://github.com/ant-design/ant-design-pro-cli) 工具。

@@ -1,7 +1,9 @@
 ---
 order: 20
-title: History
-type: Other
+title:
+  en-US: History 
+  zh-CN: 更新日志
+type: 其他
 ---
 
 `2017-11-02`

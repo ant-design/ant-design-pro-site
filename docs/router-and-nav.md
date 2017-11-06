@@ -1,6 +1,8 @@
 ---
 order: 2
-title: 路由和菜单
+title:
+  en-US: Router and Nav 
+  zh-CN: 路由和菜单 
 type: 入门
 ---
 

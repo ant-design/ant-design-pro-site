@@ -1,7 +1,9 @@
 ---
 order: 6
-title: Server 
-type: Basic
+title:
+  en-US: Work With Server
+  zh-CN: 和服务端进行交互 
+type: 入门
 ---
 
 Ant Design Pro 是一套基于 React 技术栈的单页面应用（[什么是单页面应用？](http://tinyambition.com/Single-Page-App-Break/%E7%AC%AC01%E7%AB%A0%20%E4%BD%95%E4%B8%BA%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8.html)），我们提供的是前端代码和本地模拟数据的开发模式，

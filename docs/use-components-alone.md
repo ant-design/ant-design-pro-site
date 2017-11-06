@@ -1,7 +1,9 @@
 ---
 order: 15
-title: Use Pro Components
-type: Advance
+title:
+  en-US: Use Pro Components Alone
+  zh-CN: 独立使用 Pro 组件 
+type: 进阶
 ---
 
 Ant Design Pro 脚手架内提供了一套默认[业务组件](http://pro.ant.design/components)，这些组件抽象了控制台业务中的一些常见区块。我们将持续维护和迭代这些组件，为中后台业务提供比 Ant Design 基础组件更高级别的抽象。

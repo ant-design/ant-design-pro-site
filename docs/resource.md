@@ -1,6 +1,8 @@
 ---
 order: 22
-title: 设计资源
+title:
+  en-US: Resource
+  zh-CN: 设计资源 
 type: 其他
 ---
 

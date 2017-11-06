@@ -1,7 +1,9 @@
 ---
 order: 0
-title: Getting started
-type: Basic
+title:
+  en-US: Getting started
+  zh-CN: 开始使用
+type: 入门
 ---
 
 ## 写在前面
