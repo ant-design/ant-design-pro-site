@@ -112,7 +112,7 @@ export default class MainContent extends React.PureComponent {
     const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').replace('scaffold/src/', '');
     const child = !item.link ? (
       <Link
-        to={url}
+        to={utils.getLocalizedPathname(/^components/.test(url) ? `${url}/` : url, locale === 'zh-CN')}
         disabled={disabled}
       >
         {text}
