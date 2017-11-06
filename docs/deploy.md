@@ -141,15 +141,15 @@ import UserLayout from './layouts/UserLayout';
 + function RouterConfig() {
   return (
     <LocaleProvider locale={zhCN}>
-      - <Router history={history}>
-      + <BrowserRouter>
+-     <Router history={history}>
++     <BrowserRouter>
         <Switch>
           <Route path="/user" component={UserLayout} />
           <Route path="/" component={BasicLayout} />
           <Redirect to="/" />
         </Switch>
-      - </Router>
-      + </BrowserRouter>
+-     </Router>
++     </BrowserRouter>
     </LocaleProvider>
   );
 }
