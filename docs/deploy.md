@@ -126,37 +126,6 @@ const app = dva();
 + <script src="/index.js"></script>
 ```
 
-最后一步，需要修改 `src/router.js` 中配置 `history` 的代码：
-
-```diff
-import React from 'react';
-- import { Router, Route, Switch, Redirect } from 'dva/router';
-+ import { Router, Route, Switch, Redirect, BrowserRouter } from 'dva/router';
-import { LocaleProvider } from 'antd';
-import zhCN from 'antd/lib/locale-provider/zh_CN';
-import BasicLayout from './layouts/BasicLayout';
-import UserLayout from './layouts/UserLayout';
-
-- function RouterConfig({ history }) {
-+ function RouterConfig() {
-  return (
-    <LocaleProvider locale={zhCN}>
--     <Router history={history}>
-+     <BrowserRouter>
-        <Switch>
-          <Route path="/user" component={UserLayout} />
-          <Route path="/" component={BasicLayout} />
-          <Redirect to="/" />
-        </Switch>
--     </Router>
-+     </BrowserRouter>
-    </LocaleProvider>
-  );
-}
-
-export default RouterConfig;
-```
-
 可以看到，这里已经使用 `react-router@4` 的方式，按照去中心化的方式设置路由配置。
 
 关于路由更多可以参看 [React Router](https://github.com/ReactTraining/react-router) 。
