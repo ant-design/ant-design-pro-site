@@ -95,12 +95,12 @@ app.get('home', '/*', 'home.index');
 
 ### 在 Ant Design Pro 中使用前端路由
 
-路由包含的信息在 `router.js` 中，不过关于 `history` 的配置是在 `index.js` 入口文件中，传入配置信息给 [dva](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md#dva-api) 构造器即可。
+由于使用了 `react-router@4`，所以引入 `browserHistory` 与原本 `dva` 的方式有所改变，路由包含的信息在 `router.js` 中，不过关于 `history` 的配置是在 `index.js` 入口文件中，传入配置信息给 [dva](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md#dva-api) 构造器即可。
 
-```
+```jsx
 import dva from 'dva';
 // 引入 browserHistory
-import { browserHistory } from 'dva/router';
+import browserHistory from 'history/createBrowserHistory'
 import models from './models';
 
 import './index.less';
@@ -113,5 +113,48 @@ const app = dva({
 // default hashHistroy
 const app = dva();
 ```
+
+接着你需要吧根目录下的 `public/index.html` 文件中引用静态文件的方式改为 __相对路径__：
+
+```diff
+- <link rel="stylesheet" href="index.css" />
++ <link rel="stylesheet" href="/index.css" />
+
+- <script src="index.js"></script>
++ <script src="/index.js"></script>
+```
+
+最后一步，需要修改 `src/router.js` 中配置 `history` 的代码：
+
+```diff
+import React from 'react';
+- import { Router, Route, Switch, Redirect } from 'dva/router';
++ import { Router, Route, Switch, Redirect, BrowserRouter } from 'dva/router';
+import { LocaleProvider } from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN';
+import BasicLayout from './layouts/BasicLayout';
+import UserLayout from './layouts/UserLayout';
+
+- function RouterConfig({ history }) {
++ function RouterConfig() {
+  return (
+    <LocaleProvider locale={zhCN}>
+      - <Router history={history}>
+      + <BrowserRouter>
+        <Switch>
+          <Route path="/user" component={UserLayout} />
+          <Route path="/" component={BasicLayout} />
+          <Redirect to="/" />
+        </Switch>
+      - </Router>
+      + </BrowserRouter>
+    </LocaleProvider>
+  );
+}
+
+export default RouterConfig;
+```
+
+可以看到，这里已经使用 `react-router@4` 的方式，按照去中心化的方式设置路由配置。
 
 关于路由更多可以参看 [React Router](https://github.com/ReactTraining/react-router) 。
