@@ -111,7 +111,7 @@ import './index.less';
 
 // use browserHistory
 const app = dva({
-  history: browserHistory,
+  history: browserHistory(),
 });
 
 // default hashHistroy
