@@ -2,7 +2,7 @@
 order: 15
 title:
   en-US: Use Pro Components Alone
-  zh-CN: 独立使用 Pro 组件 
+  zh-CN: 独立使用 Pro 组件
 type: 进阶
 ---
 
@@ -18,6 +18,10 @@ Ant Design Pro 脚手架内提供了一套默认[业务组件](http://pro.ant.de
 
 ```bash
 $ npm install ant-design-pro --save
+```
+
+```jsx
+import 'ant-design-pro/dist/ant-design-pro.css'; // 统一引入样式
 ```
 
 然后你就可以像使用 Ant Design 组件一样调用 pro 组件了。
