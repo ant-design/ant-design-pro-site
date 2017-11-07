@@ -5,6 +5,9 @@ module.exports = {
   data: appLocaleData,
   messages: {
     'app.header.search': 'Search...',
+    'app.header.search.all': 'Search in Google: ',
+    'app.header.search.doc': 'Docs',
+    'app.header.search.component': 'Components',
     'app.header.menu.home': 'Home',
     'app.header.menu.docs': 'Docs',
     'app.header.menu.components': 'Components',

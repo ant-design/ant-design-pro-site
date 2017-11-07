@@ -5,6 +5,9 @@ module.exports = {
   data: appLocaleData,
   messages: {
     'app.header.search': '搜索...',
+    'app.header.search.all': '全文本搜索：',
+    'app.header.search.doc': '文档',
+    'app.header.search.component': '组件',
     'app.header.menu.home': '首页',
     'app.header.menu.docs': '文档',
     'app.header.menu.components': '组件',

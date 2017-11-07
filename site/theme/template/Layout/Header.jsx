@@ -153,23 +153,23 @@ class Header extends React.Component {
     );
 
     const componentSearchOption = searchOption.filter(v => v.type === 'component').map(
-      d => <Option key={d.url}>{d.title}</Option>
+      d => <Option key={d.url}>{d.title} {isZhCN && d.subTitle}</Option>
     );
     const docSearchOption = searchOption.filter(v => v.type === 'doc').map(
-      d => <Option key={d.url}>{d.title}</Option>
+      d => <Option key={d.url}>{isZhCN ? d.title : (d['title-en'] || d.title)}</Option>
     );
 
     const options = [];
 
     if (componentSearchOption) {
-      options.push(<OptGroup label="组件" key="component">{componentSearchOption}</OptGroup>);
+      options.push(<OptGroup label={intl.formatMessage({ id: 'app.header.search.component' })} key="component">{componentSearchOption}</OptGroup>);
     }
     if (docSearchOption) {
-      options.push(<OptGroup label="文档" key="doc">{docSearchOption}</OptGroup>);
+      options.push(<OptGroup label={intl.formatMessage({ id: 'app.header.search.doc' })} key="doc">{docSearchOption}</OptGroup>);
     }
 
     if (inputValue) {
-      options.push(<Option key={`${textSearchUrl}${inputValue}`}>全文本搜索: {inputValue}</Option>);
+      options.push(<Option key={`${textSearchUrl}${inputValue}`}><FormattedMessage id="app.header.search.all" />{inputValue}</Option>);
     }
 
     return (
