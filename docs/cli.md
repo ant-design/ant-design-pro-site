@@ -10,8 +10,8 @@ type: 进阶
 
 pro cli 提供了如下功能：
 
-- `pro init` 初始化脚手架，会自动将最新的 Ant Design Pro 脚手架下载到本地
-- `pro new` 新建一个模板，包含 model、service、page、component
+- `pro new` 新建一个脚手架，会自动将最新的 Ant Design Pro 脚手架下载到本地并安装
+- `pro generate` 新建一个模板，包含 model、service、page、component
 
 ## 如何使用
 
@@ -21,7 +21,7 @@ pro cli 提供了如下功能：
 $ npm install ant-design-pro-cli -g
 ```
 
-## 新建模板
+## 新建脚手架
 
 运行
 
@@ -29,9 +29,17 @@ $ npm install ant-design-pro-cli -g
 $ pro new
 ```
 
+## 新建模板
+
+运行
+
+```bash
+$ pro generate 
+```
+
 则会显示富交互的命令行提示界面：
 
-<img width="500" src="https://gw.alipayobjects.com/zos/rmsportal/jtRFEJZANqqjeoEbylhV.png" />
+<img width="400" src="https://gw.alipayobjects.com/zos/rmsportal/VhiILFUpYxGUBgbnuUny.pnghttps://gw.alipayobjects.com/zos/rmsportal/jtRFEJZANqqjeoEbylhV.png" />
 
 然后通过交互提示就可以添加 `pro` 提供的标准模板。
 

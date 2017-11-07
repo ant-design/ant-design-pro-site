@@ -67,11 +67,6 @@ export default class Layout extends React.PureComponent {
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
 
-    // trigger to redirect to /-cn
-    // if (!/-cn$/.test(pathname)) {
-    //  this.props.router.push(`${pathname}-cn`);
-    // }
-
     this.state = {
       appLocale,
       isMobile,
@@ -90,8 +85,6 @@ export default class Layout extends React.PureComponent {
     const { children, ...restProps } = this.props;
     const { pathname } = this.props.location;
     const { appLocale } = this.state;
-
-    console.log(pathname)
 
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>

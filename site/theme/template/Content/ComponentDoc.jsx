@@ -145,7 +145,7 @@ export default class ComponentDoc extends React.PureComponent {
                   .concat(getChildren(content))
               )
             }
-            <p>引用方式：</p>
+            <p><FormattedMessage id="app.component.refer.title" /></p>
             <pre className="language-jsx">
               <code>
                 <span className="token keyword">import </span>
@@ -155,7 +155,7 @@ export default class ComponentDoc extends React.PureComponent {
                 <span className="token punctuation">;</span>
               </code>
             </pre>
-            <p>详细使用方式请参照 <a href="/docs/use-components-alone">独立使用 pro 组件</a>。</p>
+            <p><FormattedMessage id="app.component.refer.desc" /> <a href="/docs/use-components-alone"><FormattedMessage id="app.component.refer.link" /></a></p>
             <h2 style={{ marginBottom: 32 }}>
               <FormattedMessage id="app.component.examples" />
             </h2>
