@@ -91,10 +91,12 @@ export default class Layout extends React.PureComponent {
     const { pathname } = this.props.location;
     const { appLocale } = this.state;
 
+    console.log(pathname)
+
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <LocaleProvider locale={enUS}>
-          <div className={`page-wrapper ${(pathname === '/' || pathname === '/index-cn') && 'index-page-wrapper'}`}>
+          <div className={`page-wrapper ${(pathname === '/' || pathname === 'index-cn') && 'index-page-wrapper'}`}>
             <Header {...restProps} />
             {React.cloneElement(children, { ...children.props, isMobile: this.state.isMobile })}
             <Footer {...restProps} />
