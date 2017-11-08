@@ -6,39 +6,39 @@ type: Introduction
 
 ## Foreword
 
-Ant Design Pro is a production-ready solution for the admin interface. Continue on the design principles brought by [Ant Design](http://ant.design/) and with the aim of building high-level components from the basics ones; we have developed patterns, business components, and relevant design resources, to improve the user and development experience for the admin interface. 
-With developers' feedback, we will increment, build and consolidate patterns and corresponding implementation, conclude best practices, components, and business logic.
+Ant Design Pro is a production-ready solution for the admin interface. Continue on the design principles brought by [Ant Design](http://ant.design/) and with the aim of building high-level components from the basics ones; we have developed templates, components, and relevant design resources, to improve the user and development experience for the admin interface. 
+With developers' feedback, we will increment, build and consolidate templates and corresponding implementation, conclude best practices, components, and business logic.
 We welcome your particiation very much.
-With those objectives, we have found discovered the following patterns, and have built a scaffold based on React.js, which helps you prototyping production-ready admin interface.
+With those objectives, we built the following templates, and have built a scaffold based on React.js, which should help you prototyping production-ready admin interface.
 
 ```
 - Dashboard
   - Analytic
   - Monitor
-  - General
+  - Workspace
 - Form
-  - Basic
-  - Step-based
-  - Advanced
+  - Basic Form
+  - Step Form
+  - Advanced From
 - List
-  - Query Table
-  - Basic
-  - Card
-  - Search (Projects, Applications, Articles)
-- Detail
-  - Basic
-  - Advanced
+  - Standard Table
+  - Standard List
+  - Card List
+  - Search List (Project/Applications/Article)
+- Profile
+  - Simple Profile
+  - Advanced Profile
 - Result
   - Success
-  - Failure
+  - Failed
 - Exception
-  - 403 Unauthorized
-  - 404 Not Found
-  - 500 Internal Error
-- Account
-  - Log-in
-  - Sign-up
-  - Sign-up success
+  - 403
+  - 404
+  - 500
+- User
+  - Login
+  - Register
+  - Register Result
 ```
 
 ### For Designer
@@ -47,7 +47,7 @@ If you are product manager or designer, you can find [design kit](/docs/resource
 
 ### For Developer
 
-We will give you a detailed introduction on how to use this scaffold.
+We will give you a detailed introduction on how to use.
 
 ## Preparation
 
@@ -66,7 +66,7 @@ $ cd my-project
 
 ### Download Package
 
-Download [https://github.com/ant-design/ant-design-pro/archive/master.zip](https://github.com/ant-design/ant-design-pro/archive/master.zip), and unzip.
+Download [https://github.com/ant-design/ant-design-pro/archive/master.zip](https://github.com/ant-design/ant-design-pro/archive/master.zip), and un-archive.
 
 ### Use Command Line
 
@@ -88,7 +88,7 @@ We have provided a scaffold for you, includes common routes for admins, the dire
 │   ├── favicon.ico          # Favicon
 │   └── index.html           # HTML Entry File
 ├── src
-│   ├── common               # Common Configuration: Nav Bar
+│   ├── common               # Common Configuration like Navigation
 │   ├── components           # Components
 │   ├── e2e                  # Integrated Test Case
 │   ├── layouts              # Common Layouts
@@ -102,7 +102,7 @@ We have provided a scaffold for you, includes common routes for admins, the dire
 │   ├── index.js             # App Entry
 │   ├── index.less           # Global Stylesheet
 │   └── router.js            # Route Entry File
-├── tests                    # Tests
+├── tests                    # Tests Configuration
 ├── README.md
 └── package.json
 ```
