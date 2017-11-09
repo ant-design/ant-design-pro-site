@@ -1,6 +1,6 @@
 {
   "name": "ant-design-pro",
-  "version": "0.2.2",
+  "version": "0.2.3-rc.0",
   "description": "An enterprise-class UI design language and React-based implementation",
   "license": "MIT",
   "repository": {
@@ -44,6 +44,7 @@
     "numeral": "^2.0.6",
     "prop-types": "^15.5.10",
     "qs": "^6.5.0",
+    "react-container-query": "^0.9.1",
     "react-document-title": "^2.0.3",
     "react-fittext": "^1.0.0"
   }
