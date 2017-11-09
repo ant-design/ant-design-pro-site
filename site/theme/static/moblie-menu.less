@@ -8,9 +8,7 @@
   z-index: 9999;
   pointer-events: none;
   > * {
-    transition: transform .3s @ease-in-out-circ, 
-                opacity .3s @ease-in-out-circ, 
-                box-shaow .3s @ease-in-out-circ;
+    transition: transform .3s @ease-in-out-circ, opacity .3s @ease-in-out-circ, box-shaow .3s @ease-in-out-circ;
   }
   &-bg {
     background: #000;
@@ -24,7 +22,7 @@
     width: 60vw;
     background: #fff;
     height: 100%;
-    overflow: auto; 
+    overflow: auto;
     position: relative;
     z-index: 1;
     padding-top: 40px;
@@ -51,7 +49,7 @@
       left: -2px;
       width: 42px;
       height: 40px;
-      box-shadow: 2px 2px 8px rgba(0,0,0,.15);
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, .15);
       background: #fff;
       border-radius: 0 4px 4px 0;
     }
@@ -68,14 +66,15 @@
       }
       &-content {
         transform: translateX(0);
-        box-shadow: 2px 2px 8px rgba(0,0,0,.15);
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, .15);
       }
       &-button {
         transform: translateX(60vw);
       }
     }
   }
-  .ant-menu-inline .ant-menu-item:after, .ant-menu-vertical .ant-menu-item:after{
+  .ant-menu-inline .ant-menu-item:after,
+  .ant-menu-vertical .ant-menu-item:after {
     left: 0;
     right: auto;
   }
@@ -83,6 +82,4 @@
 
 .content-open {
   transform: translateX(60vw);
-  // height: 100vh;
-  // overflow: hidden;
 }

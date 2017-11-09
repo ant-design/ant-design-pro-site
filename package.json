@@ -67,6 +67,8 @@
     "react-dom": "^15.6.2",
     "shelljs": "^0.7.8",
     "style-loader": "^0.18.2",
+    "stylelint": "^8.0.0",
+    "stylelint-config-standard": "^17.0.0",
     "webpack": "^3.6.0"
   },
   "scripts": {
@@ -81,8 +83,9 @@
     "site": "rm -rf _site && npm run bisheng-build && gh-pages -d _site",
     "components-publish": "./tool/bin/let -c && cd ./config/components && npm publish",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
-    "lint": "npm run lint:es && npm run lint:demo",
+    "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint:es": "eslint ./ --ext '.js,.jsx'",
+    "lint:style": "stylelint \"site/**/*.less\" --syntax less",
     "lint:demo": "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
     "test": "npm run lint"
   },
