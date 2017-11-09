@@ -84,6 +84,7 @@ export default class Article extends React.PureComponent {
                   <a href="https://github.com/ant-design/ant-design-pro/issues/120"> Help us!</a>
                 </span>
               )}
+              style={{ marginBottom: 24 }}
             />
           )}
           <h1>

@@ -236,15 +236,11 @@ export default class MainContent extends React.PureComponent {
     return (
       <div className="main-wrapper">
         <Row>
-          {props.isMobile ? (
-            <MobileMenu>
+          {props.isMobile ? <MobileMenu>{menuChild}</MobileMenu> : (
+            <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
               {menuChild}
-            </MobileMenu>) :
-            (
-              <Col xxl={4} xl={5} lg={6} md={14} sm={14} xs={14} className="main-menu">
-                {menuChild}
-              </Col>
-            )}
+            </Col>
+          )}
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?

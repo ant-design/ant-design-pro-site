@@ -203,6 +203,14 @@
     h2 {
       margin-top: 16px;
     }
+    .bottom-bar {
+      text-align: center;
+      .translate-button {
+        width: auto;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+    }
   }
 
   .prev-next-nav {
@@ -221,52 +229,19 @@
     width: 200px;
   }
 
-  .header-meta{
+  .header-meta {
     padding-right: 80px;
   }
 
-  #footer {
-    .footer-wrap{
-      padding: 0;
-    }
-    .bottom-bar {
-      height: auto;
-      line-height: unset;
-      text-align: center;
-      > div {
-        padding: 20px 0;
-        text-align: center;
-        > span {
-          display: inline-block;
-          line-height: 24px;
-          margin: auto !important;
-          &:nth-child(1) {
-            margin-right: 11px !important;
-          }
-          &:nth-child(3) {
-            display: block;
-          }
-        }
-      }
-    }
-     .ant-row {
-       > div{
-         border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-         padding: 20px 0;
-       }
-      .footer-center{
-        text-align: center;
-      }
-    }
-  }
-
-  .home-banner-image{
+  .home-banner-image {
     display: block;
   }
-  .home-banner-anim{
+
+  .home-banner-anim {
     display: none;
   }
-  .banner-wrapper{
+
+  .banner-wrapper {
     width: 80%;
     height: calc(~"100vh - 64px");
     overflow: hidden;
@@ -276,10 +251,9 @@
       width: 100%;
       height: auto;
     }
-    .banner-title-wrapper{
+    .banner-title-wrapper {
       text-align: center;
       max-width: 480px;
-
 
       .button-wrapper {
         text-align: center;
@@ -288,34 +262,40 @@
         a{
           display: inline-block;
         }
-        .github-btn{
+        .github-btn {
           display: flex;
           margin: 20px auto;
           justify-content: center;
         }
       }
     }
-    .banner-image-wrapper{
+    .banner-image-wrapper {
       margin: 10vh auto 5vh;
     }
   }
-  .home-page{
+  .home-page {
     width: 90%;
   }
-  .home-code, .page-content{
+  .home-code, .page-content {
     width: 100%;
   }
+  #footer {
+    .footer-wrap {
+      padding: 0;
+    }
+  }
 }
+
 @media only screen and (max-width: @screen-xs) {
-  .page1{
+  .page1 {
     height: 2400px;
   }
-  .page2{
+  .page2 {
     height: 628px;
   }
   .page1-box-wrapper {
     display: block;
-    li{
+    li {
       width: 80%;
       display: block;
       margin: 0 auto 100px;
@@ -324,21 +304,21 @@
       }
     }
   }
-  .banner-wrapper .banner-title-wrapper{
-    h1{
-      font-size: 28px;;
+  .banner-wrapper .banner-title-wrapper {
+    h1 {
+      font-size: 28px;
     }
-    p{
+    p {
       font-size: 16px;
     }
   }
 }
 
-@media only screen and (max-width: 320px){
-  .home-page h2{
+@media only screen and (max-width: 320px) {
+  .home-page h2 {
     font-size: 24px;
   }
-  .page2{
+  .page2 {
     height: 648px;
   }
 }

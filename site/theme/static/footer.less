@@ -58,18 +58,20 @@ footer {
   }
   .bottom-bar {
     border-top: 1px solid @border-color;
-    height: 64px;
-    line-height: 64px;
+    text-align: right;
+    padding: 20px @padding-space;
+    margin: 0;
+    line-height: 24px;
     a {
       color: rgba(255, 255, 255, 0.65);
       &:hover {
         color: #fff;
       }
     }
-    > div {
-      text-align: right;
-      padding: 0 @padding-space;
-      margin: 0;
+    .translate-button {
+      text-align: left;
+      width: 200px;
+      margin: 0 auto;
     }
   }
   .footer-logo {

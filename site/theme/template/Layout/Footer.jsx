@@ -135,15 +135,15 @@ class Footer extends React.Component {
             </Col>
           </Row>
         </div>
-        <div className="bottom-bar">
-          <div>
-            <Col span={6}>
-              <div style={{ textAlign: 'left', width: 200, margin: '0 auto' }}>
-                <Button ghost size="small" onClick={this.handleLangChange}>
-                  <FormattedMessage id="app.header.lang" />
-                </Button>
-              </div>
-            </Col>
+        <Row className="bottom-bar">
+          <Col lg={6} sm={24}>
+            <div className="translate-button">
+              <Button ghost size="small" onClick={this.handleLangChange}>
+                <FormattedMessage id="app.header.lang" />
+              </Button>
+            </div>
+          </Col>
+          <Col lg={18} sm={24}>
             <span
               style={{ lineHeight: '16px', paddingRight: 12, marginRight: 11, borderRight: '1px solid rgba(255, 255, 255, 0.55)' }}
             >
@@ -166,8 +166,8 @@ class Footer extends React.Component {
             </span>
             <span style={{ marginRight: 12 }}>ICP 证浙 B2-2-100257</span>
             <span style={{ marginRight: 12 }}>Copyright © <FormattedMessage id="app.footer.company" /></span>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </footer>
     );
   }
