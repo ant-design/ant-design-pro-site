@@ -125,6 +125,7 @@ export default class ComponentDoc extends React.PureComponent {
                   <a href="https://github.com/ant-design/ant-design-pro/issues/120"> Help us!</a>
                 </span>
               )}
+              style={{ marginBottom: 24 }}
             />
           )}
           <section className="markdown">
