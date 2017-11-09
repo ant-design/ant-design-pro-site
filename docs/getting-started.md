@@ -1,7 +1,7 @@
 ---
 order: 0
 title:
-  en-US: Getting started
+  en-US: Getting Started
   zh-CN: 开始使用
 type: 入门
 ---

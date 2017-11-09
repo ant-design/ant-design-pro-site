@@ -1,6 +1,6 @@
 ---
 order: 22
-title: Resource
+title: Design Kit
 type: Other
 ---
 
