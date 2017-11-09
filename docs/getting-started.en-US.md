@@ -1,15 +1,16 @@
 ---
 order: 0
-title: Getting started
+title: Getting Started
 type: Introduction
 ---
 
 ## Foreword
 
-Ant Design Pro is a production-ready solution for the admin interface. Continue on the design principles brought by [Ant Design](http://ant.design/) and with the aim of building high-level components from the basics ones; we have developed templates, components, and relevant design resources, to improve the user and development experience for the admin interface. 
-With developers' feedback, we will increment, build and consolidate templates and corresponding implementation, conclude best practices, components, and business logic.
-We welcome your particiation very much.
-With those objectives, we built the following templates, and have built a scaffold based on React.js, which should help you prototyping production-ready admin interface.
+
+Ant Design Pro is a production-ready solution for admin interfaces. Continue on the design specifications brought by [Ant Design](http://ant.design/) and with the aim of building high-level components from the basics ones; we have developed templates, components, and corresponding design kit to improve the user and development experience for admin interfaces. 
+With developers' feedback, we will increment, build and consolidate those templates and implementation, conclude best practices for components and business logic. Your help is much welcomed.
+Bear those objectives in mind, we have built the following templates, and have built a scaffold based on React.js, which should help you prototyping production-ready admin interface.
+
 
 ```
 - Dashboard
@@ -43,32 +44,32 @@ With those objectives, we built the following templates, and have built a scaffo
 
 ### For Designer
 
-If you are product manager or designer, you can find [design kit](/docs/resource) here.
+If you are product manager or designer, you can find the [design kit](/docs/resource) here.
 
 ### For Developer
 
-We will give you a detailed introduction on how to use.
+We will walk you through the steps to get started.
 
 ## Preparation
 
-You will needs [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](http://es6.ruanyifeng.com/), [React](http://facebook.github.io/react/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/g2/doc/index.html) and [antd](https://ant.design/docs/react/introduce). It would be very helpful if you have pre-existing knowledge on those.
+You will needs [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](http://es6.ruanyifeng.com/), [React](http://facebook.github.io/react/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/g2/doc/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.
 
 ## Installation
 
 There are three ways to install.
 
-### Clone Git Repository
+### Clone the Git Repository
 
 ```bash
 $ git clone --depth=1 git@github.com:ant-design/ant-design-pro.git my-project
 $ cd my-project
 ```
 
-### Download Package
+### Download the Package
 
 Download [https://github.com/ant-design/ant-design-pro/archive/master.zip](https://github.com/ant-design/ant-design-pro/archive/master.zip), and un-archive.
 
-### Use Command Line
+### Use the Command Line
 
 You can also use [ant-design-pro-cli](https://github.com/ant-design/ant-design-pro-cli).
 
