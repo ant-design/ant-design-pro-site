@@ -6,11 +6,9 @@ type: Introduction
 
 ## Foreword
 
-
 Ant Design Pro is a production-ready solution for admin interfaces. Continue on the design specifications brought by [Ant Design](http://ant.design/) and with the aim of building high-level components from the basics ones; we have developed templates, components, and corresponding design kit to improve the user and development experience for admin interfaces. 
 With developers' feedback, we will increment, build and consolidate those templates and implementation, conclude best practices for components and business logic. Your help is much welcomed.
 Bear those objectives in mind, we have built the following templates, and have built a scaffold based on React.js, which should help you prototyping production-ready admin interface.
-
 
 ```
 - Dashboard
@@ -116,8 +114,7 @@ Install Dependencies
 $ npm install
 ```
 
-<!-- > If you encounter network issues, You may use [cnpm](https://cnpmjs.org/) as an alternative npm source -->
-<!--  Commented out as it is most likely only relevant for users in China. -->
+> If you encounter network issues, You may use [cnpm](https://cnpmjs.org/) as an alternative npm source commented out as it is most likely only relevant for users in China.
 
 ```bash
 $ npm start

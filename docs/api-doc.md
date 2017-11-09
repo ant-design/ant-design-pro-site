@@ -78,4 +78,16 @@ export default format(proxy);
 - $params: 接口参数说明，对象描述各个参数的意义
 - $body: 数据返回结果，通常就是 mock 的数据
 
+<img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/PVfsHataJahAwAVaKDtp.png" />
+
+### 本地测试 mock 数据和真实端口
+
+当启动本地的 API Docs 站点以后，可以点击 `send` 按钮发送 `POST` 或者 `GET` 请求，并且返回值会在弹出框中显示：
+
+<img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/mkgrIEbmhXZFbSOWvTCz.png" />
+
+其中需要注意的是，如果启动 API Docs 站点时，没有加端口号，那么这里的返回数据是静态数据，如果加了端口号并且本地也同时跑起了项目，那么就会直接返回实际数据。
+
+如果你想直接访问线上的真实数据，那么需要改写当前项目的 `.roadhog.mock.js`，[重定向](https://github.com/sorrycc/roadhog#mock)到线上路径。
+
 可以通过访问 [roadhog-api-doc github](https://github.com/nikogu/roadhog-api-doc) 了解更多。
