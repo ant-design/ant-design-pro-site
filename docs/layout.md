@@ -58,6 +58,9 @@ React.Children.forEach(children, function[(thisArg)])
 const data = [{
   component: app => dynamic({
     app,
+    models: () => [
+      import('../models/user'),   // load demand
+    ],
     component: () => import('../layouts/BasicLayout'),  // dynamic route
   }),
   name: '首页',  // for breadcrumb
@@ -77,6 +80,9 @@ const data = [{
       path: 'login',
       component: app => dynamic({
         app,
+        models: () => [
+          import('../models/login'),
+        ],
         component: () => import('../routes/User/Login'),
       }),
     }, {
@@ -84,6 +90,9 @@ const data = [{
       path: 'register',
       component: app => dynamic({
         app,
+        models: () => [
+          import('../models/register'),
+        ],
         component: () => import('../routes/User/Register'),
       }),
     }, {

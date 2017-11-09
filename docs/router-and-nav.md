@@ -51,6 +51,9 @@ type: 入门
   icon: 'file',              // 页面图标，会展示在菜单栏中
   component: app => dynamic({
     app,
+    models: () => [
+      import('../models/NewPageModel'),
+    ],                       // 动态引入页面需要绑定的models
     component: () => import('../routes/NewPage'),
   }),                        // 动态引入页面对应的组件
 }
@@ -78,6 +81,9 @@ type: 入门
       path: 'new-page',
       component: app => dynamic({
         app,
+        models: () => [
+          import('../models/NewPageModel'),
+        ],
         component: () => import('../routes/NewPage'),
       }),
     }],
