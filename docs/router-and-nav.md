@@ -49,7 +49,10 @@ type: 入门
   name: '新页面',             // 页面名称，会展示在菜单栏中
   path: 'new',               // 匹配的路由
   icon: 'file',              // 页面图标，会展示在菜单栏中
-  component: NewPage,        // 页面对应的组件，记得在页头引入 `import NewPage from '../routes/NewPage';`
+  component: app => dynamic({
+    app,
+    component: () => import('../routes/NewPage'),
+  }),                        // 动态引入页面对应的组件
 }
 ```
 
@@ -61,7 +64,10 @@ type: 入门
 
 ```js
 {
-  component: NewLayout,       // 新建的模板
+  component: app => dynamic({
+    app,
+    component: () => import('../layouts/NewLayout'),
+  }),                         // 新建的模板，使用`dynamic`动态引入
   layout: 'NewLayout',        // 标记，生成路由时会用到
   children: [{
     name: '新布局',            // 新布局下的页面都可以放到这里
@@ -70,7 +76,10 @@ type: 入门
     children: [{
       name: '新页面',
       path: 'new-page',
-      component: NewPage,
+      component: app => dynamic({
+        app,
+        component: () => import('../routes/NewPage'),
+      }),
     }],
   }],
 }
@@ -86,7 +95,7 @@ type: 入门
         exact={item.exact}
         key={item.path}
         path={item.path}
-        component={item.component}
+        component={item.component(this.props.app)}         // 将`app`参数传入，构建动态路由
       />
     )
   )

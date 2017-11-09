@@ -52,16 +52,22 @@ React.Children.forEach(children, function[(thisArg)])
 
 ### 如何使用 Ant Design Pro 布局
 
-我们为了统一方便的管理路由和页面的关系，将配置信息统一抽离到 `common/nav.js` 下，通过如下配置：
+我们为了统一方便的管理路由和页面的关系，将配置信息统一抽离到 `common/nav.js` 下，同时应用动态路由，通过如下配置：
 
 ```jsx
 const data = [{
-  component: BasicLayout,
+  component: app => dynamic({
+    app,
+    component: () => import('../layouts/BasicLayout'),  // dynamic route
+  }),
   name: '首页',  // for breadcrumb
   path: '',
   children: [{...}],
 }, {
-  component: UserLayout,
+  component: app => dynamic({
+    app,
+    component: () => import('../layouts/UserLayout'),
+  }),
   children: [{
     name: '帐户',
     icon: 'user',
@@ -69,15 +75,24 @@ const data = [{
     children: [{
       name: '登录',
       path: 'login',
-      component: Login,
+      component: app => dynamic({
+        app,
+        component: () => import('../routes/User/Login'),
+      }),
     }, {
       name: '注册',
       path: 'register',
-      component: Register,
+      component: app => dynamic({
+        app,
+        component: () => import('../routes/User/Register'),
+      }),
     }, {
       name: '注册结果',
       path: 'register-result',
-      component: RegisterResult,
+      component: app => dynamic({
+        app,
+        component: () => import('../routes/User/RegisterResult'),
+      }),
     }],
   }],
 }];
