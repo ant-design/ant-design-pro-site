@@ -6,9 +6,9 @@ title:
 type: 其他
 ---
 
-`2017-11-09`
-
 ### 0.2.2
+
+`2017-11-09`
 
 - 🌟 开放国际化的支持。[#120](https://github.com/ant-design/ant-design-pro/issues/120)
 - 🌟 优化多处细节样式问题，使得整体观感更加精细。
@@ -20,9 +20,9 @@ type: 其他
   - 🐞 修复 HeaderSearch `onPressEnter` 方法获取不到参数的问题。[#131](https://github.com/ant-design/ant-design-pro/issues/131)
   - 🌟 新增多行省略文本组件 Ellipsis。[#133](https://github.com/ant-design/ant-design-pro/issues/133)
 
-`2017-11-02`
-
 ### 0.2.1
+
+`2017-11-02`
 
 - 🐞 修复组件包依赖错误以及 `module export` 异常的问题。[#73](https://github.com/ant-design/ant-design-pro/issues/73)
 - 脚手架
@@ -33,9 +33,10 @@ type: 其他
 - 组件
   - 📱 优化 Pie 组件的响应式。[8d9b7cf](https://github.com/ant-design/ant-design-pro/commit/8d9b7cfd94bc45adb4b26e44ff9ec83ea760dacd) [84ebabf](https://github.com/ant-design/ant-design-pro/commit/84ebabf53daa609c830d331594dd03772bbf3599)
 
-`2017-10-31`
 
 ### 0.2.0
+
+`2017-10-31`
 
 - 📱 模板响应式全面优化升级。
 - 🌟 模板整体设计细节全面优化升级。
