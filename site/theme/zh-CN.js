@@ -60,6 +60,7 @@ module.exports = {
     'app.footer.discuss-cn': '在线讨论',
     'app.footer.bug-report': '报告 Bug',
     'app.footer.issues': '讨论列表',
+    'app.footer.work-with-us': '加入我们',
     'app.footer.version': '文档版本：',
     'app.footer.author': '蚂蚁金服体验技术部出品 @ AFX',
     'app.footer.resources': '相关资源',

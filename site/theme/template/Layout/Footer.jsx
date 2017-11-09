@@ -21,6 +21,8 @@ class Footer extends React.Component {
   }
 
   render() {
+    const { pathname } = this.props.location;
+    const isZhCn = utils.isZhCN(pathname);
     return (
       <footer id="footer" className="dark">
         <div className="footer-wrap">
@@ -62,26 +64,26 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.scaffolds" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://motion.ant.design">Ant Motion</a>
+                  <a target="_blank" rel="noopener" href="http://motion.ant.design">Ant Motion</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.motion" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">Axure Library</a>
+                  <a target="_blank" rel="noopener" href="http://library.ant.design/">Axure Library</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antd-library" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://ux.ant.design">Ant UX</a>
+                  <a target="_blank" rel="noopener" href="http://ux.ant.design">Ant UX</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antux" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> -
+                  <a target="_blank" rel="noopener" href="https://github.com/dvajs/dva">dva</a> -
                   <FormattedMessage id="app.footer.dva" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
+                  <a target="_blank" rel="noopener" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
                   <FormattedMessage id="app.footer.dev-tools" />
                 </div>
               </div>
@@ -100,13 +102,22 @@ class Footer extends React.Component {
                   </Link>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design-pro">
+                  <a target="_blank" rel="noopener" href="https://gitter.im/ant-design/ant-design-pro">
                     <FormattedMessage id="app.footer.discuss-cn" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design-pro/issues">
+                  <a target="_blank" rel="noopener" href="https://github.com/ant-design/ant-design-pro/issues">
                     <FormattedMessage id="app.footer.issues" />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener"
+                    href={`http://ant.design/docs/resource/work-with-us${isZhCn ? '-cn' : ''}`}
+                  >
+                    <FormattedMessage id="app.footer.work-with-us" />
                   </a>
                 </div>
               </div>
@@ -117,17 +128,17 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="http://ant.design/">Ant Design</a>
+                  <a target="_blank" rel="noopener" href="http://ant.design/">Ant Design</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.ant-design" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">AntV</a>
+                  <a target="_blank" rel="noopener" href="https://antv.alipay.com/">AntV</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.data-vis" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">Egg</a>
+                  <a target="_blank" rel="noopener" href="https://eggjs.org/">Egg</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.eggjs" />
                 </div>

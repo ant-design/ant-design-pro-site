@@ -60,6 +60,7 @@ module.exports = {
     'app.footer.discuss-cn': 'Chat Room (中文)',
     'app.footer.bug-report': 'Bug Report',
     'app.footer.issues': 'Issues',
+    'app.footer.work-with-us': 'Work with Us',
     'app.footer.version': 'Version: ',
     'app.footer.author': 'Created by AFX',
     'app.footer.resources': 'Resource',
