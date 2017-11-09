@@ -6,6 +6,20 @@ title:
 type: 其他
 ---
 
+`2017-11-09`
+
+### 0.2.2
+
+- 🌟 开放国际化的支持。[#120](https://github.com/ant-design/ant-design-pro/issues/120)
+- 🌟 优化多处细节样式问题，使得整体观感更加精细。
+- 脚手架
+  - 🌟 优化网络请求错误的界面响应以及容错处理。[#82](https://github.com/ant-design/ant-design-pro/issues/82)
+  - 🐞 修复二级菜单展开失效的问题。[#125](https://github.com/ant-design/ant-design-pro/pull/125)
+- 组件
+  - 🐞 修复 PageHeader 不支持 url 参数的问题。[#64](https://github.com/ant-design/ant-design-pro/issues/64)
+  - 🐞 修复 HeaderSearch `onPressEnter` 方法获取不到参数的问题。[#131](https://github.com/ant-design/ant-design-pro/issues/131)
+  - 🌟 新增多行省略文本组件 Ellipsis。[#133](https://github.com/ant-design/ant-design-pro/issues/133)
+
 `2017-11-02`
 
 ### 0.2.1

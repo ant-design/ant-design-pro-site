@@ -12,6 +12,7 @@ import TagSelect from '../../scaffold/src/components/TagSelect';
 import AvatarList from '../../scaffold/src/components/AvatarList';
 import Trend from '../../scaffold/src/components/Trend';
 import NumberInfo from '../../scaffold/src/components/NumberInfo';
+import Ellipsis from '../../scaffold/src/components/Ellipsis';
 
 export default {
   Charts,
@@ -28,4 +29,5 @@ export default {
   AvatarList,
   Trend,
   NumberInfo,
+  Ellipsis,
 };

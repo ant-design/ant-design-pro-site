@@ -12,6 +12,7 @@ import TagSelect from './TagSelect';
 import AvatarList from './AvatarList';
 import Trend from './Trend';
 import NumberInfo from './NumberInfo';
+import Ellipsis from './Ellipsis';
 
 export default {
   Charts,
@@ -28,4 +29,5 @@ export default {
   AvatarList,
   Trend,
   NumberInfo,
+  Ellipsis,
 };
