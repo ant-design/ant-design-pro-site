@@ -19,7 +19,6 @@ type: 其他
   - 🌟 分离组件样式，兼容非 CssModule 项目。[#85](https://github.com/ant-design/ant-design-pro/issues/85)
   - 🐞 修复 PageHeader 不支持 url 参数的问题。[#64](https://github.com/ant-design/ant-design-pro/issues/64)
   - 🐞 修复 HeaderSearch `onPressEnter` 方法获取不到参数的问题。[#131](https://github.com/ant-design/ant-design-pro/issues/131)
-  - 🐞 修复 HeaderSearch `onPressEnter` 方法获取不到参数的问题。[#131](https://github.com/ant-design/ant-design-pro/issues/131)
   - 🌟 新增多行省略文本组件 Ellipsis。[#133](https://github.com/ant-design/ant-design-pro/issues/133)
 
 ### 0.2.1
