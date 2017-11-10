@@ -107,9 +107,22 @@ type: 入门
 
 ```js
 {
-  name: '页面名称',
-  path: '/dashboard/:xx',         // xx 为参数名
-  component: YourNewComponent,    // 你新建的组件
+  name: '详情页',
+  path: 'profile',
+  icon: 'profile',
+  children: [{
+    name: '基础详情页',
+    path: 'basic',
+    component: BasicProfile,
+  }, {
+    name: '高级详情页',
+    path: 'advanced',
+    children: [{
+      name: '高级详情页',
+      path: ':id',                      // id 为参数名
+      component: AdvancedProfile,
+    }]
+  }],
 }
 ```
 
