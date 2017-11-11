@@ -6,7 +6,7 @@ type: Introduction
 
 ## Foreword
 
-Ant Design Pro is a production-ready solution for admin interfaces. Built on the design principles developed by [Ant Design](http://ant.design/) this project introduces higher level components; we have developed templates, components, and a   corresponding design kit to improve the user and development experience for admin interfaces.
+Ant Design Pro is a production-ready solution for admin interfaces. Built on the design principles developed by [Ant Design](http://ant.design/), this project introduces higher level components; we have developed templates, components, and a   corresponding design kit to improve the user and development experience for admin interfaces.
 
 Your help is welcomed and much appreciated. With your feedback we can make incremental progress towards elegant and well designed components. Please open a issue or submit a pull request!
 
@@ -52,7 +52,7 @@ We will walk you through the steps to get started.
 
 ## Preparation
 
-You will needs [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](http://es6.ruanyifeng.com/), [React](http://facebook.github.io/react/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/g2/doc/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.
+You will needs [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](https://babeljs.io/learn-es2015/), [React](http://facebook.github.io/react/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/g2/doc/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.
 
 ## Installation
 
@@ -116,7 +116,7 @@ Install Dependencies
 $ npm install
 ```
 
-> If you encounter network issues, You may use [cnpm](https://cnpmjs.org/) as an alternative npm source commented out as it is most likely only relevant for users in China.
+> If you encounter network issues, You may use [cnpm](https://cnpmjs.org/) as an alternative npm source. it is most likely only relevant to users in China.
 
 ```bash
 $ npm start
@@ -129,5 +129,6 @@ This will automatically open [http://localhost:8000](http://localhost:8000). If 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/psqyFTiRoXQeaNZdjppA.png" width="700" alt="Screenshot" />
 
 You're all set!
+
 We have built-in models, standard components, mock data, hot module reloading, state management, i18n, global router, etc.
 You can continue exploring other documents for more details on those topics.
