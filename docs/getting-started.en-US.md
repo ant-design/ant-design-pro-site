@@ -116,8 +116,6 @@ Install Dependencies
 $ npm install
 ```
 
-> If you encounter network issues, You may use [cnpm](https://cnpmjs.org/) as an alternative npm source. it is most likely only relevant to users in China.
-
 ```bash
 $ npm start
 ```
