@@ -156,7 +156,10 @@ export default class ComponentDoc extends React.PureComponent {
                 <span className="token punctuation">;</span>
               </code>
             </pre>
-            <p><FormattedMessage id="app.component.refer.desc" /> <a href="/docs/use-components-alone"><FormattedMessage id="app.component.refer.link" /></a></p>
+            <p>
+              <FormattedMessage id="app.component.refer.desc" />
+              <a href="/docs/use-components-alone"><FormattedMessage id="app.component.refer.link" /></a>
+            </p>
             <h2 style={{ marginBottom: 32 }}>
               <FormattedMessage id="app.component.examples" />
             </h2>
