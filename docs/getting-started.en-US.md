@@ -6,9 +6,11 @@ type: Introduction
 
 ## Foreword
 
-Ant Design Pro is a production-ready solution for admin interfaces. Continue on the design specifications brought by [Ant Design](http://ant.design/) and with the aim of building high-level components from the basics ones; we have developed templates, components, and corresponding design kit to improve the user and development experience for admin interfaces. 
-With developers' feedback, we will increment, build and consolidate those templates and implementation, conclude best practices for components and business logic. Your help is much welcomed.
-Bear those objectives in mind, we have built the following templates, and have built a scaffold based on React.js, which should help you prototyping production-ready admin interface.
+Ant Design Pro is a production-ready solution for admin interfaces. Built on the design principles developed by [Ant Design](http://ant.design/), this project introduces higher level components; we have developed templates, components, and a   corresponding design kit to improve the user and development experience for admin interfaces.
+
+Your help is welcomed and much appreciated. With your feedback we can make incremental progress towards elegant and well designed components. Please open a issue or submit a pull request!
+
+With those objectives in mind, we have built the following templates, and have built a scaffold based on React.js, which should help you prototyping production-ready admin interfaces.
 
 ```
 - Dashboard
@@ -50,7 +52,7 @@ We will walk you through the steps to get started.
 
 ## Preparation
 
-You will needs [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](http://es6.ruanyifeng.com/), [React](http://facebook.github.io/react/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/g2/doc/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.
+You will needs [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](https://babeljs.io/learn-es2015/), [React](http://facebook.github.io/react/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/g2/doc/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.
 
 ## Installation
 
@@ -79,7 +81,7 @@ $ pro init  # Initialize Scaffold
 
 ## Scaffolding
 
-We have provided a scaffold for you, includes common routes for admins, the directory structure is presented below.
+We have provided a scaffold which includes common routes for admins and demonstrates our component library. The project layout is as follows:
 
 ```bash
 ├── mock                     # Local Mock Data
@@ -114,18 +116,17 @@ Install Dependencies
 $ npm install
 ```
 
-> If you encounter network issues, You may use [cnpm](https://cnpmjs.org/) as an alternative npm source commented out as it is most likely only relevant for users in China.
-
 ```bash
 $ npm start
 ```
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/DaIsSQRbNkwOXbMDhqEx.png" width="700" />
 
-After it is done, it will automatically open [http://localhost:8000](http://localhost:8000). If you see the following page, you succeed.
+This will automatically open [http://localhost:8000](http://localhost:8000). If you see the following page then you have succeeded.
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/psqyFTiRoXQeaNZdjppA.png" width="700" alt="Screenshot" />
 
 You're all set!
+
 We have built-in models, standard components, mock data, hot module reloading, state management, i18n, global router, etc.
 You can continue exploring other documents for more details on those topics.

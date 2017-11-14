@@ -10,7 +10,12 @@ Ant Design Pro 脚手架内提供了一套默认[业务组件](http://pro.ant.de
 
 ## 如何使用
 
-对于脚手架的用户，你可以在脚手架中直接使用，新增和改造组件，操作方式可参考 [新增组件](/docs/new-component)。
+Ant Design Pro 脚手架内用到的组件分为两种：
+
+- antd 组件：https://ant.design/docs/react/introduce-cn
+- pro 自带组件：https://github.com/ant-design/ant-design-pro/tree/master/src/components
+
+对于脚手架的用户，你可以在脚手架中直接引用/新增/改造 pro 的自带组件，具体方式可参考 [新增组件](/docs/new-component)。
 
 对于没有使用这套脚手架的开发者，我们提供了一种方式来调用这套内建组件。
 
@@ -31,6 +36,8 @@ import Result from 'ant-design-pro/lib/Result';
 
 ReactDOM.render(<Result type="success" />, mountNode);
 ```
+
+> 注意，pro 组件默认依赖于 antd@3.0，需要保证 antd 版本的一致性。
 
 ## 文档和反馈
 

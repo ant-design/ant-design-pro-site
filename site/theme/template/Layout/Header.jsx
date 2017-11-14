@@ -113,7 +113,7 @@ class Header extends React.Component {
 
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
-    if (/components/.test(path)) {
+    if (/^components/.test(path)) {
       activeMenuItem = 'components';
     } else if (/docs/.test(path)) {
       activeMenuItem = 'docs';

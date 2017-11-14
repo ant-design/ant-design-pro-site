@@ -116,6 +116,31 @@ type: 入门
 
 ## 常见问题
 
+### 带参数的路由配置
+
+在 `src/common/nav.js` 中这样配置即可：
+
+```js
+{
+  name: '详情页',
+  path: 'profile',
+  icon: 'profile',
+  children: [{
+    name: '基础详情页',
+    path: 'basic',
+    component: BasicProfile,
+  }, {
+    name: '高级详情页',
+    path: 'advanced',
+    children: [{
+      name: '高级详情页',
+      path: ':id',                      // id 为参数名
+      component: AdvancedProfile,
+    }]
+  }],
+}
+```
+
 ### `Link` to 属性
 
 在 `react-router@4` 中，这一属性变为必选项，如果值为 undefined，会引发一系列报错和警告，这一点需要格外注意。相关文档及 issue：
