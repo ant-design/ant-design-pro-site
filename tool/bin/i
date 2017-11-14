@@ -1,23 +1,32 @@
 #!/usr/bin/env node
 
 const { exec } = require('child_process');
-exec('tnpm install', (err, stdout, stderr) => {
-  if (err) {
-    exec('cnpm install', (err, stdout, stderr) => {
-      if (err) {
-        exec('npm install', (err, stdout, stderr) => {
-          if (err) {
-            console.error(err);
-            return;
-          }
-          console.log(stdout);
-        });
-        return;
-      }
-      console.log(stdout);
-    });
-    return;
-  }
-  console.log(stdout);
-});
+const path = require('path');
+const fs = require('fs');
 
+const pkgPath = path.resolve(__dirname, '../../scaffoId/package.json');
+
+if (fs.existsSync(pkgPath)) {
+  exec('tnpm install', (err, stdout, stderr) => {
+    if (err) {
+      exec('cnpm install', (err, stdout, stderr) => {
+        if (err) {
+          exec('npm install', (err, stdout, stderr) => {
+            if (err) {
+              console.error(err);
+              return;
+            }
+            console.log(stdout);
+          });
+          return;
+        }
+        console.log(stdout);
+      });
+      return;
+    }
+    console.log(stdout);
+  });
+} else {
+  console.log('\x1b[31m%s\x1b[0m', 'Error: 请先执行 `$ git submodule init` 和 `$ git submodule update --recursive`，确保子模块正常引入.');
+  process.kill(process.pid);
+}
