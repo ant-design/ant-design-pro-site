@@ -22,7 +22,7 @@ class Footer extends React.Component {
 
   render() {
     const { pathname } = this.props.location;
-    const isZhCn = utils.isZhCN(pathname);
+    const isZhCN = utils.isZhCN(pathname);
     return (
       <footer id="footer" className="dark">
         <div className="footer-wrap">
@@ -92,12 +92,12 @@ class Footer extends React.Component {
               <div className="footer-center">
                 <h2><FormattedMessage id="app.footer.community" /></h2>
                 <div>
-                  <Link to="/docs/history">
+                  <Link to={utils.getLocalizedPathname('/docs/history', isZhCN)}>
                     <FormattedMessage id="app.footer.change-log" />
                   </Link>
                 </div>
                 <div>
-                  <Link to="/docs/faq">
+                  <Link to={utils.getLocalizedPathname('/docs/faq', isZhCN)}>
                     <FormattedMessage id="app.footer.faq" />
                   </Link>
                 </div>
@@ -115,7 +115,7 @@ class Footer extends React.Component {
                   <a
                     target="_blank"
                     rel="noopener"
-                    href={`http://ant.design/docs/resource/work-with-us${isZhCn ? '-cn' : ''}`}
+                    href={`http://ant.design/docs/resource/work-with-us${isZhCN ? '-cn' : ''}`}
                   >
                     <FormattedMessage id="app.footer.work-with-us" />
                   </a>

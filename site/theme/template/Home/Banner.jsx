@@ -6,8 +6,10 @@ import { Button } from 'antd';
 import { Link } from 'dva/router';
 import { FormattedMessage } from 'react-intl';
 import BannerSVGAnim from './component/BannerSVGAnim';
+import * as utils from '../utils';
 
 function Banner(props) {
+  const isZhCN = utils.isZhCN(location.pathname);
   return (
     <div className="banner-wrapper">
       {props.isMobile && (
@@ -36,7 +38,7 @@ function Banner(props) {
               <FormattedMessage id="app.home.preview" />
             </Button>
           </a>
-          <Link to="/docs/getting-started">
+          <Link to={utils.getLocalizedPathname('/docs/getting-started', isZhCN)}>
             <Button style={{ margin: '0 16px' }} type="primary" ghost>
               <FormattedMessage id="app.home.start" />
             </Button>
