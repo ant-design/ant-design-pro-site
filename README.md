@@ -7,6 +7,7 @@ The documentation source of [Ant Design Pro](https://github.com/ant-design/ant-d
 ```bash
 $ git clone git@github.com:ant-design/ant-design-pro-site.git
 $ cd ant-design-pro-site
+$ git submodule init
 $ git submodule update --recursive
 $ npm install
 $ npm start
