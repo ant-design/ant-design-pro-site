@@ -4,29 +4,61 @@ const { exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
-const pkgPath = path.resolve(__dirname, '../../scaffoId/package.json');
+const pkgPath = path.resolve(__dirname, '../../scaffold/package.json');
+const messages = {
+  submodule_warning: 'Warning: 请先执行 `$ git submodule init` 和 `$ git submodule update --recursive`，确保子模块正常引入.',
+  submodule_pull_success: '已自动执行上述命令，子模块scaffold拉取成功...',
+  git_not_fount: '请先安装git，再手动执行上述命令...',
+  submodule_deps_install: '开始安装子模块scaffold的依赖包...',
+  submodule_deps_install_fail: '子模块依赖包安装失败，请手动重试',
+  project_deps_install: '接下来安装项目的依赖包...\n',
+}
+
+function color(id) {
+  // 1=red, 2=green, 3=yellow
+  return `\x1b[3${id}m%s\x1b[0m`;
+}
+
+function execPromise(command) {
+  return new Promise((resolve, reject) => {
+    exec(command, (err, stdout, stderr) => {
+      if (err) return reject(err);
+      resolve({ stdout, stderr });
+    });
+  });
+}
+
+function runCmd() {
+  const success = color(2);
+  const fail = color(1);
+  console.log(success, messages.submodule_deps_install);
+  execPromise('tnpm install')
+    .then(({ stdout }) => console.log(success, messages.project_deps_install))
+    .catch((err) => {
+      execPromise('cnpm install')
+        .then(({ stdout }) => console.log(success, messages.project_deps_install))
+        .catch((err) => {
+          execPromise('npm install').then(({ stdout }) => console.log(success, messages.project_deps_install))
+            .catch((err) => {
+              console.log(fail, messages.submodule_deps_install_fail);
+            });
+        });
+    });
+}
 
 if (fs.existsSync(pkgPath)) {
-  exec('tnpm install', (err, stdout, stderr) => {
-    if (err) {
-      exec('cnpm install', (err, stdout, stderr) => {
-        if (err) {
-          exec('npm install', (err, stdout, stderr) => {
-            if (err) {
-              console.error(err);
-              return;
-            }
-            console.log(stdout);
-          });
-          return;
-        }
-        console.log(stdout);
-      });
-      return;
-    }
-    console.log(stdout);
-  });
+  runCmd();
 } else {
-  console.log('\x1b[31m%s\x1b[0m', 'Error: 请先执行 `$ git submodule init` 和 `$ git submodule update --recursive`，确保子模块正常引入.');
-  process.kill(process.pid);
+  console.log(color(3), messages.submodule_warning);
+  execPromise('git submodule init')
+    .then(({ stdout }) => {
+      execPromise('git submodule update --recursive').then(({ stdout }) => {
+        console.log(color(2), messages.submodule_pull_success);
+        runCmd();
+      });
+    })
+    .catch((err) => {
+      console.log(color(1), messages.git_not_fount);
+      process.kill(process.pid);
+    });
 }
