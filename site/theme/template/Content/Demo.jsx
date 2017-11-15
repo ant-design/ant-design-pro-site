@@ -11,15 +11,15 @@ import { ping } from '../utils';
 
 function antdProCodeFormat(c) {
   let code = c;
-  code = code.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'ant-design-pro\/lib\/(.*)';/, 'import { $2 } from "ant-design-pro";\nconst { $1 } = $2;');
-  code = code.replace(/import\s+(.*)\s+from\s+'ant-design-pro\/lib\/(.*)';/, 'import { $1 } from "ant-design-pro";');
+  code = code.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'ant-design-pro\/lib\/(.*)';/ig, 'import { $2 } from "ant-design-pro";\nconst { $1 } = $2;');
+  code = code.replace(/import\s+(.*)\s+from\s+'ant-design-pro\/lib\/(.*)';/ig, 'import { $1 } from "ant-design-pro";');
   return code;
 }
 
 function antdProCodeFormatCodepen(c) {
   let code = c;
-  code = code.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'ant-design-pro\/lib\/(.*)';/, 'const { $1 } = $2;');
-  code = code.replace(/import\s+(.*)\s+from\s+'ant-design-pro\/lib\/(.*)';/, '');
+  code = code.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'ant-design-pro\/lib\/(.*)';/ig, 'const { $1 } = $2;');
+  code = code.replace(/import\s+(.*)\s+from\s+'ant-design-pro\/lib\/(.*)';/ig, '');
   return code;
 }
 
