@@ -76,7 +76,7 @@ You can also use [ant-design-pro-cli](https://github.com/ant-design/ant-design-p
 ```bash
 $ npm install ant-design-pro-cli -g
 $ mkdir my-project && cd my-project
-$ pro init  # Initialize Scaffold
+$ pro new  # Initialize Scaffold
 ```
 
 ## Scaffolding
