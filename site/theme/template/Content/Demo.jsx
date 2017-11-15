@@ -9,6 +9,20 @@ import EditButton from './EditButton';
 import BrowserFrame from '../BrowserFrame';
 import { ping } from '../utils';
 
+function antdProCodeFormat(c) {
+  let code = c;
+  code = code.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'ant-design-pro\/lib\/(.*)';/, 'import { $2 } from "ant-design-pro";\nconst { $1 } = $2;');
+  code = code.replace(/import\s+(.*)\s+from\s+'ant-design-pro\/lib\/(.*)';/, 'import { $1 } from "ant-design-pro";');
+  return code;
+}
+
+function antdProCodeFormatCodepen(c) {
+  let code = c;
+  code = code.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'ant-design-pro\/lib\/(.*)';/, 'const { $1 } = $2;');
+  code = code.replace(/import\s+(.*)\s+from\s+'ant-design-pro\/lib\/(.*)';/, '');
+  return code;
+}
+
 export default class Demo extends React.Component {
   static contextTypes = {
     intl: PropTypes.object,
@@ -35,8 +49,8 @@ export default class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return (this.state.codeExpand || this.props.expand) !== (nextState.codeExpand || nextProps.expand)
-     || this.state.copied !== nextState.copied
-     || this.state.copyTooltipVisible !== nextState.copyTooltipVisible;
+      || this.state.copied !== nextState.copied
+      || this.state.copyTooltipVisible !== nextState.copyTooltipVisible;
   }
 
   componentDidMount() {
@@ -96,9 +110,10 @@ export default class Demo extends React.Component {
     } = props;
     const root = themeConfig.root === '/' ? '' : themeConfig.root;
     if (!this.liveDemo) {
-      this.liveDemo = meta.iframe
-        ? <BrowserFrame themeConfig={themeConfig}><iframe src={`${(!themeConfig.isDev && root) || ''}${src}`} height={meta.iframe} title="demo" /></BrowserFrame>
-        : preview(React, ReactDOM);
+      this.liveDemo = meta.iframe ? (
+        <BrowserFrame themeConfig={themeConfig}>
+          <iframe src={`${(!themeConfig.isDev && root) || ''}${src}`} height={meta.iframe} title="demo" />
+        </BrowserFrame>) : preview(React, ReactDOM);
     }
     const codeExpand = state.codeExpand || expand;
     const codeBoxClass = classNames({
@@ -117,7 +132,8 @@ export default class Demo extends React.Component {
       'highlight-wrapper-expand': codeExpand,
     });
 
-    const prefillStyle = `@import 'ant-design-pro/dist/ant-design-pro.min.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const prefillStyle = `@import 'antd@next/dist/antd.css';\n\n@import 'ant-design-pro/dist/ant-design-pro.min.css';\n\n${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const prefillStyleCodepen = `${style || ''}`.replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
 
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
@@ -125,21 +141,26 @@ export default class Demo extends React.Component {
 <script>
   var mountNode = document.getElementById('container');
 </script>`,
-      js: state.sourceCode.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/, 'const { $1 } = antd;'),
-      css: prefillStyle,
+      js: antdProCodeFormatCodepen(state.sourceCode),
+      css: prefillStyleCodepen,
       editors: '001',
-      css_external: 'https://unpkg.com/antd/dist/antd.css',
+      css_external: [
+        'https://unpkg.com/antd@next/dist/antd.css',
+        'https://unpkg.com/ant-design-pro/dist/ant-design-pro.css',
+      ],
       js_external: [
-        'react/dist/react.js',
-        'react-dom/dist/react-dom.js',
+        'react@16.1.1/umd/react.development.js',
+        'react-dom@16.1.1/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
-        'antd/dist/antd-with-locales.js',
+        'numeral@2.0.6/numeral.js',
+        'antd@next/dist/antd-with-locales.js',
+        'ant-design-pro/dist/ant-design-pro.js',
       ].map(url => `https://unpkg.com/${url}`).join(';'),
       js_pre_processor: 'typescript',
     };
     const riddlePrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
-      js: state.sourceCode,
+      js: antdProCodeFormat(state.sourceCode),
       css: prefillStyle,
     };
     return (
@@ -181,9 +202,7 @@ export default class Demo extends React.Component {
             </span>
           </Tooltip>
         </section>
-        <section className={highlightClass}
-          key="code"
-        >
+        <section className={highlightClass} key="code">
           <div className="highlight">
             <div className="code-box-actions">
               {this.state.showRiddleButton ? (
