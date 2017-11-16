@@ -53,8 +53,8 @@ React.Children.forEach(children, function[(thisArg)])
 我们为了统一方便的管理路由和页面的关系，将配置信息统一抽离到 `common/nav.js` 下，同时应用动态路由，通过如下配置：
 
 ```jsx
-const data = [{
-  component: app => dynamic({
+export const getNavData = app => [{
+  component: dynamic({
     app,
     models: () => [
       import('../models/user'),   // load demand
@@ -65,7 +65,7 @@ const data = [{
   path: '',
   children: [{...}],
 }, {
-  component: app => dynamic({
+  component: dynamic({
     app,
     component: () => import('../layouts/UserLayout'),
   }),
@@ -76,7 +76,7 @@ const data = [{
     children: [{
       name: '登录',
       path: 'login',
-      component: app => dynamic({
+      component: dynamic({
         app,
         models: () => [
           import('../models/login'),
@@ -86,7 +86,7 @@ const data = [{
     }, {
       name: '注册',
       path: 'register',
-      component: app => dynamic({
+      component: dynamic({
         app,
         models: () => [
           import('../models/register'),
@@ -96,7 +96,7 @@ const data = [{
     }, {
       name: '注册结果',
       path: 'register-result',
-      component: app => dynamic({
+      component: dynamic({
         app,
         component: () => import('../routes/User/RegisterResult'),
       }),

@@ -49,7 +49,7 @@ type: 入门
   name: '新页面',             // 页面名称，会展示在菜单栏中
   path: 'new',               // 匹配的路由
   icon: 'file',              // 页面图标，会展示在菜单栏中
-  component: app => dynamic({
+  component: dynamic({
     app,
     models: () => [
       import('../models/NewPageModel'),
@@ -67,7 +67,7 @@ type: 入门
 
 ```js
 {
-  component: app => dynamic({
+  component: dynamic({
     app,
     component: () => import('../layouts/NewLayout'),
   }),                         // 新建的模板，使用`dynamic`动态引入
@@ -79,7 +79,7 @@ type: 入门
     children: [{
       name: '新页面',
       path: 'new-page',
-      component: app => dynamic({
+      component: dynamic({
         app,
         models: () => [
           import('../models/NewPageModel'),
@@ -101,7 +101,7 @@ type: 入门
         exact={item.exact}
         key={item.path}
         path={item.path}
-        component={item.component(this.props.app)}         // 将`app`参数传入，构建动态路由
+        component={item.component}      // dynamic import
       />
     )
   )
@@ -128,14 +128,26 @@ type: 入门
   children: [{
     name: '基础详情页',
     path: 'basic',
-    component: BasicProfile,
+    component: dynamic({
+      app,
+      models: () => [
+        import('../models/profile'),
+      ],
+      component: () => import('../routes/Profile/BasicProfile'),
+    }),
   }, {
     name: '高级详情页',
     path: 'advanced',
     children: [{
       name: '高级详情页',
       path: ':id',                      // id 为参数名
-      component: AdvancedProfile,
+      component: dynamic({
+        app,
+        models: () => [
+          import('../models/profile'),
+        ],
+        component: () => import('../routes/Profile/AdvancedProfile'),
+      }),
     }]
   }],
 }
@@ -154,9 +166,9 @@ type: 入门
 
 ```js
 getChildContext() {
-  const { location } = this.props;
+  const { location, navData, getRouteData } = this.props;
   const routeData = getRouteData('BasicLayout');
-  const menuData = getNavData().reduce((arr, current) => arr.concat(current.children), []);
+  const menuData = navData.reduce((arr, current) => arr.concat(current.children), []);
   const breadcrumbNameMap = {};
   routeData.concat(menuData).forEach((item) => {
     breadcrumbNameMap[item.path] = item.name;
