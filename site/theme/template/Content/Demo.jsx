@@ -18,6 +18,7 @@ function antdProCodeFormat(c) {
 
 function antdProCodeFormatCodepen(c) {
   let code = c;
+  code = code.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/ig, 'const { $1 } = antd;');
   code = code.replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'ant-design-pro\/lib\/(.*)';/ig, 'const { $1 } = $2;');
   code = code.replace(/import\s+(.*)\s+from\s+'ant-design-pro\/lib\/(.*)';/ig, '');
   return code;
@@ -137,17 +138,16 @@ export default class Demo extends React.Component {
 
     const codepenPrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
-      html: `<div id="container" style="padding: 24px"></div>
+      html: `
+      <link crossorigin="anonymous" href="https://unpkg.com/antd@next/dist/antd.css" media="all" rel="stylesheet" />
+      <link crossorigin="anonymous" href="https://unpkg.com/ant-design-pro/dist/ant-design-pro.css" media="all" rel="stylesheet" />
+      <div id="container" style="padding: 24px"></div>
 <script>
   var mountNode = document.getElementById('container');
 </script>`,
       js: antdProCodeFormatCodepen(state.sourceCode),
       css: prefillStyleCodepen,
       editors: '001',
-      css_external: [
-        'https://unpkg.com/antd@next/dist/antd.css',
-        'https://unpkg.com/ant-design-pro/dist/ant-design-pro.css',
-      ],
       js_external: [
         'react@16.1.1/umd/react.development.js',
         'react-dom@16.1.1/umd/react-dom.development.js',
