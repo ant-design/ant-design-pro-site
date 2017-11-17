@@ -20,7 +20,7 @@
     "react-intl": "^2.3.0"
   },
   "devDependencies": {
-    "atool-build": "1.0.2",
+    "antd-tools": "^4.0.1",
     "autod": "^2.10.1",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.0",
@@ -40,7 +40,7 @@
     "classnames": "^2.2.5",
     "commander": "~2.8.1",
     "concurrently": "^3.5.0",
-    "cross-env": "^5.0.1",
+    "cross-env": "^5.1.1",
     "css-split-webpack-plugin": "^0.2.3",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "latest",
@@ -51,7 +51,7 @@
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-react": "^7.0.1",
     "eslint-tinker": "^0.4.1",
-    "extract-text-webpack-plugin": "1.0.1",
+    "extract-text-webpack-plugin": "^3.0.0",
     "fs-extra": "^4.0.0",
     "g-cloud": "^1.0.2-beta",
     "g2": "^2.3.12",

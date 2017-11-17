@@ -5,7 +5,7 @@
     "transform-decorators-legacy",
     ["css-modules-transform", {
       "extensions": [".less"],
-      "generateScopedName": "antd-pro-[local]",
+      "generateScopedName": "./css-module.js",
     }],
     ["import", { libraryName: "antd", style: "css" }]
   ],
