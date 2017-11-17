@@ -5,6 +5,9 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const getWebpackConfig = require('antd-tools/lib/getWebpackConfig');
 const postcssConfig = require('antd-tools/lib/postcssConfig');
 const deepAssign = require('deep-assign');
+
+const babelDecorators = require('babel-plugin-transform-decorators-legacy');
+
 const config = getWebpackConfig(false);
 
 const cwd = process.cwd();
@@ -27,7 +30,8 @@ webpackConfig.module.rules.forEach(function (rule, index) {
   if (rule.test.toString() === '/\\.jsx?$/') {
     const len = rule.options.plugins.length - 1;
     rule.options.plugins.splice(len - 2, len - 1);
-    console.log(rule.options.plugins);
+    rule.options.plugins.push(require.resolve('babel-plugin-transform-decorators-legacy'));
+    rule.options.plugins.push(require.resolve('babel-plugin-transform-class-properties'));
   }
 
   if (rule.test.toString() === '/\\.less$/') {
