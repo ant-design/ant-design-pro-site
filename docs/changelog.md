@@ -1,7 +1,7 @@
 ---
 order: 20
 title:
-  en-US: History 
+  en-US: Changelog 
   zh-CN: 更新日志
 type: 其他
 ---
