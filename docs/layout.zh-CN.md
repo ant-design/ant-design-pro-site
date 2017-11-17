@@ -26,7 +26,7 @@ type: 入门
 
 ### 处理 `this.props.children` 属性
 
-在抽离的过程中，往往需要处理布局包含的内容组件，而 `this.props.children` 就代表了标签中的内容，如果你需要对其自元素进行筛选处理，可以使用 [React.children.forEach](https://facebook.github.io/react/docs/react-api.html#react.children.map) 方法。
+在抽离的过程中，往往需要处理布局包含的内容组件，而 `this.props.children` 就代表了标签中的内容，如果你需要对其子元素进行筛选处理，可以使用 [React.children.forEach](https://facebook.github.io/react/docs/react-api.html#react.children.map) 方法。
 
 ```jsx
 React.Children.forEach(children, function[(thisArg)])
