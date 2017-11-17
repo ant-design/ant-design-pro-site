@@ -97,6 +97,5 @@ uncompressedConfig.entry = {
 uncompressedConfig.plugins = uncompressedConfig.plugins.concat();
 
 uncompressedConfig.plugins.splice(uncompressedConfig.plugins.length - 4, uncompressedConfig.plugins.length - 1);
-console.log(uncompressedConfig.plugins);
 
 module.exports = [webpackConfig, uncompressedConfig];
