@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
+import MobileMenu from 'rc-drawer-menu';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
-import MobileMenu from './MobileMenu';
 import * as utils from '../utils';
 
 const { SubMenu } = Menu;
@@ -236,11 +236,22 @@ export default class MainContent extends React.PureComponent {
     return (
       <div className="main-wrapper">
         <Row>
-          {props.isMobile ? <MobileMenu>{menuChild}</MobileMenu> : (
-            <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
-              {menuChild}
-            </Col>
-          )}
+          {
+            props.isMobile ? (
+              <MobileMenu
+                iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
+                key="mobile-menu"
+                wrapperClassName="drawer-wrapper"
+              >
+                {menuChild}
+              </MobileMenu>
+            ) :
+              (
+                <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
+                  {menuChild}
+                </Col>
+              )
+          }
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
             {
               props.demos ?
