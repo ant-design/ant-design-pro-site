@@ -241,6 +241,7 @@ export default class MainContent extends React.PureComponent {
               <MobileMenu
                 iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
                 key="mobile-menu"
+                wrapperClassName="drawer-wrapper"
               >
                 {menuChild}
               </MobileMenu>
