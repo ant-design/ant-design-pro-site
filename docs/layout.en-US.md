@@ -56,52 +56,30 @@ To manage mappings between routes and pages, we put configurations under `common
 
 ```jsx
 export const getNavData = app => [{
-  component: dynamic({
-    app,
-    models: () => [
-      import('../models/user'),   // load demand
-    ],
-    component: () => import('../layouts/BasicLayout'),  // dynamic route
-  }),
-  name: 'Home',  // for breadcrumb
+  component: dynamicWrapper(app, ['user'], import('../layouts/BasicLayout')),   // for dynamic import
+  name: '首页',  // for breadcrumb
   path: '',
   children: [{...}],
 }, {
-  component: dynamic({
-    app,
-    component: () => import('../layouts/UserLayout'),
-  }),
+  component: dynamicWrapper(app, [], import('../layouts/UserLayout')),
   children: [{
-    name: 'User',
+    name: '帐户',
     icon: 'user',
     path: 'user',
     children: [{
-      name: 'Login',
+      name: '登录',
       path: 'login',
-      component: dynamic({
-        app,
-        models: () => [
-          import('../models/login'),
-        ],
-        component: () => import('../routes/User/Login'),
-      }),
+      component: dynamicWrapper(app, ['login'], import('../routes/User/Login')),
     }, {
-      name: 'Register',
+      name: '注册',
       path: 'register',
       component: dynamic({
         app,
-        models: () => [
-          import('../models/register'),
-        ],
-        component: () => import('../routes/User/Register'),
-      }),
+        models: dynamicWrapper(app, ['register'], import('../routes/User/Register')),
     }, {
-      name: 'Register Result',
+      name: '注册结果',
       path: 'register-result',
-      component: dynamic({
-        app,
-        component: () => import('../routes/User/RegisterResult'),
-      }),
+      component: dynamicWrapper(app, [], import('../routes/User/RegisterResult')),
     }],
   }],
 }];

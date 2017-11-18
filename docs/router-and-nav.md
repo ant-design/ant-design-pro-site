@@ -49,13 +49,7 @@ type: 入门
   name: '新页面',             // 页面名称，会展示在菜单栏中
   path: 'new',               // 匹配的路由
   icon: 'file',              // 页面图标，会展示在菜单栏中
-  component: dynamic({
-    app,
-    models: () => [
-      import('../models/NewPageModel'),
-    ],                       // 动态引入页面需要绑定的models
-    component: () => import('../routes/NewPage'),
-  }),                        // 动态引入页面对应的组件
+  component: dynamicWrapper(app, ['NewPageModel'], import('/path/to/NewPage')),   // 动态引入NewPage页面和所需的Models
 }
 ```
 
@@ -67,10 +61,7 @@ type: 入门
 
 ```js
 {
-  component: dynamic({
-    app,
-    component: () => import('../layouts/NewLayout'),
-  }),                         // 新建的模板，使用`dynamic`动态引入
+  component: dynamicWrapper(app, [], import('/path/to/NewLayout')),     // 新建的模板，使用`dynamic`动态引入
   layout: 'NewLayout',        // 标记，生成路由时会用到
   children: [{
     name: '新布局',            // 新布局下的页面都可以放到这里
@@ -79,13 +70,7 @@ type: 入门
     children: [{
       name: '新页面',
       path: 'new-page',
-      component: dynamic({
-        app,
-        models: () => [
-          import('../models/NewPageModel'),
-        ],
-        component: () => import('../routes/NewPage'),
-      }),
+      component: dynamicWrapper(app, ['NewPageModel'], import('/path/to/NewPage')),
     }],
   }],
 }
@@ -128,26 +113,14 @@ type: 入门
   children: [{
     name: '基础详情页',
     path: 'basic',
-    component: dynamic({
-      app,
-      models: () => [
-        import('../models/profile'),
-      ],
-      component: () => import('../routes/Profile/BasicProfile'),
-    }),
+    component: dynamicWrapper(app, ['profile'], import('../routes/Profile/BasicProfile')),
   }, {
     name: '高级详情页',
     path: 'advanced',
     children: [{
       name: '高级详情页',
       path: ':id',                      // id 为参数名
-      component: dynamic({
-        app,
-        models: () => [
-          import('../models/profile'),
-        ],
-        component: () => import('../routes/Profile/AdvancedProfile'),
-      }),
+      component: dynamicWrapper(app, ['profile'], import('../routes/Profile/AdvancedProfile')),
     }]
   }],
 }
