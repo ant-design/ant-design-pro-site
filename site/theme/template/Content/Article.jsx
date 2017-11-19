@@ -80,8 +80,7 @@ export default class Article extends React.PureComponent {
               type="warning"
               message={(
                 <span>
-                  This article has not been translated yet. Wan&apos;t to help us out?
-                  <a href="https://github.com/ant-design/ant-design-pro/issues/120">See this issue on GitHub.</a>
+                  This article has not been translated yet. Wan&apos;t to help us out? <a href="https://github.com/ant-design/ant-design-pro/issues/120">See this issue on GitHub.</a>
                 </span>
               )}
               style={{ marginBottom: 24 }}
