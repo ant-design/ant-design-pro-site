@@ -23,6 +23,7 @@ type: 其他
   - 🐞 修复 Timeline 组件数值读取错误的问题。[#130](https://github.com/ant-design/ant-design-pro/issues/130)
   - 🐞 重构 TagSelect `state` 状态处理，避免在多处使用场景下状态异常的问题。[#161](https://github.com/ant-design/ant-design-pro/issues/161)
   - 🐞 修复 Ellipsis 大量问题（排版错误、样式异常、单行死循环等）。[#167](https://github.com/ant-design/ant-design-pro/issues/167) [#212](https://github.com/ant-design/ant-design-pro/issues/212)
+  - 🐞 升级打包工具，修复 `className` 重复导致样式展现错乱的问题。[#205](https://github.com/ant-design/ant-design-pro/issues/205)
 
 
 ### 0.2.2
