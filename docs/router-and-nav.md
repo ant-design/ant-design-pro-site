@@ -29,6 +29,7 @@ type: 入门
   - [react-router](https://reacttraining.com/react-router/web/guides/philosophy)
   - [Migrating from v2/v3 to v4](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/migrating.md)
   - [dva@2.0](https://github.com/sorrycc/blog/issues/48)
+  - [Webpack Code Splitting](https://webpack.js.org/guides/code-splitting/)
 
 下面简单介绍两种情况下如何添加路由/菜单。
 
@@ -49,11 +50,26 @@ type: 入门
   name: '新页面',             // 页面名称，会展示在菜单栏中
   path: 'new',               // 匹配的路由
   icon: 'file',              // 页面图标，会展示在菜单栏中
-  component: dynamicWrapper(app, ['NewPageModel'], import('/path/to/NewPage')),   // 动态引入NewPage页面和所需的Models
+  component: dynamicWrapper(app, ['NewPageModel'], () => import('/path/to/NewPage')),   // 动态引入NewPage页面和所需的Models
 }
 ```
 
 加好后，会默认生成相关的路由及导航。
+
+#### 关于 dynamicWrapper
+
+```js
+import dynamic from 'dva/dynamic';
+
+// wrapper of dynamic
+const dynamicWrapper = (app, models, component) => dynamic({
+  app,
+  models: () => models.map(m => import(`../models/${m}.js`)),
+  component,
+});
+```
+
+为了代码的简洁性，我们对 `dva/dynamic` 进行了二次封装，需要注意的是这里使用了 [Webpack Code Splitting](https://webpack.js.org/guides/code-splitting/) 的动态 `import`，`dva` 的 `dynamic` 方法已经帮我们封装好了 `Promise` 动态加载的相关事宜，所以我们只需要直接使用即可。
 
 ### 添加 Layout 模板
 
@@ -61,7 +77,7 @@ type: 入门
 
 ```js
 {
-  component: dynamicWrapper(app, [], import('/path/to/NewLayout')),     // 新建的模板，使用`dynamic`动态引入
+  component: dynamicWrapper(app, [], () => import('/path/to/NewLayout')),     // 新建的模板，使用`dynamic`动态引入
   layout: 'NewLayout',        // 标记，生成路由时会用到
   children: [{
     name: '新布局',            // 新布局下的页面都可以放到这里
@@ -70,7 +86,7 @@ type: 入门
     children: [{
       name: '新页面',
       path: 'new-page',
-      component: dynamicWrapper(app, ['NewPageModel'], import('/path/to/NewPage')),
+      component: dynamicWrapper(app, ['NewPageModel'], () => import('/path/to/NewPage')),
     }],
   }],
 }
@@ -113,14 +129,14 @@ type: 入门
   children: [{
     name: '基础详情页',
     path: 'basic',
-    component: dynamicWrapper(app, ['profile'], import('../routes/Profile/BasicProfile')),
+    component: dynamicWrapper(app, ['profile'], () => import('../routes/Profile/BasicProfile')),
   }, {
     name: '高级详情页',
     path: 'advanced',
     children: [{
       name: '高级详情页',
       path: ':id',                      // id 为参数名
-      component: dynamicWrapper(app, ['profile'], import('../routes/Profile/AdvancedProfile')),
+      component: dynamicWrapper(app, ['profile'], () => import('../routes/Profile/AdvancedProfile')),
     }]
   }],
 }

@@ -54,12 +54,12 @@ React.Children.forEach(children, function[(thisArg)])
 
 ```jsx
 export const getNavData = app => [{
-  component: dynamicWrapper(app, ['user'], import('../layouts/BasicLayout')),   // for dynamic import
+  component: dynamicWrapper(app, ['user'], () => import('../layouts/BasicLayout')),   // for dynamic import
   name: '首页',  // for breadcrumb
   path: '',
   children: [{...}],
 }, {
-  component: dynamicWrapper(app, [], import('../layouts/UserLayout')),
+  component: dynamicWrapper(app, [], () => import('../layouts/UserLayout')),
   children: [{
     name: '帐户',
     icon: 'user',
@@ -67,17 +67,17 @@ export const getNavData = app => [{
     children: [{
       name: '登录',
       path: 'login',
-      component: dynamicWrapper(app, ['login'], import('../routes/User/Login')),
+      component: dynamicWrapper(app, ['login'], () => import('../routes/User/Login')),
     }, {
       name: '注册',
       path: 'register',
       component: dynamic({
         app,
-        models: dynamicWrapper(app, ['register'], import('../routes/User/Register')),
+        models: dynamicWrapper(app, ['register'], () => import('../routes/User/Register')),
     }, {
       name: '注册结果',
       path: 'register-result',
-      component: dynamicWrapper(app, [], import('../routes/User/RegisterResult')),
+      component: dynamicWrapper(app, [], () => import('../routes/User/RegisterResult')),
     }],
   }],
 }];
