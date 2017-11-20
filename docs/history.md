@@ -6,6 +6,25 @@ title:
 type: 其他
 ---
 
+### 0.3.0
+
+`2017-11-20`
+
+- 脚手架
+  - 🌟 升级路由系统为 [Dynamic Router](https://pro.ant.design/docs/router-and-nav)，按需加载加速页面展现速度。[184](https://github.com/ant-design/ant-design-pro/pull/184) [@WhatAKitty](https://github.com/WhatAKitty)
+  - 🌟 接入 [sentry.io](https://sentry.io/alipay-me/)，监控 js 报错，提高项目反馈度。 [b8a96c5](https://github.com/ant-design/ant-design-pro/commit/b8a96c5b853dc6aca16ec462655a875914292ddb)
+  - 🐞 修复三级路由展示面包屑不正常的问题。[#128](https://github.com/ant-design/ant-design-pro/issues/128)
+  - 🐞 修复重复点击当前激活菜单报 `Warning` 的问题。[#159](https://github.com/ant-design/ant-design-pro/issues/159)
+  - 🐞 修复禁用代理模式在 Windows 下启动的问题。[#181](https://github.com/ant-design/ant-design-pro/issues/181)
+  - 🐞 修复 `Lodash Debounce` 对 `window.onResize` 不生效的问题。[5cce044](https://github.com/ant-design/ant-design-pro/commit/5cce044192684535c93a23952ec831529b71f350)
+
+- 组件
+  - 🌟 保持组件样式独立性，移除 `antd v2-compatible-reset.less` 的依赖。[63b7645](https://github.com/ant-design/ant-design-pro/commit/63b76456fd8a79f1f08edc0cbf6e00487793e6ce)
+  - 🐞 修复 Timeline 组件数值读取错误的问题。[#130](https://github.com/ant-design/ant-design-pro/issues/130)
+  - 🐞 重构 TagSelect `state` 状态处理，避免在多处使用场景下状态异常的问题。[#161](https://github.com/ant-design/ant-design-pro/issues/161)
+  - 🐞 修复 Ellipsis 大量问题（排版错误、样式异常、单行死循环等）。[#167](https://github.com/ant-design/ant-design-pro/issues/167) [#212](https://github.com/ant-design/ant-design-pro/issues/212)
+  - 🐞 升级打包工具，修复 `className` 重复导致样式展现错乱的问题。[#205](https://github.com/ant-design/ant-design-pro/issues/205)
+
 ### 0.2.2
 
 `2017-11-09`
