@@ -49,7 +49,7 @@ type: 入门
   name: '新页面',             // 页面名称，会展示在菜单栏中
   path: 'new',               // 匹配的路由
   icon: 'file',              // 页面图标，会展示在菜单栏中
-  component: NewPage,        // 页面对应的组件，记得在页头引入 `import NewPage from '../routes/NewPage';`
+  component: dynamicWrapper(app, ['NewPageModel'], import('/path/to/NewPage')),   // 动态引入NewPage页面和所需的Models
 }
 ```
 
@@ -61,7 +61,7 @@ type: 入门
 
 ```js
 {
-  component: NewLayout,       // 新建的模板
+  component: dynamicWrapper(app, [], import('/path/to/NewLayout')),     // 新建的模板，使用`dynamic`动态引入
   layout: 'NewLayout',        // 标记，生成路由时会用到
   children: [{
     name: '新布局',            // 新布局下的页面都可以放到这里
@@ -70,7 +70,7 @@ type: 入门
     children: [{
       name: '新页面',
       path: 'new-page',
-      component: NewPage,
+      component: dynamicWrapper(app, ['NewPageModel'], import('/path/to/NewPage')),
     }],
   }],
 }
@@ -86,7 +86,7 @@ type: 入门
         exact={item.exact}
         key={item.path}
         path={item.path}
-        component={item.component}
+        component={item.component}      // dynamic import
       />
     )
   )
@@ -113,14 +113,14 @@ type: 入门
   children: [{
     name: '基础详情页',
     path: 'basic',
-    component: BasicProfile,
+    component: dynamicWrapper(app, ['profile'], import('../routes/Profile/BasicProfile')),
   }, {
     name: '高级详情页',
     path: 'advanced',
     children: [{
       name: '高级详情页',
       path: ':id',                      // id 为参数名
-      component: AdvancedProfile,
+      component: dynamicWrapper(app, ['profile'], import('../routes/Profile/AdvancedProfile')),
     }]
   }],
 }
@@ -139,9 +139,9 @@ type: 入门
 
 ```js
 getChildContext() {
-  const { location } = this.props;
+  const { location, navData, getRouteData } = this.props;
   const routeData = getRouteData('BasicLayout');
-  const menuData = getNavData().reduce((arr, current) => arr.concat(current.children), []);
+  const menuData = navData.reduce((arr, current) => arr.concat(current.children), []);
   const breadcrumbNameMap = {};
   routeData.concat(menuData).forEach((item) => {
     breadcrumbNameMap[item.path] = item.name;

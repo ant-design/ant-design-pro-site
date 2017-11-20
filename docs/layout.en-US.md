@@ -55,29 +55,31 @@ We abstract common layouts in Ant Design Pro, and put them in `/layouts`, includ
 To manage mappings between routes and pages, we put configurations under `common/nav.js` as follows:
 
 ```jsx
-const data = [{
-  component: BasicLayout,
-  name: 'Home',  // for breadcrumb
+export const getNavData = app => [{
+  component: dynamicWrapper(app, ['user'], import('../layouts/BasicLayout')),   // for dynamic import
+  name: '首页',  // for breadcrumb
   path: '',
   children: [{...}],
 }, {
-  component: UserLayout,
+  component: dynamicWrapper(app, [], import('../layouts/UserLayout')),
   children: [{
-    name: 'User',
+    name: '帐户',
     icon: 'user',
     path: 'user',
     children: [{
-      name: 'Login',
+      name: '登录',
       path: 'login',
-      component: Login,
+      component: dynamicWrapper(app, ['login'], import('../routes/User/Login')),
     }, {
-      name: 'Register',
+      name: '注册',
       path: 'register',
-      component: Register,
+      component: dynamic({
+        app,
+        models: dynamicWrapper(app, ['register'], import('../routes/User/Register')),
     }, {
-      name: 'Register Result',
+      name: '注册结果',
       path: 'register-result',
-      component: RegisterResult,
+      component: dynamicWrapper(app, [], import('../routes/User/RegisterResult')),
     }],
   }],
 }];
