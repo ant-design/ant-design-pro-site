@@ -46,4 +46,4 @@ ReactDOM.render(<Result type="success" />, mountNode);
 组件会随着脚手架的更新而不断迭代，有任何问题和需求可以反馈到 [这里](http://github.com/ant-design/ant-design-pro/issues)。
 
 - 最新版本：[![ant-design-pro](https://img.shields.io/npm/v/ant-design-pro.svg?style=flat-square)](http://npmjs.com/ant-design-pro)
-- [更新日志](/docs/history)
+- [更新日志](/docs/changelog)

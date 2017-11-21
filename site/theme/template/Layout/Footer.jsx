@@ -92,7 +92,7 @@ class Footer extends React.Component {
               <div className="footer-center">
                 <h2><FormattedMessage id="app.footer.community" /></h2>
                 <div>
-                  <Link to={utils.getLocalizedPathname('/docs/history', isZhCN)}>
+                  <Link to={utils.getLocalizedPathname('/docs/changelog', isZhCN)}>
                     <FormattedMessage id="app.footer.change-log" />
                   </Link>
                 </div>
