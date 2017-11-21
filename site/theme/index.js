@@ -32,13 +32,6 @@ module.exports = {
         meta: markdownData.meta,
       };
     },
-    changelog(markdownData) {
-      if (/CHANGELOG/.test(markdownData.meta.filename)) {
-        return {
-          meta: markdownData.meta,
-        };
-      }
-    },
     docs: pickerGenerator(),
   },
   plugins: [

@@ -2,10 +2,6 @@ import collect from 'bisheng/collect';
 import MainContent from './MainContent';
 import * as utils from '../utils';
 
-function isChangelog(pathname) {
-  return pathname.indexOf('changelog') >= 0;
-}
-
 export default collect(async (nextProps) => {
   const pathname = nextProps.location.pathname;
 
@@ -18,9 +14,7 @@ export default collect(async (nextProps) => {
     pageDataPath[1] = str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  const pageData = isChangelog(pathname) ?
-    nextProps.data.changelog.CHANGELOG :
-    nextProps.utils.get(nextProps.data, pageDataPath);
+  const pageData = nextProps.utils.get(nextProps.data, pageDataPath);
 
   // 路由跳转统一处理
   if (pathname === 'components') {
