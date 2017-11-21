@@ -217,6 +217,13 @@
     margin-left: 16px;
     width: ~"calc(100% - 32px)";
   }
+  .drawer {
+    .ant-menu-inline .ant-menu-item:after,
+    .ant-menu-vertical .ant-menu-item:after {
+      left: 0;
+      right: auto;
+    }
+  }
 }
 
 @media only screen and (max-width: @screen-md) {
