@@ -1,14 +1,14 @@
 ---
 order: 10
 title:
-  en-US: Charts 
+  en-US: Charts
   zh-CN: 图表
 type: 进阶
 ---
 
-Ant Design Pro 提供了由设计师精心设计抽象的业务常用的图表类型。 
+Ant Design Pro 提供了由设计师精心设计抽象的业务常用的图表类型。
 
-是在 [G2](https://antv.alipay.com/g2/doc/index.html) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。
+是在 [G2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。
 
 > 需要注意的是后期底层会换成基于 G2 的 React 图表库 BizCharts，会更加快速轻量
 
@@ -77,7 +77,7 @@ ReactDOM.render(
 
 ## 使用 G2 绘制图表
 
-如果 Ant Design Pro 不能满足你的业务需求，可以直接试用 [G2](https://antv.alipay.com/g2/doc/index.html) 封装自己的图表组件。
+如果 Ant Design Pro 不能满足你的业务需求，可以直接试用 [G2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) 封装自己的图表组件。
 
 ### 引入 G2
 

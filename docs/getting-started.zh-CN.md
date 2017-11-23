@@ -50,7 +50,7 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 
 ## 前序准备
 
-你的本地环境需要安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)。我们的技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[React](http://facebook.github.io/react/)、[dva](http://github.com/dvajs/dva)、[g2](https://antv.alipay.com/g2/doc/index.html) 和 [antd](https://ant.design/docs/react/introduce-cn)，提前了解和学习这些知识会非常有帮助。
+你的本地环境需要安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)。我们的技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[React](http://facebook.github.io/react/)、[dva](http://github.com/dvajs/dva)、[g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) 和 [antd](https://ant.design/docs/react/introduce-cn)，提前了解和学习这些知识会非常有帮助。
 
 ## 安装
 
