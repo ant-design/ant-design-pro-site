@@ -28,6 +28,7 @@ antd@3.0 预计在 11 月底发布：https://github.com/ant-design/ant-design/is
 
 - 单独升级 `antd` 版本，用于更新基础组件。
 - 比较不同的 Ant Design Pro 版本间的差异，手动修改本地配置。
+- 也可以尝试合并远程分支：`git pull https://github.com/ant-design/ant-design-pro`（注意，需要自行解决冲突）。
 - 直接在 GitHub 上拷贝最新的典型模板。
 
 ### npm test 在 `MacOS Sierra` 下使用报错？
