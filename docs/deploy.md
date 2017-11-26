@@ -43,7 +43,7 @@ $ npm run build
 
 ### 分析构建文件体积
 
-如果你的构建文件很大，你可以通过 `analyze` 命令构建并分析依赖模块的体积分步，从而优化你的代码。
+如果你的构建文件很大，你可以通过 `analyze` 命令构建并分析依赖模块的体积分布，从而优化你的代码。
 
 ```bash
 $ npm run analyze
@@ -51,7 +51,7 @@ $ npm run analyze
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/jibuOPHTyWMpMGvrlFDl.png" width="600" />
 
-然后打开 `dist/stats.html` 查看体积分步数据。
+然后打开 `dist/stats.html` 查看体积分布数据。
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/sjzZbbsgthNtruKKHbiG.png" width="400" />
 
