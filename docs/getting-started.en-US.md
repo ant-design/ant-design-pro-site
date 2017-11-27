@@ -86,9 +86,9 @@ We have provided a scaffold which includes common routes for admins and demonstr
 ```bash
 ├── mock                     # Local Mock Data
 ├── public
-│   ├── favicon.ico          # Favicon
-│   └── index.html           # HTML Entry File
+│   └── favicon.ico          # Favicon
 ├── src
+│   ├── assets               # Local static files
 │   ├── common               # Common Configuration like Navigation
 │   ├── components           # Components
 │   ├── e2e                  # Integrated Test Case
@@ -98,8 +98,8 @@ We have provided a scaffold which includes common routes for admins and demonstr
 │   ├── services             # Back-end Services
 │   ├── utils                # Utility
 │   ├── g2.js                # Dataviz Configuration
-│   ├── polyfill.js          # Polyfills
 │   ├── theme.js             # Theme Configuration
+│   ├── index.ejs            # HTML Entry
 │   ├── index.js             # App Entry
 │   ├── index.less           # Global Stylesheet
 │   └── router.js            # Route Entry File
