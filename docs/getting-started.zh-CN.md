@@ -40,6 +40,10 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
   - 注册成功
 ```
 
+## 谁在使用
+
+目前蚂蚁金服和阿里巴巴内部数十个项目正在尝试 Pro 的研发模式，如果你和你的组织使用了这个产品，欢迎到 [Ant Design Pro Users](https://github.com/ant-design/ant-design-pro/issues/99) 留言。
+
 ### For 设计者
 
 如果你是产品或设计师，你可以找到和 Pro 一一配套的 [Axure/Sketch 设计资源](/docs/resource)，大幅度提升设计效率和沟通效率。

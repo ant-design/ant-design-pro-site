@@ -42,6 +42,10 @@ With those objectives in mind, we have built the following templates, and have b
   - Register Result
 ```
 
+## Who are using
+
+Dozens of applications are tring Ant Design Pro in Ant Financial and Alibaba Group, welcome to leave your information in [Ant Design Pro Users](https://github.com/ant-design/ant-design-pro/issues/99) if you or your orgnazation are using it.
+
 ### For Designer
 
 If you are product manager or designer, you can find the [design kit](/docs/resource) here.
