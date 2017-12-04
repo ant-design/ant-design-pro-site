@@ -9,7 +9,7 @@ import { enquireScreen, getLocalizedPathname } from '../utils';
 
 const { Option, OptGroup } = Select;
 
-const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/gVAKqIsuJCepKNbgbSwE.svg';
+const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 const textSearchUrl = 'https://www.google.com/search?q=site:pro.ant.design+';
 
 // https://www.algolia.com/apps/YEWBNYLVLW/
@@ -195,7 +195,7 @@ class Header extends React.Component {
           <Col xxl={4} xl={5} lg={8} md={8} sm={24} xs={24}>
             <Link id="logo" to="/">
               <img src={LOGO_URL} alt="logo" />
-              <span>ANT DESIGN PRO</span>
+              <img src="https://gw.alipayobjects.com/zos/rmsportal/tNoOLUAkyuGLXoZvaibF.svg" alt="Ant Design Pro" />
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
