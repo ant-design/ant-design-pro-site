@@ -47,6 +47,7 @@
     "eslint-config-airbnb": "latest",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-compat": "^2.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.0.1",
     "eslint-plugin-markdown": "^1.0.0-beta.6",
