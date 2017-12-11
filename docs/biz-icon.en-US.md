@@ -13,12 +13,12 @@ you can vist [iconfont.cn](http://iconfont.cn/) to find Icons what you need, the
 
 ## 1、Generating code of icon libs.
 
-First, searching icons what you need, and add this icons into your shop bag. then, you should add this icons which you selected to your project(if you don't have, just create one). All of resources and code are project-based in future.
+First, searching icons what you need, and add this icons into your shop bag. then, you should add this icons which you have selected to your project(if you don't have, just create one). All of resources and code are project-based in future.
 
 
-> 如果你已经有了设计稿，只是需要生成相关代码，可以上传你的图标后，再进行上面的操作。
+> If you get a design spec, a. getting all of icons (svg format) from your designer, b. uploading this icons to [iconfont.cn](http://iconfont.cn/), finally, doing step #1.
 
-<img width="600" alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/jJQYzRyqVFBBamUOppXH.png" />
+<img width="600" alt="Layout about account" src="https://gw.alipayobjects.com/zos/rmsportal/jJQYzRyqVFBBamUOppXH.png" />
 
 <br />
 
