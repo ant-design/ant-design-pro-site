@@ -6,8 +6,8 @@ title:
 type: Advanced
 ---
 
-If you don't have find Icon what you need in [ant design Icon](https://ant.design/components/icon/),
-you can vist [iconfont.cn](http://iconfont.cn/) to find Icons what you need, then you can generate and reference icon libs for your purpose.
+If you can't have found Icon what you need in [ant design Icon](https://ant.design/components/icon/),
+you can vist [iconfont.cn](http://iconfont.cn/) to find Icons, then you can generate and reference icon libs for your project.
 
 ---
 
