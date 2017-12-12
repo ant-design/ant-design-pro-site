@@ -63,7 +63,7 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 ### 直接 clone git 仓库
 
 ```bash
-$ git clone --depth=1 git@github.com:ant-design/ant-design-pro.git my-project
+$ git clone --depth=1 https://github.com/ant-design/ant-design-pro.git my-project
 $ cd my-project
 ```
 
