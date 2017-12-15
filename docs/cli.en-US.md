@@ -32,12 +32,12 @@ $ pro new
 Run
 
 ```bash
-$ pro generate 
+$ pro generate
 ```
 
 This will show an interactive command line:
 
-<img width="400" src="https://gw.alipayobjects.com/zos/rmsportal/VhiILFUpYxGUBgbnuUny.pnghttps://gw.alipayobjects.com/zos/rmsportal/jtRFEJZANqqjeoEbylhV.png" />
+<img width="400" src="https://gw.alipayobjects.com/zos/rmsportal/jtRFEJZANqqjeoEbylhV.png" />
 
 Then you can follow the instructions and add templates to your project.
 
@@ -52,4 +52,3 @@ We currently support the following templates:
   - normal
 - service
 - model
-

@@ -34,12 +34,12 @@ $ pro new
 运行
 
 ```bash
-$ pro generate 
+$ pro generate
 ```
 
 则会显示富交互的命令行提示界面：
 
-<img width="400" src="https://gw.alipayobjects.com/zos/rmsportal/VhiILFUpYxGUBgbnuUny.pnghttps://gw.alipayobjects.com/zos/rmsportal/jtRFEJZANqqjeoEbylhV.png" />
+<img width="400" src="https://gw.alipayobjects.com/zos/rmsportal/jtRFEJZANqqjeoEbylhV.png" />
 
 然后通过交互提示就可以添加 `pro` 提供的标准模板。
 
@@ -54,4 +54,3 @@ $ pro generate
   - normal
 - service
 - model
-
