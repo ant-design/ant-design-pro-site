@@ -12,6 +12,7 @@
   "dependencies": {
     "antd": "next",
     "axios": "^0.16.2",
+    "dva": "^1.2.1",
     "lodash-decorators": "^4.4.1",
     "parallelshell": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.0",
@@ -75,24 +76,27 @@
     "webpack": "^3.6.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js --no-livereload",
-    "bisheng-build": "cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js",
+    "start":
+      "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js --no-livereload",
+    "bisheng-build":
+      "cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js",
     "scaffold-start": "cd ./scaffold && BROWSER=none npm start",
     "scaffold-move": "./tool/bin/let -m",
     "scaffold-build": "cd ./scaffold && npm run build && ../tool/bin/let -b",
-    "scaffold-build:static": "./tool/bin/let -s && cd ./scaffold && npm run build && ../tool/bin/let -b",
+    "scaffold-build:static":
+      "./tool/bin/let -s && cd ./scaffold && npm run build && ../tool/bin/let -b",
     "scaffold-install": "cd ./scaffold && ../tool/bin/i",
-    "preinstall": "cd ./scaffold && ../tool/bin/i",
     "site": "rm -rf _site && npm run bisheng-build && gh-pages -d _site",
-    "components-publish": "./tool/bin/let -c && cd ./config/components && npm publish",
+    "components-publish":
+      "./tool/bin/let -c && cd ./config/components && npm publish",
+    "preinstall": "cd ./scaffold && node ../tool/bin/i",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint:es": "eslint ./ --ext '.js,.jsx'",
     "lint:style": "stylelint \"site/**/*.less\" --syntax less",
-    "lint:demo": "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
+    "lint:demo":
+      "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
     "test": "npm run lint"
   },
-  "pre-commit": [
-    "lint"
-  ]
+  "pre-commit": ["lint"]
 }
