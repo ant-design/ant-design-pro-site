@@ -32,8 +32,8 @@ Ant Design Pro 提供了由设计师精心设计抽象的业务常用的图表�
 Charts 图表套件是在 `ant-design-pro/lib/Charts` 包中，引用到项目就像使用其它组件一样：
 
 ```jsx
-import { ChartCard, MiniBar } from "ant-design-pro/lib/Charts";
-import { Tooltip, Icon } from "antd";
+import { ChartCard, MiniBar } from 'ant-design-pro/lib/Charts';
+import { Tooltip, Icon } from 'antd';
 
 const visitData = [
   {
@@ -90,14 +90,14 @@ npm install bizcharts --save
 在项目中使用
 
 ```jsx
-import {Chart, Axis, Tooltip, Geom} from "bizcharts";
+import { Chart, Axis, Tooltip, Geom } from 'bizcharts';
 
 const data = [...];
 
 <Chart height={400} data={data} forceFit>
   <Axis name="month" />
-  <Axis name="temperature" label={{formatter: val => `${val}°C`}} />
-  <Tooltip crosshairs={{type : "y"}} />
+  <Axis name="temperature" label={{ formatter: val => `${val}°C` }} />
+  <Tooltip crosshairs={{ type : "y" }} />
   <Geom type="line" position="month*temperature" size={2} color={'city'} />
   <Geom type='point' position="month*temperature" size={4} color={'city'} />
 </Chart>
