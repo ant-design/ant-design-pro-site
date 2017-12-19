@@ -12,7 +12,6 @@
   "dependencies": {
     "antd": "next",
     "axios": "^0.16.2",
-    "dva": "^1.2.1",
     "lodash-decorators": "^4.4.1",
     "parallelshell": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.0",
