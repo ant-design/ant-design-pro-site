@@ -98,9 +98,11 @@ effects: {
 ```js
 // .roadhogrc.mock.js
 export default {
-  'GET /api/*': 'https://your.server.com/api/',
+  'GET /api/(.*)': 'https://your.server.com/api/',
 };
 ```
+
+这样你浏览器里这样的接口 `http://localhost:8001/api/applications` 会被转发到 `https://your.server.com/api/applications` 下。
 
 ### 关闭 mock
 
