@@ -1,8 +1,6 @@
 ---
 order: 4
-title:
-  en-US: New Component
-  zh-CN: 新增业务组件 
+title: New Component
 type: Introduction
 ---
 
