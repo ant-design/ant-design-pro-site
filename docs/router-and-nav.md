@@ -109,7 +109,7 @@ const dynamicWrapper = (app, models, component) => dynamic({
 }
 ```
 
-`getRouteData` 是 `src/utils/utils.js` 中的方法，他可以帮助你从之前配置的数据文件 `src/common/nav.js` 读出指定布局相关的路由信息，进而生成路由配置，传入的参数就是每个 layout 模板独有的标记。
+`getRouteData` 是 `src/router.js` 中传递的方法，他可以帮助你从之前配置的数据文件 `src/common/nav.js` 读出指定布局相关的路由信息，进而生成路由配置，传入的参数就是每个 layout 模板独有的标记。
 
 > 上面 Route 标签的 `exact` 属性为 `react-router@4` 中新增的特性，具体请参考上面给出的文档。
 
