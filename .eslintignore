@@ -3,6 +3,7 @@ webpack.config.js
 node_modules/
 _site
 _scaffold_site
+scaffold
 config/components/es
 config/components/lib
 config/components/dist

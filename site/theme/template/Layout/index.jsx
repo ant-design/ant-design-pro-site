@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import { LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
-import G2 from 'g2';
+import { track, setTheme } from 'bizcharts';
 
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
@@ -14,29 +14,16 @@ import Header from './Header';
 import Footer from './Footer';
 
 // 全局 G2 设置
-G2.track(false);
-
-const colors = [
-  '#8543E0', '#F04864', '#FACC14', '#1890FF', '#13C2C2', '#2FC25B', '#fa8c16', '#a0d911',
-];
-
+track(false);
 const config = {
-  ...G2.Theme,
   defaultColor: '#1089ff',
-  colors: {
-    default: colors,
-    intervalStack: colors,
-  },
-  tooltip: {
-    background: {
-      radius: 4,
-      fill: '#000',
-      fillOpacity: 0.75,
+  shape: {
+    interval: {
+      fillOpacity: 1,
     },
   },
 };
-
-G2.Global.setTheme(config);
+setTheme(config);
 
 if (typeof window !== 'undefined') {
   /* eslint-disable global-require */
