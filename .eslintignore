@@ -4,6 +4,7 @@ node_modules/
 _site
 _scaffold_site
 scaffold
+site
 config/components/es
 config/components/lib
 config/components/dist
