@@ -11,7 +11,7 @@ UI 测试是项目研发流程中的重要一环，有效的测试用例可以�
 Ant Design Pro 封装了一套简洁易用的 React 单元测试和 E2E 测试方案，在项目根目录运行以下命令就能运行测试用例。
 
 ```bash
-$ npm run test:all  // 执行所有测试
+$ npm run test:all  # 执行所有测试
 ```
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/bNkhdMosBxuEhhKgnROo.png" width="700" />
@@ -53,8 +53,8 @@ $ npm test .test.js
 #### 执行单个或一组用例
 
 ```bash
-$ npm test src/routes/Result/Success.test.js  // 测试 Success.test.js
-$ npm test src/routes                         // 测试 routes 下的所有用例文件
+$ npm test src/routes/Result/Success.test.js  # 测试 Success.test.js
+$ npm test src/routes                         # 测试 routes 下的所有用例文件
 ```
 
 ### 测试 dva 包装组件

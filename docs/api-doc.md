@@ -45,7 +45,7 @@ $ roadhog-api-doc build
 通常来讲，你无需额外加入任何依赖就可以生成文档，但是如果你需要对接口做出说明，需要按照以下格式对 `roadhog mock` 文件进行修改：
 
 ```bash
-$ npm install roadhog-api-doc --save-dev // 将 roadhog-api-doc 作为本地工具依赖安装
+$ npm install roadhog-api-doc --save-dev # 将 roadhog-api-doc 作为本地工具依赖安装
 ```
 
 ```js

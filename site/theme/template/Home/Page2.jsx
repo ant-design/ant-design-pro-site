@@ -25,7 +25,7 @@ function Page2() {
               <div>$ cd ant-design-pro</div>
               <div>$ npm install</div>
               <div>
-                $ npm start <span className="home-code-comment">{'//'} <FormattedMessage id="app.home.openbrowser" /> http://localhost:8000</span>
+                $ npm start <span className="home-code-comment">{'#'} <FormattedMessage id="app.home.openbrowser" /> http://localhost:8000</span>
               </div>
             </div>
             <p key="p2" className="page-content">
