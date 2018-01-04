@@ -40,20 +40,16 @@ type: 入门
 
 ```js
 {
-  /: {
-    component: ƒ,
-    name: undefined
-  },
   /dashboard/analysis: {
-    component: ƒ,
+    component: DynamicComponent(),
     name: "分析页"
   },
   /dashboard/monitor: {
-    component: ƒ,
+    component: DynamicComponent(),
     name: "监控页"
   },
   /dashboard/workplace: {
-    component: ƒ,
+    component: DynamicComponent(),
     name: "工作台"
   },
 }
