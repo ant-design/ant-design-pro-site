@@ -102,7 +102,7 @@ export default {
 };
 ```
 
-这样你浏览器里这样的接口 `http://localhost:8001/api/applications` 会被转发到 `https://your.server.com/api/applications` 下。
+这样你浏览器里这样的接口 `http://localhost:8001/api/applications` 会被反向代理到 `https://your.server.com/api/applications` 下。
 
 ### 关闭 mock
 
