@@ -1,8 +1,8 @@
 ---
 order: 2
 title:
-  en-US: Router and Nav 
-  zh-CN: 路由和菜单 
+  en-US: Router and Nav
+  zh-CN: 路由和菜单
 type: 入门
 ---
 
@@ -125,7 +125,7 @@ getRoutes(match.path, routerData).map(item => (
 // src/common/menu.js
 const menuData = [{
   name: 'dashboard',
-  icon: 'dashboard',
+  icon: 'dashboard',  // https://demo.com/icon.png or <Icon type="dashboard" />
   path: 'dashboard',
   children: [{
     name: '分析页',
@@ -246,7 +246,7 @@ const menuData = [{
 脚手架默认使用工具函数 getRoutes 对 routerData 进行处理，然后生成路由列表，根据[基本算法](/docs/router-and-nav#路由)，在每一级组件中只会渲染当前 match.path 下最邻近的路由，所以，如果你要实现嵌套路由的同级展示（如：将 `/list/search` 和 `/list/search/projects` 在同一个地方渲染），就需要手动获取该路由的数据并添加在合适的地方。
 
 ```jsx
-{/* src/layouts/BasicLayout.js 类比你的上层 layout 组件 */} 
+{/* src/layouts/BasicLayout.js 类比你的上层 layout 组件 */}
 <Content style={{ margin: '24px 24px 0', height: '100%' }}>
   <div style={{ minHeight: 'calc(100vh - 260px)' }}>
     <Switch>
