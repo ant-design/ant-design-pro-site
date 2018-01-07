@@ -66,11 +66,13 @@ less 文件好像没什么改变，只是类名比较简单（实际项目中也
   }
 }
 ```
+
 CSS Modules 的基本原理很简单，就是对每个类名（非 :global 声明的）按照一定规则进行转换，保证它的唯一性。如果在浏览器里查看这个示例的 dom 结构，你会发现实际渲染出来是这样的：
 
 ```html
 <div class="title___3TqAx">title</div>
 ```
+
 类名被自动添加了一个 hash 值，这保证了它的唯一性。
 
 除了上面的基础知识，还有一些关键点需要注意：
@@ -176,5 +178,5 @@ ReactDOM.render(
 
 方法很简单，有两点需要注意：
 
-- 引入的 antd 组件类名没有被 CSS Module 转化，所以被覆盖的类名 `.ant-select-selection` 必须放到 `:global` 中。
+- 引入的 antd 组件类名没有被 CSS Modules 转化，所以被覆盖的类名 `.ant-select-selection` 必须放到 `:global` 中。
 - 因为上一条的关系，覆盖是全局性的，为了防止对其他 Select 造成影响，可以给组件添加 className，只对这类组件进行覆盖，也可以利用外层类名实现这种限制。
