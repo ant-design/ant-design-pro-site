@@ -13,6 +13,7 @@ import AvatarList from './AvatarList';
 import Trend from './Trend';
 import NumberInfo from './NumberInfo';
 import Ellipsis from './Ellipsis';
+import Authorized from './Authorized';
 
 export default {
   Charts,
@@ -30,4 +31,5 @@ export default {
   Trend,
   NumberInfo,
   Ellipsis,
+  Authorized,
 };
