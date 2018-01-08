@@ -17,7 +17,9 @@
     "react-copy-to-clipboard": "^5.0.0",
     "react-document-title": "^2.0.3",
     "react-github-button": "^0.1.11",
-    "react-intl": "^2.3.0"
+    "react-intl": "^2.3.0",
+    "bizcharts": "^3.1.0-beta.4",
+    "bizcharts-plugin-slider": "^2.0.1"
   },
   "devDependencies": {
     "antd-tools": "^4.0.1",
@@ -55,9 +57,6 @@
     "eslint-tinker": "^0.4.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "fs-extra": "^4.0.0",
-    "g-cloud": "^1.0.2-beta",
-    "g2": "^2.3.12",
-    "g2-plugin-slider": "^1.2.1",
     "gh-pages": "^1.0.0",
     "npm-run-all": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "2.0.0",
@@ -75,27 +74,24 @@
     "webpack": "^3.6.0"
   },
   "scripts": {
-    "start":
-      "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js --no-livereload",
-    "bisheng-build":
-      "cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js",
+    "start": "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js --no-livereload",
+    "bisheng-build": "cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js",
     "scaffold-start": "cd ./scaffold && BROWSER=none npm start",
     "scaffold-move": "./tool/bin/let -m",
     "scaffold-build": "cd ./scaffold && npm run build && ../tool/bin/let -b",
-    "scaffold-build:static":
-      "./tool/bin/let -s && cd ./scaffold && npm run build && ../tool/bin/let -b",
+    "scaffold-build:static": "./tool/bin/let -s && cd ./scaffold && npm run build && ../tool/bin/let -b",
     "scaffold-install": "cd ./scaffold && ../tool/bin/i",
+    "preinstall": "cd ./scaffold && ../tool/bin/i",
     "site": "rm -rf _site && npm run bisheng-build && gh-pages -d _site",
-    "components-publish":
-      "./tool/bin/let -c && cd ./config/components && npm publish",
-    "preinstall": "cd ./scaffold && node ../tool/bin/i",
+    "components-publish": "./tool/bin/let -c && cd ./config/components && npm publish",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint:es": "eslint ./ --ext '.js,.jsx'",
     "lint:style": "stylelint \"site/**/*.less\" --syntax less",
-    "lint:demo":
-      "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
+    "lint:demo": "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
     "test": "npm run lint"
   },
-  "pre-commit": ["lint"]
+  "pre-commit": [
+    "lint"
+  ]
 }
