@@ -16,11 +16,11 @@ $ npm run build
 
 由于 Ant Design Pro 底层使用的 [roadhog](https://github.com/sorrycc/roadhog) 工具，已经将复杂的流程封装完毕，对于大部分场景，构建打包文件只需要一个命令 `roadhog build`，构建打包成功之后，会在根目录生成 `dist` 文件夹，里面就是构建打包好的文件，通常是 `***.js`、`***.css`、`index.html` 等静态文件。
 
-不过你如果需要自定义构建，比如指定 `dist` 目录等，则需要通过 `.roadhogrc` 进行配置，详情参看：[roadhog 配置](https://github.com/sorrycc/roadhog#配置)。
+不过你如果需要自定义构建，比如指定 `dist` 目录等，则需要通过 `.webpackrc` 进行配置，详情参看：[roadhog 配置](https://github.com/sorrycc/roadhog#配置)。
 
 ### 环境变量
 
-当你需要区别开发和部署以及测试环境的时候，可以通过在 `.roadhogrc` 中设置 [env](https://github.com/sorrycc/roadhog#env) 环境变量来实现。
+当你需要区别开发和部署以及测试环境的时候，可以通过在 `.webpackrc` 中设置 [env](https://github.com/sorrycc/roadhog#env) 环境变量来实现。
 
 ```
 "env": {
@@ -79,7 +79,7 @@ $ npm run analyze
 
 这种方式对于部署有一定的要求，你可以将 dist 整体部署到你的后端应用的静态资源目录下（通常为 static 或者 public），这样默认的静态资源引用路径直接指向应用的根目录 `//your.application.domain/***.js` 和 `//your.application.domain/***.css`。
 
-如果你的静态资源域名和应用域名不同（例如独立的 cdn 地址），你需要使用在 `.roadhogrc` 文件里用 [publicPath](https://github.com/sorrycc/roadhog#publicpath) 对生产环境的静态路径进行配置。可以参考 [create-react-app 的部署文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment)
+如果你的静态资源域名和应用域名不同（例如独立的 cdn 地址），你需要使用在 `.webpackrc` 文件里用 [publicPath](https://github.com/sorrycc/roadhog#publicpath) 对生产环境的静态路径进行配置。可以参考 [create-react-app 的部署文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment)
 
 ```json
 {
@@ -87,7 +87,7 @@ $ npm run analyze
 }
 ```
 
-如果你不需要代码分割和动态加载功能， Ant Design Pro 1.0 版本后我们 `.roadhogrc` 里使用了 `"disableDynamicImport": true` **默认关掉了动态加载**（roadhog@2.x 支持），回退为单文件 index.js 和 index.css 的构建方式。如果需要动态加载删掉这个配置即可。
+如果你不需要代码分割和动态加载功能， Ant Design Pro 1.0 版本后我们 `.webpackrc` 里使用了 `"disableDynamicImport": true` **默认关掉了动态加载**（roadhog@2.x 支持），回退为单文件 index.js 和 index.css 的构建方式。如果需要动态加载删掉这个配置即可。
 
 ### 前端路由与服务端的结合
 

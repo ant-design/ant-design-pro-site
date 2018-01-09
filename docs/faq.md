@@ -57,7 +57,7 @@ antd@3.0 预计在 11 月底发布：https://github.com/ant-design/ant-design/is
 
 ### 如何添加 scss 支持？
 
-在 `.roadhogrc` 中开启 `sass` 配置，详见 [sass](https://github.com/sorrycc/roadhog#sass)。
+在 `.webpackrc` 中开启 `sass` 配置，详见 [sass](https://github.com/sorrycc/roadhog#sass)。
 
 ### Git commit 时报错？
 

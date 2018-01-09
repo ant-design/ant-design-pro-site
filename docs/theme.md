@@ -32,7 +32,7 @@ module.exports = {
 更多方式可以参考官方文档：[定制主题](http://ant.design/docs/react/customize-theme-cn)。
 
 > 小技巧：你可以把以上的主题配置文件 `theme.js` 发布成单独的 npm 包来引入，方便不同项目之间的复用。
-> 在 `.roadhogrc` 中修改 `"theme": "./node_modules/your-package/theme.js"` 为相应路径即可。
+> 在 `.webpackrc` 中修改 `"theme": "./node_modules/your-package/theme.js"` 为相应路径即可。
 
 ## 样式覆盖
 
