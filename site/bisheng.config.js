@@ -1,6 +1,6 @@
-
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -13,6 +13,39 @@ const pluginAntdConfig = {
     ],
   }),
 };
+
+// refs: https://github.com/umijs/umi/blob/master/packages/af-webpack/src/getConfig.js
+function getCSSLoader() {
+  return [
+    {
+      loader: require.resolve('css-loader'),
+      options: {
+        importLoaders: 1,
+        modules: true,
+        localIdentName: '[local]___[hash:base64:5]',
+      },
+    },
+    {
+      loader: require.resolve('postcss-loader'),
+      options: {
+        ident: 'postcss',
+        plugins: () => [
+          require('postcss-flexbugs-fixes'),
+          autoprefixer({
+            browsers: opts.browserslist || defaultBrowsers,
+            flexbox: 'no-2009',
+          }),
+        ],
+      },
+    },
+    {
+      loader: require.resolve('less-loader'),
+      options: {
+        modifyVars: {},
+      },
+    },
+  ];
+}
 
 module.exports = {
   port: 8001,
@@ -48,9 +81,7 @@ module.exports = {
     return filePath;
   },
   doraConfig: {},
-  plugins: [
-    `bisheng-plugin-react?${JSON.stringify(pluginAntdConfig)}`,
-  ],
+  plugins: [`bisheng-plugin-react?${JSON.stringify(pluginAntdConfig)}`],
   webpackConfig(config) {
     config.resolve.alias = {
       'ant-design-pro/lib': path.join(process.cwd(), 'scaffold/src/components'),
@@ -69,8 +100,11 @@ module.exports = {
     });
 
     // components 下面的走 css module 其他不变
-    config.module.loaders.forEach((loader) => {
-      if (typeof loader.test === 'function' && loader.test.toString().indexOf('\\.less$') > -1) {
+    config.module.rules.forEach((loader) => {
+      if (
+        typeof loader.test === 'function' &&
+        loader.test.toString().indexOf('\\.less$') > -1
+      ) {
         if (loader.exclude) {
           loader.exclude.push(/components/);
         } else {
