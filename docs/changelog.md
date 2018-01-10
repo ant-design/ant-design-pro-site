@@ -16,7 +16,7 @@ type: 其他
 
 #### 主要变化 💎
 
-- 图表底层升级 BizCharts，修复了之前的一些问题，更新了部分 UI。[#370](https://github.com/ant-design/ant-design-pro/pull/370)
+- 图表底层升级 [BizCharts](https://github.com/alibaba/BizCharts)，修复了之前的一些问题，更新了部分 UI。[#370](https://github.com/ant-design/ant-design-pro/pull/370)
 - 采用全新的菜单及路由配置，能够支持更多更灵活的需求场景，修复了之前存在的一些问题，同时支持指定菜单项/面包屑隐藏。[#442](https://github.com/ant-design/ant-design-pro/pull/442)
 - 新增 Authorized 组件，增加权限管理模块，支持通过简单的配置，实现基本的权限管理需求。[#508](https://github.com/ant-design/ant-design-pro/pull/508)
 - 升级 Roadhog@2，支持 code split 配置化。[#542](https://github.com/ant-design/ant-design-pro/pull/542) [#562](https://github.com/ant-design/ant-design-pro/pull/562) [@sorrycc](https://github.com/sorrycc)

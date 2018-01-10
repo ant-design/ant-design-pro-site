@@ -12,7 +12,7 @@ type: 入门
 
 ## 权限组件 Authorized
 
-这是脚手架权限管理的基础，基本思路是通过比对当前权限与准入权限，决定展示正常渲染内容还是异常内容，使用方式详见 [Authorized 文档](http://pro.ant.design/components/Authorized) 
+这是脚手架权限管理的基础，基本思路是通过比对当前权限与准入权限，决定展示正常渲染内容还是异常内容，使用方式详见 [Authorized 文档](/components/Authorized)。
 
 ## 应用实例
 
