@@ -4,49 +4,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
-const pluginAntdConfig = {
-  babelConfig: JSON.stringify({
-    plugins: [
-      'transform-class-properties',
-      'transform-object-rest-spread',
-      'transform-decorators-legacy',
-    ],
-  }),
-};
-
-// refs: https://github.com/umijs/umi/blob/master/packages/af-webpack/src/getConfig.js
-function getCSSLoader() {
-  return [
-    {
-      loader: require.resolve('css-loader'),
-      options: {
-        importLoaders: 1,
-        modules: true,
-        localIdentName: '[local]___[hash:base64:5]',
-      },
-    },
-    {
-      loader: require.resolve('postcss-loader'),
-      options: {
-        ident: 'postcss',
-        plugins: () => [
-          require('postcss-flexbugs-fixes'),
-          autoprefixer({
-            browsers: opts.browserslist || defaultBrowsers,
-            flexbox: 'no-2009',
-          }),
-        ],
-      },
-    },
-    {
-      loader: require.resolve('less-loader'),
-      options: {
-        modifyVars: {},
-      },
-    },
-  ];
-}
-
 module.exports = {
   port: 8001,
   root: '/',
@@ -80,8 +37,6 @@ module.exports = {
     }
     return filePath;
   },
-  doraConfig: {},
-  plugins: [`bisheng-plugin-react?${JSON.stringify(pluginAntdConfig)}`],
   webpackConfig(config) {
     config.resolve.alias = {
       'ant-design-pro/lib': path.join(process.cwd(), 'scaffold/src/components'),
