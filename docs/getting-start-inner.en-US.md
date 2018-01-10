@@ -1,6 +1,6 @@
 ---
 order: 1
-title: Getting Started(Ant Financial User)
+title: Getting Started (Ant Financial User)
 type: Introduction
 ---
 
