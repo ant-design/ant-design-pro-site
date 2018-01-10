@@ -6,6 +6,44 @@ title:
 type: 其他
 ---
 
+[旧版文档](http://03x.pro.ant.design/)
+
+### 1.0.0 🎆 
+
+`2018-01-10`
+
+~ 2018 年的第一个版本，终于告别 0.x 啦，快来看看都有些啥！~
+
+#### 主要变化 💎
+
+- 图表底层升级 BizCharts，修复了之前的一些问题，更新了部分 UI。[#370](https://github.com/ant-design/ant-design-pro/pull/370)
+- 采用全新的菜单及路由配置，能够支持更多更灵活的需求场景，修复了之前存在的一些问题，同时支持指定菜单项/面包屑隐藏。[#442](https://github.com/ant-design/ant-design-pro/pull/442)
+- 新增 Authorized 组件，增加权限管理模块，支持通过简单的配置，实现基本的权限管理需求。[#508](https://github.com/ant-design/ant-design-pro/pull/508)
+- 升级 Roadhog@2，支持 code split 配置化。[#542](https://github.com/ant-design/ant-design-pro/pull/542) [#562](https://github.com/ant-design/ant-design-pro/pull/562) [@sorrycc](https://github.com/sorrycc)
+- 新增 Login 组件。[#147](https://github.com/ant-design/ant-design-pro/pull/147)
+
+
+#### 脚手架
+  
+- 🌟 增加[内网使用引导](/docs/getting-start-inner)。
+- 🌟 增加全局异常处理。[#500](https://github.com/ant-design/ant-design-pro/pull/500)
+- 🌟 增加 dva-loading，去掉了一堆 loading 处理。[#587](https://github.com/ant-design/ant-design-pro/pull/587) [@andriijas](https://github.com/andriijas)
+- 🌟 菜单图标支持配置成图片地址或组件。[commit/74f0a0](https://github.com/ant-design/ant-design-pro/commit/74f0a0aa6a9ba4a144d97fd90e31b4db2342bc66)
+- 🌟 增加登录页按钮 loading 效果。[#576](https://github.com/ant-design/ant-design-pro/pull/576)
+- 🐞 修复了部分路由没有重定向的问题。[#507](https://github.com/ant-design/ant-design-pro/pull/507)
+- 🐞 扩展dymaicWrapper，防止Model重复导入报错。[#506](https://github.com/ant-design/ant-design-pro/issues/506) [@henrydf](https://github.com/henrydf)
+
+
+#### 组件
+  - SiderMenu
+    - 🌟 针对手机端进行了体验优化。[#463](https://github.com/ant-design/ant-design-pro/pull/463) [@jljsj33](https://github.com/jljsj33)
+    - 🐞 修复了分步表单无法匹配任何菜单项，以及点击 logo 无法切换展开菜单的问题。[commit/e2b126](https://github.com/ant-design/ant-design-pro/commit/e2b1261c8f5d275e105e60e4766734c7eccadfb3)
+  - PageHeader
+    - 🌟 新增 `activeTabKey` 属性。[commit/a8caa5](https://github.com/ant-design/ant-design-pro/commit/a8caa500ae4bb1fe0b808c93dbc24c84339784be)
+    - 🐞 修复了 `breadcrumbList` 属性的优先级问题，更新了相关文档。[commit/d8b0a9](https://github.com/ant-design/ant-design-pro/commit/d8b0a9ecc11cd7ab4491143cdd12bfb8241ad018)
+  - 🐞 修复了 ChartCard 中多余的滚动条。[#532](https://github.com/ant-design/ant-design-pro/issues/532)
+  - 🐞 针对部分组件依赖外部资源的问题进行了抽离。[#528](https://github.com/ant-design/ant-design-pro/issues/528) [#560](https://github.com/ant-design/ant-design-pro/issues/560)
+
 ### 0.3.0
 
 `2017-11-20`
