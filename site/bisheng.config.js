@@ -54,7 +54,7 @@ module.exports = {
     });
 
     // components 下面的走 css module 其他不变
-    config.module.rules.forEach((loader) => {
+    config.module.loaders.forEach((loader) => {
       if (
         typeof loader.test === 'function' &&
         loader.test.toString().indexOf('\\.less$') > -1
