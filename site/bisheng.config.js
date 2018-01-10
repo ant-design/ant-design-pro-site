@@ -71,7 +71,7 @@ module.exports = {
       }
     });
 
-    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
+    // config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
   },
