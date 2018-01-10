@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title:
   en-US: Style
   zh-CN: 样式

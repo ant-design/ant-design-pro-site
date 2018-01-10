@@ -1,5 +1,5 @@
 ---
-order: 17
+order: 18
 title:
   en-US: CLI Tool
   zh-CN: 使用 CLI 工具

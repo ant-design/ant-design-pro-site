@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 12
 title:
   en-US: BIZ Icon
   zh-CN: 业务图标

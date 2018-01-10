@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title: 布局 
 type: 入门
 ---

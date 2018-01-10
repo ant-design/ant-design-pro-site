@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title:
   en-US: New Component
   zh-CN: 新增业务组件 

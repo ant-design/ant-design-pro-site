@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title:
   en-US: Router and Nav
   zh-CN: 路由和菜单

@@ -54,12 +54,6 @@ If you are product manager or designer, you can find the [design kit](/docs/reso
 
 We will walk you through the steps to get started.
 
-### For Ant Financial Company User
-
-For Ant Financial Company User, Bigfish is recommended as a front end overall solution, you can skip the document below, and visit [Bigfish Enterprise Background Application - Using Ant Design Pro](https://docs.antfin.com/basement/bigfish/antdpro) to get start.
-
-> Note: The usage of menu, router and authority is different in Bigfish, you can consult to relervant Bigfish document.
-
 ## Preparation
 
 You will needs [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](https://babeljs.io/learn-es2015/), [React](http://facebook.github.io/react/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.

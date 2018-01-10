@@ -1,5 +1,5 @@
 ---
-order: 21
+order: 22
 title:
   en-US: FAQ
   zh-CN: 常见问题

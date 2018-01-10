@@ -1,5 +1,5 @@
 ---
-order: 13
+order: 14
 title:
   en-US: Theme 
   zh-CN: 更换主题 

@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 8
 title:
   en-US: Build & Deploy
   zh-CN: 构建和发布

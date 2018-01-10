@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 16
 title:
   en-US: Use Pro Components Alone
   zh-CN: 独立使用 Pro 组件

@@ -1,5 +1,5 @@
 ---
-order: 23
+order: 24
 title:
   en-US: Authority Management
   zh-CN: 权限管理
