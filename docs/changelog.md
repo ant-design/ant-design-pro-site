@@ -22,27 +22,24 @@ type: 其他
 - 升级 Roadhog@2，支持 code split 配置化。[#542](https://github.com/ant-design/ant-design-pro/pull/542) [#562](https://github.com/ant-design/ant-design-pro/pull/562) [@sorrycc](https://github.com/sorrycc)
 - 新增 Login 组件。[#147](https://github.com/ant-design/ant-design-pro/pull/147)
 
-
 #### 脚手架
   
 - 🌟 增加[内网使用引导](/docs/getting-start-inner)。
+- 🌟 侧边栏针对手机端进行了体验优化。[#463](https://github.com/ant-design/ant-design-pro/pull/463) [@jljsj33](https://github.com/jljsj33)
 - 🌟 增加全局异常处理。[#500](https://github.com/ant-design/ant-design-pro/pull/500)
 - 🌟 增加 dva-loading，去掉了一堆 loading 处理。[#587](https://github.com/ant-design/ant-design-pro/pull/587) [@andriijas](https://github.com/andriijas)
 - 🌟 菜单图标支持配置成图片地址或组件。[commit/74f0a0](https://github.com/ant-design/ant-design-pro/commit/74f0a0aa6a9ba4a144d97fd90e31b4db2342bc66)
 - 🌟 增加登录页按钮 loading 效果。[#576](https://github.com/ant-design/ant-design-pro/pull/576)
 - 🐞 修复了部分路由没有重定向的问题。[#507](https://github.com/ant-design/ant-design-pro/pull/507)
-- 🐞 扩展dymaicWrapper，防止Model重复导入报错。[#506](https://github.com/ant-design/ant-design-pro/issues/506) [@henrydf](https://github.com/henrydf)
-
+- 🐞 扩展 dymaicWrapper，防止 Model 重复导入报错。[#506](https://github.com/ant-design/ant-design-pro/issues/506) [@henrydf](https://github.com/henrydf)
+- 🐞 修复了分步表单无法匹配任何菜单项，以及点击 logo 无法切换展开菜单的问题。[commit/e2b126](https://github.com/ant-design/ant-design-pro/commit/e2b1261c8f5d275e105e60e4766734c7eccadfb3)
 
 #### 组件
-  - SiderMenu
-    - 🌟 针对手机端进行了体验优化。[#463](https://github.com/ant-design/ant-design-pro/pull/463) [@jljsj33](https://github.com/jljsj33)
-    - 🐞 修复了分步表单无法匹配任何菜单项，以及点击 logo 无法切换展开菜单的问题。[commit/e2b126](https://github.com/ant-design/ant-design-pro/commit/e2b1261c8f5d275e105e60e4766734c7eccadfb3)
-  - PageHeader
-    - 🌟 新增 `activeTabKey` 属性。[commit/a8caa5](https://github.com/ant-design/ant-design-pro/commit/a8caa500ae4bb1fe0b808c93dbc24c84339784be)
-    - 🐞 修复了 `breadcrumbList` 属性的优先级问题，更新了相关文档。[commit/d8b0a9](https://github.com/ant-design/ant-design-pro/commit/d8b0a9ecc11cd7ab4491143cdd12bfb8241ad018)
-  - 🐞 修复了 ChartCard 中多余的滚动条。[#532](https://github.com/ant-design/ant-design-pro/issues/532)
-  - 🐞 针对部分组件依赖外部资源的问题进行了抽离。[#528](https://github.com/ant-design/ant-design-pro/issues/528) [#560](https://github.com/ant-design/ant-design-pro/issues/560)
+
+- PageHeader
+  - 🌟 新增 `activeTabKey` 属性。[commit/a8caa5](https://github.com/ant-design/ant-design-pro/commit/a8caa500ae4bb1fe0b808c93dbc24c84339784be)
+  - 🐞 修复了 `breadcrumbList` 属性的优先级问题，更新了相关文档。[commit/d8b0a9](https://github.com/ant-design/ant-design-pro/commit/d8b0a9ecc11cd7ab4491143cdd12bfb8241ad018)
+- 🐞 针对部分组件依赖外部资源的问题进行了抽离。[#528](https://github.com/ant-design/ant-design-pro/issues/528) [#560](https://github.com/ant-design/ant-design-pro/issues/560)
 
 ### 0.3.0
 
