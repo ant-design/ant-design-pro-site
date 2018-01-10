@@ -47,7 +47,7 @@ module.exports = {
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2&keepElem',
-    `bisheng-plugin-react?${JSON.stringify(pluginAntdConfig)}`,
+    `bisheng-plugin-antd?${JSON.stringify(pluginAntdConfig)}`,
     `bisheng-plugin-react?${JSON.stringify(pluginAntdConfig)}`,
   ],
   routes: {
