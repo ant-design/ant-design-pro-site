@@ -15,6 +15,16 @@ function pickerGenerator(module = '') {
   };
 }
 
+const pluginAntdConfig = {
+  babelConfig: JSON.stringify({
+    plugins: [
+      require.resolve('babel-plugin-transform-class-properties'),
+      require.resolve('babel-plugin-transform-object-rest-spread'),
+      require.resolve('babel-plugin-transform-decorators-legacy'),
+    ],
+  }),
+};
+
 module.exports = {
   lazyLoad(nodePath, nodeValue) {
     if (typeof nodeValue === 'string') {
@@ -37,8 +47,8 @@ module.exports = {
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2&keepElem',
-    'bisheng-plugin-antd',
-    'bisheng-plugin-react?lang=__react',
+    `bisheng-plugin-react?${JSON.stringify(pluginAntdConfig)}`,
+    `bisheng-plugin-react?${JSON.stringify(pluginAntdConfig)}`,
   ],
   routes: {
     path: '/',

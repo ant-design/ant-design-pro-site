@@ -1,18 +1,7 @@
-
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 
 const isDev = process.env.NODE_ENV === 'development';
-
-const pluginAntdConfig = {
-  babelConfig: JSON.stringify({
-    plugins: [
-      'transform-class-properties',
-      'transform-object-rest-spread',
-      'transform-decorators-legacy',
-    ],
-  }),
-};
 
 module.exports = {
   port: 8001,
@@ -47,10 +36,6 @@ module.exports = {
     }
     return filePath;
   },
-  doraConfig: {},
-  plugins: [
-    `bisheng-plugin-react?${JSON.stringify(pluginAntdConfig)}`,
-  ],
   webpackConfig(config) {
     config.resolve.alias = {
       'ant-design-pro/lib': path.join(process.cwd(), 'scaffold/src/components'),
@@ -69,8 +54,11 @@ module.exports = {
     });
 
     // components 下面的走 css module 其他不变
-    config.module.loaders.forEach((loader) => {
-      if (typeof loader.test === 'function' && loader.test.toString().indexOf('\\.less$') > -1) {
+    config.module.rules.forEach((loader) => {
+      if (
+        typeof loader.test === 'function' &&
+        loader.test.toString().indexOf('\\.less$') > -1
+      ) {
         if (loader.exclude) {
           loader.exclude.push(/components/);
         } else {
@@ -82,7 +70,7 @@ module.exports = {
       }
     });
 
-    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
+    // config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
   },

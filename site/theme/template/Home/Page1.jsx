@@ -1,5 +1,5 @@
 import React from 'react';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPAck';
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import Parallax from 'rc-scroll-anim/lib/ScrollParallax';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
