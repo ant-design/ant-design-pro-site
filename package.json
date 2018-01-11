@@ -1,6 +1,6 @@
 {
   "name": "ant-design-pro-site",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "title": "Ant Design Pro",
   "description": "site of Ant Design Pro",
   "homepage": "http://pro.ant.design/",
@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "antd-tools": "^4.0.1",
-    "autod": "^2.10.1",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^19.0.0",
