@@ -1,3 +1,4 @@
+// To bundle dist files
 import Charts from '../../scaffold/src/components/Charts';
 import CountDown from '../../scaffold/src/components/CountDown';
 import DescriptionList from '../../scaffold/src/components/DescriptionList';
