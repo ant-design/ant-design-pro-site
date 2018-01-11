@@ -41,3 +41,4 @@ components/**/*.jsx
 config/components/lib
 config/components/dist
 config/components/es
+config/components/package.json

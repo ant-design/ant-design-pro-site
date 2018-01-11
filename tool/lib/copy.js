@@ -5,7 +5,7 @@ const cwd = process.cwd();
 
 module.exports = function () {
   const pkg = JSON.parse(fs.readFileSync(`${cwd}/scaffold/package.json`, 'utf8'));
-  const antdProPkg = JSON.parse(fs.readFileSync(`${cwd}/config/components/package.json`, 'utf8'));
+  const antdProPkg = JSON.parse(fs.readFileSync(`${cwd}/config/components/package.config.json`, 'utf8'));
   antdProPkg.version = pkg.version;
 
   // shell.exec('./node_modules/.bin/autod -p ./scaffold/src/components/', (code, stdout, stderr) => {
