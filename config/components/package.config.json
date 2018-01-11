@@ -11,7 +11,7 @@
     "clean": "rm -rf dist && rm ../../scaffold/.babelrc && rm ../../scaffold/css-module.js",
     "build": "npm run build:lib && npm run build:index && npm run build:es && npm run build:umd",
     "build:index": "../../node_modules/.bin/babel ./index.js -d lib",
-    "build:lib": "rm -rf lib && npm run cp && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib",
+    "build:lib": "rm -rf lib && npm run cp && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib --copy-files",
     "build:umd": "npm run clean && ../../node_modules/.bin/cross-env NODE_ENV=production ../../node_modules/.bin/antd-tools run dist",
     "build:es": "rm -rf es && cp -apvX ../../scaffold/src/components es && cp index.js es",
     "prepublish": "npm run build"
