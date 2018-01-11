@@ -82,13 +82,15 @@
     "scaffold-build:static": "./tool/bin/let -s && cd ./scaffold && npm run build && ../tool/bin/let -b",
     "scaffold-install": "cd ./scaffold && ../tool/bin/i",
     "site": "rm -rf _site && npm run bisheng-build && gh-pages -d _site",
+    "gh-pages": "gh-pages -d _site",
     "components-publish": "./tool/bin/let -c && cd ./config/components && npm publish",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint:es": "eslint ./ --ext '.js,.jsx'",
     "lint:style": "stylelint \"site/**/*.less\" --syntax less",
     "lint:demo": "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "reinstall": "rm -rf node_modules && tnpm install"
   },
   "pre-commit": [
     "lint"

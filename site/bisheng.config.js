@@ -51,6 +51,8 @@ module.exports = {
     config.externals = Object.assign({}, config.externals, {
       react: 'React',
       'react-dom': 'ReactDOM',
+      'bizcharts': 'BizCharts',
+      '@antv/data-set': 'DataSet',
     });
 
     // components 下面的走 css module 其他不变
