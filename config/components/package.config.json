@@ -30,7 +30,7 @@
   "peerDependencies": {
     "react": "~0.14.0 || >=15.0.0 || >=16.0.0",
     "react-dom": "~0.14.0 || >=15.0.0 || >= 16.0.0",
-    "antd": "^3.0.0-beta.1"
+    "antd": "^3.0.1"
   },
   "dependencies": {
   }
