@@ -33,25 +33,5 @@
     "antd": "^3.0.0-beta.1"
   },
   "dependencies": {
-    "@antv/data-set": "^0.8.0",
-    "@babel/polyfill": "^7.0.0-beta.36",
-    "babel-runtime": "^6.9.2",
-    "bizcharts": "^3.1.0-beta.4",
-    "bizcharts-plugin-slider": "^2.0.1",
-    "classnames": "^2.2.5",
-    "enquire-js": "^0.1.1",
-    "fastclick": "^1.0.6",
-    "lodash": "^4.17.4",
-    "lodash-decorators": "^4.4.1",
-    "moment": "^2.19.1",
-    "numeral": "^2.0.6",
-    "omit.js": "^1.0.0",
-    "prop-types": "^15.5.10",
-    "qs": "^6.5.0",
-    "rc-drawer-menu": "^0.5.0",
-    "react-container-query": "^0.9.1",
-    "react-document-title": "^2.0.3",
-    "react-fittext": "^1.0.0"
-  },
-  "version": "1.0.0"
+  }
 }

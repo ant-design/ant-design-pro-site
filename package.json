@@ -84,7 +84,7 @@
     "build-site": "rm -rf _site && npm run bisheng-build",
     "gh-pages": "gh-pages -d _site",
     "site": "npm run build-site && npm run gh-pages",
-    "components-publish": "./tool/bin/let -c",
+    "components-publish": "./tool/bin/let -c && cd ./config/components && npm publish",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint:es": "eslint ./ --ext '.js,.jsx'",
