@@ -1,6 +1,6 @@
 ---
 order: 2
-title: Layout 
+title: Layout
 type: Introduction
 ---
 
@@ -52,37 +52,23 @@ We abstract common layouts in Ant Design Pro, and put them in `/layouts`, includ
 
 ### Usage
 
-To manage mappings between routes and pages, we put configurations under `common/nav.js` as follows:
+To manage mappings between routes and pages, we put configurations under `src/common/router.js` as follows:
 
 ```jsx
-export const getNavData = app => [{
-  component: dynamicWrapper(app, ['user'], () => import('../layouts/BasicLayout')),   // for dynamic import
-  name: '首页',  // for breadcrumb
-  path: '',
-  children: [{...}],
-}, {
-  component: dynamicWrapper(app, [], () => import('../layouts/UserLayout')),
-  children: [{
-    name: '帐户',
-    icon: 'user',
-    path: 'user',
-    children: [{
-      name: '登录',
-      path: 'login',
-      component: dynamicWrapper(app, ['login'], () => import('../routes/User/Login')),
-    }, {
-      name: '注册',
-      path: 'register',
-      component: dynamic({
-        app,
-        models: dynamicWrapper(app, ['register'], () => import('../routes/User/Register')),
-    }, {
-      name: '注册结果',
-      path: 'register-result',
-      component: dynamicWrapper(app, [], () => import('../routes/User/RegisterResult')),
-    }],
-  }],
-}];
+const routerConfig = {
+  '/': {
+    component: dynamicWrapper(app, ['user', 'login'], () => import('../layouts/BasicLayout')),
+  },
+  '/dashboard/analysis': {
+    component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),
+  },
+  '/user': {
+    component: dynamicWrapper(app, [], () => import('../layouts/UserLayout')),
+  },
+  '/user/login': {
+    component: dynamicWrapper(app, ['login'], () => import('../routes/User/Login')),
+  },
+};
 ```
 
 See [router.js](https://github.com/ant-design/ant-design-pro/blob/master/src/router.js) for more details.
