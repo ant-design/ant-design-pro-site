@@ -14,6 +14,7 @@ import Trend from '../../scaffold/src/components/Trend';
 import NumberInfo from '../../scaffold/src/components/NumberInfo';
 import Ellipsis from '../../scaffold/src/components/Ellipsis';
 import Authorized from '../../scaffold/src/components/Authorized';
+import Login from '../../scaffold/src/components/Login';
 
 export default {
   Charts,
@@ -32,4 +33,5 @@ export default {
   NumberInfo,
   Ellipsis,
   Authorized,
+  Login,
 };

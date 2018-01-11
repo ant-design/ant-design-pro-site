@@ -14,6 +14,7 @@ import Trend from './Trend';
 import NumberInfo from './NumberInfo';
 import Ellipsis from './Ellipsis';
 import Authorized from './Authorized';
+import Login from './Login';
 
 export default {
   Charts,
@@ -32,4 +33,5 @@ export default {
   NumberInfo,
   Ellipsis,
   Authorized,
+  Login,
 };
