@@ -1,14 +1,14 @@
 ---
 order: 21
 title:
-  en-US: Changelog 
+  en-US: Changelog
   zh-CN: 更新日志
 type: 其他
 ---
 
 [旧版文档](http://03x.pro.ant.design/)
 
-### 1.0.0 🎆 
+### 1.0.0 🎆
 
 `2018-01-10`
 
@@ -19,11 +19,10 @@ type: 其他
 - 图表底层升级 [BizCharts](https://github.com/alibaba/BizCharts)，修复了之前的一些问题，更新了部分 UI。[#370](https://github.com/ant-design/ant-design-pro/pull/370)
 - 采用全新的菜单及路由配置，能够支持更多更灵活的需求场景，修复了之前存在的一些问题，同时支持指定菜单项/面包屑隐藏。[#442](https://github.com/ant-design/ant-design-pro/pull/442)
 - 新增 Authorized 组件，增加权限管理模块，支持通过简单的配置，实现基本的权限管理需求。[#508](https://github.com/ant-design/ant-design-pro/pull/508)
-- 升级 Roadhog@2，支持 code split 配置化。[#542](https://github.com/ant-design/ant-design-pro/pull/542) [#562](https://github.com/ant-design/ant-design-pro/pull/562) [@sorrycc](https://github.com/sorrycc)
-- 新增 Login 组件。[#147](https://github.com/ant-design/ant-design-pro/pull/147)
+- 升级 Roadhog@2，支持可配置化的代码分割（默认关闭）。[#542](https://github.com/ant-design/ant-design-pro/pull/542) [#562](https://github.com/ant-design/ant-design-pro/pull/562) [@sorrycc](https://github.com/sorrycc)
 
 #### 脚手架
-  
+
 - 🌟 增加[内网使用引导](/docs/getting-start-inner)。
 - 🌟 侧边栏针对手机端进行了体验优化。[#463](https://github.com/ant-design/ant-design-pro/pull/463) [@jljsj33](https://github.com/jljsj33)
 - 🌟 增加全局异常处理。[#500](https://github.com/ant-design/ant-design-pro/pull/500)
@@ -36,6 +35,7 @@ type: 其他
 
 #### 组件
 
+- 新增 Login 组件。[#147](https://github.com/ant-design/ant-design-pro/pull/147)
 - PageHeader
   - 🌟 新增 `activeTabKey` 属性。[commit/a8caa5](https://github.com/ant-design/ant-design-pro/commit/a8caa500ae4bb1fe0b808c93dbc24c84339784be)
   - 🐞 修复了 `breadcrumbList` 属性的优先级问题，更新了相关文档。[commit/d8b0a9](https://github.com/ant-design/ant-design-pro/commit/d8b0a9ecc11cd7ab4491143cdd12bfb8241ad018)
