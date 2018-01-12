@@ -16,13 +16,11 @@ type: 其他
 
 ### 如何使用 Ant Design Pro？
 
-请阅读文档 [开始使用](/docs/getting-started)。
+请阅读文档 [开始使用](/docs/getting-started)，蚂蚁金服内网用户请阅读 [开始使用（蚂蚁金服用户）](/docs/getting-start-inner)。
 
 ### 是否可以在生产环境中使用 Ant Design Pro？
 
-Ant Design Pro 目前基于 antd@3.0 版本开发，antd 现在依然在 beta 开发阶段，因此建议在正式版本发布之后再使用。
-
-antd@3.0 预计在 11 月底发布：https://github.com/ant-design/ant-design/issues/5570
+当然可以！Ant Design Pro 基于最新的 antd 版本开发，目前已有多个中后台项目正在使用。
 
 ### 如何更新 Ant Design Pro？
 
