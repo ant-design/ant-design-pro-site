@@ -57,6 +57,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "fs-extra": "^4.0.0",
     "gh-pages": "^1.0.0",
+    "js-beautify": "^1.7.5",
     "npm-run-all": "^4.0.2",
     "optimize-css-assets-webpack-plugin": "2.0.0",
     "pre-commit": "^1.2.2",
