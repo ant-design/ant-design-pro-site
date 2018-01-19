@@ -128,11 +128,6 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
-                  <a target="_blank" rel="noopener" href="http://ant.design/">Ant Design</a>
-                  <span> - </span>
-                  <FormattedMessage id="app.footer.ant-design" />
-                </div>
-                <div>
                   <a target="_blank" rel="noopener" href="https://antv.alipay.com/">AntV</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.data-vis" />
