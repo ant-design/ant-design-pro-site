@@ -40,17 +40,17 @@ type: 入门
 
 ```js
 {
-  /dashboard/analysis: {
+  '/dashboard/analysis': {
     component: DynamicComponent(),
-    name: "分析页"
+    name: '分析页',
   },
-  /dashboard/monitor: {
+  '/dashboard/monitor': {
     component: DynamicComponent(),
-    name: "监控页"
+    name: '监控页',
   },
-  /dashboard/workplace: {
+  '/dashboard/workplace': {
     component: DynamicComponent(),
-    name: "工作台"
+    name: '工作台',
   },
 }
 ```
