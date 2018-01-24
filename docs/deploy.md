@@ -148,7 +148,5 @@ const app = dva({
 const app = dva();
 ```
 
-可以看到，这里已经使用 `react-router@4` 的方式，按照去中心化的方式设置路由配置。
-
 关于路由更多可以参看 [React Router](https://github.com/ReactTraining/react-router) 。
 关于 `react-router@4` 更多可以参看 [All About React Router 4](https://css-tricks.com/react-router-4/) 。

@@ -6,9 +6,7 @@ title:
 type: 进阶
 ---
 
-Ant Design Pro 提供了由设计师精心设计抽象的业务常用的图表类型。
-
-是在 [BizCharts](https://github.com/alibaba/BizCharts) 图表库基础上的二次封装，提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。
+Ant Design Pro 提供了由设计师精心设计抽象的图表类型，是在 [BizCharts](https://github.com/alibaba/BizCharts) 图表库基础上的二次封装，同时提供了业务中常用的图表套件，可以单独使用，也可以组合起来实现复杂的展示效果。
 
 目前一共包涵 10 个图表类型，以及 2 个图表套件：
 

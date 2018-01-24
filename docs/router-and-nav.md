@@ -348,6 +348,10 @@ const menuData = [{
 
 ## 常见问题
 
+### 为什么我的路由列表里有些条目没有渲染？
+
+框架默认使用 [getRoutes](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/utils.js) 函数对配置的路由列表进行筛选处理，对于类似 `/ant-design/ant-design-pro` 的路由，我们默认你希望它在 `/ant-design` 里嵌套展示（如果有配置 `/ant-design`），所以在渲染 `/ant-design` 的地方不会同时渲染 `/ant-design/ant-design-pro`，如须将这两条同级展示，参见[嵌套路由同级展示](/docs/router-and-nav#嵌套路由同级展示)。
+
 ### `Link` to 属性
 
 在 `react-router@4` 中，这一属性变为必选项，如果值为 undefined，会引发一系列报错和警告，这一点需要格外注意。相关文档及 issue：
