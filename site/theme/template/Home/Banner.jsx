@@ -3,7 +3,7 @@ import GitHubButton from 'react-github-button';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 import { Button } from 'antd';
-import { Link } from 'dva/router';
+import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
 import BannerSVGAnim from './component/BannerSVGAnim';
 import * as utils from '../utils';

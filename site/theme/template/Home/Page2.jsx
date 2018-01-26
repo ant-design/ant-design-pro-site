@@ -1,7 +1,7 @@
 import React from 'react';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import QueueAnim from 'rc-queue-anim';
-import { Link } from 'dva/router';
+import { Link } from 'bisheng/router';
 import { Button } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import * as utils from '../utils';
