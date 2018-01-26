@@ -69,4 +69,6 @@ type: 进阶
 
 ### 修改当前权限
 
-脚手架中使用 localstorage 模拟权限角色，实际项目中可能需要从后台读取。登录/注销等关键节点需要对当前权限进行更新，为了避免数据同步问题，你可以在更新权限后刷新当前页面，具体可以参考脚手架的方法 [setAuthority](https://github.com/ant-design/ant-design-pro/blob/master/src/models/login.js#L44)。
+脚手架中使用 localstorage 模拟权限角色，实际项目中可能需要从后台读取。  
+脚手架中实现了一个简单的刷新权限方法，在登录/注销等关键节点对当前权限进行了更新。  
+具体可以查看login.js中对[ reloadAuthorized ](https://github.com/ant-design/ant-design-pro/blob/master/src/models/login.js#L22)的调用。 
