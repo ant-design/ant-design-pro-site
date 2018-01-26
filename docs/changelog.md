@@ -8,6 +8,38 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 1.1.0
+
+`2018-01-26`
+
+#### 脚手架
+
+- 🌟 现在注册完成后权限角色也会更新了！[#724](https://github.com/ant-design/ant-design-pro/issues/724)
+- 🌟 重构了全局异常处理相关代码，将异常触发页收纳到顶部下拉列表中。[#675](https://github.com/ant-design/ant-design-pro/pull/675)
+- 🌟 优化了登录/注册/注册结果页在大屏/手机上的展现。[#665](https://github.com/ant-design/ant-design-pro/pull/665) [@andriijas](https://github.com/andriijas)
+- 🐞 修复了手机端的高度问题。[#788](https://github.com/ant-design/ant-design-pro/issues/788)
+- 🐞 修复面包屑在存在带参数的路由时标题匹配有误的问题。[#801](https://github.com/ant-design/ant-design-pro/pull/801) [@Jeepeng](https://github.com/Jeepeng)
+- 🐞 修复使用 browserHistory 报错的问题。[#649](https://github.com/ant-design/ant-design-pro/issues/649)
+- 🐞 修复了 menu path 为绝对路径时的路径拼接问题。[#697](https://github.com/ant-design/ant-design-pro/issues/697)
+- 🐞 修复了不能正常后退的问题。[#729](https://github.com/ant-design/ant-design-pro/issues/729)
+- 页面
+  - 🐞 修复了高级表单页可编辑表格中编辑按钮被误触发的问题。[#744](https://github.com/ant-design/ant-design-pro/issues/744)
+  - 🐞 修复了 firefox 下访问监控页报错的问题。[#677](https://github.com/ant-design/ant-design-pro/issues/677)
+  - 🐞 修复了注册结果页注册信息未同步的问题。[#695](https://github.com/ant-design/ant-design-pro/pull/695) [@elevensky](https://github.com/elevensky)
+  - 🐞 修复了查询表格页验证误触发的问题。[#755](https://github.com/ant-design/ant-design-pro/issues/755)
+
+#### 组件
+
+- 🌟 TagSelect 新增受控模式。[#761](https://github.com/ant-design/ant-design-pro/issues/761) [@yunxifd](https://github.com/yunxifd)
+- PageHeader 
+  - 🌟 新增 `tabBarExtraContent` 属性，支持配置 tab bar 上额外的元素。[#793](https://github.com/ant-design/ant-design-pro/pull/793) [@kamote](https://github.com/kamote)
+  - 🌟 新增 `breadcrumbSeparator` 属性，支持自定义分隔符。[#811](https://github.com/ant-design/ant-design-pro/pull/811) [@unrealsmart](https://github.com/unrealsmart)
+  - 🐞 修复了 `tabActiveKey` 未生效的问题。[#681](https://github.com/ant-design/ant-design-pro/issues/681)
+- 🌟 Authorized 组件 `authority` 属性为 function 时新增当前权限参数。[#692](https://github.com/ant-design/ant-design-pro/issues/692)
+- 🌟 重构了 StandardTable，现在可以通过外部传入的 columns 控制渲染，同时支持多列求和结果展示。[commit/33ef0a](https://github.com/ant-design/ant-design-pro/commit/33ef0adad6c59d4af70632c87e6bf9cffe5949cd)
+- 🐞 修复 Login 内不使用 Tab 时，输入框无法输入的问题。[#674](https://github.com/ant-design/ant-design-pro/issues/674) [@lyingd](https://github.com/lyingd)
+- 🐞 修复了 Ellipsis 内容未正常折行的问题。[#688](https://github.com/ant-design/ant-design-pro/issues/688)
+
 ### 1.0.0 🎆
 
 `2018-01-10`
