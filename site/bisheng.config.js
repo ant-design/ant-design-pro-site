@@ -41,18 +41,16 @@ module.exports = {
       'ant-design-pro/lib': path.join(process.cwd(), 'scaffold/src/components'),
       'ant-design-pro': path.join(process.cwd(), 'config/components/index'),
       site: path.join(process.cwd(), 'site'),
-      'dva/router': 'react-router',
-      'react-router': 'react-router/umd/ReactRouter',
+      //'dva/router': 'react-router',
+      //'react-router': 'react-router/umd/ReactRouter',
     };
-
-    config.externals = config.externals || {};
-    config.externals['react-router-dom'] = 'ReactRouterDOM';
 
     config.externals = Object.assign({}, config.externals, {
       react: 'React',
       'react-dom': 'ReactDOM',
       'bizcharts': 'BizCharts',
       '@antv/data-set': 'DataSet',
+      'react-router-dom': 'ReactRouterDOM',
     });
 
     // components 下面的走 css module 其他不变
