@@ -18,7 +18,7 @@ Ant Design 3.0 和 Ant Design Pro 的配套 Axure 资源包。
 
 Ant Design Pro 的配套 Sketch 模板。
 
-- 链接：Comming soon
+- 链接：[Ant.Design.Pro.sketch](https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch)
 
 ## 其他 Ant Design 设计资源
 

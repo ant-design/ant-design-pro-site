@@ -12,14 +12,14 @@ The Resource of Ant Design Pro.
 
 Axure Package for Ant Design 3.0 and Ant Design Pro.
 
-- link：http://library.ant.design/
+- link: http://library.ant.design/
 
 ## Ant Design Pro Sketch <img src="https://zos.alipayobjects.com/rmsportal/vfxJzCLqZxehgquvQNqX.png" width="24" />
 
 Sketch Templates for Ant Design Pro.
 
-- link：Comming soon
+- link: [Ant.Design.Pro.sketch](https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch)
 
 ## Other resources of Ant Design
 
-- link：https://ant.design/docs/resource/download
+- link: https://ant.design/docs/resource/download
