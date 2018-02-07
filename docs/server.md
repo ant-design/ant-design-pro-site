@@ -111,7 +111,7 @@ export default {
 ```js
 "script" : {
   "start": "roadhog server",
-  "start:no-proxy": "NO_PROXY=true roadhog server"
+  "start:no-proxy": "cross-env NO_PROXY=true roadhog server"
 }
 ```
 
