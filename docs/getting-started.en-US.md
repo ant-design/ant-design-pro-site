@@ -20,7 +20,7 @@ With those objectives in mind, we have built the following templates, and have b
 - Form
   - Basic Form
   - Step Form
-  - Advanced From
+  - Advanced Form
 - List
   - Standard Table
   - Standard List
