@@ -11,7 +11,7 @@ It has following commands:
 - `pro new` start a new project with scaffold, always with the most up-to-date version of Ant Design Pro
 - `pro generate` generate a template with model、service、page、component
 
-## Installaitoni
+## Installation
 
 Use `npm` to install
 
