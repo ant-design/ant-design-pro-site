@@ -115,7 +115,7 @@ class Footer extends React.Component {
                   <a
                     target="_blank"
                     rel="noopener"
-                    href={`http://ant.design/docs/resource/work-with-us${isZhCN ? '-cn' : ''}`}
+                    href={`http://ant.design/docs/spec/work-with-us${isZhCN ? '-cn' : ''}`}
                   >
                     <FormattedMessage id="app.footer.work-with-us" />
                   </a>
