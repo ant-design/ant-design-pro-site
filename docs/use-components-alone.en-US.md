@@ -29,6 +29,8 @@ import 'ant-design-pro/dist/ant-design-pro.css'; // Import whole style
 
 Then you can import pro's components like Ant Design.
 
+> Note that if your are using pro scaffold, you should know the 'ant-design-pro/lib/Result' has been aliased to `src/components` in `.webpackrc.js`.
+
 ```jsx
 import Result from 'ant-design-pro/lib/Result';
 
