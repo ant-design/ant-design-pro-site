@@ -83,12 +83,12 @@ Import your component and use it like other React components.
 
 ```js
 import React from 'react';
-import ImageWrapper from '../../components/ImageWrapper';  // 注意保证引用路径的正确
+import ImageWrapper from '../../components/ImageWrapper';  // aware of the relative path
 
 export default () => (
   <ImageWrapper
     src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png"
-    desc="示意图"
+    desc="sample"
   />
 );
 ```
