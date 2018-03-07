@@ -10,16 +10,16 @@ This document is mainly about how to use and organize style files in projects. I
 
 ## less
 
-Ant Design Pro defaults to using less as the style language, we recommended that you learn about the features of [less](http://lesscss.org/) before using it or sometimes when you have some questions.
+Ant Design Pro defaults to using less as the style language, we recommend that you learn about the features of [less](http://lesscss.org/) before using it or sometimes when you have some questions.
 
 ## CSS Modules
 
-In the style development process, there are two problems are prominent:
+In the style development process, there are two prominent problems:
 
-- Global Pollution - CSS file selectors are globally valid. according to the build file generated in the order, the ahead selector's style will be cover by the back one which has the same selector name;
-- Selector complex - in order to avoid the above problem, we have to be careful when writing styles. the class name will be brought flag for limit the style's scope lead to it will getting longer and longer. And in multi-person development, it not only easily lead to the naming style confusion but also cause the number of selectors used on an element be more and more.
+- Global Pollution - CSS selectors are globally valid. Selectors with the same name in different files will be built together, and the former will be overrided by the latter.
+- Complex Selector - in order to avoid the above problem, we have to be careful when writing styles. The increase in flags for range restriction will lead to a growing class name, besides that, naming style confusion in multi person development and an increasing number of selectors on an element is hard to avoid.
 
-In order to solve the above problems, our scaffold use CSS Modules as a modular solution. let us have a look at how to write style in this mode.
+In order to solve the above problems, our scaffold use CSS Modules as a modular solution. Let us have a look at how to write style in this mode.
 
 ```html
 // example.js
@@ -37,9 +37,9 @@ export default ({title}) => <div className={styles.title}>{title}</div>;
 }
 ```
 
-Write style use less file does not seem to change, but the class name is relatively simple (the actual project is also the case). js file change at the className property, it changed with an object attribute instead of the original string. the object is import from the less file, and the attribute name same as the selector name in less file.
+Write style use less file does not seem to change much, but the class name is relatively simple (the actual project is also the case). The classname in js files would be replaced by an object attribute, which has the same name as the selector in the less file from where the object was imported.
 
-In the above style file, `.title` will only work in this file, you can use the same selector name in any other file, it will not affect here. But sometimes, we just want a global style which effective everywhere? You can use `:global`.
+In the above style file, `.title` will only work in this file, you can use the same selector name in any other file, it will not affect here. But sometimes, we just want a global style which can take effect everywhere? You can use `:global`.
 
 ```css
 // example.less
@@ -71,14 +71,14 @@ The basic principle of CSS Modules is very simple. that is: for each class name 
 <div class="title___3TqAx">title</div>
 ```
 
-The class name is automatically added a hash value, which guarantees its uniqueness.
+Hash value is added to the class name automatically, which guarantees its uniqueness.
 
-In addition to the basics above, there are some key points to note:
+In addition to the basics above, there are some key points to be noted:
 
-- CSS Modules only convert `className` and `id`. Others such as property selectors and tag selectors are not processed. It is recommended to use className as much as possible.
+- CSS Modules only convert `className` and `id`. Others such as property selectors and tag selectors are not processed. It is recommended to take className as the first choice.
 - Since you do not have to worry about className repeat, your className can be as simple as possible with basic semantics.
 
-CSS Modules above only the most basic introduction, are interested can refer to other documents:
+It's a brief introduction for CSS Modules, for details, please refer to:
 
 - [github/css-modules](https://github.com/css-modules/css-modules)
 - [CSS Modules Usage Tutorial](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)
@@ -109,11 +109,11 @@ body {
 }
 ```
 
-> Because antd will bring some global settings, such as font size, color, line height。 so here, you only need to focus on their own individual needs can be, without a lot of reset.
+> Because antd will bring some global settings, such as font size, color, line height. So there is no need to do a lot of reset, you can focus on your individualized demands.
 
 ### src/utils/utils.less
 
-Here you can place some tool functions for the call, such as clearing the floating `.clearfix`.
+Here you can place some tool functions, such as clearing the floating `.clearfix`.
 
 ### Module style
 
@@ -129,7 +129,7 @@ Specific page-related style, such as `src/routes/Dashborad/Monitor.less`, the co
 
 #### Component level
 
-This is also very simple, there are component-related styles. In your project, there are some reusing fragments in the page or relatively independent function which can be define as components, the relevant style should be extracted on the component, rather than confusing in the page.
+This is also very simple, they are component-related styles. In your project, there are some reuseable fragments in the page or relatively independent function which can be define as components, the relevant style should be extracted on the component, rather than confusing in the page.
 
 > The above style categories are for independent style files. Sometimes the style configuration is especially simple and is not repeated. You can also use the inline style `style = {{...}}`.
 
@@ -174,7 +174,7 @@ ReactDOM.render (
 }
 ```
 
-Two points need to note:
+Two points need to be noted:
 
 - The imported antd component class name is not translated by CSS Modules, so the overridden class name `.ant-select-selection` must be put in `:global`.
-- Because of the previous note, the coverage is global. To prevent this from affecting other Select components, need to wrap extra className for limit the scope of the style.
+- Because of the previous note, the coverage is global. To avoid affecting other Select components, the setting needs to be wrapped by an extra classname to add range restriction.
