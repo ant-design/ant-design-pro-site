@@ -27,12 +27,12 @@ Ant Design Pro 提供了由设计师精心设计抽象的图表类型，是在 [
 
 ## 使用 Ant Design Pro 的图表
 
-Charts 图表套件是在 `ant-design-pro/lib/Charts` 包中，引用到项目就像使用其它组件一样：
+Charts 图表套件是在 `src/components/Charts` 包中，引用到项目就像使用其它组件一样：
 
-> 需要额外注意的是，在 pro 的脚手架中及不是独立使用 `ant-design-pro` 这个包，那么 `ant-design-pro/lib/Charts` 是在 `.webpackrc.js` 配置了 alias，指向了 `src/compoents/Charts`
+> 你也可以通过单独使用 pro 的包的方式使用图表组件：[独立使用 Pro 组件](https://pro.ant.design/docs/use-components-alone-cn)
 
 ```jsx
-import { ChartCard, MiniBar } from 'ant-design-pro/lib/Charts';
+import { ChartCard, MiniBar } from 'src/components/Charts';
 import { Tooltip, Icon } from 'antd';
 
 const visitData = [

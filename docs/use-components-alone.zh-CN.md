@@ -29,8 +29,6 @@ import 'ant-design-pro/dist/ant-design-pro.css'; // 统一引入样式
 
 然后你就可以像使用 Ant Design 组件一样调用 pro 组件了。
 
-需要注意的是在 pro 的脚手架中，虽然也是这样的引入方法，但是实际上是在 `.webpackrc.js` 配置了 `alias` 指向 `src/components`。
-
 ```jsx
 import Result from 'ant-design-pro/lib/Result';
 
