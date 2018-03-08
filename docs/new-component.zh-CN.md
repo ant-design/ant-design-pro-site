@@ -1,8 +1,6 @@
 ---
 order: 5
-title:
-  en-US: New Component
-  zh-CN: 新增业务组件 
+title: 新增业务组件
 type: 入门
 ---
 
@@ -13,7 +11,6 @@ type: 入门
 - 可能是纯静态的，也可能包含自己的 state，但不涉及 dva 的数据流，仅受父组件（通常是一个页面）传递的参数控制。
 
 ---
-
 
 下面以一个简单的静态组件为例进行介绍。假设你的应用中经常需要展现图片，这些图片宽度固定，有一个灰色的背景和一定的内边距，有文字介绍，就像下图这样：
 
@@ -94,7 +91,6 @@ export default () => (
   <ImageWrapper
     src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png"
     desc="示意图"
-  />;
-)
-
+  />
+);
 ```
