@@ -57,7 +57,7 @@ For release purposes, you only need publish the resulting static file, which is 
 
 ### Code splitting and dynamic imports
 
-After version 0.3.0, we added support for code splitting and dynamic imports, only corresponding code will be loaded after matching a route, to avoid the first screen to load too much unnecessary js files to improve the scalability of large-scale frontend application.
+After version 0.3.0, we added support for code splitting and dynamic imports, only corresponding code will be loaded after matching a route, to avoid the first screen loading too much unnecessary js files to improve the scalability of large-scale frontend application.
 
 ```
 ├── 0.async.js
