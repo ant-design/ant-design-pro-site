@@ -18,7 +18,7 @@ But if you want to custom the build result, like specify the result directory, y
 
 ### Environment
 
-When you want to use different settings for deployment and test environments, you can use the  [env](https://github.com/sorrycc/roadhog#env) option to archive it.
+When you want to use different settings for deployment and test environments, you can use the  [env](https://github.com/sorrycc/roadhog#env) option to achieve it.
 
 ```
 "env": {
