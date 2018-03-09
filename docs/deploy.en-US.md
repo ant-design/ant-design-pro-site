@@ -12,7 +12,7 @@ When you finish the development, you can run the following command to build your
 $ npm run build
 ```
 
-Since Ant Design Pro use [roadhog](https://github.com/sorrycc/roadhog) as development tool, complex processes have been encapsulated and for most scenarios only one command `roadhog build` is required to build the package, after build successfully, it will generate the `dist` folder in the root directory, which is contains packaged files, usually static files like` *** .js`, `***.css`, ` index.html`.
+Since Ant Design Pro use [roadhog](https://github.com/sorrycc/roadhog) as development tool, complex processes have been encapsulated and for most scenarios only one command `roadhog build` is required to build the package, after build successfully, it will generate the `dist` folder in the root directory, which contains packaged files, usually static files like` *** .js`, `***.css`, ` index.html`.
 
 But if you want to custom the build result, like specify the result directory, you can configure it in `.webpackrc`, see more information at [roadhog configuration](https://github.com/sorrycc/roadhog#configuration).
 
