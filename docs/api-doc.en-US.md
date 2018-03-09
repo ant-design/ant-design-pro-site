@@ -1,12 +1,10 @@
 ---
 order: 19
-title:
-  en-US: API Development
-  zh-CN: 使用 API 文档工具
-type: 进阶
+title: API Development
+type: Advanced
 ---
 
-In daily development, we usually sperate frontend development from backend development based on a API standard, so that the two teams won't block each other to ensure progress of project.
+In daily development, we usually sperate frontend development from backend development based on an API standard, so that the two teams won't block each other to ensure progress of the project.
 
 In Ant Design Pro we already have a relatively complete set of mock feature, and [roadhog-api-doc](https://github.com/nikogu/roadhog-api-doc) is a tool that can generate API documentation from your mock data to give you a clear overview of your APIs.
 
@@ -18,7 +16,7 @@ Live Demo：[Pro API Docs](https://preview.pro.ant.design/api.html)。
 $ npm install roadhog-api-doc -g
 ```
 
-### Run locally
+### Running locally
 
 In the project root directory:
 
@@ -26,11 +24,11 @@ In the project root directory:
 $ roadhog-api-doc start [port]
 ```
 
-Then a document website will launch for the current project, provided that it must be a project based on [roadhog](https://github.com/sorrycc/roadhog) as with Ant Design Pro and that the data mock feature be used because the the source of documentation is the mock file.
+Then a document website will launch for the current project, provided that it must be a project based on [roadhog](https://github.com/sorrycc/roadhog) as with Ant Design Pro and that the data mock feature to be used because the source of documentation is the mock file.
 
 It should be additionally noted that the above `port` parameter refers to the current local `roadhog` application. If specified, you can directly access the project's API locally. If not specified, the network request will be staticized.
 
-### Genrate static site
+### Generating static site
 
 ```bash
 $ roadhog-api-doc build
@@ -73,7 +71,7 @@ export default format(proxy);
 You can define the following values：
 
 - $desc: Description of the API
-- $params: Parameters of ther API
+- $params: Parameters of the API
 - $body: The response of the API
 
 <img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/PVfsHataJahAwAVaKDtp.png" />
@@ -84,8 +82,8 @@ After launching the local API document site, you can send the `POST` or` GET` re
 
 <img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/mkgrIEbmhXZFbSOWvTCz.png" />
 
-One thing to note is that if you start the API documentatio site without the port number, then the return data here is static data, if the port number is added and the project is running locally, it will perform a request to the local server and return to the real data.
+One thing to note is that if you start the API documentation site without the port number, then the return data here is static data, if the port number is added and the project is running locally, it will perform a request to the local server and return the real data.
 
-If you want to have direct access to the real data online, then you need to modify `.roadhog.mock.js`, [redirect] (https://github.com/sorrycc/roadhog#mock) of the current project to the online url.
+If you want to have direct access to the real data online, then you need to modify `.roadhog.mock.js`, [redirect] (https://github.com/sorrycc/roadhog#mock) of the current project to the online URL.
 
 Visit [roadhog-api-doc github](https://github.com/nikogu/roadhog-api-doc) for more information.

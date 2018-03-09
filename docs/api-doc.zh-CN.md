@@ -1,8 +1,6 @@
 ---
 order: 19
-title:
-  en-US: API Development
-  zh-CN: 使用 API 文档工具
+title: 使用 API 文档工具
 type: 进阶
 ---
 
