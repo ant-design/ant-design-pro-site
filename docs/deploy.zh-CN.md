@@ -1,8 +1,6 @@
 ---
 order: 8
-title:
-  en-US: Build & Deploy
-  zh-CN: 构建和发布
+title: 构建和发布
 type: 入门
 ---
 

@@ -1,14 +1,12 @@
 ---
 order: 8
-title:
-  en-US: Build & Deploy
-  zh-CN: 构建和发布
-type: 入门
+title: Build & Deploy
+type: Basic
 ---
 
 ## Build
 
-When you finish the development, you can run following command to build your application:
+When you finish the development, you can run the following command to build your application:
 
 ```bash
 $ npm run build
@@ -16,11 +14,11 @@ $ npm run build
 
 Since Ant Design Pro use [roadhog](https://github.com/sorrycc/roadhog) as development tool, complex processes have been encapsulated and for most scenarios only one command `roadhog build` is required to build the package, after build successfully, it will generate the `dist` folder in the root directory, which is contains packaged files, usually static files like` *** .js`, `***.css`, ` index.html`.
 
-But if you want custom the build result, like specify the result directory, you can configure it in `.webpackrc`, see more information at [roadhog configuration](https://github.com/sorrycc/roadhog#configuration).
+But if you want to custom the build result, like specify the result directory, you can configure it in `.webpackrc`, see more information at [roadhog configuration](https://github.com/sorrycc/roadhog#configuration).
 
 ### Environment
 
-When you want use different setttings between development and deployment and test environments, you can use the  [env](https://github.com/sorrycc/roadhog#env) option to archive it.
+When you want to use different settings for deployment and test environments, you can use the  [env](https://github.com/sorrycc/roadhog#env) option to archive it.
 
 ```
 "env": {
@@ -73,7 +71,7 @@ After version 0.3.0, we added support for code splitting and dynamic imports, on
 ...
 ```
 
-> If you turn on the `hash` option, file name will become `0.2df975b2.async.js`, changing the code will change the hash to avoid caching issues.
+> If you turn on the `hash` option, the file name will become `0.2df975b2.async.js`, changing the code will change the hash to avoid caching issues.
 
 This approach has some of the requirements for deployment, you can deploy build files to your backend application's static resource directory (usually named static or public) so that the default static resource reference path points directly to the application's root directory `//your.application.domain/***.js` and `//your.application.domain/***.css`.
 
@@ -89,9 +87,9 @@ After version 1.0, we turned of this feature through `disableDynamicImport` opti
 
 ### Routing and server integration
 
-Ant Design Pro uses [React Router](https://github.com/ReactTraining/react-router), so that you can use `browserHistory` or `hashHistory`.
+Ant Design Pro uses [React Router](https://github.com/ReactTraining/react-router) so that you can use `browserHistory` or `hashHistory`.
 
-`hashHistory` uses a URL such as `https://cdn.com/#/users/123` and take the path following the `#` as the application route. `browserHistory` uses `https://cdn.com/users/123` directly. When using `hashHistory` the browser is always request `index.html` under root directory. Using `browserHistory` requires that the server be prepared to handle URLs. It should be OK to handle the initial `/`. However, when the user jumps back and forth and refreshes `/users/123`, the server receives a `/users/123` request, then you need to configure the server to handle this URL to return the correct index.html. If you can control the server, we recommend using browserHistory.
+`hashHistory` uses a URL such as `https://cdn.com/#/users/123` and take the path following the `#` as the application route. `browserHistory` uses `https://cdn.com/users/123` directly. When using `hashHistory` the browser always requests `index.html` under the root directory. Using `browserHistory` requires that the server be prepared to handle URLs. It should be OK to handle the initial `/`. However, when the user jumps back and forth and refreshes `/users/123`, the server receives a `/users/123` request, then you need to configure the server to handle this URL to return the correct index.html. If you can control the server, we recommend using browserHistory.
 
 [express](http://expressjs.com/)
 ```
