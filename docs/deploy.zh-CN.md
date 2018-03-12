@@ -77,7 +77,7 @@ $ npm run analyze
 
 这种方式对于部署有一定的要求，你可以将 dist 整体部署到你的后端应用的静态资源目录下（通常为 static 或者 public），这样默认的静态资源引用路径直接指向应用的根目录 `//your.application.domain/***.js` 和 `//your.application.domain/***.css`。
 
-如果你的静态资源域名和应用域名不同（例如独立的 cdn 地址），你需要使用在 `.webpackrc` 文件里用 [publicPath](https://github.com/sorrycc/roadhog#publicpath) 对生产环境的静态路径进行配置。可以参考 [create-react-app 的部署文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment)
+如果你的静态资源域名和应用域名不同（例如独立的 cdn 地址），你需要在 `.webpackrc` 文件里用 [publicPath](https://github.com/sorrycc/roadhog#publicpath) 对生产环境的静态路径进行配置。可以参考 [create-react-app 的部署文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment)
 
 ```json
 {
@@ -121,7 +121,7 @@ app.get('home', '/*', 'home.index');
 
 路由包含的信息在 `router.js` 中，不过关于 `history` 的配置是在 `index.js` 入口文件中，传入配置信息给 [dva](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md#dva-api) 构造器即可。
 
-由于使用了 `react-router@4`，所以引入 `browserHistory` 与原本 `dva` 的方式有所改变。
+由于使用了 `react-router@4`，所以引入 `browserHistory` 与原本 `dva` 的方式相比有所改变。
 
 ```jsx
 import dva from 'dva';

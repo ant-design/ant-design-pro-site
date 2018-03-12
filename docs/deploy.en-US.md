@@ -73,7 +73,7 @@ After version 0.3.0, we added support for code splitting and dynamic imports, on
 
 > If you turn on the `hash` option, the file name will become `0.2df975b2.async.js`, changing the code will change the hash to avoid caching issues.
 
-This approach has some of the requirements for deployment, you can deploy build files to your backend application's static resource directory (usually named static or public) so that the default static resource reference path points directly to the application's root directory `//your.application.domain/***.js` and `//your.application.domain/***.css`.
+This approach has some requirements for deployment, you can deploy built files to your backend application's static resource directory (usually named static or public) so that the default static resource reference path points directly to the application's root directory `//your.application.domain/***.js` and `//your.application.domain/***.css`.
 
 If your static server's domain name is different from the application's domain name (for example, a separate CDN address), you need to use `publicPath` to configure the static path of the production environment in the `.webpackrc` file. You can refer to the deployment documentation of [create-react-app](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
 
@@ -83,7 +83,7 @@ If your static server's domain name is different from the application's domain n
 }
 ```
 
-After version 1.0, we turned of this feature through `disableDynamicImport` option in `.webpackrc`, if you need dynamic imports, you can delete this option.
+After version 1.0, we turned off this feature through `disableDynamicImport` option in `.webpackrc`, if you need dynamic imports, you can delete this option.
 
 ### Routing and server integration
 
