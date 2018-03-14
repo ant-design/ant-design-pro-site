@@ -79,7 +79,7 @@ it('renders Dashboard', () => {
 
 端到端测试也叫冒烟测试，用于测试真实浏览器环境下前端应用的流程和表现，相当于代替人工去操作应用。
 
-我们引入了 [puppeteer](https://github.com/googlechrome/puppeteer) 作为 E2E 测试的工具，Puppeteer 是 Google Chrome 团队官方的无界面（Headless）Chrome 工具。它默认使用 chrome / chromium 作为浏览器环境运行你的应用，并且提供了非常语义化的 API 来描述业务逻辑。
+我们引入了 [puppeteer](https://github.com/googlechrome/puppeteer) 作为 E2E 测试的工具，puppeteer 是 Google Chrome 团队官方的无界面（Headless）Chrome 工具。它默认使用 chrome / chromium 作为浏览器环境运行你的应用，并且提供了非常语义化的 API 来描述业务逻辑。
 
 ### 写一个 e2e 用例
 
