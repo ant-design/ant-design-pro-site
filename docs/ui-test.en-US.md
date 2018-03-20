@@ -77,7 +77,7 @@ it('renders Dashboard', () => {
 
 End-to-end testing, also known as smoke testing, is used to test the process and appearance of front-end applications in a real-world browser environment, equivalent to operating application instead of manually.
 
-We import [puppeteer](https://github.com/googlechrome/puppeteer) as a tool for E2E testing, 测试的工具，puppeteer is a headless Chrome tool which created by Google, it use chrome / chromium as the browser environment by default to runing your application, and provides a very semantic API for describing business logic.
+We import [puppeteer](https://github.com/googlechrome/puppeteer) as a tool for E2E testing, puppeteer is a headless Chrome tool which created by Google, it use chrome / chromium as the browser environment by default to runing your application, and provides a very semantic API for describing business logic.
 
 ### Write a e2e test case
 
