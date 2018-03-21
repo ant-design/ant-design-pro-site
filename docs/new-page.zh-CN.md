@@ -1,8 +1,6 @@
 ---
 order: 4
-title:
-  en-US: New Page 
-  zh-CN: 新增页面 
+title: 新增页面 
 type: 入门
 ---
 
