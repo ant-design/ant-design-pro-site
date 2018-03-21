@@ -1,8 +1,6 @@
 ---
 order: 7
-title:
-  en-US: Work with Server
-  zh-CN: 和服务端进行交互
+title: 和服务端进行交互
 type: 入门
 ---
 
