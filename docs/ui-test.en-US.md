@@ -77,11 +77,11 @@ it('renders Dashboard', () => {
 
 End-to-end testing, also known as smoke testing, is used to test the process and appearance of front-end applications in a real-world browser environment, equivalent to operating application instead of manually.
 
-We import [puppeteer](https://github.com/googlechrome/puppeteer) as a tool for E2E testing, puppeteer is a headless Chrome tool which created by Google, it use chrome / chromium as the browser environment by default to runing your application, and provides a very semantic API for describing business logic.
+We import [puppeteer](https://github.com/googlechrome/puppeteer) as the tool of e2e testing, puppeteer is a headless Chrome tool which created by Google, it uses chrome/chromium as the browser environment by default to run your application, and provides a very semantic API for describing business logic.
 
 ### Write a e2e test case
 
-Assuming there is a demand, the user enters the wrong user name and password on the login page, and after clicking login, an error message box will appear.
+Assuming there is a demand, the user enters the wrong user name and password in the login page, and after clicking on submission, an error message box will appear.
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/oZeYewGOUJkmqXAPoOFC.gif" width="400" />
 
@@ -104,11 +104,11 @@ describe('Login', () => {
 });
 ```
 
-More api of puppeteer can refer to [puppeteer/docs/api.md](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md)。
+Refer to [puppeteer/docs/api.md](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md) for more APIs.
 
 ### Run test cases
 
-Run the following command to execute all `*.e2e.js` test case files under src.
+Run the following command to execute all `*.e2e.js` test cases under src.
 
 ```bash
 $ npm test .e2e.js
@@ -116,7 +116,7 @@ $ npm test .e2e.js
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/LGCXopksUYMUhjRgdYSz.png" width="700" />
 
-> Note: Test e2e use case locally needs to start `npm start`, otherwise it will report `Failed: navigation error` error.
+> Note: You should run `npm start` before testing e2e cases locally, or it will throw `Failed: navigation error`.
 
 ## watch mode
 
