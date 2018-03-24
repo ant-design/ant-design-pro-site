@@ -8,6 +8,48 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 1.2.0
+
+`2018-03-25`
+
+~ Ant Design Pro 也有国内镜像了 -> http://ant-design-pro.gitee.io ~
+
+#### 脚手架
+
+- 🌟 request 现在可以处理 FormData 了。[#884](https://github.com/ant-design/ant-design-pro/pull/884) [@chengs](https://github.com/chengs)
+- 🌟 支持用 Fragment 替代无用的 div。[#330](https://github.com/ant-design/ant-design-pro/issues/330)
+- 🌟 使用 puppeteer 替代了 nightmare。[#1006](https://github.com/ant-design/ant-design-pro/pull/1006)
+- 🌟 支持路由配置时指定 exact 属性。[#1148](https://github.com/ant-design/ant-design-pro/pull/1148) [@ws456999](https://github.com/ws456999)
+- 🌟 面包屑默认加了入了菜单中（非路由项）的层级。[#1053](https://github.com/ant-design/ant-design-pro/pull/1053) [@ReedSun](https://github.com/ReedSun)
+- 🐞 修复了无子菜单但其下有多级路由时菜单无法选中的问题。[#821](https://github.com/ant-design/ant-design-pro/issues/821)
+- 🐞 修复了首页无权限时点击 logo 也会重定向到 403 页面的问题。[#1098](https://github.com/ant-design/ant-design-pro/issues/1098)
+- 页面
+  - 🐞 修复了`高级表单页`可编辑表格存在的一些问题，优化了使用体验。[#846](https://github.com/ant-design/ant-design-pro/issues/846) [@wunayou](https://github.com/wunayou)
+  - 🐞 修复了`卡片列表页`卡片标题过长时溢出的样式问题。[#948](https://github.com/ant-design/ant-design-pro/issues/948)
+  - 🐞 修复了`分步表单页`的 title 没有显示的问题。[#984](https://github.com/ant-design/ant-design-pro/issues/984)
+  - 🐞 修复了`查询表格页`中新建规则时数据未重置的问题。[#1015](https://github.com/ant-design/ant-design-pro/issues/1015)
+  - 🐞 修复了触发报错时导致无限 loading 的问题。[#976](https://github.com/ant-design/ant-design-pro/issues/976)
+ 
+
+#### 组件
+
+- Charts
+  - 🐞 修复了 Pie legend 数据无法更新的问题。[#819](https://github.com/ant-design/ant-design-pro/issues/819)
+  - 🐞 修复了 ChartCard `total` 属性的展示问题。[#1110](https://github.com/ant-design/ant-design-pro/issues/1110)
+  - 🌟❗️ Pie 和 ChartCard `total` 属性新增支持函数类型，去除了代码里不安全的 dangerouslySetInnerHTML 用法，这可能导致 `total` 和 `valueFormat` 属性在用法上的改变，属于 breaking change。[#1142](https://github.com/ant-design/ant-design-pro/issues/1142)
+- PageHeader
+  - 🌟 新增 `tabDefaultActiveKey` 属性，支持设置默认选中的页签。[commit/e618d4](https://github.com/ant-design/ant-design-pro/commit/e618d4d16ddc9d876f6438c9b77cdebac1e4070b)
+  - 🐞 修复了 `location` 属性无法生效的问题。[#970](https://github.com/ant-design/ant-design-pro/pull/970) [@Alexorz](https://github.com/Alexorz)
+- Authorized
+  - 🐞 修复了 Secured 调用失败的问题。[#862](https://github.com/ant-design/ant-design-pro/issues/862)
+  - 🐞 修复了 `authority` 属性为 Promise 时不生效的问题。[#843](https://github.com/ant-design/ant-design-pro/issues/843)
+  - 🐞 修复了 PromiseRender 无法正常更新数据的问题。[#987](https://github.com/ant-design/ant-design-pro/pull/987) [@guowenfh](https://github.com/guowenfh)
+- SiderMenu
+   - 🐞 当子菜单无权限或不存在子菜单时不展示父菜单。[#1047](https://github.com/ant-design/ant-design-pro/pull/1047) [@hzq001](https://github.com/hzq001)
+   - 🐞 优化了 SiderMenu 的展示体验。[#964](https://github.com/ant-design/ant-design-pro/issues/964)
+   - 🐞 修复了菜单项图标为 img 标签时折叠后无法隐藏菜单名的问题。[commit/bacc20](https://github.com/ant-design/ant-design-pro/commit/bacc2031482e16d64243ef29aca181e6d3e2361e)
+- 🐞 修复了 CountDown 初始化时的展示问题。[#1009](https://github.com/ant-design/ant-design-pro/issues/1009)
+
 ### 1.1.0
 
 `2018-01-26`
