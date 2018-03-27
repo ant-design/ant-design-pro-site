@@ -7,6 +7,9 @@ type: 其他
 ---
 
 [旧版文档](http://03x.pro.ant.design/)
+### 1.2.0
+- 🐞 bugfix
+- 🌟 支持prettier
 
 ### 1.2.0
 
