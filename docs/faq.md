@@ -10,9 +10,9 @@ type: 其他
 
 ---
 
-### Ant Design Pro 和 Ant Design React 有什么区别？
+### Ant Design React 和 Ant Design Pro 有什么区别？
 
-可以理解为后者是 React 组件库，前者是 React 脚手架。
+可以理解为 Ant Design React 是一套 React 组件库，而 Pro 是使用了这套组件库的完整前端脚手架。
 
 ### 如何使用 Ant Design Pro？
 
@@ -68,13 +68,7 @@ type: 其他
 修改 `package.json` 里的 `scripts.start` 为：
 
 ```js
-"start": "BROWSER=none roadhog server",
-```
-
-For windows:
-
-```js
-"start": "set BROWSER=none && roadhog server",
+"start": "cross-env BROWSER=none roadhog server",
 ```
 
 ### 站点是否支持国际化？
