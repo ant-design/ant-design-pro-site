@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "antd": "next",
+    "antd": "^3.4.0",
     "axios": "^0.16.2",
     "lodash-decorators": "^4.4.1",
     "parallelshell": "^3.0.1",
