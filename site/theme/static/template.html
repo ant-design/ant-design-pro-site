@@ -86,20 +86,6 @@
 <div id="react-content">
   {{ content | safe }}
 </div>
-{% if isDev %}
-  <script src="https://as.alipayobjects.com/g/component/??react/15.6.1/react.js,react/15.6.1/react-dom.js"></script>
-{% else %}
-  <script src="https://as.alipayobjects.com/g/component/??react/15.6.1/react.min.js,react/15.6.1/react-dom.min.js"></script>
-{% endif %}
-
-<!-- react-router-dom@4.2.2 -->
-<script src="https://gw.alipayobjects.com/os/rmsportal/OJAQQUDeKCsyffqmOQsF.js"></script>
-<!-- bizcharts@3.1.0 -->
-<script src="https://gw.alipayobjects.com/os/rmsportal/SATpuBULaKyEDSHJSYDO.js"></script>
-<!-- bizcharts-plugin-slider@2.0.0 -->
-<script src="https://gw.alipayobjects.com/os/rmsportal/yotbprvxeLQCjhOvAmLr.js"></script>
-
-<script src="//gw.alipayobjects.com/os/antv/assets/data-set/0.8.3/data-set.min.js"></script>
 <script src="{{ root }}common.js"></script>
 <script src="{{ root }}index.js"></script>
 </body>

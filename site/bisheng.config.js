@@ -44,17 +44,8 @@ module.exports = {
       //'dva/router': 'react-router',
       //'react-router': 'react-router/umd/ReactRouter',
     };
-
-    config.externals = Object.assign({}, config.externals, {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-      'bizcharts': 'BizCharts',
-      '@antv/data-set': 'DataSet',
-      'react-router-dom': 'ReactRouterDOM',
-    });
-
     // components 下面的走 css module 其他不变
-    config.module.loaders.forEach((loader) => {
+    config.module.rules.forEach((loader) => {
       if (
         typeof loader.test === 'function' &&
         loader.test.toString().indexOf('\\.less$') > -1
@@ -69,8 +60,10 @@ module.exports = {
         loader.test = /components.*.less$/;
       }
     });
-
-    // config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
+    if (isDev) {
+      config.devtool = 'source-map';
+    }
+    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;
   },
