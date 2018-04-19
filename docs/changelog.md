@@ -8,6 +8,26 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 1.3.0
+
+`2018-04-19`
+
+#### 脚手架
+
+- 🐞 修复了触发异常时页面报错的问题。[#1188](https://github.com/ant-design/ant-design-pro/issues/1188)
+- 🐞 修复了浏览器切换到手机端模式时出现报错的问题。[#1215](https://github.com/ant-design/ant-design-pro/issues/1215)
+- 🐞 修复了 request.js 使用 FormData 上传文件时报错的问题。[#1217](https://github.com/ant-design/ant-design-pro/issues/1217) [@ChieveiT](https://github.com/ChieveiT)
+- 页面
+  - 🌟 `查询表格页` 中 StandardTable 组件新增 `rowKey` 属性。[#1175](https://github.com/ant-design/ant-design-pro/pull/1175) [@neoscript99](https://github.com/neoscript99)
+  - 🐞 修复 `查询表格页` 中重新搜索后筛选设置失效的问题。[#1209](https://github.com/ant-design/ant-design-pro/issues/1209)
+
+#### 组件
+
+- 🌟 HeaderSearch 新增 `defaultOpen` 属性，可以支持默认展开。[#1179](https://github.com/ant-design/ant-design-pro/pull/1179) [@zhujun24](https://github.com/zhujun24)
+- Charts
+  - 🐞 修复了 TimelineChart 坐标轴错位以及格式化有误的问题。[#1283](https://github.com/ant-design/ant-design-pro/pull/1283) [@mdluo](https://github.com/mdluo)
+  - 🐞 修复了直接引用 Charts 失败的问题。[commit/3bc5c5](https://github.com/ant-design/ant-design-pro/commit/3bc5c54cc9dc416d5f1beced289c36e4a8f33581)
+
 ### 1.2.1
 
 `2018-03-27`
