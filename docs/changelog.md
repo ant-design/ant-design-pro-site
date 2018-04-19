@@ -7,9 +7,13 @@ type: 其他
 ---
 
 [旧版文档](http://03x.pro.ant.design/)
-### 1.2.0
-- 🐞 bugfix
-- 🌟 支持prettier
+
+### 1.2.1
+
+`2018-03-27`
+
+- 🌟 支持 prettier。[#1155](https://github.com/ant-design/ant-design-pro/pull/1155)
+- 🐞 修复了引用 PageHeader 报错的问题。[#1169](https://github.com/ant-design/ant-design-pro/issues/1169)
 
 ### 1.2.0
 
