@@ -21,7 +21,7 @@ function Page2() {
               <FormattedMessage id="app.home.letspro" />
             </p>
             <div key="code1" className="home-code">
-              <div>$ <span>git clone</span> git@github.com:ant-design/ant-design-pro.git --depth=1</div>
+              <div>$ <span>git clone</span> https://github.com/ant-design/ant-design-pro.git --depth=1</div>
               <div>$ cd ant-design-pro</div>
               <div>$ npm install</div>
               <div>
