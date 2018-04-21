@@ -75,7 +75,8 @@ type: 其他
 
 ### English Documentation?
 
-English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479)
+English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) 
+和[ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120）了解更多细节。
 
 ---
 
