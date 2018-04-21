@@ -1,8 +1,6 @@
 ---
 order: 8
-title:
-  en-US: Import Module 
-  zh-CN: 引入外部模块 
+title: 引入外部模块
 type: 入门
 ---
 
