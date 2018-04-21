@@ -103,7 +103,7 @@ const featuresEN = [
     shadowColor: 'rgba(26,196,77,.12)',
   },
   {
-    title: 'Themeing',
+    title: 'Theming',
     content: 'Customizable theme with simple config',
     src: 'https://gw.alipayobjects.com/zos/rmsportal/XxqEexmShHOofjMYOCHi.svg',
     color: '#FAAD14',
