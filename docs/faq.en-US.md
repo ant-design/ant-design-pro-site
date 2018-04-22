@@ -61,7 +61,7 @@ Open the `sass` configuration in `.webpackrc`, see [sass] (https://github.com/so
 
 Scaffolding defaults to the [eslint](http://eslint.org/) code style check. Please follow the prompts and resubmit it, or you can manually check `npm run lint`.
 
-### How to disable browser automatically when npm start is disabled?
+### Disable browser opening automatically on `npm start`
 
 Modify `scripts.start` in `package.json` to:
 
@@ -69,9 +69,9 @@ Modify `scripts.start` in `package.json` to:
 "start": "cross-env BROWSER=none roadhog server",
 ```
 
-### Does the site support internationalization?
+### Does Ant Design Pro support internationalization?
 
-This is one of the features of Ant Design Pro. The first version is currently available in Chinese. Internationalization will be our top priority in the next step.
+This is one of the features of Ant Design Pro. The first version is currently available in Chinese. Internationalization is in our 2.0 plan and will be released soon.
 
 ### English Documentation?
 
