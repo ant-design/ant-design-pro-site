@@ -1,8 +1,6 @@
 ---
 order: 14
-title:
-  en-US: Theme 
-  zh-CN: 更换主题 
+title: 更换主题
 type: 进阶
 ---
 
@@ -29,7 +27,7 @@ module.exports = {
 
 在 [所有变量表](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 找到需要修改的变量，修改后启动 `npm start`，就可以在你的应用界面看到效果了。
 
-更多方式可以参考官方文档：[定制主题](http://ant.design/docs/react/customize-theme-cn)。
+更多方式可以参考官方文档：[定制主题](https://ant.design/docs/react/customize-theme-cn)。
 
 > 小技巧：你可以把以上的主题配置文件 `theme.js` 发布成单独的 npm 包来引入，方便不同项目之间的复用。
 > 在 `.webpackrc` 中修改 `"theme": "./node_modules/your-package/theme.js"` 为相应路径即可。
