@@ -73,7 +73,7 @@ type: 其他
   - 🐞 修复了 PromiseRender 无法正常更新数据的问题。[#987](https://github.com/ant-design/ant-design-pro/pull/987) [@guowenfh](https://github.com/guowenfh)
 - SiderMenu
    - 🐞 当子菜单无权限或不存在子菜单时不展示父菜单。[#1047](https://github.com/ant-design/ant-design-pro/pull/1047) [@hzq001](https://github.com/hzq001)
-   - 🐞 优化了 SiderMenu 的展示体验。[#964](https://github.com/ant-design/ant-design-pro/issues/964)
+   - 💄 优化了 SiderMenu 的展示体验。[#964](https://github.com/ant-design/ant-design-pro/issues/964)
    - 🐞 修复了菜单项图标为 img 标签时折叠后无法隐藏菜单名的问题。[commit/bacc20](https://github.com/ant-design/ant-design-pro/commit/bacc2031482e16d64243ef29aca181e6d3e2361e)
 - 🐞 修复了 CountDown 初始化时的展示问题。[#1009](https://github.com/ant-design/ant-design-pro/issues/1009)
 
@@ -136,7 +136,7 @@ type: 其他
 
 #### 组件
 
-- 新增 Login 组件。[#147](https://github.com/ant-design/ant-design-pro/pull/147)
+- 🌟 新增 Login 组件。[#147](https://github.com/ant-design/ant-design-pro/pull/147)
 - PageHeader
   - 🌟 新增 `activeTabKey` 属性。[commit/a8caa5](https://github.com/ant-design/ant-design-pro/commit/a8caa500ae4bb1fe0b808c93dbc24c84339784be)
   - 🐞 修复了 `breadcrumbList` 属性的优先级问题，更新了相关文档。[commit/d8b0a9](https://github.com/ant-design/ant-design-pro/commit/d8b0a9ecc11cd7ab4491143cdd12bfb8241ad018)
