@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const syntax = require('postcss-less');
+const less = require('postcss-less-engine');
 const postcss = require('postcss');
 const fs = require('fs');
 const path = require('path');
@@ -32,15 +33,37 @@ const localIdentNameplugin = postcss.plugin(
       };
       loop(lessAST.nodes);
     };
-  },
+  }
 );
 
-const addlocalIdentName = function (lessPath, lessText, localIdentName) {
+const less2css = function (lessPath) {
+  let lessString = fs.readFileSync(lessPath, 'utf8');
+  const antdLessPath = `@import '${path.join(
+    __dirname,
+    '../../../'
+  )}/node_modules/`;
+  lessString = lessString.replace("@import '~", antdLessPath);
+  postcss([less({ strictMath: true })])
+    .process(lessString, { parser: less.parser })
+    .then((result) => {
+      fs.writeFileSync(lessPath.replace('.less', '.css'), result.css);
+      fs.writeFileSync(
+        `${path.dirname(lessPath)}/css.js`,
+        "require('./index.css');"
+      );
+    });
+};
+
+const lessAddlocalIdentName = function (lessPath, lessText, localIdentName) {
   postcss([localIdentNameplugin({ localIdentName })])
     .process(lessText, { syntax })
     .then((result) => {
+      if (fs.existsSync(lessPath)) {
+        fs.unlinkSync(lessPath);
+      }
       // writer addlocalIdentName less
       fs.writeFileSync(lessPath, result.content);
+      less2css(lessPath);
     });
 };
 
@@ -51,7 +74,7 @@ const getLocalIdentName = function (lessPath) {
     .map(a => a.replace(/([A-Z])/g, '-$1'))
     .map(a => a.toLowerCase());
   arr.pop();
-  return `antd-pro${arr.join('-')}-`;
+  return `antd-pro${arr.join('-')}-`.replace('--', '-');
 };
 
 // const antdLessPath = `@import "${path.join(__dirname, '../')}/node_modules/`;
@@ -74,11 +97,15 @@ const loopAllLess = function (parents) {
         const relaPath = path.join(__dirname, parents, itemPath);
         // push less file
         lessArray.push(
-          `@import "${path.join(parents, itemPath).replace('../lib/', './')}";`,
+          `@import "${path.join(parents, itemPath).replace('../lib/', './')}";`
         );
         // post css add localIdentNameplugin
         const fileContent = replaceTilde(relaPath);
-        addlocalIdentName(relaPath, fileContent, getLocalIdentName(relaPath));
+        lessAddlocalIdentName(
+          relaPath,
+          fileContent,
+          getLocalIdentName(relaPath)
+        );
       }
     }
     // is Directory
@@ -95,5 +122,5 @@ loopAllLess('../lib');
 fs.writeFileSync(indexLessPath, lessArray.join('\n'));
 fs.copyFileSync(
   path.join(__dirname, '../ant-design-pro.less'),
-  path.join(__dirname, '../dist/ant-design-pro.less'),
+  path.join(__dirname, '../dist/ant-design-pro.less')
 );
