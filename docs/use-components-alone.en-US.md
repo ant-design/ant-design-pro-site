@@ -39,7 +39,7 @@ ReactDOM.render(<Result type="success" />, mountNode);
 
 ## Document & FeedBack
 
-You can find all components, demos and API documents on [the components' page]((http://pro.ant.design/components)). 
+You can find all components, demos and API documents on [the components' page](http://pro.ant.design/components). 
 
 Components will continue to iterate with the scaffold's update. If you have any questions and demands, you can feed back [here](http://github.com/ant-design/ant-design-pro/issues).
 
