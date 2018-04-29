@@ -46,9 +46,14 @@ const less2css = function (lessPath) {
   postcss([less({ strictMath: true })])
     .process(lessString, { parser: less.parser })
     .then((result) => {
-      fs.writeFileSync(lessPath.replace('.less', '.css'), result.css);
+      // creact to style folder
+      const stylePath = `${path.dirname(lessPath)}`;
+      if (!fs.existsSync(stylePath)) {
+        fs.mkdirSync(stylePath);
+      }
+      fs.writeFileSync(`${stylePath}/index.css`, result.css);
       fs.writeFileSync(
-        `${path.dirname(lessPath)}/css.js`,
+        `${stylePath}/css.js`,
         "require('./index.css');"
       );
     });
@@ -61,9 +66,17 @@ const lessAddlocalIdentName = function (lessPath, lessText, localIdentName) {
       if (fs.existsSync(lessPath)) {
         fs.unlinkSync(lessPath);
       }
+      const stylePath = path.join(lessPath, '../', 'style');
+      // creact style folder
+      if (!fs.existsSync(stylePath)) {
+        fs.mkdirSync(stylePath);
+      }
       // writer addlocalIdentName less
-      fs.writeFileSync(lessPath, result.content);
-      less2css(lessPath);
+      fs.writeFileSync(`${stylePath}/index.less`, result.content);
+      // creact index.js
+      fs.writeFileSync(`${stylePath}/index.js`, "require('./index.less');");
+      // less to css
+      less2css(`${stylePath}/index.less`);
     });
 };
 
@@ -120,7 +133,3 @@ loopAllLess('../lib');
 
 // generate /lib/index.less
 fs.writeFileSync(indexLessPath, lessArray.join('\n'));
-fs.copyFileSync(
-  path.join(__dirname, '../ant-design-pro.less'),
-  path.join(__dirname, '../dist/ant-design-pro.less')
-);

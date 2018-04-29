@@ -13,6 +13,8 @@ const fileExistsSync = (pathString) => {
   }
 };
 
+const antComMap = {};
+
 const loopAllStyle = function (parents) {
   const paths = fs.readdirSync(path.join(__dirname, parents));
   paths.forEach((itemPath) => {
@@ -31,14 +33,21 @@ const loopAllStyle = function (parents) {
             const execArray = jsString.match(/(antd\/lib\/)(\w*)/gi);
             if (execArray) {
               const relaPathDir = path.dirname(relaPath);
-              const cssPath = `${relaPathDir}/css.js`;
-              const lessPath = `${relaPathDir}/index.less`;
+              if (!fs.existsSync(`${relaPathDir}/style/`)) {
+                fs.mkdirSync(`${relaPathDir}/style/`);
+              }
+              const cssPath = `${relaPathDir}/style/css.js`;
+              const lessPath = `${relaPathDir}/style/index.less`;
+
               const cssPathString = [];
               const lessPathString = [];
+
               execArray.forEach((antdCom) => {
+                antComMap[antdCom] = true;
                 cssPathString.push(`require('${antdCom}/style/css')`);
-                lessPathString.push(`@import '~${antdCom}/style/index.less';`);
+                lessPathString.push(`@import '~${antdCom}/style/index';`);
               });
+
               fileExistsSync(cssPath);
               let cssString = fs.readFileSync(cssPath);
               cssString = `${cssPathString.join('\n')}\n${cssString}`;
@@ -59,4 +68,21 @@ const loopAllStyle = function (parents) {
   });
 };
 loopAllStyle('../lib');
+
+// creactant-design-pro.less]
+// insert all use antd component less
+
+const lessPathString = [];
+Object.keys(antComMap).forEach((antdCom) => {
+  lessPathString.push(`@import '~${antdCom}/style/index';`);
+});
+const antProLessPath = path.join(__dirname, '../dist/ant-design-pro.less');
+fileExistsSync(antProLessPath);
+fs.writeFileSync(
+  antProLessPath,
+  `${lessPathString.join('\n')}\n@import "../lib/index.less";`
+);
+const charts = require('./chart');
+
+charts();
 module.exports = loopAllStyle;
