@@ -30,7 +30,8 @@ module.exports = {
     'app.home.download': '下载',
     'app.home.letspro': '命令行运行下列命令，快速启动开发服务：',
     'app.home.openbrowser': '打开浏览器访问',
-    'app.home.needhelp': '需要帮助？请先阅读 {docs} 和 {faq}， 如果未能解决，可以到 GitHub 上 {ask}。',
+    'app.home.needhelp':
+      '需要帮助？请先阅读 {docs} 和 {faq}， 如果未能解决，可以到 GitHub 上 {ask}。',
     'app.home.docs': '开发文档',
     'app.home.faq': '常见问题',
     'app.home.ask': '进行提问',

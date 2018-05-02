@@ -11,14 +11,20 @@ import { ping } from '../utils';
 export default class Article extends React.PureComponent {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
-  }
+  };
   componentDidMount() {
     // Add ga event click
-    this.delegation = delegate(this.node, '.resource-card', 'click', (e) => {
-      if (window.ga) {
-        window.ga('send', 'event', 'Download', 'resource', e.delegateTarget.href);
-      }
-    }, false);
+    this.delegation = delegate(
+      this.node,
+      '.resource-card',
+      'click',
+      e => {
+        if (window.ga) {
+          window.ga('send', 'event', 'Download', 'resource', e.delegateTarget.href);
+        }
+      },
+      false
+    );
     this.componentDidUpdate();
   }
   componentDidUpdate() {
@@ -26,7 +32,7 @@ export default class Article extends React.PureComponent {
     if (links.length === 0) {
       return;
     }
-    this.pingTimer = ping((status) => {
+    this.pingTimer = ping(status => {
       if (status !== 'timeout' && status !== 'error') {
         links.forEach(link => (link.style.display = 'block'));
       } else {
@@ -49,7 +55,7 @@ export default class Article extends React.PureComponent {
     const timelineItems = [];
     let temp = [];
     let i = 1;
-    Children.forEach(article.props.children, (child) => {
+    Children.forEach(article.props.children, child => {
       if (child.type === 'h2' && temp.length > 0) {
         timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
         temp = [];
@@ -74,60 +80,59 @@ export default class Article extends React.PureComponent {
     const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
-        <article className="markdown" ref={(node) => { this.node = node; }}>
+        <article
+          className="markdown"
+          ref={node => {
+            this.node = node;
+          }}
+        >
           {isNotTranslated && (
             <Alert
               type="warning"
-              message={(
+              message={
                 <span>
-                  This article has not been translated yet. Wan&apos;t to help us out? <a href="https://github.com/ant-design/ant-design-pro/issues/120">See this issue on GitHub.</a>
+                  This article has not been translated yet. Wan&apos;t to help us out?{' '}
+                  <a href="https://github.com/ant-design/ant-design-pro/issues/120">
+                    See this issue on GitHub.
+                  </a>
                 </span>
-              )}
+              }
               style={{ marginBottom: 24 }}
             />
           )}
           <h1>
             {title[locale] || title}
-            {
-              !subtitle || locale === 'en-US' ? null :
-              <span className="subtitle">{subtitle}</span>
-            }
+            {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
             <EditButton
               title={<FormattedMessage id="app.content.edit-page" />}
-              filename={
-                filename.indexOf('scaffold/src/components') >= 0
-                  ? 'xxx' : filename
-              }
+              filename={filename.indexOf('scaffold/src/components') >= 0 ? 'xxx' : filename}
             />
           </h1>
-          {
-            !description ? null :
-              props.utils.toReactComponent(
+          {!description
+            ? null
+            : props.utils.toReactComponent(
                 ['section', { className: 'markdown' }].concat(getChildren(description))
-              )
-          }
-          {
-            (!content.toc || content.toc.length <= 1 || meta.toc === false) ? null :
+              )}
+          {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
             <Affix className="toc-affix" offsetTop={16}>
-              {
-                props.utils.toReactComponent(
-                  ['ul', { className: 'toc' }].concat(getChildren(content.toc))
-                )
-              }
+              {props.utils.toReactComponent(
+                ['ul', { className: 'toc' }].concat(getChildren(content.toc))
+              )}
             </Affix>
-          }
-          {
-            this.getArticle(props.utils.toReactComponent(
-              ['section', { className: 'markdown' }].concat(getChildren(content.content))
-            ))
-          }
-          {
+          )}
+          {this.getArticle(
             props.utils.toReactComponent(
-              ['section', {
-                className: 'markdown api-container',
-              }].concat(getChildren(content.api || ['placeholder']))
+              ['section', { className: 'markdown' }].concat(getChildren(content.content))
             )
-          }
+          )}
+          {props.utils.toReactComponent(
+            [
+              'section',
+              {
+                className: 'markdown api-container',
+              },
+            ].concat(getChildren(content.api || ['placeholder']))
+          )}
         </article>
       </DocumentTitle>
     );

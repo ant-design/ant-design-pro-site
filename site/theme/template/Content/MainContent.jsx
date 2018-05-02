@@ -12,17 +12,23 @@ const { SubMenu } = Menu;
 
 function getActiveMenuItem(props) {
   const children = props.params.children;
-  return (children && children.replace('-cn', '')) ||
-    props.location.pathname.replace(/(^\/|-cn$)/g, '');
+  return (
+    (children && children.replace('-cn', '')) || props.location.pathname.replace(/(^\/|-cn$)/g, '')
+  );
 }
 
 function getModuleData(props) {
   const pathname = props.location.pathname;
-  const moduleName = /^\/?components/.test(pathname) ?
-    'components' : pathname.split('/').filter(item => item).slice(0, -1).join('/');
+  const moduleName = /^\/?components/.test(pathname)
+    ? 'components'
+    : pathname
+        .split('/')
+        .filter(item => item)
+        .slice(0, -1)
+        .join('/');
 
-  const moduleData = moduleName === 'components' ?
-    [...props.picked.components] : props.picked[moduleName];
+  const moduleData =
+    moduleName === 'components' ? [...props.picked.components] : props.picked[moduleName];
 
   const excludedSuffix = utils.isZhCN(props.location.pathname) ? 'en-US.md' : 'zh-CN.md';
   return moduleData.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
@@ -40,7 +46,7 @@ function isNotTopLevel(level) {
 export default class MainContent extends React.PureComponent {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -80,11 +86,11 @@ export default class MainContent extends React.PureComponent {
     clearTimeout(this.timer);
   }
 
-  handleMenuOpenChange = (openKeys) => {
+  handleMenuOpenChange = openKeys => {
     this.setState({
       openKeys,
     });
-  }
+  };
 
   getSideBarOpenKeys(nextProps) {
     const pathname = nextProps.location.pathname;
@@ -106,28 +112,35 @@ export default class MainContent extends React.PureComponent {
     const key = fileNameToPath(item.filename);
     const text = [
       <span key="english">{item.title[locale] || item.title}</span>,
-      <span className="chinese" key="chinese">{item.subtitle}</span>,
+      <span className="chinese" key="chinese">
+        {item.subtitle}
+      </span>,
     ];
     const disabled = item.disabled;
-    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').replace('scaffold/src/', '');
+    const url = item.filename
+      .replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '')
+      .replace('scaffold/src/', '');
     const child = !item.link ? (
       <Link
-        to={utils.getLocalizedPathname(/^components/.test(url) ? `${url}/` : url, locale === 'zh-CN')}
+        to={utils.getLocalizedPathname(
+          /^components/.test(url) ? `${url}/` : url,
+          locale === 'zh-CN'
+        )}
         disabled={disabled}
       >
         {text}
-      </Link>) :
-      (
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          disabled={disabled}
-          className="menu-item-link-outside"
-        >
-          {text} <Icon type="export" />
-        </a>
-      );
+      </Link>
+    ) : (
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        disabled={disabled}
+        className="menu-item-link-outside"
+      >
+        {text} <Icon type="export" />
+      </a>
+    );
 
     return (
       <Menu.Item key={key} disabled={disabled}>
@@ -140,15 +153,18 @@ export default class MainContent extends React.PureComponent {
     const { themeConfig } = this.props;
     if (!obj) return [];
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
-    const itemGroups = Object.keys(obj).filter(isNotTopLevel)
+    const itemGroups = Object.keys(obj)
+      .filter(isNotTopLevel)
       .sort((a, b) => themeConfig.typeOrder[a] - themeConfig.typeOrder[b])
-      .map((type) => {
-        const groupItems = obj[type].sort((a, b) => {
-          if ('order' in a && 'order' in b) {
-            return a.order - b.order;
-          }
-          return a.title.charCodeAt(0) - b.title.charCodeAt(0);
-        }).map(this.generateMenuItem.bind(this, false));
+      .map(type => {
+        const groupItems = obj[type]
+          .sort((a, b) => {
+            if ('order' in a && 'order' in b) {
+              return a.order - b.order;
+            }
+            return a.title.charCodeAt(0) - b.title.charCodeAt(0);
+          })
+          .map(this.generateMenuItem.bind(this, false));
         return (
           <Menu.ItemGroup title={type} key={type}>
             {groupItems}
@@ -161,17 +177,16 @@ export default class MainContent extends React.PureComponent {
   getMenuItems() {
     const moduleData = getModuleData(this.props);
 
-    const menuItems = utils.getMenuItems(
-      moduleData, this.context.intl.locale
-    );
+    const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
 
     let topLevel = {};
     if (menuItems.topLevel) {
       topLevel = this.generateSubMenuItems(menuItems.topLevel);
     }
 
-    const subMenu = Object.keys(menuItems).filter(isNotTopLevel)
-      .map((category) => {
+    const subMenu = Object.keys(menuItems)
+      .filter(isNotTopLevel)
+      .map(category => {
         const subMenuItems = this.generateSubMenuItems(menuItems[category]);
         return (
           <SubMenu title={<h4>{category}</h4>} key={category}>
@@ -236,49 +251,33 @@ export default class MainContent extends React.PureComponent {
     return (
       <div className="main-wrapper">
         <Row>
-          {
-            props.isMobile ? (
-              <MobileMenu
-                iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
-                key="mobile-menu"
-                wrapperClassName="drawer-wrapper"
-              >
-                {menuChild}
-              </MobileMenu>
-            ) :
-              (
-                <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
-                  {menuChild}
-                </Col>
-              )
-          }
+          {props.isMobile ? (
+            <MobileMenu
+              iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
+              key="mobile-menu"
+              wrapperClassName="drawer-wrapper"
+            >
+              {menuChild}
+            </MobileMenu>
+          ) : (
+            <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
+              {menuChild}
+            </Col>
+          )}
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24} className={mainContainerClass}>
-            {
-              props.demos ?
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
-                <Article {...props} content={localizedPageData} />
-            }
+            {props.demos ? (
+              <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
+            ) : (
+              <Article {...props} content={localizedPageData} />
+            )}
           </Col>
         </Row>
 
         <Row>
-          <Col
-            lg={{ span: 20, offset: 4 }}
-            md={24}
-            sm={24}
-            xs={24}
-          >
+          <Col lg={{ span: 20, offset: 4 }} md={24} sm={24} xs={24}>
             <section className="prev-next-nav">
-              {
-                prev ?
-                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
-                  null
-              }
-              {
-                next ?
-                  React.cloneElement(next.props.children, { className: 'next-page' }) :
-                  null
-              }
+              {prev ? React.cloneElement(prev.props.children, { className: 'prev-page' }) : null}
+              {next ? React.cloneElement(next.props.children, { className: 'next-page' }) : null}
             </section>
           </Col>
         </Row>
