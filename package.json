@@ -18,6 +18,7 @@
     "parallelshell": "^3.0.1",
     "react-copy-to-clipboard": "^5.0.0",
     "react-document-title": "^2.0.3",
+    "lz-string": "^1.4.4",
     "react-github-button": "^0.1.11",
     "react-intl": "^2.4.0"
   },
