@@ -14,10 +14,15 @@ const charts = () => {
   paths.forEach((chartItem) => {
     if (
       chartItem !== 'demo' &&
+      chartItem !== 'style' &&
       fs.lstatSync(`${chartPath}/${chartItem}`).isDirectory()
     ) {
-      cssPathString.push(`require('./${chartItem}/style/css')`);
-      lessPathString.push(`@import './${chartItem}/style/index.less';`);
+      if (fs.existsSync(`${chartPath}/${chartItem}/style/style/css.js`)) {
+        cssPathString.push(`require('../${chartItem}/style/css')`);
+      }
+      if (fs.existsSync(`${chartPath}/${chartItem}/style/index.less`)) {
+        lessPathString.push(`@import '../${chartItem}/style/index.less';`);
+      }
     }
   });
   const chartCssPath = path.join(__dirname, '../lib/Charts/style/css.js');
