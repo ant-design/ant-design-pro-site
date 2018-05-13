@@ -1,5 +1,9 @@
 #!/usr/bin/env node
-
+/**
+ * 这个方法用来处理 css-modlue
+ * 由于没有开源插件，所以自己撸了一个
+ */
+const prettier = require('prettier');
 const syntax = require('postcss-less');
 const less = require('postcss-less-engine');
 const postcss = require('postcss');
@@ -23,11 +27,30 @@ const localIdentNameplugin = postcss.plugin(
           if (item.nodes && item.selector !== ':global') {
             loop(item.nodes);
           }
-          if (item.selector && item.selector !== ':global') {
-            // Not converted :global(.className）
-            let className = item.selector.replace(/:global\(\./g, '&&&');
-            className = className.replace(/\./g, `.${localIdentName}`);
-            item.selector = className.replace(/&&&/g, ':global(.');
+          // 将global的 节点加到 parents
+          if (item.selector === ':global') {
+            const parentNodes = item.parent.nodes;
+            const childrenNodes = item.nodes;
+            const index = parentNodes.findIndex((node) => {
+              return node.selector === ':global';
+            });
+            childrenNodes.unshift(index, 1);
+            Array.prototype.splice.apply(parentNodes, item.nodes);
+            item.parent.nodes = parentNodes;
+            return;
+          }
+          if (item.selector) {
+            if (item.selector.includes(':global(')) {
+              // converted :global(.className）
+              const className = item.selector.match(/:global\((\S*)\)/)[1];
+              item.selector = className;
+              return;
+            }
+            const className = item.selector.replace(
+              /\./g,
+              `.${localIdentName}`
+            );
+            item.selector = className;
           }
         });
       };
@@ -51,11 +74,9 @@ const less2css = function (lessPath) {
       if (!fs.existsSync(stylePath)) {
         fs.mkdirSync(stylePath);
       }
-      fs.writeFileSync(`${stylePath}/index.css`, result.css);
-      fs.writeFileSync(
-        `${stylePath}/css.js`,
-        "require('./index.css');"
-      );
+      const content = prettier.format(result.css, { parser: 'css' });
+      fs.writeFileSync(`${stylePath}/index.css`, content);
+      fs.writeFileSync(`${stylePath}/css.js`, "require('./index.css');");
     });
 };
 
@@ -71,8 +92,9 @@ const lessAddlocalIdentName = function (lessPath, lessText, localIdentName) {
       if (!fs.existsSync(stylePath)) {
         fs.mkdirSync(stylePath);
       }
+      const content = prettier.format(result.content, { parser: 'css' });
       // writer addlocalIdentName less
-      fs.writeFileSync(`${stylePath}/index.less`, result.content);
+      fs.writeFileSync(`${stylePath}/index.less`, content);
       // creact index.js
       fs.writeFileSync(`${stylePath}/index.js`, "require('./index.less');");
       // less to css
