@@ -11,20 +11,16 @@
     "create": "./tool/create.js",
     "rm": "./tool/rm.js",
     "cp": "cp ./.babelrc ../../scaffold && cp ./css-module.js ../../scaffold",
-    "clean":
-      "rm -rf dist && rm ../../scaffold/.babelrc && rm ../../scaffold/css-module.js",
-    "build":
-      "npm run create && npm run build:lib && npm run build:index && npm run build:es && npm run build:umd && npm run rm && npm run processorLess && npm run  jsToStyle",
+    "clean": "rm -rf dist && rm ../../scaffold/.babelrc && rm ../../scaffold/css-module.js",
+    "build": "npm run create && npm run build:lib && npm run build:index && npm run build:es && npm run build:umd && npm run rm && npm run processorLess && npm run addAntlibtoStyle",
+    "test":"npm run create && npm run build:lib && npm run build:index && npm run build:es && npm run build:umd && npm run rm && npm run processorLess",
     "build:index": "../../node_modules/.bin/babel ./index.js -d lib",
-    "build:lib":
-      "rm -rf lib && npm run cp && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib --copy-files",
-    "build:umd":
-      "npm run clean && ../../node_modules/.bin/cross-env NODE_ENV=production ../../node_modules/.bin/antd-tools run dist",
-    "build:es":
-      "rm -rf es && cp -apvX ../../scaffold/src/components es && cp index.js es",
+    "build:lib": "rm -rf lib && npm run cp && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib --copy-files",
+    "build:umd": "npm run clean && ../../node_modules/.bin/cross-env NODE_ENV=production ../../node_modules/.bin/antd-tools run dist",
+    "build:es": "rm -rf es && cp -apvX ../../scaffold/src/components es && cp index.js es",
     "prepublish": "npm run build",
     "processorLess": "node ./tool/processorLess.js",
-    "jsToStyle": "node ./tool/jsToStyle.js"
+    "addAntlibtoStyle": "node ./tool/addAntlibtoStyle.js"
   },
   "prepublish": "npm run build",
   "main": "lib/index.js",
@@ -32,7 +28,8 @@
   "files": ["es", "lib", "dist"],
   "devDependencies": {
     "webpack": "^3.3.0",
-    "postcss-less-engine": "^0.6.2"
+    "postcss-less-engine": "^0.6.2",
+    "fs-extra": "^6.0.1"
   },
   "peerDependencies": {
     "react": "~0.14.0 || >=15.0.0 || >=16.0.0",
