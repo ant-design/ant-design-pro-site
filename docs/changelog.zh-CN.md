@@ -8,6 +8,27 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 2.0.0-beta.1
+
+此次更新主要是支持了 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)。
+通过如下配置来使用：
+
+```
+ {
+    libraryName: 'ant-design-pro',
+    libraryDirectory: 'lib',
+    style: true,
+    camel2DashComponentName: false,
+  }
+```
+
+在代码中：
+
+```
+import { Charts, NumberInfo, Trend } from 'ant-design-pro';
+```
+
+
 ### 1.3.0
 
 `2018-04-19`
