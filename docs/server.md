@@ -30,7 +30,7 @@ services/
   ...
 ```
 
-其中，`utils/request.js` 是基于 [fetch](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch) 的封装，便于统一处理 POST，GET 等请求参数，请求头，以及错误提示信息等。具体可以参看 [request.js](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js)。
+其中，`utils/request.js` 是基于 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) 的封装，便于统一处理 POST，GET 等请求参数，请求头，以及错误提示信息等。具体可以参看 [request.js](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js)。
 
 例如在 services 中的一个请求用户信息的例子：
 
