@@ -70,11 +70,11 @@ const addAntlibtoStyle = function (parentsFolder) {
     lessPathString.push(`require('${antdLib}/style/index');`);
   });
   // appent to css.js
-  const cssJsPath = pathTool.join(__dirname, '../lib/Charts', 'style/css,js');
+  const cssJsPath = pathTool.join(__dirname, '../lib/Charts', 'style/css.js');
   appentContent(cssJsPath, cssPathString.join('\n'));
 
   // appent to index.js
-  const lessJsPath = pathTool.join(__dirname, '../lib/Charts', 'style/index,js');
+  const lessJsPath = pathTool.join(__dirname, '../lib/Charts', 'style/index.js');
   appentContent(lessJsPath, lessPathString.join('\n'));
 };
 
