@@ -45,6 +45,9 @@ const addAntlibtoStyle = function (parentsFolder) {
           lessPathString.push(`require('${antdLib}/style/index');`);
         });
         const stylePath = pathTool.join(__dirname, parents, 'style');
+        if (stylePath.includes('style/style')) {
+          return false;
+        }
         if (!fs.existsSync(stylePath)) {
           fs.mkdirSync(stylePath);
         }

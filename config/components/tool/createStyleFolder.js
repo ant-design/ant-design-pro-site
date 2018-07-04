@@ -23,7 +23,7 @@ const appentContent = (path, content) => {
 const createStyleFolder = function (parents) {
   const paths = fs.readdirSync(pathTool.join(__dirname, parents));
   paths.forEach((path) => {
-    if (path === '_utils') {
+    if (path === '_utils' || path === 'style') {
       return;
     }
     const filePath = pathTool.join(__dirname, parents, path);
@@ -35,7 +35,6 @@ const createStyleFolder = function (parents) {
       }
       fs.moveSync(filePath, pathTool.join(stylePath, path));
       less2css(stylePath);
-
       // add  require to css.js
       const cssJsPath = pathTool.join(stylePath, 'css.js');
       const cssContent = `require('./${path.replace('less', 'css')}')`;
