@@ -25,7 +25,7 @@ const addAntlibtoStyle = function (parentsFolder) {
       if (fileStatus.isFile() && path.indexOf('.js') > -1) {
         const relaPath = pathTool.join(__dirname, parents, path);
         const jsString = fs.readFileSync(relaPath).toString();
-        const execArray = jsString.match(/(antd\/lib\/)(\w*)/gi);
+        const execArray = jsString.match(/(antd\/lib\/)(\w*((-)*\w+)*)/gi);
         if (!execArray) {
           return;
         }
