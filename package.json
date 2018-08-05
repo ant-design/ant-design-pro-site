@@ -15,8 +15,11 @@
     "bizcharts": "^3.1.4",
     "bizcharts-plugin-slider": "^2.0.1",
     "eslint-config-prettier": "^2.9.0",
+<<<<<<< HEAD
     "lint-staged": "^7.0.5",
     "pre-commit": "^1.2.2",
+=======
+>>>>>>> master
     "lodash-decorators": "^6.0.0",
     "lz-string": "^1.4.4",
     "parallelshell": "^3.0.1",
@@ -110,7 +113,6 @@
     ],
     "**/*.{js,jsx}": "npm run lint-staged:js",
     "**/*.less": "stylelint --syntax less"
-    
   },
   "pre-commit": [
     "precommit"
