@@ -23,7 +23,7 @@
     border-radius: 4px;
     float: left;
     margin-right: 4px;
-    transition: all .2s;
+    transition: all 0.2s;
     position: relative;
     text-align: center;
     padding-top: 28px;
@@ -46,7 +46,7 @@
     width: 100%;
     text-align: center;
     opacity: 0;
-    transition: all .2s ease .1s;
+    transition: all 0.2s ease 0.1s;
   }
 
   .make-palatte(blue);
@@ -88,10 +88,10 @@
 
 .make-palatte(@color, @index: 1) when (@index <= 10) {
   .palatte-@{color}-@{index} {
-    @background: "@{color}-@{index}";
+    @background: '@{color}-@{index}';
     background: @@background;
   }
-  .make-palatte(@color, (@index + 1));    // next iteration
+  .make-palatte(@color, (@index + 1)); // next iteration
 }
 
 @grey-1: #fbfbfb;

@@ -14,11 +14,13 @@ class Footer extends React.Component {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
 
-    window.location.href = currentProtocol + currentHref.replace(
-      window.location.pathname,
-      utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
-    );
-  }
+    window.location.href =
+      currentProtocol +
+      currentHref.replace(
+        window.location.pathname,
+        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname))
+      );
+  };
 
   render() {
     const { pathname } = this.props.location;
@@ -57,40 +59,56 @@ class Footer extends React.Component {
             </Col>
             <Col lg={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2><FormattedMessage id="app.footer.resources" /></h2>
+                <h2>
+                  <FormattedMessage id="app.footer.resources" />
+                </h2>
                 <div>
                   <a href="http://scaffold.ant.design">Scaffolds</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.scaffolds" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="http://motion.ant.design">Ant Motion</a>
+                  <a target="_blank" rel="noopener" href="http://motion.ant.design">
+                    Ant Motion
+                  </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.motion" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="http://library.ant.design/">Axure Library</a>
+                  <a target="_blank" rel="noopener" href="http://library.ant.design/">
+                    Axure Library
+                  </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antd-library" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="http://ux.ant.design">Ant UX</a>
+                  <a target="_blank" rel="noopener" href="http://ux.ant.design">
+                    Ant UX
+                  </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antux" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="https://github.com/dvajs/dva">dva</a> -
+                  <a target="_blank" rel="noopener" href="https://github.com/dvajs/dva">
+                    dva
+                  </a>{' '}
+                  -
                   <FormattedMessage id="app.footer.dva" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
+                  <a target="_blank" rel="noopener" href="https://github.com/dvajs/dva-cli">
+                    dva-cli
+                  </a>{' '}
+                  -
                   <FormattedMessage id="app.footer.dev-tools" />
                 </div>
               </div>
             </Col>
             <Col lg={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2><FormattedMessage id="app.footer.community" /></h2>
+                <h2>
+                  <FormattedMessage id="app.footer.community" />
+                </h2>
                 <div>
                   <Link to={utils.getLocalizedPathname('/docs/changelog', isZhCN)}>
                     <FormattedMessage id="app.footer.change-log" />
@@ -102,12 +120,20 @@ class Footer extends React.Component {
                   </Link>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="https://gitter.im/ant-design/ant-design-pro">
+                  <a
+                    target="_blank"
+                    rel="noopener"
+                    href="https://gitter.im/ant-design/ant-design-pro"
+                  >
                     <FormattedMessage id="app.footer.discuss-cn" />
                   </a>
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="https://github.com/ant-design/ant-design-pro/issues">
+                  <a
+                    target="_blank"
+                    rel="noopener"
+                    href="https://github.com/ant-design/ant-design-pro/issues"
+                  >
                     <FormattedMessage id="app.footer.issues" />
                   </a>
                 </div>
@@ -128,12 +154,16 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
-                  <a target="_blank" rel="noopener" href="https://antv.alipay.com/">AntV</a>
+                  <a target="_blank" rel="noopener" href="https://antv.alipay.com/">
+                    AntV
+                  </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.data-vis" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="https://eggjs.org/">Egg</a>
+                  <a target="_blank" rel="noopener" href="https://eggjs.org/">
+                    Egg
+                  </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.eggjs" />
                 </div>
@@ -151,7 +181,12 @@ class Footer extends React.Component {
           </Col>
           <Col lg={18} sm={24}>
             <span
-              style={{ lineHeight: '16px', paddingRight: 12, marginRight: 11, borderRight: '1px solid rgba(255, 255, 255, 0.55)' }}
+              style={{
+                lineHeight: '16px',
+                paddingRight: 12,
+                marginRight: 11,
+                borderRight: '1px solid rgba(255, 255, 255, 0.55)',
+              }}
             >
               <a
                 href="https://docs.alipay.com/policies/privacy/antfin"
@@ -171,7 +206,9 @@ class Footer extends React.Component {
               </a>
             </span>
             <span style={{ marginRight: 12 }}>ICP 证浙 B2-2-100257</span>
-            <span style={{ marginRight: 12 }}>Copyright © <FormattedMessage id="app.footer.company" /></span>
+            <span style={{ marginRight: 12 }}>
+              Copyright © <FormattedMessage id="app.footer.company" />
+            </span>
           </Col>
         </Row>
       </footer>

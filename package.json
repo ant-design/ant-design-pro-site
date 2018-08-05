@@ -15,6 +15,8 @@
     "bizcharts": "^3.1.4",
     "bizcharts-plugin-slider": "^2.0.1",
     "eslint-config-prettier": "^2.9.0",
+    "lint-staged": "^7.0.5",
+    "pre-commit": "^1.2.2",
     "lodash-decorators": "^6.0.0",
     "lz-string": "^1.4.4",
     "parallelshell": "^3.0.1",
@@ -77,6 +79,7 @@
     "webpack": "^3.6.0"
   },
   "scripts": {
+    "precommit": "npm run lint-staged",
     "start": "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
     "bisheng-build": "cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js",
     "scaffold-start": "cd ./scaffold && BROWSER=none npm start",
@@ -89,15 +92,26 @@
     "gh-pages": "gh-pages -d _site",
     "site": "npm run build-site && npm run gh-pages",
     "components-publish": "./tool/bin/let -c && cd ./config/components && npm publish --tag=beta",
+    "components-build": "./tool/bin/let -c && cd ./config/components",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint:es": "eslint ./ --ext '.js,.jsx'",
+    "lint-staged:js": "eslint --ext .js",
     "lint:style": "stylelint \"site/**/*.less\" --syntax less",
     "lint:demo": "cross-env RUN_ENV=DEMO eslint ./ --ext '.md' -c ./.eslintrc.js",
     "test": "npm run lint",
-    "components-build": "./tool/bin/let -c && cd ./config/components"
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write ./site/**/**/**"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,less}": [
+      "prettier --writer",
+      "git add"
+    ],
+    "**/*.{js,jsx}": "npm run lint-staged:js",
+    "**/*.less": "stylelint --syntax less"
   },
   "pre-commit": [
-    "lint"
+    "precommit"
   ]
 }

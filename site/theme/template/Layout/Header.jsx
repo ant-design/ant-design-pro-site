@@ -13,12 +13,13 @@ const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicR
 const textSearchUrl = 'https://www.google.com/search?q=site:pro.ant.design+';
 
 // https://www.algolia.com/apps/YEWBNYLVLW/
-const searchUrl = 'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176';
+const searchUrl =
+  'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176';
 
 class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
-  }
+  };
 
   state = {
     inputValue: '',
@@ -31,10 +32,10 @@ class Header extends React.Component {
   componentDidMount() {
     this.context.router.listen(this.handleHideMenu);
     const { searchInput } = this;
-    enquireScreen((b) => {
+    enquireScreen(b => {
       this.setState({ menuMode: b ? 'inline' : 'horizontal' });
     });
-    document.addEventListener('keyup', (event) => {
+    document.addEventListener('keyup', event => {
       if (event.keyCode === 83 && event.target === document.body) {
         searchInput.focus();
       }
@@ -52,66 +53,73 @@ class Header extends React.Component {
       this.setState({
         searching: true,
       });
-      axios.post(searchUrl, {
-        params: `query=${key}&hitsPerPage=20&facets=*&maxValuesPerFacet=10&facetFilters=[]`,
-      }).then((response) => {
-        this.setState({
-          searching: false,
+      axios
+        .post(searchUrl, {
+          params: `query=${key}&hitsPerPage=20&facets=*&maxValuesPerFacet=10&facetFilters=[]`,
+        })
+        .then(response => {
+          this.setState({
+            searching: false,
+          });
+          if (success) {
+            success(response);
+          }
+        })
+        .catch(err => {
+          this.setState({
+            searching: false,
+          });
+          if (error) {
+            error(err);
+          }
         });
-        if (success) {
-          success(response);
-        }
-      }).catch((err) => {
-        this.setState({
-          searching: false,
-        });
-        if (error) {
-          error(err);
-        }
-      });
     }, 200);
-  }
+  };
 
   handleHideMenu = () => {
     this.setState({
       menuVisible: false,
     });
-  }
+  };
 
   handleShowMenu = () => {
     this.setState({
       menuVisible: true,
     });
-  }
+  };
 
-  onMenuVisibleChange = (visible) => {
+  onMenuVisibleChange = visible => {
     this.setState({
       menuVisible: visible,
     });
-  }
+  };
 
-  handleSelect = (value) => {
+  handleSelect = value => {
     location.href = value;
-  }
+  };
 
-  handleChange = (value) => {
+  handleChange = value => {
     this.setState({ inputValue: value });
 
-    this.search(value, (data) => {
+    this.search(value, data => {
       if (data && data.data && data.data.hits) {
         this.setState({
           searchOption: data.data.hits,
         });
       }
     });
-  }
+  };
 
   render() {
     const { inputValue, menuMode, menuVisible, searchOption, searching } = this.state;
     const { location, intl } = this.props;
     const path = location.pathname;
 
-    const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
+    const module = location.pathname
+      .replace(/(^\/|\/$)/g, '')
+      .split('/')
+      .slice(0, -1)
+      .join('/');
     let activeMenuItem = module || 'home';
     if (/^components/.test(path)) {
       activeMenuItem = 'components';
@@ -140,36 +148,49 @@ class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        {
-          menuMode === 'inline' && (
-            <Menu.Item key="preview">
-              <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">
-                <FormattedMessage id="app.home.preview" />
-              </a>
-            </Menu.Item>
-          )
-        }
+        {menuMode === 'inline' && (
+          <Menu.Item key="preview">
+            <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">
+              <FormattedMessage id="app.home.preview" />
+            </a>
+          </Menu.Item>
+        )}
       </Menu>
     );
 
-    const componentSearchOption = searchOption.filter(v => v.type === 'component').map(
-      d => <Option key={d.url}>{d.title} {isZhCN && d.subTitle}</Option>
-    );
-    const docSearchOption = searchOption.filter(v => v.type === 'doc').map(
-      d => <Option key={d.url}>{isZhCN ? d.title : (d['title-en'] || d.title)}</Option>
-    );
+    const componentSearchOption = searchOption.filter(v => v.type === 'component').map(d => (
+      <Option key={d.url}>
+        {d.title} {isZhCN && d.subTitle}
+      </Option>
+    ));
+    const docSearchOption = searchOption
+      .filter(v => v.type === 'doc')
+      .map(d => <Option key={d.url}>{isZhCN ? d.title : d['title-en'] || d.title}</Option>);
 
     const options = [];
 
     if (componentSearchOption) {
-      options.push(<OptGroup label={intl.formatMessage({ id: 'app.header.search.component' })} key="component">{componentSearchOption}</OptGroup>);
+      options.push(
+        <OptGroup label={intl.formatMessage({ id: 'app.header.search.component' })} key="component">
+          {componentSearchOption}
+        </OptGroup>
+      );
     }
     if (docSearchOption) {
-      options.push(<OptGroup label={intl.formatMessage({ id: 'app.header.search.doc' })} key="doc">{docSearchOption}</OptGroup>);
+      options.push(
+        <OptGroup label={intl.formatMessage({ id: 'app.header.search.doc' })} key="doc">
+          {docSearchOption}
+        </OptGroup>
+      );
     }
 
     if (inputValue) {
-      options.push(<Option key={`${textSearchUrl}${inputValue}`}><FormattedMessage id="app.header.search.all" />{inputValue}</Option>);
+      options.push(
+        <Option key={`${textSearchUrl}${inputValue}`}>
+          <FormattedMessage id="app.header.search.all" />
+          {inputValue}
+        </Option>
+      );
     }
 
     return (
@@ -184,18 +205,17 @@ class Header extends React.Component {
             arrowPointAtCenter
             onVisibleChange={this.onMenuVisibleChange}
           >
-            <Icon
-              className="nav-phone-icon"
-              type="menu"
-              onClick={this.handleShowMenu}
-            />
+            <Icon className="nav-phone-icon" type="menu" onClick={this.handleShowMenu} />
           </Popover>
         ) : null}
         <Row>
           <Col xxl={4} xl={5} lg={8} md={8} sm={24} xs={24}>
             <Link id="logo" to="/">
               <img src={LOGO_URL} alt="logo" />
-              <img src="https://gw.alipayobjects.com/zos/rmsportal/tNoOLUAkyuGLXoZvaibF.svg" alt="Ant Design Pro" />
+              <img
+                src="https://gw.alipayobjects.com/zos/rmsportal/tNoOLUAkyuGLXoZvaibF.svg"
+                alt="Ant Design Pro"
+              />
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
@@ -213,13 +233,11 @@ class Header extends React.Component {
                 onSelect={this.handleSelect}
                 onChange={this.handleChange}
               >
-                {
-                  searching && (
-                    <Option className="search-loading" key="search">
-                      <Icon type="loading" />
-                    </Option>
-                  )
-                }
+                {searching && (
+                  <Option className="search-loading" key="search">
+                    <Icon type="loading" />
+                  </Option>
+                )}
                 {options}
               </Select>
             </div>

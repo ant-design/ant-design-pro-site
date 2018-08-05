@@ -15,7 +15,8 @@ function Banner(props) {
       {props.isMobile && (
         <TweenOne animation={{ opacity: 1 }} className="banner-image-wrapper">
           <div className="home-banner-image">
-            <img alt="banner"
+            <img
+              alt="banner"
               src="https://gw.alipayobjects.com/zos/rmsportal/rqKQOpnMxeJKngVvulsF.svg"
               width="100%"
             />
@@ -24,9 +25,7 @@ function Banner(props) {
       )}
       <QueueAnim className="banner-title-wrapper" type={props.isMobile ? 'bottom' : 'right'}>
         <div key="line" className="title-line-wrapper">
-          <div className="title-line"
-            style={{ transform: 'translateX(-64px)' }}
-          />
+          <div className="title-line" style={{ transform: 'translateX(-64px)' }} />
         </div>
         <h1 key="h1">ANT DESIGN PRO</h1>
         <p key="content">
