@@ -16,12 +16,15 @@ type: Other
 - 🐞 Fix the problem that the (official website) advanced details page is not displayed in the IE11 section. [#1287](https://github.com/ant-design/ant-design-pro/issues/1287)
 - 🐞 Fix the problem of the breadcrumb path problem in the Step Form. [#1324](https://github.com/ant-design/ant-design-pro/issues/1324)
 - 🐞 Fixed an issue where dynamic parameter routing could not get title. [#1248](https://github.com/ant-design/ant-design-pro/issues/1248)
-- 🐞 Fix the problem that the breadcrumbs on the distribution form page are not updated.[#1409](https://github.com/ant-design/ant-design-pro/issues/1409)
+- 🐞 Fix the problem that the breadcrumbs on the distribution form page are not updated. [#1409](https://github.com/ant-design/ant-design-pro/issues/1409)
 
 #### Components
-- 🐞 Fix the error that the chart does not show when waterwave `precent` is 0.[27a2353](https://github.com/ant-design/ant-design-pro/commit/bcb9280cd1340888259484b47b69121d47df2152)
-- 🌟 Trend adds the `reverseColor` attribute.[#1399](https://github.com/ant-design/ant-design-pro/pull/1399)、
+
+- 🐞 Fix the error that the chart does not show when WaterWave `precent` is 0. [27a2353](https://github.com/ant-design/ant-design-pro/commit/bcb9280cd1340888259484b47b69121d47df2152)
+- 🐞 Fix Ellipsis break in Firefox. [#1921](https://github.com/ant-design/ant-design-pro/pull/1921)
+- 🌟 Trend adds the `reverseColor` attribute. [#1399](https://github.com/ant-design/ant-design-pro/pull/1399)
 - 🌟 Ellipsis adds the `caculateShowLength` attribute. [#1673](https://github.com/ant-design/ant-design-pro/pull/1637)
+- 🌟 Ellipsis length now includes `...`. [#1592](https://github.com/ant-design/ant-design-pro/pull/1592)
 - 🌟 Login.Captcha adds the `buttonText` property. [11df359 ](https://github.com/ant-design/ant-design-pro/commit/189e6c5c599b1cf23570d15b016704ec36793056)
 
 ### 2.0.0-beta.1
