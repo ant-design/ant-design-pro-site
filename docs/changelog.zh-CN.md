@@ -8,6 +8,24 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 1.4.0
+
+`2018-08-05`
+
+#### 脚手架
+
+- 🐞 修复登录页面在 IE11 浏览器下，Footer 错位的问题。 [#1315](https://github.com/ant-design/ant-design-pro/issues/1315)
+- 🐞 修复（官网）高级详情页在 IE11 下部分内容未显示的问题。 [#1287](https://github.com/ant-design/ant-design-pro/issues/1287)
+- 🐞 修复分步表单面包屑路径问题的问题。 [#1324](https://github.com/ant-design/ant-design-pro/issues/1324)
+- 🐞 修复动态参数路由无法获得 title 的问题。[#1248](https://github.com/ant-design/ant-design-pro/issues/1248)
+- 🐞 修复分布表单页跳转时面包屑不更新的问题。[#1409](https://github.com/ant-design/ant-design-pro/issues/1409)
+
+#### 组件
+- 🐞 修复 waterwave `precent`为0时，图表不展示的错误。 [27a2353](https://github.com/ant-design/ant-design-pro/commit/bcb9280cd1340888259484b47b69121d47df2152)
+- 🌟 Trend 增加 `reverseColor` 属性。[#1399](https://github.com/ant-design/ant-design-pro/pull/1399)、
+- 🌟 Ellipsis 增加 `caculateShowLength` 属性。[#1673](https://github.com/ant-design/ant-design-pro/pull/1637)
+- 🌟 Login.Captcha 增加 `buttonText`属性。[11df359 ](https://github.com/ant-design/ant-design-pro/commit/189e6c5c599b1cf23570d15b016704ec36793056)
+
 ### 2.0.0-beta.1
 
 此次更新主要是支持了 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)。
