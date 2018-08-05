@@ -1,1 +1,0 @@
-webpackJsonp([61],{1583:function(e,n){e.exports={content:["article",["p","Planned for next version"]],meta:{order:13,title:"i18n",type:"Advanced",disabled:!0,filename:"docs/i18n.en-US.md"},toc:["ul"]}}});
