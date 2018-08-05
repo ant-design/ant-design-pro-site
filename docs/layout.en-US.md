@@ -6,7 +6,7 @@ type: Introduction
 
 Layout is the outermost structure for a project, ususaly consists of navigation, footer, sidebar, notification and content. There are also a lot of different layouts within a page.
 
-Ant Design currently provides two componetns for layout: [Layout](http://ant.design/components/layout/) and [Grid](http://ant.design/components/grid/).
+Ant Design currently provides two components for layout: [Layout](http://ant.design/components/layout/) and [Grid](http://ant.design/components/grid/).
 
 ---
 
@@ -14,7 +14,7 @@ Ant Design currently provides two componetns for layout: [Layout](http://ant.des
 
 Grid layout is widely used, one of its major benefits is responsiveness.
 
-Grid Component provided by Ant Design is tremedously powerful. you can set span, responsive columns, and optional `flex` layout. It covers a majority of use-cases: See [Grid](http://ant.design/components/grid/) for details.
+Grid Component provided by Ant Design is tremendously powerful. you can set span, responsive columns, and optional `flex` layout. It covers a majority of use-cases: See [Grid](http://ant.design/components/grid/) for details.
 
 ## Using the Layout Component
 

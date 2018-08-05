@@ -1,6 +1,5 @@
 const eslintrc = {
-  extends: ['eslint-config-airbnb'],
-  extends: ['airbnb', 'prettier'],
+  extends: ['eslint-config-airbnb','prettier'],
   env: {
     browser: true,
     node: true,

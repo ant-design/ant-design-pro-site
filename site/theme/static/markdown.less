@@ -2,6 +2,27 @@
   color: @site-text-color;
   font-size: 14px;
   line-height: 2;
+
+  ul.ant-timeline {
+    li.ant-timeline-item {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 30px;
+      .ant-timeline-item-content {
+        font-size: 14px;
+        padding-left: 32px;
+        position: relative;
+        top: -14px;
+        > h2 {
+          margin-top: 0;
+          padding-top: 0.5px;
+        }
+      }
+    }
+    li.ant-timeline-item:first-child {
+      margin-top: 40px;
+    }
+  }
 }
 
 .highlight {
@@ -22,6 +43,8 @@
   font-weight: 500;
   margin-bottom: 20px;
   margin-top: 8px;
+  font-size: 30px;
+  line-height: 38px;
   font-family: Lato, @font-family;
 
   .subtitle {
@@ -41,10 +64,6 @@
   clear: both;
 }
 
-.markdown h1 {
-  font-size: 30px;
-  line-height: 38px;
-}
 .markdown h2 {
   font-size: 24px;
   line-height: 32px;
@@ -138,6 +157,7 @@
   white-space: nowrap;
   color: #5c6b77;
   font-weight: 500;
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .markdown > table th,
@@ -145,10 +165,6 @@
   border: 1px solid @site-border-color-split;
   padding: 16px 24px;
   text-align: left;
-}
-
-.markdown > table th {
-  background: rgba(0, 0, 0, 0.02);
 }
 
 .markdown blockquote {
@@ -358,29 +374,5 @@
   .code-box-demo .height-80 {
     height: 80px;
     line-height: 80px;
-  }
-}
-
-// For Changelog
-.markdown {
-  ul.ant-timeline {
-    li.ant-timeline-item {
-      list-style: none;
-      margin: 0;
-      padding: 0 0 30px;
-      .ant-timeline-item-content {
-        font-size: 14px;
-        padding-left: 32px;
-        position: relative;
-        top: -14px;
-        > h2 {
-          margin-top: 0;
-          padding-top: 0.5px;
-        }
-      }
-    }
-    li.ant-timeline-item:first-child {
-      margin-top: 40px;
-    }
   }
 }

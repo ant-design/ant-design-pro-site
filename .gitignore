@@ -42,3 +42,4 @@ config/components/lib
 config/components/dist
 config/components/es
 config/components/package.json
+config/components/package-lock.json
