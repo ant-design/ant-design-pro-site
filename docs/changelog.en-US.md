@@ -6,6 +6,18 @@ type: Other
 
 [Older Version](http://03x.pro.ant.design/)
 
+### 1.4.4
+
+`2018-08-09`
+
+restored the es directory and index.less.
+
+### 1.4.1
+
+`2018-08-07`
+
+1.4.0 was released using beta tag, This version uses the correct tag.
+
 ### 1.4.0
 
 `2018-08-05`
