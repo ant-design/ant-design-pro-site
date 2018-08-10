@@ -41,7 +41,7 @@ const addAntlibtoStyle = function (parentsFolder) {
 
         execArray.forEach((antdLib) => {
           antdLibMap[antdLib] = true;
-          cssPathString.push(`require('${antdLib}/style/css')`);
+          cssPathString.push(`require('${antdLib}/style/css');`);
           lessPathString.push(`require('${antdLib}/style/index');`);
         });
         const stylePath = pathTool.join(__dirname, parents, 'style');
@@ -69,7 +69,7 @@ const addAntlibtoStyle = function (parentsFolder) {
   const cssPathString = [];
   const lessPathString = [];
   Object.keys(ChartsMap).forEach((antdLib) => {
-    cssPathString.push(`require('${antdLib}/style/css')`);
+    cssPathString.push(`require('${antdLib}/style/css');`);
     lessPathString.push(`require('${antdLib}/style/index');`);
   });
   // appent to css.js
