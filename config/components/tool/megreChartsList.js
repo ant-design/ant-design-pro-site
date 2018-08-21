@@ -31,7 +31,7 @@ const megreChartsList = () => {
     fs
       .readFileSync(`${chartPath}/index.less`)
       .toString()
-      .replace("@import '~antd/lib/style/themes/default.less';", '')
+      .replace('@import "../../style/themes/default.less";', '')
   );
   fs.writeFileSync(`${chartPath}/index.less`, lessPathString.join('\n'));
 };
