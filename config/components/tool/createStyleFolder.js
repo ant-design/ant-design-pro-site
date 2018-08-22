@@ -37,11 +37,11 @@ const createStyleFolder = function (parents) {
       less2css(stylePath);
       // add  require to css.js
       const cssJsPath = pathTool.join(stylePath, 'css.js');
-      const cssContent = `require('./${path.replace('less', 'css')}')`;
+      const cssContent = `require('./${path.replace('less', 'css')}');`;
       appentContent(cssJsPath, cssContent);
       // add  require to index.js
       const lessJsPath = pathTool.join(stylePath, 'index.js');
-      const lessContent = `require('./${path}')`;
+      const lessContent = `require('./${path}');`;
       appentContent(lessJsPath, lessContent);
     }
     if (fileStatus.isDirectory()) {

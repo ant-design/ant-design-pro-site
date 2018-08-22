@@ -4,6 +4,7 @@ import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
 import { Row, Col, Affix, Alert } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
+import { getLocalizedPathname } from '../utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
 
@@ -53,6 +54,7 @@ export default class ComponentDoc extends React.PureComponent {
     const { doc, location } = props;
     const { content, meta } = doc;
     const locale = this.context.intl.locale;
+    const isZhCN = locale === 'zh-CN';
     const demos = Object.keys(props.demos).map(key => props.demos[key]);
     const { affixMode, expand } = this.state;
 
@@ -154,7 +156,7 @@ export default class ComponentDoc extends React.PureComponent {
             </pre>
             <p>
               <FormattedMessage id="app.component.refer.desc" />
-              <a href="/docs/use-components-alone">
+              <a href={getLocalizedPathname('/docs/use-components-alone', isZhCN)}>
                 <FormattedMessage id="app.component.refer.link" />
               </a>
             </p>
