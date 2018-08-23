@@ -7,7 +7,7 @@ type: Advanced
 Ant Design Pro provides the well-designed abstract chart components based on the [BizCharts](https://github.com/alibaba/BizCharts).
 These components provide the ability to use with complex mixed view or just use along for common business usage.
 
-Currently chart components have 10 type of charts and 2 type of chart suite:
+Currently chart components have 10 type of charts and 2 type of chart suites:
 
 * Pie
 * Bar
@@ -104,4 +104,4 @@ const data = [...];
 </Chart>
 ```
 
-Reference [more Demo](https://alibaba.github.io/BizCharts/demo.html)。
+Reference [more demo](https://alibaba.github.io/BizCharts/demo.html)。
