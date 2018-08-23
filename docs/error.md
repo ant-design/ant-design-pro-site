@@ -40,7 +40,7 @@ type: 进阶
 
 这个组件一般用在提交结果展示，文案操作等均可自定义。
 
-> 脚手架默认会将无法匹配到页面的网址引导到预设的 404 页面，如果需要自定义此页面，可以修改这个文件 `./src/routes/Exception/404.js`，相关的路由配置在这里 [BasicLayout.js#L362](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L362)
+<!-- > 脚手架默认会将无法匹配到页面的网址引导到预设的 404 页面，如果需要自定义此页面，可以修改这个文件 `./src/routes/Exception/404.js`，相关的路由配置在这里 [BasicLayout.js#L362](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L362) -->
 
 ## 提示性报错
 
@@ -62,30 +62,50 @@ type: 进阶
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/cVTaurnfguplvNbctgBN.png" width="400" />
 
+Ant Design Pro 封装了一个强大的 `request.js` 统一处理请求，提供了默认的错误处理以及提示，
+
 ```js
-import fetch from 'dva/fetch';
-import { notification } from 'antd';
-
-...
-
-fetch(url)
-  .then(response => response.json())
-  .catch((error) => {
-    // 处理接口返回的数据格式错误的逻辑
-    if (error.code) {
-      notification.error({
-        message: error.name,
-        description: error.message,
-      });
-    }
-    if ('stack' in error && 'message' in error) {
-      notification.error({
-        message: `请求错误: ${url}`,
-        description: error.message,
-      });
-    }
-    return error;
+const checkStatus = response => {
+  if (response.status >= 200 && response.status < 300) {
+    return response;
+  }
+  const errortext = codeMessage[response.status] || response.statusText;
+  notification.error({
+    message: `请求错误 ${response.status}: ${response.url}`,
+    description: errortext,
   });
+  const error = new Error(errortext);
+  error.name = response.status;
+  error.response = response;
+  throw error;
+};
+```
+为了方便展示 404 等页面，我们在 `request.js` 中封装了根据状态跳转到相应页面的逻辑,建议在线上环境中删除这个逻辑，代码如下：
+
+```js
+    .catch(e => {
+      const status = e.name;
+      if (status === 401) {
+        // @HACK
+        /* eslint-disable no-underscore-dangle */
+        window.g_app._store.dispatch({
+          type: 'login/logout',
+        });
+        return;
+      }
+      // environment should not be used
+      if (status === 403) {
+        router.push('/exception/403');
+        return;
+      }
+      if (status <= 504 && status >= 500) {
+        router.push('/exception/500');
+        return;
+      }
+      if (status >= 404 && status < 422) {
+        router.push('/exception/404');
+      }
+    });
 ```
 
-Ant Design Pro 封装了一个 `request.js` 统一处理请求，完整代码可参考：https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js
+完整代码可参考：https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js
