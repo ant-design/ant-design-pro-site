@@ -1,8 +1,6 @@
 ---
 order: 11
-title:
-  en-US: Charts
-  zh-CN: 图表
+title: 图表
 type: 进阶
 ---
 
@@ -23,7 +21,7 @@ Ant Design Pro 提供了由设计师精心设计抽象的图表类型，是在 [
 * 图表卡片（ChartCard）
 * 图表字段（Field）
 
-[查看图表组件](http://pro.ant.design/components/Charts)
+[查看图表组件](https://pro.ant.design/components/Charts-cn/)
 
 ## 使用 Ant Design Pro 的图表
 
@@ -32,7 +30,7 @@ Charts 图表套件是在 `components/Charts` 包中，引用到项目就像使�
 > 你也可以通过单独使用 pro 的包的方式使用图表组件：[独立使用 Pro 组件](https://pro.ant.design/docs/use-components-alone-cn)
 
 ```jsx
-import { ChartCard, MiniBar } from 'components/Charts';
+import { ChartCard, MiniBar } from '@/components/Charts';
 import { Tooltip, Icon } from 'antd';
 
 const visitData = [
