@@ -85,7 +85,7 @@ export default ({ src, desc, style }) => (
 
 ```js
 import React from 'react';
-import ImageWrapper from '../../components/ImageWrapper';  // 注意保证引用路径的正确
+import ImageWrapper from '@/components/ImageWrapper';  // @ 表示相对于源文件根目录
 
 export default () => (
   <ImageWrapper
