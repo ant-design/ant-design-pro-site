@@ -1,8 +1,6 @@
 ---
 order: 12
-title:
-  en-US: BIZ Icon
-  zh-CN: 业务图标
+title: 业务图标
 type: 进阶
 ---
 
@@ -171,7 +169,7 @@ SVG 符号引入是现代浏览器未来主流的图标引入方式。其方法�
 
   现在可以更加方便地使用：
 
-  ```
+  ```jsx
   <BizIcon type="ali-pay" />
   ```
 
