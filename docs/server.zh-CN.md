@@ -5,7 +5,7 @@ type: 入门
 ---
 
 Ant Design Pro 是一套基于 React 技术栈的单页面应用，我们提供的是前端代码和本地模拟数据的开发模式，
-通过 Restful API 的形式和任何技术栈的服务端应用一起工作。下面将简单介绍和服务端交互的基本写法。
+通过 API 的形式和任何技术栈的服务端应用一起工作。下面将简单介绍和服务端交互的基本写法。
 
 ## 前端请求流程
 
@@ -56,7 +56,7 @@ effects: {
 }
 ```
 
-### Effect 处理异步请求
+### 处理异步请求
 
 在处理复杂的异步请求的时候，很容易让逻辑混乱，陷入嵌套陷阱，所以 Ant Design Pro 的底层基础框架 [dva](https://github.com/dvajs/dva) 使用 `effect` 的方式来管理同步化异步请求：
 
@@ -88,35 +88,3 @@ effects: {
 ```
 
 通过 [generator](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/function*) 和 [yield](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/yield) 使得异步调用的逻辑处理跟同步一样，更多可参看 [dva async logic](https://github.com/dvajs/dva/blob/master/docs/GettingStarted.md#async-logic)。
-
-## 从 mock 直接切换到服务端请求
-
-通常来讲只要 mock 的接口和真实的服务端接口保持一致，那么只需要重定向 mock 到对应的服务端接口即可。
-
-```js
-// .roadhogrc.mock.js
-export default {
-  'GET /api/(.*)': 'https://your.server.com/api/',
-};
-```
-
-这样你浏览器里这样的接口 `http://localhost:8001/api/applications` 会被反向代理到 `https://your.server.com/api/applications` 下。
-
-### 关闭 mock
-
-关闭 mock 的方法我们推荐采用环境变量，你可以在 `package.json` 中设置：
-
-```js
-"script" : {
-  "start": "roadhog server",
-  "start:no-proxy": "cross-env NO_PROXY=true roadhog server"
-}
-```
-
-然后在 `.roadhogrc.mock.js` 中做个判断即可：
-
-```js
-const noProxy = process.env.NO_PROXY === 'true';
-...
-export default noProxy ? {} : delay(proxy, 1000);
-```

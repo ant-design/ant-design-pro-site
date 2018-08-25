@@ -1,24 +1,26 @@
 ---
 order: 7
-title: Work with Server
-type: Introduction
+title: Communicate with Server
+type: 入门
 ---
 
-Ant Design Pro is a single-page application based on the React technology stack. We provide a development model with front-end code and local mock data. Work with server-side applications of any technology stack through the Restful APIs. The following is a brief introduction to the basic syntax of interaction with the server.
+Ant Design Pro is a SPA based on the React technology stack. We provide a set of front-end code and local simulation data development model.
+Work in the form of an API with the server application of any technology stack. The basics of interacting with the server are briefly described below.
 
-## Front-end request flow
+## Request Process
 
-In Ant Design Pro, a complete front-end UI interaction to the server-side processing flow is like this:
+In Ant Design Pro, a complete front-end UI interaction to the server-side processing flow looks like this:
 
 1. UI component interaction;
 2. Call the effect of model;
 3. Call the unified management service request function;
-4. Send request using encapsulated request.js;
-5. Get server return;
-6. Then call reducer to change the state;
+4. Send the request using the encapsulated request.js;
+5. Get the server response;
+6. Then call reducer to change state;
 7. Update the model.
 
-From the above, we can see that unified request processing is placed in the services folder for the convenience of management and maintenance, and files are generally split according to the model dimension. For example:
+
+As can be seen from the above process, in order to facilitate management and maintenance, unified request processing is placed in the `services` folder, and the files are generally split according to the model dimension, such as:
 
 ```
 services/
@@ -27,9 +29,10 @@ services/
   ...
 ```
 
-Among them, `utils/request.js` is an encapsulation, which is based on [fetch](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch) and facilitates unified processing of request such as POST and GET, request header, and error message. See [request.js](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js) for details.
+Among them, `utils/request.js` is based on [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), which is convenient for handling POST, GET and other parameters, headers, and error messages. See [request.js](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js) for details.
 
-An example of requesting user information in services:
+
+For example, an example of requesting user information in services:
 
 ```
 // services/user.js
@@ -55,9 +58,9 @@ effects: {
 }
 ```
 
-### Effect handling async requests
+### Handling Asynchronous Requests
 
-When dealing with complex async requests, it's easy to clutter the logic and get stuck in a nesting trap, so Ant Design Pro's underlying infrastructure [dva](https://github.com/dvajs/dva) uses the `effect` approach. To manage synchronous async requests:
+When dealing with complex asynchronous requests, it's easy to mess up the logic and get stuck in nesting traps, so the underlying infrastructure of Ant Design Pro [dva](https://github.com/dvajs/dva) uses the `effect` concept. To manage synchronized asynchronous requests:
 
 ```js
 effects: {
@@ -66,13 +69,13 @@ effects: {
       type: 'changeLoading',
       payload: true,
     });
-    // async request 1
+    // Async request 1
     const response = yield call(queryFakeList, payload);
     yield put({
       type: 'save',
       payload: response,
     });
-    // async request 2
+    // Async request 2
     const response2 = yield call(queryFakeList2, payload);
     yield put({
       type: 'save2',
@@ -86,36 +89,4 @@ effects: {
 },
 ```
 
-Through [generator](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/function*) and [yield](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/yield) makes the logical processing of asynchronous calls just like synchronizing. See [dva async logic](https://github.com/dvajs/dva/blob/master/docs/GettingStarted.md#async-logic) for more details.
-
-## Switch from mock directly to server request
-
-In general, as long as the mock api and the real server api are the same, you only need to redirect the mock to the corresponding server interface.
-
-```js
-// .roadhogrc.mock.js
-export default {
-  'GET /api/(.*)': 'https://your.server.com/api/',
-};
-```
-
-So the api `http://localhost:8001/api/applications` in your browser will be reverse proxyed to `https://your.server.com/api/applications`.
-
-### Close mock
-
-To close the mock method we recommend using environment variables, which you can set in `package.json`:
-
-```js
-"script" : {
-  "start": "roadhog server",
-  "start:no-proxy": "cross-env NO_PROXY=true roadhog server"
-}
-```
-
-Then make a judgment in `.roadhogrc.mock.js`:
-
-```js
-const noProxy = process.env.NO_PROXY === 'true';
-...
-export default noProxy ? {} : delay(proxy, 1000);
-```
+Via [generator](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/function*) and [yield](https://developer.mozilla.org/es/docs/Web /JavaScript/Reference/Operators/yield) the logical processing of asynchronous calls the same as synchronization, refer to [dva async logic](https://github.com/dvajs/dva/blob/master/docs/GettingStarted.md #async-logic) for details.
