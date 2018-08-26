@@ -12,11 +12,11 @@ type: 进阶
 
 我们基于 Ant Design React 进行开发，完全支持官方提供的 less 变量定制功能，具体方式如下：
 
-在脚手架目录中找到 `src/theme.js` 如下。
+在脚手架目录中找到 `config/config.js` 如下。
 
 ```js
-// https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
-module.exports = {
+...
+theme: {
   'font-size-base': '14px',
   'badge-font-size': '12px',
   'btn-font-size-lg': '@font-size-base',
@@ -25,14 +25,13 @@ module.exports = {
   'layout-sider-background': '#00182E',
   'layout-body-background': '#f0f2f5',
 };
+...
 ```
 
 在 [所有变量表](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 找到需要修改的变量，修改后启动 `npm start`，就可以在你的应用界面看到效果了。
 
 更多方式可以参考官方文档：[定制主题](http://ant.design/docs/react/customize-theme-cn)。
 
-> 小技巧：你可以把以上的主题配置文件 `theme.js` 发布成单独的 npm 包来引入，方便不同项目之间的复用。
-> 在 `.webpackrc` 中修改 `"theme": "./node_modules/your-package/theme.js"` 为相应路径即可。
 
 ## 样式覆盖
 
@@ -40,7 +39,7 @@ Ant Design 的通用样式变量可能无法满足所有定制需求，你需要
 
 ### 全局覆盖组件
 
-比如在 `src/index.less` 里修改所有标签的字体大小。
+比如在 `src/global.less` 里修改所有标签的字体大小。
 
 ```less
 // src/index.less
@@ -70,6 +69,12 @@ return <Tag className={styles.customTag}>定制标签</Tag>;
 
 > 我们不推荐进行样式覆盖，一是默认主题和组件是经过了设计师精心调节，强行覆盖可能会影响整体效果；二是覆盖代码可能因为组件库版本升级而失效。
 
-## 官方主题
+## 在线切换主题
 
-目前 Ant Design Pro 暂时只有一套默认主题，我们计划在之后推出更多官方主题以满足个性化的需求，敬请期待。
+pro 中提供了一个可以在线切换主题和布局的 设置抽屉，使用这个抽屉可以很方便的查看更换主题的效果，无需重启脚手架。
+
+为了方便预览，设置中的配置项会被保存在地址栏中，你可以将其拷贝给他人，分享效果。
+> 由于 react-router 的特性，地址栏的参数可能被清空。
+
+您一旦确定了这个配置，可以点击 拷贝代码 按钮将其拷贝并到 `src/models/setting.js` 中覆盖 defaultSetting 的默认设置。这样您可以将以该主题发布和部署 pro。
+> 修改颜色使用的是 less 在线编译，建议在 `config/config.js` 中配置，提升用户体验，在线编译 less 需要时间，并且会造成卡顿。
