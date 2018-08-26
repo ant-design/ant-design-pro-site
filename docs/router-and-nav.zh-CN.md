@@ -1,8 +1,6 @@
 ---
 order: 3
-title:
-  en-US: Router and Nav
-  zh-CN: 路由和菜单
+title: 路由和菜单
 type: 入门
 ---
 
@@ -83,7 +81,7 @@ getRoutes(match.path, routerData).map(item => (
 ))
 ```
 
-> 如果你不需要自动生成路由，也可以用 routerData 自行处理。
+> 注意：如果你不需要这种筛选及分析功能，可以不使用 `getRoutes`，直接基于 routerData 自行处理。
 
 ### 菜单
 
@@ -94,7 +92,7 @@ getRoutes(match.path, routerData).map(item => (
 
 > 如果你的项目并不需要菜单，你也可以直接在 `src/common/router.js` 中配置 name 信息。
 
-配置文件输出的菜单数据，可以直接提供给侧边栏组件使用。[SiderMenu.js](https://github.com/ant-design/ant-design-pro/blob/master/src/components/SiderMenu/SiderMenu.js)。除了生成菜单，菜单数据还可辅助生成重定向路由等模块，参考 [BasicLayout.js#L154](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L154)。
+配置文件输出的菜单数据，可以直接提供给[侧边栏组件 SiderMenu](https://github.com/ant-design/ant-design-pro/blob/master/src/components/SiderMenu/SiderMenu.js)使用。除了生成菜单，菜单数据还可辅助生成重定向路由等模块，参考 [BasicLayout.js#L154](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L154)。
 
 ### 面包屑
 
@@ -106,7 +104,7 @@ getRoutes(match.path, routerData).map(item => (
 
 ### 新增页面
 
-脚手架默认提供了两种布局模板：`基础布局 - BasicLayout` 以及 `账户相关布局 - UserLayout`：
+脚手架默认提供了两种布局模板：`基础布局 - BasicLayout` 以及 `账户相关布局 - UserLayout`。
 
 <img alt="基础布局" src="https://gw.alipayobjects.com/zos/rmsportal/oXmyfmffJVvdbmDoGvuF.png" />
 
@@ -289,6 +287,8 @@ const menuData = [{
   }
 </Switch>
 ```
+
+> 如果你的项目中大部分路由都需要同级渲染，也可以不使用 getRoutes。
 
 ### 隐藏菜单
 
