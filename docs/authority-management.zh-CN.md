@@ -1,8 +1,6 @@
 ---
 order: 24
-title:
-  en-US: Authority Management
-  zh-CN: 权限管理
+title: 权限管理
 type: 进阶
 ---
 
