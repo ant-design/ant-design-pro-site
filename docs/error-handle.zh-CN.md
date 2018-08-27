@@ -21,26 +21,24 @@ type: 进阶
 
 - [Exception 异常页](http://preview.pro.ant.design/#/exception/404)
 
-  ```js
-  <Exception type="404" />
-  ```
+```js
+<Exception type="404" />
+```
 
 默认支持 404，403，500 三种错误，也可自定义文案等内容。
 
 - [Result 结果页](http://preview.pro.ant.design/#/result/fail)
 
-  ```js
+```js
   <Result
     type="error"
     title="提交失败"
     description="请核对并修改以下信息后，再重新提交。"
     actions={<Button size="large" type="primary">返回修改</Button>}
   />
-  ```
+```
 
 这个组件一般用在提交结果展示，文案操作等均可自定义。
-
-<!-- > 脚手架默认会将无法匹配到页面的网址引导到预设的 404 页面，如果需要自定义此页面，可以修改这个文件 `./src/routes/Exception/404.js`，相关的路由配置在这里 [BasicLayout.js#L362](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L362) -->
 
 ## 提示性报错
 
@@ -62,7 +60,7 @@ type: 进阶
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/cVTaurnfguplvNbctgBN.png" width="400" />
 
-Ant Design Pro 封装了一个强大的 `request.js` 统一处理请求，提供了默认的错误处理以及提示，
+Ant Design Pro 封装了一个强大的 `request.js` 统一处理请求，提供了默认的错误处理以及提示。
 
 ```js
 const checkStatus = response => {
