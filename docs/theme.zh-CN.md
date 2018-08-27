@@ -10,9 +10,7 @@ type: 进阶
 
 ## 主题定制
 
-我们基于 Ant Design React 进行开发，完全支持官方提供的 less 变量定制功能，具体方式如下：
-
-在脚手架目录中找到 `config/config.js` 如下。
+我们基于 Ant Design React 进行开发，完全支持官方提供的 less 变量定制功能. 你可以在脚手架目录中找到 `config/config.js` 代码类似这样:
 
 ```js
 ...
@@ -28,7 +26,7 @@ theme: {
 ...
 ```
 
-在 [所有变量表](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 找到需要修改的变量，修改后启动 `npm start`，就可以在你的应用界面看到效果了。
+Find the variables that need to be modified in [All Variables Table] (https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less), and start `npm start` after modification. , you can see the effect in your app interface.
 
 更多方式可以参考官方文档：[定制主题](http://ant.design/docs/react/customize-theme-cn)。
 
@@ -76,5 +74,5 @@ pro 中提供了一个可以在线切换主题和布局的 设置抽屉，使用
 为了方便预览，设置中的配置项会被保存在地址栏中，你可以将其拷贝给他人，分享效果。
 > 由于 react-router 的特性，地址栏的参数可能被清空。
 
-您一旦确定了这个配置，可以点击 拷贝代码 按钮将其拷贝并到 `src/models/setting.js` 中覆盖 defaultSetting 的默认设置。这样您可以将以该主题发布和部署 pro。
-> 修改颜色使用的是 less 在线编译，建议在 `config/config.js` 中配置，提升用户体验，在线编译 less 需要时间，并且会造成卡顿。
+您一旦确定了这个配置，可以点击 拷贝代码 按钮将其拷贝，并在 `src/models/setting.js` 中覆盖 defaultSetting 的默认设置。这样您可以将以该主题发布和部署。
+> 修改颜色使用的是 less 在线编译，建议在 `config/config.js` 中配置，提升用户体验。在线编译 less 需要时间，并且会造成卡顿。
