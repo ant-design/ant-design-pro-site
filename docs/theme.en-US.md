@@ -3,7 +3,7 @@ order: 14
 title:
   en-US: Theme 
   zh-CN: 更换主题 
-type: 进阶
+type: Advanced
 ---
 
 We built Ant Design Pro based on the Ant Design visual style, which was carefully adapted by the designer to suit most mid- and back-office projects. If you have additional requirements for visual style, it is recommended to customize it in the following ways.
