@@ -28,7 +28,7 @@ type: 入门
 - `hideChildren` 用于隐藏不需要在菜单中展示的子路由。用法可以查看 `分步表单` 的配置。
 - `hideInMenu` 可以在菜单中不展示这个路由，包括子路由。效果可以查看 `exception/trigger`页面。
 - `authority` 用来配置这个路由的权限，如果配置了将会验证当前用户的权限，并决定是否展示。
-  > 你可能注意到配置中的 `name` 和菜单实际展示的不同，这是因为我们使用了全球化组件的原因，具体参见 全球化
+  > 你可能注意到配置中的 `name` 和菜单实际展示的不同，这是因为我们使用了全球化组件的原因，具体参见 [i18n](/docs/i18n)
 
 ### 菜单
 
@@ -40,7 +40,7 @@ type: 入门
 
 面包屑由 `PageHeaderLayout` 实现，`MenuContext` 将 根据 `MenuData` 生成的 `breadcrumbNameMap` 通过 props 传递给了 `PageHeader`，如果你要做自定义的面包屑，可以通过修改传入的 `breadcrumbNameMap` 来解决。
 
-`breadcrumbNameMap` 数据示例如下：
+`breadcrumbNameMap` 示例数据如下：
 
 ```js
 {
