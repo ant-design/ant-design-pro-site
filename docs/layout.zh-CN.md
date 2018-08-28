@@ -49,7 +49,7 @@ Ant Design 目前提供了两套布局组件工具：[Layout](http://ant.design/
 ```jsx
 module.exports = [{
   path: '/',
-  component: '../layouts/BasicLayout',
+  component: '../layouts/BasicLayout',  // 指定以下页面的布局
   routes: [
     // dashboard
     { path: '/', redirect: '/dashboard/analysis' },
