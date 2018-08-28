@@ -44,7 +44,7 @@ Ant Design 目前提供了两套布局组件工具：[Layout](http://ant.design/
 
 ### 如何使用 Ant Design Pro 布局
 
-通常布局是和路由系统紧密结合的，Ant Design Pro 的路由使用了 Umi 的路由方案，为了统一方便的管理路由和页面的关系，将配置信息统一抽离到 `config/router.config.js` 下，通过如下配置：
+通常布局是和路由系统紧密结合的，Ant Design Pro 的路由使用了 Umi 的路由方案，为了统一方便的管理路由和页面的关系，我们将配置信息统一抽离到 `config/router.config.js` 下，通过如下配置定义每个页面的布局：
 
 ```jsx
 module.exports = [{
