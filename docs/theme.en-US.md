@@ -76,5 +76,5 @@ Pro provides a setup drawer that can be used to switch themes and layouts online
 In order to facilitate preview, the configuration items in the settings will be saved in the address bar, you can copy them to others and share the effects.
 > Due to the nature of the react-router, the parameters of the address bar may be cleared.
 
-Once you have determined this configuration, you can copy it by clicking the Copy Code button and override the default setting of defaultSetting in `src/models/setting.js`. This way you can publish and deploy on this theme.
+Once you have determined this configuration, you can copy it by clicking the Copy Code button and override the default setting in `src/defaultSetting.js`. This way you can publish and deploy on this theme.
 > Modify the color using less online compilation, it is recommended to configure in `config/config.js` to improve the user experience. Compiling online less takes time and can cause stuttering.
