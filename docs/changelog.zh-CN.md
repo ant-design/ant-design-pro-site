@@ -8,6 +8,129 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 1.4.4
+
+`2018-08-09`
+
+restored the es directory and index.less.
+
+### 1.4.1
+
+`2018-08-07`
+
+1.4.0 was released using beta tag, This version uses the correct tag.
+
+### 1.4.0
+
+`2018-08-05`
+
+#### 脚手架
+
+- 🐞 修复登录页面在 IE11 浏览器下，Footer 错位的问题。[#1315](https://github.com/ant-design/ant-design-pro/issues/1315)
+- 🐞 修复（官网）高级详情页在 IE11 下部分内容未显示的问题。[#1287](https://github.com/ant-design/ant-design-pro/issues/1287)
+- 🐞 修复分步表单面包屑路径问题的问题。[#1324](https://github.com/ant-design/ant-design-pro/issues/1324)
+- 🐞 修复动态参数路由无法获得 title 的问题。[#1248](https://github.com/ant-design/ant-design-pro/issues/1248)
+- 🐞 修复分布表单页跳转时面包屑不更新的问题。[#1409](https://github.com/ant-design/ant-design-pro/issues/1409)
+
+#### 组件
+
+- 🐞 修复 WaterWave `precent` 为 0 时，图表不展示的错误。[27a2353](https://github.com/ant-design/ant-design-pro/commit/bcb9280cd1340888259484b47b69121d47df2152)
+- 🐞 修复 Ellipsis 在 Firefox 中死循环的问题。[#1921](https://github.com/ant-design/ant-design-pro/pull/1921)
+- 🌟 Trend 增加 `reverseColor` 属性。[#1399](https://github.com/ant-design/ant-design-pro/pull/1399)、
+- 🌟 Ellipsis 增加 `caculateShowLength` 属性。[#1673](https://github.com/ant-design/ant-design-pro/pull/1637)
+- 🌟 Ellipsis 长度现在包括 `...`。[#1592](https://github.com/ant-design/ant-design-pro/pull/1592)
+- 🌟 Login.Captcha 增加 `buttonText`属性。[11df359 ](https://github.com/ant-design/ant-design-pro/commit/189e6c5c599b1cf23570d15b016704ec36793056)
+
+### 2.0.0-beta.1
+
+此次更新主要是支持了 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)。
+通过如下配置来使用：
+
+```
+ {
+    libraryName: 'ant-design-pro',
+    libraryDirectory: 'lib',
+    style: true,
+    camel2DashComponentName: false,
+  }
+```
+
+在代码中：
+
+```
+import { Charts, NumberInfo, Trend } from 'ant-design-pro';
+```
+
+
+### 1.3.0
+
+`2018-04-19`
+
+#### 脚手架
+
+- 🐞 修复了触发异常时页面报错的问题。[#1188](https://github.com/ant-design/ant-design-pro/issues/1188)
+- 🐞 修复了浏览器切换到手机端模式时出现报错的问题。[#1215](https://github.com/ant-design/ant-design-pro/issues/1215)
+- 🐞 修复了 request.js 使用 FormData 上传文件时报错的问题。[#1217](https://github.com/ant-design/ant-design-pro/issues/1217) [@ChieveiT](https://github.com/ChieveiT)
+- 页面
+  - 🌟 `查询表格页` 中 StandardTable 组件新增 `rowKey` 属性。[#1175](https://github.com/ant-design/ant-design-pro/pull/1175) [@neoscript99](https://github.com/neoscript99)
+  - 🐞 修复 `查询表格页` 中重新搜索后筛选设置失效的问题。[#1209](https://github.com/ant-design/ant-design-pro/issues/1209)
+
+#### 组件
+
+- 🌟 HeaderSearch 新增 `defaultOpen` 属性，可以支持默认展开。[#1179](https://github.com/ant-design/ant-design-pro/pull/1179) [@zhujun24](https://github.com/zhujun24)
+- Charts
+  - 🐞 修复了 TimelineChart 坐标轴错位以及格式化有误的问题。[#1283](https://github.com/ant-design/ant-design-pro/pull/1283) [@mdluo](https://github.com/mdluo)
+  - 🐞 修复了直接引用 Charts 失败的问题。[commit/3bc5c5](https://github.com/ant-design/ant-design-pro/commit/3bc5c54cc9dc416d5f1beced289c36e4a8f33581)
+
+### 1.2.1
+
+`2018-03-27`
+
+- 🌟 支持 prettier。[#1155](https://github.com/ant-design/ant-design-pro/pull/1155)
+- 🐞 修复了引用 PageHeader 报错的问题。[#1169](https://github.com/ant-design/ant-design-pro/issues/1169)
+
+### 1.2.0
+
+`2018-03-25`
+
+~ Ant Design Pro 也有国内镜像了 -> http://ant-design-pro.gitee.io ~
+
+#### 脚手架
+
+- 🌟 request 现在可以处理 FormData 了。[#884](https://github.com/ant-design/ant-design-pro/pull/884) [@chengs](https://github.com/chengs)
+- 🌟 支持用 Fragment 替代无用的 div。[#330](https://github.com/ant-design/ant-design-pro/issues/330)
+- 🌟 使用 puppeteer 替代了 nightmare。[#1006](https://github.com/ant-design/ant-design-pro/pull/1006)
+- 🌟 支持路由配置时指定 exact 属性。[#1148](https://github.com/ant-design/ant-design-pro/pull/1148) [@ws456999](https://github.com/ws456999)
+- 🌟 面包屑默认加了入了菜单中（非路由项）的层级。[#1053](https://github.com/ant-design/ant-design-pro/pull/1053) [@ReedSun](https://github.com/ReedSun)
+- 🐞 修复了无子菜单但其下有多级路由时菜单无法选中的问题。[#821](https://github.com/ant-design/ant-design-pro/issues/821)
+- 🐞 修复了首页无权限时点击 logo 也会重定向到 403 页面的问题。[#1098](https://github.com/ant-design/ant-design-pro/issues/1098)
+- 页面
+  - 🐞 修复了`高级表单页`可编辑表格存在的一些问题，优化了使用体验。[#846](https://github.com/ant-design/ant-design-pro/issues/846) [@wunayou](https://github.com/wunayou)
+  - 🐞 修复了`卡片列表页`卡片标题过长时溢出的样式问题。[#948](https://github.com/ant-design/ant-design-pro/issues/948)
+  - 🐞 修复了`分步表单页`的 title 没有显示的问题。[#984](https://github.com/ant-design/ant-design-pro/issues/984)
+  - 🐞 修复了`查询表格页`中新建规则时数据未重置的问题。[#1015](https://github.com/ant-design/ant-design-pro/issues/1015)
+  - 🐞 修复了触发报错时导致无限 loading 的问题。[#976](https://github.com/ant-design/ant-design-pro/issues/976)
+ 
+
+#### 组件
+
+- Charts
+  - 🐞 修复了 Pie legend 数据无法更新的问题。[#819](https://github.com/ant-design/ant-design-pro/issues/819)
+  - 🐞 修复了 ChartCard `total` 属性的展示问题。[#1110](https://github.com/ant-design/ant-design-pro/issues/1110)
+  - 🌟❗️ Pie 和 ChartCard `total` 属性新增支持函数类型，去除了代码里不安全的 dangerouslySetInnerHTML 用法，这可能导致 `total` 和 `valueFormat` 属性在用法上的改变，属于 breaking change。[#1142](https://github.com/ant-design/ant-design-pro/issues/1142)
+- PageHeader
+  - 🌟 新增 `tabDefaultActiveKey` 属性，支持设置默认选中的页签。[commit/e618d4](https://github.com/ant-design/ant-design-pro/commit/e618d4d16ddc9d876f6438c9b77cdebac1e4070b)
+  - 🐞 修复了 `location` 属性无法生效的问题。[#970](https://github.com/ant-design/ant-design-pro/pull/970) [@Alexorz](https://github.com/Alexorz)
+- Authorized
+  - 🐞 修复了 Secured 调用失败的问题。[#862](https://github.com/ant-design/ant-design-pro/issues/862)
+  - 🐞 修复了 `authority` 属性为 Promise 时不生效的问题。[#843](https://github.com/ant-design/ant-design-pro/issues/843)
+  - 🐞 修复了 PromiseRender 无法正常更新数据的问题。[#987](https://github.com/ant-design/ant-design-pro/pull/987) [@guowenfh](https://github.com/guowenfh)
+- SiderMenu
+   - 🐞 当子菜单无权限或不存在子菜单时不展示父菜单。[#1047](https://github.com/ant-design/ant-design-pro/pull/1047) [@hzq001](https://github.com/hzq001)
+   - 💄 优化了 SiderMenu 的展示体验。[#964](https://github.com/ant-design/ant-design-pro/issues/964)
+   - 🐞 修复了菜单项图标为 img 标签时折叠后无法隐藏菜单名的问题。[commit/bacc20](https://github.com/ant-design/ant-design-pro/commit/bacc2031482e16d64243ef29aca181e6d3e2361e)
+- 🐞 修复了 CountDown 初始化时的展示问题。[#1009](https://github.com/ant-design/ant-design-pro/issues/1009)
+
 ### 1.1.0
 
 `2018-01-26`
@@ -67,7 +190,7 @@ type: 其他
 
 #### 组件
 
-- 新增 Login 组件。[#147](https://github.com/ant-design/ant-design-pro/pull/147)
+- 🌟 新增 Login 组件。[#147](https://github.com/ant-design/ant-design-pro/pull/147)
 - PageHeader
   - 🌟 新增 `activeTabKey` 属性。[commit/a8caa5](https://github.com/ant-design/ant-design-pro/commit/a8caa500ae4bb1fe0b808c93dbc24c84339784be)
   - 🐞 修复了 `breadcrumbList` 属性的优先级问题，更新了相关文档。[commit/d8b0a9](https://github.com/ant-design/ant-design-pro/commit/d8b0a9ecc11cd7ab4491143cdd12bfb8241ad018)

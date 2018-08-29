@@ -20,7 +20,7 @@ For users without using scaffold, we provide a way to use pro's built-in compone
 > Default components will be published to [ant-design-pro](http://npmjs.com/ant-design-pro) in npm's repository.
 
 ```bash
-$ npm install ant-design-pro --save
+$ npm install ant-design-pro@1.x --save
 ```
 
 ```jsx
@@ -39,7 +39,7 @@ ReactDOM.render(<Result type="success" />, mountNode);
 
 ## Document & FeedBack
 
-You can find all components, demos and API documents on [the components' page]((http://pro.ant.design/components)). 
+You can find all components, demos and API documents on [the components' page](http://pro.ant.design/components).
 
 Components will continue to iterate with the scaffold's update. If you have any questions and demands, you can feed back [here](http://github.com/ant-design/ant-design-pro/issues).
 

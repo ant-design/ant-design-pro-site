@@ -19,8 +19,7 @@
     [
       "import",
       {
-        "libraryName": "antd",
-        "style": "css"
+        "libraryName": "antd"
       }
     ]
   ]

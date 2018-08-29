@@ -1,4 +1,4 @@
-@import "~antd/lib/style/themes/default.less";
+@import '~antd/lib/style/themes/default.less';
 
 .home-wrapper {
   width: 100%;
@@ -8,10 +8,6 @@
     height: 40px;
     border-radius: 20px;
     font-size: 16px;
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 12px rgba(24, 144, 255, .4);
-    }
   }
 }
 
@@ -40,7 +36,9 @@ svg g {
       will-change: transform;
     }
     h1 {
-      font-family: "Futura", "Helvetica Neue For Number", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Futura', 'Helvetica Neue For Number', -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue',
+        Helvetica, Arial, sans-serif;
       font-size: 54px;
       margin: 12px 0;
     }
@@ -59,7 +57,11 @@ svg g {
           height: 28px;
           border-radius: 4px;
           background: rgba(243, 243, 243, 1);
-          background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(243, 243, 243, 1) 100%);
+          background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(243, 243, 243, 1) 100%
+          );
           border: 1px solid #ebedf0;
           align-items: center;
           display: flex;
@@ -156,7 +158,7 @@ svg g {
   position: absolute;
   width: 100%;
   text-align: center;
-  opacity: .25;
+  opacity: 0.25;
   top: 0;
   transform: translateY(960px);
 }
@@ -185,7 +187,7 @@ svg g {
         align-items: center;
         justify-content: center;
         background: #fff;
-        transition: box-shadow .3s ease-out, transform .3s ease-out;
+        transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
       }
       &:hover .page1-image {
         transform: translateY(-5px);
@@ -207,7 +209,8 @@ svg g {
     width: 4px;
     height: 4px;
   }
-  .point-2, .point-ring {
+  .point-2,
+  .point-ring {
     width: 10px;
     height: 10px;
   }
@@ -279,28 +282,34 @@ svg g {
 }
 
 @keyframes bannerTitleLine {
-  0%, 25% {
+  0%,
+  25% {
     transform: translateX(-64px);
   }
-  75%, 100% {
+  75%,
+  100% {
     transform: translateX(544px);
   }
 }
 
 @keyframes page1TitleLine {
-  0%, 25% {
+  0%,
+  25% {
     transform: translateX(-64px);
   }
-  75%, 100% {
+  75%,
+  100% {
     transform: translateX(376px);
   }
 }
 
 @keyframes page2TitleLine {
-  0%, 25% {
+  0%,
+  25% {
     transform: translateX(-64px);
   }
-  75%, 100% {
+  75%,
+  100% {
     transform: translateX(178px);
   }
 }

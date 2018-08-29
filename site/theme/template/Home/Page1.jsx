@@ -103,7 +103,7 @@ const featuresEN = [
     shadowColor: 'rgba(26,196,77,.12)',
   },
   {
-    title: 'Themeing',
+    title: 'Theming',
     content: 'Customizable theme with simple config',
     src: 'https://gw.alipayobjects.com/zos/rmsportal/XxqEexmShHOofjMYOCHi.svg',
     color: '#FAAD14',
@@ -158,30 +158,31 @@ class Page1 extends React.PureComponent {
       hoverNum: null,
     };
   }
-  onMouseOver = (i) => {
+  onMouseOver = i => {
     this.setState({
       hoverNum: i,
     });
-  }
+  };
   onMouseOut = () => {
     this.setState({
       hoverNum: null,
     });
-  }
-  getEnter = (e) => {
+  };
+  getEnter = e => {
     const i = e.index;
-    const r = (Math.random() * 2) - 1;
-    const y = (Math.random() * 10) + 5;
+    const r = Math.random() * 2 - 1;
+    const y = Math.random() * 10 + 5;
     const delay = Math.round(Math.random() * (i * 50));
     return [
       { delay, opacity: 0.4, ...pointPos[e.index], ease: 'easeOutBack', duration: 300 },
       {
         y: r > 0 ? `+=${y}` : `-=${y}`,
-        duration: (Math.random() * 1000) + 2000,
+        duration: Math.random() * 1000 + 2000,
         yoyo: true,
         repeat: -1,
-      }];
-  }
+      },
+    ];
+  };
   render() {
     const { hoverNum } = this.state;
     const { intl } = this.props;
@@ -189,8 +190,12 @@ class Page1 extends React.PureComponent {
     (intl.locale === 'zh-CN' ? featuresCN : featuresEN).forEach((item, i) => {
       const isHover = hoverNum === i;
       const pointChild = [
-        'point-0 left', 'point-0 right',
-        'point-ring', 'point-1', 'point-2', 'point-3',
+        'point-0 left',
+        'point-0 right',
+        'point-ring',
+        'point-1',
+        'point-2',
+        'point-3',
       ].map(className => (
         <TweenOne
           component="i"
@@ -203,10 +208,12 @@ class Page1 extends React.PureComponent {
         />
       ));
       const child = (
-        <li key={i.toString()} >
+        <li key={i.toString()}>
           <div
             className="page1-box"
-            onMouseEnter={() => { this.onMouseOver(i); }}
+            onMouseEnter={() => {
+              this.onMouseOver(i);
+            }}
             onMouseLeave={this.onMouseOut}
           >
             <TweenOneGroup
@@ -220,8 +227,7 @@ class Page1 extends React.PureComponent {
             <div
               className="page1-image"
               style={{
-                boxShadow: `${isHover ? '0 12px 24px' :
-                  '0 6px 12px'} ${item.shadowColor}`,
+                boxShadow: `${isHover ? '0 12px 24px' : '0 6px 12px'} ${item.shadowColor}`,
               }}
             >
               <img src={item.src} alt="img" style={i === 4 ? { marginLeft: -15 } : {}} />
@@ -247,7 +253,7 @@ class Page1 extends React.PureComponent {
       </QueueAnim>
     ));
     return (
-      <div className="home-page page1" >
+      <div className="home-page page1">
         <div className="home-page-wrapper" id="page1-wrapper">
           {!this.props.isMobile && (
             <Parallax
@@ -258,13 +264,13 @@ class Page1 extends React.PureComponent {
               Feature
             </Parallax>
           )}
-          <h2>What can <span>Pro</span> do for you </h2>
+          <h2>
+            What can <span>Pro</span> do for you{' '}
+          </h2>
           <div className="title-line-wrapper page1-line">
             <div className="title-line" />
           </div>
-          <OverPack>
-            {children}
-          </OverPack>
+          <OverPack>{children}</OverPack>
         </div>
       </div>
     );

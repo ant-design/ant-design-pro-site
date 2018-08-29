@@ -23,13 +23,15 @@ module.exports = {
     'app.demo.copied': 'Copied!',
     'app.demo.codepen': 'Open in CodePen',
     'app.demo.riddle': 'Open in Riddle',
+    'app.demo.codesandbox': 'Open in CodeSandbox',
     'app.home.slogan': 'Out-of-box UI solution for enterprise applications',
     'app.home.preview': 'Preview',
     'app.home.start': 'Getting Started',
     'app.home.download': 'Download',
     'app.home.letspro': 'Run commands below, explore it!',
     'app.home.openbrowser': 'open browser and visit',
-    'app.home.needhelp': 'Need help? You can see {docs} and {faq} first, and {ask} in GitHub if they don\'t help.',
+    'app.home.needhelp':
+      "Need help? You can see {docs} and {faq} first, and {ask} in GitHub if they don't help.",
     'app.home.docs': 'documentation',
     'app.home.faq': 'faq',
     'app.home.ask': 'ask questions',
@@ -72,6 +74,7 @@ module.exports = {
     'app.publish.greeting': 'Hello, ',
     'app.publish.intro': ' is released, and please upgrade. ',
     'app.publish.old-version-guide': 'If you want to read old version documentation, please visit ',
-    'app.publish.old-version-tips': ', or change the version of documentation with the bottom-right selector.',
+    'app.publish.old-version-tips':
+      ', or change the version of documentation with the bottom-right selector.',
   },
 };

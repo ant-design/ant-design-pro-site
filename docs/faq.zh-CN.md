@@ -1,8 +1,6 @@
 ---
 order: 22
-title:
-  en-US: FAQ
-  zh-CN: 常见问题
+title: 常见问题
 type: 其他
 ---
 
@@ -10,9 +8,9 @@ type: 其他
 
 ---
 
-### Ant Design Pro 和 Ant Design React 有什么区别？
+### Ant Design React 和 Ant Design Pro 有什么区别？
 
-可以理解为后者是 React 组件库，前者是 React 脚手架。
+可以理解为 Ant Design React 是一套 React 组件库，而 Pro 是使用了这套组件库的完整前端脚手架。
 
 ### 如何使用 Ant Design Pro？
 
@@ -68,13 +66,7 @@ type: 其他
 修改 `package.json` 里的 `scripts.start` 为：
 
 ```js
-"start": "BROWSER=none roadhog server",
-```
-
-For windows:
-
-```js
-"start": "set BROWSER=none && roadhog server",
+"start": "cross-env BROWSER=none roadhog server",
 ```
 
 ### 站点是否支持国际化？
@@ -83,7 +75,8 @@ For windows:
 
 ### English Documentation?
 
-English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479)
+English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) 
+和[ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120）了解更多细节。
 
 ---
 

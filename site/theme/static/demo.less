@@ -14,7 +14,7 @@
   width: 100%;
   position: relative;
   margin: 0 0 16px;
-  transition: all .2s;
+  transition: all 0.2s;
 
   p {
     margin: 0;
@@ -30,8 +30,8 @@
     font-size: 14px;
     color: #9199ac;
     margin-left: 5px;
-    opacity: .8;
-    transition: all .3s;
+    opacity: 0.8;
+    transition: all 0.3s;
     top: -2px;
     position: relative;
 
@@ -48,7 +48,7 @@
     color: #777;
     border-radius: @border-radius-sm @border-radius-sm 0 0;
     background: #fff;
-    transition: background-color .4s;
+    transition: background-color 0.4s;
 
     a,
     a:hover {
@@ -72,7 +72,7 @@
   &-demo {
     border-bottom: 1px solid @site-border-color-split;
     padding: 42px 24px 50px;
-    color: rgba(0, 0, 0, .65);
+    color: rgba(0, 0, 0, 0.65);
   }
 
   iframe {
@@ -85,7 +85,7 @@
       position: relative;
       padding: 18px 32px;
       border-radius: 0 0 @border-radius-sm @border-radius-sm;
-      transition: background-color .4s;
+      transition: background-color 0.4s;
       width: 100%;
       font-size: @font-size-base;
     }
@@ -173,7 +173,7 @@
       background: #fff;
     }
     &:not(:first-child) {
-       border-top: 1px dashed @site-border-color-split;
+      border-top: 1px dashed @site-border-color-split;
     }
   }
 
@@ -193,7 +193,7 @@
     font-size: 14px;
     cursor: pointer;
     color: @site-text-color-secondary;
-    transition: all .24s;
+    transition: all 0.24s;
     background: #fff;
     width: 20px;
     height: 20px;
@@ -213,31 +213,49 @@
   }
 
   &-codepen {
-    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/OtZslpOjYXijshDERXwc.svg") center / 14px no-repeat;
+    background: transparent
+      url('https://gw.alipayobjects.com/zos/rmsportal/OtZslpOjYXijshDERXwc.svg') center / 14px
+      no-repeat;
     width: 20px;
     height: 20px;
     cursor: pointer;
     opacity: 0;
-    transition: all .3s;
+    transition: all 0.3s;
     border: 0;
     text-indent: -9999px;
     overflow: hidden;
   }
 
   &-riddle {
-    background: transparent url("https://gw.alipayobjects.com/zos/rmsportal/DlHbxMCyeuyOrqOdbgik.svg") center / 14px no-repeat;
+    background: transparent
+      url('https://gw.alipayobjects.com/zos/rmsportal/DlHbxMCyeuyOrqOdbgik.svg') center / 14px
+      no-repeat;
     width: 20px;
     height: 20px;
     cursor: pointer;
     opacity: 0;
-    transition: all .3s;
+    transition: all 0.3s;
     border: 0;
     text-indent: -9999px;
     overflow: hidden;
   }
 
+  &-codesandbox {
+    background: transparent
+      url('https://gw.alipayobjects.com/zos/rmsportal/aaYmtdDyHSCkXyLZVgGK.svg') center / 14px
+      no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+  }
   .highlight-wrapper:hover &-code-copy,
   .highlight-wrapper:hover &-codepen,
+  .highlight-wrapper:hover &-codesandbox,
   .highlight-wrapper:hover &-riddle {
     opacity: 1;
   }

@@ -47,7 +47,7 @@ webpackConfig.module.rules.forEach(function (rule, index) {
               const antdProPath = context.resourcePath.match(/scaffold\/src\/components\/(.*)/)[1];
               const arr = antdProPath.split('/').map(a => a.replace(/([A-Z])/g, '-$1')).map(a => a.toLowerCase());
               arr.pop();
-              return `antd-pro${arr.join('-')}-${localName}`;
+              return `antd-pro${arr.join('-')}-${localName}`.replace('--', '-');
             }
           },
         },
