@@ -8,7 +8,7 @@ type: 其他
 
 所以如果你想要更好的在原有的项目中去添加 Ant Design Pro 2.0 的功能，将 2.0 的代码移植到你的项目中，你最好将你的项目从 roadhog 迁移到 umi。这边文档会指引你完成迁移工作，在此之前你可能需要先阅读 umi 的[文档](https://umijs.org/guide/)，使得先对 umi 有一个初步的认识，这对你的迁移工作会很有帮助。下面是以后大概的步骤，再往后会有更具体的说明。
 
-注：该迁移指南是基于当前最新的 v1 版本编写的，如果你的版本过老可能会有一些细节不一样，请结合具体情况迁移。
+注：该迁移指南是基于当前最新的 v1 版本编写的，如果你的版本过老可能会有一些细节不一样，请结合具体情况迁移。改迁移指南对应的修改你可以在升级示例的 [commit](https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c) 中查看。
 
 ## 迁移步骤概览
 
@@ -19,15 +19,12 @@ type: 其他
 - 重命名 `index.ejs` 为 `pages/document.ejs`，它是 umi 约定的文件。
 - 修改 `index.less` 为 `global.less` 和修改 `index.js` 为 `global.js`，他们也是 umi 约定的文件。
 - 在 `config/config.js` 中添加路由配置 routes。
-- 修改 `src/layouts/BasicLayout.js` 中的组件且套语法。
+- 修改 `src/layouts/BasicLayout.js` 中的组件嵌套语法。
 - 修改 404 页面。
 - 修改权限路由 AuthorizedRoute 的逻辑。
 - 修改 mock。
-
-
-## 迁移耗时
-
-迁移预计耗时 2 个小时。16：00。
+- 在 `.gitignore` 中添加 umi 相关文件。
+- 通过执行 `tnpm start` 和 `tnpm run lint` 修改可能出现的问题。
 
 ## 迁移步骤细节
 
@@ -47,7 +44,7 @@ type: 其他
 对应需要添加的依赖：
 
 - umi: ^2.0.0-beta.10
-- umi-plugin-react: 1.0.0-beta.10
+- umi-plugin-react: ^1.0.0-beta.10
 
 在 umi 中内置了 React，通过 umi-plugin-react 插件集内置了 antd 和 dva 等 React 技术栈常用的库。可以参考 [umi-plugin-react 的文档](https://umijs.org/plugin/umi-plugin-react.html)。
 
@@ -163,6 +160,26 @@ module.exports = [
 
 在 umi 中默认使用 `src/pages/404.js` 作为 404 页面，你需要将原来的 `src/routes/Exception/404.js` 迁移过去。
 
+### 修改权限路由
+
+在 2.0 中，你可以直接使用 umi 提供的[权限路由](https://umijs.org/guide/router.html#%E6%9D%83%E9%99%90%E8%B7%AF%E7%94%B1)的方案。当然你也可以保留 1.0 中的方案继续使用。由于不是必要的，在本文中就不做具体说明了。
+
+### 修改 mock 数据
+
+在 umi 中，默认会将 `mock/*.js` 的文件作为 mock 文件。所以可以将 mock 数据的 URL 信息迁移到 mock 文件中后删除 `.roadhogrc.mock.js` 文件，但是要注意的是直接写在 `.roadhogrc.mock.js` 中的 mock 数据需要迁移出来，比如可以新建 `mock/common.js` 来迁移这部分数据。
+
+更多说明可以参考 umi 的文档[Mock 数据](https://umijs.org/guide/mock-data.html)。
+
+### 修改 .gitignore
+
+使用 umi 后你需要将 umi 在开发和构建中的临时文件添加到 `.gitignore` 里面。
+
+```
+.umi
+.umi-production
+```
+
+
 ### 修改代码别名等细节
 
 以上的操作完成之后你就可以运行 `npm start` 启动你的项目了，你会看到报错，但是不要慌，按照报错信息一步一步修改即可。你可能需要修改的内容有：
@@ -171,8 +188,7 @@ module.exports = [
 - 修改 `src/utils/request.js` 中和 dva 相关的部分。可以直接使用 `umi/router` 来做跳转。
 - `src/utils/request.js` 的 `/exception/400` 可以改为 `/400`。
 - 去掉 `BasicLayout` 中的 `const baseRedirect = this.getBaseRedirect();` 相关逻辑，跳转的逻辑可以通过 umi 的 routes 配置实现。
-- 修改 `BasicLayout` 中 `getBreadcrumbNameMap` 的相关逻辑。参考下面的代码实现。
-
+- 修改 `BasicLayout` 中的 `getPageTitle` 和 `getBreadcrumbNameMap` 的相关逻辑，参考下面的代码实现。完整代码参考 v1 升级 [commit](https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c)。
 
 注：`memoizeOne` 是 `memoize-one` npm 包提供的方法，你需要先 install memoize-one。`deepEqual` 是 `lodash.isequal` 包提供的，也需要安装相关依赖。
 
@@ -197,15 +213,12 @@ const getBreadcrumbNameMap = memoizeOne(meun => {
 }, deepEqual);
 ```
 
-### 修改权限路由
+除了项目能够正常启动，你还应该再运行下 `tnpm run lint` 来解决下部分在迁移过程中产生的比较低级的问题。你可能需要处理的问题和方案如下：
 
-参考 v2 版本的代码实现。
+- `no-unused-vars` 错误，检查下没有问题就可以删除它了。
+- `react/destructuring-assignment` 错误，你可能需要修改类似 `this.props.children` 为 `const { children } = this.props` 之类的错误。
 
-### 修改 mock 数据
-
-在 umi 中，默认会将 `mock/*.js` 的文件作为 mock 文件。所以可以将 mock 数据的 URL 信息迁移到 mock 文件中后删除 `.roadhogrc.mock.js` 文件，但是要注意的是直接写在 `.roadhogrc.mock.js` 中的 mock 数据需要迁移出来，比如可以新建 `mock/common.js` 来迁移这部分数据。
-
-更多说明可以参考 umi 的文档[Mock 数据](https://umijs.org/guide/mock-data.html)。
+另外我们推荐你迁移到 2.0 推荐的 lint 规则，让你的代码更优雅。
 
 ## 使用 2.0 中的新功能
 
@@ -217,16 +230,24 @@ const getBreadcrumbNameMap = memoizeOne(meun => {
 
 ### 新增用户信息页面
 
-你只需要将 v2 `pages` 目录下对应的代码 copy 到你的项目中并在 `config/config.js` 中修改 routes 配置即可。
+你只需要将 v2 `pages` 目录下对应的代码 copy 到你的项目中并在 `config/config.js` 中修改 routes 配置即可。这部分相对来说比较简单，这里不做过多说明。另外除了新增的用户信息页面外，你也可以参考其他页面的更新去跳转你自己项目中的代码。
 
 ### 支持国际化
 
-参考代码配置 `umi-plugin-react` 中的 locale 配置并添加 `locales` 文件夹添加国际化相关资源。
+在 Ant Design Pro 2.0 中我们使用了 umi 的插件 `umi-plugin-locale` 来实现国际化。该插件也已经内置到了 `umi-plugin-react` 插件集中。你可以在该插件集的配置中添加 `locale` 配置来开启国际化。
+
+开启国际化插件之后你就可以在项目目录下添加 `locales` 文件夹，按照约定添加国际化资源文件后就可以通过在项目中使用 `umi/locale` 暴露的 API 来实现国际化了。
+
+更多关于 `umi-plugin-locale` 的配置可以插件它的[文档](https://umijs.org/plugin/umi-plugin-react.html#locale)。
 
 ### 支持风格切换
 
-参考 v2 代码修改。
+Ant Design Pro 使用了 less + cssModule 作为样式的解决方案，你可以通过配置 less 编译时的 lessVars 来就该主题样式配置，在 umi 中内置了该功能，你可以在配置文件中配置 `theme` 来实现。参考 umi 的[配置文档](https://umijs.org/config/#theme)。
+
+但是 v2 版本支持的导航布局方式等的调整主要是代码的业务逻辑的升级，你可以参考 v2 代码中的 `src/layouts/BasicLayout.js` 的代码做调整。
+
+对于在线的主题切换，因为 less 是在构建时编译的，要想实现在切换，需要支持 less 在在线编译等问题。为了解决该问题，我们开发了 `ant-design-theme` 的 webpack 插件和 `merge-less` 插件一起实现了这样的功能。如果你有需要，你可以参考 v2 代码中的 `config/plugin.config.js` 和 `src/models/setting.sj` 来添加对应代码。
 
 ### 更多
 
-更多请查看 Ant Design Pro 2.0 发布日志。
+更多请查看 Ant Design Pro 2.0 [发布日志](https://pro.ant.design/index-cn)。
