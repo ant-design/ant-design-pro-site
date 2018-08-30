@@ -16,7 +16,6 @@ type: 入门
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/oXmyfmffJVvdbmDoGvuF.png" />
 
-- PageHeaderLayout：在 BasicLayout 基础上加上标准 PageHeader 的布局
 - UserLayout：抽离出用于登陆注册页面的通用布局
 - BlankLayout：空白的布局
 
@@ -47,7 +46,27 @@ module.exports = [{
 }]
 ```
 
-映射路由和页面布局（组件）的关系。详细的映射转换实现，参看 [router.config.js](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js)。更多 Umi 的路由配置方式可以参考：[Umi  配置式路由](https://umijs.org/guide/router.html#%E9%85%8D%E7%BD%AE%E5%BC%8F%E8%B7%AF%E7%94%B1)。
+映射路由和页面布局（组件）的关系如代码所示，完整映射转换实现可以参看 [router.config.js](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js)。
+
+更多 Umi 的路由配置方式可以参考：[Umi  配置式路由](https://umijs.org/guide/router.html#%E9%85%8D%E7%BD%AE%E5%BC%8F%E8%B7%AF%E7%94%B1)。
+
+#### Pro 扩展配置
+
+我们在 `router.config.js` 扩展了一些关于 pro 全局菜单的配置。
+
+```
+{
+  name: 'dashboard',
+  icon: 'dashboard',
+  hideInMenu: true,
+  hideChildrenInMenu: true,
+}
+```
+
+- `name`: 当前路由在菜单下的名称，注意这里是国际化配置的 key，具体展示菜单名可以在 [/src/locales/zh-CN.js](https://github.com/ant-design/ant-design-pro/blob/v2/src/locales/zh-CN.js) 进行配置。
+- `icon`: 当前路由在菜单下的图标名。
+- `hideInMenu`: 当前路由在菜单中不展现。
+- `hideChildrenInMenu`: 当前路由的子级在菜单中不展现。
 
 ## Ant Design 布局组件
 
