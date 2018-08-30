@@ -60,13 +60,17 @@ module.exports = [{
   icon: 'dashboard',
   hideInMenu: true,
   hideChildrenInMenu: true,
+  hideInBreadcrumb: true,
+  authority: ['admin'],
 }
 ```
 
 - `name`: 当前路由在菜单下的名称，注意这里是国际化配置的 key，具体展示菜单名可以在 [/src/locales/zh-CN.js](https://github.com/ant-design/ant-design-pro/blob/v2/src/locales/zh-CN.js) 进行配置。
 - `icon`: 当前路由在菜单下的图标名。
-- `hideInMenu`: 当前路由在菜单中不展现。
-- `hideChildrenInMenu`: 当前路由的子级在菜单中不展现。
+- `hideInMenu`: 当前路由在菜单中不展现，默认 `false`。
+- `hideChildrenInMenu`: 当前路由的子级在菜单中不展现，默认 `false`。
+- `hideInBreadcrumb`: 当前路由在面包屑中不展现，默认 `false`。
+- `authority`: 允许展示的权限，不设则都可见，详见：[权限管理](/docs/authority-management)。
 
 ## Ant Design 布局组件
 
