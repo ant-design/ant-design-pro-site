@@ -36,6 +36,9 @@ With those objectives in mind, we have built the following templates, and have b
   - 403
   - 404
   - 500
+- Account
+  - Account Center
+  - Account Settings
 - User
   - Login
   - Register
@@ -44,7 +47,7 @@ With those objectives in mind, we have built the following templates, and have b
 
 ## Who are using
 
-Dozens of applications are trying Ant Design Pro in Ant Financial and Alibaba Group, welcome to leave your information in [Ant Design Pro Users](https://github.com/ant-design/ant-design-pro/issues/99) if you or your organization is using it.
+Hundreds of applications are trying Ant Design Pro in Ant Financial and Alibaba Group, welcome to leave your information in [Ant Design Pro Users](https://github.com/ant-design/ant-design-pro/issues/99) if you or your organization is using it.
 
 ### For Designer
 
@@ -56,7 +59,7 @@ We will walk you through the steps to get started.
 
 ## Preparation
 
-You will need [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](https://babeljs.io/learn-es2015/), [React](http://facebook.github.io/react/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.
+You will need [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](https://babeljs.io/learn-es2015/), [React](http://facebook.github.io/react/), [UmiJS](https://umijs.org/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.
 
 ## Installation
 
@@ -84,25 +87,22 @@ $ pro new  # Initialize Scaffold
 We have provided a scaffold which includes common routes for admins and demonstrates our component library. The project layout is as follows:
 
 ```bash
+├── config                   # umi config, include routes and webpack etc.
 ├── mock                     # Local Mock Data
 ├── public
-│   └── favicon.ico          # Favicon
+│   └── favicon.png          # Favicon
 ├── src
 │   ├── assets               # Local static files
-│   ├── common               # Common Configuration like Navigation
 │   ├── components           # Components
 │   ├── e2e                  # Integrated Test Case
 │   ├── layouts              # Common Layouts
-│   ├── models               # dva Model
-│   ├── routes               # Sub-pages and templates
+│   ├── models               # Global dva Model
+│   ├── pages                # Sub-pages and templates
 │   ├── services             # Back-end Services
 │   ├── utils                # Utility
-│   ├── g2.js                # Dataviz Configuration
-│   ├── theme.js             # Theme Configuration
-│   ├── index.ejs            # HTML Entry
-│   ├── index.js             # App Entry
-│   ├── index.less           # Global Stylesheet
-│   └── router.js            # Route Entry File
+│   ├── locales              # i18n resources
+│   ├── global.less          # Global Stylesheet
+│   └── global.js            # Global JS
 ├── tests                    # Tests Configuration
 ├── README.md
 └── package.json
@@ -120,11 +120,11 @@ $ npm install
 $ npm start
 ```
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/DaIsSQRbNkwOXbMDhqEx.png" width="700" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/uHAzKpIQDMGdmjIxZLOV.png" width="700" />
 
 This will automatically open [http://localhost:8000](http://localhost:8000). If you see the following page then you have succeeded.
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/psqyFTiRoXQeaNZdjppA.png" width="700" alt="Screenshot" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/PVmvmxKUsAryuFbGqUmV.png" width="700" alt="Screenshot" />
 
 You're all set!
 

@@ -34,6 +34,9 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
   - 403 无权限
   - 404 找不到
   - 500 服务器出错
+- 个人页
+  - 个人中心
+  - 个人设置
 - 帐户
   - 登录
   - 注册
@@ -42,7 +45,7 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 
 ## 谁在使用
 
-目前蚂蚁金服和阿里巴巴内部数十个项目正在尝试 Pro 的研发模式，如果你和你的组织使用了这个产品，欢迎到 [Ant Design Pro Users](https://github.com/ant-design/ant-design-pro/issues/99) 留言。
+目前蚂蚁金服和阿里巴巴内部上百个项目正在尝试 Pro 的研发模式，如果你和你的组织使用了这个产品，欢迎到 [Ant Design Pro Users](https://github.com/ant-design/ant-design-pro/issues/99) 留言。
 
 ### For 设计者
 
@@ -54,7 +57,7 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 
 ## 前序准备
 
-你的本地环境需要安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)。我们的技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[React](http://facebook.github.io/react/)、[dva](http://github.com/dvajs/dva)、[g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) 和 [antd](https://ant.design/docs/react/introduce-cn)，提前了解和学习这些知识会非常有帮助。
+你的本地环境需要安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)。我们的技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[React](http://facebook.github.io/react/)、[UmiJS](https://umijs.org/)、[dva](http://github.com/dvajs/dva)、[g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) 和 [antd](https://ant.design/docs/react/introduce-cn)，提前了解和学习这些知识会非常有帮助。
 
 ## 安装
 
@@ -82,25 +85,22 @@ $ pro new  # 安装脚手架
 我们已经为你生成了一个完整的开发框架，提供了涵盖中后台开发的各类功能和坑位，下面是整个项目的目录结构。
 
 ```bash
+├── config                   # umi 配置，包含路由，构建等配置
 ├── mock                     # 本地模拟数据
 ├── public
-│   └── favicon.ico          # Favicon
+│   └── favicon.png          # Favicon
 ├── src
 │   ├── assets               # 本地静态资源
-│   ├── common               # 应用公用配置，如导航信息
 │   ├── components           # 业务通用组件
 │   ├── e2e                  # 集成测试用例
 │   ├── layouts              # 通用布局
-│   ├── models               # dva model
-│   ├── routes               # 业务页面入口和常用模板
+│   ├── models               # 全局 dva model
+│   ├── pages                # 业务页面入口和常用模板
 │   ├── services             # 后台接口服务
 │   ├── utils                # 工具库
-│   ├── g2.js                # 可视化图形配置
-│   ├── theme.js             # 主题配置
-│   ├── index.ejs            # HTML 入口模板
-│   ├── index.js             # 应用入口
-│   ├── index.less           # 全局样式
-│   └── router.js            # 路由入口
+│   ├── locales              # 国际化资源
+│   ├── global.less          # 全局样式
+│   └── global.js            # 全局 JS
 ├── tests                    # 测试工具
 ├── README.md
 └── package.json
@@ -120,10 +120,10 @@ $ npm install
 $ npm start
 ```
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/DaIsSQRbNkwOXbMDhqEx.png" width="700" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/uHAzKpIQDMGdmjIxZLOV.png" width="700" />
 
 启动完成后会自动打开浏览器访问 [http://localhost:8000](http://localhost:8000)，你看到下面的页面就代表成功了。
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/psqyFTiRoXQeaNZdjppA.png" width="700" alt="首页截图" />
+<img src="https://gw.alipayobjects.com/zos/rmsportal/PVmvmxKUsAryuFbGqUmV.png" width="700" alt="首页截图" />
 
 接下来你可以修改代码进行业务开发了，我们内建了典型业务模板、常用业务组件、模拟数据、HMR 实时预览、状态管理、国际化、全局路由等等各种实用的功能辅助开发，你可以继续阅读和探索左侧的其他文档。

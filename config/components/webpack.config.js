@@ -1,13 +1,9 @@
 // This config is for building dist files
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const getWebpackConfig = require('antd-tools/lib/getWebpackConfig');
 const postcssConfig = require('antd-tools/lib/postcssConfig');
 const deepAssign = require('deep-assign');
-
-const babelDecorators = require('babel-plugin-transform-decorators-legacy');
-
 const config = getWebpackConfig(false);
 
 const cwd = process.cwd();
@@ -26,7 +22,7 @@ webpackConfig.entry = {
 //webpackConfig.plugins.splice(0, 2);
 
 // Parse all less files as css module.
-webpackConfig.module.rules.forEach(function (rule, index) {
+webpackConfig.module.rules.forEach(function(rule, index) {
   if (rule.test.toString() === '/\\.jsx?$/') {
     const len = rule.options.plugins.length - 1;
     rule.options.plugins.splice(len - 2, len - 1);
@@ -45,10 +41,13 @@ webpackConfig.module.rules.forEach(function (rule, index) {
             localIdentName: '[path]',
             getLocalIdent: (context, localIdentName, localName, options) => {
               const antdProPath = context.resourcePath.match(/scaffold\/src\/components\/(.*)/)[1];
-              const arr = antdProPath.split('/').map(a => a.replace(/([A-Z])/g, '-$1')).map(a => a.toLowerCase());
+              const arr = antdProPath
+                .split('/')
+                .map(a => a.replace(/([A-Z])/g, '-$1'))
+                .map(a => a.toLowerCase());
               arr.pop();
               return `antd-pro${arr.join('-')}-${localName}`.replace('--', '-');
-            }
+            },
           },
         },
         {
@@ -62,7 +61,7 @@ webpackConfig.module.rules.forEach(function (rule, index) {
           },
         },
       ],
-    })
+    });
   }
 });
 
@@ -100,6 +99,9 @@ uncompressedConfig.entry = {
 };
 uncompressedConfig.plugins = uncompressedConfig.plugins.concat();
 
-uncompressedConfig.plugins.splice(uncompressedConfig.plugins.length - 4, uncompressedConfig.plugins.length - 1);
+uncompressedConfig.plugins.splice(
+  uncompressedConfig.plugins.length - 4,
+  uncompressedConfig.plugins.length - 1
+);
 
 module.exports = [webpackConfig, uncompressedConfig];

@@ -1,20 +1,22 @@
 ---
 order: 14
-title: Theme 
+title:
+  en-US: Theme 
+  zh-CN: 更换主题 
 type: Advanced
 ---
 
-We built Ant Design Pro based on the Ant Design visual style. This style has been meticulously deployed by designers and is suitable for most middle and backstage projects. If there are additional requirements for visual style, it is recommended to use the following methods for customization.
+We built Ant Design Pro based on the Ant Design visual style, which was carefully adapted by the designer to suit most mid- and back-office projects. If you have additional requirements for visual style, it is recommended to customize it in the following ways.
 
-## Theme customization
+## Customize Theme
 
-We developed based on Ant Design React and fully support the official customization of the less variables, as follows:
+We developed based on Ant Design React and fully support the official less variable customization feature:
 
-Find `src/theme.js` in the scaffold directory as follows.
+Find `config/config.js` in the scaffolding directory as follows:
 
 ```js
-// https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
-module.exports = {
+...
+theme: {
   'font-size-base': '14px',
   'badge-font-size': '12px',
   'btn-font-size-lg': '@font-size-base',
@@ -23,22 +25,21 @@ module.exports = {
   'layout-sider-background': '#00182E',
   'layout-body-background': '#f0f2f5',
 };
+...
 ```
 
-In the [variable list] (https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) find the variables that need to be modified and start using `npm start`. After modification, you can see the effect in your application interface.
+Find the variables that need to be modified in [All Variables Table](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less), and start `npm start` after modification. , you can see the effect in your app interface.
 
-More ways to refer to the official document: [custom theme] (https://ant.design/docs/react/customize-theme)。
+More ways can refer to the official documentation:[Customize Theme](http://ant.design/docs/react/customize-theme-cn)。
 
-> Tip: You can publish the theme configuration file `theme.js` above as a separate npm package to facilitate reuse between different projects.
-> Modify the `.webpackrc` in `"theme": "./node_modules/your-package/theme.js"` is the corresponding path.
 
-## Style override
+## Style Coverage
 
-Ant Design's generic style variables may not be able to satisfy all custom requirements. You need to override the default component style globally. We can override the style by referring to the [style] (/docs/style) chapter.
+Ant Design's generic style variables may not meet all of the customization requirements, and you need to override the default component styles globally. We can override the style by referring to the [Style](/docs/style) section.
 
-### Global coverage component
+### Global Overlay Component
 
-For example, change the font size of all tags in `src/index.less`.
+For example, modify the font size of all Tag in `src/global.less`.
 
 ```less
 // src/index.less
@@ -49,7 +50,7 @@ For example, change the font size of all tags in `src/index.less`.
 }
 ```
 
-### Separately overwrite the specified component
+### Overwrite Specified Component
 
 ```less
 // sample.less
@@ -63,11 +64,17 @@ import styles from './sample.less';
 
 ...
 
-return <Tag className={styles.customTag}>Custom label</Tag>;
+return <Tag className={styles.customTag}>定制标签</Tag>;
 ```
 
-> We do not recommend style overrides. First, the default themes and components are carefully adjusted by the designer. Forced coverage may affect the overall effect. Second, the overlay code may fail due to component library version upgrades.
+> We do not recommend style coverage. First, the default theme and components are carefully adjusted by the designer. Forcing coverage may affect the overall effect. Second, the overlay code may fail due to component library version upgrade.
 
-## Official theme
+## Switch Theme Online
 
-Ant Design Pro currently has only a set of default topics. We plan to launch more official themes later to meet individual needs. Stay tuned.
+Pro provides a setup drawer that can be used to switch themes and layouts online. This drawer makes it easy to see the effects of changing the theme without having to restart the scaffolding.
+
+In order to facilitate preview, the configuration items in the settings will be saved in the address bar, you can copy them to others and share the effects.
+> Due to the nature of the react-router, the parameters of the address bar may be cleared.
+
+Once you have determined this configuration, you can copy it by clicking the Copy Code button and override the default setting in `src/defaultSetting.js`. This way you can publish and deploy on this theme.
+> Modify the color using less online compilation, it is recommended to configure in `config/config.js` to improve the user experience. Compiling online less takes time and can cause stuttering.

@@ -83,7 +83,7 @@ Import your component and use it like other React components.
 
 ```js
 import React from 'react';
-import ImageWrapper from '../../components/ImageWrapper';  // aware of the relative path
+import ImageWrapper from '@/components/ImageWrapper';  // @ means the relative path of source
 
 export default () => (
   <ImageWrapper

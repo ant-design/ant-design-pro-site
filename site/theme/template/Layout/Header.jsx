@@ -148,6 +148,11 @@ class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
+        <Menu.Item>
+          <a href="https://v1.pro.ant.design" target="_blank" rel="noopener noreferrer">
+            1.x
+          </a>
+        </Menu.Item>
         {menuMode === 'inline' && (
           <Menu.Item key="preview">
             <a target="_blank" href="http://preview.pro.ant.design/" rel="noopener noreferrer">

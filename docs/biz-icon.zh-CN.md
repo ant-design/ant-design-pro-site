@@ -1,12 +1,16 @@
 ---
 order: 12
-title:
-  en-US: BIZ Icon
-  zh-CN: 业务图标
+title: 业务图标
 type: 进阶
 ---
 
-如果你没有在 [antd Icon](http://ant.design/components/icon-cn/) 中找到需要的图标，可以到 [iconfont.cn](http://iconfont.cn/) 上采集并生成自己的业务图标库，再进行使用。
+通常情况下，你可以通过 Ant Design 提供的 `<Icon />` 图标组件来使用 [Ant Design 官方图标](http://ant.design/components/icon-cn/)。基本使用方式如下：
+
+```jsx
+<Icon type="heart" style={{ fontSize: '16px', color: 'hotpink' }} />
+```
+
+如果你没有在 Ant Design 官方图标中找到需要的图标，可以到 [iconfont.cn](http://iconfont.cn/) 上采集并生成自己的业务图标库，再进行使用。
 
 ---
 
@@ -26,7 +30,62 @@ type: 进阶
 
 ## 二、引入
 
-现在推荐两种引入方式供你选择：Unicode 及 Font class。
+有三种引入方式供你选择：SVG Symbol、Unicode 及 Font class。我们推荐在现代浏览器下使用 SVG Symbol 方式引入。
+
+### SVG Symbol
+
+SVG 符号引入是现代浏览器未来主流的图标引入方式。其方法是预先加载符号，在合适的地方引入并渲染为矢量图形。有如下特点：
+
+- 支持多色图标，不再受到单色图标的限制
+- 通过一些技巧，支持像字体那样，通过 `font-size`、`color` 来调整样式
+- 支持IE 9+ 及现代浏览器
+
+一般使用步骤如下：
+
+1. 切换到 Symbol 页签，复制项目生成的地址代码：
+
+  ```
+  //at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.js
+  ```
+
+2. 加入图标样式代码，如果没有特殊的要求，你可以直接复用 Ant Design 图标的样式
+
+  ```css
+  .icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    vertical-align: -.125em;
+  }
+  ```
+
+3. 挑选相应图标并获取类名，应用于页面
+
+  ```html
+  <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-ali-pay"></use>
+  </svg>
+  ```
+
+你也可以通过使用 Ant Design 图标组件提供的 `Icon.createFromIconfontCN({...})` 方法来更加方便地使用图标，使用方式如下：
+
+1. 配置项目地址，创建图标组件。[详细用法](https://ant.design/components/icon/#API)
+
+  ```jsx
+  import { Icon } from 'antd';
+
+  const IconFont = Icon.createFromIconfontCN({
+    scriptUrl: '//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.js'
+  });
+
+  export default IconFont;
+  ```
+
+2. 之后可以像使用 `<Icon />` 组件一样方便地使用，支持配置样式
+
+  ```jsx
+  <IconFont type="icon-ali-pay" style={{ fontSize: '16px', color: 'lightblue' }} />
+  ```
 
 ### Unicode
 
@@ -94,7 +153,7 @@ type: 进阶
   <i class="iconfont icon-ali-pay"></i>
   ```
 
-  不过我们更推荐你参照 antd Icon，将它封装一下：
+  不过我们更推荐将它封装一下：
 
   ```js
 
@@ -110,12 +169,12 @@ type: 进阶
 
   现在可以更加方便地使用：
 
-  ```
+  ```jsx
   <BizIcon type="ali-pay" />
   ```
 
 Unicode 和 Font Class 本质上就是字体，你可以通过一些字体的样式属性去控制这种图标的展现，同时浏览器兼容性很好，但不支持多色图标。
 
-> 除了上面两种方式，你还可以通过 Symbol 方式引入，相关内容可以参考：
-> - [icon 使用 - symbol 引入](http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8d11a391&helptype=code)
+> 相关内容可以参考：
+> - [iconfont.cn 代码使用帮助](http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8d11a391&helptype=code)
 > - [Web 设计新趋势: 使用 SVG 代替 Web Icon Font](https://io-meter.com/2014/07/20/replace-icon-fonts-with-svg/)

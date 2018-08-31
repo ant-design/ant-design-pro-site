@@ -45,7 +45,7 @@ const featuresCN = [
   },
   {
     title: '国际化',
-    content: '内建业界通用的国际化方案（敬请期待）',
+    content: '内建业界通用的国际化方案',
     src: 'https://gw.alipayobjects.com/zos/rmsportal/JsixxWSViARJnQbAAPkI.svg',
     color: '#722ED1',
     shadowColor: 'rgba(114,46,209,.12)',

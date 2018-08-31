@@ -12,7 +12,7 @@ Ant Design Pro comes packaged with a handy set of React unit tests and E2E test 
 $ npm run test:all  # Execute all the tests
 ```
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/bNkhdMosBxuEhhKgnROo.png" width="700" />
+<img style="box-shadow:none;margin:0;" src="https://gw.alipayobjects.com/zos/rmsportal/EFKJzIswQgWNJzDQNpKr.png" width="700" />
 
 Now we'll give a brief introduction about how to write a test case.
 
