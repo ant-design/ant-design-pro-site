@@ -6,6 +6,31 @@ type: Other
 
 [Older Version](http://03x.pro.ant.design/)
 
+### 2.0.0
+
+`2018-09-01`、
+
+V2 is a huge change with 600 commits, including many changes, see for more[And Design Pro release](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95).
+
+#### Scaffold
+
+- 🌟 增加了四个新的页面
+
+  - [Step-by-step Modal](https://preview.pro.ant.design/list/table-list) 
+  - [Information entry Modal](https://beta.preview.pro.ant.design/list/basic-list)
+  - [Personal center](https://preview.pro.ant.design/account/center/articles)
+  - [Personal settings](https://preview.pro.ant.design/account/settings/base)
+  
+- 🌟 Added `Setting Drawer` support for layout switching, light and dark theme switching, main color switching and other functions.
+- 🌟 Scaffolding switch to [umi](https://umijs.org/). [#1512](https://github.com/ant-design/ant-design-pro/issues/1512)
+- 🌟 Use [umi-plugin-locale](https://github.com/umijs/umi-plugin-locale) support for internationalization.
+- 🌟 Use `firebase` to implement interface dynamization.
+
+#### Components
+
+- 🌟 TagSelect adds the `hideCheckAll` attribute to hide the `全部` button.
+- 🌟 PageHeader adds `home` and `itemRender` attributes.
+
 ### 1.4.4
 
 `2018-08-09`
