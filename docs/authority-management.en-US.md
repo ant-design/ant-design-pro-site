@@ -18,32 +18,48 @@ Through the application of data organization and permission components, the scaf
 
 > The basic encapsulation of the RenderAuthorized function of component export in the scaffold (https://github.com/ant-design/ant-design-pro/blob/master/src/utils/Authorized.js) The permissions (mock data), so when using in the scaffold, do not need to pay attention to the current permissions.
 
-### Menu and router permission
+### Control menu display
 
-For permission control of certain menus, just go to the router configuration file [router.config.js](https://github.com/ant-design/ant-design-pro/blob/master/src/config/router.config.js). The menu item sets the authority attribute, which represents the access permission of the route. In the route generation file, page components will be wrapped by `Authorized` by default for judgment processing.
+For permission control of certain menus, just go to the menu configuration file [menu.js] (https://github.com/ant-design/ant-design-pro/blob/master/src/common/menu.js) The menu item sets the authority attribute, which represents the access permission of the menu. In the menu generation file, Authorized.check is invoked by default for judgment processing.
 
 ```js
 {
-  path: '/form',
+  name: 'Form page',
   icon: 'form',
-  name: 'form',
+  path: 'form',
   children: [{
-    path: '/form/basic-form',
-    name: 'basicform',
-    component: './Forms/BasicForm',
+    name: 'Basic form',
+    path: 'basic-form',
   }, {
-    path: '/form/step-form',
-    name: 'stepform',
-    component: './Forms/StepForm',
-    authority: ['guest'], // only guest can access
+    name: 'Step-by-step form',
+    path: 'step-form',
   }, {
-    path: '/form/advanced-form',
-    name: 'advancedform',
-    component: './Forms/AdvancedForm',
-    authority: ['admin'], // only admin can access
+    name: 'Advanced form',
+    authority: 'admin', // Configure access permissions
+    path: 'advanced-form',
   }],
 }
 ```
+
+### Control routing
+
+Similar to menu control, the configuration of routing permissions is also simple:
+
+```js
+// src/common/router.js
+'/dashboard/analysis': {
+  component: dynamicWrapper(app, ['chart'], () => import('../routes/Dashboard/Analysis')),
+},
+'/dashboard/monitor': {
+  component: dynamicWrapper(app, ['monitor'], () => import('../routes/Dashboard/Monitor')),
+},
+'/dashboard/workplace': {
+  component: dynamicWrapper(app, ['project', 'activities', 'chart'], () => import('../routes/Dashboard/Workplace')),
+  authority: 'admin', // Configure access permissions
+},
+```
+
+> Note: The permissions configured in the menu will be automatically synchronized to the corresponding route. If there are different configurations in router.js, the route control is based on router.js.
 
 ### Control page element display
 
@@ -53,4 +69,4 @@ Using [Authorized] (http://pro.ant.design/components/Authorized#Authorized) or [
 
 Scaffolding uses localstorage to simulate the role of permissions, which may need to be read from the background in real projects.
 A simple method of refreshing permissions was implemented in the scaffold, and the current permissions were updated at the key nodes such as login/logout.
-You can check the call to [reloadAuthorized ](https://github.com/ant-design/ant-design-pro/blob/c93b0169a500427ee5fdd3c2977886c86aa3d59a/src/pages/User/models/login.js#L24) in login.js.
+You can check the call to [reloadAuthorized](https://github.com/ant-design/ant-design-pro/blob/master/src/models/login.js#L22) in login.js.
