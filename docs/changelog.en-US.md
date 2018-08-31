@@ -10,17 +10,15 @@ type: Other
 
 `2018-09-01`
 
-V2 is a huge change with 600 commits, including many changes, see for more[And Design Pro release](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95).
+V2 is a huge change with 600 commits, including many changes, see for more [And Design Pro release](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95) .
 
 #### Scaffold
 
 - 🌟 Added four new pages
-
   - [Step-by-step Modal](https://preview.pro.ant.design/list/table-list) 
   - [Information entry Modal](https://beta.preview.pro.ant.design/list/basic-list)
   - [Personal center](https://preview.pro.ant.design/account/center/articles)
   - [Personal settings](https://preview.pro.ant.design/account/settings/base)
-  
 - 🌟 Added `Setting Drawer` support for layout switching, light and dark theme switching, main color switching and other functions.
 - 🌟 Scaffolding switch to [umi](https://umijs.org/). [#1512](https://github.com/ant-design/ant-design-pro/issues/1512)
 - 🌟 Use [umi-plugin-locale](https://github.com/umijs/umi-plugin-locale) support for internationalization.

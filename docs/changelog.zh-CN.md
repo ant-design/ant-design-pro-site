@@ -12,17 +12,15 @@ type: 其他
 
 `2018-09-01`
 
-v2 是一个包含 600 个 commit 的巨大改动，包含很多变化，更多内容见[And Design Pro 发布公告](https://www.yuque.com/ant-design/ant-design-pro/gg1e9a#r0xqol)
+v2 是一个包含 600 多个 commit 的巨大改动，包含很多变化，更多内容见 [And Design Pro 发布公告](https://www.yuque.com/ant-design/ant-design-pro/ant_design_pro_2.0_is_out) 。
 
 #### 脚手架
 
 - 🌟 增加了四个新的页面
-
   - [分步对话框](https://preview.pro.ant.design/list/table-list) 
   - [信息录入对话框](https://beta.preview.pro.ant.design/list/basic-list)
   - [个人中心](https://preview.pro.ant.design/account/center/articles)
   - [个人设置](https://preview.pro.ant.design/account/settings/base)
-  
 - 🌟 增加了 `配置抽屉` 支持 布局切换，光暗主题切换，主色切换等功能。
 - 🌟 脚手架切换到 [umi](https://umijs.org/) 。[#1512](https://github.com/ant-design/ant-design-pro/issues/1512)
 - 🌟 使用 [umi](https://github.com/umijs/umi-plugin-locale) 支持国际化。
@@ -30,8 +28,8 @@ v2 是一个包含 600 个 commit 的巨大改动，包含很多变化，更多�
 
 #### 组件
 
-- 🌟 TagSelect 增加 `hideCheckAll` 属性，用于隐藏 `全部` 按钮
-- 🌟 PageHeader  增加 `home` 和 `itemRender` 属性
+- 🌟 TagSelect 增加 `hideCheckAll` 属性，用于隐藏 `全部` 按钮。
+- 🌟 PageHeader  增加 `home` 和 `itemRender` 属性。
 
 ### 1.4.4
 
