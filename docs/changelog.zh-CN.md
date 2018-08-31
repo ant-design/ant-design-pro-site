@@ -10,7 +10,7 @@ type: 其他
 
 ### 2.0.0
 
-`2018-09-01`、
+`2018-09-01`
 
 v2 是一个包含 600 个 commit 的巨大改动，包含很多变化，更多内容见[And Design Pro 发布公告](https://www.yuque.com/ant-design/ant-design-pro/gg1e9a#r0xqol)
 

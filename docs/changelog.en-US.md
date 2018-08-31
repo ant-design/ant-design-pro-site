@@ -8,13 +8,13 @@ type: Other
 
 ### 2.0.0
 
-`2018-09-01`、
+`2018-09-01`
 
 V2 is a huge change with 600 commits, including many changes, see for more[And Design Pro release](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95).
 
 #### Scaffold
 
-- 🌟 增加了四个新的页面
+- 🌟 Added four new pages
 
   - [Step-by-step Modal](https://preview.pro.ant.design/list/table-list) 
   - [Information entry Modal](https://beta.preview.pro.ant.design/list/basic-list)
