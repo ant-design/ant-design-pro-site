@@ -1,6 +1,6 @@
 ---
 order: 24
-title: Changelog
+title: Upgrade to V2
 type: Other
 ---
 
