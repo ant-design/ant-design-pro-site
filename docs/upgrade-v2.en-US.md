@@ -6,7 +6,7 @@ type: Other
 
 In addition to many features in the Ant Design Pro 2.0 release, we also upgraded the front-end build tool from roadhog to [UmiJS] (https://umijs.org/) (referred to as umi). The reason for upgrading, not replacement, is that umi is more than just a front-end build tool. It also includes routing and a plugin system for building a complete React application.
 
-So if you want to better add the functionality of Ant Design Pro 2.0 to your original project and port the 2.0 code to your project, you'd better migrate your project from roadhog to umi. This document will guide you through the migration process. Before that, you may need to read umi's [documentation] (https://umijs.org/guide/) so that you have a preliminary understanding of umi. This is will helpful for your Migration work. The following are the overview of migration steps, and there will be more detail later.
+So if you want to better add the feature of Ant Design Pro 2.0 to your original project and port the 2.0 code to your project, you'd better migrate your project from roadhog to umi. This document will guide you through the migration process. Before that, you may need to read umi's [documentation] (https://umijs.org/guide/) so that you have a preliminary understanding of umi. This is will helpful for your Migration work. The following are the overview of migration steps, and there will be more detail later.
 
 Note: This migration guide is based on the latest v1 version, and you can find the changes in the [commit] (https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c). This commit is for reference only and cannot be directly applied to your project. if your version is too old, there may be some difference in detail. Please migrate with the specific situation.
 
@@ -246,7 +246,7 @@ Ant Design Pro uses less and cssModule as a style solution. You can configure th
 
 However, the adjustment of the navigation layout mode supported by the v2 version is mainly the upgrade of the business logic of the code. You can refer to the code of `src/layouts/BasicLayout.js` in the v2 code for adjustment.
 
-For online theme switching, because less is compiled at build time, in order to achieve switching, you need to support less in online compilation and other issues. To solve this problem, we developed the `ant-design-theme` webpack plugin and the `merge-less` plugin to implement this functionality. if you need it, you can add the related code by referring to `config/plugin.config.js` and `src/models/setting.sj` in the v2 code.
+For online theme switching, because less is compiled at build time, in order to achieve switching, you need to support less in online compilation and other issues. To solve this problem, we developed the `ant-design-theme` webpack plugin and the `merge-less` plugin to implement this feature. if you need it, you can add the related code by referring to `config/plugin.config.js` and `src/models/setting.sj` in the v2 code.
 
 ### More
 
