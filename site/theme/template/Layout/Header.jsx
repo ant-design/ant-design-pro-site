@@ -190,7 +190,7 @@ class Header extends React.Component {
         </Menu.Item>
         <Menu.Item>
           <a href="https://v1.pro.ant.design" target="_blank" rel="noopener noreferrer">
-            1.x
+            v1
           </a>
         </Menu.Item>
         {menuMode === 'inline' && (
