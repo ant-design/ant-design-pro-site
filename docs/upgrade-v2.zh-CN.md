@@ -8,7 +8,7 @@ type: 其他
 
 所以如果你想要更好的在原有的项目中去添加 Ant Design Pro 2.0 的功能，将 2.0 的代码移植到你的项目中，你最好将你的项目从 roadhog 迁移到 umi。这边文档会指引你完成迁移工作，在此之前你可能需要先阅读 umi 的[文档](https://umijs.org/guide/)，使得先对 umi 有一个初步的认识，这对你的迁移工作会很有帮助。下面是以后大概的步骤，再往后会有更具体的说明。
 
-注：该迁移指南是基于当前最新的 v1 版本编写的，如果你的版本过老可能会有一些细节不一样，请结合具体情况迁移。改迁移指南对应的修改你可以在升级示例的 [commit](https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c) 中查看。
+注：该迁移指南是基于当前最新的 v1 版本编写的,迁移指南对应的修改你可以在升级示例的 [commit](https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c) 中查看。该 commit 只作为参考，不能直接应用在你的项目中，如果你的版本过老可能会有一些细节不一样，请结合具体情况迁移
 
 ## 迁移步骤概览
 
@@ -30,35 +30,36 @@ type: 其他
 
 ### 修改 roadhog 依赖为 umi
 
-打开项目根目录下的 `package.json`，先去掉如下依赖：
+打开项目根目录下的 `package.json`，修改依赖为 umi：
 
-- roadhog
-- roadhog-api-doc
-- dva
-- dva-loading
-- antd
-- react
-- react-dom
-- react-loadable
-
-对应需要添加的依赖：
-
-- umi: ^2.0.0-beta.10
-- umi-plugin-react: ^1.0.0-beta.10
+```diff
+"dependencies": {
+- "dva": "^2.2.3",
+- "dva-loading": "^2.0.3",
+- "antd": "^3.8.0",
+- "react": "^16.4.1",
+- "react-dom": "^16.4.1",
+- "react-loadable": "^5.5.0",
++ "umi-plugin-react": "^1.0.0-beta.21"
+},
+"devDependencies": {
++ "umi": "^2.0.0-beta.21",
+- "roadhog": "^2.4.2",
+- "roadhog-api-doc": "^1.1.2",
+}
+```
 
 在 umi 中内置了 React，通过 umi-plugin-react 插件集内置了 antd 和 dva 等 React 技术栈常用的库。可以参考 [umi-plugin-react 的文档](https://umijs.org/plugin/umi-plugin-react.html)。
 
 另外 `package.json` 中的 scripts 也要做对应的修改：
 
-```json
-{
-  "scripts": {
-    "start": "umi dev",
-    "start:no-mock": "cross-env MOCK=none umi dev",
-    "build": "umi build"
-    // more
-  }
-}
+```diff
+- "start": "cross-env ESLINT=none roadhog dev",
+- "start:no-proxy": "cross-env NO_PROXY=true ESLINT=none roadhog dev",	    
+- "build": "cross-env ESLINT=none roadhog build",
++ "start": "umi dev",
++ "start:no-mock": "cross-env MOCK=none umi dev",
++ "build": "umi build",
 ```
 
 修改完成之后记得不要忘记使用 `npm update` 将依赖更新到最新。
