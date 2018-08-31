@@ -65,7 +65,7 @@ module.exports = [{
 }
 ```
 
-- `name`: 当前路由在菜单下的名称，注意这里是国际化配置的 key，具体展示菜单名可以在 [/src/locales/zh-CN.js](https://github.com/ant-design/ant-design-pro/blob/v2/src/locales/zh-CN.js) 进行配置。
+- `name`: 当前路由在菜单和面包屑中的名称，注意这里是国际化配置的 key，具体展示菜单名可以在 [/src/locales/zh-CN.js](https://github.com/ant-design/ant-design-pro/blob/v2/src/locales/zh-CN.js) 进行配置。
 - `icon`: 当前路由在菜单下的图标名。
 - `hideInMenu`: 当前路由在菜单中不展现，默认 `false`。
 - `hideChildrenInMenu`: 当前路由的子级在菜单中不展现，默认 `false`。
@@ -76,13 +76,13 @@ module.exports = [{
 
 除了 Pro 里的内建布局以为，在一些页面中需要进行布局，可以使用 Ant Design 目前提供的两套布局组件工具：[Layout](http://ant.design/components/layout/) 和 [Grid](http://ant.design/components/grid/)。
 
-### 使用 Ant Design 栅格组件
+### Grid 组件
 
 栅格布局是网页中最常用的布局，其特点就是按照一定比例划分页面，能够随着屏幕的变化依旧保持比例，从而具有弹性布局的特点。
 
 而 Ant Design 的栅格组件提供的功能更为强大，能够设置间距、具有支持响应式的比例设置，以及支持 `flex` 模式，基本上涵盖了大部分的布局场景，详情参看：[Grid](http://ant.design/components/grid/)。
 
-### 使用 Ant Design Layout 组件
+### Layout 组件
 
 如果你需要辅助页面框架级别的布局设计，那么 [Layout](http://ant.design/components/layout/) 则是你最佳的选择，它抽象了大部分框架布局结构，使得只需要填空就可以开发规范专业的页面整体布局，详情参看：[Layout](http://ant.design/components/layout/)。
 
