@@ -6,7 +6,7 @@ type: Introduction
 
 ## Usage
 
-For Ant Financial Company User, Bigfish is recommended as a front end overall solution, you can visit [Bigfish Enterprise Background Application - Using Ant Design Pro](https://docs.antfin.com/basement/bigfish/antdpro) to get start.
+For Ant Financial Company User, [Bigfish](https://bigfish.alipay.com) is recommended as a front end overall solution, you can visit [Using Ant Design Pro](https://bigfish.alipay.com/doc/antdpro) to get start.
 
 ## Note
 
