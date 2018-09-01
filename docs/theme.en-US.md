@@ -77,4 +77,19 @@ In order to facilitate preview, the configuration items in the settings will be 
 > Due to the nature of the react-router, the parameters of the address bar may be cleared.
 
 Once you have determined this configuration, you can copy it by clicking the Copy Code button and override the default setting in `src/defaultSetting.js`. This way you can publish and deploy on this theme.
-> Modify the color using less online compilation, it is recommended to configure in `config/config.js` to improve the user experience. Compiling online less takes time and can cause stuttering.
+
+`src/defaultSetting.js` The content is as follows:
+
+```
+module.exports = {
+  navTheme: 'dark', // theme for nav menu
+  primaryColor: '#1890FF', // primary color of ant design
+  layout: 'sidemenu', // nav menu position: sidemenu or topmenu
+  contentWidth: 'Fluid', // layout of content: Fluid or Fixed, only works when layout is topmenu
+  fixedHeader: false, // sticky header
+  autoHideHeader: false, // auto hide header
+  fixSiderbar: false, // sticky siderbar
+};
+```
+
+> Modifying the color online is using less online compilation, it is recommended to configure in `config/config.js` to improve the user experience. Compiling online less takes time and can cause stuttering.
