@@ -70,11 +70,14 @@ module.exports = {
     'app.footer.privacy': 'Privacy Policy',
     'app.footer.commitment': 'Our Commitment to Customer Protection',
     'app.footer.company': 'Ant Financial',
-    'app.publish.title': 'antd@2.0.0 is released!',
+    'app.publish.title': 'Ant Desgin Pro@2.0.0 has been released! 🎉 🎉 🎉',
     'app.publish.greeting': 'Hello, ',
-    'app.publish.intro': ' is released, and please upgrade. ',
-    'app.publish.old-version-guide': 'If you want to read old version documentation, please visit ',
+    'app.publish.intro': 'has been released',
+    'app.publish.tips': ', welcome to upgrade and experience. ',
+    'app.publish.url':
+      'https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95',
+    'app.publish.old-version-guide': 'If you need documentation of older version, please visit ',
     'app.publish.old-version-tips':
-      ', or change the version of documentation with the bottom-right selector.',
+      ',It can also be viewed by clicking on the v1 menu in the top right corner of the page.',
   },
 };

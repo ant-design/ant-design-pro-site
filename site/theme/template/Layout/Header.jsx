@@ -3,7 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import axios from 'axios';
-import { Row, Col, Icon, Menu, Button, Popover, Select } from 'antd';
+import { Row, Col, Icon, Menu, Button, Modal, Popover, Select } from 'antd';
 
 import { enquireScreen, getLocalizedPathname } from '../utils';
 
@@ -15,6 +15,8 @@ const textSearchUrl = 'https://www.google.com/search?q=site:pro.ant.design+';
 // https://www.algolia.com/apps/YEWBNYLVLW/
 const searchUrl =
   'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176';
+
+const key = 'antd-pro@2.0.0-notification-sent';
 
 class Header extends React.Component {
   static contextTypes = {
@@ -40,6 +42,9 @@ class Header extends React.Component {
         searchInput.focus();
       }
     });
+    if (localStorage.getItem(key) !== 'true' && Date.now() < new Date('2018/9/5').getTime()) {
+      this.infoNewVersion();
+    }
   }
 
   search = (key, success, error) => {
@@ -107,6 +112,41 @@ class Header extends React.Component {
           searchOption: data.data.hits,
         });
       }
+    });
+  };
+
+  infoNewVersion = () => {
+    const { formatMessage } = this.props.intl;
+    Modal.info({
+      title: formatMessage({ id: 'app.publish.title' }),
+      content: (
+        <div>
+          <img
+            src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+            alt="Ant Design"
+          />
+          <p>
+            {formatMessage({ id: 'app.publish.greeting' })}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={formatMessage({ id: 'app.publish.url' })}
+            >
+              Ant Desgin Pro {formatMessage({ id: 'app.publish.intro' })}
+            </a>
+            {formatMessage({ id: 'app.publish.tips' })}
+            {formatMessage({ id: 'app.publish.old-version-guide' })}
+            <a target="_blank" rel="noopener noreferrer" href="https://v1.pro.ant.design">
+              v1.pro.ant.design
+            </a>
+            {formatMessage({ id: 'app.publish.old-version-tips' })}
+          </p>
+        </div>
+      ),
+      okText: 'OK',
+      onOk: () => localStorage.setItem(key, 'true'),
+      className: 'new-version-info-modal',
+      width: 470,
     });
   };
 
