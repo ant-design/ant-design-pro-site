@@ -10,11 +10,29 @@ This "page" refers to a module that is configured with a route and can be direct
 
 ## First, add js,less files
 
-Create new js,less files under src/routes. If there are multiple related pages, you can create a new folder to place related files.
+Create new js,less files under src/pages. If there are multiple related pages, you can create a new folder to place related files.
 
-<img width="300" alt="New Page" src="https://gw.alipayobjects.com/zos/rmsportal/hjDyFTVOgRwDzAIHApMO.png" />
+```diff
+config
+src
+  models
+  pages
++   NewPage.js
++   NewPage.less
+  ...
+...
+package.json
+```
 
-<br />
+For better Demonstration, we initialize the contents of `NewPage.js` as follows:
+
+```jsx
+export default () => {
+  return <div>New Page</div>
+};
+```
+
+Temporarily do not add content to the style files in this document, you can also try to add them yourself.
 
 Style files are used by default [CSS Modules](http://www.ruanyifeng.com/blog/2016/06/css_modules.html), If needed, you can import [antd style variable file](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) in the head of the file:
 
@@ -26,11 +44,52 @@ This makes it easy to get antd style variables and use them in your files, which
 
 ## Second, add the files into menus,routes
 
-To add them into menus and routes, refer to the description in [router-and-nav](/docs/router-and-nav). Then visit `http://localhost:8000/#/new` to see the new page.
+Because Ant Design Pro uses the configuration route of umi, you need to add the corresponding routing information in the configuration file `config/router.config.js`:
 
-<img alt="New Page" src="https://gw.alipayobjects.com/zos/rmsportal/xZIqExWKhdnzDBjajnZg.png" />
+```diff
+...
+  {
+    path: '/',
+    component: '../layouts/BasicLayout',
+    Routes: ['src/pages/Authorized'],
+    routes: [
++     // new page
++     {
++       path: 'new',
++       name: 'new',
++       icon: 'plus-square',
++       component: 'NewPage',
++     },
+...
+```
 
-<br />
+Where `icon` and `name` are the required configuration in the menu component, and `config/router.config.js` is also read in the menu component to add the relevant logic.
+
+We implemented internationalization in Ant Design Pro 2.0, so you also need to add the relevant copy in `src/locales/zh-CN.js` and `src/locales/en-US`:
+
+```diff
+// zh-CN.js
+export default {
+  'navbar.lang': 'English',
++ 'menu.new': '新页面',
+  'menu.home': '首页',
+  ...
+```
+
+```diff
+// en-US.js
+export default {
+  'navbar.lang': '中文',
++ 'menu.new': 'New Page',
+  'menu.home': 'Home',
+  ...
+```
+
+Then visit `http://localhost:8000/new` to see the new page.
+
+<img alt="New Page" src="https://gw.alipayobjects.com/zos/rmsportal/PNyWCgzHEynHvMSXxSQe.png" />
+
+See the introduction in [Router and Nav] (/docs/router-and-nav) for more details on routing.
 
 ## Third, add model,service
 
