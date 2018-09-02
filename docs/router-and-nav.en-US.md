@@ -6,7 +6,7 @@ title:
 type: Introduction
 ---
 
-Routing and menus are the key skeletons for organizing an application. The routes in pro are centrally managed in a convenient way to manage and manage them in `router.config.js`.
+Routing and menus are the key skeletons for organizing an application. The routes in pro are centrally managed in a convenient way to manage and manage them in [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js).
 
 ---
 
@@ -14,7 +14,7 @@ Routing and menus are the key skeletons for organizing an application. The route
 
 In this part, scaffolding builds the basic framework of routing and menus by combining some configuration files, basic algorithms and tool functions, mainly involving the following modules/functions:
 
-- `Routing Management` Configure the route in `router.config.js` according to the agreed syntax.
+- `Routing Management` Configure the route in [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) according to the agreed syntax.
 - `Menu generation` Generates a menu based on the routing configuration. The name of the menu item, the nested path is highly coupled to the route.
 - Breadcrumbs component The breadcrumbs built into [PageHeader](http://pro.ant.design/components/PageHeader) can also be automatically generated from the configuration information provided by the scaffolding.
 
@@ -22,7 +22,7 @@ The following is a brief introduction to the basic ideas of each module. If you 
 
 ### Router
 
-At present, all the routes in the scaffolding are managed by `router.config.js`. In the configuration of umi, we add some parameters, such as `name`, `icon`, `hideChildren`, `authority`, to assist the generation. menu. among them:
+At present, all the routes in the scaffolding are managed by [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js). In the configuration of umi, we add some parameters, such as `name`, `icon`, `hideChildren`, `authority`, to assist the generation. menu. among them:
 
 - `name` and `icon` represent the icon and text of the generated menu item, respectively.
 - `hideChildren` is used to hide sub-routes that do not need to be displayed in the menu. Usage can view the configuration of the `Step by Step Form`.
@@ -32,7 +32,7 @@ At present, all the routes in the scaffolding are managed by `router.config.js`.
 
 ### Menu
 
-The menu is generated according to `router.config.js`, and the concrete logic is implemented in the `formatter` method in `src/layouts/LoadingPage`.
+The menu is generated according to [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js), and the concrete logic is implemented in the `formatter` method in `src/layouts/LoadingPage`.
 
 > If your project does not require a menu, you can remove the mount of the `SiderMenu` component directly in `BasicLayout`. And set `const MenuData = []` in `src/layouts/LoadingPage`.
 
@@ -85,7 +85,7 @@ When added, the relevant routing and navigation will be automatically generated.
 
 ### 新增布局
 
-In the scaffolding we implement the layout template by nesting the route. `router.config.js` is an array, where the first level of data is our layout, if you need to add a new layout you can directly add a new level one array.
+In the scaffolding we implement the layout template by nesting the route. [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) is an array, where the first level of data is our layout, if you need to add a new layout you can directly add a new level one array.
 
 ```js
 module.exports = [

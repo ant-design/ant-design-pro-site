@@ -6,7 +6,7 @@ title:
 type: 入门
 ---
 
-路由和菜单是组织起一个应用的关键骨架，pro 中的路由为了方便管理，使用了中心化的方式，在 `router.config.js` 统一配置和管理。
+路由和菜单是组织起一个应用的关键骨架，pro 中的路由为了方便管理，使用了中心化的方式，在 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 统一配置和管理。
 
 ---
 
@@ -14,7 +14,7 @@ type: 入门
 
 在这一部分，脚手架通过结合一些配置文件、基本算法及工具函数，搭建好了路由和菜单的基本框架，主要涉及以下几个模块/功能：
 
-- `路由管理` 通过约定的语法根据在 `router.config.js` 中配置路由。
+- `路由管理` 通过约定的语法根据在 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 中配置路由。
 - `菜单生成` 根据路由配置来生成菜单。菜单项名称，嵌套路径与路由高度耦合。
 - `面包屑` 组件 [PageHeader](http://pro.ant.design/components/PageHeader) 中内置的面包屑也可由脚手架提供的配置信息自动生成。
 
@@ -22,7 +22,7 @@ type: 入门
 
 ### 路由
 
-目前脚手架中所有的路由都通过 `router.config.js` 来统一管理，在 umi 的配置中我们增加了一些参数，如 `name`,`icon`,`hideChildren`,`authority`，来辅助生成菜单。其中：
+目前脚手架中所有的路由都通过 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 来统一管理，在 umi 的配置中我们增加了一些参数，如 `name`,`icon`,`hideChildren`,`authority`，来辅助生成菜单。其中：
 
 - `name` 和 `icon`分别代表生成菜单项的图标和文本。
 - `hideChildren` 用于隐藏不需要在菜单中展示的子路由。用法可以查看 `分步表单` 的配置。
@@ -32,7 +32,7 @@ type: 入门
 
 ### 菜单
 
-菜单根据 `router.config.js` 生成，具体逻辑在 `src/layouts/LoadingPage` 中的 `formatter` 方法实现。
+菜单根据 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 生成，具体逻辑在 `src/layouts/LoadingPage` 中的 `formatter` 方法实现。
 
 > 如果你的项目并不需要菜单，你可以直接在 `BasicLayout` 中删除 `SiderMenu` 组件的挂载。并在 `src/layouts/LoadingPage` 中 设置 `const MenuData = []`。
 
@@ -85,7 +85,7 @@ type: 入门
 
 ### 新增布局
 
-在脚手架中我们通过嵌套路由来实现布局模板。`router.config.js` 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以在直接增加一个新的一级数组。
+在脚手架中我们通过嵌套路由来实现布局模板。[`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以在直接增加一个新的一级数组。
 
 ```js
 module.exports = [
