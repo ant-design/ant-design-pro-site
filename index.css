@@ -87,7 +87,8 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100%;
+  height: 80%;
+  min-height: 500px;
 }
 .exception___2U_jg .imgBlock___2wvOJ {
   -webkit-box-flex: 0;
@@ -879,6 +880,9 @@
   background: #fff;
   margin-top: 4px;
 }
+.list___3Ac2I .item___dZH6L .iconElement___1iPA1 {
+  font-size: 32px;
+}
 .list___3Ac2I .item___dZH6L.read___3HgW8 {
   opacity: 0.4;
 }
@@ -967,6 +971,10 @@
   padding: 16px 32px 0 32px;
   border-bottom: 1px solid #e8e8e8;
 }
+.pageHeader___2NIjs .wide___2FubI {
+  max-width: 1200px;
+  margin: auto;
+}
 .pageHeader___2NIjs .detail___C4XSC {
   display: -webkit-box;
   display: -webkit-flex;
@@ -984,7 +992,7 @@
   margin-bottom: 16px;
 }
 .pageHeader___2NIjs .tabs___36hVS {
-  margin: 0 0 -17px -8px;
+  margin: 0 0 0 -8px;
 }
 .pageHeader___2NIjs .tabs___36hVS .ant-tabs-bar {
   border-bottom: 1px solid #e8e8e8;
@@ -3339,6 +3347,7 @@ mark {
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   display: block;
+  pointer-events: none;
 }
 @-webkit-keyframes waveEffect {
   100% {
