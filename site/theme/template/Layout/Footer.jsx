@@ -1,7 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Link } from 'bisheng/router';
-import { Row, Col, Button } from 'antd';
+import { Row, Col, Badge } from 'antd';
 import * as utils from '../utils';
 
 class Footer extends React.Component {
@@ -26,21 +25,16 @@ class Footer extends React.Component {
     const { pathname } = this.props.location;
     const isZhCN = utils.isZhCN(pathname);
     return (
-      <footer id="footer" className="dark">
+      <footer id="footer">
         <div className="footer-wrap">
           <Row>
-            <Col lg={6} sm={24} xs={24}>
+            <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
-                <h2>Ant Design</h2>
+                <h2>
+                  <FormattedMessage id="app.footer.resources" />
+                </h2>
                 <div>
-                  <a target="_blank " href="https://github.com/ant-design/ant-design-pro">
-                    Ant Design Pro GitHub
-                  </a>
-                </div>
-                <div>
-                  <a target="_blank " href="http://ant.design">
-                    Ant Design
-                  </a>
+                  <a href="http://pro.ant.design">Ant Design Pro</a>
                 </div>
                 <div>
                   <a href="http://mobile.ant.design">Ant Design Mobile</a>
@@ -55,74 +49,128 @@ class Footer extends React.Component {
                     <FormattedMessage id="app.footer.awesome" />
                   </a>
                 </div>
-              </div>
-            </Col>
-            <Col lg={6} sm={24} xs={24}>
-              <div className="footer-center">
-                <h2>
-                  <FormattedMessage id="app.footer.resources" />
-                </h2>
+                <div>
+                  <Badge dot offset={[3, 0]}>
+                    <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">
+                      Kitchen
+                    </a>
+                    <span> - </span>
+                    <FormattedMessage id="app.footer.kitchen" />
+                  </Badge>
+                </div>
                 <div>
                   <a href="http://scaffold.ant.design">Scaffolds</a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.scaffolds" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="http://motion.ant.design">
+                  <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">
+                    dva
+                  </a>{' '}
+                  - <FormattedMessage id="app.footer.dva" />
+                </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://motion.ant.design">
                     Ant Motion
                   </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.motion" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="http://library.ant.design/">
+                  <a target="_blank" rel="noopener noreferrer" href="http://library.ant.design/">
                     Axure Library
                   </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antd-library" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="http://ux.ant.design">
+                  <a target="_blank" rel="noopener noreferrer" href="http://ux.ant.design">
                     Ant UX
                   </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.antux" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="https://github.com/dvajs/dva">
-                    dva
-                  </a>{' '}
-                  -
-                  <FormattedMessage id="app.footer.dva" />
-                </div>
-                <div>
-                  <a target="_blank" rel="noopener" href="https://github.com/dvajs/dva-cli">
-                    dva-cli
-                  </a>{' '}
-                  -
-                  <FormattedMessage id="app.footer.dev-tools" />
+                  <a target="_blank " href="https://ant-design-pro.gitee.io/">
+                    <FormattedMessage id="app.footer.chinamirror" />
+                  </a>
                 </div>
               </div>
             </Col>
-            <Col lg={6} sm={24} xs={24}>
+            <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2>
                   <FormattedMessage id="app.footer.community" />
                 </h2>
                 <div>
-                  <Link to={utils.getLocalizedPathname('/docs/changelog', isZhCN)}>
-                    <FormattedMessage id="app.footer.change-log" />
-                  </Link>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://zhuanlan.zhihu.com/antdesign"
+                  >
+                    <FormattedMessage id="app.footer.zhihu" />
+                  </a>
                 </div>
                 <div>
-                  <Link to={utils.getLocalizedPathname('/docs/faq', isZhCN)}>
-                    <FormattedMessage id="app.footer.faq" />
-                  </Link>
+                  <a target="_blank" rel="noopener noreferrer" href="http://medium.com/ant-design/">
+                    Medium
+                  </a>
                 </div>
                 <div>
                   <a
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
+                    href="http://twitter.com/antdesignui"
+                  >
+                    Twitter
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="http://zhuanlan.zhihu.com/xtech"
+                  >
+                    <FormattedMessage id="app.footer.zhihu.xtech" />
+                  </a>
+                </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://seeconf.alipay.com/">
+                    SEE Conf
+                  </a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.seeconf" />
+                </div>
+              </div>
+            </Col>
+            <Col md={6} sm={24} xs={24}>
+              <div className="footer-center">
+                <h2>
+                  <FormattedMessage id="app.footer.help" />
+                </h2>
+                <div>
+                  <a target="_blank " href="https://github.com/ant-design/ant-design-pro">
+                    GitHub
+                  </a>
+                </div>
+                <div>
+                  <a href="/docs/changelog">
+                    <FormattedMessage id="app.footer.change-log" />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://github.com/ant-design/ant-design/wiki/FAQ"
+                  >
+                    <FormattedMessage id="app.footer.faq" />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
                     href="https://gitter.im/ant-design/ant-design-pro"
                   >
                     <FormattedMessage id="app.footer.discuss-cn" />
@@ -131,8 +179,8 @@ class Footer extends React.Component {
                 <div>
                   <a
                     target="_blank"
-                    rel="noopener"
-                    href="https://github.com/ant-design/ant-design-pro/issues"
+                    rel="noopener noreferrer"
+                    href="https://github.com/ant-design/ant-design/issues"
                   >
                     <FormattedMessage id="app.footer.issues" />
                   </a>
@@ -140,77 +188,76 @@ class Footer extends React.Component {
                 <div>
                   <a
                     target="_blank"
-                    rel="noopener"
-                    href={`http://ant.design/docs/spec/work-with-us${isZhCN ? '-cn' : ''}`}
+                    rel="noopener noreferrer"
+                    href="http://stackoverflow.com/questions/tagged/antd"
                   >
-                    <FormattedMessage id="app.footer.work-with-us" />
+                    <FormattedMessage id="app.footer.stackoverflow" />
+                  </a>
+                </div>
+                <div>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://segmentfault.com/t/antd"
+                  >
+                    <FormattedMessage id="app.footer.segmentfault" />
                   </a>
                 </div>
               </div>
             </Col>
-            <Col lg={6} sm={24} xs={24}>
+            <Col md={6} sm={24} xs={24}>
               <div className="footer-center">
                 <h2>
+                  <img
+                    className="title-icon"
+                    src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
+                    alt="AFX Cloud"
+                  />
                   <FormattedMessage id="app.footer.more-product" />
                 </h2>
                 <div>
-                  <a target="_blank" rel="noopener" href="https://antv.alipay.com/">
+                  <a target="_blank" rel="noopener noreferrer" href="https://yuque.com/">
+                    <FormattedMessage id="app.footer.yuque" />
+                  </a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.yuque.slogan" />
+                </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="https://yunfengdie.com/">
+                    <FormattedMessage id="app.footer.fengdie" />
+                  </a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.fengdie.slogan" />
+                </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">
                     AntV
                   </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.data-vis" />
                 </div>
                 <div>
-                  <a target="_blank" rel="noopener" href="https://eggjs.org/">
+                  <a target="_blank" rel="noopener noreferrer" href="https://eggjs.org/">
                     Egg
                   </a>
                   <span> - </span>
                   <FormattedMessage id="app.footer.eggjs" />
                 </div>
+                <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://xcloud.alipay.com/">
+                    <FormattedMessage id="app.footer.xcloud" />
+                  </a>
+                </div>
               </div>
             </Col>
           </Row>
         </div>
-        <Row className="bottom-bar">
-          <Col lg={6} sm={24}>
-            <div className="translate-button">
-              <Button ghost size="small" onClick={this.handleLangChange}>
-                <FormattedMessage id="app.header.lang" />
-              </Button>
-            </div>
-          </Col>
-          <Col lg={18} sm={24}>
-            <span
-              style={{
-                lineHeight: '16px',
-                paddingRight: 12,
-                marginRight: 11,
-                borderRight: '1px solid rgba(255, 255, 255, 0.55)',
-              }}
-            >
-              <a
-                href="https://docs.alipay.com/policies/privacy/antfin"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <FormattedMessage id="app.footer.privacy" />
-              </a>
-            </span>
-            <span style={{ marginRight: 24 }}>
-              <a
-                href="https://render.alipay.com/p/f/fd-izto3cem/index.html"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <FormattedMessage id="app.footer.commitment" />
-              </a>
-            </span>
-            <span style={{ marginRight: 12 }}>ICP 证浙 B2-2-100257</span>
-            <span style={{ marginRight: 12 }}>
-              Copyright © <FormattedMessage id="app.footer.company" />
-            </span>
-          </Col>
-        </Row>
+        <div className="bottom-bar">
+          Made with <span className="heart">❤</span> by
+          <a target="_blank" rel="noopener noreferrer" href="https://yuque.com/afx/blog">
+            <FormattedMessage id="app.footer.company" />
+          </a>
+        </div>
       </footer>
     );
   }
