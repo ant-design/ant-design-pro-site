@@ -74,18 +74,18 @@ pro 中提供了一个可以在线切换主题和布局的 设置抽屉，使用
 
 您一旦确定了这个配置，可以点击 拷贝代码 按钮将其拷贝，并在 `src/defaultSetting.js` 中覆盖默认设置。这样您可以将该主题发布和部署。
 
-`src/defaultSetting.js` 内容如下：
+[`src/defaultSetting.js`](https://github.com/ant-design/ant-design-pro/blob/master/src/defaultSettings.js) 内容如下：
 
 ```js
 module.exports = {
   navTheme: 'dark', // 菜单的主题
-  primaryColor: '#1890FF', // ant design 的主色调
+  primaryColor: '#1890FF', // Ant Design 的主色调
   layout: 'sidemenu', // 菜单的布局，值为 sidemenu 菜单显示在左侧，值为 topmenu 菜单显示在顶部
-  contentWidth: 'Fluid', // 内容的布局，Fluid 为定宽到1200px，Fixed为流式布局。
+  contentWidth: 'Fluid', // 内容的布局 Fixed 为定宽到1200px ，Fluid 为流式布局。
   fixedHeader: false, // 固定页头
   autoHideHeader: false, // 下滑时自动隐藏页头
   fixSiderbar: false, // 固定菜单
 };
 ```
 
-> 在线修改颜色使用的是 less 在线编译，建议在 `config/config.js` 中配置，提升用户体验。在线编译 less 需要时间，并且会造成卡顿。
+> 在线修改颜色使用的是 less 在线编译，建议在 [`config/config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/config.js)  中配置，提升用户体验。在线编译 less 需要时间，并且会造成卡顿。
