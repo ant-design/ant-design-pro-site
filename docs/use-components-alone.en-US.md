@@ -35,6 +35,28 @@ import Result from 'ant-design-pro/lib/Result';
 ReactDOM.render(<Result type="success" />, mountNode);
 ```
 
+### 按需加载
+
+You can use babel-plugin-import to load on demand. After adding this plugin, you can write it like this.
+
+```js
+import { Result } from 'ant-design-pro';
+
+ReactDOM.render(<Result type="success" />, mountNode);
+```
+
+This method is recommended.
+
+babel-plugin-import Configuration is as follows：
+
+```js
+ {
+    libraryName: 'ant-design-pro',
+    libraryDirectory: 'lib',
+    style: true,
+    camel2DashComponentName: false,
+}
+
 > Note that pro's components is dependent on antd@3.0 by default and you need to ensure consistency with antd‘s version.
 
 ## Document & FeedBack

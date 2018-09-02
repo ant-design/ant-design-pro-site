@@ -37,6 +37,29 @@ ReactDOM.render(<Result type="success" />, mountNode);
 
 > 注意，pro 组件默认依赖于 antd@3.0，需要保证 antd 版本的一致性。
 
+### 按需加载
+
+可以使用 babel-plugin-import 来进行按需加载，加入这个插件后，你可以这么写
+
+```js
+import { Result } from 'ant-design-pro';
+
+ReactDOM.render(<Result type="success" />, mountNode);
+```
+
+推荐使用这种方式。
+
+babel-plugin-import 配置如下：
+
+```js
+ {
+    libraryName: 'ant-design-pro',
+    libraryDirectory: 'lib',
+    style: true,
+    camel2DashComponentName: false,
+}
+```
+
 ## 文档和反馈
 
 你可以在 [组件页面](http://pro.ant.design/components) 找到所有的业务组件，以及相关的演示和 API 文档。
