@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import axios from 'axios';
 import { Row, Col, Icon, Menu, Button, Modal, Popover, Select } from 'antd';
-
+import * as utils from '../utils';
 import { enquireScreen, getLocalizedPathname } from '../utils';
 
 const { Option, OptGroup } = Select;
@@ -150,6 +150,23 @@ class Header extends React.Component {
     });
   };
 
+  handleLangChange = () => {
+    const { pathname } = this.props.location;
+    const currentProtocol = `${window.location.protocol}//`;
+    const currentHref = window.location.href.substr(currentProtocol.length);
+
+    if (utils.isLocalStorageNameSupported()) {
+      localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
+    }
+
+    window.location.href =
+      currentProtocol +
+      currentHref.replace(
+        window.location.pathname,
+        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname))
+      );
+  };
+
   render() {
     const { inputValue, menuMode, menuVisible, searchOption, searching } = this.state;
     const { location, intl } = this.props;
@@ -188,7 +205,7 @@ class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="v1">
           <a href="https://v1.pro.ant.design" target="_blank" rel="noopener noreferrer">
             v1
           </a>
@@ -298,6 +315,11 @@ class Header extends React.Component {
                     <FormattedMessage id="app.home.preview" />
                   </Button>
                 </a>
+              </div>
+              <div id="lang">
+                <Button onClick={this.handleLangChange}>
+                  <FormattedMessage id="app.header.lang" />
+                </Button>
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
             </div>
