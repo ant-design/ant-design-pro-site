@@ -250,4 +250,4 @@ For online theme switching, because less is compiled at build time, in order to 
 
 ### More
 
-See Ant Design Pro 2.0 [release log] (https://pro.ant.design/) for more details.
+See Ant Design Pro 2.0 [release log](https://medium.com/ant-design/beautiful-and-powerful-ant-design-pro-2-0-release-51358da5af95) for more details.

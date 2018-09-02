@@ -251,4 +251,4 @@ Ant Design Pro 使用了 less + cssModule 作为样式的解决方案，你可�
 
 ### 更多
 
-更多请查看 Ant Design Pro 2.0 [发布日志](https://pro.ant.design/index-cn)。
+更多请查看 Ant Design Pro 2.0 [发布日志](https://www.yuque.com/ant-design/ant-design-pro/ant_design_pro_2.0_is_out)。
