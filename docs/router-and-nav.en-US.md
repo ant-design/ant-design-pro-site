@@ -119,4 +119,20 @@ Scaffolding supports routing with parameters by default, but it is not a good id
 { path: '/dashboard/:page', name: 'analysis', component: './Dashboard/Analysis' },
 ```
 
+You can jump to this route with the following code:
+
+```js
+import router from 'umi/router';
+
+router.push('/dashboard/anyParams')
+
+//or
+
+import Link from 'umi/link';
+
+<Link to="/dashboard/anyParams">go</Link>
+```
+
+In the routing component, routing parameters can be obtained via `this.props.match.params`.
+
 See more details:[umi#router](https://umijs.org/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)

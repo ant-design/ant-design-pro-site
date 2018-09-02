@@ -116,7 +116,24 @@ module.exports = [
 脚手架默认支持带参数的路由,但是在菜单中显示带参数的路由并不是个好主意，我们并不会自动的帮你注入一个参数，你可能需要在代码中自行处理。
 
 ```js
-{ path: '/dashboard/:page', name: 'analysis', component: './Dashboard/Analysis' },
+{ path: '/dashboard/:page',hideInMenu:true, name: 'analysis', component: './Dashboard/Analysis' },
 ```
+
+你可以通过 一下代码来跳转到这个路由：
+
+```js
+import router from 'umi/router';
+
+router.push('/dashboard/anyParams')
+
+//or
+
+import Link from 'umi/link';
+
+<Link to="/dashboard/anyParams">go</Link>
+```
+
+在路由组件中，可以通过`this.props.match.params` 来获得路由参数。
+
 
 更多详细内容请参见：[umi#路由](https://umijs.org/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
