@@ -1,1 +1,305 @@
-webpackJsonp([89],{2436:function(n,a){n.exports={content:["article",["p","\u5728\u65e5\u5e38\u5f00\u53d1\u4e2d\uff0c\u5f80\u5f80\u662f\u524d\u540e\u7aef\u5206\u79bb\u7684\uff0c\u8fd9\u4e2a\u65f6\u5019\u7ea6\u5b9a\u597d\u4e00\u5957\u63a5\u53e3\u6807\u51c6\uff0c\u524d\u540e\u7aef\u5404\u81ea\u72ec\u7acb\u5f00\u53d1\uff0c\u5c31\u4e0d\u4f1a\u88ab\u5bf9\u65b9\u7684\u6280\u672f\u96be\u70b9\u7ed9\u963b\u585e\u4f4f\uff0c\u4ece\u800c\u4fdd\u8bc1\u9879\u76ee\u8fdb\u5ea6\u3002"],["p","\u5728 Ant Design Pro \u4e2d\u6211\u4eec\u5df2\u7ecf\u6709\u4e86\u4e00\u5957\u6bd4\u8f83\u5b8c\u5584\u7684 mock \u529f\u80fd\uff0c\u800c ",["a",{title:null,href:"https://github.com/nikogu/roadhog-api-doc"},"roadhog-api-doc"]," \u5de5\u5177\uff0c\u5219\u80fd\u591f\u4ece\u9879\u76ee\u7684 mock \u6570\u636e\u4e2d\u8bfb\u53d6\u63a5\u53e3\u4fe1\u606f\u751f\u6210\u5bf9\u5e94\u7684\u6587\u6863\uff0c\u8fd9\u6837\u5c31\u80fd\u591f\u66f4\u52a0\u6e05\u6670\u660e\u4e86\u7684\u5c55\u73b0\u9879\u76ee\u7684\u63a5\u53e3\u60c5\u51b5\u3002"],["p","\u6548\u679c\u5982\u4e0b\uff1a",["a",{title:null,href:"https://preview.pro.ant.design/api.html"},"Pro API Docs"],"\u3002"],["h2","\u5982\u4f55\u4f7f\u7528"],["pre",{lang:"bash",highlighted:'$ <span class="token function">npm</span> <span class="token function">install</span> roadhog-api-doc -g'},["code","$ npm install roadhog-api-doc -g"]],["h3","\u672c\u5730\u670d\u52a1"],["p","\u8fdb\u5165\u5230\u9879\u76ee\u6839\u76ee\u5f55\uff0c\u8fd0\u884c\uff1a"],["pre",{lang:"bash",highlighted:'$ roadhog-api-doc start <span class="token punctuation">[</span>port<span class="token punctuation">]</span>'},["code","$ roadhog-api-doc start [port]"]],["p","\u5c31\u53ef\u4ee5\u5728\u5f53\u524d\u9879\u76ee\u8dd1\u8d77\u4e00\u4e2a\u6587\u6863\u7f51\u7ad9\uff0c\u4f46\u662f\u524d\u63d0\u662f\u5fc5\u987b\u8ddf Ant Design Pro \u4e00\u6837\u662f\u57fa\u4e8e ",["a",{title:null,href:"https://github.com/sorrycc/roadhog"},"roadhog"]," \u7684\u9879\u76ee\uff0c\u5e76\u4e14\u4f7f\u7528\u4e86\u6570\u636e mock \u529f\u80fd\uff0c\u56e0\u4e3a\u6587\u6863\u7684\u4fe1\u606f\u6765\u6e90\u5c31\u662f mock \u6587\u4ef6\u3002"],["p","\u9700\u8981\u989d\u5916\u6ce8\u610f\u7684\u662f\uff0c\u4e0a\u9762\u7684 ",["code","port"]," \u53c2\u6570\u6307\u7684\u662f\u5f53\u524d\u672c\u5730\u7684 ",["code","roadhog"]," \u5e94\u7528\u8d77\u7684\u670d\u52a1\uff0c\u5982\u679c\u6307\u5b9a\u4e86\u53ef\u4ee5\u5728\u672c\u5730\u76f4\u63a5\u70b9\u51fb\u8bbf\u95ee\u9879\u76ee\u63a5\u53e3\uff0c\u6ca1\u6709\u6307\u5b9a\u5219\u4f1a\u9759\u6001\u5316\u7f51\u7edc\u8bf7\u6c42\u3002"],["h3","\u9759\u6001\u7ad9\u70b9\u751f\u6210"],["p","\u9879\u76ee\u6839\u76ee\u5f55\uff0c\u8fd0\u884c\uff1a"],["pre",{lang:"bash",highlighted:"$ roadhog-api-doc build"},["code","$ roadhog-api-doc build"]],["p","\u4f1a\u751f\u6210\u4e09\u4e2a\u6587\u6863\u7ad9\u70b9\u9759\u6001\u6587\u4ef6\uff1a",["code","api.html"],"\u3001",["code","api.js"],"\u3001",["code","api.css"],"\uff0c\u4f60\u53ef\u4ee5\u5c06\u5176\u90e8\u7f72\u5230\u81ea\u5df1\u7684\u7ad9\u70b9\u4e2d\u4f9b\u7ebf\u4e0a\u8bbf\u95ee\uff0c\u8fd9\u91cc\u7684\u6570\u636e\u5df2\u7ecf\u88ab\u9759\u6001\u5316\uff08\u8f6c\u6362\u7f51\u7edc\u8bf7\u6c42\u4e3a\u4ee3\u7801\u6570\u636e\uff09\u3002"],["h3","\u4e66\u5199\u6587\u6863"],["p","\u901a\u5e38\u6765\u8bb2\uff0c\u4f60\u65e0\u9700\u989d\u5916\u52a0\u5165\u4efb\u4f55\u4f9d\u8d56\u5c31\u53ef\u4ee5\u751f\u6210\u6587\u6863\uff0c\u4f46\u662f\u5982\u679c\u4f60\u9700\u8981\u5bf9\u63a5\u53e3\u505a\u51fa\u8bf4\u660e\uff0c\u9700\u8981\u6309\u7167\u4ee5\u4e0b\u683c\u5f0f\u5bf9 ",["code","roadhog mock"]," \u6587\u4ef6\u8fdb\u884c\u4fee\u6539\uff1a"],["pre",{lang:"bash",highlighted:'$ <span class="token function">npm</span> <span class="token function">install</span> roadhog-api-doc --save-dev <span class="token comment" spellcheck="true"># \u5c06 roadhog-api-doc \u4f5c\u4e3a\u672c\u5730\u5de5\u5177\u4f9d\u8d56\u5b89\u88c5</span>'},["code","$ npm install roadhog-api-doc --save-dev # \u5c06 roadhog-api-doc \u4f5c\u4e3a\u672c\u5730\u5de5\u5177\u4f9d\u8d56\u5b89\u88c5"]],["pre",{lang:"js",highlighted:'<span class="token keyword">import</span> <span class="token punctuation">{</span> format <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">\'roadhog-api-doc\'</span><span class="token punctuation">;</span>\n\n<span class="token keyword">const</span> proxy <span class="token operator">=</span> <span class="token punctuation">{</span>\n  <span class="token string">\'GET /api/currentUser\'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>\n    $desc<span class="token punctuation">:</span> <span class="token string">"\u83b7\u53d6\u5f53\u524d\u7528\u6237\u63a5\u53e3"</span><span class="token punctuation">,</span>\n    $params<span class="token punctuation">:</span> <span class="token punctuation">{</span>\n      pageSize<span class="token punctuation">:</span> <span class="token punctuation">{</span>\n        desc<span class="token punctuation">:</span> <span class="token string">\'\u5206\u9875\'</span><span class="token punctuation">,</span>\n        exp<span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>\n      <span class="token punctuation">}</span><span class="token punctuation">,</span>\n    <span class="token punctuation">}</span><span class="token punctuation">,</span>\n    $body<span class="token punctuation">:</span> <span class="token punctuation">{</span>\n      name<span class="token punctuation">:</span> <span class="token string">\'momo.zxy\'</span><span class="token punctuation">,</span>\n      avatar<span class="token punctuation">:</span> imgMap<span class="token punctuation">.</span>user<span class="token punctuation">,</span>\n      userid<span class="token punctuation">:</span> <span class="token string">\'00000001\'</span><span class="token punctuation">,</span>\n      notifyCount<span class="token punctuation">:</span> <span class="token number">12</span><span class="token punctuation">,</span>\n    <span class="token punctuation">}</span><span class="token punctuation">,</span>\n  <span class="token punctuation">}</span><span class="token punctuation">,</span>\n<span class="token punctuation">}</span><span class="token punctuation">;</span>\n\n<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">format</span><span class="token punctuation">(</span>proxy<span class="token punctuation">)</span><span class="token punctuation">;</span>'},["code","import { format } from 'roadhog-api-doc';\n\nconst proxy = {\n  'GET /api/currentUser': {\n    $desc: \"\u83b7\u53d6\u5f53\u524d\u7528\u6237\u63a5\u53e3\",\n    $params: {\n      pageSize: {\n        desc: '\u5206\u9875',\n        exp: 2,\n      },\n    },\n    $body: {\n      name: 'momo.zxy',\n      avatar: imgMap.user,\n      userid: '00000001',\n      notifyCount: 12,\n    },\n  },\n};\n\nexport default format(proxy);"]],["p","\u5176\u4e2d\uff1a"],["ul",["li",["p","$desc: \u63a5\u53e3\u8bf4\u660e"]],["li",["p","$params: \u63a5\u53e3\u53c2\u6570\u8bf4\u660e\uff0c\u5bf9\u8c61\u63cf\u8ff0\u5404\u4e2a\u53c2\u6570\u7684\u610f\u4e49"]],["li",["p","$body: \u6570\u636e\u8fd4\u56de\u7ed3\u679c\uff0c\u901a\u5e38\u5c31\u662f mock \u7684\u6570\u636e"]]],["p",["img",{width:"600",src:"https://gw.alipayobjects.com/zos/rmsportal/PVfsHataJahAwAVaKDtp.png"}]],["h3","\u672c\u5730\u6d4b\u8bd5 mock \u6570\u636e\u548c\u771f\u5b9e\u7aef\u53e3"],["p","\u5f53\u542f\u52a8\u672c\u5730\u7684 API Docs \u7ad9\u70b9\u4ee5\u540e\uff0c\u53ef\u4ee5\u70b9\u51fb ",["code","send"]," \u6309\u94ae\u53d1\u9001 ",["code","POST"]," \u6216\u8005 ",["code","GET"]," \u8bf7\u6c42\uff0c\u5e76\u4e14\u8fd4\u56de\u503c\u4f1a\u5728\u5f39\u51fa\u6846\u4e2d\u663e\u793a\uff1a"],["p",["img",{width:"600",src:"https://gw.alipayobjects.com/zos/rmsportal/mkgrIEbmhXZFbSOWvTCz.png"}]],["p","\u5176\u4e2d\u9700\u8981\u6ce8\u610f\u7684\u662f\uff0c\u5982\u679c\u542f\u52a8 API Docs \u7ad9\u70b9\u65f6\uff0c\u6ca1\u6709\u52a0\u7aef\u53e3\u53f7\uff0c\u90a3\u4e48\u8fd9\u91cc\u7684\u8fd4\u56de\u6570\u636e\u662f\u9759\u6001\u6570\u636e\uff0c\u5982\u679c\u52a0\u4e86\u7aef\u53e3\u53f7\u5e76\u4e14\u672c\u5730\u4e5f\u540c\u65f6\u8dd1\u8d77\u4e86\u9879\u76ee\uff0c\u90a3\u4e48\u5c31\u4f1a\u76f4\u63a5\u8fd4\u56de\u5b9e\u9645\u6570\u636e\u3002"],["p","\u5982\u679c\u4f60\u60f3\u76f4\u63a5\u8bbf\u95ee\u7ebf\u4e0a\u7684\u771f\u5b9e\u6570\u636e\uff0c\u90a3\u4e48\u9700\u8981\u6539\u5199\u5f53\u524d\u9879\u76ee\u7684 ",["code",".roadhog.mock.js"],"\uff0c",["a",{title:null,href:"https://github.com/sorrycc/roadhog#mock"},"\u91cd\u5b9a\u5411"],"\u5230\u7ebf\u4e0a\u8def\u5f84\u3002"],["p","\u53ef\u4ee5\u901a\u8fc7\u8bbf\u95ee ",["a",{title:null,href:"https://github.com/nikogu/roadhog-api-doc"},"roadhog-api-doc github"]," \u4e86\u89e3\u66f4\u591a\u3002"]],meta:{order:19,title:"\u4f7f\u7528 API \u6587\u6863\u5de5\u5177",type:"\u8fdb\u9636",filename:"docs/api-doc.zh-CN.md"},toc:["ul",["li",["a",{className:"bisheng-toc-h2",href:"#\u5982\u4f55\u4f7f\u7528",title:"\u5982\u4f55\u4f7f\u7528"},"\u5982\u4f55\u4f7f\u7528"]]]}}});
+webpackJsonp([89],{
+
+/***/ 2428:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "content": [
+    "article",
+    [
+      "p",
+      "在日常开发中，往往是前后端分离的，这个时候约定好一套接口标准，前后端各自独立开发，就不会被对方的技术难点给阻塞住，从而保证项目进度。"
+    ],
+    [
+      "p",
+      "在 Ant Design Pro 中我们已经有了一套比较完善的 mock 功能，而 ",
+      [
+        "a",
+        {
+          "title": null,
+          "href": "https://github.com/nikogu/roadhog-api-doc"
+        },
+        "roadhog-api-doc"
+      ],
+      " 工具，则能够从项目的 mock 数据中读取接口信息生成对应的文档，这样就能够更加清晰明了的展现项目的接口情况。"
+    ],
+    [
+      "p",
+      "效果如下：",
+      [
+        "a",
+        {
+          "title": null,
+          "href": "https://preview.pro.ant.design/api.html"
+        },
+        "Pro API Docs"
+      ],
+      "。"
+    ],
+    [
+      "h2",
+      "如何使用"
+    ],
+    [
+      "pre",
+      {
+        "lang": "bash",
+        "highlighted": "$ <span class=\"token function\">npm</span> <span class=\"token function\">install</span> roadhog-api-doc -g"
+      },
+      [
+        "code",
+        "$ npm install roadhog-api-doc -g"
+      ]
+    ],
+    [
+      "h3",
+      "本地服务"
+    ],
+    [
+      "p",
+      "进入到项目根目录，运行："
+    ],
+    [
+      "pre",
+      {
+        "lang": "bash",
+        "highlighted": "$ roadhog-api-doc start <span class=\"token punctuation\">[</span>port<span class=\"token punctuation\">]</span>"
+      },
+      [
+        "code",
+        "$ roadhog-api-doc start [port]"
+      ]
+    ],
+    [
+      "p",
+      "就可以在当前项目跑起一个文档网站，但是前提是必须跟 Ant Design Pro 一样是基于 ",
+      [
+        "a",
+        {
+          "title": null,
+          "href": "https://github.com/sorrycc/roadhog"
+        },
+        "roadhog"
+      ],
+      " 的项目，并且使用了数据 mock 功能，因为文档的信息来源就是 mock 文件。"
+    ],
+    [
+      "p",
+      "需要额外注意的是，上面的 ",
+      [
+        "code",
+        "port"
+      ],
+      " 参数指的是当前本地的 ",
+      [
+        "code",
+        "roadhog"
+      ],
+      " 应用起的服务，如果指定了可以在本地直接点击访问项目接口，没有指定则会静态化网络请求。"
+    ],
+    [
+      "h3",
+      "静态站点生成"
+    ],
+    [
+      "p",
+      "项目根目录，运行："
+    ],
+    [
+      "pre",
+      {
+        "lang": "bash",
+        "highlighted": "$ roadhog-api-doc build"
+      },
+      [
+        "code",
+        "$ roadhog-api-doc build"
+      ]
+    ],
+    [
+      "p",
+      "会生成三个文档站点静态文件：",
+      [
+        "code",
+        "api.html"
+      ],
+      "、",
+      [
+        "code",
+        "api.js"
+      ],
+      "、",
+      [
+        "code",
+        "api.css"
+      ],
+      "，你可以将其部署到自己的站点中供线上访问，这里的数据已经被静态化（转换网络请求为代码数据）。"
+    ],
+    [
+      "h3",
+      "书写文档"
+    ],
+    [
+      "p",
+      "通常来讲，你无需额外加入任何依赖就可以生成文档，但是如果你需要对接口做出说明，需要按照以下格式对 ",
+      [
+        "code",
+        "roadhog mock"
+      ],
+      " 文件进行修改："
+    ],
+    [
+      "pre",
+      {
+        "lang": "bash",
+        "highlighted": "$ <span class=\"token function\">npm</span> <span class=\"token function\">install</span> roadhog-api-doc --save-dev <span class=\"token comment\" spellcheck=\"true\"># 将 roadhog-api-doc 作为本地工具依赖安装</span>"
+      },
+      [
+        "code",
+        "$ npm install roadhog-api-doc --save-dev # 将 roadhog-api-doc 作为本地工具依赖安装"
+      ]
+    ],
+    [
+      "pre",
+      {
+        "lang": "js",
+        "highlighted": "<span class=\"token keyword\">import</span> <span class=\"token punctuation\">{</span> format <span class=\"token punctuation\">}</span> <span class=\"token keyword\">from</span> <span class=\"token string\">'roadhog-api-doc'</span><span class=\"token punctuation\">;</span>\n\n<span class=\"token keyword\">const</span> proxy <span class=\"token operator\">=</span> <span class=\"token punctuation\">{</span>\n  <span class=\"token string\">'GET /api/currentUser'</span><span class=\"token punctuation\">:</span> <span class=\"token punctuation\">{</span>\n    $desc<span class=\"token punctuation\">:</span> <span class=\"token string\">\"获取当前用户接口\"</span><span class=\"token punctuation\">,</span>\n    $params<span class=\"token punctuation\">:</span> <span class=\"token punctuation\">{</span>\n      pageSize<span class=\"token punctuation\">:</span> <span class=\"token punctuation\">{</span>\n        desc<span class=\"token punctuation\">:</span> <span class=\"token string\">'分页'</span><span class=\"token punctuation\">,</span>\n        exp<span class=\"token punctuation\">:</span> <span class=\"token number\">2</span><span class=\"token punctuation\">,</span>\n      <span class=\"token punctuation\">}</span><span class=\"token punctuation\">,</span>\n    <span class=\"token punctuation\">}</span><span class=\"token punctuation\">,</span>\n    $body<span class=\"token punctuation\">:</span> <span class=\"token punctuation\">{</span>\n      name<span class=\"token punctuation\">:</span> <span class=\"token string\">'momo.zxy'</span><span class=\"token punctuation\">,</span>\n      avatar<span class=\"token punctuation\">:</span> imgMap<span class=\"token punctuation\">.</span>user<span class=\"token punctuation\">,</span>\n      userid<span class=\"token punctuation\">:</span> <span class=\"token string\">'00000001'</span><span class=\"token punctuation\">,</span>\n      notifyCount<span class=\"token punctuation\">:</span> <span class=\"token number\">12</span><span class=\"token punctuation\">,</span>\n    <span class=\"token punctuation\">}</span><span class=\"token punctuation\">,</span>\n  <span class=\"token punctuation\">}</span><span class=\"token punctuation\">,</span>\n<span class=\"token punctuation\">}</span><span class=\"token punctuation\">;</span>\n\n<span class=\"token keyword\">export</span> <span class=\"token keyword\">default</span> <span class=\"token function\">format</span><span class=\"token punctuation\">(</span>proxy<span class=\"token punctuation\">)</span><span class=\"token punctuation\">;</span>"
+      },
+      [
+        "code",
+        "import { format } from 'roadhog-api-doc';\n\nconst proxy = {\n  'GET /api/currentUser': {\n    $desc: \"获取当前用户接口\",\n    $params: {\n      pageSize: {\n        desc: '分页',\n        exp: 2,\n      },\n    },\n    $body: {\n      name: 'momo.zxy',\n      avatar: imgMap.user,\n      userid: '00000001',\n      notifyCount: 12,\n    },\n  },\n};\n\nexport default format(proxy);"
+      ]
+    ],
+    [
+      "p",
+      "其中："
+    ],
+    [
+      "ul",
+      [
+        "li",
+        [
+          "p",
+          "$desc: 接口说明"
+        ]
+      ],
+      [
+        "li",
+        [
+          "p",
+          "$params: 接口参数说明，对象描述各个参数的意义"
+        ]
+      ],
+      [
+        "li",
+        [
+          "p",
+          "$body: 数据返回结果，通常就是 mock 的数据"
+        ]
+      ]
+    ],
+    [
+      "p",
+      [
+        "img",
+        {
+          "width": "600",
+          "src": "https://gw.alipayobjects.com/zos/rmsportal/PVfsHataJahAwAVaKDtp.png"
+        }
+      ]
+    ],
+    [
+      "h3",
+      "本地测试 mock 数据和真实端口"
+    ],
+    [
+      "p",
+      "当启动本地的 API Docs 站点以后，可以点击 ",
+      [
+        "code",
+        "send"
+      ],
+      " 按钮发送 ",
+      [
+        "code",
+        "POST"
+      ],
+      " 或者 ",
+      [
+        "code",
+        "GET"
+      ],
+      " 请求，并且返回值会在弹出框中显示："
+    ],
+    [
+      "p",
+      [
+        "img",
+        {
+          "width": "600",
+          "src": "https://gw.alipayobjects.com/zos/rmsportal/mkgrIEbmhXZFbSOWvTCz.png"
+        }
+      ]
+    ],
+    [
+      "p",
+      "其中需要注意的是，如果启动 API Docs 站点时，没有加端口号，那么这里的返回数据是静态数据，如果加了端口号并且本地也同时跑起了项目，那么就会直接返回实际数据。"
+    ],
+    [
+      "p",
+      "如果你想直接访问线上的真实数据，那么需要改写当前项目的 ",
+      [
+        "code",
+        ".roadhog.mock.js"
+      ],
+      "，",
+      [
+        "a",
+        {
+          "title": null,
+          "href": "https://github.com/sorrycc/roadhog#mock"
+        },
+        "重定向"
+      ],
+      "到线上路径。"
+    ],
+    [
+      "p",
+      "可以通过访问 ",
+      [
+        "a",
+        {
+          "title": null,
+          "href": "https://github.com/nikogu/roadhog-api-doc"
+        },
+        "roadhog-api-doc github"
+      ],
+      " 了解更多。"
+    ]
+  ],
+  "meta": {
+    "order": 19,
+    "title": "使用 API 文档工具",
+    "type": "进阶",
+    "filename": "docs/api-doc.zh-CN.md"
+  },
+  "toc": [
+    "ul",
+    [
+      "li",
+      [
+        "a",
+        {
+          "className": "bisheng-toc-h2",
+          "href": "#如何使用",
+          "title": "如何使用"
+        },
+        "如何使用"
+      ]
+    ]
+  ]
+};
+
+/***/ })
+
+});

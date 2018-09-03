@@ -1,1 +1,131 @@
-webpackJsonp([37],{2401:function(t,e){t.exports={content:["section",["p","\u5012\u8ba1\u65f6\u7ec4\u4ef6\u3002"]],meta:{title:"CountDown",subtitle:"\u5012\u8ba1\u65f6",cols:1,order:3,filename:"scaffold/src/components/CountDown/index.zh-CN.md"},toc:["ul",["li",["a",{className:"bisheng-toc-h2",href:"#API",title:"API"},"API"]]],api:["section",["h2","API"],["table",["thead",["tr",["th","\u53c2\u6570"],["th","\u8bf4\u660e"],["th","\u7c7b\u578b"],["th","\u9ed8\u8ba4\u503c"]]],["tbody",["tr",["td","format"],["td","\u65f6\u95f4\u683c\u5f0f\u5316\u663e\u793a"],["td","Function(time)"],["td"]],["tr",["td","target"],["td","\u76ee\u6807\u65f6\u95f4"],["td","Date"],["td","-"]],["tr",["td","onEnd"],["td","\u5012\u8ba1\u65f6\u7ed3\u675f\u56de\u8c03"],["td","funtion"],["td","-"]]]]]}}});
+webpackJsonp([37],{
+
+/***/ 2393:
+/***/ (function(module, exports) {
+
+module.exports = {
+  "content": [
+    "section",
+    [
+      "p",
+      "倒计时组件。"
+    ]
+  ],
+  "meta": {
+    "title": "CountDown",
+    "subtitle": "倒计时",
+    "cols": 1,
+    "order": 3,
+    "filename": "scaffold/src/components/CountDown/index.zh-CN.md"
+  },
+  "toc": [
+    "ul",
+    [
+      "li",
+      [
+        "a",
+        {
+          "className": "bisheng-toc-h2",
+          "href": "#API",
+          "title": "API"
+        },
+        "API"
+      ]
+    ]
+  ],
+  "api": [
+    "section",
+    [
+      "h2",
+      "API"
+    ],
+    [
+      "table",
+      [
+        "thead",
+        [
+          "tr",
+          [
+            "th",
+            "参数"
+          ],
+          [
+            "th",
+            "说明"
+          ],
+          [
+            "th",
+            "类型"
+          ],
+          [
+            "th",
+            "默认值"
+          ]
+        ]
+      ],
+      [
+        "tbody",
+        [
+          "tr",
+          [
+            "td",
+            "format"
+          ],
+          [
+            "td",
+            "时间格式化显示"
+          ],
+          [
+            "td",
+            "Function(time)"
+          ],
+          [
+            "td"
+          ]
+        ],
+        [
+          "tr",
+          [
+            "td",
+            "target"
+          ],
+          [
+            "td",
+            "目标时间"
+          ],
+          [
+            "td",
+            "Date"
+          ],
+          [
+            "td",
+            "-"
+          ]
+        ],
+        [
+          "tr",
+          [
+            "td",
+            "onEnd"
+          ],
+          [
+            "td",
+            "倒计时结束回调"
+          ],
+          [
+            "td",
+            "funtion"
+          ],
+          [
+            "td",
+            "-"
+          ]
+        ]
+      ]
+    ]
+  ]
+};
+
+/***/ })
+
+});
