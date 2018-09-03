@@ -119,7 +119,7 @@ module.exports = [
 { path: '/dashboard/:page',hideInMenu:true, name: 'analysis', component: './Dashboard/Analysis' },
 ```
 
-你可以通过 一下代码来跳转到这个路由：
+你可以通过以下代码来跳转到这个路由：
 
 ```js
 import router from 'umi/router';
