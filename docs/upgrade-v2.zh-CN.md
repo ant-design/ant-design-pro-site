@@ -14,7 +14,7 @@ type: 其他
 
 - 把 `package.json` roadhog 的依赖修改为 umi。
 - 修改 `.webpackrc.js` 中的配置到 `config/config.js` 中。
-- 修改 `src/ruotes` 目录名称为 pages，pages 是 umi 约定的目录。
+- 修改 `src/routes` 目录名称为 pages，pages 是 umi 约定的目录。
 - 删除 `src/models/index.js`，在 umi 中 models 文件夹中的 dva model 会被自动挂载。
 - 重命名 `index.ejs` 为 `pages/document.ejs`，它是 umi 约定的文件。
 - 修改 `index.less` 为 `global.less` 和修改 `index.js` 为 `global.js`，他们也是 umi 约定的文件。
@@ -40,12 +40,14 @@ type: 其他
 - "react": "^16.4.1",
 - "react-dom": "^16.4.1",
 - "react-loadable": "^5.5.0",
-+ "umi-plugin-react": "^1.0.0-beta.21"
+  ...
 },
 "devDependencies": {
-+ "umi": "^2.0.0-beta.21",
++ "umi": "^2.0.0",
++ "umi-plugin-react": "^1.0.0",
 - "roadhog": "^2.4.2",
 - "roadhog-api-doc": "^1.1.2",
+  ...
 }
 ```
 
@@ -98,7 +100,7 @@ export default {
 
 另外我们推荐将 `theme` 配置直接写到 `config/config.js` 中，然后就可以删除掉 `src/theme.js` 了。
 
-### 修改 ruotes 为 pages
+### 修改 routes 为 pages
 
 在 umi 中大量使用了约定和配置来高效的实现一些功能，其中 umi 就约定了 `src/pages` 目录为页面组件的存放目录。在 Ant Design Pro 1.0 中，我们的页面都存放在 `src/routes` 下面，所以我们只需要将 routes 重命名为 pages 即可。
 
