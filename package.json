@@ -10,9 +10,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "antd": "^3.8.0",
+    "antd": "^3.9.1",
     "axios": "^0.18.0",
-    "bizcharts": "^3.2.1-beta.1",
+    "bizcharts": "^3.2.2",
     "bizcharts-plugin-slider": "^2.0.4",
     "eslint-config-prettier": "^2.9.0",
     "lint-staged": "^7.0.5",

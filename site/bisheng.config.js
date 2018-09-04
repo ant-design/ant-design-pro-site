@@ -84,6 +84,8 @@ module.exports = {
       react: 'React',
       bizcharts: 'BizCharts',
       'react-dom': 'ReactDOM',
+      moment: 'moment',
+      antd: 'antd',
     };
 
     return config;
