@@ -32,9 +32,11 @@ type: 入门
 
 ### 菜单
 
-菜单根据 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 生成，具体逻辑在 `src/layouts/LoadingPage` 中的 `formatter` 方法实现。
+菜单根据 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 生成，具体逻辑在 `src/layouts/BasicLayout` 中的 `formatter` 方法实现。
 
-> 如果你的项目并不需要菜单，你可以直接在 `BasicLayout` 中删除 `SiderMenu` 组件的挂载。并在 `src/layouts/LoadingPage` 中 设置 `const MenuData = []`。
+> 如果你的项目并不需要菜单，你可以直接在 `BasicLayout` 中删除 `SiderMenu` 组件的挂载。并在 [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227) 中 设置 `const MenuData = []`。
+
+> 如果你需要从服务器请求菜单，可以将 [menuData](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227)  设置为 state，然后通过网络获取来修改了 state。
 
 ### 面包屑
 
@@ -72,7 +74,7 @@ type: 入门
   // app
   {
     path: '/',
-    component: '../layouts/LoadingPage',
+    component: '../layouts/BasicLayout',
     routes: [
       // dashboard
       { path: '/', redirect: '/dashboard/analysis' },
@@ -98,7 +100,7 @@ module.exports = [
    // app
    {
     path: '/',
-    component: '../layouts/LoadingPage',
+    component: '../layouts/BasicLayout',
     routes:[...]
    },
    // new

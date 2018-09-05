@@ -32,9 +32,11 @@ At present, all the routes in the scaffolding are managed by [`router.config.js`
 
 ### Menu
 
-The menu is generated according to [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js), and the concrete logic is implemented in the `formatter` method in `src/layouts/LoadingPage`.
+The menu is generated according to [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js), and the concrete logic is implemented in the `formatter` method in [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227).
 
-> If your project does not require a menu, you can remove the mount of the `SiderMenu` component directly in `BasicLayout`. And set `const MenuData = []` in `src/layouts/LoadingPage`.
+> If your project does not require a menu, you can remove the mount of the `SiderMenu` component directly in `BasicLayout`. And set `const MenuData = []` in `src/layouts/BasicLayout`.
+
+> If you need to request a menu from the server, you can set [menuData](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227) to state. Then the status is modified by the network acquisition.
 
 ### Bread Crumbs
 
@@ -72,7 +74,7 @@ If your page can take advantage of both layouts, you only need to add one to the
   // app
   {
     path: '/',
-    component: '../layouts/LoadingPage',
+    component: '../layouts/BasicLayout',
     routes: [
       // dashboard
       { path: '/', redirect: '/dashboard/analysis' },
@@ -83,7 +85,7 @@ If your page can take advantage of both layouts, you only need to add one to the
 
 When added, the relevant routing and navigation will be automatically generated.
 
-### 新增布局
+### Add layout
 
 In the scaffolding we implement the layout template by nesting the route. [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) is an array, where the first level of data is our layout, if you need to add a new layout you can directly add a new level one array.
 
@@ -98,7 +100,7 @@ module.exports = [
    // app
    {
     path: '/',
-    component: '../layouts/LoadingPage',
+    component: '../layouts/BasicLayout',
     routes:[...]
    },
    // new
