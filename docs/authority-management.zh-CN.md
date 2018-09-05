@@ -27,7 +27,7 @@ type: 进阶
   path: '/form',
   icon: 'form',
   name: 'form',
-  children: [{
+  routes:[{
     path: '/form/basic-form',
     name: 'basicform',
     component: './Forms/BasicForm',
