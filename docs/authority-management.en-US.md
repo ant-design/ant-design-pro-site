@@ -27,7 +27,7 @@ For permission control of certain menus, just go to the router configuration fil
   path: '/form',
   icon: 'form',
   name: 'form',
-  children: [{
+  routes:[{
     path: '/form/basic-form',
     name: 'basicform',
     component: './Forms/BasicForm',

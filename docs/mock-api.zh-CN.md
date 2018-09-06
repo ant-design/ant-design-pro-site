@@ -127,8 +127,8 @@ export default delay(proxy, 1000);
 
 ### 联调
 
-当本地开发完毕之后，如果服务器的接口满足之前的约定，那么只需要[关闭 mock 数据或者代理到服务端的真实接口地址即可](/docs/server-cn#%E4%BB%8E-mock-%E7%9B%B4%E6%8E%A5%E5%88%87%E6%8D%A2%E5%88%B0%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%AF%B7%E6%B1%82)。
+当本地开发完毕之后，如果服务器的接口满足之前的约定，那么只需要关闭 mock 数据或者代理到服务端的真实接口地址即可。
 
 ```bash
-$ npm run start:no-proxy
+$ npm run start:no-mock
 ```

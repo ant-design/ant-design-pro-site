@@ -14,7 +14,7 @@ Note: This migration guide is based on the latest v1 version, and you can find t
 
 - Change the dependency of `package.json` roadhog to umi. 
 - Modify the configuration in `.webpackrc.js` to `config/config.js`.
-- Modify the `src/ruotes` directory name to pages, where pages are the umi agreed directories.
+- Modify the `src/routes` directory name to pages, where pages are the umi agreed directories.
 - Remove `src/models/index.js` and the dva model in the models folder in umi will be mounted automatically.
 - Rename `index.ejs` to `pages/document.ejs`, which is the file agreed by umi.
 - Modify `index.less` to `global.less` and modify `index.js` to `global.js`, which are also umi-constrained files.
@@ -40,12 +40,14 @@ Open `package.json` in the root directory of the project and change the dependen
 - "react": "^16.4.1",
 - "react-dom": "^16.4.1",
 - "react-loadable": "^5.5.0",
-+ "umi-plugin-react": "^1.0.0-beta.21"
+  ...
 },
 "devDependencies": {
-+ "umi": "^2.0.0-beta.21",
++ "umi": "^2.0.0",
++ "umi-plugin-react": "^1.0.0",
 - "roadhog": "^2.4.2",
 - "roadhog-api-doc": "^1.1.2",
+  ...
 }
 ```
 
@@ -98,7 +100,7 @@ However, it should be noted that the following configuration in `.webpackrc.js` 
 
 In addition, we recommend writing the `theme` configuration directly to `config/config.js`, and then you can delete `src/theme.js`.
 
-### Modify ruotes to pages
+### Modify routes to pages
 
 A lot of conventions and configurations are used in umi to efficiently implement some functions, where umi agrees that the `src/pages` directory is the directory where the page components are stored. In Ant Design Pro 1.0, our pages are stored under `src/routes`, so we only need to rename the routes to pages.
 
