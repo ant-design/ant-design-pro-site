@@ -25,7 +25,7 @@ The following is a brief introduction to the basic ideas of each module. If you 
 At present, all the routes in the scaffolding are managed by [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js). In the configuration of umi, we add some parameters, such as `name`, `icon`, `hideChildren`, `authority`, to assist the generation. menu. among them:
 
 - `name` and `icon` represent the icon and text of the generated menu item, respectively.
-- `hideChildren` is used to hide sub-routes that do not need to be displayed in the menu. Usage can view the configuration of the `Step by Step Form`.
+- `hideChildrenInMenu` is used to hide sub-routes that do not need to be displayed in the menu. Usage can view the configuration of the `Step by Step Form`.
 - `hideInMenu` can not display this route in the menu, including sub-routing. The effect can be viewed on the `exception/trigger` page.
 - `authority` is used to configure the permissions of this route. If configured, it will verify the permissions of the current user and decide whether to display it.
 > You may notice that the `name` in the configuration is different from the actual display of the menu. This is because we use the global component, see [i18n](/docs/i18n/).
