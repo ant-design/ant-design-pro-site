@@ -36,8 +36,6 @@ Open `package.json` in the root directory of the project and change the dependen
 "dependencies": {
 - "dva": "^2.2.3",
 - "dva-loading": "^2.0.3",
-- "antd": "^3.8.0",
-- "react": "^16.4.1",
 - "react-dom": "^16.4.1",
 - "react-loadable": "^5.5.0",
   ...
