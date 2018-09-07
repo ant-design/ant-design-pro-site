@@ -1,7 +1,8 @@
 ---
-order: 24
+order: 2
 title: 升级到 2.0 版本
-type: 其他
+type: 入门
+important: true
 ---
 
 在 Ant Design Pro 2.0 版本中除了很多功能性上的增强外，我们还将前端构建工具从 roadhog 升级到了 [UmiJS](https://umijs.org/)（简称 umi）。之所以说是升级而不是替换，是因为 umi 不仅仅是前端构建工具，它还包含了路由以及一套插件机制用于构建一个完整的 React 应用。

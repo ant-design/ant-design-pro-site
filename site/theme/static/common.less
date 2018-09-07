@@ -17,8 +17,7 @@ body {
 a {
   transition: color 0.3s ease;
   &:focus {
-    text-decoration: underline;
-    text-decoration-skip: ink;
+    text-decoration: none;
   }
 }
 
@@ -104,11 +103,11 @@ a {
   display: none;
 }
 
-.ant-menu-item:not(.ant-menu-item-disabled) > a {
+.ant-menu-item:not(.ant-menu-item-disabled) a {
   color: @site-text-color !important;
 }
 
-.ant-menu-item-selected > a {
+.ant-menu-item-selected a {
   color: @primary-color !important;
 }
 

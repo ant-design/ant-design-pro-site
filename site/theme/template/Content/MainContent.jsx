@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon } from 'antd';
+import { Badge, Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
 import Article from './Article';
@@ -144,7 +144,7 @@ export default class MainContent extends React.PureComponent {
 
     return (
       <Menu.Item key={key} disabled={disabled}>
-        {child}
+        {item.important ? <Badge dot={item.important}>{child}</Badge> : child}
       </Menu.Item>
     );
   }

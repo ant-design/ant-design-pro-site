@@ -1,7 +1,8 @@
 ---
-order: 24
+order: 2
 title: Upgrade to V2
-type: Other
+type: Introduction
+important: true
 ---
 
 In addition to many features in the Ant Design Pro 2.0 release, we also upgraded the front-end build tool from roadhog to [UmiJS] (https://umijs.org/) (referred to as umi). The reason for upgrading, not replacement, is that umi is more than just a front-end build tool. It also includes routing and a plugin system for building a complete React application.
