@@ -22323,9 +22323,7 @@ a {
   transition: color 0.3s ease;
 }
 a:focus {
-  text-decoration: underline;
-  -webkit-text-decoration-skip: ink;
-          text-decoration-skip: ink;
+  text-decoration: none;
 }
 .main-wrapper {
   background: #fff;
@@ -22398,10 +22396,10 @@ a:focus {
 .outside-link.internal {
   display: none;
 }
-.ant-menu-item:not(.ant-menu-item-disabled) > a {
+.ant-menu-item:not(.ant-menu-item-disabled) a {
   color: #314659 !important;
 }
-.ant-menu-item-selected > a {
+.ant-menu-item-selected a {
   color: #1890ff !important;
 }
 #react-content {
