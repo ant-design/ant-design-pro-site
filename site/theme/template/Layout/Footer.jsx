@@ -34,7 +34,7 @@ class Footer extends React.Component {
                   <FormattedMessage id="app.footer.resources" />
                 </h2>
                 <div>
-                  <a href="http://pro.ant.design">Ant Design Pro</a>
+                  <a href="http://ant.design">Ant Design</a>
                 </div>
                 <div>
                   <a href="http://mobile.ant.design">Ant Design Mobile</a>
