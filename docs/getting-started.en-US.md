@@ -63,23 +63,11 @@ You will need [node](http://nodejs.org/) and [git](https://git-scm.com/). The pr
 
 ## Installation
 
-There are two ways to install.
-
-### Clone the Git Repository
+Install our newest scaffold by cloning git repository.
 
 ```bash
 $ git clone --depth=1 https://github.com/ant-design/ant-design-pro.git my-project
 $ cd my-project
-```
-
-### Use the Command Line
-
-You can also use [ant-design-pro-cli](https://github.com/ant-design/ant-design-pro-cli).
-
-```bash
-$ npm install ant-design-pro-cli -g
-$ mkdir my-project && cd my-project
-$ pro new  # Initialize Scaffold
 ```
 
 ## Scaffolding

@@ -61,23 +61,11 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 
 ## 安装
 
-有两种方式进行安装：
-
-### 直接 clone git 仓库
+从 GitHub 仓库中直接安装最新的脚手架代码。
 
 ```bash
 $ git clone --depth=1 https://github.com/ant-design/ant-design-pro.git my-project
 $ cd my-project
-```
-
-### 使用命令行工具
-
-你可以使用集成化的命令行工具 [ant-design-pro-cli](https://github.com/ant-design/ant-design-pro-cli)。
-
-```bash
-$ npm install ant-design-pro-cli -g
-$ mkdir my-project && cd my-project
-$ pro new  # 安装脚手架
 ```
 
 ## 目录结构
