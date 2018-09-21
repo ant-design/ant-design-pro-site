@@ -20,7 +20,7 @@ Ant Design Pro 脚手架内用到的组件分为两种：
 > 默认业务组件会发布到 npm 的 [ant-design-pro](http://npmjs.com/ant-design-pro) 上。
 
 ```bash
-$ npm install ant-design-pro@1.x --save
+$ npm install ant-design-pro@latest --save
 ```
 
 ```jsx
