@@ -70,4 +70,4 @@ exports.index = function* () {
 app.get('home', '/*', 'home.index');
 ```
 
-关于路由更多可以参看 [Umi 的路由文档](https://umijs.org/guide/router.html) 。
+关于路由更多可以参看 [Umi 的路由文档](https://umijs.org/zh/guide/router.html) 。

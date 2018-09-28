@@ -10,7 +10,7 @@ type: 入门
 
 ## 一、新增 js、less 文件
 
-在 `src/routes` 下新建页面的 js 及 less 文件，如果相关页面有多个，可以新建一个文件夹来放置相关文件。
+在 `src/pages` 下新建页面的 js 及 less 文件，如果相关页面有多个，可以新建一个文件夹来放置相关文件。
 
 <img width="300" alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/hjDyFTVOgRwDzAIHApMO.png" />
 

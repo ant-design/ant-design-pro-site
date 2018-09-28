@@ -20,28 +20,35 @@ type: 进阶
 
 ### 控制菜单和路由显示
 
-如需对某些页面进行权限控制，只须在路由配置文件 [router.config.js](https://github.com/ant-design/ant-design-pro/blob/master/src/config/router.config.js) 中设置 `authority` 属性即可，代表该路由的准入权限，pro 的路由系统中会默认包裹 `Authorized` 进行判断处理。
+如需对某些页面进行权限控制，只须在路由配置文件 [router.config.js](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 中设置 `Routes` 属性即可，代表该路由的准入权限，pro 的路由系统中会默认包裹 `Authorized` 进行判断处理。
 
 ```js
 {
-  path: '/form',
-  icon: 'form',
-  name: 'form',
-  routes:[{
-    path: '/form/basic-form',
-    name: 'basicform',
-    component: './Forms/BasicForm',
-  }, {
-    path: '/form/step-form',
-    name: 'stepform',
-    component: './Forms/StepForm',
-    authority: ['guest'], // 配置准入权限，可以配置多个角色
-  }, {
-    path: '/form/advanced-form',
-    name: 'advancedform',
-    component: './Forms/AdvancedForm',
-    authority: ['admin'], // 配置准入权限，可以配置多个角色
-  }],
+  path: '/',
+  component: '../layouts/BasicLayout',
+  Routes: ['src/pages/Authorized'],
+  authority: ['admin', 'user'],
+  routes: [
+    // forms
+    {
+      path: '/form',
+      icon: 'form',
+      name: 'form',
+      routes: [
+        {
+          path: '/form/basic-form',
+          name: 'basicform',
+          component: './Forms/BasicForm',
+        },
+        {
+          path: '/form/advanced-form',
+          name: 'advancedform',
+          authority: ['admin'],//配置准入权限,可以配置多个角色
+          component: './Forms/AdvancedForm',
+        },
+      ],
+    },
+  ],
 }
 ```
 

@@ -14,7 +14,7 @@ important: true
 ## 迁移步骤概览
 
 - 把 `package.json` roadhog 的依赖修改为 umi。
-- 修改 `.webpackrc.js` 中的配置到 `config/config.js` 中。
+- 拷贝 `.webpackrc.js` 中的配置到 `config/config.js` 中。
 - 修改 `src/routes` 目录名称为 pages，pages 是 umi 约定的目录。
 - 删除 `src/models/index.js`，在 umi 中 models 文件夹中的 dva model 会被自动挂载。
 - 重命名 `index.ejs` 为 `pages/document.ejs`，它是 umi 约定的文件。
