@@ -19,7 +19,7 @@ type: 进阶
 
 针对页面级的报错，我们提供了两个业务组件供你选择，可以很方便地实现一个报错页面：
 
-- [Exception 异常页](http://preview.pro.ant.design/#/exception/404)
+- [Exception 异常页](https://preview.pro.ant.design/exception/404)
 
 ```js
 <Exception type="404" />
@@ -27,7 +27,7 @@ type: 进阶
 
 默认支持 404，403，500 三种错误，也可自定义文案等内容。
 
-- [Result 结果页](http://preview.pro.ant.design/#/result/fail)
+- [Result 结果页](https://preview.pro.ant.design/result/fail)
 
 ```js
   <Result

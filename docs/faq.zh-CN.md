@@ -33,11 +33,11 @@ type: 其他
 
 ### 如何修改默认 webpack 配置？
 
-详见 [roadhog 配置](https://github.com/sorrycc/roadhog#%E9%85%8D%E7%BD%AE)。
+详见 [umi配置](https://umijs.org/zh/config/)。
 
 ### 如何添加 babel 插件？
 
-详见 [roadhog extraBabelPlugins](https://github.com/sorrycc/roadhog#extrababelplugins)。
+详见 [umi-babel](https://umijs.org/zh/api/#umi-babel)。
 
 ### 如何使用图片等静态资源？
 
@@ -53,7 +53,20 @@ type: 其他
 
 ### 如何添加 scss 支持？
 
-在 `.webpackrc` 中开启 `sass` 配置，详见 [sass](https://github.com/sorrycc/roadhog#sass)。
+先安装额外的依赖，
+
+```bash
+$ npm i node-sass sass-loader --save
+```
+
+然后修改 `.umirc.js`或者`config/config.js`:
+
+```json
+{
+ "sass": {}
+}
+```
+详见 [sass](https://umijs.org/zh/guide/faq.html#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-sass-%EF%BC%9F)。
 
 ### Git commit 时报错？
 
@@ -61,17 +74,9 @@ type: 其他
 
 脚手架默认开启了 [eslint](http://eslint.org/) 代码风格检查，请按照提示内容进行修改后重新提交，也可以手动 `npm run lint` 进行检查。
 
-### 如何禁止 `npm start` 时自动打开浏览器？
-
-修改 `package.json` 里的 `scripts.start` 为：
-
-```js
-"start": "cross-env BROWSER=none roadhog server",
-```
-
 ### 站点是否支持国际化？
 
-这是 Ant Design Pro 的特性之一，目前第一个版本只有中文文案。国际化将是我们下一步的首要工作。
+pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-locale) 来实现全球化的功能,详情请见[国际化](/docs/i18n)
 
 ### English Documentation?
 
@@ -80,4 +85,4 @@ English Documentation will be translated in next couple of monthes, trace [ant-d
 
 ---
 
-更多常见问题可以查看 [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) 和 [roadhog](https://github.com/sorrycc/roadhog)。如果这里未能解决你的问题，欢迎 [报告给我们](https://github.com/ant-design/ant-design-pro/issues)。
+更多常见问题可以查看 [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) 和 [umi](https://github.com/umijs/umi)。如果这里未能解决你的问题，欢迎 [报告给我们](https://github.com/ant-design/ant-design-pro/issues)。

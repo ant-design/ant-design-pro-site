@@ -86,6 +86,6 @@ export default format(proxy);
 
 其中需要注意的是，如果启动 API Docs 站点时，没有加端口号，那么这里的返回数据是静态数据，如果加了端口号并且本地也同时跑起了项目，那么就会直接返回实际数据。
 
-如果你想直接访问线上的真实数据，那么需要改写当前项目的 `.roadhog.mock.js`，[重定向](https://github.com/sorrycc/roadhog#mock)到线上路径。
+如果你想直接访问线上的真实数据，那么需要改写当前项目的 `config/config.js`，[重定向](https://umijs.org/zh/config/#proxy)到线上路径。
 
 可以通过访问 [roadhog-api-doc github](https://github.com/nikogu/roadhog-api-doc) 了解更多。
