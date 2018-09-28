@@ -9,7 +9,7 @@ important: true
 
 所以如果你想要更好的在原有的项目中去添加 Ant Design Pro 2.0 的功能，将 2.0 的代码移植到你的项目中，你最好将你的项目从 roadhog 迁移到 umi。这边文档会指引你完成迁移工作，在此之前你可能需要先阅读 umi 的[文档](https://umijs.org/guide/)，使得先对 umi 有一个初步的认识，这对你的迁移工作会很有帮助。下面是以后大概的步骤，再往后会有更具体的说明。
 
-注：该迁移指南是基于当前最新的 v1 版本编写的,迁移指南对应的修改你可以在升级示例的 [commit](https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c) 中查看。该 commit 只作为参考，不能直接应用在你的项目中，如果你的版本过老可能会有一些细节不一样，请结合具体情况迁移
+注：该迁移指南是基于当前最新的 v1 版本编写的，迁移指南对应的修改你可以在升级示例的 [commit](https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c) 中查看。该 commit 只作为参考，不能直接应用在你的项目中，如果你的版本过老可能会有一些细节不一样，请结合具体情况迁移
 
 ## 迁移步骤概览
 
