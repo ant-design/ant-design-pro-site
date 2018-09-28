@@ -20,7 +20,7 @@ For users without using scaffold, we provide a way to use pro's built-in compone
 > Default components will be published to [ant-design-pro](http://npmjs.com/ant-design-pro) in npm's repository.
 
 ```bash
-$ npm install ant-design-pro@1.x --save
+$ npm install ant-design-pro@latest --save
 ```
 
 ```jsx
