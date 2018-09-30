@@ -826,17 +826,6 @@
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */
 /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
-.login___MLjmJ .tabs___3Gf2S {
-  padding: 0 2px;
-  margin: 0 -2px;
-}
-.login___MLjmJ .tabs___3Gf2S .ant-tabs-tab {
-  font-size: 16px;
-  line-height: 24px;
-}
-.login___MLjmJ .tabs___3Gf2S .ant-input-affix-wrapper .ant-input:not(:first-child) {
-  padding-left: 34px;
-}
 .login___MLjmJ .ant-tabs .ant-tabs-bar {
   border-bottom: 0;
   margin-bottom: 24px;
@@ -845,13 +834,29 @@
 .login___MLjmJ .ant-form-item {
   margin-bottom: 24px;
 }
+.login___MLjmJ .icon___xgCWA {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.2);
+  margin-left: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+.login___MLjmJ .icon___xgCWA:hover {
+  color: #1890ff;
+}
+.login___MLjmJ .other___2tvr6 {
+  text-align: left;
+  margin-top: 24px;
+  line-height: 22px;
+}
+.login___MLjmJ .other___2tvr6 .register___2omIt {
+  float: right;
+}
 .login___MLjmJ .prefixIcon___1x9Sz {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.25);
-}
-.login___MLjmJ .getCaptcha___xwtqL {
-  display: block;
-  width: 100%;
 }
 .login___MLjmJ .submit___3EtF0 {
   width: 100%;
