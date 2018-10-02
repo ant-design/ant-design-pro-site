@@ -248,7 +248,7 @@ Ant Design Pro 使用了 less + cssModule 作为样式的解决方案，你可�
 
 但是 v2 版本支持的导航布局方式等的调整主要是代码的业务逻辑的升级，你可以参考 v2 代码中的 `src/layouts/BasicLayout.js` 的代码做调整。
 
-对于在线的主题切换，因为 less 是在构建时编译的，要想实现在切换，需要支持 less 在在线编译等问题。为了解决该问题，我们开发了 `ant-design-theme` 的 webpack 插件和 `merge-less` 插件一起实现了这样的功能。如果你有需要，你可以参考 v2 代码中的 `config/plugin.config.js` 和 `src/models/setting.sj` 来添加对应代码。
+对于在线的主题切换，因为 less 是在构建时编译的，要想实现在切换，需要支持 less 在在线编译等问题。为了解决该问题，我们开发了 `ant-design-theme` 的 webpack 插件和 `merge-less` 插件一起实现了这样的功能。如果你有需要，你可以参考 v2 代码中的 `config/plugin.config.js` 和 `src/models/setting.js` 来添加对应代码。
 
 ### 更多
 
