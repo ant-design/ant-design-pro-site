@@ -74,7 +74,7 @@ module.exports = [{
 
 ## Ant Design 布局组件
 
-除了 Pro 里的内建布局以为，在一些页面中需要进行布局，可以使用 Ant Design 目前提供的两套布局组件工具：[Layout](http://ant.design/components/layout/) 和 [Grid](http://ant.design/components/grid/)。
+除了 Pro 里的内建布局以外，在一些页面中需要进行布局，可以使用 Ant Design 目前提供的两套布局组件工具：[Layout](http://ant.design/components/layout/) 和 [Grid](http://ant.design/components/grid/)。
 
 ### Grid 组件
 
