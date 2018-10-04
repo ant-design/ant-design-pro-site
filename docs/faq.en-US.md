@@ -27,9 +27,37 @@ Of course you can! Ant Design Pro is based on the latest antd version. There are
 - You can also try merging remote branches: `git pull https://github.com/ant-design/ant-design-pro` (note that you need to resolve conflicts yourself).
 - Copy the latest typical template directly on GitHub.
 
-### `npm test` hangs on `MacOS Sierra`?
+### How to request a menu from the server?
 
-You need to install [watchman](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-test-hangs-on-macos-sierra).
+Just update `this.state.menuData` in [BasicLayout](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js), which is a json array. Just the server returns a json of similar format.
+```js
+ [
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      icon: 'dashboard',
+      children: [
+        {
+          path: '/dashboard/analysis',
+          name: 'analysis',
+          exact: true,
+        },
+        {
+          path: '/dashboard/monitor',
+          name: 'monitor',
+          exact: true,
+        },
+        {
+          path: '/dashboard/workplace',
+          name: 'workplace',
+          exact: true,
+        },
+      ],
+    }
+    ....
+  ]
+```
+> Note that path must be defined in routre.config.js.
 
 ### How to modify the default webpack configuration?
 

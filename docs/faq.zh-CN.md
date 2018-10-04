@@ -27,9 +27,37 @@ type: 其他
 - 也可以尝试合并远程分支：`git pull https://github.com/ant-design/ant-design-pro`（注意，需要自行解决冲突）。
 - 直接在 GitHub 上拷贝最新的典型模板。
 
-### npm test 在 `MacOS Sierra` 下使用报错？
+### 如何从服务器请求菜单？
 
-你需要安装 [watchman](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#npm-test-hangs-on-macos-sierra)。
+只需在 [BasicLayout](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js) 中更新 `this.state.menuData`, menuData 是一个 json 数组。只需服务器返回类似格式的json 即可。
+```js
+ [
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      icon: 'dashboard',
+      children: [
+        {
+          path: '/dashboard/analysis',
+          name: 'analysis',
+          exact: true,
+        },
+        {
+          path: '/dashboard/monitor',
+          name: 'monitor',
+          exact: true,
+        },
+        {
+          path: '/dashboard/workplace',
+          name: 'workplace',
+          exact: true,
+        },
+      ],
+    }
+    ....
+  ]
+```
+> 注意 path 必须要在 routre.config.js 中定义。
 
 ### 如何修改默认 webpack 配置？
 
