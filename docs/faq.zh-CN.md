@@ -79,6 +79,26 @@ type: 其他
 
 请参考文档 [前端路由与服务端的结合](/docs/deploy#前端路由与服务端的结合)。
 
+### 如何代理到后端服务器？
+
+Ant Design Pro 内置了 umi，umi 使用了 webpack [devServer](https://webpack.docschina.org/configuration/dev-server/)来支持代理。
+你只需要在 config.js 中配置 proxy 属性。
+```js
+{
+  ...
+  proxy:{
+    '/server/api/': {
+      target: 'https://preview.pro.ant.design/',
+      changeOrigin: true,
+      pathRewrite: { '^/server': '' }, // /server/api/currentUser -> /api/currentUser
+    },
+  },
+  ...
+}
+```
+
+在浏览器中输入 http://localhost:8000/server/api/currentUser 预览。
+
 ### 如何添加 scss 支持？
 
 先安装额外的依赖，

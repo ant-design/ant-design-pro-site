@@ -79,6 +79,26 @@ Absolute paths can be used directly (map support is required). If you want to us
 
 Please refer to the deploy document [Routing and server integration](/docs/deploy#Routing-and-server-integration).
 
+### 如何代理到后端服务器？
+
+Ant Design Pro has built-in umi, umi uses webpack [devServer](https://webpack.docschina.org/configuration/dev-server/) to support the proxy.
+You only need to configure the proxy property in config.js.
+```js
+{
+  ...
+  proxy:{
+    '/server/api/': {
+      target: 'https://preview.pro.ant.design/',
+      changeOrigin: true,
+      pathRewrite: { '^/server': '' }, // /server/api/currentUser -> /api/currentUser
+    },
+  },
+  ...
+}
+```
+
+Enter http://localhost:8000/server/api/currentUser preview in your browser.
+
 ### How to add scss support?
 
 Open the `sass` configuration in `.webpackrc`, see [sass] (https://github.com/sorrycc/roadhog#sass).
