@@ -100,7 +100,7 @@ server {
 ```
 ### 使用 spring boot
 
-Spring Boot 是在使用最多的 java 框架，只需要简单的几步就可以与 Ant Design Pro 进行整合。
+Spring Boot 是使用最多的 java 框架，只需要简单的几步就可以与 Ant Design Pro 进行整合。
 
 首先运行 build 
 
