@@ -82,7 +82,7 @@ type: 其他
 ### 如何代理到后端服务器？
 
 Ant Design Pro 内置了 umi，umi 使用了 webpack [devServer](https://webpack.docschina.org/configuration/dev-server/)来支持代理。
-你只需要在 config.js 中配置 proxy 属性。
+你只需要在 config.js 中配置 proxy 属性。只要 proxy 和 mock  url 不同，是可以共存的。
 ```js
 {
   ...
