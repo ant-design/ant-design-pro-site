@@ -18,22 +18,23 @@ import Ellipsis from './Ellipsis';
 import Authorized from './Authorized';
 import Login from './Login';
 
-export default {
-  Charts,
-  CountDown,
-  DescriptionList,
-  Exception,
-  FooterToolbar,
-  GlobalFooter,
-  HeaderSearch,
-  NoticeIcon,
-  PageHeader,
-  Result,
-  TagSelect,
-  AvatarList,
-  Trend,
-  NumberInfo,
-  Ellipsis,
-  Authorized,
-  Login,
-};
+interface AntDesignProp {
+  Charts;
+  CountDown;
+  DescriptionList;
+  Exception;
+  FooterToolbar;
+  GlobalFooter;
+  HeaderSearch;
+  NoticeIcon;
+  PageHeader;
+  Result;
+  TagSelect;
+  AvatarList;
+  Trend;
+  NumberInfo;
+  Ellipsis;
+  Authorized;
+  Login;
+}
+export default AntDesignProp;
