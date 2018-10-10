@@ -40,7 +40,7 @@ type: 入门
 
 ### 面包屑
 
-面包屑由 `PageHeaderLayout` 实现，`MenuContext` 将 根据 `MenuData` 生成的 `breadcrumbNameMap` 通过 props 传递给了 `PageHeader`，如果你要做自定义的面包屑，可以通过修改传入的 `breadcrumbNameMap` 来解决。
+面包屑由 `PageHeaderWrapper` 实现，`MenuContext` 将 根据 `MenuData` 生成的 `breadcrumbNameMap` 通过 props 传递给了 `PageHeader`，如果你要做自定义的面包屑，可以通过修改传入的 `breadcrumbNameMap` 来解决。
 
 `breadcrumbNameMap` 示例数据如下：
 
@@ -87,7 +87,7 @@ type: 入门
 
 ### 新增布局
 
-在脚手架中我们通过嵌套路由来实现布局模板。[`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以在直接增加一个新的一级数组。
+在脚手架中我们通过嵌套路由来实现布局模板。[`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以再直接增加一个新的一级数据。
 
 ```js
 module.exports = [
@@ -115,10 +115,10 @@ module.exports = [
 
 ### 带参数的路由
 
-脚手架默认支持带参数的路由,但是在菜单中显示带参数的路由并不是个好主意，我们并不会自动的帮你注入一个参数，你可能需要在代码中自行处理。
+脚手架默认支持带参数的路由，但是在菜单中显示带参数的路由并不是个好主意，我们并不会自动的帮你注入一个参数，你可能需要在代码中自行处理。
 
 ```js
-{ path: '/dashboard/:page',hideInMenu:true, name: 'analysis', component: './Dashboard/Analysis' },
+{ path: '/dashboard/:page', hideInMenu:true, name: 'analysis', component: './Dashboard/Analysis' },
 ```
 
 你可以通过以下代码来跳转到这个路由：
