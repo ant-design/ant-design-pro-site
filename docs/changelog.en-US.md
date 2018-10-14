@@ -6,6 +6,38 @@ type: Other
 
 [Older Version](http://03x.pro.ant.design/)
 
+### 2.1.0
+
+`2018-10-14`
+
+#### Scaffold
+
+- Added and improved multiple [documents](https://pro.ant.design/docs/getting-started-cn).
+- Fixed an issue where exiting the login did not work. [#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
+- Add an environment variable `APP_TYPE`. In the non-pro official website environment, the default sidebar is not added by default. [8e28420](https://github.com/ant-design/ant-design-pro/commit/8e28420e0bb68d1cfc5fb3e6b3f943c043a2e770)
+- Fixed an issue where the logo and sidebar border styles were incorrect under the white theme. [3472590](https://github.com/ant-design/ant-design-pro/commit/3472590fca1834f86126b6e2665e677e93f52eae) [
+57cb464](https://github.com/ant-design/ant-design-pro/commit/57cb464f9ea2e9b444f76451c422304cfa724249)
+- The sidebar can now be scrolled separately. [#2191](https://github.com/ant-design/ant-design-pro/issues/2191)
+- Fix a bug that was reported after successful registration. [de86a3](https://github.com/ant-design/ant-design-pro/commit/de86a30cc717ab8945e8fdb56604dbbac7f91b5e)
+- Fixed an issue where it did not jump to the login screen when not logged in. [#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
+- Fixed an issue where a blank area was left after the sidebar was automatically retracted when the side menu was fixed.[#2175](https://github.com/ant-design/ant-design-pro/issues/2175)
+- Added support for `Traditional Chinese` and [`Portuguese`] (https://github.com/ant-design/ant-design-pro/pull/2384).
+- Added test at the layout level.[#2499](https://github.com/ant-design/ant-design-pro/pull/2499)
+- Added support for docker. [#2430](https://github.com/ant-design/ant-design-pro/pull/2430)
+- Supported ie11. [88be0d2](https://github.com/ant-design/ant-design-pro/commit/88be0d2bed82e2b1c301069156132107707e308b)
+- Refactored the Render method of AdvancedForm. [5bcf89](https://github.com/ant-design/ant-design-pro/commit/5bcf895ad440851215084963500e7d8bb594c2dc)
+- Extract the ArticleListContent as a public component. [#2482](https://github.com/ant-design/ant-design-pro/pull/2482)
+
+#### Components
+
+- HeaderSearch add `open` 和 `onVisibleChange` props. [5b5a737](https://github.com/ant-design/ant-design-pro/commit/5b5a737a5d851b2635abba0578e63aa464bbe3bf#diff-0919a70b52c8206136618718371372cb)
+- PageHeader adds the `hiddenBreadcrumb` attribute. [231e72](https://github.com/ant-design/ant-design-pro/commit/231e725abd99c91c4304001fbf784f426f85925e)
+-Fix Ellipsis's `tooltip` bug in exception. [0d47d5](https://github.com/ant-design/ant-design-pro/commit/0d47d5040c5856f783c4dd3b9c0484a1983351f4)
+- Fixed a bug that was unusual in Firefox 40.0.3. [85f466](https://github.com/ant-design/ant-design-pro/commit/85f46650114bb19d0f251d839e41182c24316973)
+- Fix the problem that the chart does not render when the Pie `percent` value is 0. [5b2daa](https://github.com/ant-design/ant-design-pro/commit/5b2daa657bf030aa11e7b583825ffe002a7619b7)
+- Fix the problem that LoginItem custom `rules` doesn't work. [9f89ce](https://github.com/ant-design/ant-design-pro/commit/9f89ce45715b8af83ca7dcb40eb59cbf82f2373e)
+- Fixed an issue where the Ellipsis component and the Table component mismatched. [#2405](https://github.com/ant-design/ant-design-pro/pull/2405)
+
 ### 2.0.0
 
 `2018-09-01`

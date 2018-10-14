@@ -8,6 +8,38 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 2.1.0
+
+`2018-10-14`
+
+#### 脚手架
+
+- 增加和完善了多处。[文档](https://pro.ant.design/docs/getting-started-cn)。
+- 修复退出登录不工作的问题。[#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
+- 增加一个环境变量 `APP_TYPE`，在非 pro 官网的环境下，默认不添加设置边栏。[8e28420](https://github.com/ant-design/ant-design-pro/commit/8e28420e0bb68d1cfc5fb3e6b3f943c043a2e770)
+- 修复在白色主题下，logo 和 侧边栏边框样式错误的问题。[3472590](https://github.com/ant-design/ant-design-pro/commit/3472590fca1834f86126b6e2665e677e93f52eae) [
+57cb464](https://github.com/ant-design/ant-design-pro/commit/57cb464f9ea2e9b444f76451c422304cfa724249)
+- 侧边栏现在可以单独滚动。 [#2191](https://github.com/ant-design/ant-design-pro/issues/2191)
+- 修复注册成功之后报错的 bug。[de86a3](https://github.com/ant-design/ant-design-pro/commit/de86a30cc717ab8945e8fdb56604dbbac7f91b5e)
+- 修复了未登录时不跳转到登录界面的问题。[#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
+- 修复在固定侧边菜单时，自动收起侧边栏后会留空白区域的问题。 [#2175](https://github.com/ant-design/ant-design-pro/issues/2175)
+- 增加了 `繁体中文` 和 [`葡萄牙语`](https://github.com/ant-design/ant-design-pro/pull/2384) 支持。
+- 增加了 layout 级别的测试。[#2499](https://github.com/ant-design/ant-design-pro/pull/2499)
+- 增加了对 docker 的支持。[#2430](https://github.com/ant-design/ant-design-pro/pull/2430)
+- 支持了 ie11。[88be0d2](https://github.com/ant-design/ant-design-pro/commit/88be0d2bed82e2b1c301069156132107707e308b)
+- 重构了 AdvancedForm 的 render 方法。[5bcf89](https://github.com/ant-design/ant-design-pro/commit/5bcf895ad440851215084963500e7d8bb594c2dc)
+- 抽取 ArticleListContent 为公共组件。[#2482](https://github.com/ant-design/ant-design-pro/pull/2482)
+
+#### 组件
+
+- HeaderSearch 增加 `open` 和 `onVisibleChange` 属性。[5b5a737](https://github.com/ant-design/ant-design-pro/commit/5b5a737a5d851b2635abba0578e63aa464bbe3bf#diff-0919a70b52c8206136618718371372cb)
+- PageHeader 增加了 `hiddenBreadcrumb` 属性。[231e72](https://github.com/ant-design/ant-design-pro/commit/231e725abd99c91c4304001fbf784f426f85925e)
+- 修复 Ellipsis 的 `tooltip` 表现异常的 bug。[0d47d5](https://github.com/ant-design/ant-design-pro/commit/0d47d5040c5856f783c4dd3b9c0484a1983351f4)
+- 修复 在 Firefox 40.0.3 中表现异常的 bug。[85f466](https://github.com/ant-design/ant-design-pro/commit/85f46650114bb19d0f251d839e41182c24316973)
+- 修复 Pie `percent`值为 0 时，图表不渲染的问题。[5b2daa](https://github.com/ant-design/ant-design-pro/commit/5b2daa657bf030aa11e7b583825ffe002a7619b7)
+- 修复 LoginItem 自定义 `rules` 不工作的问题。[9f89ce](https://github.com/ant-design/ant-design-pro/commit/9f89ce45715b8af83ca7dcb40eb59cbf82f2373e)
+- 修复 Ellipsis 组件和 Table 组件共用时表现错误的问题。[#2405](https://github.com/ant-design/ant-design-pro/pull/2405)
+
 ### 2.0.0
 
 `2018-09-01`
