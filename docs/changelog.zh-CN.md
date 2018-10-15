@@ -26,7 +26,7 @@ type: 其他
 - 增加了 `繁体中文` 和 [`葡萄牙语`](https://github.com/ant-design/ant-design-pro/pull/2384) 支持。
 - 增加了 layout 级别的测试。[#2499](https://github.com/ant-design/ant-design-pro/pull/2499)
 - 增加了对 docker 的支持。[#2430](https://github.com/ant-design/ant-design-pro/pull/2430)
-- 支持了 ie11。[88be0d2](https://github.com/ant-design/ant-design-pro/commit/88be0d2bed82e2b1c301069156132107707e308b)
+- 支持了 IE11。[88be0d2](https://github.com/ant-design/ant-design-pro/commit/88be0d2bed82e2b1c301069156132107707e308b)
 - 重构了 AdvancedForm 的 render 方法。[5bcf89](https://github.com/ant-design/ant-design-pro/commit/5bcf895ad440851215084963500e7d8bb594c2dc)
 - 抽取 ArticleListContent 为公共组件。[#2482](https://github.com/ant-design/ant-design-pro/pull/2482)
 
