@@ -14,7 +14,7 @@ type: 其他
 
 #### 脚手架
 
-- 增加和完善了多处。[文档](https://pro.ant.design/docs/getting-started-cn)。
+- 增加和完善了多处[文档](https://pro.ant.design/docs/getting-started-cn)。
 - 修复退出登录不工作的问题。[#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
 - 增加一个环境变量 `APP_TYPE`，在非 pro 官网的环境下，默认不添加设置边栏。[8e28420](https://github.com/ant-design/ant-design-pro/commit/8e28420e0bb68d1cfc5fb3e6b3f943c043a2e770)
 - 修复在白色主题下，logo 和 侧边栏边框样式错误的问题。[3472590](https://github.com/ant-design/ant-design-pro/commit/3472590fca1834f86126b6e2665e677e93f52eae) [
