@@ -18,23 +18,23 @@ import Ellipsis from './Ellipsis';
 import Authorized from './Authorized';
 import Login from './Login';
 
-interface AntDesignProp {
-  Charts;
-  CountDown;
-  DescriptionList;
-  Exception;
-  FooterToolbar;
-  GlobalFooter;
-  HeaderSearch;
-  NoticeIcon;
-  PageHeader;
-  Result;
-  TagSelect;
-  AvatarList;
-  Trend;
-  NumberInfo;
-  Ellipsis;
-  Authorized;
-  Login;
-}
-export default AntDesignProp;
+const antDesignPro = {
+  Charts,
+  CountDown,
+  DescriptionList,
+  Exception,
+  FooterToolbar,
+  GlobalFooter,
+  HeaderSearch,
+  NoticeIcon,
+  PageHeader,
+  Result,
+  TagSelect,
+  AvatarList,
+  Trend,
+  NumberInfo,
+  Ellipsis,
+  Authorized,
+  Login,
+};
+export default antDesignPro;

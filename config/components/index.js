@@ -18,7 +18,7 @@ import Ellipsis from './Ellipsis';
 import Authorized from './Authorized';
 import Login from './Login';
 
-export default {
+const antDesignPro = {
   Charts,
   CountDown,
   DescriptionList,
@@ -37,3 +37,4 @@ export default {
   Authorized,
   Login,
 };
+export default antDesignPro;

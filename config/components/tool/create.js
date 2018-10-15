@@ -16,7 +16,7 @@ components.forEach(component => {
   umdContent += `import ${component} from '../../scaffold/src/components/${component}';\n`;
 });
 
-indexContent += '\nexport default {\n';
+indexContent += '\n const antDesignPro = {\n';
 umdContent += '\nexport default {\n';
 
 components.forEach(component => {
@@ -26,6 +26,7 @@ components.forEach(component => {
 
 indexContent += '};\n';
 umdContent += '};\n';
+indexContent += 'export default antDesignPro;\n';
 
 fs.writeFileSync(
   path.join(__dirname, '../index.js'),
