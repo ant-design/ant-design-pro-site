@@ -24,7 +24,7 @@ type: Other
 - Added support for Traditional Chinese and [Portuguese] (https://github.com/ant-design/ant-design-pro/pull/2384).
 - Added test at the layout level.[#2499](https://github.com/ant-design/ant-design-pro/pull/2499)
 - Added support for docker. [#2430](https://github.com/ant-design/ant-design-pro/pull/2430)
-- Supported ie11. [88be0d2](https://github.com/ant-design/ant-design-pro/commit/88be0d2bed82e2b1c301069156132107707e308b)
+- Supported IE11. [88be0d2](https://github.com/ant-design/ant-design-pro/commit/88be0d2bed82e2b1c301069156132107707e308b)
 - Refactored the Render method of AdvancedForm. [5bcf89](https://github.com/ant-design/ant-design-pro/commit/5bcf895ad440851215084963500e7d8bb594c2dc)
 - Extract the ArticleListContent as a public component. [#2482](https://github.com/ant-design/ant-design-pro/pull/2482)
 
