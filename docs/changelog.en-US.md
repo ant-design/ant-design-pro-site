@@ -21,7 +21,7 @@ type: Other
 - Fix a bug that was reported after successful registration. [de86a3](https://github.com/ant-design/ant-design-pro/commit/de86a30cc717ab8945e8fdb56604dbbac7f91b5e)
 - Fixed an issue where it did not jump to the login screen when not logged in. [#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
 - Fixed an issue where a blank area was left after the sidebar was automatically retracted when the side menu was fixed.[#2175](https://github.com/ant-design/ant-design-pro/issues/2175)
-- Added support for `Traditional Chinese` and [`Portuguese`] (https://github.com/ant-design/ant-design-pro/pull/2384).
+- Added support for Traditional Chinese and [Portuguese] (https://github.com/ant-design/ant-design-pro/pull/2384).
 - Added test at the layout level.[#2499](https://github.com/ant-design/ant-design-pro/pull/2499)
 - Added support for docker. [#2430](https://github.com/ant-design/ant-design-pro/pull/2430)
 - Supported ie11. [88be0d2](https://github.com/ant-design/ant-design-pro/commit/88be0d2bed82e2b1c301069156132107707e308b)
