@@ -12,11 +12,10 @@ components = components.filter(component => {
   return !component.includes('_');
 });
 components.forEach(component => {
-  indexContent += `import ${component} from './${component}';\n`;
+  indexContent += `export { default as ${component} } from './${component}';\n`;
   umdContent += `import ${component} from '../../scaffold/src/components/${component}';\n`;
 });
 
-indexContent += '\n const antDesignPro = {\n';
 umdContent += '\nexport default {\n';
 
 components.forEach(component => {
@@ -26,7 +25,6 @@ components.forEach(component => {
 
 indexContent += '};\n';
 umdContent += '};\n';
-indexContent += 'export default antDesignPro;\n';
 
 fs.writeFileSync(
   path.join(__dirname, '../index.js'),
