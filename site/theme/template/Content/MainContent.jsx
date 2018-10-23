@@ -107,7 +107,7 @@ export default class MainContent extends React.PureComponent {
     }
   }
 
-  generateMenuItem(isTop, item) {
+  generateMenuItem(isTop, { before = null, after = null }, item) {
     const locale = this.context.intl.locale;
     const key = fileNameToPath(item.filename);
     const text = [
@@ -128,7 +128,9 @@ export default class MainContent extends React.PureComponent {
         )}
         disabled={disabled}
       >
+        {before}
         {text}
+        {after}
       </Link>
     ) : (
       <a
@@ -138,7 +140,9 @@ export default class MainContent extends React.PureComponent {
         disabled={disabled}
         className="menu-item-link-outside"
       >
+        {before}
         {text} <Icon type="export" />
+        {after}
       </a>
     );
 
@@ -149,10 +153,12 @@ export default class MainContent extends React.PureComponent {
     );
   }
 
-  generateSubMenuItems(obj) {
+  generateSubMenuItems(obj, footerNavIcons = {}) {
     const { themeConfig } = this.props;
     if (!obj) return [];
-    const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
+    const topLevel = (obj.topLevel || []).map(
+      this.generateMenuItem.bind(this, true, footerNavIcons)
+    );
     const itemGroups = Object.keys(obj)
       .filter(isNotTopLevel)
       .sort((a, b) => themeConfig.typeOrder[a] - themeConfig.typeOrder[b])
@@ -164,7 +170,7 @@ export default class MainContent extends React.PureComponent {
             }
             return a.title.charCodeAt(0) - b.title.charCodeAt(0);
           })
-          .map(this.generateMenuItem.bind(this, false));
+          .map(this.generateMenuItem.bind(this, false, footerNavIcons));
         return (
           <Menu.ItemGroup title={type} key={type}>
             {groupItems}
@@ -174,20 +180,20 @@ export default class MainContent extends React.PureComponent {
     return [...topLevel, ...itemGroups];
   }
 
-  getMenuItems() {
+  getMenuItems(footerNavIcons = {}) {
     const moduleData = getModuleData(this.props);
 
     const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
 
     let topLevel = {};
     if (menuItems.topLevel) {
-      topLevel = this.generateSubMenuItems(menuItems.topLevel);
+      topLevel = this.generateSubMenuItems(menuItems.topLevel, footerNavIcons);
     }
 
     const subMenu = Object.keys(menuItems)
       .filter(isNotTopLevel)
       .map(category => {
-        const subMenuItems = this.generateSubMenuItems(menuItems[category]);
+        const subMenuItems = this.generateSubMenuItems(menuItems[category], footerNavIcons);
         return (
           <SubMenu title={<h4>{category}</h4>} key={category}>
             {subMenuItems}
@@ -215,23 +221,24 @@ export default class MainContent extends React.PureComponent {
     const menuItemsList = this.flattenMenu(menuItems);
     let activeMenuItemIndex = -1;
     menuItemsList.forEach((menuItem, i) => {
-      if (menuItem.key === activeMenuItem) {
+      if (menuItem && menuItem.key === activeMenuItem) {
         activeMenuItemIndex = i;
       }
     });
     const prev = menuItemsList[activeMenuItemIndex - 1];
     const next = menuItemsList[activeMenuItemIndex + 1];
-    return {
-      prev,
-      next,
-    };
+    return { prev, next };
   }
 
   render() {
     const props = this.props;
     const activeMenuItem = getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
-    const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
+    const menuItemsForFooterNav = this.getMenuItems({
+      before: <Icon className="footer-nav-icon-before" type="left" />,
+      after: <Icon className="footer-nav-icon-after" type="right" />,
+    });
+    const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
     const localizedPageData = props.localizedPageData;
     const mainContainerClass = classNames('main-container', {
       'main-container-component': !!props.demos,

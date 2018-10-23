@@ -2,7 +2,7 @@
 // https://github.com/WickyNilliams/enquire.js/issues/82
 let enquire;
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string): MediaQueryList => {
+  const matchMediaPolyfill = mediaQuery => {
     return {
       media: mediaQuery,
       matches: false,
