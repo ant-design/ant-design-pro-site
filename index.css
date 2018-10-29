@@ -999,7 +999,8 @@
   margin: 0 0 0 -8px;
 }
 .pageHeader___2NIjs .tabs___36hVS .ant-tabs-bar {
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: none;
+  margin-bottom: 1px;
 }
 .pageHeader___2NIjs .logo___1kdXW {
   -webkit-box-flex: 0;
