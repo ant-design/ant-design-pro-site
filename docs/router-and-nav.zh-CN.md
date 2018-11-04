@@ -60,6 +60,17 @@ type: 入门
 
 上面对这部分的实现概要进行了介绍，接下来通过实际的案例来说明具体该怎么做。
 
+### menu 跳转到某个 url
+
+你可以直接将 url 填入 path 中，框架会自动处理
+
+```js
+{
+    path: 'https://pro.ant.design/docs/getting-started-cn',
+    name: "文档"
+}
+```
+
 ### 新增页面
 
 脚手架默认提供了两种布局模板：`基础布局 - BasicLayout` 以及 `账户相关布局 - UserLayout`：

@@ -60,6 +60,17 @@ Breadcrumbs are implemented by `PageHeaderWrapper`, `MenuContext` will be passed
 
 The above outlines the implementation of this part, and then through the actual case to explain what to do.
 
+### Menu jump to a URL
+
+You can fill the url directly into the path and the framework will handle it automatically.
+
+```js
+{
+    path: 'https://pro.ant.design/docs/getting-started-cn',
+    name: "文档"
+}
+```
+
 ### Add Page
 
 Scaffolding provides two layout templates by default: `Basic Layout - BasicLayout` and `Account Layout - UserLayout`:
