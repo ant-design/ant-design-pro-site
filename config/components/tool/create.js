@@ -2,7 +2,7 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const beautify = require('js-beautify');
+const prettier = require('prettier');
 let components = require('../components.config.js');
 
 // create index.js
@@ -19,22 +19,13 @@ components.forEach(component => {
 umdContent += '\nexport default {\n';
 
 components.forEach(component => {
-  indexContent += `${component},\n`;
   umdContent += `${component},\n`;
 });
 
-indexContent += '};\n';
 umdContent += '};\n';
 
-fs.writeFileSync(
-  path.join(__dirname, '../index.js'),
-  beautify(indexContent, { indent_size: 2, end_with_newline: true })
-);
-fs.writeFileSync(
-  path.join(__dirname, '../index.d.ts'),
-  beautify(indexContent, { indent_size: 2, end_with_newline: true })
-);
-fs.writeFileSync(
-  path.join(__dirname, '../umd.js'),
-  beautify(umdContent, { indent_size: 2, end_with_newline: true })
-);
+indexContent = prettier.format(indexContent, { semi: false, parser: 'babylon' });
+umdContent = prettier.format(umdContent, { semi: false, parser: 'babylon' });
+fs.writeFileSync(path.join(__dirname, '../index.js'), indexContent);
+fs.writeFileSync(path.join(__dirname, '../index.d.ts'), indexContent);
+fs.writeFileSync(path.join(__dirname, '../umd.js'), umdContent);
