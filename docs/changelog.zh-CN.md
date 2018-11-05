@@ -8,6 +8,24 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 2.1.1
+
+#### 脚手架
+
+- 增加了 `typescript` 支持，现在可以直接新建 tsx 文件来进行开发。[deb1433](https://github.com/ant-design/ant-design-pro/commit/deb14330ad5e5ba86df404fdb63021866ea93d4a)
+- 增加了 `isUrl` 和 `fixedZero` 的测试。[#2600](https://github.com/ant-design/ant-design-pro/pull/2600)
+- 修复了验证手机号码的错误正则。 [#2605](https://github.com/ant-design/ant-design-pro/pull/2605)
+- 修复菜单在只有一级菜单时无法正确匹配的问题。[#2630](https://github.com/ant-design/ant-design-pro/issues/2630)
+- 增加了 netlify 支持。[#2651](https://github.com/ant-design/ant-design-pro/pull/2651)
+- 修复了菜单自动隐藏的 bug。[#2681](https://github.com/ant-design/ant-design-pro/pull/2681)
+- e2e 测试支持自定义端口。[#2633](https://github.com/ant-design/ant-design-pro/issues/2633)
+
+### 组件
+
+- Ellipsis 组件 `tooltip` 属性支持 `TooltipProps`。[#2713](https://github.com/ant-design/ant-design-pro/pull/2713)
+- 修复图表 Gauge 中值显示的浮点数异常的问题。[#2682](https://github.com/ant-design/ant-design-pro/pull/2682)
+- 更完善的 typescript 的支持。
+
 ### 2.1.0
 
 `2018-10-14`

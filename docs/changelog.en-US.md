@@ -6,6 +6,24 @@ type: Other
 
 [Older Version](http://03x.pro.ant.design/)
 
+### 2.1.1
+
+#### Scaffold
+
+- Added `typescript` support, now you can create new tsx files for development. [deb1433] (https://github.com/ant-design/ant-design-pro/commit/deb14330ad5e5ba86df404fdb63021866ea93d4a)
+- Added tests for `isUrl` and `fixedZero`. [#2600](https://github.com/ant-design/ant-design-pro/pull/2600)
+- Fixed a bug in verifying the phone number. [#2605](https://github.com/ant-design/ant-design-pro/pull/2605)
+- Fixed an issue where the menu did not match correctly when there was only one level menu. [#2630](https://github.com/ant-design/ant-design-pro/issues/2630)
+- Added support for netlify. [#2651](https://github.com/ant-design/ant-design-pro/pull/2651)
+- Fixed a bug where the menu was automatically hidden. [#2681](https://github.com/ant-design/ant-design-pro/pull/2681)
+- The e2e test supports custom ports. [#2633](https://github.com/ant-design/ant-design-pro/issues/2633)
+
+### Components
+
+- Ellipsis component `tooltip` property supports `TooltipProps`. [#2713](https://github.com/ant-design/ant-design-pro/pull/2713)
+- Fix chart Gauge median display floating point exception problem. [#2682](https://github.com/ant-design/ant-design-pro/pull/2682)
+- Better support for typescript.
+
 ### 2.1.0
 
 `2018-10-14`
