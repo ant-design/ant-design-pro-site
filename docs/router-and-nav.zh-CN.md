@@ -36,7 +36,7 @@ type: 入门
 
 > 如果你的项目并不需要菜单，你可以直接在 `BasicLayout` 中删除 `SiderMenu` 组件的挂载。并在 [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227) 中 设置 `const MenuData = []`。
 
-> 如果你需要从服务器请求菜单，可以将 [menuData](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227)  设置为 state，然后通过网络获取来修改了 state。
+> 如果你需要从服务器请求菜单，可以将 [menuData](https://github.com/ant-design/ant-design-pro/blob/54db4e59d3f8fd84464f92c16cbfca82baf42f43/src/layouts/BasicLayout.js#L227) 设置为 state，然后通过网络获取动态修改 state。
 
 ### 面包屑
 
@@ -60,14 +60,15 @@ type: 入门
 
 上面对这部分的实现概要进行了介绍，接下来通过实际的案例来说明具体该怎么做。
 
-### menu 跳转到某个 url
+### 菜单跳转到外部地址
 
-你可以直接将 url 填入 path 中，框架会自动处理
+你可以直接将完整 url 填入 path 中，框架会自动处理
 
 ```js
 {
     path: 'https://pro.ant.design/docs/getting-started-cn',
-    name: "文档"
+    target: '_blank', // 点击新窗口打开
+    name: "文档",
 }
 ```
 
