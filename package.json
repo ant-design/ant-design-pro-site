@@ -26,6 +26,7 @@
     "react-github-button": "^0.1.11",
     "react-intl": "^2.4.0",
     "stylelint-config-prettier": "^3.3.0",
+    "tnpm": "^1.0.6",
     "user": "0.0.0"
   },
   "devDependencies": {
