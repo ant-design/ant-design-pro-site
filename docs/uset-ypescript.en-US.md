@@ -1,54 +1,57 @@
 ---
 order: 7
-title: 在 pro 中使用 TypeScript
+title: Use TypeScript
 type: Advanced
 ---
 
 TypeScript 是 javascript 的一个超集，对 javascript 增加了很多有用的特性：
-* 类型批注和编译时类型检查
-* 类型推断
-* 类型擦除
-* 接口
-* 枚举
-* Mixin
-* 泛型编程
-* 名字空间
-* 元组
-* Await 
+* Type annotations and compile-time type checking
+* Type inference
+* Type erasure
+* Interfaces
+* Enumerated types
+* Generics
+* Namespaces
+* Tuples
+* Async/await
 
-使用 TypeScript 对 IDE 会更加友好，如果你是用 vscode 开发的，那么你的开发体验将会显著提升。基于 umi 的特性，我们可以很容易的在 Pro 中使用。
-Pro 中自带了 TypeScript 所需的配置文件.
+Using TypeScript is more friendly to the IDE. If you are developing with vscode, your development experience will be significantly improved. Based on the characteristics of umi, we can easily use it in Pro.
+Pro comes with the configuration files required by TypeScript.
 - tsconfig.js
 - tslint.json
 
-tsconfig 会声明这是一个 TypeScript 的项目，其中会进行一些配置，详细内容可以看[这里](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)。
-tslint 类似eslint 将会检查你的代码，为了提升体验，可以一并安装 vscode 的 tslint 插件。
-接下来我们只要直接新建 tsx 文件，就可以开始 TypeScript 开发了。
+Tsconfig will declare that this is a TypeScript project, which will do some configuration, the details can be seen [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)。
+Tslint like eslint will check your code. To improve the experience, you can install vscode's tslint plugin.
+Next, we can start TypeScript development by just creating a new tsx file.
 
-### 常见问题
+### FAQ
 
-#### 在 css-module 中使用
-由于 Pro 使用了 css-module，你可能需要 
+#### Used in css-module
+Because Pro uses css-module, you may need
+
 ```jsx 
 import style from './index.style.less'
 ```
-这时候 typescript 会报错，你可以 使用  
+
+At this time typescript will throw an error, you can use
+
 ```jsx 
 const style = require("./index.less")
 ```
- 避开这个问题。社区有很多相关讨论，暂时没有最好的办法，只有相对完美的 [typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader)，同理导入图片，css，svg 也可以通过这种方式避开类型检查。
+
+Avoid this problem. There are many related discussions in the community. There is no best way for the time being. Only the relatively perfect  [typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader),Similarly, importing images, css, svg can also avoid type checking in this way.
 
  
 #### Form.create()
 
-在 TypeScript 中使用 Form.create() 可能会抛出类似下面的错误：
+Using Form.create() in TypeScript may throw an error similar to the following:
 
- ```bash
+```bash
 error TS2339: Property 'loading' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Compone
 nt<{}, ComponentState>> & Readonly<{ childr...'.
- ```
+```
 
-这是因为 props的类型没有通过检查，以下是正确的方式
+This is because the type of props did not pass the check, the following is the correct way
 ```tsx
 
 import { FormComponentProps } from 'antd/lib/form/Form';
@@ -69,20 +72,21 @@ class FormComponent extends React.Component<IFormComponentProps> {
 }
 ```
 
-#### 没有描述文件的仓库
+#### Use a library without d.ts
 
-在实际使用有些库并没有相关的 d.ts,这个时候我们可以直接在使用的文件中定义，以高德地图为例。
+In the actual use of some libraries and there is no relevant d.ts, this time we can directly define in the file used, taking the high German map as an example.
+
 ```tsx
 
 import React from 'react';
 
-// 定义 Map 的 类型
+// Define the type of Map
 declare class GaoDeAMap {
   constructor(container: HTMLElement, option: { center: [number, number]; zoom: number });
   public destroy(): void;
 }
 
-// 定义全局的 AMap
+// Define global AMap
 declare const AMap: {
   Map: typeof GaoDeAMap;
 };
@@ -109,7 +113,8 @@ class MapComponent extends React.Component {
 export default MapComponent;
 
 ```
-如果要多次使用，可以建立一个 namespace，
+
+If you want to use it multiple times, you can create a namespace.
 
 ```ts
 
@@ -126,10 +131,12 @@ export as namespace AMap;
 
 ```
 
-然后在项目中直接引入就可以了.
+Then just introduce it directly in the project.
+
+
 ```tsx
 import AMapInterface from './AMap';
-`
+
 declare const AMap: typeof AMapInterface;
 
 ```
