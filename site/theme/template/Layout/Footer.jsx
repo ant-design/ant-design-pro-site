@@ -50,12 +50,19 @@ class Footer extends React.Component {
                   </a>
                 </div>
                 <div>
+                  <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">
+                    Kitchen
+                  </a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.kitchen" />
+                </div>
+                <div>
                   <Badge dot offset={[3, 0]}>
-                    <a target="_blank" rel="noopener noreferrer" href="http://kitchen.alipay.com">
-                      Kitchen
+                    <a target="_blank" rel="noopener noreferrer" href="http://landing.ant.design">
+                      Ant Design Landing
                     </a>
                     <span> - </span>
-                    <FormattedMessage id="app.footer.kitchen" />
+                    <FormattedMessage id="app.footer.landing" />
                   </Badge>
                 </div>
                 <div>

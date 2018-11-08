@@ -41,6 +41,7 @@ module.exports = {
     'app.footer.primary-color-changed': 'Change primary color successfully!',
     'app.footer.scaffold': 'Scaffold',
     'app.footer.kitchen': 'Sketch Toolkit',
+    'app.footer.landing': 'Landing Templates',
     'app.footer.scaffolds': 'Scaffold Market',
     'app.footer.dev-tools': 'Developer Tools',
     'app.footer.dva': 'Framework',

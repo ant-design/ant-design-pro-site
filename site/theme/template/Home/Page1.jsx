@@ -220,7 +220,8 @@ class Page1 extends React.PureComponent {
               className="page1-point-wrapper"
               enter={this.getEnter}
               leave={{ x: 0, y: 30, opacity: 0, duration: 300, ease: 'easeInBack' }}
-              resetStyleBool={false}
+              resetStyle={false}
+              exclusive
             >
               {(this.props.isMobile || isHover) && pointChild}
             </TweenOneGroup>

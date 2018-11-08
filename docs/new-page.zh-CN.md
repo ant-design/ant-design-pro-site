@@ -6,6 +6,8 @@ type: 入门
 
 这里的『页面』指配置了路由，能够通过链接直接访问的模块，要新建一个页面，通常只需要在脚手架的基础上进行简单的配置。
 
+> 需要新建 Landing Page [请查看](https://landing.ant.design/docs/use/pro-cn)
+
 ---
 
 ## 一、新增 js、less 文件
