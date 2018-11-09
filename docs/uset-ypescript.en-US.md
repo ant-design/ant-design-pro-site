@@ -4,7 +4,7 @@ title: Use TypeScript
 type: Advanced
 ---
 
-TypeScript 是 javascript 的一个超集，对 javascript 增加了很多有用的特性：
+TypeScript is a superset of javascript that adds a lot of useful features to javascript:
 * Type annotations and compile-time type checking
 * Type inference
 * Type erasure
@@ -16,17 +16,19 @@ TypeScript 是 javascript 的一个超集，对 javascript 增加了很多有用
 * Async/await
 
 Using TypeScript is more friendly to the IDE. If you are developing with vscode, your development experience will be significantly improved. Based on the characteristics of umi, we can easily use it in Pro.
+
 Pro comes with the configuration files required by TypeScript.
 - tsconfig.js
 - tslint.json
 
-Tsconfig will declare that this is a TypeScript project, which will do some configuration, the details can be seen [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)。
+Tsconfig will declare that this is a TypeScript project, which will do some configuration, the details can be seen [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 Tslint like eslint will check your code. To improve the experience, you can install vscode's tslint plugin.
 Next, we can start TypeScript development by just creating a new tsx file.
 
 ### FAQ
 
 #### Used in css-module
+
 Because Pro uses css-module, you may need
 
 ```jsx 
@@ -39,7 +41,7 @@ At this time typescript will throw an error, you can use
 const style = require("./index.less")
 ```
 
-Avoid this problem. There are many related discussions in the community. There is no best way for the time being. Only the relatively perfect  [typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader),Similarly, importing images, css, svg can also avoid type checking in this way.
+Avoid this problem. There are many related discussions in the community. There is no best way for the time being. Only the relatively perfect [typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader), Similarly, importing images, css, svg can also avoid type checking in this way.
 
  
 #### Form.create()
@@ -51,24 +53,24 @@ error TS2339: Property 'loading' does not exist on type 'IntrinsicAttributes & I
 nt<{}, ComponentState>> & Readonly<{ childr...'.
 ```
 
-This is because the type of props did not pass the check, the following is the correct way
-```tsx
+This is because the type of props did not pass the check, the following is the correct way.
 
-import { FormComponentProps } from 'antd/lib/form/Form';
+```tsx
+import { FormComponentProps } from "antd/lib/form/Form";
 
 interface IFormComponentProps extends FormComponentProps {
-    test: string;
-}        
+  test: string;
+}
 
 class FormComponent extends React.Component<IFormComponentProps> {
-    constructor(IFormComponentProps) {
-        super(props);
-        ...
-    }
-    render(){
-        const { getFieldDecorator } = this.props.form;
-        return ...
-    }
+  constructor(props: IFormComponentProps) {
+    super(props);
+    ....
+  }
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    return ....;
+  }
 }
 ```
 
@@ -77,7 +79,6 @@ class FormComponent extends React.Component<IFormComponentProps> {
 In the actual use of some libraries and there is no relevant d.ts, this time we can directly define in the file used, taking the high German map as an example.
 
 ```tsx
-
 import React from 'react';
 
 // Define the type of Map
@@ -111,13 +112,11 @@ class MapComponent extends React.Component {
 }
 
 export default MapComponent;
-
 ```
 
 If you want to use it multiple times, you can create a namespace.
 
 ```ts
-
 declare namespace AMap {
   class Map {
     constructor(container: HTMLElement, option: { center: [number, number]; zoom: number });
@@ -125,20 +124,16 @@ declare namespace AMap {
   }
 }
 
-
 export = AMap;
 export as namespace AMap;
-
 ```
 
 Then just introduce it directly in the project.
-
 
 ```tsx
 import AMapInterface from './AMap';
 
 declare const AMap: typeof AMapInterface;
-
 ```
 
 

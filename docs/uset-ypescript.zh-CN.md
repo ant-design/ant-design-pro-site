@@ -50,30 +50,29 @@ nt<{}, ComponentState>> & Readonly<{ childr...'.
 
 这是因为 props的类型没有通过检查，以下是正确的方式
 ```tsx
-
-import { FormComponentProps } from 'antd/lib/form/Form';
+import { FormComponentProps } from "antd/lib/form/Form";
 
 interface IFormComponentProps extends FormComponentProps {
-    test: string;
-}        
+  test: string;
+}
 
 class FormComponent extends React.Component<IFormComponentProps> {
-    constructor(IFormComponentProps) {
-        super(props);
-        ...
-    }
-    render(){
-        const { getFieldDecorator } = this.props.form;
-        return ...
-    }
+  constructor(props: IFormComponentProps) {
+    super(props);
+    ....
+  }
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    return ....;
+  }
 }
 ```
 
 #### 没有描述文件的仓库
 
 在实际使用有些库并没有相关的 d.ts,这个时候我们可以直接在使用的文件中定义，以高德地图为例。
-```tsx
 
+```tsx
 import React from 'react';
 
 // 定义 Map 的 类型
@@ -107,12 +106,11 @@ class MapComponent extends React.Component {
 }
 
 export default MapComponent;
-
 ```
+
 如果要多次使用，可以建立一个 namespace，
 
 ```ts
-
 declare namespace AMap {
   class Map {
     constructor(container: HTMLElement, option: { center: [number, number]; zoom: number });
@@ -120,18 +118,16 @@ declare namespace AMap {
   }
 }
 
-
 export = AMap;
 export as namespace AMap;
-
 ```
 
-然后在项目中直接引入就可以了.
+然后在项目中直接引入就可以了。
+
 ```tsx
 import AMapInterface from './AMap';
 `
 declare const AMap: typeof AMapInterface;
-
 ```
 
 
