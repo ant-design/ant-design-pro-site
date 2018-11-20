@@ -121,6 +121,10 @@ Modify `scripts.start` in `package.json` to:
 
 This is one of the features of Ant Design Pro. The first version is currently available in Chinese. Internationalization is in our 2.0 plan and will be released soon.
 
+### Npm installation of patcheteer failed
+
+Try using cnpm or setting environment variables to see this [issue](https://github.com/cnpm/cnpmjs.org/issues/1246)。
+
 ### English Documentation?
 
 English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) and [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) for more detail.

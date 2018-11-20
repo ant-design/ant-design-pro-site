@@ -126,7 +126,11 @@ $ npm i node-sass sass-loader --save
 
 pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-locale) 来实现全球化的功能,详情请见 [国际化](/docs/i18n)。
 
-### English Documentation?
+### npm 安装 puppeteer 失败
+
+尝试使用 cnpm 或者设置环境变量，可以查看这个 [issue](https://github.com/cnpm/cnpmjs.org/issues/1246)。
+
+### English Documentation？
 
 English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) 
 和 [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) 了解更多细节。
