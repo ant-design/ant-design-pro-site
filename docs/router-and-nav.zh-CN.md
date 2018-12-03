@@ -130,7 +130,7 @@ module.exports = [
 
 如果这样还不能满足需求，可以自定义 [`getIcon`](https://github.com/ant-design/ant-design-pro/blob/master/src/components/SiderMenu/BaseMenu.js#L18) 方法。
 
-> If you need to use the iconfont icon, you can try the custom icon for [ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%).
+> 如果你想使用 iconfont 的图标，你可以使用[ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%)的自定义图标.
 
 ### 带参数的路由
 

@@ -129,7 +129,7 @@ Due to umi's limitations, the [`router.config.js`](https://github.com/ant-design
 
 If this does not meet the requirements, you can customize [`getIcon`](https://github.com/ant-design/ant-design-pro/blob/master/src/components/SiderMenu/BaseMenu.js#L18) method.
 
-> If you need to use the iconfont icon, you can try [ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%) Custom icon for 89-font-%E5%9B%BE%E6%A0%87).
+> If you need to use the iconfont icon, you can try the custom icon for [ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%).
 
 ### Routing with parameters
 
