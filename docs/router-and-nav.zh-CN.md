@@ -124,6 +124,13 @@ module.exports = [
 ]
 
 ```
+### 在菜单中使用自定义的 icon
+
+由于 umi 的限制，在 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 是不能直接只是用组件的，Pro 中暂时支持 使用 [`ant.design`](https://ant.design/components/icon-cn/) 本身的 icon type，和传入一个 img 的 url。只需要直接在 icon 属性上配置即可，如果是个 url，Pro 会自动处理为一个 img 标签。
+
+如果这样还不能满足需求，可以自定义 [`getIcon`](https://github.com/ant-design/ant-design-pro/blob/master/src/components/SiderMenu/BaseMenu.js#L18) 方法。
+
+> If you need to use the iconfont icon, you can try the custom icon for [ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%).
 
 ### 带参数的路由
 
