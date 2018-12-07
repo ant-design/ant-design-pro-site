@@ -24,7 +24,7 @@ type: 入门
 
 目前脚手架中所有的路由都通过 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 来统一管理，在 umi 的配置中我们增加了一些参数，如 `name`,`icon`,`hideChildrenInMenu`,`authority`，来辅助生成菜单。其中：
 
-- `name` 和 `icon`分别代表生成菜单项的图标和文本。
+- `name` 和 `icon`分别代表生成菜单项的文本和图标。
 - `hideChildrenInMenu` 用于隐藏不需要在菜单中展示的子路由。用法可以查看 `分步表单` 的配置。
 - `hideInMenu` 可以在菜单中不展示这个路由，包括子路由。效果可以查看 `exception/trigger`页面。
 - `authority` 用来配置这个路由的权限，如果配置了将会验证当前用户的权限，并决定是否展示。
