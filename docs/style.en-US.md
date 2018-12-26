@@ -177,4 +177,4 @@ ReactDOM.render (
 Two points need to be noted:
 
 - The imported antd component class name is not translated by CSS Modules, so the overridden class name `.ant-select-selection` must be put in `:global`.
-- Because of the previous note, the coverage is global. To avoid affecting other Select components, the setting needs to be wrapped by an extra classname to add range restriction.
+- Because of the previous note, the override is global. To avoid affecting other Select components, the setting needs to be wrapped by an extra classname to add range restriction.
