@@ -33,7 +33,7 @@ Find the variables that need to be modified in [All Variables Table](https://git
 More ways can refer to the official documentation:[Customize Theme](http://ant.design/docs/react/customize-theme-cn)。
 
 
-## Style Coverage
+## Style Override
 
 Ant Design's generic style variables may not meet all of the customization requirements, and you need to override the default component styles globally. We can override the style by referring to the [Style](/docs/style) section.
 
@@ -67,7 +67,7 @@ import styles from './sample.less';
 return <Tag className={styles.customTag}>定制标签</Tag>;
 ```
 
-> We do not recommend style coverage. First, the default theme and components are carefully adjusted by the designer. Forcing coverage may affect the overall effect. Second, the overlay code may fail due to component library version upgrade.
+> We do not recommend style override. First, the default theme and components are carefully adjusted by the designer. Forcing override may affect the overall effect. Second, the overlay code may fail due to component library version upgrade.
 
 ## Switch Theme Online
 
