@@ -4,7 +4,7 @@ title: Layout
 type: Introduction
 ---
 
-Layout is the outermost structure for a project, ususaly consists of navigation, footer, sidebar, notification and content. There are also a lot of different layouts within a page.
+Layout is the outermost structure for a project, usually consists of navigation, footer, sidebar, notification and content. There are also a lot of different layouts within a page.
 
 ---
 
