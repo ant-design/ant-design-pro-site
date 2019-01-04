@@ -79,7 +79,7 @@ Absolute paths can be used directly (map support is required). If you want to us
 
 Please refer to the deploy document [Routing and server integration](/docs/deploy#Routing-and-server-integration).
 
-### 如何代理到后端服务器？
+### How to proxy server url?
 
 Ant Design Pro has built-in umi, umi uses webpack [devServer](https://webpack.docschina.org/configuration/dev-server/) to support the proxy.
 You only need to configure the proxy property in config.js.As long as the proxy and mock url are different, they can be used at the same time.
