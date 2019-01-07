@@ -35,7 +35,7 @@ import Result from 'ant-design-pro/lib/Result';
 ReactDOM.render(<Result type="success" />, mountNode);
 ```
 
-### 按需加载
+### Load on demand
 
 You can use babel-plugin-import to load on demand. After adding this plugin, you can write it like this.
 
