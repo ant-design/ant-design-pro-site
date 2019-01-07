@@ -40,7 +40,7 @@ By default, it supports 404, 403, and 500 errors, and can also customize the cop
 
 This component is generally used to display the results of the presentation, copywriting operations, etc. can be customized.
 
-## Prompt error
+## Prompt Error
 
 ### When to be used
 
@@ -48,7 +48,7 @@ This component is generally used to display the results of the presentation, cop
 - Operation feedback.
 - Network request error.
 
-### 实现
+### Achieve
 
 For an error in the form item, please refer to the implementation in [antd Form](http://ant.design/components/form-cn/). For operational feedback and network request error prompts, there are some components that might be used:
 
