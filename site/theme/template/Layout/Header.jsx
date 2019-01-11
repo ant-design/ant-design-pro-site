@@ -188,7 +188,10 @@ class Header extends React.Component {
 
     const isZhCN = intl.locale === 'zh-CN';
 
-    const menu = (
+    const menu = [
+      <Button onClick={this.handleLangChange} key="lang-button" block>
+        <FormattedMessage id="app.header.lang" />
+      </Button>,
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
           <Link to={getLocalizedPathname('/', isZhCN)}>
@@ -217,14 +220,16 @@ class Header extends React.Component {
             </a>
           </Menu.Item>
         )}
-      </Menu>
-    );
+      </Menu>,
+    ];
 
-    const componentSearchOption = searchOption.filter(v => v.type === 'component').map(d => (
-      <Option key={d.url}>
-        {d.title} {isZhCN && d.subTitle}
-      </Option>
-    ));
+    const componentSearchOption = searchOption
+      .filter(v => v.type === 'component')
+      .map(d => (
+        <Option key={d.url}>
+          {d.title} {isZhCN && d.subTitle}
+        </Option>
+      ));
     const docSearchOption = searchOption
       .filter(v => v.type === 'doc')
       .map(d => <Option key={d.url}>{isZhCN ? d.title : d['title-en'] || d.title}</Option>);
