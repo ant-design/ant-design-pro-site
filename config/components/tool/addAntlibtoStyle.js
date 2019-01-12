@@ -25,10 +25,7 @@ const addAntLibToStyle = function(parentsFolder) {
       if (fileStatus.isFile() && path.indexOf('.js') > -1) {
         const relayPath = pathTool.join(__dirname, parents, path);
         const jsString = fs.readFileSync(relayPath).toString();
-        const execArray = jsString.match(/(antd\/lib\/)(\w*((-)*\w+)*)/gi);
-        if (!execArray) {
-          return;
-        }
+        const execArray = jsString.match(/(antd\/lib\/)(\w*((-)*\w+)*)/gi) || [];
         if (relayPath.includes('Charts')) {
           execArray.forEach(antdLib => {
             antdLibMap[antdLib] = true;
