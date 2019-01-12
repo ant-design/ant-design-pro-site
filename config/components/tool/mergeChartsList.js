@@ -6,23 +6,16 @@
 const fs = require('fs');
 const path = require('path');
 
-const megreChartsList = () => {
+const mergeChartsList = () => {
   const chartPath = path.join(__dirname, '../lib/Charts');
   const lessPathString = ['@import "../../style/themes/default.less";'];
 
   const paths = fs.readdirSync(chartPath);
-  paths.forEach((chartItem) => {
-    if (
-      chartItem !== 'demo' &&
-      fs.lstatSync(`${chartPath}/${chartItem}`).isDirectory()
-    ) {
+  paths.forEach(chartItem => {
+    if (chartItem !== 'demo' && fs.lstatSync(`${chartPath}/${chartItem}`).isDirectory()) {
       if (fs.existsSync(`${chartPath}/${chartItem}/index.less`)) {
-        const constent = fs
-          .readFileSync(`${chartPath}/${chartItem}/index.less`)
-          .toString();
-        lessPathString.push(
-          constent.replace('@import "../../style/themes/default.less";', '')
-        );
+        const content = fs.readFileSync(`${chartPath}/${chartItem}/index.less`).toString();
+        lessPathString.push(content.replace('@import "../../style/themes/default.less";', ''));
         fs.unlinkSync(`${chartPath}/${chartItem}/index.less`);
       }
     }
@@ -35,4 +28,4 @@ const megreChartsList = () => {
   );
   fs.writeFileSync(`${chartPath}/index.less`, lessPathString.join('\n'));
 };
-module.exports = megreChartsList;
+module.exports = mergeChartsList;

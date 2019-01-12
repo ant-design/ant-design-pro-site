@@ -6,21 +6,22 @@
 const path = require('path');
 const glob = require('glob');
 const getLocalIdentName = require('./getLocalIdentName');
-const copyAntdthemes = require('./copyAntdthemes');
-const AddlocalIdentName = require('./AddlocalIdentName');
-const replacedefaultLess = require('./replacedefaultLess');
+const copyAntdThemes = require('./copyAntdthemes');
+const AddLocalIdentName = require('./AddLocalIdentName');
+const replaceDefaultLess = require('./replaceDefaultLess');
 
-// read less file list
-const lessArray = ['@import "./style/themes/default.less";'];
 // copy antd themes to lib
-copyAntdthemes();
+copyAntdThemes();
 
 // 寻找所有的 less 文件
-glob.sync('../**/**.less', { ignore: '../**/node_modules/**' }).forEach(lessPath => {
-  const relaPath = path.join(__dirname, '../', lessPath);
-  // post css add localIdentNameplugin
-  const fileContent = replacedefaultLess(relaPath);
-  // push less file
-  lessArray.push(fileContent.replace('@import "../../style/themes/default.less";', ''));
-  AddlocalIdentName(relaPath, fileContent, getLocalIdentName(relaPath));
-});
+glob
+  .sync(path.join(__dirname, '../lib/**/**.less'), { ignore: ['node_modules'] })
+  .forEach(lessPath => {
+    if (lessPath.includes('style')) {
+      return;
+    }
+    // post css add localIdentNameplugin
+    const fileContent = replaceDefaultLess(lessPath);
+    // push less file
+    AddLocalIdentName(lessPath, fileContent, getLocalIdentName(lessPath));
+  });

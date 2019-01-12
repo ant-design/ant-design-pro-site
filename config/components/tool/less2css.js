@@ -4,7 +4,7 @@ const less = require('postcss-less-engine');
 const fs = require('fs-extra');
 const path = require('path');
 
-const less2css = function (stylePath) {
+const less2css = function(stylePath) {
   let lessPath = `${stylePath}/index.less`;
   let cssPath = `${stylePath}/index.css`;
   if (!fs.existsSync(lessPath)) {
@@ -18,9 +18,9 @@ const less2css = function (stylePath) {
     path.join(__dirname, '../lib/style/themes/default.less')
   );
   postcss([less({ strictMath: true })])
-    .process(lessString, { parser: less.parser })
-    .then((result) => {
-      // creact to style folder
+    .process(lessString, { parser: less.parser, from: stylePath })
+    .then(result => {
+      // creat to style folder
       if (!fs.existsSync(stylePath)) {
         fs.mkdirSync(stylePath);
       }

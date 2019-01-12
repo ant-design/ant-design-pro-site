@@ -4,33 +4,33 @@
  * 在 css.js 中加入 require('antd/lib/button/style/css')
  * 在 less 中加入 @import '~antd/lib/button/style/index.less';
  */
-const fs = require('fs');
+const fs = require('fs-extra');
 const pathTool = require('path');
-const { createStyleFolder, appentContent } = require('./createStyleFolder');
+const { createStyleFolder, appendContent } = require('./createStyleFolder');
 
 createStyleFolder('../lib');
 // 所有使用过的 ant 组件
 // 之所以是个对象是为了去重
 const antdLibMap = {};
 
-const addAntlibtoStyle = function (parentsFolder) {
+const addAntLibToStyle = function(parentsFolder) {
   const ChartsMap = {};
-  const loop = (parents) => {
+  const loop = parents => {
     const paths = fs.readdirSync(pathTool.join(__dirname, parents));
-    paths.forEach((path) => {
+    paths.forEach(path => {
       if (path === '_utils') {
         return;
       }
       const fileStatus = fs.lstatSync(pathTool.join(__dirname, parents, path));
       if (fileStatus.isFile() && path.indexOf('.js') > -1) {
-        const relaPath = pathTool.join(__dirname, parents, path);
-        const jsString = fs.readFileSync(relaPath).toString();
+        const relayPath = pathTool.join(__dirname, parents, path);
+        const jsString = fs.readFileSync(relayPath).toString();
         const execArray = jsString.match(/(antd\/lib\/)(\w*((-)*\w+)*)/gi);
         if (!execArray) {
           return;
         }
-        if (relaPath.includes('Charts')) {
-          execArray.forEach((antdLib) => {
+        if (relayPath.includes('Charts')) {
+          execArray.forEach(antdLib => {
             antdLibMap[antdLib] = true;
             ChartsMap[antdLib] = true;
           });
@@ -39,7 +39,7 @@ const addAntlibtoStyle = function (parentsFolder) {
         const cssPathString = [];
         const lessPathString = [];
 
-        execArray.forEach((antdLib) => {
+        execArray.forEach(antdLib => {
           antdLibMap[antdLib] = true;
           cssPathString.push(`require('${antdLib}/style/css');`);
           lessPathString.push(`require('${antdLib}/style/index');`);
@@ -51,13 +51,13 @@ const addAntlibtoStyle = function (parentsFolder) {
         if (!fs.existsSync(stylePath)) {
           fs.mkdirSync(stylePath);
         }
-        // appent to css.js
+        // append to css.js
         const cssJsPath = pathTool.join(__dirname, parents, 'style/css.js');
-        appentContent(cssJsPath, cssPathString.join('\n'));
+        appendContent(cssJsPath, cssPathString.join('\n'));
 
-        // appent to index.js
+        // append to index.js
         const lessJsPath = pathTool.join(__dirname, parents, 'style/index.js');
-        appentContent(lessJsPath, lessPathString.join('\n'));
+        appendContent(lessJsPath, lessPathString.join('\n'));
       }
       if (fileStatus.isDirectory()) {
         loop(pathTool.join(parents, path));
@@ -68,17 +68,17 @@ const addAntlibtoStyle = function (parentsFolder) {
 
   const cssPathString = [];
   const lessPathString = [];
-  Object.keys(ChartsMap).forEach((antdLib) => {
+  Object.keys(ChartsMap).forEach(antdLib => {
     cssPathString.push(`require('${antdLib}/style/css');`);
     lessPathString.push(`require('${antdLib}/style/index');`);
   });
-  // appent to css.js
+  // append to css.js
   const cssJsPath = pathTool.join(__dirname, '../lib/Charts', 'style/css.js');
-  appentContent(cssJsPath, cssPathString.join('\n'));
+  appendContent(cssJsPath, cssPathString.join('\n'));
 
-  // appent to index.js
+  // append to index.js
   const lessJsPath = pathTool.join(__dirname, '../lib/Charts', 'style/index.js');
-  appentContent(lessJsPath, lessPathString.join('\n'));
+  appendContent(lessJsPath, lessPathString.join('\n'));
 };
 
-addAntlibtoStyle('../lib');
+addAntLibToStyle('../lib');

@@ -7,11 +7,11 @@
 const fs = require('fs-extra');
 const pathTool = require('path');
 const less2css = require('./less2css');
-const megreChartsList = require('./megreChartsList');
+const mergeChartsList = require('./mergeChartsList');
 
-megreChartsList();
+mergeChartsList();
 
-const appentContent = (path, content) => {
+const appendContent = (path, content) => {
   let lessContent = '';
   if (fs.existsSync(path)) {
     lessContent = fs.readFileSync(path);
@@ -20,9 +20,9 @@ const appentContent = (path, content) => {
   fs.writeFileSync(path, lessContent);
 };
 
-const createStyleFolder = function (parents) {
+const createStyleFolder = function(parents) {
   const paths = fs.readdirSync(pathTool.join(__dirname, parents));
-  paths.forEach((path) => {
+  paths.forEach(path => {
     if (path === '_utils' || path === 'style') {
       return;
     }
@@ -38,11 +38,11 @@ const createStyleFolder = function (parents) {
       // add  require to css.js
       const cssJsPath = pathTool.join(stylePath, 'css.js');
       const cssContent = `require('./${path.replace('less', 'css')}');`;
-      appentContent(cssJsPath, cssContent);
+      appendContent(cssJsPath, cssContent);
       // add  require to index.js
       const lessJsPath = pathTool.join(stylePath, 'index.js');
       const lessContent = `require('./${path}');`;
-      appentContent(lessJsPath, lessContent);
+      appendContent(lessJsPath, lessContent);
     }
     if (fileStatus.isDirectory()) {
       if (path === 'style') {
@@ -54,5 +54,5 @@ const createStyleFolder = function (parents) {
 };
 module.exports = {
   createStyleFolder,
-  appentContent,
+  appendContent,
 };

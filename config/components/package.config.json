@@ -1,8 +1,7 @@
 {
   "name": "ant-design-pro",
   "version": "1.4.1",
-  "description":
-    "An enterprise-class UI design language and React-based implementation",
+  "description": "An enterprise-class UI design language and React-based implementation",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,7 +13,7 @@
     "cp": "cp ./.babelrc ../../scaffold && cp ./css-module.js ../../scaffold",
     "clean": "rm -rf dist && rm ../../scaffold/.babelrc && rm ../../scaffold/css-module.js",
     "build": "npm run create && npm run build:lib && npm run build:index && npm run build:umd && npm run rm && npm run processorLess && npm run addAntlibtoStyle",
-    "test":"npm run create && npm run build:lib && npm run build:index && npm run build:umd && npm run rm && npm run processorLess",
+    "test": "npm run create && npm run build:lib && npm run build:index && npm run build:umd && npm run rm && npm run processorLess",
     "build:index": "../../node_modules/.bin/babel ./index.js -d lib && cp ./index.d.ts ./lib/index.d.ts",
     "build:lib": "rm -rf lib && npm run cp && ../../node_modules/.bin/babel ../../scaffold/src/components -d lib --copy-files",
     "build:umd": "npm run clean && ../../node_modules/.bin/cross-env NODE_ENV=production ../../node_modules/.bin/antd-tools run dist",

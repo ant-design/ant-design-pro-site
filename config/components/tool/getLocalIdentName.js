@@ -1,4 +1,4 @@
-module.exports = function (path) {
+module.exports = function(path) {
   const antdProPath = path.match(/config\/components\/lib\/(.*)/)[1];
   const arr = antdProPath
     .split('/')
