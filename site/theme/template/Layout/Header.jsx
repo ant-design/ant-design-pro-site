@@ -189,9 +189,6 @@ class Header extends React.Component {
     const isZhCN = intl.locale === 'zh-CN';
 
     const menu = [
-      <Button onClick={this.handleLangChange} key="lang-button" block>
-        <FormattedMessage id="app.header.lang" />
-      </Button>,
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
           <Link to={getLocalizedPathname('/', isZhCN)}>
