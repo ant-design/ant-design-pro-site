@@ -6,6 +6,39 @@ type: Other
 
 [Older Version](http://03x.pro.ant.design/)
 
+### 2.2.0
+In the next version of Pro, we will gradually remove all the components that will be added to the Ant Design, which are under development:
+
+- [Result](https://github.com/ant-design/ant-design/pull/14196)
+- [PageHeader](https://github.com/ant-design/ant-design/pull/13637)
+- [Statistic / Countdown](https://github.com/ant-design/ant-design/pull/14154)
+- [Empty](https://github.com/ant-design/ant-design/pull/13651)
+
+These components will be more fully supported and maintained in Ant Design, and Pro will focus on Layout and scaffolding.
+
+#### Scaffold
+
+- The captcha button supports internationalization. [#2810](https://github.com/ant-design/ant-design-pro/pull/2810)
+- Fix bug when logging out of login will jump to the wrong path when configuring `base : 'demo'`. [#2865](https://github.com/ant-design/ant-design-pro/pull/2865)
+- Added docker image to quickly preview Pro via docker image. [#2890)](https://github.com/ant-design/ant-design-pro/pull/2890)
+- PWA is supported and has been enabled by default. [#2816](https://github.com/ant-design/ant-design-pro/pull/2816)
+- The prettier now works correctly in windows as well. [ac86837](https://github.com/ant-design/ant-design-pro/commit/ac86837d20494f082ab39b1a52eabea3bc2ac81e)
+- Added gitpod to preview Pro faster. [#3349](https://github.com/ant-design/ant-design-pro/pull/3349)
+- Added a new configuration `title` to quickly configure the header title. [#3332](https://github.com/ant-design/ant-design-pro/pull/3332)
+- Tree-shaking is turned on by default. [#3350](https://github.com/ant-design/ant-design-pro/pull/3332)
+- The hardSource is turned off by default. [#3358](https://github.com/ant-design/ant-design-pro/pull/3358)
+
+#### 组件
+
+- The NoticeIconTab component adds `conut` props. [#2862](https://github.com/ant-design/ant-design-pro/pull/2862)。
+- Fixed an issue where the Login component reported an error if children was an object. [d97935](https://github.com/ant-design/ant-design-pro/commit/d9793524b7a1061cb4eb5887b12633716d796570)
+- Fixed a bug where `breadcrumbList` didn't work. [#2955](https://github.com/ant-design/ant-design-pro/pull/2955)
+- The word cloud fixes the offset of the color change when the mouse moves over and supports the number of Tooltip displays. [#2896](https://github.com/ant-design/ant-design-pro/pull/2896)
+- The AvatarList component supports `maxLength` props. [#2984](https://github.com/ant-design/ant-design-pro/pull/2984)
+- Fixed an issue where resetFields didn't work for the TagSelect component. [#3031](https://github.com/ant-design/ant-design-pro/pull/3031)
+- Fixed an issue where HeaderSearch did not trigger the onSearch callback. [#3227](https://github.com/ant-design/ant-design-pro/commit/31d63bc701890df3a487c2e7a5603b20fb50892f)
+- NoticeIcon adds LoadMore support. [#3221](https://github.com/ant-design/ant-design-pro/pull/3221)
+
 ### 2.1.1
 
 #### Scaffold
