@@ -7,6 +7,7 @@ type: Other
 [Older Version](http://03x.pro.ant.design/)
 
 ### 2.2.0
+
 In the next version of Pro, we will gradually remove all the components that will be added to the Ant Design, which are under development:
 
 - [Result](https://github.com/ant-design/ant-design/pull/14196)
