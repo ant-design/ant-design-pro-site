@@ -16,5 +16,6 @@ module.exports = [
   'Ellipsis',
   'Authorized',
   'Login',
+  'HeaderDropdown',
   '_utils',
 ];
