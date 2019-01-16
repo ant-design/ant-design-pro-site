@@ -8,6 +8,40 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 2.2.0
+
+在 下一个版本的 Pro 中，我们会逐步的删除所有的组件，这些组件将会加入的 Ant Design 中，正在路上的已经有:
+
+- [Result](https://github.com/ant-design/ant-design/pull/14196)
+- [PageHeader](https://github.com/ant-design/ant-design/pull/13637)
+- [Statistic / Countdown](https://github.com/ant-design/ant-design/pull/14154)
+- [Empty](https://github.com/ant-design/ant-design/pull/13651)
+
+在 Ant Design 中这些组件会得到更加完善的支持与维护，Pro 将会专注的做 Layout 和脚手架的工作。
+
+#### 脚手架
+
+- 验证码按钮支持国际化。[#2810](https://github.com/ant-design/ant-design-pro/pull/2810)
+- 修复在配置 `base : 'demo'`时，退出登录会跳转到错误的路径的bug。[#2865](https://github.com/ant-design/ant-design-pro/pull/2865)
+- 增加了docker镜像，可以通过 docker 镜像快速预览Pro。[#2890)](https://github.com/ant-design/ant-design-pro/pull/2890)
+- 支持了 PWA ，已经默认开启。[#2816](https://github.com/ant-design/ant-design-pro/pull/2816)
+- prettier 现在在 windows 中也可以正确的运行。[ac86837](https://github.com/ant-design/ant-design-pro/commit/ac86837d20494f082ab39b1a52eabea3bc2ac81e)
+- 增加了gitpod，可以更加快速的预览 pro。[#3349](https://github.com/ant-design/ant-design-pro/pull/3349)
+- 增加了一个新的配置 `title`，可以快速的配置 header title。[#3332](https://github.com/ant-design/ant-design-pro/pull/3332)
+- 默认打开 tree-shaking。[#3350](https://github.com/ant-design/ant-design-pro/pull/3332)
+- 默认关闭了 hardSource。[#3358](https://github.com/ant-design/ant-design-pro/pull/3358)
+
+#### 组件
+
+- NoticeIconTab 组件增加了 `conut` props 。[#2862](https://github.com/ant-design/ant-design-pro/pull/2862)。
+- 修复 Login 组件在 children 为 object 的情况下报错的问题。[d97935](https://github.com/ant-design/ant-design-pro/commit/d9793524b7a1061cb4eb5887b12633716d796570)
+- 修复了 `breadcrumbList` 不工作的bug。[#2955](https://github.com/ant-design/ant-design-pro/pull/2955)
+- 词云修复鼠标移过时变色的偏移并支持Tooltip显示数量。[#2896](https://github.com/ant-design/ant-design-pro/pull/2896)
+- AvatarList 组件支持了 `maxLength` props。[#2984](https://github.com/ant-design/ant-design-pro/pull/2984)
+- 修复 resetFields 对 TagSelect 组件不起作用的问题。[#3031](https://github.com/ant-design/ant-design-pro/pull/3031)
+- 修复 HeaderSearch 不触发 onSearch 回调的问题。[#3227](https://github.com/ant-design/ant-design-pro/commit/31d63bc701890df3a487c2e7a5603b20fb50892f)
+- NoticeIcon 增加了 LoadMore 支持。[#3221](https://github.com/ant-design/ant-design-pro/pull/3221)
+
 ### 2.1.1
 
 #### 脚手架
@@ -20,7 +54,7 @@ type: 其他
 - 修复了菜单自动隐藏的 bug。[#2681](https://github.com/ant-design/ant-design-pro/pull/2681)
 - e2e 测试支持自定义端口。[#2633](https://github.com/ant-design/ant-design-pro/issues/2633)
 
-### 组件
+#### 组件
 
 - Ellipsis 组件 `tooltip` 属性支持 `TooltipProps`。[#2713](https://github.com/ant-design/ant-design-pro/pull/2713)
 - 修复图表 Gauge 中值显示的浮点数异常的问题。[#2682](https://github.com/ant-design/ant-design-pro/pull/2682)
