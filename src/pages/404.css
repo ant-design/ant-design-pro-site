@@ -1,0 +1,40 @@
+.exception {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+.imgBlock {
+  flex: 0 0 62.5%;
+  width: 62.5%;
+  padding-right: 152px;
+  zoom: 1;
+}
+.imgBlock .imgEle {
+  float: right;
+  width: 100%;
+  max-width: 430px;
+  height: 360px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+}
+.content {
+  flex: auto;
+}
+
+.content h1 {
+  margin-bottom: 24px;
+  color: #434e59;
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 72px;
+}
+
+.content .desc {
+  margin-bottom: 16px;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 20px;
+  line-height: 28px;
+}
