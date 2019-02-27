@@ -1,5 +1,7 @@
 # Ant Design Pro Site
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ant-design/ant-design-pro-site.svg)](https://greenkeeper.io/)
+
 The documentation source of [Ant Design Pro](https://github.com/ant-design/ant-design-pro).
 
 ### Development
