@@ -1,12 +1,10 @@
 ---
 order: 17
-title:
-  en-US: Error Handle 
-  zh-CN: 错误处理
+title: 错误处理
 type: 进阶
 ---
 
-在用户使用过程中，可能遇到各种异常情况，比如页面404，申请结果失败，请求的返回异常等等，这篇文档会按照报错形式的不同，分别介绍下相应的处理建议。
+在用户使用过程中，可能遇到各种异常情况，比如页面 404，申请结果失败，请求的返回异常等等，这篇文档会按照报错形式的不同，分别介绍下相应的处理建议。
 
 ## 页面级报错
 
@@ -30,12 +28,16 @@ type: 进阶
 - [Result 结果页](https://preview.pro.ant.design/result/fail)
 
 ```js
-  <Result
-    type="error"
-    title="提交失败"
-    description="请核对并修改以下信息后，再重新提交。"
-    actions={<Button size="large" type="primary">返回修改</Button>}
-  />
+<Result
+  type="error"
+  title="提交失败"
+  description="请核对并修改以下信息后，再重新提交。"
+  actions={
+    <Button size="large" type="primary">
+      返回修改
+    </Button>
+  }
+/>
 ```
 
 这个组件一般用在提交结果展示，文案操作等均可自定义。
@@ -65,19 +67,20 @@ Ant Design Pro 封装了一个强大的 `request.js` 统一处理请求，提供
 ```js
 const checkStatus = response => {
   if (response.status >= 200 && response.status < 300) {
-    return response;
+    return response
   }
-  const errortext = codeMessage[response.status] || response.statusText;
+  const errortext = codeMessage[response.status] || response.statusText
   notification.error({
     message: `请求错误 ${response.status}: ${response.url}`,
     description: errortext,
-  });
-  const error = new Error(errortext);
-  error.name = response.status;
-  error.response = response;
-  throw error;
-};
+  })
+  const error = new Error(errortext)
+  error.name = response.status
+  error.response = response
+  throw error
+}
 ```
+
 为了方便展示 404 等页面，我们在 `request.js` 中封装了根据状态跳转到相应页面的逻辑,建议在线上环境中删除这个逻辑，代码如下：
 
 ```js

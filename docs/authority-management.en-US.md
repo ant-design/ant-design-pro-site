@@ -1,6 +1,9 @@
 ---
 order: 24
 title: Authority Management
+subtitle: 数据文本
+col: 1
+cols: 1
 type: Advanced
 ---
 
@@ -47,7 +50,7 @@ For permission control of certain menus, just go to the router configuration fil
 
 ### Control page element display
 
-Using [Authorized] (http://pro.ant.design/components/Authorized#Authorized) or [Authorized.Secured] (http://pro.ant.design/components/Authorized#Authorized.Secured) can be easily Control element/component rendering. For details, see the component documentation.
+Using [Authorized](http://pro.ant.design/components/Authorized#Authorized) or [Authorized.Secured](http://pro.ant.design/components/Authorized#Authorized.Secured) can be easily Control element/component rendering. For details, see the component documentation.
 
 ### Modify current permissions
 

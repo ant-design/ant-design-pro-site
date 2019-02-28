@@ -2,18 +2,17 @@
 order: 2
 title: Upgrade to V2
 type: Introduction
-important: true
 ---
 
-In addition to many features in the Ant Design Pro 2.0 release, we've also upgraded the front-end build tool from roadhog to [UmiJS] (https://umijs.org/) (referred to as umi). The reason that we say upgrading instead of replacing, is that umi is more than just a front-end build tool. It also includes a routing and plugin system for building a complete React application.
+In addition to many features in the Ant Design Pro 2.0 release, we've also upgraded the front-end build tool from roadhog to [UmiJS](https://umijs.org/) (referred to as umi). The reason that we say upgrading instead of replacing, is that umi is more than just a front-end build tool. It also includes a routing and plugin system for building a complete React application.
 
-If you want to add features from Ant Design Pro 2.0 to your original project and port the 2.0 code to your project, you should migrate your project from roadhog to umi. This document will guide you through the migration process. Before that, you may want to read umi's [documentation] (https://umijs.org/guide/) so that you have a preliminary understanding of umi. This will be helpful for your migration work. The following is an overview of the steps for migration, and there will be more details later.
+If you want to add features from Ant Design Pro 2.0 to your original project and port the 2.0 code to your project, you should migrate your project from roadhog to umi. This document will guide you through the migration process. Before that, you may want to read umi's [documentation](https://umijs.org/guide/) so that you have a preliminary understanding of umi. This will be helpful for your migration work. The following is an overview of the steps for migration, and there will be more details later.
 
-Note: This migration guide is based on the latest v1 version. You can find the changes in the [commit] (https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c). This commit is for reference only and cannot be directly applied to your project. If your version is too old, there may be some small differences. Please migrate with the specific situation.
+Note: This migration guide is based on the latest v1 version. You can find the changes in the [commit](https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c). This commit is for reference only and cannot be directly applied to your project. If your version is too old, there may be some small differences. Please migrate with the specific situation.
 
 ## Migration Steps Overview
 
-- Change the dependency in `package.json` from roadhog to umi. 
+- Change the dependency in `package.json` from roadhog to umi.
 - Modify the settings in `.webpackrc.js` to `config/config.js`.
 - Change the `src/routes` directory name to pages. pages is the defined umi directory.
 - Remove `src/models/index.js`. In umi, the dva models in the models folder will be automatically loaded.
@@ -50,7 +49,7 @@ Open `package.json` in the root directory of the project and change the dependen
 }
 ```
 
-React is built into umi; libraries commonly used by React technology stacks like antd and dva are built into the umi-plugin-react plugin set. See [Minor-plugin-react documentation] (https://umijs.org/plugin/umi-plugin-react.html).
+React is built into umi; libraries commonly used by React technology stacks like antd and dva are built into the umi-plugin-react plugin set. See [Minor-plugin-react documentation](https://umijs.org/plugin/umi-plugin-react.html).
 
 In addition, the scripts in `package.json` also need to be modified accordingly:
 
@@ -73,15 +72,17 @@ You need to create `config/config.js` in your project. This configuration file n
 
 ```js
 export default {
-  plugins: [[
-    'umi-plugin-react',
-    {
-      antd: true,
-      dva: {
-        hmr: true,
-      },
-    }
-  ]]
+  plugins: [
+    [
+      'umi-plugin-react',
+      {
+        antd: true,
+        dva: {
+          hmr: true,
+        },
+      },
+    ],
+  ],
 };
 ```
 
@@ -110,11 +111,11 @@ In umi, after the dva plugin is mounted, the files under models will be introduc
 ### Modify index.ejs
 
 Move `index.ejs` to `pages/document.ejs`, which is the path defined by umi. Reference [œumi HTML template
-Documentation] (https://umijs.org/guide/html-template.html).
+Documentation](https://umijs.org/guide/html-template.html).
 
 ### Modify index.js and index.less
 
-Rename `index.js` to `global.js` and rename `index.less` to `global.less` so they will be mounted automatically by umi. You can refer to umi's [Directory Convention] (https://umijs.org/guide/app-structure.html). In addition, because the dva plugin will automatically mount the model and add the dva-loading plugin by default, the dva related content in index.js can be removed. Just keep the initialization logic like this:
+Rename `index.js` to `global.js` and rename `index.less` to `global.less` so they will be mounted automatically by umi. You can refer to umi's [Directory Convention](https://umijs.org/guide/app-structure.html). In addition, because the dva plugin will automatically mount the model and add the dva-loading plugin by default, the dva related content in index.js can be removed. Just keep the initialization logic like this:
 
 ```js
 import './polyfill';
@@ -131,24 +132,36 @@ This step is the most important. umi has built-in routing implementation, provid
 ```js
 // config/router.config.js
 module.exports = [
-  {
-    path: '/',
-    component: '../layouts/BasicLayout',
-    routes: [
-      // dashboard
-      { path: '/', redirect: '/dashboard/analysis' },
-      {
-        path: '/dashboard',
-        name: 'dashboard',
-        icon: 'dashboard',
-        routes: [
-          { path: '/dashboard/analysis', name: 'analysis', component: './Dashboard/Analysis' },
-          { path: '/dashboard/monitor', name: 'monitor', component: './Dashboard/Monitor' },
-          { path: '/dashboard/workplace', name: 'workplace', component: './Dashboard/Workplace' },
-        ],
-      },
-    ],
-  },
+  {
+    path: '/',
+    component: '../layouts/BasicLayout',
+    routes: [
+      // dashboard
+      { path: '/', redirect: '/dashboard/analysis' },
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        icon: 'dashboard',
+        routes: [
+          {
+            path: '/dashboard/analysis',
+            name: 'analysis',
+            component: './Dashboard/Analysis',
+          },
+          {
+            path: '/dashboard/monitor',
+            name: 'monitor',
+            component: './Dashboard/Monitor',
+          },
+          {
+            path: '/dashboard/workplace',
+            name: 'workplace',
+            component: './Dashboard/Workplace',
+          },
+        ],
+      },
+    ],
+  },
 ];
 ```
 
@@ -170,7 +183,7 @@ In 2.0, you can use the [Permissions Routing] provided by umi directly (https://
 
 In umi, the `mock/*.js` file is used as the mock file by default so you can delete the `.roadhogrc.mock.js` file after migrating the URL information of the mock data to the mock file. Note that the mock data in `.roadhogrc.mock.js` needs to be migrated; for example, you can migrate this part of the data by creating a new `mock/common.js`.
 
-For more instructions, please refer to umi's documentation page [Mock Data] (https://umijs.org/guide/mock-data.html).
+For more instructions, please refer to umi's documentation page [Mock Data](https://umijs.org/guide/mock-data.html).
 
 ### Modify .gitignore
 
@@ -189,28 +202,27 @@ After the above operations are completed, you can run `npm start` to start your 
 - Modify the part related to dva in `src/utils/request.js`. You can use `umi/router` to do the jump directly.
 - `/exception/400` of `src/utils/request.js` can be changed to `/400`.
 - Remove `const baseRedirect = this.getBaseRedirect();` related logic in `BasicLayout`, the logic of the redirect can be implemented through umi's routes configuration.
-- Modify the related logic of `getPageTitle` and `getBreadcrumbNameMap` in `BasicLayout`, refer to the following code implementation. Complete code reference v1 upgrade [commit] (https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c).
+- Modify the related logic of `getPageTitle` and `getBreadcrumbNameMap` in `BasicLayout`, refer to the following code implementation. Complete code reference v1 upgrade [commit](https://github.com/ant-design/ant-design-pro/commit/dc2118db78f9b2b7072051fea558e8d1386ce34c).
 
 Note: `memoizeOne` is a method provided by the `memoize-one` npm package. You need to install memoize-one first. `deepEqual` is provided by the `lodash.isequal` package, and related dependencies need to be installed.
 
 ```js
 /**
- * Get breadcrumb mapping
- * @param {Object} menuData menu configuration
- */
+ * Get breadcrumb mapping
+ * @param {Object} menuData menu configuration
+ */
 const getBreadcrumbNameMap = memoizeOne(meun => {
-  const routerMap = {};
-  const mergeMeunAndRouter = meunData => {
-    meunData.forEach(meunItem => {
-      if (meunItem.children) {
-        mergeMeunAndRouter(meunItem.children);
-      }
-      // Reduce memory usage
-      routerMap[meunItem.path] = meunItem;
-    });
-  };
-  mergeMeunAndRouter(meun);
-  return routerMap;
+  const routerMap = {};
+  const mergeMeunAndRouter = meunData => {
+    meunData.forEach(meunItem => {
+      if (meunItem.children) {
+        mergeMeunAndRouter(meunItem.children);
+      } // Reduce memory usage
+      routerMap[meunItem.path] = meunItem;
+    });
+  };
+  mergeMeunAndRouter(meun);
+  return routerMap;
 }, deepEqual);
 ```
 
@@ -239,11 +251,11 @@ In Ant Design Pro 2.0 we used the umi plugin `umi-plugin-locale` for i18n. The p
 
 After enabling the i18n plugin, add the `locales` folder in the project directory, and add the i18n resource file according to the convention. Then, you can internationalize by using the API exposed by `umi/locale` in the project.
 
-More about the `umi-plugin-locale` configuration can be found in its [documentation] (https://umijs.org/plugin/umi-plugin-react.html#locale).
+More about the `umi-plugin-locale` configuration can be found in its [documentation](https://umijs.org/plugin/umi-plugin-react.html#locale).
 
 ### Support theme switching
 
-Ant Design Pro uses less and cssModule as a style solution. You can configure this theme style by configuring lessVars at compile time. This function is built into umi. You can configure `theme` in the configuration file. Refer to umi's [Configuration Documentation] (https://umijs.org/config/#theme).
+Ant Design Pro uses less and cssModule as a style solution. You can configure this theme style by configuring lessVars at compile time. This function is built into umi. You can configure `theme` in the configuration file. Refer to umi's [Configuration Documentation](https://umijs.org/config/#theme).
 
 However, the adjustment of the navigation layout mode supported by the v2 version is mainly the upgrade of the business logic of the code. You can refer to the code of `src/layouts/BasicLayout.js` in the v2 code for adjustment.
 

@@ -1,8 +1,6 @@
 ---
 order: 14
-title:
-  en-US: Theme 
-  zh-CN: 更换主题 
+title: Theme
 type: Advanced
 ---
 
@@ -31,7 +29,6 @@ theme: {
 Find the variables that need to be modified in [All Variables Table](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less), and start `npm start` after modification. , you can see the effect in your app interface.
 
 More ways can refer to the official documentation:[Customize Theme](http://ant.design/docs/react/customize-theme-cn)。
-
 
 ## Style Override
 
@@ -74,6 +71,7 @@ return <Tag className={styles.customTag}>定制标签</Tag>;
 Pro provides a setup drawer that can be used to switch themes and layouts online. This drawer makes it easy to see the effects of changing the theme without having to restart the scaffolding.
 
 In order to facilitate preview, the configuration items in the settings will be saved in the address bar, you can copy them to others and share the effects.
+
 > Due to the nature of the react-router, the parameters of the address bar may be cleared.
 
 Once you have determined this configuration, you can copy it by clicking the Copy Code button and override the default setting in `src/defaultSetting.js`. This way you can publish and deploy on this theme.
