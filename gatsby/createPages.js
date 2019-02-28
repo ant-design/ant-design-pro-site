@@ -10,7 +10,6 @@ const { resolve } = require('path');
 module.exports = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   // Used to detect and prevent duplicate redirects
-  const redirectToSlugMap = {};
 
   const docsTemplate = resolve(__dirname, '../src/templates/docs.js');
   const componentsTemplate = resolve(__dirname, '../src/templates/components.js');
@@ -28,7 +27,6 @@ module.exports = async ({ graphql, actions }) => {
           edges {
             node {
               fields {
-                redirect
                 slug
               }
             }
@@ -43,6 +41,7 @@ module.exports = async ({ graphql, actions }) => {
 
     throw Error(allMarkdown.errors);
   }
+  const redirectList = {};
 
   allMarkdown.data.allMarkdownRemark.edges.forEach(edge => {
     const slug = edge.node.fields.slug;
@@ -57,6 +56,7 @@ module.exports = async ({ graphql, actions }) => {
           .shift()
           .split('/')
           .pop();
+        redirectList[path.replace('.zh-CN.html', '').replace('.en-US.html', '')] = true;
         return createPage({
           path,
           component: template,
@@ -69,66 +69,27 @@ module.exports = async ({ graphql, actions }) => {
 
       // Register primary URL.
       createArticlePage(slug.replace('/index', ''));
-
-      // Register redirects as well if the markdown specifies them.
-      if (edge.node.fields.redirect) {
-        let redirect = JSON.parse(edge.node.fields.redirect);
-        if (!Array.isArray(redirect)) {
-          redirect = [redirect];
-        }
-
-        redirect.forEach(fromPath => {
-          if (redirectToSlugMap[fromPath] != null) {
-            console.error(
-              `Duplicate redirect detected from "${fromPath}" to:\n` +
-                `* ${redirectToSlugMap[fromPath]}\n` +
-                `* ${slug}\n`
-            );
-            process.exit(1);
-          }
-
-          // A leading "/" is required for redirects to work,
-          // But multiple leading "/" will break redirects.
-          // For more context see github.com/reactjs/reactjs.org/pull/194
-          const toPath = slug.startsWith('/') ? slug : `/${slug}`;
-
-          redirectToSlugMap[fromPath] = slug;
-          createRedirect({
-            fromPath: `/${fromPath}`,
-            redirectInBrowser: true,
-            toPath,
-          });
-        });
-      }
     }
   });
 
-  const newestBlogEntry = await graphql(
-    `
-      {
-        allMarkdownRemark(
-          limit: 1
-          filter: { fileAbsolutePath: { regex: "/docs/" } }
-          sort: { fields: [fields___path], order: DESC }
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-            }
-          }
-        }
-      }
-    `
-  );
-  const newestBlogNode = newestBlogEntry.data.allMarkdownRemark.edges[0].node;
-  // Blog landing page should always show the most recent blog entry.
-  ['/docs/', '/docs'].map(slug =>
-    createRedirect({
-      fromPath: slug,
+  // redirect getting-started -> getting-started.en-US.html
+  Object.keys(redirectList).map(path => {
+    return createRedirect({
+      fromPath: `${path}`,
       redirectInBrowser: true,
-      toPath: newestBlogNode.fields.slug,
-    })
-  );
+      toPath: `${path}.en-US.html`,
+    });
+  });
+
+  createRedirect({
+    fromPath: '/docs/',
+    redirectInBrowser: true,
+    toPath: '/docs/getting-started.en-US.html',
+  });
+
+  createRedirect({
+    fromPath: '/components/',
+    redirectInBrowser: true,
+    toPath: '/components/AvatarList.en-US.html',
+  });
 };
