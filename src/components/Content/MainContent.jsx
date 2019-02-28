@@ -206,6 +206,9 @@ export default class MainContent extends React.PureComponent {
     const index = list.findIndex(item => {
       return item.key === `${filename}/`;
     });
+    if (index === -1) {
+      return {};
+    }
     return {
       prev: list[index - 1],
       next: list[index + 1],
