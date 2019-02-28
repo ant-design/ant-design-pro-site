@@ -116,7 +116,7 @@ export default class MainContent extends React.PureComponent {
     ];
     const disabled = item.disabled;
     const child = !item.link ? (
-      <Link to={`${item.filename}/#`} disabled={disabled}>
+      <Link to={`${item.filename}`} disabled={disabled}>
         {before}
         {text}
         {after}
@@ -135,7 +135,7 @@ export default class MainContent extends React.PureComponent {
       </a>
     );
     return (
-      <Menu.Item key={`${key}/`} disabled={disabled}>
+      <Menu.Item key={`${key}`} disabled={disabled}>
         {item.important ? <Badge dot={item.important}>{child}</Badge> : child}
       </Menu.Item>
     );

@@ -153,7 +153,7 @@ export default class ComponentDoc extends React.PureComponent {
             <div
               id="demo-toc-bottom"
               dangerouslySetInnerHTML={{
-                __html: toc.replace(/<ul>/g, '<ul class="toc">'),
+                __html: toc.replace(/<ul>/g, '<ul class="toc">').replace(/\/#/g, '#'),
               }}
             />
           </Affix>

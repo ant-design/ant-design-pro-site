@@ -30,9 +30,9 @@ export function getLocalizedPathname(path, zhCN) {
     return '/';
   }
   if (!zhCN) {
-    return `${pathname}.en-US.html/`;
+    return `${pathname}.en-US.html`;
   }
-  return `${pathname}.zh-CN.html/`;
+  return `${pathname}.zh-CN.html`;
 }
 
 export function getMenuItems(moduleData, locale) {

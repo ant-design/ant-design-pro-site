@@ -27,7 +27,6 @@ export default class Article extends React.PureComponent {
       },
       false
     );
-    this.componentDidUpdate();
   }
 
   componentWillUnmount() {
@@ -105,7 +104,7 @@ export default class Article extends React.PureComponent {
             <Affix className="toc-affix" offsetTop={16}>
               <div
                 dangerouslySetInnerHTML={{
-                  __html: content.toc.replace(/<ul>/g, '<ul class="toc">'),
+                  __html: content.toc.replace(/<ul>/g, '<ul class="toc">').replace(/\/#/g, '#'),
                 }}
               />
             </Affix>
