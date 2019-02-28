@@ -166,7 +166,6 @@ export default class MainContent extends React.PureComponent {
 
   getMenuItems = (footerNavIcons = {}) => {
     const moduleData = getModuleDataWithProps(this.props);
-
     const {
       intl: { locale },
     } = this.context;
@@ -175,6 +174,7 @@ export default class MainContent extends React.PureComponent {
     if (menuItems.topLevel) {
       topLevel = this.generateSubMenuItems(menuItems.topLevel, footerNavIcons);
     }
+
     const subMenu = Object.keys(menuItems)
       .filter(isNotTopLevel)
       .map(category => {
@@ -190,18 +190,36 @@ export default class MainContent extends React.PureComponent {
     return result;
   };
 
-  render() {
-    const props = this.props;
-    const activeMenuItem = getActiveMenuItem(props);
-    const menuItems = this.getMenuItems();
-    // const menuItemsForFooterNav = this.getMenuItems({
-    //   before: <Icon className="footer-nav-icon-before" type="left" />,
-    //   after: <Icon className="footer-nav-icon-after" type="right" />,
-    // });
+  getPreAndNext = menuItems => {
+    const {
+      localizedPageData: {
+        meta: { filename },
+      },
+    } = this.props;
 
-    const localizedPageData = props.localizedPageData;
+    const list = menuItems.length
+      ? menuItems
+      : Object.keys(menuItems).reduce((pre, key) => {
+          return pre.concat(menuItems[key].props.children);
+        }, []);
+
+    const index = list.findIndex(item => {
+      return item.key === `${filename}/`;
+    });
+    return {
+      prev: list[index - 1],
+      next: list[index + 1],
+    };
+  };
+
+  render() {
+    const { localizedPageData, demos, isMobile } = this.props;
+
+    const activeMenuItem = getActiveMenuItem(this.props);
+    const menuItems = this.getMenuItems();
+    const { prev, next } = this.getPreAndNext(menuItems);
     const mainContainerClass = classNames('main-container', {
-      'main-container-component': !!props.demos,
+      'main-container-component': !!demos,
     });
     const { openKeys } = this.state;
     const menuChild = (
@@ -219,7 +237,7 @@ export default class MainContent extends React.PureComponent {
     return (
       <div className="main-wrapper">
         <Row>
-          {props.isMobile ? (
+          {isMobile ? (
             <MobileMenu
               iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
               key="mobile-menu"
@@ -234,10 +252,10 @@ export default class MainContent extends React.PureComponent {
           )}
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
             <div className={mainContainerClass}>
-              {props.demos ? (
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
+              {demos ? (
+                <ComponentDoc {...this.props} doc={localizedPageData} demos={demos} />
               ) : (
-                <Article {...props} content={localizedPageData} />
+                <Article {...this.props} content={localizedPageData} />
               )}
             </div>
           </Col>
@@ -246,16 +264,18 @@ export default class MainContent extends React.PureComponent {
         <Row>
           <Col lg={{ span: 20, offset: 4 }} md={24} sm={24} xs={24}>
             <section className="prev-next-nav">
-              {/* {prev
-                ? React.cloneElement(prev.props.children, {
-                    className: 'prev-page',
-                  })
-                : null}
-              {next
-                ? React.cloneElement(next.props.children, {
-                    className: 'next-page',
-                  })
-                : null} */}
+              {prev ? (
+                <a className="prev-page">
+                  <Icon className="footer-nav-icon-before" type="left" />
+                  {prev.props.children}
+                </a>
+              ) : null}
+              {next ? (
+                <a className="next-page">
+                  {next.props.children}
+                  <Icon className="footer-nav-icon-after" type="right" />
+                </a>
+              ) : null}
             </section>
           </Col>
         </Row>
