@@ -45,5 +45,17 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Ant Design Pro',
+        short_name: 'Ant Design Pro Doc',
+        display: 'standalone',
+        start_url: './?utm_source=homescreen',
+        theme_color: '#002140',
+        background_color: '#001529',
+        icon: 'src/images/favicon.png',
+      },
+    },
   ],
 };

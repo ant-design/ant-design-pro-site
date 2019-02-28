@@ -30,20 +30,6 @@ export default class Article extends React.PureComponent {
     this.componentDidUpdate();
   }
 
-  componentDidUpdate() {
-    // const links = [...document.querySelectorAll('.outside-link.internal')];
-    // if (links.length === 0) {
-    //   return;
-    // }
-    // this.pingTimer = ping(status => {
-    //   if (status !== 'timeout' && status !== 'error') {
-    //     links.forEach(link => link && (link.style.display = 'block'));
-    //   } else {
-    //     links.forEach(link => link && link.parentNode.removeChild(link));
-    //   }
-    // });
-  }
-
   componentWillUnmount() {
     clearTimeout(this.pingTimer);
     if (this.delegation) {
