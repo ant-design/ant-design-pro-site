@@ -5,7 +5,7 @@ import MainContent from '../components/Content/MainContent';
 import { transformerFrontmatter } from '../components/utils';
 
 export default function Template({ data, ...rest }) {
-  const { markdownRemark, allMarkdownRemark } = data; // data.markdownRemark holds our post data
+  const { markdownRemark, allMarkdownRemark } = data;
   const { frontmatter, fields, html, tableOfContents } = markdownRemark;
   const { edges } = allMarkdownRemark;
 

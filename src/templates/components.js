@@ -21,6 +21,7 @@ const transformerDemos = demos => {
 };
 
 export default function Template({ data, ...rest }) {
+  console.log(data);
   const {
     markdownRemark,
     demos = {

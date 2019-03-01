@@ -28,6 +28,7 @@ module.exports = async ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                underScoreCasePath
               }
             }
           }
@@ -41,28 +42,33 @@ module.exports = async ({ graphql, actions }) => {
 
     throw Error(allMarkdown.errors);
   }
-  const redirectList = {};
+  const redirects = {};
 
   allMarkdown.data.allMarkdownRemark.edges.forEach(edge => {
-    const slug = edge.node.fields.slug;
+    const { slug, underScoreCasePath } = edge.node.fields;
     if (slug.includes('docs/') || slug.includes('/components')) {
       let template = docsTemplate;
       if (slug.includes('/components')) {
         template = componentsTemplate;
       }
       const createArticlePage = path => {
+        if (underScoreCasePath !== path) {
+          redirects[underScoreCasePath] = path;
+        }
+
         const demoQuery = slug
           .split('.')
           .shift()
           .split('/')
-          .pop();
-        redirectList[path.replace('.zh-CN.html', '').replace('.en-US.html', '')] = true;
+          .pop()
+          .replace('-cn', '');
+        console.log(path, slug);
         return createPage({
           path,
           component: template,
           context: {
             slug,
-            demo: `/${demoQuery}/demo//`,
+            demo: `/${demoQuery}/demo/`,
           },
         });
       };
@@ -72,24 +78,15 @@ module.exports = async ({ graphql, actions }) => {
     }
   });
 
-  // redirect getting-started -> getting-started.en-US.html
-  Object.keys(redirectList).map(path => {
-    return createRedirect({
-      fromPath: `${path}`,
-      redirectInBrowser: true,
-      toPath: `${path}.en-US.html`,
-    });
-  });
-
   createRedirect({
     fromPath: '/docs/',
     redirectInBrowser: true,
-    toPath: '/docs/getting-started.en-US.html',
+    toPath: '/docs/getting-started',
   });
 
   createRedirect({
     fromPath: '/components/',
     redirectInBrowser: true,
-    toPath: '/components/AvatarList.en-US.html',
+    toPath: '/components/avatarList-cn',
   });
 };

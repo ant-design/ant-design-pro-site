@@ -2,8 +2,7 @@
 // https://github.com/WickyNilliams/enquire.js/issues/82
 
 export function isZhCN(pathname) {
-  const notHaveLocal = !pathname.includes('zh-CN') && !pathname.includes('en-US');
-  if (pathname === '/' || notHaveLocal) {
+  if (pathname === '/') {
     if (typeof window !== `undefined`) {
       const locale = localStorage ? localStorage.getItem('locale') : 'en-US';
       if (locale === 'zh-CN') {
@@ -13,26 +12,29 @@ export function isZhCN(pathname) {
     }
     return false;
   }
-  return /zh-CN/.test(pathname);
+  return /-cn/.test(pathname);
 }
 
+/**
+ * @param {*} path url
+ * @param {*} zhCN boolean
+ * if(zhCN)
+ *  return "avatar-list"
+ * else
+ *  return "avatar-list-cn"
+ */
 export function getLocalizedPathname(path, zhCN) {
   let pathname = path.startsWith('/') ? path : `/${path}`;
-  const notHaveLocal = !pathname.includes('zh-CN') && !pathname.includes('en-US');
 
-  if (notHaveLocal) {
-    return `${pathname}`;
-  }
-
-  pathname = pathname.split('.').shift();
+  pathname = pathname.replace('-cn', '');
 
   if (pathname === '/') {
     return '/';
   }
   if (!zhCN) {
-    return `${pathname}.en-US.html`;
+    return `${pathname}`;
   }
-  return `${pathname}.zh-CN.html`;
+  return `${pathname}-cn`;
 }
 
 export function getMenuItems(moduleData, locale) {

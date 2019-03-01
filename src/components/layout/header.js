@@ -204,12 +204,12 @@ class Header extends React.Component {
           </Link>
         </Menu.Item>
         <Menu.Item key="docs">
-          <Link to={utils.getLocalizedPathname('/docs/getting-started.en-US.html', isZhCN)}>
+          <Link to={utils.getLocalizedPathname('/docs/getting-started', isZhCN)}>
             <FormattedMessage id="app.header.menu.docs" />
           </Link>
         </Menu.Item>
         <Menu.Item key="components">
-          <Link to={utils.getLocalizedPathname('/components/AvatarList.en-US.html', isZhCN)}>
+          <Link to={utils.getLocalizedPathname('/components/avatar-list', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>

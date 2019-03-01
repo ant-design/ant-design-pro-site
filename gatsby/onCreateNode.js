@@ -4,6 +4,13 @@
 /* eslint-disable no-multi-assign */
 const path = require('path');
 
+const getKebabCase = str => {
+  return str
+    .replace(/[A-Z]/g, letter => {
+      return `-${letter.toLowerCase()}`;
+    })
+    .replace(/\/-/g, '/');
+};
 // Add custom fields to MarkdownRemark nodes.
 module.exports = exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -14,13 +21,22 @@ module.exports = exports.onCreateNode = ({ node, actions, getNode }) => {
       let slug = permalink;
       if (!slug) {
         // This will likely only happen for the partials in /content/home.
-        slug = `${sourceInstanceName}/${relativePath.replace('.md', '.html')}`;
+        // DescriptionList.md -> DescriptionList
+        slug = `${sourceInstanceName}/${relativePath
+          .replace('.en-US.md', '')
+          .replace('.zh-CN.md', '-cn')
+          .replace('.md', '')}`;
       }
 
       // Used to generate URL to view this content.
       createNodeField({
         node,
         name: 'slug',
+        value: getKebabCase(slug.replace('/index', '')),
+      });
+      createNodeField({
+        node,
+        name: 'underScoreCasePath',
         value: slug.replace('/index', ''),
       });
 

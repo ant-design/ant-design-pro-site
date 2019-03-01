@@ -10,7 +10,7 @@ function Home(props) {
   const { intl } = props;
   return (
     <DocumentTitle
-      title={`Ant Design - ${intl.formatMessage({
+      title={`Ant Design Pro - ${intl.formatMessage({
         id: 'app.home.slogan',
       })}`}
     >
