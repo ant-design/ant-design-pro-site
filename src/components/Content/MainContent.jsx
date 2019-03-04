@@ -19,10 +19,12 @@ function getActiveMenuItem(props) {
 
 function getModuleDataWithProps(props) {
   const moduleData = props.menuList;
-  const excludedSuffix = isZhCN(props.location.pathname) ? '-cn' : '';
-
-  return moduleData.filter(({ slug }) => {
-    return slug.endsWith(excludedSuffix);
+  const excludedSuffix = isZhCN(props.location.pathname) ? 'zh-CN' : 'en-US';
+  return moduleData.filter(({ path }) => {
+    if (!path.includes('zh-CN') && !path.includes('en-US')) {
+      return true;
+    }
+    return path.includes(excludedSuffix);
   });
 }
 

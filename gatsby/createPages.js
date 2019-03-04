@@ -62,7 +62,6 @@ module.exports = async ({ graphql, actions }) => {
           .split('/')
           .pop()
           .replace('-cn', '');
-        console.log(path, slug);
         return createPage({
           path,
           component: template,
@@ -77,6 +76,13 @@ module.exports = async ({ graphql, actions }) => {
       createArticlePage(slug.replace('/index', ''));
     }
   });
+  // 首页的中文版
+  const indexTemplate = resolve(__dirname, '../src/pages/index.js');
+
+  createPage({
+    path: '/index-cn',
+    component: indexTemplate,
+  });
 
   createRedirect({
     fromPath: '/docs/',
@@ -87,6 +93,13 @@ module.exports = async ({ graphql, actions }) => {
   createRedirect({
     fromPath: '/components/',
     redirectInBrowser: true,
-    toPath: '/components/avatarList-cn',
+    toPath: '/components/avatar-list',
   });
+  Object.keys(redirects).map(path =>
+    createRedirect({
+      fromPath: path,
+      redirectInBrowser: true,
+      toPath: redirects[path],
+    })
+  );
 };

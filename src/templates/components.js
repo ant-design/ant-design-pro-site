@@ -21,7 +21,6 @@ const transformerDemos = demos => {
 };
 
 export default function Template({ data, ...rest }) {
-  console.log(data);
   const {
     markdownRemark,
     demos = {
@@ -41,8 +40,8 @@ export default function Template({ data, ...rest }) {
           slug: node.fields.slug,
           filename: node.fields.slug,
         },
+        path: node.fields.path,
         ...newFrontmatter,
-        filename: node.fields.slug,
       };
     })
     .filter(({ slug }) => !slug.includes('/demo/'));
