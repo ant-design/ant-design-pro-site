@@ -245,7 +245,7 @@ export default class Demo extends React.Component {
         </section>
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-            <a href={`#${localizedTitle}`} ref={this.saveAnchor}>
+            <a href={`#${id}`} ref={this.saveAnchor}>
               {localizedTitle}
             </a>
             <EditButton
