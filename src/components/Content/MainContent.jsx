@@ -20,11 +20,14 @@ function getActiveMenuItem(props) {
 function getModuleDataWithProps(props) {
   const moduleData = props.menuList;
   const excludedSuffix = isZhCN(props.location.pathname) ? 'zh-CN' : 'en-US';
-  return moduleData.filter(({ path }) => {
-    if (!path.includes('zh-CN') && !path.includes('en-US')) {
+  return moduleData.filter(({ filename }) => {
+    if (!filename) {
+      return false;
+    }
+    if (!filename.includes('zh-CN') && !filename.includes('en-US')) {
       return true;
     }
-    return path.includes(excludedSuffix);
+    return filename.includes(excludedSuffix);
   });
 }
 
@@ -99,6 +102,16 @@ export default class MainContent extends React.PureComponent {
     }
   }
 
+  convertFilename = filename => {
+    const {
+      location: { pathname },
+    } = this.props;
+    if (isZhCN(pathname) && !filename.includes('-cn')) {
+      return `${filename}-cn`;
+    }
+    return filename;
+  };
+
   generateMenuItem = ({ before = null, after = null }, item) => {
     if (!item.title) {
       return;
@@ -113,9 +126,11 @@ export default class MainContent extends React.PureComponent {
         {item.subtitle}
       </span>,
     ];
+
     const disabled = item.disabled;
+
     const child = !item.link ? (
-      <Link to={`${item.filename}`} disabled={disabled}>
+      <Link to={this.convertFilename(item.filename)} disabled={disabled}>
         {before}
         {text}
         {after}
@@ -168,7 +183,7 @@ export default class MainContent extends React.PureComponent {
     const {
       intl: { locale },
     } = this.context;
-    const menuItems = getMenuItems(moduleData, locale);
+    const menuItems = getMenuItems(moduleData, locale) || {};
     let topLevel = {};
     if (menuItems.topLevel) {
       topLevel = this.generateSubMenuItems(menuItems.topLevel, footerNavIcons);
@@ -184,8 +199,7 @@ export default class MainContent extends React.PureComponent {
           </SubMenu>
         );
       });
-
-    const result = [...topLevel, ...subMenu];
+    const result = [...topLevel, ...subMenu].filter(({ key }) => key);
     return result;
   };
 

@@ -20,15 +20,12 @@ module.exports = exports.onCreateNode = ({ node, actions, getNode }) => {
       const { relativePath, sourceInstanceName } = getNode(node.parent);
       let slug = permalink;
       if (!slug) {
-        // This will likely only happen for the partials in /content/home.
-        // DescriptionList.md -> DescriptionList
         slug = `${sourceInstanceName}/${relativePath
           .replace('.en-US.md', '')
           .replace('.zh-CN.md', '-cn')
           .replace('.md', '')}`;
       }
 
-      // Used to generate URL to view this content.
       createNodeField({
         node,
         name: 'slug',
@@ -40,8 +37,6 @@ module.exports = exports.onCreateNode = ({ node, actions, getNode }) => {
         value: slug.replace('/index', ''),
       });
 
-      // Used to generate a GitHub edit link.
-      // this presumes that the name in gastby-config.js refers to parent folder
       createNodeField({
         node,
         name: 'path',

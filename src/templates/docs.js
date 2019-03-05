@@ -8,7 +8,6 @@ export default function Template({ data, ...rest }) {
   const { markdownRemark, allMarkdownRemark } = data;
   const { frontmatter, fields, html, tableOfContents } = markdownRemark;
   const { edges } = allMarkdownRemark;
-
   const menuList = edges.map(({ node }) => {
     const newFrontmatter = transformerFrontmatter(node.frontmatter);
     return {
@@ -19,7 +18,7 @@ export default function Template({ data, ...rest }) {
         filename: node.fields.slug,
       },
       ...newFrontmatter,
-      filename: node.fields.slug,
+      filename: node.fields.path,
     };
   });
   return (

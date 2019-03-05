@@ -40,7 +40,7 @@ export default function Template({ data, ...rest }) {
           slug: node.fields.slug,
           filename: node.fields.slug,
         },
-        path: node.fields.path,
+        filename: node.fields.path,
         ...newFrontmatter,
       };
     })

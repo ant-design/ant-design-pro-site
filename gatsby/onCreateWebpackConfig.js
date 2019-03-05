@@ -8,7 +8,7 @@ module.exports = ({ stage, actions, loaders }) => {
             use: loaders.null(),
           },
           {
-            test: /ant-design-pro$/,
+            test: /node_modules\/ant-design-pro/,
             use: loaders.null(),
           },
           {

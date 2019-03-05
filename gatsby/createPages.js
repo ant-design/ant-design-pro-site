@@ -29,6 +29,7 @@ module.exports = async ({ graphql, actions }) => {
               fields {
                 slug
                 underScoreCasePath
+                path
               }
             }
           }
@@ -44,8 +45,9 @@ module.exports = async ({ graphql, actions }) => {
   }
   const redirects = {};
 
-  allMarkdown.data.allMarkdownRemark.edges.forEach(edge => {
-    const { slug, underScoreCasePath } = edge.node.fields;
+  const edges = allMarkdown.data.allMarkdownRemark.edges;
+  edges.forEach(edge => {
+    const { slug, underScoreCasePath, path: mdPath } = edge.node.fields;
     if (slug.includes('docs/') || slug.includes('/components')) {
       let template = docsTemplate;
       if (slug.includes('/components')) {
@@ -62,6 +64,18 @@ module.exports = async ({ graphql, actions }) => {
           .split('/')
           .pop()
           .replace('-cn', '');
+
+        if (!slug.includes('demo/') && !mdPath.includes('.zh-CN') && !mdPath.includes('.en-US')) {
+          createPage({
+            path: `${path}-cn`,
+            component: template,
+            context: {
+              slug: `${slug}-cn`,
+              demo: `/${demoQuery}/demo/`,
+            },
+          });
+        }
+
         return createPage({
           path,
           component: template,
