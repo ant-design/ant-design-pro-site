@@ -28,6 +28,7 @@ export default function Template({ data, ...rest }) {
     },
     allMarkdownRemark,
   } = data;
+  console.log(data);
   const { frontmatter, fields, html, description, tableOfContents } = markdownRemark;
   const { edges } = allMarkdownRemark;
   const menuList = edges
@@ -54,6 +55,7 @@ export default function Template({ data, ...rest }) {
           meta: {
             ...transformerFrontmatter(frontmatter),
             filename: fields.slug,
+            path: fields.path,
           },
           toc: tableOfContents,
           content: html,

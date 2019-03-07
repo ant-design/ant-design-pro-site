@@ -29,6 +29,7 @@ export default function Template({ data, ...rest }) {
           meta: {
             ...transformerFrontmatter(frontmatter),
             filename: fields.slug,
+            path: fields.path,
           },
           toc: tableOfContents,
           content: html,

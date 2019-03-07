@@ -65,7 +65,7 @@ export default class Article extends React.PureComponent {
     const props = this.props;
     const content = props.content;
     const { meta } = content;
-    const { title, subtitle, filename } = meta;
+    const { title, subtitle, path } = meta;
     const {
       intl: { locale },
     } = this.context;
@@ -95,10 +95,7 @@ export default class Article extends React.PureComponent {
           <h1>
             {title[locale] || title}
             {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
-            <EditButton
-              title={<FormattedMessage id="app.content.edit-page" />}
-              filename={filename.indexOf('scaffold/src/components') >= 0 ? 'xxx' : filename}
-            />
+            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={path} />
           </h1>
           {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
             <Affix className="toc-affix" offsetTop={16}>
