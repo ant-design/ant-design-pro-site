@@ -28,7 +28,6 @@ export default function Template({ data, ...rest }) {
     },
     allMarkdownRemark,
   } = data;
-  console.log(data);
   const { frontmatter, fields, html, description, tableOfContents } = markdownRemark;
   const { edges } = allMarkdownRemark;
   const menuList = edges

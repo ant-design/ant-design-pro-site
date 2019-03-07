@@ -66,7 +66,6 @@ module.exports = async ({ graphql, actions }) => {
           .replace('-cn', '');
 
         if (!slug.includes('demo/') && !mdPath.includes('.zh-CN') && !mdPath.includes('.en-US')) {
-          console.log(`${path}-cn`);
           createPage({
             path: `${path}-cn`,
             component: template,
