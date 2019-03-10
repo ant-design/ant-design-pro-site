@@ -4,7 +4,7 @@ title: Mock Data
 type: Advanced
 ---
 
-Mocking data is a significant part of web application front end development which is the key of seperating front-end and back-end. We can mock Restful API of background service to avoid development block of service side development progress.
+Mocking data is a significant part of web application front end development which is the key of separating front-end and back-end. We can mock Restful API of background service to avoid development block of service side development progress.
 
 We can use [umi](https://umijs.org/) to mock data in Ant Design Pro.
 
