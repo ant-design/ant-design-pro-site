@@ -29,8 +29,9 @@ type: 其他
 
 ### 如何从服务器请求菜单？
 
-只需在 [BasicLayout](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js) 中更新 `this.state.menuData`, menuData 是一个 json 数组。只需服务器返回类似格式的json 即可。
-```js
+只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中发起http请求,menuData 是一个 json 数组。只需服务器返回类似格式的json 即可。
+
+```json
  [
     {
       path: '/dashboard',
@@ -57,7 +58,125 @@ type: 其他
     ....
   ]
 ```
-> 注意 path 必须要在 routre.config.js 中定义。
+> 注意 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）
+
+### 如何控制页面访问权限（用户角色）？
+
+只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中获取routerData,这里的获取方式有几种，像pro现在这样从config中传值，也可以通过http请求从服务端获取，甚至本地的json文件加载也可以。routerData 是一个 json 数组。获取之后只需返回类似格式的json 即可。
+
+```json
+routerData:{
+    routes: [
+      // dashboard
+      {
+        path: '/dashboard',
+        authority: ['admin'],
+        routes: [
+          {
+            path: '/dashboard/analysis',
+            authority: ['admin','user'],
+          },
+        ],
+      },
+   ]
+}
+```
+
+> 注意routerData和menuData可以使用同一个数据，也可以使用不同的数据，注意他们的必要属性即可。
+
+### 如何从服务器动态追加页面权限？
+
+这里使用umi的运行时配置文件[src/app](https://umijs.org/zh/guide/app-structure.html#src-app-js)，可以在这里扩展运行时的能力，比如修改路由、修改 render 方法等。
+
+```js
+export function render(oldRender) {
+  if (defaultSettings.runtimeMenu) {
+    fetch('/api/auth_routes')
+      .then(res => res.json())
+      .then(ret => {
+        authRoutes = ret;
+        oldRender();
+      });
+  } else {
+    oldRender();
+  }
+}
+```
+然后在patchRoutes方法中，根据authRoutes追加路由配置即可。
+```js
+export function patchRoutes(routes) {
+  if (defaultSettings.runtimeMenu) {
+    const routesRender = renderRoutes(authRoutes); // 方法自写
+    routes.length = 0; // eslint-disable-line
+    Object.assign(routes, routesRender);
+  }
+}
+```
+
+> 注意：这里并无法动态加载页面文件，所有 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）
+
+### 如何完全舍弃config/router.config.js ?
+
+在配置式路由中，umi 需要 router.config.js 来生成 react-router 配置，所以是无法做到舍弃config/router.config.js，但是在umi中提供了，[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)的用法。
+
+具体的如何讲在pro中使用约定式路由，可以查看这次[提交](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
+
+> 注意：约定式路由比较容易实现菜单和权限的控制，但是要求所有的菜单都必须声明权限，不然均可以通过直接访问url的方式访问。
+> 约定式权限的声明很有趣，你可以声明如：除某某页面之外的其他页面均需要admin访问权限，即可过滤所有的url。
+
+### build之后如何使用mock数据？
+可以使用[umi-serve](https://www.npmjs.com/package/umi-serve),在项目中或者全局安装umi-serve
+```sh
+$ yarn global add umi-serve
+```
+在项目根目录中运行umi-serve
+```sh
+mac001:ant-design-pro xiaohuoni$ umi-serve
+
+   ┌────────────────────────────────────────────────────┐
+   │                                                    │
+   │   Serving your umi project!                        │
+   │                                                    │
+   │   - Local:            http://localhost:8001        │
+   │   - On Your Network:  http://134.160.170.40:8001   │
+   │                                                    │
+   │   Copied local address to clipboard!               │
+   │                                                    │
+   └────────────────────────────────────────────────────┘
+```
+修改项目中的请求地址，如`http://localhost:8001/api/users`
+
+```json
+[
+  {
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
+  },
+  {
+    key: '2',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+  },
+  {
+    key: '3',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sidney No. 1 Lake Park',
+  },
+]
+```
+
+> 注意：如果没有全局安装，而只是在项目中安装，要把umi-serve命令添加到package.json的script里面
+> 注意：build之后proxy无效，不要在proxy中配置请求`http://localhost:8001/api/users`，而是要在http请求的时候，直接访问该地址。如在`src/utils/request.js`中统一添加请求前缀。
+
+### 如何关闭页面权限控制
+
+配置式路由，去掉`config/router.config.js`中的所有`authority`配置
+
+约定式路由，关掉路由权限插件。
 
 ### 如何修改默认 webpack 配置？
 

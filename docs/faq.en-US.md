@@ -29,7 +29,7 @@ Of course you can! Ant Design Pro is based on the latest antd version. There are
 
 ### How do I request a menu from the server?
 
-Just update `this.state.menuData` in [BasicLayout](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js), which is a json array. Just the server returns a json of similar format.
+Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
 ```js
  [
     {
@@ -57,7 +57,126 @@ Just update `this.state.menuData` in [BasicLayout](https://github.com/ant-design
     ....
   ]
 ```
-> Note that path must be defined in routre.config.js.
+> Note that path must be defined in routre.config.js.(All you need in Conventional Routing is the correct page.)
+
+### How do I control the access authority(User roles)？
+
+Just gain routerData in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111),There are several ways to get it here,Reference from config like pro,request from the server,or import local file. routerData is a json array. Just returns a json of similar format.
+
+```json
+routerData:{
+    routes: [
+      // dashboard
+      {
+        path: '/dashboard',
+        authority: ['admin'],
+        routes: [
+          {
+            path: '/dashboard/analysis',
+            authority: ['admin','user'],
+          },
+        ],
+      },
+   ]
+}
+```
+
+> Note that routerData and menuData can use the same data or different data, just pay attention to their necessary attributes.
+
+### How do I control the access authority from the server ？
+
+Runtime configuration files,[src/app](https://umijs.org/zh/guide/app-structure.html#src-app-js), where runtime capabilities can be extended, such as modifying routing, modifying render methods, and so on.
+```js
+export function render(oldRender) {
+  if (defaultSettings.runtimeMenu) {
+    fetch('/api/auth_routes')
+      .then(res => res.json())
+      .then(ret => {
+        authRoutes = ret;
+        oldRender();
+      });
+  } else {
+    oldRender();
+  }
+}
+```
+Then in the patchRoutes method, the routing configuration can be added according to authRoutes.
+```js
+export function patchRoutes(routes) {
+  if (defaultSettings.runtimeMenu) {
+    const routesRender = renderRoutes(authRoutes); // 方法自写
+    routes.length = 0; // eslint-disable-line
+    Object.assign(routes, routesRender);
+  }
+}
+```
+
+> 
+Note: Page files cannot be dynamically loaded here. paths must be defined in routre. config. js. (Conventional routing is not required, just the page is real and effective)
+
+### How to abandon config/router.config.js completely ?
+
+In Configurable Routing,umi needs router.config.js to generate react-router configuration,So it is impossible to abandon config/router.config.js.[Conventional Routing](https://umijs.org/guide/router.html#conventional-routing) is provided in umi.
+
+Specific how to use convention routing in pro, you can see this [commit](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
+
+> Note: Conventional routing is easier to control menus and privileges, but requires that all menus must declare privileges, otherwise they can be accessed through direct access to urls.
+> Conventional permission declarations are interesting. You can declare that all pages except one page need admin access to filter all urls.
+
+### How to use mock data after build？
+You can use [umi-serve](https://www.npmjs.com/package/umi-serve),Install umi-serve in the project or globally.
+```sh
+$ yarn global add umi-serve
+or
+$ yarn add umi-serve -D
+```
+Run umi-serve in the project root directory
+```sh
+$ umi-serve
+
+   ┌────────────────────────────────────────────────────┐
+   │                                                    │
+   │   Serving your umi project!                        │
+   │                                                    │
+   │   - Local:            http://localhost:8001        │
+   │   - On Your Network:  http://134.160.170.40:8001   │
+   │                                                    │
+   │   Copied local address to clipboard!               │
+   │                                                    │
+   └────────────────────────────────────────────────────┘
+```
+Modify the request address in the project,such as `http://localhost:8001/api/users`
+
+```json
+[
+  {
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
+  },
+  {
+    key: '2',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+  },
+  {
+    key: '3',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sidney No. 1 Lake Park',
+  },
+]
+```
+
+> Note: If there is no global installation, but only in the project, add the umi-server command to the script of package.json
+> Note: Proxy is not valid after build. Do not configure request `http://localhost:8001/api/users` in proxy,when http requests, access the address directly.For example, add a request prefix uniformly in `src/utils/request.js`.
+
+### How to close page permission control
+Configurable routing,remove all `authority` configurations in `config/router.config.js`.
+
+Conventional routing, turn off the routing permission plugin.
 
 ### How do I modify the default webpack configuration?
 
