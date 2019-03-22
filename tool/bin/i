@@ -37,6 +37,7 @@ function runCmd() {
   const success = color(2);
   const fail = color(1);
   const installCommands = ['tnpm', 'cnpm', 'yarn', 'npm'];
+  console.log(success, messages.submodule_deps_install);
   runChildProcess(installCommands[0], 'install')
     .catch(() => runChildProcess(installCommands[1], 'install'))
     .catch(() => runChildProcess(installCommands[2], 'install'))
