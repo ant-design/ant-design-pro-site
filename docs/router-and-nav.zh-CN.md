@@ -36,7 +36,38 @@ type: 入门
 
 > 如果你的项目并不需要菜单，你可以直接在 `BasicLayout` 中删除 `SiderMenu` 组件的挂载。并在 [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227) 中 设置 `const MenuData = []`。
 
-> 如果你需要从服务器请求菜单，可以将 [menuData](https://github.com/ant-design/ant-design-pro/blob/54db4e59d3f8fd84464f92c16cbfca82baf42f43/src/layouts/BasicLayout.js#L227) 设置为 state，然后通过网络获取动态修改 state。
+### 如果你需要从服务器请求菜单
+
+只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中发起http请求,menuData 是一个 json 数组。只需服务器返回类似格式的json 即可。
+
+```json
+ [
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      icon: 'dashboard',
+      children: [
+        {
+          path: '/dashboard/analysis',
+          name: 'analysis',
+          exact: true,
+        },
+        {
+          path: '/dashboard/monitor',
+          name: 'monitor',
+          exact: true,
+        },
+        {
+          path: '/dashboard/workplace',
+          name: 'workplace',
+          exact: true,
+        },
+      ],
+    }
+    ....
+  ]
+```
+> 注意 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）
 
 ### 面包屑
 

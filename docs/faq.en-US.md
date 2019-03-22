@@ -59,64 +59,10 @@ Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design
 ```
 > Note that path must be defined in routre.config.js.(All you need in Conventional Routing is the correct page.)
 
-### How do I control the access authority(User roles)？
+### How to use Conventional Routing ?
 
-Just gain routerData in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111),There are several ways to get it here,Reference from config like pro,request from the server,or import local file. routerData is a json array. Just returns a json of similar format.
-
-```json
-routerData:{
-    routes: [
-      // dashboard
-      {
-        path: '/dashboard',
-        authority: ['admin'],
-        routes: [
-          {
-            path: '/dashboard/analysis',
-            authority: ['admin','user'],
-          },
-        ],
-      },
-   ]
-}
-```
-
-> Note that routerData and menuData can use the same data or different data, just pay attention to their necessary attributes.
-
-### How do I control the access authority from the server ？
-
-Runtime configuration files,[src/app](https://umijs.org/zh/guide/app-structure.html#src-app-js), where runtime capabilities can be extended, such as modifying routing, modifying render methods, and so on.
-```js
-export function render(oldRender) {
-  if (defaultSettings.runtimeMenu) {
-    fetch('/api/auth_routes')
-      .then(res => res.json())
-      .then(ret => {
-        authRoutes = ret;
-        oldRender();
-      });
-  } else {
-    oldRender();
-  }
-}
-```
-Then in the patchRoutes method, the routing configuration can be added according to authRoutes.
-```js
-export function patchRoutes(routes) {
-  if (defaultSettings.runtimeMenu) {
-    const routesRender = renderRoutes(authRoutes); // 方法自写
-    routes.length = 0; // eslint-disable-line
-    Object.assign(routes, routesRender);
-  }
-}
-```
-
-> 
-Note: Page files cannot be dynamically loaded here. paths must be defined in routre. config. js. (Conventional routing is not required, just the page is real and effective)
-
-### How to abandon config/router.config.js completely ?
-
-In Configurable Routing,umi needs router.config.js to generate react-router configuration,So it is impossible to abandon config/router.config.js.[Conventional Routing](https://umijs.org/guide/router.html#conventional-routing) is provided in umi.
+Sometimes you may not want to use `config/router.config.js`.
+Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
 
 Specific how to use convention routing in pro, you can see this [commit](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
 
