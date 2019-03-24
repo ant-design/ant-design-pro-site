@@ -41,7 +41,11 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark-antd',
       options: {
-        plugins: ['gatsby-remark-header-custom-ids', 'gatsby-remark-prismjs'],
+        plugins: [
+          'gatsby-remark-header-custom-ids',
+          'gatsby-remark-prismjs',
+          'gatsby-remark-img-warpper-p',
+        ],
       },
     },
     `gatsby-plugin-netlify`,
