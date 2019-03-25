@@ -34,26 +34,26 @@ Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design
 ```json
 [
   {
-    path: '/dashboard'，
-    name: 'dashboard'，
-    icon: 'dashboard'，
+    path: '/dashboard',
+    name: 'dashboard',
+    icon: 'dashboard',
     children: [
       {
-        path: '/dashboard/analysis'，
-        name: 'analysis'，
-        exact: true，
-      }，
+        path: '/dashboard/analysis',
+        name: 'analysis',
+        exact: true,
+      },
       {
-        path: '/dashboard/monitor'，
-        name: 'monitor'，
-        exact: true，
-      }，
+        path: '/dashboard/monitor',
+        name: 'monitor',
+        exact: true,
+      },
       {
-        path: '/dashboard/workplace'，
-        name: 'workplace'，
-        exact: true，
-      }，
-    ]，
+        path: '/dashboard/workplace',
+        name: 'workplace',
+        exact: true,
+      },
+    ],
   }
   ....
 ]
@@ -123,7 +123,7 @@ Modify the request address in the project,such as `http://localhost:8001/api/use
 ]
 ```
 
-> Note: If there is no global installation, but only in the project, add the umi-server command to the script of package.json
+> Note: If there is no global installation, but only in the project, add the umi-server command to the script of package.json.
 
 > Note: Proxy is not valid after build. Do not configure request `http://localhost:8001/api/users` in proxy,when http requests, access the address directly.For example, add a request prefix uniformly in `src/utils/request.js`.
 
@@ -198,7 +198,7 @@ This is one of the features of Ant Design Pro. The first version is currently av
 
 ### Npm installation of [puppeteer](https://github.com/GoogleChrome/puppeteer/) is failing
 
-Try using cnpm or setting environment variables to see this [issue](https://github.com/cnpm/cnpmjs.org/issues/1246)。
+Try using cnpm or setting environment variables to see this [issue](https://github.com/cnpm/cnpmjs.org/issues/1246).
 
 ### Is english documentation available?
 

@@ -70,19 +70,19 @@ type: 进阶
 
 ```json
 routerData: {
-    routes: [
-      // dashboard
-      {
-        path: '/dashboard',
-        authority: ['admin'],
-        routes: [
-          {
-            path: '/dashboard/analysis',
-            authority: ['admin','user'],
-          },
-        ],
-      },
-   ]
+  routes: [
+    // dashboard
+    {
+      path: '/dashboard',
+      authority: ['admin'],
+      routes: [
+        {
+          path: '/dashboard/analysis',
+          authority: ['admin','user'],
+        },
+      ],
+    },
+  ]
 }
 ```
 
@@ -107,7 +107,7 @@ export function render(oldRender) {
 }
 ```
 
-然后在 patchRoutes 方法中，根据 authRoutes 追加路由配置即可。
+然后在 `patchRoutes` 方法中，根据 `authRoutes` 追加路由配置即可。
 
 ```js
 export function patchRoutes(routes) {
@@ -119,4 +119,4 @@ export function patchRoutes(routes) {
 }
 ```
 
-> 注意：这里并无法动态加载页面文件，所有 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）
+> 注意：这里并无法动态加载页面文件，所有 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）。

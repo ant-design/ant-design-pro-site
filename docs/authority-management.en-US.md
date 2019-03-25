@@ -100,7 +100,7 @@ export function render(oldRender) {
 }
 ```
 
-Then in the patchRoutes method, the routing configuration can be added according to authRoutes.
+Then in the `patchRoutes` method, the routing configuration can be added according to `authRoutes`.
 
 ```js
 export function patchRoutes(routes) {
@@ -112,4 +112,4 @@ export function patchRoutes(routes) {
 }
 ```
 
-> Note: Page files cannot be dynamically loaded here. paths must be defined in routre. config. js. (Conventional routing is not required, just the page is real and effective)
+> Note: Page files cannot be dynamically loaded here. paths must be defined in routre. config. js. (Conventional routing is not required, just the page is real and effective).

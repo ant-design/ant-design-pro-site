@@ -34,37 +34,37 @@ type: 其他
 ```json
 [
   {
-    path: '/dashboard'，
-    name: 'dashboard'，
-    icon: 'dashboard'，
+    path: '/dashboard',
+    name: 'dashboard',
+    icon: 'dashboard',
     children: [
       {
-        path: '/dashboard/analysis'，
-        name: 'analysis'，
-        exact: true，
-      }，
+        path: '/dashboard/analysis',
+        name: 'analysis',
+        exact: true,
+      },
       {
-        path: '/dashboard/monitor'，
-        name: 'monitor'，
-        exact: true，
-      }，
+        path: '/dashboard/monitor',
+        name: 'monitor',
+        exact: true,
+      },
       {
-        path: '/dashboard/workplace'，
-        name: 'workplace'，
-        exact: true，
-      }，
-    ]，
+        path: '/dashboard/workplace',
+        name: 'workplace',
+        exact: true,
+      },
+    ],
   }
   ....
 ]
 ```
 
-> 注意 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）
+> 注意 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）。
 
 ### 如何使用 Umi 约定式路由
 
 有时候你可能不想要使用 config/router.config.js 的配置。
-那你可以考虑 umi 的[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
+那你可以考虑 umi 的[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)。
 
 具体的如何在 pro 中使用约定式路由，可以查看这次[提交](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
 
@@ -72,7 +72,7 @@ type: 其他
 
 > 约定式权限的声明很有趣，你可以声明如：除某某页面之外的其他页面均需要admin访问权限，即可过滤所有的url。
 
-### build之后如何使用mock数据？
+### build 之后如何使用 mock 数据？
 
 可以使用 [umi-serve](https://www.npmjs.com/package/umi-serve) ，在项目中或者全局安装 umi-serve。
 
@@ -97,37 +97,37 @@ mac001:ant-design-pro xiaohuoni$ umi-serve
    └────────────────────────────────────────────────────┘
 ```
 
-修改项目中的请求地址，如 `http://localhost:8001/api/users`
+修改项目中的请求地址，如 `http://localhost:8001/api/users`。
 
 ```json
 [
   {
-    key: '1'，
-    name: 'John Brown'，
-    age: 32，
-    address: 'New York No. 1 Lake Park'，
-  }，
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
+  },
   {
-    key: '2'，
-    name: 'Jim Green'，
-    age: 42，
-    address: 'London No. 1 Lake Park'，
-  }，
+    key: '2',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
+  },
   {
-    key: '3'，
-    name: 'Joe Black'，
-    age: 32，
-    address: 'Sidney No. 1 Lake Park'，
-  }，
+    key: '3',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sidney No. 1 Lake Park',
+  },
 ]
 ```
 
-> 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面
+> 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面。
 > 注意：build 之后 proxy 无效，不要在 proxy 中配置请求`http://localhost:8001/api/users` ，而是要在 http 请求的时候，直接访问该地址。如在 `src/utils/request.js` 中统一添加请求前缀。
 
 ### 如何关闭页面权限控制
 
-配置式路由，去掉 `config/router.config.js` 中的所有 `authority` 配置
+配置式路由，去掉 `config/router.config.js` 中的所有 `authority` 配置。
 
 约定式路由，关掉路由权限插件。
 
@@ -155,16 +155,17 @@ mac001:ant-design-pro xiaohuoni$ umi-serve
 
 Ant Design Pro 内置了 umi，umi 使用了 webpack [devServer](https://webpack.docschina.org/configuration/dev-server/)来支持代理。
 你只需要在 config.js 中配置 proxy 属性。只要 proxy 和 mock  url 不同，是可以共存的。
+
 ```js
 {
   ...
   proxy:{
     '/server/api/': {
-      target: 'https://preview.pro.ant.design/'，
-      changeOrigin: true，
-      pathRewrite: { '^/server': '' }， // /server/api/currentUser -> /api/currentUser
-    }，
-  }，
+      target: 'https://preview.pro.ant.design/',
+      changeOrigin: true,
+      pathRewrite: { '^/server': '' }, // /server/api/currentUser -> /api/currentUser
+    },
+  },
   ...
 }
 ```
