@@ -141,6 +141,8 @@ Configurable routing,remove `Routes: ['src/pages/Authorized']` configurations in
 }
 ```
 
+Details can be seen [PR3842](https://github.com/ant-design/ant-design-pro/pull/3842).
+
 Conventional routing, turn off the routing permission plugin.
 
 ### How do I modify the default webpack configuration?

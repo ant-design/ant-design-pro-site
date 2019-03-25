@@ -139,7 +139,10 @@ mac001:ant-design-pro xiaohuoni$ umi-serve
 }
 ```
 
+详情可见[PR3842](https://github.com/ant-design/ant-design-pro/pull/3842)。
+
 约定式路由，关掉路由权限插件。
+
 ### 如何修改默认 webpack 配置？
 
 详见 [umi配置](https://umijs.org/zh/config/)。
