@@ -40,7 +40,7 @@ The menu is generated according to [`router.config.js`](https://github.com/ant-d
 
 Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
 
-```json
+```js
 [
   {
     path: '/dashboard'，
@@ -64,7 +64,7 @@ Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design
       }，
     ]，
   }
-  ....
+  ...
 ]
 ```
 

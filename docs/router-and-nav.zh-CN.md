@@ -40,7 +40,7 @@ type: 入门
 
 只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中发起 http 请求，menuData 是一个 json 数组。只需服务器返回类似格式的 json 即可。
 
-```json
+```js
 [
   {
     path: '/dashboard',
@@ -64,7 +64,7 @@ type: 入门
       },
     ],
   }
-  ....
+  ...
 ]
 ```
 
