@@ -3,11 +3,12 @@
 /* eslint-disable no-console */
 const path = require('path');
 const fs = require('fs');
-const util = require('util');
+const childProcess = require('child_process');
 
 const pkgPath = path.resolve(__dirname, '../../scaffold/package.json');
 const messages = {
-  submodule_warning: 'Warning: 请先执行 `$ git submodule init` 和 `$ git submodule update --recursive`，确保子模块正常引入.',
+  submodule_warning:
+    'Warning: 请先执行 `$ git submodule init` 和 `$ git submodule update --recursive`，确保子模块正常引入.',
   submodule_pull_success: '已自动执行上述命令，子模块 scaffold 拉取成功...',
   git_not_fount: '请先安装 git，再手动执行上述命令...',
   submodule_deps_install: '开始安装子模块 scaffold 的依赖包...',
@@ -21,17 +22,26 @@ function color(id) {
   return `\x1b[3${id}m%s\x1b[0m`;
 }
 
-const execPromise = util.promisify(require('child_process').exec);
+const runChildProcess = (command, ...args) =>
+  new Promise((resolve, reject) => {
+    console.log(`Try command: ${command} ${args.join(' ')}`);
+    const task = childProcess
+      .spawn(command, args, { shell: true })
+      .on('error', reject)
+      .on('close', code => (code ? reject() : resolve()));
+    task.stdout.on('data', data => console.log(`${data}`));
+    task.stderr.on('data', data => console.error(`${data}`));
+  });
 
 function runCmd() {
   const success = color(2);
   const fail = color(1);
-  const installCommands = ['tnpm install', 'cnpm install', 'yarn install', 'npm install'];
+  const installCommands = ['tnpm', 'cnpm', 'yarn', 'npm'];
   console.log(success, messages.submodule_deps_install);
-  execPromise(installCommands[0])
-    .catch(() => execPromise(installCommands[1]))
-    .catch(() => execPromise(installCommands[2]))
-    .catch(() => execPromise(installCommands[3]))
+  runChildProcess(installCommands[0], 'install')
+    .catch(() => runChildProcess(installCommands[1], 'install'))
+    .catch(() => runChildProcess(installCommands[2], 'install'))
+    .catch(() => runChildProcess(installCommands[3], 'install'))
     .then(() => {
       console.log(success, messages.submodule_deps_install_success);
     })
@@ -44,8 +54,8 @@ if (fs.existsSync(pkgPath)) {
   runCmd();
 } else {
   console.log(color(3), messages.submodule_warning);
-  execPromise('git submodule init')
-    .then(() => execPromise('git submodule update --recursive'))
+  runChildProcess('git', 'submodule', 'init')
+    .then(() => runChildProcess('git', 'submodule', 'update', '--recursive'))
     .catch(() => {
       console.log(color(1), messages.git_not_fount);
       process.kill(process.pid);
