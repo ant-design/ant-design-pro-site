@@ -22,7 +22,7 @@ type: 入门
 
 ### 路由
 
-目前脚手架中所有的路由都通过 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 来统一管理，在 umi 的配置中我们增加了一些参数，如 `name`,`icon`,`hideChildrenInMenu`,`authority`，来辅助生成菜单。其中：
+目前脚手架中所有的路由都通过 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 来统一管理，在 umi 的配置中我们增加了一些参数，如 `name`，`icon`，`hideChildrenInMenu`，`authority`，来辅助生成菜单。其中：
 
 - `name` 和 `icon`分别代表生成菜单项的文本和图标。
 - `hideChildrenInMenu` 用于隐藏不需要在菜单中展示的子路由。用法可以查看 `分步表单` 的配置。
@@ -34,9 +34,41 @@ type: 入门
 
 菜单根据 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 生成，具体逻辑在 `src/models/menu.js` 中的 `formatter` 方法实现。
 
-> 如果你的项目并不需要菜单，你可以直接在 `BasicLayout` 中删除 `SiderMenu` 组件的挂载。并在 [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227) 中 设置 `const MenuData = []`。
+> 如果你的项目并不需要菜单，你可以直接在 `BasicLayout` 中删除 `SiderMenu` 组件的挂载。并在 [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227) 中设置 `const MenuData = []`。
 
-> 如果你需要从服务器请求菜单，可以将 [menuData](https://github.com/ant-design/ant-design-pro/blob/54db4e59d3f8fd84464f92c16cbfca82baf42f43/src/layouts/BasicLayout.js#L227) 设置为 state，然后通过网络获取动态修改 state。
+### 从服务器请求菜单
+
+只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中发起 http 请求，menuData 是一个 json 数组。只需服务器返回类似格式的 json 即可。
+
+```js
+[
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    icon: 'dashboard',
+    children: [
+      {
+        path: '/dashboard/analysis',
+        name: 'analysis',
+        exact: true,
+      },
+      {
+        path: '/dashboard/monitor',
+        name: 'monitor',
+        exact: true,
+      },
+      {
+        path: '/dashboard/workplace',
+        name: 'workplace',
+        exact: true,
+      },
+    ],
+  }
+  ...
+]
+```
+
+> 注意 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）
 
 ### 面包屑
 
@@ -137,7 +169,12 @@ module.exports = [
 脚手架默认支持带参数的路由，但是在菜单中显示带参数的路由并不是个好主意，我们并不会自动的帮你注入一个参数，你可能需要在代码中自行处理。
 
 ```js
-{ path: '/dashboard/:page', hideInMenu:true, name: 'analysis', component: './Dashboard/Analysis' },
+{ 
+  path: '/dashboard/:page',
+  hideInMenu:true,
+  name: 'analysis',
+  component: './Dashboard/Analysis', 
+},
 ```
 
 你可以通过以下代码来跳转到这个路由：
