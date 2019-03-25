@@ -9,10 +9,7 @@ const visit = require('unist-util-visit');
 module.exports = ({ markdownAST }) => {
   visit(markdownAST, 'html', node => {
     if (node.value.includes('<img') && !node.value.includes('<pre')) {
-      node = {
-        ...node,
-        value: `<p> ${node.value} </p>`,
-      };
+      node.value = `<p> ${node.value} </p>`;
     }
   });
   return markdownAST;

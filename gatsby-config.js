@@ -43,8 +43,8 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-header-custom-ids',
-          'gatsby-remark-prismjs',
           'gatsby-remark-img-warpper-p',
+          'gatsby-remark-prismjs',
         ],
       },
     },
