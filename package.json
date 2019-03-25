@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
+    "authors": "rm AUTHORS.yaml && git log --format='- %aN : <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'wasd2144@hotmail.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' | uniq  > AUTHORS.yaml",
     "build": "gatsby build",
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "components-build": "node ./tool/bin/let -c && cd ./config/components",
