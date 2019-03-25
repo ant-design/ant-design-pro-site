@@ -59,15 +59,17 @@ type: 进阶
 ### 修改当前权限
 
 脚手架中使用 `localStorage` 模拟权限角色，实际项目中可能需要从后台读取。
+
 脚手架中实现了一个简单的刷新权限方法，在登录/注销等关键节点对当前权限进行了更新。
-具体可以查看 `login.js` 中对 [reloadAuthorized ](https://github.com/ant-design/ant-design-pro/blob/c93b0169a500427ee5fdd3c2977886c86aa3d59a/src/pages/User/models/login.js#L24) 的调用。
+
+具体可以查看 `login.js` 中对 [reloadAuthorized](https://github.com/ant-design/ant-design-pro/blob/c93b0169a500427ee5fdd3c2977886c86aa3d59a/src/pages/User/models/login.js#L24) 的调用。
 
 ### 如何控制页面访问权限（用户角色）
 
-只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中获取routerData,这里的获取方式有几种，像pro现在这样从config中传值，也可以通过http请求从服务端获取，甚至本地的json文件加载也可以。routerData 是一个 json 数组。获取之后只需返回类似格式的json 即可。
+只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中获取 routerData ，这里的获取方式有几种，像pro现在这样从config中传值，也可以通过 http 请求从服务端获取，甚至本地的json文件加载也可以。routerData 是一个 json 数组。获取之后只需返回类似格式的 json 即可。
 
 ```json
-routerData:{
+routerData: {
     routes: [
       // dashboard
       {
@@ -84,11 +86,11 @@ routerData:{
 }
 ```
 
-> 注意routerData和menuData可以使用同一个数据，也可以使用不同的数据，注意他们的必要属性即可。
+> 注意 routerData 和 menuData 可以使用同一个数据，也可以使用不同的数据，注意他们的必要属性即可。
 
 ### 如何从服务器动态追加页面权限
 
-这里使用umi的运行时配置文件[src/app](https://umijs.org/zh/guide/app-structure.html#src-app-js)，可以在这里扩展运行时的能力，比如修改路由、修改 render 方法等。
+这里使用 umi 的运行时配置文件 [src/app](https://umijs.org/zh/guide/app-structure.html#src-app-js) ，可以在这里扩展运行时的能力，比如修改路由、修改 render 方法等。
 
 ```js
 export function render(oldRender) {
@@ -104,7 +106,9 @@ export function render(oldRender) {
   }
 }
 ```
-然后在patchRoutes方法中，根据authRoutes追加路由配置即可。
+
+然后在 patchRoutes 方法中，根据 authRoutes 追加路由配置即可。
+
 ```js
 export function patchRoutes(routes) {
   if (defaultSettings.runtimeMenu) {

@@ -29,53 +29,59 @@ type: 其他
 
 ### 如何从服务器请求菜单？
 
-只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中发起http请求,menuData 是一个 json 数组。只需服务器返回类似格式的json 即可。
+只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中发起 http 请求， menuData 是一个 json 数组。只需服务器返回类似格式的 json 即可。
 
 ```json
- [
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      icon: 'dashboard',
-      children: [
-        {
-          path: '/dashboard/analysis',
-          name: 'analysis',
-          exact: true,
-        },
-        {
-          path: '/dashboard/monitor',
-          name: 'monitor',
-          exact: true,
-        },
-        {
-          path: '/dashboard/workplace',
-          name: 'workplace',
-          exact: true,
-        },
-      ],
-    }
-    ....
-  ]
+[
+  {
+    path: '/dashboard'，
+    name: 'dashboard'，
+    icon: 'dashboard'，
+    children: [
+      {
+        path: '/dashboard/analysis'，
+        name: 'analysis'，
+        exact: true，
+      }，
+      {
+        path: '/dashboard/monitor'，
+        name: 'monitor'，
+        exact: true，
+      }，
+      {
+        path: '/dashboard/workplace'，
+        name: 'workplace'，
+        exact: true，
+      }，
+    ]，
+  }
+  ....
+]
 ```
+
 > 注意 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）
 
 ### 如何使用 Umi 约定式路由
 
-有时候你可能不想要使用config/router.config.js的配置。
-那你可以考虑umi的[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
+有时候你可能不想要使用 config/router.config.js 的配置。
+那你可以考虑 umi 的[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
 
-具体的如何在pro中使用约定式路由，可以查看这次[提交](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
+具体的如何在 pro 中使用约定式路由，可以查看这次[提交](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
 
 > 注意：约定式路由比较容易实现菜单和权限的控制，但是要求所有的菜单都必须声明权限，不然均可以通过直接访问url的方式访问。
+
 > 约定式权限的声明很有趣，你可以声明如：除某某页面之外的其他页面均需要admin访问权限，即可过滤所有的url。
 
 ### build之后如何使用mock数据？
-可以使用[umi-serve](https://www.npmjs.com/package/umi-serve),在项目中或者全局安装umi-serve
+
+可以使用 [umi-serve](https://www.npmjs.com/package/umi-serve) ，在项目中或者全局安装 umi-serve。
+
 ```sh
 $ yarn global add umi-serve
 ```
-在项目根目录中运行umi-serve
+
+在项目根目录中运行 umi-serve
+
 ```sh
 mac001:ant-design-pro xiaohuoni$ umi-serve
 
@@ -90,37 +96,38 @@ mac001:ant-design-pro xiaohuoni$ umi-serve
    │                                                    │
    └────────────────────────────────────────────────────┘
 ```
-修改项目中的请求地址，如`http://localhost:8001/api/users`
+
+修改项目中的请求地址，如 `http://localhost:8001/api/users`
 
 ```json
 [
   {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-  },
+    key: '1'，
+    name: 'John Brown'，
+    age: 32，
+    address: 'New York No. 1 Lake Park'，
+  }，
   {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-  },
+    key: '2'，
+    name: 'Jim Green'，
+    age: 42，
+    address: 'London No. 1 Lake Park'，
+  }，
   {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-  },
+    key: '3'，
+    name: 'Joe Black'，
+    age: 32，
+    address: 'Sidney No. 1 Lake Park'，
+  }，
 ]
 ```
 
-> 注意：如果没有全局安装，而只是在项目中安装，要把umi-serve命令添加到package.json的script里面
-> 注意：build之后proxy无效，不要在proxy中配置请求`http://localhost:8001/api/users`，而是要在http请求的时候，直接访问该地址。如在`src/utils/request.js`中统一添加请求前缀。
+> 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面
+> 注意：build 之后 proxy 无效，不要在 proxy 中配置请求`http://localhost:8001/api/users` ，而是要在 http 请求的时候，直接访问该地址。如在 `src/utils/request.js` 中统一添加请求前缀。
 
 ### 如何关闭页面权限控制
 
-配置式路由，去掉`config/router.config.js`中的所有`authority`配置
+配置式路由，去掉 `config/router.config.js` 中的所有 `authority` 配置
 
 约定式路由，关掉路由权限插件。
 
@@ -153,11 +160,11 @@ Ant Design Pro 内置了 umi，umi 使用了 webpack [devServer](https://webpack
   ...
   proxy:{
     '/server/api/': {
-      target: 'https://preview.pro.ant.design/',
-      changeOrigin: true,
-      pathRewrite: { '^/server': '' }, // /server/api/currentUser -> /api/currentUser
-    },
-  },
+      target: 'https://preview.pro.ant.design/'，
+      changeOrigin: true，
+      pathRewrite: { '^/server': '' }， // /server/api/currentUser -> /api/currentUser
+    }，
+  }，
   ...
 }
 ```
@@ -179,6 +186,7 @@ $ npm i node-sass sass-loader --save
  "sass": {}
 }
 ```
+
 详见 [sass](https://umijs.org/zh/guide/faq.html#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-sass-%EF%BC%9F)。
 
 ### Git commit 时报错？
@@ -189,7 +197,7 @@ $ npm i node-sass sass-loader --save
 
 ### 站点是否支持国际化？
 
-pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-locale) 来实现全球化的功能,详情请见 [国际化](/docs/i18n)。
+pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-locale) 来实现全球化的功能，详情请见 [国际化](/docs/i18n)。
 
 ### npm 安装 puppeteer 失败
 
@@ -197,7 +205,7 @@ pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-lo
 
 ### English Documentation？
 
-English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) 
+English Documentation will be translated in next couple of monthes， trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) 
 和 [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) 了解更多细节。
 
 ---

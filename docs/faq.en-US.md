@@ -30,36 +30,38 @@ Of course you can! Ant Design Pro is based on the latest antd version. There are
 ### How do I request a menu from the server?
 
 Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
-```js
- [
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      icon: 'dashboard',
-      children: [
-        {
-          path: '/dashboard/analysis',
-          name: 'analysis',
-          exact: true,
-        },
-        {
-          path: '/dashboard/monitor',
-          name: 'monitor',
-          exact: true,
-        },
-        {
-          path: '/dashboard/workplace',
-          name: 'workplace',
-          exact: true,
-        },
-      ],
-    }
-    ....
-  ]
+
+```json
+[
+  {
+    path: '/dashboard'，
+    name: 'dashboard'，
+    icon: 'dashboard'，
+    children: [
+      {
+        path: '/dashboard/analysis'，
+        name: 'analysis'，
+        exact: true，
+      }，
+      {
+        path: '/dashboard/monitor'，
+        name: 'monitor'，
+        exact: true，
+      }，
+      {
+        path: '/dashboard/workplace'，
+        name: 'workplace'，
+        exact: true，
+      }，
+    ]，
+  }
+  ....
+]
 ```
+
 > Note that path must be defined in routre.config.js.(All you need in Conventional Routing is the correct page.)
 
-### How to use Conventional Routing ?
+### How to use Conventional Routing?
 
 Sometimes you may not want to use `config/router.config.js`.
 Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
@@ -67,16 +69,20 @@ Then you can consider umi's [Conventional Routing](https://umijs.org/guide/route
 Specific how to use convention routing in pro, you can see this [commit](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
 
 > Note: Conventional routing is easier to control menus and privileges, but requires that all menus must declare privileges, otherwise they can be accessed through direct access to urls.
+
 > Conventional permission declarations are interesting. You can declare that all pages except one page need admin access to filter all urls.
 
 ### How to use mock data after build？
 You can use [umi-serve](https://www.npmjs.com/package/umi-serve),Install umi-serve in the project or globally.
+
 ```sh
 $ yarn global add umi-serve
 or
 $ yarn add umi-serve -D
 ```
+
 Run umi-serve in the project root directory
+
 ```sh
 $ umi-serve
 
@@ -91,6 +97,7 @@ $ umi-serve
    │                                                    │
    └────────────────────────────────────────────────────┘
 ```
+
 Modify the request address in the project,such as `http://localhost:8001/api/users`
 
 ```json
@@ -117,9 +124,11 @@ Modify the request address in the project,such as `http://localhost:8001/api/use
 ```
 
 > Note: If there is no global installation, but only in the project, add the umi-server command to the script of package.json
+
 > Note: Proxy is not valid after build. Do not configure request `http://localhost:8001/api/users` in proxy,when http requests, access the address directly.For example, add a request prefix uniformly in `src/utils/request.js`.
 
 ### How to close page permission control
+
 Configurable routing,remove all `authority` configurations in `config/router.config.js`.
 
 Conventional routing, turn off the routing permission plugin.
@@ -148,6 +157,7 @@ Please refer to the deploy document [Routing and server integration](/docs/deplo
 
 Ant Design Pro has built-in umi, umi uses webpack [devServer](https://webpack.docschina.org/configuration/dev-server/) to support the proxy.
 You only need to configure the proxy property in config.js.As long as the proxy and mock url are different, they can be used at the same time.
+
 ```js
 {
   ...

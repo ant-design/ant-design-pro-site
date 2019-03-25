@@ -52,15 +52,17 @@ Using [Authorized] (http://pro.ant.design/components/Authorized#Authorized) or [
 ### Modify current permissions
 
 Scaffolding uses localstorage to simulate the role of permissions, which may need to be read from the background in real projects.
+
 A simple method of refreshing permissions was implemented in the scaffold, and the current permissions were updated at the key nodes such as login/logout.
-You can check the call to [reloadAuthorized ](https://github.com/ant-design/ant-design-pro/blob/c93b0169a500427ee5fdd3c2977886c86aa3d59a/src/pages/User/models/login.js#L24) in login.js.
+
+You can check the call to [reloadAuthorized](https://github.com/ant-design/ant-design-pro/blob/c93b0169a500427ee5fdd3c2977886c86aa3d59a/src/pages/User/models/login.js#L24) in login.js.
 
 ### How do I control the access authority(User roles)？
 
 Just gain routerData in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111),There are several ways to get it here,Reference from config like pro,request from the server,or import local file. routerData is a json array. Just returns a json of similar format.
 
 ```json
-routerData:{
+routerData: {
     routes: [
       // dashboard
       {
@@ -82,6 +84,7 @@ routerData:{
 ### How do I control the access authority from the server ？
 
 Runtime configuration files,[src/app](https://umijs.org/zh/guide/app-structure.html#src-app-js), where runtime capabilities can be extended, such as modifying routing, modifying render methods, and so on.
+
 ```js
 export function render(oldRender) {
   if (defaultSettings.runtimeMenu) {
@@ -96,7 +99,9 @@ export function render(oldRender) {
   }
 }
 ```
+
 Then in the patchRoutes method, the routing configuration can be added according to authRoutes.
+
 ```js
 export function patchRoutes(routes) {
   if (defaultSettings.runtimeMenu) {
@@ -107,5 +112,4 @@ export function patchRoutes(routes) {
 }
 ```
 
-> 
-Note: Page files cannot be dynamically loaded here. paths must be defined in routre. config. js. (Conventional routing is not required, just the page is real and effective)
+> Note: Page files cannot be dynamically loaded here. paths must be defined in routre. config. js. (Conventional routing is not required, just the page is real and effective)
