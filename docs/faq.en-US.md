@@ -129,7 +129,17 @@ Modify the request address in the project,such as `http://localhost:8001/api/use
 
 ### How to close page permission control
 
-Configurable routing,remove all `authority` configurations in `config/router.config.js`.
+Configurable routing,remove `Routes: ['src/pages/Authorized']` configurations in `config/router.config.js`.
+
+```diff
+{
+    path: '/',
+    component: '../layouts/BasicLayout',
+-   Routes: ['src/pages/Authorized'],
+    routes: []
+    ...
+}
+```
 
 Conventional routing, turn off the routing permission plugin.
 

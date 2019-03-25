@@ -127,10 +127,19 @@ mac001:ant-design-pro xiaohuoni$ umi-serve
 
 ### 如何关闭页面权限控制
 
-配置式路由，去掉 `config/router.config.js` 中的所有 `authority` 配置。
+配置式路由，删除 `config/router.config.js` 中的 `Routes: ['src/pages/Authorized']` 配置。
+
+```diff
+{
+    path: '/',
+    component: '../layouts/BasicLayout',
+-   Routes: ['src/pages/Authorized'],
+    routes: []
+    ...
+}
+```
 
 约定式路由，关掉路由权限插件。
-
 ### 如何修改默认 webpack 配置？
 
 详见 [umi配置](https://umijs.org/zh/config/)。
