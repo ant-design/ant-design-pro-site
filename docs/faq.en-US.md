@@ -66,7 +66,7 @@ Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design
 Sometimes you may not want to use `config/router.config.js`.
 Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
 
-Specific how to use convention routing in pro, you can see this [commit](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
+Specific how to use convention routing in pro, you can see this [commit](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7).
 
 > Note: Conventional routing is easier to control menus and privileges, but requires that all menus must declare privileges, otherwise they can be accessed through direct access to urls.
 
