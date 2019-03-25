@@ -131,4 +131,4 @@ English Documentation will be translated in next couple of monthes, trace [ant-d
 
 ---
 
-More FAQs can be found in [Trouble Shooting] (https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) and [roadhog] ( Https://github.com/sorrycc/roadhog). If this does not solve your problem, please [Report to us] (https://github.com/ant-design/ant-design-pro/issues).
+More FAQs can be found in [Trouble Shooting] (https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting). If this does not solve your problem, please [Report to us] (https://github.com/ant-design/ant-design-pro/issues).

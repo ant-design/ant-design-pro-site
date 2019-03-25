@@ -17,6 +17,7 @@ import NumberInfo from '../../scaffold/src/components/NumberInfo';
 import Ellipsis from '../../scaffold/src/components/Ellipsis';
 import Authorized from '../../scaffold/src/components/Authorized';
 import Login from '../../scaffold/src/components/Login';
+import HeaderDropdown from '../../scaffold/src/components/HeaderDropdown';
 
 export default {
   Charts,
@@ -36,4 +37,5 @@ export default {
   Ellipsis,
   Authorized,
   Login,
+  HeaderDropdown,
 };
