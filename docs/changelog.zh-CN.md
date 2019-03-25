@@ -8,6 +8,32 @@ type: 其他
 
 [旧版文档](http://03x.pro.ant.design/)
 
+### 2.3.0
+
+2.3.0 将会是 pro 的最后的一个版本，主要用于修正 ts 错误，此后将不接受 master 的功能添加。
+
+#### 脚手架
+
+- 增加了图编辑器的 demo。可以轻松的在 pro 中使用 g6。[#3810](https://github.com/ant-design/ant-design-pro/pull/3810)
+- defaultSettings 新增了 menu.enableLocale 的配置，用于关闭菜单的全球化。[#3310](https://github.com/ant-design/ant-design-pro/pull/3310)
+- defaultSettings 新增了 pwa 配置，用于关闭 pwa 功能。[#3508](https://github.com/ant-design/ant-design-pro/pull/3508)
+- 增加IconFont组件、菜单图标可以使用自己的IconFont项目图标。[#3517](https://github.com/ant-design/ant-design-pro/pull/3517)
+- 修复 Login 的 `onPressEnter` 在 IE11 中会触发两次的问题。[#3557](https://github.com/ant-design/ant-design-pro/pull/3557)
+- 修复菜单项设置`hideInMenu` 为 `true` 时，面包屑无法显示的问题。[#3606](https://github.com/ant-design/ant-design-pro/pull/3606)
+- 重写了权限控制模块。[#3587](https://github.com/ant-design/ant-design-pro/pull/3587)
+- 修复网络过慢时会出现两个 loading 的问题。[#3746](https://github.com/ant-design/ant-design-pro/issues/3746)
+- 修复 layout 中 menu 为空时，会获得另一个 layout menu 的问题。[#3724](https://github.com/ant-design/ant-design-pro/pull/3724)
+- 修复在"顶部菜单布局"且内容区域宽度为“定宽”时，若屏幕尺寸小于1200，顶部菜单右侧内容被遮挡的问题。[#3726](https://github.com/ant-design/ant-design-pro/pull/3726)
+
+#### 组件
+
+- 修复 PageHeader 在没有 `title` 的情况下，dom 不渲染的问题。[aa2f140](https://github.com/ant-design/ant-design-pro/commit/aa2f14059c576587fcee622061a0b711152ad0cb)
+- 修复 TagCloud 样式覆盖的问题。[#3632](https://github.com/ant-design/ant-design-pro/pull/3632)
+- NoticeIcon 移除了多余的参数，增加了一个查看更多的按钮。[#3439](https://github.com/ant-design/ant-design-pro/pull/3439)
+- MiniProgress 增加 `targetLabel` props。[#3778](https://github.com/ant-design/ant-design-pro/pull/3778)
+- 重写 Authorized 组建的判断逻辑。[#3813](https://github.com/ant-design/ant-design-pro/pull/3813)
+- 修正了多处的 TypeScript 的类型错误。
+
 ### 2.2.0
 
 在 下一个版本的 Pro 中，我们会逐步的删除所有的组件，这些组件将会加入的 Ant Design 中，正在路上的已经有:

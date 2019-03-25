@@ -6,6 +6,32 @@ type: Other
 
 [Older Version](http://03x.pro.ant.design/)
 
+### 2.3.0
+
+2.3.0 will be the last version of pro, mainly used to fix ts errors, after which will not accept the function of the master.
+
+#### 脚手架
+
+- Added demo for the diagram editor. G6 can be easily used in pro. [#3810](https://github.com/ant-design/ant-design-pro/pull/3810)
+- defaultSettings has a new menu.enableLocale configuration to turn off the globalization of the menu. [#3310](https://github.com/ant-design/ant-design-pro/pull/3310)
+- defaultSettings A new pwa configuration has been added to turn off the pwa feature. [#3508](https://github.com/ant-design/ant-design-pro/pull/3508)
+- Add IconFont components and menu icons to use your own IconFont project icons. [#3517](https://github.com/ant-design/ant-design-pro/pull/3517)
+-Fix the login 'onPressEnter` which will trigger twice in IE11. [#3557](https://github.com/ant-design/ant-design-pro/pull/3557)
+- Fixed a problem where the breadcrumbs could not be displayed when the menu item setting `hideInMenu` was `true`. [#3606](https://github.com/ant-design/ant-design-pro/pull/3606)
+- Rewritten the permission control module. [#3587](https://github.com/ant-design/ant-design-pro/pull/3587)
+- There are two loading issues when fixing the network too slowly. [#3746](https://github.com/ant-design/ant-design-pro/issues/3746)
+- When the menu in the repair layout is empty, you will get another layout menu problem. [#3724](https://github.com/ant-design/ant-design-pro/pull/3724)
+- Fix the problem that if the screen size is less than 1200 and the content on the right side of the top menu is occluded when the "top menu layout" and the content area width is "fixed width". [#3726](https://github.com/ant-design/ant-design-pro/pull/3726)
+
+#### 组件
+
+- Fix the problem that PageHeader does not render without `title`. [aa2f140](https://github.com/ant-design/ant-design-pro/commit/aa2f14059c576587fcee622061a0b711152ad0cb)
+- Fix issues with TagCloud style overrides. [#3632](https://github.com/ant-design/ant-design-pro/pull/3632)
+- NoticeIcon removed the extra parameters and added a button to see more. [#3439](https://github.com/ant-design/ant-design-pro/pull/3439)
+- MiniProgress adds `targetLabel` props. [#3778](https://github.com/ant-design/ant-design-pro/pull/3778)
+- Rewrite the judgment logic of the Authorized component. [#3813](https://github.com/ant-design/ant-design-pro/pull/3813)
+- Fixed multiple types of TypeScript errors.
+
 ### 2.2.0
 
 In the next version of Pro, we will gradually remove all the components that will be added to the Ant Design, which are under development:
