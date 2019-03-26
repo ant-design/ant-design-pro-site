@@ -119,7 +119,6 @@ export default class MainContent extends React.PureComponent {
     const {
       intl: { locale },
     } = this.context;
-    const key = item.slug;
     const text = [
       <span key="english">{item.title[locale] || item.title}</span>,
       <span className="chinese" key="chinese">
@@ -149,7 +148,7 @@ export default class MainContent extends React.PureComponent {
       </a>
     );
     return (
-      <Menu.Item key={`${key}`} disabled={disabled}>
+      <Menu.Item key={this.convertFilename(item.filename)} disabled={disabled}>
         {item.important ? <Badge dot={item.important}>{child}</Badge> : child}
       </Menu.Item>
     );
