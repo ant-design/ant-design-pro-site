@@ -50,7 +50,7 @@
     "axios": "^0.18.0",
     "bizcharts": "^3.2.2",
     "bizcharts-plugin-slider": "^2.0.4",
-    "core-js": "^3.0.0",
+    "core-js": "^2.6.5",
     "lodash-decorators": "^6.0.0",
     "lz-string": "^1.4.4",
     "react-copy-to-clipboard": "^5.0.0",
