@@ -126,8 +126,7 @@ export default class ComponentDoc extends React.PureComponent {
     const localTitle = title[locale] || title;
 
     const { leftChildren, demosJump, rightChildren, isSingleCol } = this.getShowDemos(localTitle);
-    const isNotTranslated = locale === 'en-US' && typeof title === 'object';
-
+    const isNotTranslated = locale === 'en-US' && subtitle;
     return (
       <DocumentTitle title={`${subtitle || ''} ${localTitle} - Ant Design`}>
         <article>

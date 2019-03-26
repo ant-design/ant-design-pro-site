@@ -5,7 +5,7 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
-import { Timeline, Alert, Affix } from 'antd';
+import { Timeline, Affix } from 'antd';
 import delegate from 'delegate';
 import EditButton from './EditButton';
 
@@ -69,7 +69,6 @@ export default class Article extends React.PureComponent {
     const {
       intl: { locale },
     } = this.context;
-    const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
         <article
@@ -78,20 +77,6 @@ export default class Article extends React.PureComponent {
             this.node = node;
           }}
         >
-          {isNotTranslated && (
-            <Alert
-              type="warning"
-              message={
-                <span>
-                  This article has not been translated yet. Wan&apos;t to help us out?{' '}
-                  <a href="https://github.com/ant-design/ant-design-pro/issues/120">
-                    See this issue on GitHub.
-                  </a>
-                </span>
-              }
-              style={{ marginBottom: 24 }}
-            />
-          )}
           <h1>
             {title[locale] || title}
             {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}

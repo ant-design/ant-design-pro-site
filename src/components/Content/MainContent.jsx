@@ -122,7 +122,7 @@ export default class MainContent extends React.PureComponent {
     const text = [
       <span key="english">{item.title[locale] || item.title}</span>,
       <span className="chinese" key="chinese">
-        {item.subtitle}
+        {locale === 'zh-CN' && item.subtitle}
       </span>,
     ];
 
