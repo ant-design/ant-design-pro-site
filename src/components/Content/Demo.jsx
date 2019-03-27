@@ -254,7 +254,68 @@ export default class Demo extends React.Component {
               sourcePath="https://github.com/ant-design/ant-design-pro/edit/master/"
             />
           </div>
-          <div dangerouslySetInnerHTML={{ __html: localizeIntro }} />
+          <div
+            className="code-box-description"
+            dangerouslySetInnerHTML={{ __html: localizeIntro }}
+          />
+        </section>
+        <div className="code-box-actions">
+          {showRiddleButton ? (
+            <form action="//riddle.alibaba-inc.com/riddles/define" method="POST" target="_blank">
+              <input
+                type="hidden"
+                name="data"
+                value={compress(JSON.stringify(riddlePrefillConfig))}
+              />
+              <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
+                <input
+                  type="submit"
+                  value="Create New Riddle with Prefilled Data"
+                  className="code-box-riddle"
+                />
+              </Tooltip>
+            </form>
+          ) : null}
+          <form
+            action="https://codesandbox.io/api/v1/sandboxes/define"
+            method="POST"
+            target="_blank"
+          >
+            <input
+              type="hidden"
+              name="parameters"
+              value={compress(JSON.stringify(codesanboxPrefillConfig))}
+            />
+            <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
+              <input
+                type="submit"
+                value="Create New Sandbox with Prefilled Data"
+                className="code-box-codesandbox"
+              />
+            </Tooltip>
+          </form>
+          <form action="https://codepen.io/pen/define" method="POST" target="_blank">
+            <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+            <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+              <input
+                type="submit"
+                value="Create New Pen with Prefilled Data"
+                className="code-box-codepen"
+              />
+            </Tooltip>
+          </form>
+          <CopyToClipboard text={state.sourceCode} onCopy={this.handleCodeCopied}>
+            <Tooltip
+              visible={state.copyTooltipVisible}
+              onVisibleChange={this.onCopyTooltipVisibleChange}
+              title={<FormattedMessage id={`app.demo.${state.copied ? 'copied' : 'copy'}`} />}
+            >
+              <Icon
+                type={state.copied && state.copyTooltipVisible ? 'check' : 'copy'}
+                className="code-box-code-copy"
+              />
+            </Tooltip>
+          </CopyToClipboard>
           <Tooltip title={codeExpand ? 'Hide Code' : 'Show Code'}>
             <span className="code-expand-icon">
               <img
@@ -271,71 +332,9 @@ export default class Demo extends React.Component {
               />
             </span>
           </Tooltip>
-        </section>
+        </div>
         <section className={highlightClass} key="code">
           <div className="highlight">
-            <div className="code-box-actions">
-              {showRiddleButton ? (
-                <form
-                  action="//riddle.alibaba-inc.com/riddles/define"
-                  method="POST"
-                  target="_blank"
-                >
-                  <input
-                    type="hidden"
-                    name="data"
-                    value={compress(JSON.stringify(riddlePrefillConfig))}
-                  />
-                  <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
-                    <input
-                      type="submit"
-                      value="Create New Riddle with Prefilled Data"
-                      className="code-box-riddle"
-                    />
-                  </Tooltip>
-                </form>
-              ) : null}
-              <form
-                action="https://codesandbox.io/api/v1/sandboxes/define"
-                method="POST"
-                target="_blank"
-              >
-                <input
-                  type="hidden"
-                  name="parameters"
-                  value={compress(JSON.stringify(codesanboxPrefillConfig))}
-                />
-                <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-                  <input
-                    type="submit"
-                    value="Create New Sandbox with Prefilled Data"
-                    className="code-box-codesandbox"
-                  />
-                </Tooltip>
-              </form>
-              <form action="https://codepen.io/pen/define" method="POST" target="_blank">
-                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-                <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                  <input
-                    type="submit"
-                    value="Create New Pen with Prefilled Data"
-                    className="code-box-codepen"
-                  />
-                </Tooltip>
-              </form>
-              <CopyToClipboard text={state.sourceCode} onCopy={this.handleCodeCopied}>
-                <Tooltip
-                  visible={state.copyTooltipVisible}
-                  onVisibleChange={this.onCopyTooltipVisibleChange}
-                  title={<FormattedMessage id={`app.demo.${state.copied ? 'copied' : 'copy'}`} />}
-                >
-                  <Icon
-                    type={state.copied && state.copyTooltipVisible ? 'check' : 'copy'}
-                    className="code-box-code-copy"
-                  />
-                </Tooltip>
-              </CopyToClipboard>
-            </div>
             <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
           </div>
           {highlightedStyle ? (
