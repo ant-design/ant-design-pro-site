@@ -4,7 +4,7 @@ title: From Community
 type: Other
 ---
 
-Quality adaptation from the community.
+Other technology stack scaffolding from the community.
 
 ---
 
