@@ -12,7 +12,6 @@ You can use [Ant Design official icons](https://ant.design/components/icon/) wit
 
 If there is no icon you need in the Ant Design official icons, you can collect and generate your own icon library in the [iconfont.cn](http://iconfont.cn/).
 
----
 
 ## Generate the code from the icon library
 

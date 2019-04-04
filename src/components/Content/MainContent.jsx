@@ -209,15 +209,16 @@ export default class MainContent extends React.PureComponent {
       },
     } = this.props;
 
-    const list = menuItems.length
-      ? menuItems
-      : Object.keys(menuItems).reduce((pre, key) => {
-          return pre.concat(menuItems[key].props.children);
-        }, []);
-
+    const list =
+      menuItems.length && !menuItems[0].props.children.length
+        ? menuItems
+        : Object.keys(menuItems).reduce((pre, key) => {
+            return pre.concat(menuItems[key].props.children);
+          }, []);
     const index = list.findIndex(item => {
-      return item.key === `${filename}/`;
+      return item.key === filename || item.key === `${filename}-cn`;
     });
+
     if (index === -1) {
       return {};
     }

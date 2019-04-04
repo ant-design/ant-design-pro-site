@@ -8,8 +8,6 @@ This "page" refers to a module that is configured with a route and can be direct
 
 > If you want to create new landing page, check [this link](https://landing.ant.design/docs/use/pro-cn)
 
----
-
 ## First, add js,less files
 
 Create new js,less files under src/pages. If there are multiple related pages, you can create a new folder to place related files.

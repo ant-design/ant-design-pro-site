@@ -8,7 +8,6 @@ type: 入门
 
 > 需要新建 Landing Page [请查看](https://landing.ant.design/docs/use/pro-cn)
 
----
 
 ## 一、新增 js、less 文件
 
