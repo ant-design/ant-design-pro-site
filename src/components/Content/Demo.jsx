@@ -250,8 +250,8 @@ export default class Demo extends React.Component {
             </a>
             <EditButton
               title={<FormattedMessage id="app.content.edit-page" />}
-              filename={meta.filename.replace('scaffold/', '')}
-              sourcePath="https://github.com/ant-design/ant-design-pro/edit/master/"
+              filename={meta.path.replace('scaffold/', '')}
+              sourcePath="https://github.com/ant-design/ant-design-pro/edit/master/src"
             />
           </div>
           <div

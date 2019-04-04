@@ -15,6 +15,7 @@ const transformerDemos = demos => {
       meta: {
         ...transformerFrontmatter(node.frontmatter),
         filename: node.fields.slug,
+        path: node.fields.path,
       },
     };
   });

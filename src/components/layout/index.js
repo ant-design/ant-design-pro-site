@@ -62,7 +62,7 @@ export class Layout extends React.PureComponent {
 }
 
 const WrapperLayout = props => (
-  <Media query="(max-width: 599px)">
+  <Media query="(max-width: 996px)">
     {isMobile => {
       const isNode = typeof window === `undefined`;
       return <Layout {...props} isMobile={isMobile && !isNode} />;
