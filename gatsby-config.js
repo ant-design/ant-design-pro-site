@@ -44,7 +44,12 @@ module.exports = {
         plugins: [
           'gatsby-remark-header-custom-ids',
           'gatsby-remark-img-warpper-p',
-          'gatsby-remark-prismjs',
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+            },
+          },
         ],
       },
     },

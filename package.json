@@ -14,7 +14,6 @@
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "components-build": "node ./tool/bin/let -c && cd ./config/components",
     "components-publish": "node ./tool/bin/let -c && cd ./config/components && npm publish",
-    "develop": "gatsby develop --no-cache",
     "gh-pages": "gh-pages -d public",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint-staged": "lint-staged",
@@ -24,13 +23,9 @@
     "lint:style": "stylelint \"site/**/*.less\" --syntax less",
     "precommit": "npm run lint-staged",
     "prettier": "prettier --write ./site/**/**/**",
-    "scaffold-build": "cd ./scaffold && npm run build && node ../tool/bin/let -b",
-    "scaffold-build:static": "node ./tool/bin/let -s && cd ./scaffold && npm run build && node ../tool/bin/let -b",
-    "scaffold-move": "node ./tool/bin/let -m",
-    "scaffold-start": "cd ./scaffold && BROWSER=none npm start",
     "serve": "gatsby serve",
     "site": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run build && npm run gh-pages",
-    "start": "npm run develop --no-cache",
+    "start": "gatsby develop",
     "test": "npm run lint"
   },
   "pre-commit": [
