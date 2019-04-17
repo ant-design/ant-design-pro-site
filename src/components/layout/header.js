@@ -166,7 +166,6 @@ class Header extends React.Component {
     if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
     }
-
     window.location.href =
       currentProtocol +
       currentHref.replace(

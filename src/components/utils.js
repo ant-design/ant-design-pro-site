@@ -25,10 +25,11 @@ export function isZhCN(pathname) {
  */
 export function getLocalizedPathname(path, zhCN) {
   let pathname = path.startsWith('/') ? path : `/${path}`;
-
   pathname = pathname.replace('-cn', '');
-
-  if (pathname === '/') {
+  if (pathname === '/' || pathname === '/index') {
+    if (zhCN) {
+      return '/index-cn';
+    }
     return '/';
   }
   if (!zhCN) {
