@@ -88,7 +88,7 @@
     "scaffold-build:static": "node ./tool/bin/let -s && cd ./scaffold && npm run build && node ../tool/bin/let -b",
     "scaffold-install": "cd ./scaffold && node ../tool/bin/i",
     "preinstall": "npm run scaffold-install",
-    "build-site": "rm -rf _site && npm run bisheng-build",
+    "build-site": "rm -rf _site && npm run bisheng-build && cp CNAME ./_site/",
     "gh-pages": "gh-pages -d _site",
     "site": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run build-site && npm run gh-pages",
     "components-publish": "node ./tool/bin/let -c && cd ./config/components && npm publish",
