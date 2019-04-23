@@ -8,18 +8,18 @@ Ant Design Pro 提供了由设计师精心设计抽象的图表类型，是在 [
 
 目前一共包涵 10 个图表类型，以及 2 个图表套件：
 
-* 饼状图（Pie）
-* 柱状图（Bar）
-* 仪表盘（Gauge）
-* 雷达图（Radar）
-* 标签云（TagCloud）
-* 水波图（WaterWave）
-* 迷你柱状图（MiniBar）
-* 迷你区域图（MiniArea）
-* 迷你进度条（MiniProgress）
-* 带有时间轴的折线图（TimelineChart）
-* 图表卡片（ChartCard）
-* 图表字段（Field）
+- 饼状图（Pie）
+- 柱状图（Bar）
+- 仪表盘（Gauge）
+- 雷达图（Radar）
+- 标签云（TagCloud）
+- 水波图（WaterWave）
+- 迷你柱状图（MiniBar）
+- 迷你区域图（MiniArea）
+- 迷你进度条（MiniProgress）
+- 带有时间轴的折线图（TimelineChart）
+- 图表卡片（ChartCard）
+- 图表字段（Field）
 
 [查看图表组件](https://pro.ant.design/components/Charts-cn/)
 
@@ -35,21 +35,21 @@ import { Tooltip, Icon } from 'antd';
 
 const visitData = [
   {
-    x: "2017-09-01",
-    y: 100
+    x: '2017-09-01',
+    y: 100,
   },
   {
-    x: "2017-09-02",
-    y: 120
+    x: '2017-09-02',
+    y: 120,
   },
   {
-    x: "2017-09-03",
-    y: 88
+    x: '2017-09-03',
+    y: 88,
   },
   {
-    x: "2017-09-04",
-    y: 65
-  }
+    x: '2017-09-04',
+    y: 65,
+  },
 ];
 
 ReactDOM.render(

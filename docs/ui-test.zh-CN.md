@@ -1,6 +1,6 @@
 ---
 order: 15
-title: UI 测试 
+title: UI 测试
 type: 进阶
 ---
 
@@ -29,12 +29,12 @@ jest 是一个 node 端运行的测试框架，使用了 jsdom 来模拟 DOM 环
 ```jsx
 import React from 'react';
 import { shallow } from 'enzyme';
-import Success from './Success';   // 引入对应的 React 组件
+import Success from './Success'; // 引入对应的 React 组件
 
 it('renders with Result', () => {
-  const wrapper = shallow(<Success />);                           // 进行渲染
-  expect(wrapper.find('Result').length).toBe(1);                  // 有 Result 组件
-  expect(wrapper.find('Result').prop('type')).toBe('success');    // Result 组件的类型是成功
+  const wrapper = shallow(<Success />); // 进行渲染
+  expect(wrapper.find('Result').length).toBe(1); // 有 Result 组件
+  expect(wrapper.find('Result').prop('type')).toBe('success'); // Result 组件的类型是成功
 });
 ```
 
@@ -66,9 +66,7 @@ import Dashboard from './Dashboard';
 
 it('renders Dashboard', () => {
   // 使用包装后的组件
-  const wrapper = shallow(
-    <Dashboard.WrappedComponent user={{ list: [] }} />
-  );
+  const wrapper = shallow(<Dashboard.WrappedComponent user={{ list: [] }} />);
   expect(wrapper.find('Table').props().dataSource).toEqual([]);
 });
 ```

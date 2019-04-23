@@ -21,7 +21,9 @@ export default {
   '/api/users/1': { id: 1 },
 
   // 支持自定义函数，API 参考 express@4
-  'POST /api/users/create': (req, res) => { res.end('OK'); },
+  'POST /api/users/create': (req, res) => {
+    res.end('OK');
+  },
 };
 ```
 
@@ -109,7 +111,7 @@ const proxy = {
   'GET /api/activities': getActivities,
   'GET /api/rule': getRule,
   'GET /api/tags': mockjs.mock({
-    'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }]
+    'list|100': [{ name: '@city', 'value|1-100': 50, 'type|0-2': 1 }],
   }),
   'GET /api/fake_list': getFakeList,
   'GET /api/fake_chart_data': getFakeChartData,

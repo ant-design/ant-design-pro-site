@@ -23,24 +23,26 @@ Create a folder named `ImageWrapper` (capitalised and same as component name) un
 > You can split sub-component into other files and import them in `index.js`.
 
 > ```js
-// MainComponent.js
-export default ({ ... }) => (...);
+> // MainComponent.js
+> export default ({ ... }) => (...);
 >
-// SubComponent1.js
-export default ({ ... }) => (...);
+> // SubComponent1.js
+> export default ({ ... }) => (...);
 >
-// SubComponent2.js
-export default ({ ... }) => (...);
+> // SubComponent2.js
+> export default ({ ... }) => (...);
 >
-// index.js
-import MainComponent from './MainComponent';
-import SubComponent1 from './SubComponent1';
-import SubComponent2 from './SubComponent2';
+> // index.js
+> import MainComponent from './MainComponent';
+> import SubComponent1 from './SubComponent1';
+> import SubComponent2 from './SubComponent2';
 >
-MainComponent.SubComponent1 = SubComponent1;
-MainComponent.SubComponent2 = SubComponent2;
-export default MainComponent;
-```
+> MainComponent.SubComponent1 = SubComponent1;
+> MainComponent.SubComponent2 = SubComponent2;
+> export default MainComponent;
+> ```
+
+````
 
 The Component source code would be like:
 
@@ -55,7 +57,7 @@ export default ({ src, desc, style }) => (
     {desc && <div className={styles.desc}>{desc}</div>}
   </div>
 );
-```
+````
 
 ```css
 // index.less
@@ -83,12 +85,9 @@ Import your component and use it like other React components.
 
 ```js
 import React from 'react';
-import ImageWrapper from '@/components/ImageWrapper';  // @ means the relative path of source
+import ImageWrapper from '@/components/ImageWrapper'; // @ means the relative path of source
 
 export default () => (
-  <ImageWrapper
-    src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png"
-    desc="sample"
-  />
+  <ImageWrapper src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png" desc="sample" />
 );
 ```

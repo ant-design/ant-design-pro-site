@@ -14,13 +14,13 @@ A lightweight Ant Design Pro scaffolding based on create-react-app.
 
 - link: https://github.com/sunnut/react-easy-start
 
-## Umi Antd Pro
+## Umi Ant Design Pro
 
 An extra version of Ant Design Pro with [umi conventional routing](https://umijs.org/guide/router.html#conventional-routing).
 
 - link: https://github.com/xiaohuoni/umi-antd-pro
 
-## Antd Pro Mobx
+## Ant Design Pro Mobx
 
 A light version of Ant Design Pro with Mobx + Webpack + Rap2.
 

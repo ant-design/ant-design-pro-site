@@ -1,7 +1,7 @@
 ---
 order: 17
 title:
-  en-US: Error Handle 
+  en-US: Error Handle
   zh-CN: 错误处理
 type: Advanced
 ---
@@ -34,7 +34,11 @@ By default, it supports 404, 403, and 500 errors, and can also customize the cop
     type="error"
     title="提交失败"
     description="请核对并修改以下信息后，再重新提交。"
-    actions={<Button size="large" type="primary">返回修改</Button>}
+    actions={
+      <Button size="large" type="primary">
+        返回修改
+      </Button>
+    }
   />
   ```
 
@@ -78,6 +82,7 @@ const checkStatus = response => {
   throw error;
 };
 ```
+
 In order to facilitate the display of 404 and other pages, we encapsulate the logic in the `request.js` to jump to the corresponding page according to the state. It is recommended to delete this logic in the online environment. The code is as follows:
 
 ```js

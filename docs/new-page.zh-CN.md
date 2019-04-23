@@ -1,6 +1,6 @@
 ---
 order: 4
-title: 新增页面 
+title: 新增页面
 type: 入门
 ---
 
@@ -21,7 +21,7 @@ type: 入门
 样式文件默认使用 [CSS Modules](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)，如果需要，你可以在样式文件的头部引入 [antd 样式变量文件](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)：
 
 ```css
-@import "~antd/lib/style/themes/default.less";
+@import '~antd/lib/style/themes/default.less';
 ```
 
 这样可以很方便地获取 antd 样式变量并在你的文件里使用，有利于保持页面的一致性，也方便实现定制主题。

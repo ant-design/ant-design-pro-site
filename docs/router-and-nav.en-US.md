@@ -28,7 +28,7 @@ At present, all the routes in the scaffolding are managed by [`router.config.js`
 - `hideChildrenInMenu` is used to hide sub-routes that do not need to be displayed in the menu. Usage can view the configuration of the `Step by Step Form`.
 - `hideInMenu` can not display this route in the menu, including sub-routing. The effect can be viewed on the `exception/trigger` page.
 - `authority` is used to configure the permissions of this route. If configured, it will verify the permissions of the current user and decide whether to display it.
-> You may notice that the `name` in the configuration is different from the actual display of the menu. This is because we use the global component, see [i18n](/docs/i18n/).
+  > You may notice that the `name` in the configuration is different from the actual display of the menu. This is because we use the global component, see [i18n](/docs/i18n/).
 
 ### Menu
 
@@ -155,6 +155,7 @@ module.exports = [
 ]
 
 ```
+
 ### Use a custom icon in the menu
 
 Due to umi's limitations, the [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) is not directly With components, Pro temporarily supports the use of [`ant.design`](https://ant.design/components/icon-cn/) its own icon type, and the url of an img. Just configure it directly on the icon property. If it's a url, Pro will automatically process it as an img tag.
@@ -176,13 +177,13 @@ You can jump to this route with the following code:
 ```js
 import router from 'umi/router';
 
-router.push('/dashboard/anyParams')
+router.push('/dashboard/anyParams');
 
 //or
 
 import Link from 'umi/link';
 
-<Link to="/dashboard/anyParams">go</Link>
+<Link to="/dashboard/anyParams">go</Link>;
 ```
 
 In the routing component, routing parameters can be obtained via `this.props.match.params`.

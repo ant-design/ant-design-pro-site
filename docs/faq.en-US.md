@@ -14,7 +14,7 @@ It can be understood that Ant Design React is a set of React component libraries
 
 ### How do I use Ant Design Pro?
 
-Please read the document [Getting Started](/docs/getting-started), and Ant Financial users please read [Getting Started (Ants Financial User)] (/docs/getting-start-inner).
+Please read the document [Getting Started](/docs/getting-started), and Ant Financial users please read [Getting Started (Ants Financial User)](/docs/getting-start-inner).
 
 ### Can I use Ant Design Pro in a production environment?
 
@@ -63,8 +63,7 @@ Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design
 
 ### How to use Conventional Routing?
 
-Sometimes you may not want to use `config/router.config.js`.
-Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
+Sometimes you may not want to use `config/router.config.js`. Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
 
 Specific how to use convention routing in pro, you can see this [commit](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7).
 
@@ -73,6 +72,7 @@ Specific how to use convention routing in pro, you can see this [commit](https:/
 > Conventional permission declarations are interesting. You can declare that all pages except one page need admin access to filter all urls.
 
 ### How to use mock data after build？
+
 You can use [umi-serve](https://www.npmjs.com/package/umi-serve),Install umi-serve in the project or globally.
 
 ```sh
@@ -103,23 +103,23 @@ Modify the request address in the project,such as `http://localhost:8001/api/use
 ```json
 [
   {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
+    "key": "1",
+    "name": "John Brown",
+    "age": 32,
+    "address": "New York No. 1 Lake Park"
   },
   {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
+    "key": "2",
+    "name": "Jim Green",
+    "age": 42,
+    "address": "London No. 1 Lake Park"
   },
   {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-  },
+    "key": "3",
+    "name": "Joe Black",
+    "age": 32,
+    "address": "Sidney No. 1 Lake Park"
+  }
 ]
 ```
 
@@ -167,8 +167,7 @@ Please refer to the deploy document [Routing and server integration](/docs/deplo
 
 ### How do I proxy the server url?
 
-Ant Design Pro has built-in umi, umi uses webpack [devServer](https://webpack.docschina.org/configuration/dev-server/) to support the proxy.
-You only need to configure the proxy property in config.js.As long as the proxy and mock url are different, they can be used at the same time.
+Ant Design Pro has built-in umi, umi uses webpack [devServer](https://webpack.docschina.org/configuration/dev-server/) to support the proxy. You only need to configure the proxy property in config.js.As long as the proxy and mock url are different, they can be used at the same time.
 
 ```js
 {
@@ -188,7 +187,7 @@ Enter http://localhost:8000/server/api/currentUser preview in your browser.
 
 ### How do I add scss support?
 
-Open the `sass` configuration in `.webpackrc`, see [sass] (https://github.com/sorrycc/roadhog#sass).
+Open the `sass` configuration in `.webpackrc`, see [sass](https://github.com/sorrycc/roadhog#sass).
 
 ### I'm getting a git commit error. How do I fix it?
 
@@ -216,6 +215,20 @@ Try using cnpm or setting environment variables to see this [issue](https://gith
 
 English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) and [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) for more detail.
 
+### After Ant Design Pro upgrades from 1.X to 2.X, page layout components (such as BasicLayout) are reloaded when the page is redirected (redirect)
+
+Add `disableRedirectHoist: true` in config.js configuration:
+
+```diff
+export default {
+    ...
++   disableRedirectHoist: true,
+    ...
+}
+```
+
+这是使用 umijs 框架引入的问题。配置的具体说明参考 umijs 的[官方文档](https://umijs.org/zh/config/#disableredirecthoist)说明
+
 ---
 
-More FAQs can be found in [Trouble Shooting] (https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting). If this does not solve your problem, please [Report to us] (https://github.com/ant-design/ant-design-pro/issues).
+More FAQs can be found in [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting). If this does not solve your problem, please [Report to us](https://github.com/ant-design/ant-design-pro/issues).

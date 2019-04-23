@@ -25,24 +25,26 @@ type: 入门
 > 在使用组件时，默认会在 `index.js` 中寻找 export 的对象，如果你的组件比较复杂，可以分为多个文件，最后在 `index.js` 中统一 export，就像这样：
 
 > ```js
-// MainComponent.js
-export default ({ ... }) => (...);
+> // MainComponent.js
+> export default ({ ... }) => (...);
 >
-// SubComponent1.js
-export default ({ ... }) => (...);
+> // SubComponent1.js
+> export default ({ ... }) => (...);
 >
-// SubComponent2.js
-export default ({ ... }) => (...);
+> // SubComponent2.js
+> export default ({ ... }) => (...);
 >
-// index.js
-import MainComponent from './MainComponent';
-import SubComponent1 from './SubComponent1';
-import SubComponent2 from './SubComponent2';
+> // index.js
+> import MainComponent from './MainComponent';
+> import SubComponent1 from './SubComponent1';
+> import SubComponent2 from './SubComponent2';
 >
-MainComponent.SubComponent1 = SubComponent1;
-MainComponent.SubComponent2 = SubComponent2;
-export default MainComponent;
-```
+> MainComponent.SubComponent1 = SubComponent1;
+> MainComponent.SubComponent2 = SubComponent2;
+> export default MainComponent;
+> ```
+
+````
 
 你的代码大概是这个样子：
 
@@ -57,7 +59,7 @@ export default ({ src, desc, style }) => (
     {desc && <div className={styles.desc}>{desc}</div>}
   </div>
 );
-```
+````
 
 ```css
 // index.less
@@ -85,12 +87,9 @@ export default ({ src, desc, style }) => (
 
 ```js
 import React from 'react';
-import ImageWrapper from '@/components/ImageWrapper';  // @ 表示相对于源文件根目录
+import ImageWrapper from '@/components/ImageWrapper'; // @ 表示相对于源文件根目录
 
 export default () => (
-  <ImageWrapper
-    src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png"
-    desc="示意图"
-  />
+  <ImageWrapper src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png" desc="示意图" />
 );
 ```

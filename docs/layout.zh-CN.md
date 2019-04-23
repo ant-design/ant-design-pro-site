@@ -26,29 +26,31 @@ type: 入门
 通常布局是和路由系统紧密结合的，Ant Design Pro 的路由使用了 Umi 的路由方案，为了统一方便的管理路由和页面的关系，我们将配置信息统一抽离到 `config/router.config.js` 下，通过如下配置定义每个页面的布局：
 
 ```jsx
-module.exports = [{
-  path: '/',
-  component: '../layouts/BasicLayout',  // 指定以下页面的布局
-  routes: [
-    // dashboard
-    { path: '/', redirect: '/dashboard/analysis' },
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      icon: 'dashboard',
-      routes: [
-        { path: '/dashboard/analysis', name: 'analysis', component: './Dashboard/Analysis' },
-        { path: '/dashboard/monitor', name: 'monitor', component: './Dashboard/Monitor' },
-        { path: '/dashboard/workplace', name: 'workplace', component: './Dashboard/Workplace' },
-      ],
-    },
-  ],
-}]
+module.exports = [
+  {
+    path: '/',
+    component: '../layouts/BasicLayout', // 指定以下页面的布局
+    routes: [
+      // dashboard
+      { path: '/', redirect: '/dashboard/analysis' },
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        icon: 'dashboard',
+        routes: [
+          { path: '/dashboard/analysis', name: 'analysis', component: './Dashboard/Analysis' },
+          { path: '/dashboard/monitor', name: 'monitor', component: './Dashboard/Monitor' },
+          { path: '/dashboard/workplace', name: 'workplace', component: './Dashboard/Workplace' },
+        ],
+      },
+    ],
+  },
+];
 ```
 
 映射路由和页面布局（组件）的关系如代码所示，完整映射转换实现可以参看 [router.config.js](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js)。
 
-更多 Umi 的路由配置方式可以参考：[Umi  配置式路由](https://umijs.org/guide/router.html#%E9%85%8D%E7%BD%AE%E5%BC%8F%E8%B7%AF%E7%94%B1)。
+更多 Umi 的路由配置方式可以参考：[Umi 配置式路由](https://umijs.org/guide/router.html#%E9%85%8D%E7%BD%AE%E5%BC%8F%E8%B7%AF%E7%94%B1)。
 
 #### Pro 扩展配置
 

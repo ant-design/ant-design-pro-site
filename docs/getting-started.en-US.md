@@ -116,5 +116,4 @@ This will automatically open [http://localhost:8000](http://localhost:8000). If 
 
 You're all set!
 
-We have built-in models, standard components, mock data, hot module reloading, state management, i18n, global router, etc.
-You can continue exploring other documents for more details on those topics.
+We have built-in models, standard components, mock data, hot module reloading, state management, i18n, global router, etc. You can continue exploring other documents for more details on those topics.

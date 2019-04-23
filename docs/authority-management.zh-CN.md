@@ -66,7 +66,7 @@ type: 进阶
 
 ### 如何控制页面访问权限（用户角色）
 
-只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中获取 routerData ，这里的获取方式有几种，像pro现在这样从config中传值，也可以通过 http 请求从服务端获取，甚至本地的json文件加载也可以。routerData 是一个 json 数组。获取之后只需返回类似格式的 json 即可。
+只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中获取 routerData ，这里的获取方式有几种，像 pro 现在这样从 config 中传值，也可以通过 http 请求从服务端获取，甚至本地的 json 文件加载也可以。routerData 是一个 json 数组。获取之后只需返回类似格式的 json 即可。
 
 ```json
 routerData: {

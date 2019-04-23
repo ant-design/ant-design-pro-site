@@ -26,24 +26,26 @@ We abstract common layouts in Ant Design Pro, and put them in `/layouts`, includ
 To manage mappings between routes and pages, we could configure `config/router.config.js` as follows:
 
 ```jsx
-module.exports = [{
-  path: '/',
-  component: '../layouts/BasicLayout',  // layout for pages in routes
-  routes: [
-    // dashboard
-    { path: '/', redirect: '/dashboard/analysis' },
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      icon: 'dashboard',
-      routes: [
-        { path: '/dashboard/analysis', name: 'analysis', component: './Dashboard/Analysis' },
-        { path: '/dashboard/monitor', name: 'monitor', component: './Dashboard/Monitor' },
-        { path: '/dashboard/workplace', name: 'workplace', component: './Dashboard/Workplace' },
-      ],
-    },
-  ],
-}]
+module.exports = [
+  {
+    path: '/',
+    component: '../layouts/BasicLayout', // layout for pages in routes
+    routes: [
+      // dashboard
+      { path: '/', redirect: '/dashboard/analysis' },
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        icon: 'dashboard',
+        routes: [
+          { path: '/dashboard/analysis', name: 'analysis', component: './Dashboard/Analysis' },
+          { path: '/dashboard/monitor', name: 'monitor', component: './Dashboard/Monitor' },
+          { path: '/dashboard/workplace', name: 'workplace', component: './Dashboard/Workplace' },
+        ],
+      },
+    ],
+  },
+];
 ```
 
 See [router.js](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) for more details.
@@ -65,7 +67,7 @@ We extend some configuration for Ant Design Pro's nav menu and authority.
 }
 ```
 
-- `name`: display name in menu and breadcrumb. Note that it is the key of locales data, you can change display text in  [/src/locales/en-US.js](https://github.com/ant-design/ant-design-pro/blob/v2/src/locales/en-US.js).
+- `name`: display name in menu and breadcrumb. Note that it is the key of locales data, you can change display text in [/src/locales/en-US.js](https://github.com/ant-design/ant-design-pro/blob/v2/src/locales/en-US.js).
 - `icon`: icon type of menu item.
 - `hideInMenu`: whether hide itself in menu, default `false`。
 - `hideChildrenInMenu`: whether hide it's children in menu, default `false`.

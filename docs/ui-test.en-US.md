@@ -29,12 +29,12 @@ For example, we could create a file `src/routes/Result/Success.test.js` to test 
 ```jsx
 import React from 'react';
 import { shallow } from 'enzyme';
-import Success from './Success';   // Introduce the corresponding React component
+import Success from './Success'; // Introduce the corresponding React component
 
 it('renders with Result', () => {
-  const wrapper = shallow(<Success />);                           // Rendering
-  expect(wrapper.find('Result').length).toBe(1);                  // Has Result component
-  expect(wrapper.find('Result').prop('type')).toBe('success');    // The type of the Result component is success
+  const wrapper = shallow(<Success />); // Rendering
+  expect(wrapper.find('Result').length).toBe(1); // Has Result component
+  expect(wrapper.find('Result').prop('type')).toBe('success'); // The type of the Result component is success
 });
 ```
 
@@ -66,9 +66,7 @@ import Dashboard from './Dashboard';
 
 it('renders Dashboard', () => {
   // Use the wrapped components
-  const wrapper = shallow(
-    <Dashboard.WrappedComponent user={{ list: [] }} />
-  );
+  const wrapper = shallow(<Dashboard.WrappedComponent user={{ list: [] }} />);
   expect(wrapper.find('Table').props().dataSource).toEqual([]);
 });
 ```

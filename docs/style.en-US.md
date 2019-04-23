@@ -4,7 +4,7 @@ title: Style
 type: Introduction
 ---
 
-This document is mainly about how to use and organize style files in projects. If you want to get a basic knowledge of CSS or look for properties usage, you can refer to the [MDN doc] (https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
+This document is mainly about how to use and organize style files in projects. If you want to get a basic knowledge of CSS or look for properties usage, you can refer to the [MDN doc](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
 
 ---
 
@@ -22,18 +22,17 @@ In the style development process, there are two prominent problems:
 In order to solve the above problems, our scaffold use CSS Modules as a modular solution. Let us have a look at how to write style in this mode.
 
 ```html
-// example.js
-import styles from './example.less';
-
-export default ({title}) => <div className={styles.title}>{title}</div>;
+// example.js import styles from './example.less'; export default ({title}) =>
+<div className="{styles.title}">{title}</div>
+;
 ```
 
 ```css
 // example.less
 .title {
-  color: @heading-color;
-  font-weight: 600;
-  margin-bottom: 16px;
+    color: @heading-color;
+    font-weight: 600;
+    margin-bottom: 16px;
 }
 ```
 
@@ -93,19 +92,21 @@ In a project, style files can be divided into different categories depending on 
 Global style file, where you can make some common settings, such as scaffold comes with:
 
 ```css
-html, body, :global (#root) {
-  height: 100%;
+html,
+body,
+:global (#root) {
+    height: 100%;
 }
 
 body {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 // temporary font size patch
-: global (.ant-tag) {
-  font-size: 12px;
+:global(.ant-tag)  {
+    font-size: 12px;
 }
 ```
 
@@ -121,7 +122,7 @@ Files that use for a module or page.
 
 #### Universal module level
 
-For example, `src/layouts/BasicLayout.less`, which contains some basic layout styles, is referenced by ` src/layouts/BasicLayout.js`, and the pages that use this layout do not need to care about the overall layout settings anymore. If you need to use other layouts in your project, it is also recommended to put layout-related js and less in `src/layouts`.
+For example, `src/layouts/BasicLayout.less`, which contains some basic layout styles, is referenced by `src/layouts/BasicLayout.js`, and the pages that use this layout do not need to care about the overall layout settings anymore. If you need to use other layouts in your project, it is also recommended to put layout-related js and less in `src/layouts`.
 
 #### Page level
 
@@ -141,25 +142,27 @@ Antd Select In multi-select state, the default will show all the select items, h
 
 ```js
 // TestPage.js
-import {Select} from 'antd';
-import styles from './TestPage.less'
+import { Select } from 'antd';
+import styles from './TestPage.less';
 const Option = Select.Option;
 
 const children = [];
-for (let i = 10; i < 36; i ++) {
-  children.push(<Option key = {i.toString (36) + i}>{i.toString (36) + i}</Option>);
+for (let i = 10; i < 36; i++) {
+  children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
 }
 
-ReactDOM.render (
-  <Select
-    mode="multiple"
-    style={{width: 300}}
-    placeholder="Please select"
-    className={styles.customSelect}
-  >
-    {children}
-  </Select>
-, mountNode);
+ReactDOM.render(
+  <Select
+    mode="multiple"
+    style={{ width: 300 }}
+    placeholder="Please select"
+    className={styles.customSelect}
+  >
+        {children}
+      
+  </Select>,
+  mountNode
+);
 ```
 
 ```css

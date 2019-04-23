@@ -24,10 +24,9 @@ theme: {
 ...
 ```
 
-Find the variables that need to be modified in [All Variables Table] (https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less), and start `npm start` after modification. , you can see the effect in your app interface.
+Find the variables that need to be modified in [All Variables Table](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less), and start `npm start` after modification. , you can see the effect in your app interface.
 
 更多方式可以参考官方文档：[定制主题](https://ant.design/docs/react/customize-theme-cn)。
-
 
 ## 样式覆盖
 
@@ -70,6 +69,7 @@ return <Tag className={styles.customTag}>定制标签</Tag>;
 pro 中提供了一个可以在线切换主题和布局的 设置抽屉，使用这个抽屉可以很方便的查看更换主题的效果，无需重启脚手架。
 
 为了方便预览，设置中的配置项会被保存在地址栏中，你可以将其拷贝给他人，分享效果。
+
 > 由于 react-router 的特性，地址栏的参数可能被清空。
 
 您一旦确定了这个配置，可以点击 拷贝代码 按钮将其拷贝，并在 `src/defaultSetting.js` 中覆盖默认设置。这样您可以将该主题发布和部署。
@@ -88,4 +88,4 @@ module.exports = {
 };
 ```
 
-> 在线修改颜色使用的是 less 在线编译，建议在 [`config/config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/config.js)  中配置，提升用户体验。在线编译 less 需要时间，并且会造成卡顿。
+> 在线修改颜色使用的是 less 在线编译，建议在 [`config/config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/config.js) 中配置，提升用户体验。在线编译 less 需要时间，并且会造成卡顿。

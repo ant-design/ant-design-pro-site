@@ -156,6 +156,7 @@ module.exports = [
 ]
 
 ```
+
 ### 在菜单中使用自定义的 icon
 
 由于 umi 的限制，在 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 是不能直接只是用组件的，Pro 中暂时支持 使用 [`ant.design`](https://ant.design/components/icon-cn/) 本身的 icon type，和传入一个 img 的 url。只需要直接在 icon 属性上配置即可，如果是个 url，Pro 会自动处理为一个 img 标签。
@@ -169,11 +170,11 @@ module.exports = [
 脚手架默认支持带参数的路由，但是在菜单中显示带参数的路由并不是个好主意，我们并不会自动的帮你注入一个参数，你可能需要在代码中自行处理。
 
 ```js
-{ 
+{
   path: '/dashboard/:page',
   hideInMenu:true,
   name: 'analysis',
-  component: './Dashboard/Analysis', 
+  component: './Dashboard/Analysis',
 },
 ```
 
@@ -182,16 +183,15 @@ module.exports = [
 ```js
 import router from 'umi/router';
 
-router.push('/dashboard/anyParams')
+router.push('/dashboard/anyParams');
 
 //or
 
 import Link from 'umi/link';
 
-<Link to="/dashboard/anyParams">go</Link>
+<Link to="/dashboard/anyParams">go</Link>;
 ```
 
 在路由组件中，可以通过`this.props.match.params` 来获得路由参数。
-
 
 更多详细内容请参见：[umi#路由](https://umijs.org/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
