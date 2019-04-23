@@ -221,6 +221,18 @@ pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-lo
 English Documentation will be translated in next couple of monthes， trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) 
 和 [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) 了解更多细节。
 
+### Ant Design Pro从1.X升级到2.X后，页面进行重定向（redirect）时，页面布局组件（如BasicLayout）会重新加载
+
+在config.js中添加disableRedirectHoist: true配置：
+```diff
+export default {
+    ...
++   disableRedirectHoist: true,
+    ...
+}
+```
+这是使用umijs框架引入的问题。配置的具体说明参考umijs的[官方文档](https://umijs.org/zh/config/#disableredirecthoist)说明
+
 ---
 
 更多常见问题可以查看 [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) 和 [umi](https://github.com/umijs/umi)。如果这里未能解决你的问题，欢迎 [报告给我们](https://github.com/ant-design/ant-design-pro/issues)。
