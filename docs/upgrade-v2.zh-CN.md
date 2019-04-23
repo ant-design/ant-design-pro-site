@@ -55,7 +55,7 @@ type: 入门
 
 ```diff
 - "start": "cross-env ESLINT=none roadhog dev",
-- "start:no-proxy": "cross-env NO_PROXY=true ESLINT=none roadhog dev",	    
+- "start:no-proxy": "cross-env NO_PROXY=true ESLINT=none roadhog dev",
 - "build": "cross-env ESLINT=none roadhog build",
 + "start": "umi dev",
 + "start:no-mock": "cross-env MOCK=none umi dev",
@@ -72,15 +72,17 @@ umi 约定了 `.umirc.js` 和 `config/config.js` 为 umi 的配置文件（二�
 
 ```js
 export default {
-  plugins: [[
-    'umi-plugin-react',
-    {
-      antd: true,
-      dva: {
-        hmr: true,
+  plugins: [
+    [
+      'umi-plugin-react',
+      {
+        antd: true,
+        dva: {
+          hmr: true,
+        },
       },
-    }
-  ]]
+    ],
+  ],
 };
 ```
 
@@ -108,8 +110,7 @@ export default {
 
 ### 修改 index.ejs
 
-移动 `index.ejs` 到 `pages/document.ejs`，它是 umi 约定的文件。参考 [œumi HTML 模板
-文档](https://umijs.org/guide/html-template.html)。
+移动 `index.ejs` 到 `pages/document.ejs`，它是 umi 约定的文件。参考 [œumi HTML 模板文档](https://umijs.org/guide/html-template.html)。
 
 ### 修改 index.js 和 index.less
 
@@ -179,7 +180,6 @@ module.exports = [
 .umi
 .umi-production
 ```
-
 
 ### 修改代码别名等细节
 

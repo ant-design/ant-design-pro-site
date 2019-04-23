@@ -67,18 +67,18 @@ Ant Design Pro 封装了一个强大的 `request.js` 统一处理请求，提供
 ```js
 const checkStatus = response => {
   if (response.status >= 200 && response.status < 300) {
-    return response
+    return response;
   }
-  const errortext = codeMessage[response.status] || response.statusText
+  const errortext = codeMessage[response.status] || response.statusText;
   notification.error({
     message: `请求错误 ${response.status}: ${response.url}`,
     description: errortext,
-  })
-  const error = new Error(errortext)
-  error.name = response.status
-  error.response = response
-  throw error
-}
+  });
+  const error = new Error(errortext);
+  error.name = response.status;
+  error.response = response;
+  throw error;
+};
 ```
 
 为了方便展示 404 等页面，我们在 `request.js` 中封装了根据状态跳转到相应页面的逻辑,建议在线上环境中删除这个逻辑，代码如下：

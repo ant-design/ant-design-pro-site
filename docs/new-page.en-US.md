@@ -28,7 +28,7 @@ For better Demonstration, we initialize the contents of `NewPage.js` as follows:
 
 ```jsx
 export default () => {
-  return <div>New Page</div>
+  return <div>New Page</div>;
 };
 ```
 
@@ -37,7 +37,7 @@ Temporarily do not add content to the style files in this document, you can also
 Style files are used by default [CSS Modules](http://www.ruanyifeng.com/blog/2016/06/css_modules.html), If needed, you can import [antd style variable file](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) in the head of the file:
 
 ```css
-@import "~antd/lib/style/themes/default.less";
+@import '~antd/lib/style/themes/default.less';
 ```
 
 This makes it easy to get antd style variables and use them in your files, which helps to maintain the consistency of the page, and facilitate the implementation of custom themes.
@@ -89,7 +89,7 @@ Then visit `http://localhost:8000/new` to see the new page.
 
 <img alt="New Page" src="https://gw.alipayobjects.com/zos/rmsportal/PNyWCgzHEynHvMSXxSQe.png" />
 
-See the introduction in [Router and Nav] (/docs/router-and-nav) for more details on routing.
+See the introduction in [Router and Nav](/docs/router-and-nav) for more details on routing.
 
 ## Third, add model,service
 

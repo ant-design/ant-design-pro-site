@@ -4,7 +4,7 @@ title: Import Module
 type: Introduction
 ---
 
-In addition to the antd components and the built-in business components of the scaffold, sometimes we need to introduce other external modules. Here we introduce the rich text component [react-quill] (https://www.npmjs.com/package/react-quill) as an example.
+In addition to the antd components and the built-in business components of the scaffold, sometimes we need to introduce other external modules. Here we introduce the rich text component [react-quill](https://www.npmjs.com/package/react-quill) as an example.
 
 
 ## Introduce Dependencies
@@ -24,7 +24,7 @@ Directly paste the code:
 ```jsx
 import React from 'react';
 import { Button, notification, Card } from 'antd';
-import ReactQuill from 'react-quill'; 
+import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 export default class NewPage extends React.Component {
@@ -32,16 +32,16 @@ export default class NewPage extends React.Component {
     value: 'test',
   };
 
-  handleChange = (value) => {
+  handleChange = value => {
     this.setState({
       value,
-    })
+    });
   };
 
   prompt = () => {
     notification.open({
       message: 'We got value:',
-      description: <span dangerouslySetInnerHTML={{ __html: this.state.value }}></span>,
+      description: <span dangerouslySetInnerHTML={{ __html: this.state.value }} />,
     });
   };
 
@@ -49,7 +49,9 @@ export default class NewPage extends React.Component {
     return (
       <Card title="Rich text editor">
         <ReactQuill value={this.state.value} onChange={this.handleChange} />
-        <Button style={{ marginTop: 16 }} onClick={this.prompt}>Prompt</Button>
+        <Button style={{ marginTop: 16 }} onClick={this.prompt}>
+          Prompt
+        </Button>
       </Card>
     );
   }

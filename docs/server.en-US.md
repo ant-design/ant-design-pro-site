@@ -4,8 +4,7 @@ title: Communicate with Server
 type: Introduction
 ---
 
-Ant Design Pro is a SPA based on the React technology stack. We provide a set of front-end code and local simulation data development model.
-Work in the form of an API with the server application of any technology stack. The basics of interacting with the server are briefly described below.
+Ant Design Pro is a SPA based on the React technology stack. We provide a set of front-end code and local simulation data development model. Work in the form of an API with the server application of any technology stack. The basics of interacting with the server are briefly described below.
 
 ## Request Process
 
@@ -19,7 +18,6 @@ In Ant Design Pro, a complete front-end UI interaction to the server-side proces
 6. Then call reducer to change state;
 7. Update the model.
 
-
 As can be seen from the above process, in order to facilitate management and maintenance, unified request processing is placed in the `services` folder, and the files are generally split according to the model dimension, such as:
 
 ```
@@ -30,7 +28,6 @@ services/
 ```
 
 Among them, `utils/request.js` is based on [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), which is convenient for handling POST, GET and other parameters, headers, and error messages. See [request.js](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js) for details.
-
 
 For example, an example of requesting user information in services:
 

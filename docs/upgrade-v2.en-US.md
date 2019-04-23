@@ -110,8 +110,7 @@ In umi, after the dva plugin is mounted, the files under models will be introduc
 
 ### Modify index.ejs
 
-Move `index.ejs` to `pages/document.ejs`, which is the path defined by umi. Reference [œumi HTML template
-Documentation](https://umijs.org/guide/html-template.html).
+Move `index.ejs` to `pages/document.ejs`, which is the path defined by umi. Reference [œumi HTML template Documentation](https://umijs.org/guide/html-template.html).
 
 ### Modify index.js and index.less
 
@@ -143,21 +142,9 @@ module.exports = [
         name: 'dashboard',
         icon: 'dashboard',
         routes: [
-          {
-            path: '/dashboard/analysis',
-            name: 'analysis',
-            component: './Dashboard/Analysis',
-          },
-          {
-            path: '/dashboard/monitor',
-            name: 'monitor',
-            component: './Dashboard/Monitor',
-          },
-          {
-            path: '/dashboard/workplace',
-            name: 'workplace',
-            component: './Dashboard/Workplace',
-          },
+          { path: '/dashboard/analysis', name: 'analysis', component: './Dashboard/Analysis' },
+          { path: '/dashboard/monitor', name: 'monitor', component: './Dashboard/Monitor' },
+          { path: '/dashboard/workplace', name: 'workplace', component: './Dashboard/Workplace' },
         ],
       },
     ],

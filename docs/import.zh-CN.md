@@ -24,7 +24,7 @@ $ npm install react-quill --save
 ```jsx
 import React from 'react';
 import { Button, notification, Card } from 'antd';
-import ReactQuill from 'react-quill'; 
+import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 export default class NewPage extends React.Component {
@@ -32,16 +32,16 @@ export default class NewPage extends React.Component {
     value: 'test',
   };
 
-  handleChange = (value) => {
+  handleChange = value => {
     this.setState({
       value,
-    })
+    });
   };
 
   prompt = () => {
     notification.open({
       message: 'We got value:',
-      description: <span dangerouslySetInnerHTML={{ __html: this.state.value }}></span>,
+      description: <span dangerouslySetInnerHTML={{ __html: this.state.value }} />,
     });
   };
 
@@ -49,7 +49,9 @@ export default class NewPage extends React.Component {
     return (
       <Card title="富文本编辑器">
         <ReactQuill value={this.state.value} onChange={this.handleChange} />
-        <Button style={{ marginTop: 16 }} onClick={this.prompt}>Prompt</Button>
+        <Button style={{ marginTop: 16 }} onClick={this.prompt}>
+          Prompt
+        </Button>
       </Card>
     );
   }

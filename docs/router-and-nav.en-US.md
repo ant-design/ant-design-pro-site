@@ -6,7 +6,6 @@ type: Introduction
 
 Routing and menus are the key skeletons for organizing an application. The routes in pro are centrally managed in a convenient way to manage and manage them in [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js).
 
-
 ## Basic Structure
 
 In this part, scaffolding builds the basic framework of routing and menus by combining some configuration files, basic algorithms and tool functions, mainly involving the following modules/functions:
@@ -33,7 +32,39 @@ The menu is generated according to [`router.config.js`](https://github.com/ant-d
 
 > If your project does not require a menu, you can remove the mount of the `SiderMenu` component directly in `BasicLayout`. And set `const MenuData = []` in `src/layouts/BasicLayout`.
 
-> If you need to request a menu from the server, you can set [menuData](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227) to state. Then the status is modified by the network acquisition.
+### request a menu from the server
+
+Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
+
+```js
+[
+  {
+    path: '/dashboard'，
+    name: 'dashboard'，
+    icon: 'dashboard'，
+    children: [
+      {
+        path: '/dashboard/analysis'，
+        name: 'analysis'，
+        exact: true，
+      }，
+      {
+        path: '/dashboard/monitor'，
+        name: 'monitor'，
+        exact: true，
+      }，
+      {
+        path: '/dashboard/workplace'，
+        name: 'workplace'，
+        exact: true，
+      }，
+    ]，
+  }
+  ...
+]
+```
+
+> Note that path must be defined in routre.config.js.(All you need in Conventional Routing is the correct page.)
 
 ### Bread Crumbs
 
@@ -140,15 +171,15 @@ Scaffolding supports routing with parameters by default, but it is not a good id
 You can jump to this route with the following code:
 
 ```js
-import router from 'umi/router'
+import router from 'umi/router';
 
-router.push('/dashboard/anyParams')
+router.push('/dashboard/anyParams');
 
 //or
 
-import Link from 'umi/link'
+import Link from 'umi/link';
 
-;<Link to="/dashboard/anyParams">go</Link>
+<Link to="/dashboard/anyParams">go</Link>;
 ```
 
 In the routing component, routing parameters can be obtained via `this.props.match.params`.

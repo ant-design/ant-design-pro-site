@@ -12,7 +12,6 @@ You can use [Ant Design official icons](https://ant.design/components/icon/) wit
 
 If there is no icon you need in the Ant Design official icons, you can collect and generate your own icon library in the [iconfont.cn](http://iconfont.cn/).
 
-
 ## Generate the code from the icon library
 
 First, search icons what you need, and add these icons into your shop bag. You can add these icons which you have selected to your project(if you don't have, just create one). All of resources and code are project-based in future.
@@ -83,10 +82,7 @@ export default IconFont;
 2. It's easy to use like `<Icon />` component, and support inline style.
 
 ```jsx
-<IconFont
-  type="icon-ali-pay"
-  style={{ fontSize: '16px', color: 'lightblue' }}
-/>
+<IconFont type="icon-ali-pay" style={{ fontSize: '16px', color: 'lightblue' }} />
 ```
 
 ### Unicode
@@ -99,11 +95,10 @@ Unicode is the most primitive way of font’s application. Its application steps
    @font-face {
      font-family: 'iconfont';
      src: url('//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.eot');
-     src: url('//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.eot?#iefix')
-         format('embedded-opentype'), url('//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.woff')
-         format('woff'),
-       url('//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.ttf') format('truetype'),
-       url('//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.svg#iconfont') format('svg');
+     src: url('//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.eot?#iefix') format('embedded-opentype'),
+       url('//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.woff') format('woff'),
+       url('//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.ttf') format('truetype'), url('//at.alicdn.com/t/font_405362_lyhvoky9rc7ynwmi.svg#iconfont')
+         format('svg');
    }
    ```
 

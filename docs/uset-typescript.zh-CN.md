@@ -17,15 +17,12 @@ TypeScript is a superset of javascript that adds a lot of useful features compar
 - 元组
 - Await
 
-使用 TypeScript 对 IDE 会更加友好，如果你是用 vscode 开发的，那么你的开发体验将会显著提升。基于 umi 的特性，我们可以很容易的在 Pro 中使用。
-Pro 中自带了 TypeScript 所需的配置文件.
+使用 TypeScript 对 IDE 会更加友好，如果你是用 vscode 开发的，那么你的开发体验将会显著提升。基于 umi 的特性，我们可以很容易的在 Pro 中使用。 Pro 中自带了 TypeScript 所需的配置文件.
 
 - tsconfig.js
 - tslint.json
 
-tsconfig 会声明这是一个 TypeScript 的项目，其中会进行一些配置，详细内容可以看[这里](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)。
-tslint 类似 eslint 将会检查你的代码，为了提升体验，可以一并安装 vscode 的 tslint 插件。
-接下来我们只要直接新建 tsx 文件，就可以开始 TypeScript 开发了。
+tsconfig 会声明这是一个 TypeScript 的项目，其中会进行一些配置，详细内容可以看[这里](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)。 tslint 类似 eslint 将会检查你的代码，为了提升体验，可以一并安装 vscode 的 tslint 插件。接下来我们只要直接新建 tsx 文件，就可以开始 TypeScript 开发了。
 
 ### 常见问题
 
@@ -34,13 +31,13 @@ tslint 类似 eslint 将会检查你的代码，为了提升体验，可以一�
 由于 Pro 使用了 css-module，你可能需要
 
 ```jsx
-import style from './index.style.less'
+import style from './index.style.less';
 ```
 
 这时候 typescript 会报错，你可以 使用
 
 ```jsx
-const style = require('./index.less')
+const style = require('./index.less');
 ```
 
 避开这个问题。社区有很多相关讨论，暂时没有最好的办法，只有相对完美的 [typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader)，同理导入图片，css，svg 也可以通过这种方式避开类型检查。
@@ -80,42 +77,39 @@ class FormComponent extends React.Component<IFormComponentProps> {
 在实际使用有些库并没有相关的 d.ts,这个时候我们可以直接在使用的文件中定义，以高德地图为例。
 
 ```tsx
-import React from 'react'
+import React from 'react';
 
 // 定义 Map 的 类型
 declare class GaoDeAMap {
-  constructor(
-    container: HTMLElement,
-    option: { center: [number, number]; zoom: number }
-  )
-  public destroy(): void
+  constructor(container: HTMLElement, option: { center: [number, number]; zoom: number });
+  public destroy(): void;
 }
 
 // 定义全局的 AMap
 declare const AMap: {
-  Map: typeof GaoDeAMap
-}
+  Map: typeof GaoDeAMap;
+};
 
 // tslint:disable-next-line:max-classes-per-file
 class MapComponent extends React.Component {
-  public mapDom: HTMLDivElement
-  public map: GaoDeAMap
+  public mapDom: HTMLDivElement;
+  public map: GaoDeAMap;
   public componentDidMount() {
     const map = new AMap.Map(this.mapDom, {
       center: [117.000923, 36.675807],
       zoom: 11,
-    })
-    this.map = map
+    });
+    this.map = map;
   }
   public componentWillUnmount() {
-    this.map.destroy()
+    this.map.destroy();
   }
   public render() {
-    return <div ref={ref => (this.mapDom = ref)} />
+    return <div ref={ref => (this.mapDom = ref)} />;
   }
 }
 
-export default MapComponent
+export default MapComponent;
 ```
 
 如果要多次使用，可以建立一个 namespace，

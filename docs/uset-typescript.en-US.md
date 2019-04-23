@@ -5,25 +5,25 @@ type: Advanced
 ---
 
 TypeScript is a superset of javascript that adds a lot of useful features to javascript:
-* Type annotations and compile-time type checking
-* Type inference
-* Type erasure
-* Interfaces
-* Enumerated types
-* Generics
-* Namespaces
-* Tuples
-* Async/await
+
+- Type annotations and compile-time type checking
+- Type inference
+- Type erasure
+- Interfaces
+- Enumerated types
+- Generics
+- Namespaces
+- Tuples
+- Async/await
 
 Using TypeScript is more friendly to the IDE. If you are developing with vscode, your development experience will be significantly improved. Based on the characteristics of umi, we can easily use it in Pro.
 
 Pro comes with the configuration files required by TypeScript.
+
 - tsconfig.js
 - tslint.json
 
-Tsconfig will declare that this is a TypeScript project, which will do some configuration, the details can be seen [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
-Tslint like eslint will check your code. To improve the experience, you can install vscode's tslint plugin.
-Next, we can start TypeScript development by just creating a new tsx file.
+Tsconfig will declare that this is a TypeScript project, which will do some configuration, the details can be seen [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html). Tslint like eslint will check your code. To improve the experience, you can install vscode's tslint plugin. Next, we can start TypeScript development by just creating a new tsx file.
 
 ### FAQ
 
@@ -31,19 +31,18 @@ Next, we can start TypeScript development by just creating a new tsx file.
 
 Because Pro uses css-module, you may need
 
-```jsx 
-import style from './index.style.less'
+```jsx
+import style from './index.style.less';
 ```
 
 At this time typescript will throw an error, you can use
 
-```jsx 
-const style = require("./index.less")
+```jsx
+const style = require('./index.less');
 ```
 
 Avoid this problem. There are many related discussions in the community. There is no best way for the time being. Only the relatively perfect [typings-for-css-modules-loader](https://github.com/Jimdo/typings-for-css-modules-loader), Similarly, importing images, css, svg can also avoid type checking in this way.
 
- 
 #### Form.create()
 
 Using Form.create() in TypeScript may throw an error similar to the following:
@@ -135,5 +134,3 @@ import AMapInterface from './AMap';
 
 declare const AMap: typeof AMapInterface;
 ```
-
-

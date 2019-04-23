@@ -4,7 +4,7 @@ title: 样式
 type: 入门
 ---
 
-这篇文档主要针对如何在项目中使用和规划样式文件进行介绍，如果想获取基础的 CSS 知识或查阅属性，可以参考 [MDN文档](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)。
+这篇文档主要针对如何在项目中使用和规划样式文件进行介绍，如果想获取基础的 CSS 知识或查阅属性，可以参考 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)。
 
 
 ## less
@@ -21,10 +21,9 @@ Ant Design Pro 默认使用 less 作为样式语言，建议在使用前或者�
 为了解决上述问题，我们的脚手架默认使用 CSS Modules 模块化方案，先来看下在这种模式下怎么写样式。
 
 ```html
-// example.js
-import styles from './example.less';
-
-export default ({ title }) => <div className={styles.title}>{title}</div>;
+// example.js import styles from './example.less'; export default ({ title }) =>
+<div className="{styles.title}">{title}</div>
+;
 ```
 
 ```css
@@ -92,7 +91,9 @@ CSS Modules 的基本原理很简单，就是对每个类名（非 :global 声�
 全局样式文件，在这里你可以进行一些通用设置，比如脚手架中自带的：
 
 ```css
-html, body, :global(#root) {
+html,
+body,
+:global(#root) {
   height: 100%;
 }
 
@@ -141,7 +142,7 @@ antd Select 在多选状态下，默认会展示所有选中项，这里我们�
 ```js
 // TestPage.js
 import { Select } from 'antd';
-import styles from './TestPage.less'
+import styles from './TestPage.less';
 const Option = Select.Option;
 
 const children = [];
@@ -157,8 +158,9 @@ ReactDOM.render(
     className={styles.customSelect}
   >
     {children}
-  </Select>
-, mountNode);
+  </Select>,
+  mountNode
+);
 ```
 
 ```css
