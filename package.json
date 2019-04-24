@@ -14,7 +14,7 @@
     "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "components-build": "node ./tool/bin/let -c && cd ./config/components",
     "components-publish": "node ./tool/bin/let -c && cd ./config/components && npm publish",
-    "gh-pages": "gh-pages -d public",
+    "gh-pages": "cp  CNAME ./public/ gh-pages -d public",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js",
