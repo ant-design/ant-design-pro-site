@@ -12,6 +12,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: '#1890ff',
+        showSpinner: false,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-antd',
       options: {
         style: true,
