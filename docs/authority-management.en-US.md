@@ -1,12 +1,14 @@
 ---
 order: 24
 title: Authority Management
+subtitle: 数据文本
+col: 1
+cols: 1
 type: Advanced
 ---
 
 Authority Management control is one of the common requirements in the background system. You can use the permission control components provided by us to implement some basic permission control functions. The scaffold also contains several simple examples to provide reference.
 
----
 
 ## Authorization component Authorized
 

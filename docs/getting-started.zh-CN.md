@@ -10,7 +10,7 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 
 我们基于上述目标和提供了以下的典型模板，并据此构建了一套基于 React 的中后台管理控制台的脚手架，它可以帮助你快速搭建企业级中后台产品原型。
 
-```
+```bash
 - Dashboard
   - 分析页
   - 监控页
@@ -99,13 +99,13 @@ $ cd my-project
 安装依赖。
 
 ```bash
-$ npm install
+npm install
 ```
 
 > 如果网络状况不佳，可以使用 [cnpm](https://cnpmjs.org/) 进行加速。
 
 ```bash
-$ npm start
+npm start
 ```
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/uHAzKpIQDMGdmjIxZLOV.png" width="700" />

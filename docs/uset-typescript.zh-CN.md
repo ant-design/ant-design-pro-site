@@ -117,13 +117,16 @@ export default MapComponent;
 ```ts
 declare namespace AMap {
   class Map {
-    constructor(container: HTMLElement, option: { center: [number, number]; zoom: number });
-    public destroy(): void;
+    constructor(
+      container: HTMLElement,
+      option: { center: [number, number]; zoom: number }
+    )
+    public destroy(): void
   }
 }
 
-export = AMap;
-export as namespace AMap;
+export = AMap
+export as namespace
 ```
 
 然后在项目中直接引入就可以了。

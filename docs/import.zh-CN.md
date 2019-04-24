@@ -6,7 +6,6 @@ type: 入门
 
 除了 antd 组件以及脚手架内置的业务组件，有时我们还需要引入其他外部模块，这里以引入富文本组件 [react-quill](https://www.npmjs.com/package/react-quill) 为例进行介绍。
 
----
 
 ## 引入依赖
 

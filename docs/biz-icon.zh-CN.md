@@ -12,7 +12,6 @@ type: 进阶
 
 如果你没有在 Ant Design 官方图标中找到需要的图标，可以到 [iconfont.cn](http://iconfont.cn/) 上采集并生成自己的业务图标库，再进行使用。
 
----
 
 ## 一、生成图标库代码
 

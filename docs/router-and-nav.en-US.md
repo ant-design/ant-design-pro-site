@@ -1,14 +1,10 @@
 ---
 order: 3
-title:
-  en-US: Router and Nav
-  zh-CN: 路由和菜单
+title: Router and Nav
 type: Introduction
 ---
 
 Routing and menus are the key skeletons for organizing an application. The routes in pro are centrally managed in a convenient way to manage and manage them in [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js).
-
----
 
 ## Basic Structure
 

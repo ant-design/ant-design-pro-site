@@ -6,7 +6,6 @@ type: Other
 
 Before you ask a question, please check the following FAQ.
 
----
 
 ### What is the difference between Ant Design React and Ant Design Pro?
 

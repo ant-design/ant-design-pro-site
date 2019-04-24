@@ -1,8 +1,6 @@
 ---
 order: 14
-title:
-  en-US: Theme
-  zh-CN: 更换主题
+title: Theme
 type: Advanced
 ---
 

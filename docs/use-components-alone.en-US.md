@@ -10,7 +10,7 @@ The scaffold of Ant Design Pro provides a set of [default components](http://pro
 
 The components in the scaffold of Ant Design Pro are divided into two types:
 
-- antd components: https://ant.design/docs/react/introduce
+- ant-design components: https://ant.design/docs/react/introduce
 - pro built-in components: https://github.com/ant-design/ant-design-pro/tree/master/src/components
 
 For scaffolding users, you can import/add/reform pro's built-in components directly. Please refer to [new components](/docs/new-component) for specific usage.
@@ -35,7 +35,7 @@ import Result from 'ant-design-pro/lib/Result';
 ReactDOM.render(<Result type="success" />, mountNode);
 ```
 
-### Load on demand
+## Load on demand
 
 You can use babel-plugin-import to load on demand. After adding this plugin, you can write it like this.
 

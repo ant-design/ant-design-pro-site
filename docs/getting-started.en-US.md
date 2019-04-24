@@ -111,7 +111,6 @@ $ npm start
 <img src="https://gw.alipayobjects.com/zos/rmsportal/uHAzKpIQDMGdmjIxZLOV.png" width="700" />
 
 This will automatically open [http://localhost:8000](http://localhost:8000). If you see the following page then you have succeeded.
-
 <img src="https://gw.alipayobjects.com/zos/rmsportal/PVmvmxKUsAryuFbGqUmV.png" width="700" alt="Screenshot" />
 
 You're all set!

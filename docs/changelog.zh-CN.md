@@ -1,8 +1,6 @@
 ---
 order: 21
-title:
-  en-US: Changelog
-  zh-CN: 更新日志
+title: 更新日志
 type: 其他
 ---
 
@@ -48,11 +46,11 @@ type: 其他
 #### 脚手架
 
 - 验证码按钮支持国际化。[#2810](https://github.com/ant-design/ant-design-pro/pull/2810)
-- 修复在配置 `base : 'demo'`时，退出登录会跳转到错误的路径的bug。[#2865](https://github.com/ant-design/ant-design-pro/pull/2865)
-- 增加了docker镜像，可以通过 docker 镜像快速预览Pro。[#2890)](https://github.com/ant-design/ant-design-pro/pull/2890)
+- 修复在配置 `base : 'demo'`时，退出登录会跳转到错误的路径的 bug。[#2865](https://github.com/ant-design/ant-design-pro/pull/2865)
+- 增加了 docker 镜像，可以通过 docker 镜像快速预览 Pro。[#2890)](https://github.com/ant-design/ant-design-pro/pull/2890)
 - 支持了 PWA ，已经默认开启。[#2816](https://github.com/ant-design/ant-design-pro/pull/2816)
 - prettier 现在在 windows 中也可以正确的运行。[ac86837](https://github.com/ant-design/ant-design-pro/commit/ac86837d20494f082ab39b1a52eabea3bc2ac81e)
-- 增加了gitpod，可以更加快速的预览 pro。[#3349](https://github.com/ant-design/ant-design-pro/pull/3349)
+- 增加了 gitpod，可以更加快速的预览 pro。[#3349](https://github.com/ant-design/ant-design-pro/pull/3349)
 - 增加了一个新的配置 `title`，可以快速的配置 header title。[#3332](https://github.com/ant-design/ant-design-pro/pull/3332)
 - 默认打开 tree-shaking。[#3350](https://github.com/ant-design/ant-design-pro/pull/3332)
 - 默认关闭了 hardSource。[#3358](https://github.com/ant-design/ant-design-pro/pull/3358)
@@ -61,8 +59,8 @@ type: 其他
 
 - NoticeIconTab 组件增加了 `conut` props 。[#2862](https://github.com/ant-design/ant-design-pro/pull/2862)。
 - 修复 Login 组件在 children 为 object 的情况下报错的问题。[d97935](https://github.com/ant-design/ant-design-pro/commit/d9793524b7a1061cb4eb5887b12633716d796570)
-- 修复了 `breadcrumbList` 不工作的bug。[#2955](https://github.com/ant-design/ant-design-pro/pull/2955)
-- 词云修复鼠标移过时变色的偏移并支持Tooltip显示数量。[#2896](https://github.com/ant-design/ant-design-pro/pull/2896)
+- 修复了 `breadcrumbList` 不工作的 bug。[#2955](https://github.com/ant-design/ant-design-pro/pull/2955)
+- 词云修复鼠标移过时变色的偏移并支持 Tooltip 显示数量。[#2896](https://github.com/ant-design/ant-design-pro/pull/2896)
 - AvatarList 组件支持了 `maxLength` props。[#2984](https://github.com/ant-design/ant-design-pro/pull/2984)
 - 修复 resetFields 对 TagSelect 组件不起作用的问题。[#3031](https://github.com/ant-design/ant-design-pro/pull/3031)
 - 修复 HeaderSearch 不触发 onSearch 回调的问题。[#3227](https://github.com/ant-design/ant-design-pro/commit/31d63bc701890df3a487c2e7a5603b20fb50892f)
@@ -96,7 +94,7 @@ type: 其他
 - 修复退出登录不工作的问题。[#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
 - 增加一个环境变量 `APP_TYPE`，在非 pro 官网的环境下，默认不添加设置边栏。[8e28420](https://github.com/ant-design/ant-design-pro/commit/8e28420e0bb68d1cfc5fb3e6b3f943c043a2e770)
 - 修复在白色主题下，logo 和 侧边栏边框样式错误的问题。[3472590](https://github.com/ant-design/ant-design-pro/commit/3472590fca1834f86126b6e2665e677e93f52eae) [
-57cb464](https://github.com/ant-design/ant-design-pro/commit/57cb464f9ea2e9b444f76451c422304cfa724249)
+  57cb464](https://github.com/ant-design/ant-design-pro/commit/57cb464f9ea2e9b444f76451c422304cfa724249)
 - 侧边栏现在可以单独滚动。 [#2191](https://github.com/ant-design/ant-design-pro/issues/2191)
 - 修复注册成功之后报错的 bug。[de86a3](https://github.com/ant-design/ant-design-pro/commit/de86a30cc717ab8945e8fdb56604dbbac7f91b5e)
 - 修复了未登录时不跳转到登录界面的问题。[#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
@@ -127,7 +125,7 @@ v2 是一个包含 600 多个 commit 的巨大改动，包含很多变化，更�
 #### 脚手架
 
 - 🌟 增加了四个新的页面
-  - [分步对话框](https://preview.pro.ant.design/list/table-list) 
+  - [分步对话框](https://preview.pro.ant.design/list/table-list)
   - [信息录入对话框](https://beta.preview.pro.ant.design/list/basic-list)
   - [个人中心](https://preview.pro.ant.design/account/center/articles)
   - [个人设置](https://preview.pro.ant.design/account/settings/base)
@@ -139,7 +137,7 @@ v2 是一个包含 600 多个 commit 的巨大改动，包含很多变化，更�
 #### 组件
 
 - 🌟 TagSelect 增加 `hideCheckAll` 属性，用于隐藏 `全部` 按钮。
-- 🌟 PageHeader  增加 `home` 和 `itemRender` 属性。
+- 🌟 PageHeader 增加 `home` 和 `itemRender` 属性。
 
 ### 1.4.4
 
@@ -194,7 +192,6 @@ restored the es directory and index.less.
 import { Charts, NumberInfo, Trend } from 'ant-design-pro';
 ```
 
-
 ### 1.3.0
 
 `2018-04-19`
@@ -243,7 +240,6 @@ import { Charts, NumberInfo, Trend } from 'ant-design-pro';
   - 🐞 修复了`分步表单页`的 title 没有显示的问题。[#984](https://github.com/ant-design/ant-design-pro/issues/984)
   - 🐞 修复了`查询表格页`中新建规则时数据未重置的问题。[#1015](https://github.com/ant-design/ant-design-pro/issues/1015)
   - 🐞 修复了触发报错时导致无限 loading 的问题。[#976](https://github.com/ant-design/ant-design-pro/issues/976)
- 
 
 #### 组件
 
@@ -259,9 +255,9 @@ import { Charts, NumberInfo, Trend } from 'ant-design-pro';
   - 🐞 修复了 `authority` 属性为 Promise 时不生效的问题。[#843](https://github.com/ant-design/ant-design-pro/issues/843)
   - 🐞 修复了 PromiseRender 无法正常更新数据的问题。[#987](https://github.com/ant-design/ant-design-pro/pull/987) [@guowenfh](https://github.com/guowenfh)
 - SiderMenu
-   - 🐞 当子菜单无权限或不存在子菜单时不展示父菜单。[#1047](https://github.com/ant-design/ant-design-pro/pull/1047) [@hzq001](https://github.com/hzq001)
-   - 💄 优化了 SiderMenu 的展示体验。[#964](https://github.com/ant-design/ant-design-pro/issues/964)
-   - 🐞 修复了菜单项图标为 img 标签时折叠后无法隐藏菜单名的问题。[commit/bacc20](https://github.com/ant-design/ant-design-pro/commit/bacc2031482e16d64243ef29aca181e6d3e2361e)
+  - 🐞 当子菜单无权限或不存在子菜单时不展示父菜单。[#1047](https://github.com/ant-design/ant-design-pro/pull/1047) [@hzq001](https://github.com/hzq001)
+  - 💄 优化了 SiderMenu 的展示体验。[#964](https://github.com/ant-design/ant-design-pro/issues/964)
+  - 🐞 修复了菜单项图标为 img 标签时折叠后无法隐藏菜单名的问题。[commit/bacc20](https://github.com/ant-design/ant-design-pro/commit/bacc2031482e16d64243ef29aca181e6d3e2361e)
 - 🐞 修复了 CountDown 初始化时的展示问题。[#1009](https://github.com/ant-design/ant-design-pro/issues/1009)
 
 ### 1.1.0
@@ -287,7 +283,7 @@ import { Charts, NumberInfo, Trend } from 'ant-design-pro';
 #### 组件
 
 - 🌟 TagSelect 新增受控模式。[#761](https://github.com/ant-design/ant-design-pro/issues/761) [@yunxifd](https://github.com/yunxifd)
-- PageHeader 
+- PageHeader
   - 🌟 新增 `tabBarExtraContent` 属性，支持配置 tab bar 上额外的元素。[#793](https://github.com/ant-design/ant-design-pro/pull/793) [@kamote](https://github.com/kamote)
   - 🌟 新增 `breadcrumbSeparator` 属性，支持自定义分隔符。[#811](https://github.com/ant-design/ant-design-pro/pull/811) [@unrealsmart](https://github.com/unrealsmart)
   - 🐞 修复了 `tabActiveKey` 未生效的问题。[#681](https://github.com/ant-design/ant-design-pro/issues/681)
@@ -334,6 +330,7 @@ import { Charts, NumberInfo, Trend } from 'ant-design-pro';
 `2017-11-20`
 
 - 脚手架
+
   - 🌟 升级路由系统为 [Dynamic Router](https://pro.ant.design/docs/router-and-nav)，按需加载加速页面展现速度。[184](https://github.com/ant-design/ant-design-pro/pull/184) [@WhatAKitty](https://github.com/WhatAKitty)
   - 🌟 接入 [sentry.io](https://sentry.io/alipay-me/)，监控 js 报错，提高项目反馈度。 [b8a96c5](https://github.com/ant-design/ant-design-pro/commit/b8a96c5b853dc6aca16ec462655a875914292ddb)
   - 🐞 修复三级路由展示面包屑不正常的问题。[#128](https://github.com/ant-design/ant-design-pro/issues/128)
@@ -369,13 +366,13 @@ import { Charts, NumberInfo, Trend } from 'ant-design-pro';
 
 - 🐞 修复组件包依赖错误以及 `module export` 异常的问题。[#73](https://github.com/ant-design/ant-design-pro/issues/73)
 - 脚手架
+
   - 🐞 修复分析页饼状图位置偏移的问题。[#76](https://github.com/ant-design/ant-design-pro/issues/76)
   - 🐞 修复 Editable Table 编辑保存的问题。 [#68](https://github.com/ant-design/ant-design-pro/issues/68)
   - 📱 增加查询表格搜索表单的响应式支持。[9709268](https://github.com/ant-design/ant-design-pro/commit/97092686cfbcc69b29b1f038c18b17a98a25d8d5)
 
 - 组件
   - 📱 优化 Pie 组件的响应式。[8d9b7cf](https://github.com/ant-design/ant-design-pro/commit/8d9b7cfd94bc45adb4b26e44ff9ec83ea760dacd) [84ebabf](https://github.com/ant-design/ant-design-pro/commit/84ebabf53daa609c830d331594dd03772bbf3599)
-
 
 ### 0.2.0
 

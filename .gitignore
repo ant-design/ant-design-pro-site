@@ -43,3 +43,8 @@ config/components/dist
 config/components/es
 config/components/package.json
 **/package-lock.json
+
+# gatsby files
+.cache/
+public
+false

@@ -10,7 +10,6 @@ For some reusable UI, it is a best practice to abstract it as React components w
 - Don't contain routes info.
 - Stateless or contain isolate state within it.
 
----
 
 Now we try to write a simple component as sample. Assume that you have a picture presentation UI which has fixed width, grey background, and text description like this:
 
