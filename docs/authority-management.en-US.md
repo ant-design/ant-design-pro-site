@@ -1,7 +1,7 @@
 ---
 order: 24
 title: Authority Management
-subtitle: 数据文本
+subtitle: Data text
 col: 1
 cols: 1
 type: Advanced
@@ -114,4 +114,4 @@ export function patchRoutes(routes) {
 }
 ```
 
-> Note: Page files cannot be dynamically loaded here. paths must be defined in routre. config. js. (Conventional routing is not required, just the page is real and effective).
+> Note: Page files cannot be dynamically loaded here. Paths must be defined in router.config.js. (Conventional routing is not required, just the page is real and effective).
