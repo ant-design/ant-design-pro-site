@@ -207,15 +207,26 @@ class Header extends React.Component {
             <FormattedMessage id="app.header.menu.docs" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="components">
+        {/* <Menu.Item key="components">
           <Link to={utils.getLocalizedPathname('/components/avatar-list', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="v1">
-          <a href="https://v1.pro.ant.design" target="_blank" rel="noopener noreferrer">
-            v1
-          </a>
+          <Select
+            defaultValue="lucy"
+            size="small"
+            style={{
+              width: 71,
+            }}
+          >
+            <Option value="jack">Jack</Option>
+            <Option value="lucy">Lucy</Option>
+            <Option value="disabled" disabled>
+              Disabled
+            </Option>
+            <Option value="Yiminghe">yiminghe</Option>
+          </Select>
         </Menu.Item>
         {menuMode === 'inline' && (
           <Menu.Item key="preview">
@@ -293,7 +304,6 @@ class Header extends React.Component {
             <div id="search-box">
               <Icon type="search" />
               <Select
-                mode="combobox"
                 value={inputValue}
                 placeholder={intl.formatMessage({ id: 'app.header.search' })}
                 notFoundContent=""
@@ -326,7 +336,7 @@ class Header extends React.Component {
                 </a>
               </div>
               <div id="lang">
-                <Button onClick={this.handleLangChange}>
+                <Button onClick={this.handleLangChange} size="small">
                   <FormattedMessage id="app.header.lang" />
                 </Button>
               </div>

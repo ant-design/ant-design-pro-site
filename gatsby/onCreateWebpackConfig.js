@@ -22,11 +22,8 @@ module.exports = ({ stage, actions, loaders }) => {
   }
   actions.setWebpackConfig({
     externals: {
-      '@antv/g2': 'G2',
       '@antv/data-set': 'DataSet',
-      DataSet: 'DataSet',
       react: 'React',
-      bizcharts: 'BizCharts',
       'react-dom': 'ReactDOM',
     },
   });

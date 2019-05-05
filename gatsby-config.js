@@ -27,13 +27,6 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: '/components',
-        path: `${__dirname}/scaffold/src/components`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
         name: '/docs',
         path: `${__dirname}/docs/`,
       },
