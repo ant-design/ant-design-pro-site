@@ -40,6 +40,9 @@
     "**/*.{js,jsx}": "npm run lint-staged:js"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/react-document-title": "^2.0.3",
+    "@types/react-intl": "^2.3.17",
     "ant-design-pro": "latest",
     "antd": "latest",
     "axios": "^0.18.0",
@@ -51,7 +54,8 @@
     "react-copy-to-clipboard": "^5.0.0",
     "react-document-title": "^2.0.3",
     "react-github-button": "^0.1.11",
-    "react-intl": "^2.4.0"
+    "react-intl": "^2.4.0",
+    "docsearch.js": "^2.5.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -86,6 +90,7 @@
     "gatsby-plugin-netlify": "^2.0.0",
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-react-helmet": "^3.0.2",
+    "gatsby-plugin-typescript": "^2.0.13",
     "gatsby-remark-copy-linked-files": "^2.0.0",
     "gatsby-remark-embed-snippet": "^3.0.0",
     "gatsby-remark-prismjs": "^3.0.2",

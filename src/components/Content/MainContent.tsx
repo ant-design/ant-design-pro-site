@@ -7,17 +7,56 @@ import { Badge, Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
 import Article from './Article';
-import ComponentDoc from './ComponentDoc';
 import { isZhCN, getMenuItems } from '../utils';
 
 const { SubMenu } = Menu;
 
-function getActiveMenuItem(props) {
+interface MenuDataItem {
+  filename: string;
+  disabled: boolean;
+  title: {
+    'zh-CN': string;
+    'en-US': string;
+  };
+  subtitle: string;
+  link: string;
+  important: boolean;
+  topLevel: {
+    [x: string]: { sort: (arg0: (a: any, b: any) => number) => { map: (arg0: any) => void } };
+    topLevel?: any;
+  };
+}
+
+interface MainContentProps {
+  isMobile: boolean;
+  location: {
+    pathname: string;
+  };
+  menuList: MenuDataItem[];
+  localizedPageData: {
+    meta: {
+      title: string;
+      filename: string;
+      subtitle: string;
+      path: string;
+      timeline: any;
+      toc: boolean;
+    };
+    toc: string | false;
+    content: string;
+  };
+}
+
+interface MainContentState {
+  openKeys: string[];
+}
+
+function getActiveMenuItem(props: MainContentProps) {
   const { pathname } = props.location;
   return pathname;
 }
 
-function getModuleDataWithProps(props) {
+function getModuleDataWithProps(props: MainContentProps) {
   const moduleData = props.menuList;
   const excludedSuffix = isZhCN(props.location.pathname) ? 'zh-CN' : 'en-US';
   return moduleData.filter(({ filename }) => {
@@ -31,16 +70,16 @@ function getModuleDataWithProps(props) {
   });
 }
 
-function isNotTopLevel(level) {
+function isNotTopLevel(level: string) {
   return level !== 'topLevel';
 }
 
-export default class MainContent extends React.PureComponent {
+export default class MainContent extends React.PureComponent<MainContentProps, MainContentState> {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
   };
 
-  constructor(props) {
+  constructor(props: MainContentProps) {
     super(props);
     this.state = {
       openKeys: this.getSideBarOpenKeys(props) || [],
@@ -51,7 +90,7 @@ export default class MainContent extends React.PureComponent {
     this.componentDidUpdate();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: MainContentProps) {
     const openKeys = this.getSideBarOpenKeys(nextProps);
     if (openKeys) {
       this.setState({
@@ -59,7 +98,7 @@ export default class MainContent extends React.PureComponent {
       });
     }
   }
-
+  timer: number;
   componentDidUpdate() {
     if (!location.hash) {
       document.body.scrollTop = 0;
@@ -68,7 +107,7 @@ export default class MainContent extends React.PureComponent {
       if (this.timer) {
         clearTimeout(this.timer);
       }
-      this.timer = setTimeout(() => {
+      this.timer = window.setTimeout(() => {
         const dom = document.getElementById(decodeURI(location.hash.replace('#', '')));
         if (dom) {
           dom.scrollIntoView();
@@ -81,16 +120,16 @@ export default class MainContent extends React.PureComponent {
     clearTimeout(this.timer);
   }
 
-  handleMenuOpenChange = openKeys => {
+  handleMenuOpenChange = (openKeys: string[]) => {
     this.setState({
       openKeys,
     });
   };
-
-  getSideBarOpenKeys(nextProps) {
-    const pathname = nextProps.location.pathname;
+  currentModule: string;
+  getSideBarOpenKeys(nextProps: MainContentProps) {
+    const { pathname } = nextProps.location;
     const prevModule = this.currentModule;
-    this.currentModule = pathname.replace(/^\//).split('/')[1] || 'components';
+    this.currentModule = pathname.replace(/^\//, '').split('/')[1] || 'components';
     if (this.currentModule === 'react') {
       this.currentModule = 'components';
     }
@@ -102,7 +141,7 @@ export default class MainContent extends React.PureComponent {
     }
   }
 
-  convertFilename = filename => {
+  convertFilename = (filename: string) => {
     const {
       location: { pathname },
     } = this.props;
@@ -112,13 +151,17 @@ export default class MainContent extends React.PureComponent {
     return filename;
   };
 
-  generateMenuItem = ({ before = null, after = null }, item) => {
+  generateMenuItem = ({ before = null, after = null }, item: MenuDataItem) => {
     if (!item.title) {
       return;
     }
     const {
       intl: { locale },
-    } = this.context;
+    } = this.context as {
+      intl: {
+        locale: 'zh-CN' | 'en-US';
+      };
+    };
     const text = [
       <span key="english">{item.title[locale] || item.title}</span>,
       <span className="chinese" key="chinese">
@@ -129,7 +172,7 @@ export default class MainContent extends React.PureComponent {
     const disabled = item.disabled;
 
     const child = !item.link ? (
-      <Link to={this.convertFilename(item.filename)} disabled={disabled}>
+      <Link to={this.convertFilename(item.filename)}>
         {before}
         {text}
         {after}
@@ -139,7 +182,6 @@ export default class MainContent extends React.PureComponent {
         href={item.link}
         target="_blank"
         rel="noopener noreferrer"
-        disabled={disabled}
         className="menu-item-link-outside"
       >
         {before}
@@ -154,7 +196,13 @@ export default class MainContent extends React.PureComponent {
     );
   };
 
-  generateSubMenuItems = (obj, footerNavIcons = {}) => {
+  generateSubMenuItems = (
+    obj: {
+      [x: string]: { sort: (arg0: (a: any, b: any) => number) => { map: (arg0: any) => void } };
+      topLevel?: any;
+    },
+    footerNavIcons = {}
+  ) => {
     if (!obj) return [];
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, footerNavIcons));
     const itemGroups = Object.keys(obj)
@@ -182,15 +230,18 @@ export default class MainContent extends React.PureComponent {
     const {
       intl: { locale },
     } = this.context;
-    const menuItems = getMenuItems(moduleData, locale) || {};
-    let topLevel = {};
+    const menuItems: {
+      [key: string]: any;
+      topLevel?: MenuDataItem['topLevel'];
+    } = getMenuItems(moduleData, locale) || {};
+    let topLevel = [];
     if (menuItems.topLevel) {
       topLevel = this.generateSubMenuItems(menuItems.topLevel, footerNavIcons);
     }
 
     const subMenu = Object.keys(menuItems)
       .filter(isNotTopLevel)
-      .map(category => {
+      .map((category: string) => {
         const subMenuItems = this.generateSubMenuItems(menuItems[category], footerNavIcons);
         return (
           <SubMenu title={<h4>{category}</h4>} key={category}>
@@ -202,7 +253,7 @@ export default class MainContent extends React.PureComponent {
     return result;
   };
 
-  getPreAndNext = menuItems => {
+  getPreAndNext = (menuItems: any) => {
     const {
       localizedPageData: {
         meta: { filename },
@@ -215,7 +266,7 @@ export default class MainContent extends React.PureComponent {
         : Object.keys(menuItems).reduce((pre, key) => {
             return pre.concat(menuItems[key].props.children);
           }, []);
-    const index = list.findIndex(item => {
+    const index = list.findIndex((item: { key: string }) => {
       return item.key === filename || item.key === `${filename}-cn`;
     });
 
@@ -229,18 +280,16 @@ export default class MainContent extends React.PureComponent {
   };
 
   render() {
-    const { localizedPageData, demos, isMobile } = this.props;
+    const { localizedPageData, isMobile } = this.props;
 
     const activeMenuItem = getActiveMenuItem(this.props);
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getPreAndNext(menuItems);
-    const mainContainerClass = classNames('main-container', {
-      'main-container-component': !!demos,
-    });
+    const mainContainerClass = classNames('main-container', {});
     const { openKeys } = this.state;
     const menuChild = (
       <Menu
-        inlineIndent="54"
+        inlineIndent={54}
         className="aside-container"
         mode="inline"
         openKeys={openKeys}
@@ -268,11 +317,7 @@ export default class MainContent extends React.PureComponent {
           )}
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
             <div className={mainContainerClass}>
-              {demos ? (
-                <ComponentDoc {...this.props} doc={localizedPageData} demos={demos} />
-              ) : (
-                <Article {...this.props} content={localizedPageData} />
-              )}
+              <Article {...this.props} content={localizedPageData} />
             </div>
           </Col>
         </Row>

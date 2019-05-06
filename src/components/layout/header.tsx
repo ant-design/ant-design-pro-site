@@ -2,89 +2,97 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
-import axios from 'axios';
-import { Row, Col, Icon, Menu, Button, Modal, Popover, Select } from 'antd';
+import { Row, Col, Icon, Menu, Button, Input, Modal, Popover, Select } from 'antd';
 import * as utils from '../utils';
 
 const { Option, OptGroup } = Select;
 
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
-const textSearchUrl = 'https://www.google.com/search?q=site:pro.ant.design+';
-
-// https://www.algolia.com/apps/YEWBNYLVLW/
-const searchUrl =
-  'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176';
 
 const key = 'antd-pro@2.0.0-notification-sent';
 
-class Header extends React.Component {
-  state = {
-    inputValue: '',
+let docSearch: (config: any) => void;
+if (typeof window !== 'undefined') {
+  docSearch = require('docsearch.js'); // eslint-disable-line
+}
+
+function initDocSearch(locale: 'zh-CN' | 'en-US') {
+  if (!docSearch) {
+    return;
+  }
+  const lang = locale === 'zh-CN' ? 'cn' : 'en';
+  docSearch({
+    apiKey: '25626fae796133dc1e734c6bcaaeac3c',
+    indexName: 'docsearch',
+    inputSelector: '#search-box input',
+    algoliaOptions: { facetFilters: [`tags:${lang}`] },
+    transformData(
+      hits: Array<{
+        url: string;
+      }>
+    ) {
+      hits.forEach(hit => {
+        hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
+        hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
+      });
+      return hits;
+    },
+    debug: false, // Set debug to true if you want to inspect the dropdown
+  });
+}
+
+interface HeaderProps {
+  isMobile: boolean;
+  intl: any;
+  location: {
+    pathname: string;
+  };
+}
+interface HeaderState {
+  inputValue?: string;
+  menuVisible: boolean;
+  menuMode: 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
+  searchOption: any[];
+  searching: boolean;
+}
+
+class Header extends React.Component<HeaderProps, HeaderState> {
+  state: HeaderState = {
+    inputValue: undefined,
     menuVisible: false,
     menuMode: 'horizontal',
     searchOption: [],
     searching: false,
   };
 
-  componentDidMount() {
-    // this.props.router.listen(this.handleHideMenu)
-    const { searchInput } = this;
+  searchInput: Input | null | undefined;
 
+  componentDidMount() {
+    const { searchInput } = this;
+    const { intl } = this.props;
     document.addEventListener('keyup', event => {
       if (event.keyCode === 83 && event.target === document.body) {
-        searchInput.focus();
+        searchInput && searchInput.focus();
       }
     });
+    initDocSearch(intl.locale);
+
     if (localStorage.getItem(key) !== 'true' && Date.now() < new Date('2018/9/5').getTime()) {
       this.infoNewVersion();
     }
   }
 
-  setMenuMode = isMobile => {
+  setMenuMode = (isMobile: boolean) => {
     this.setState({ menuMode: isMobile ? 'inline' : 'horizontal' });
   };
 
-  componentDidUpdate(preProps) {
+  componentDidUpdate(preProps: HeaderProps) {
     const { isMobile } = this.props;
     if (isMobile !== preProps.isMobile) {
       this.setMenuMode(isMobile);
     }
   }
-
-  search = (searchKey, success, error) => {
-    clearTimeout(this.timer);
-    if (!searchKey) {
-      success();
-      return;
-    }
-
-    this.timer = setTimeout(() => {
-      this.setState({
-        searching: true,
-      });
-      axios
-        .post(searchUrl, {
-          params: `query=${searchKey}&hitsPerPage=20&facets=*&maxValuesPerFacet=10&facetFilters=[]`,
-        })
-        .then(response => {
-          this.setState({
-            searching: false,
-          });
-          if (success) {
-            success(response);
-          }
-        })
-        .catch(err => {
-          this.setState({
-            searching: false,
-          });
-          if (error) {
-            error(err);
-          }
-        });
-    }, 200);
-  };
-
+  timer: number;
   handleHideMenu = () => {
     this.setState({
       menuVisible: false,
@@ -97,26 +105,14 @@ class Header extends React.Component {
     });
   };
 
-  onMenuVisibleChange = visible => {
+  onMenuVisibleChange = (visible: boolean) => {
     this.setState({
       menuVisible: visible,
     });
   };
 
-  handleSelect = value => {
+  handleSelect = (value: string) => {
     window.location.href = value;
-  };
-
-  handleChange = value => {
-    this.setState({ inputValue: value });
-
-    this.search(value, data => {
-      if (data && data.data && data.data.hits) {
-        this.setState({
-          searchOption: data.data.hits,
-        });
-      }
-    });
   };
 
   infoNewVersion = () => {
@@ -175,7 +171,7 @@ class Header extends React.Component {
   };
 
   render() {
-    const { inputValue, menuMode, menuVisible, searchOption, searching } = this.state;
+    const { inputValue, menuMode, menuVisible, searchOption } = this.state;
     const { location, intl } = this.props;
     const path = location.pathname;
 
@@ -207,26 +203,8 @@ class Header extends React.Component {
             <FormattedMessage id="app.header.menu.docs" />
           </Link>
         </Menu.Item>
-        {/* <Menu.Item key="components">
-          <Link to={utils.getLocalizedPathname('/components/avatar-list', isZhCN)}>
-            <FormattedMessage id="app.header.menu.components" />
-          </Link>
-        </Menu.Item> */}
-        <Menu.Item key="v1">
-          <Select
-            defaultValue="lucy"
-            size="small"
-            style={{
-              width: 71,
-            }}
-          >
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="disabled" disabled>
-              Disabled
-            </Option>
-            <Option value="Yiminghe">yiminghe</Option>
-          </Select>
+        <Menu.Item key="components">
+          <Link to={utils.getLocalizedPathname('/blog', isZhCN)}>Blog</Link>
         </Menu.Item>
         {menuMode === 'inline' && (
           <Menu.Item key="preview">
@@ -237,43 +215,6 @@ class Header extends React.Component {
         )}
       </Menu>,
     ];
-
-    const componentSearchOption = searchOption
-      .filter(v => v.type === 'component')
-      .map(d => (
-        <Option key={d.url}>
-          {d.title} {isZhCN && d.subTitle}
-        </Option>
-      ));
-    const docSearchOption = searchOption
-      .filter(v => v.type === 'doc')
-      .map(d => <Option key={d.url}>{isZhCN ? d.title : d['title-en'] || d.title}</Option>);
-
-    const options = [];
-
-    if (componentSearchOption) {
-      options.push(
-        <OptGroup label={intl.formatMessage({ id: 'app.header.search.component' })} key="component">
-          {componentSearchOption}
-        </OptGroup>
-      );
-    }
-    if (docSearchOption) {
-      options.push(
-        <OptGroup label={intl.formatMessage({ id: 'app.header.search.doc' })} key="doc">
-          {docSearchOption}
-        </OptGroup>
-      );
-    }
-
-    if (inputValue) {
-      options.push(
-        <Option key={`${textSearchUrl}${inputValue}`}>
-          <FormattedMessage id="app.header.search.all" />
-          {inputValue}
-        </Option>
-      );
-    }
 
     return (
       <div id="header" className="header">
@@ -303,42 +244,37 @@ class Header extends React.Component {
           <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
-              <Select
-                value={inputValue}
+              <Input
+                ref={ref => {
+                  this.searchInput = ref;
+                }}
                 placeholder={intl.formatMessage({ id: 'app.header.search' })}
-                notFoundContent=""
-                defaultActiveFirstOption={false}
-                showArrow={false}
-                filterOption={false}
-                optionLabelProp="label"
-                onSelect={this.handleSelect}
-                onChange={this.handleChange}
-              >
-                {searching && (
-                  <Option className="search-loading" key="search">
-                    <Icon type="loading" />
-                  </Option>
-                )}
-                {options}
-              </Select>
+              />
             </div>
             <div className="header-meta">
-              <div id="preview">
-                <a
-                  id="preview-button"
-                  target="_blank"
-                  href="http://preview.pro.ant.design"
-                  rel="noopener noreferrer"
-                >
-                  <Button icon="eye-o">
-                    <FormattedMessage id="app.home.preview" />
+              <div className="right-header">
+                <div id="lang">
+                  <Button onClick={this.handleLangChange} size="small">
+                    <FormattedMessage id="app.header.lang" />
                   </Button>
-                </a>
-              </div>
-              <div id="lang">
-                <Button onClick={this.handleLangChange} size="small">
-                  <FormattedMessage id="app.header.lang" />
-                </Button>
+                </div>
+                <div id="preview">
+                  <a
+                    id="preview-button"
+                    target="_blank"
+                    href="http://preview.pro.ant.design"
+                    rel="noopener noreferrer"
+                  >
+                    <Button icon="eye-o" size="small">
+                      <FormattedMessage id="app.home.preview" />
+                    </Button>
+                  </a>
+                </div>
+                <Select defaultValue="lucy" size="small" value="stable">
+                  <Option value="v1">1.x</Option>
+                  <Option value="v2">2.x</Option>
+                  <Option value="stable">stable</Option>
+                </Select>
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
             </div>

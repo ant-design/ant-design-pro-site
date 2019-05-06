@@ -11,6 +11,7 @@ module.exports = {
         javascriptEnabled: true,
       },
     },
+    `gatsby-plugin-typescript`,
     {
       resolve: 'gatsby-plugin-antd',
       options: {

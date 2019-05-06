@@ -1,7 +1,7 @@
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 
-export function isZhCN(pathname) {
+export function isZhCN(pathname: string) {
   if (pathname === '/') {
     if (typeof window !== `undefined`) {
       const locale = localStorage ? localStorage.getItem('locale') : 'en-US';
@@ -23,7 +23,7 @@ export function isZhCN(pathname) {
  * else
  *  return "avatar-list-cn"
  */
-export function getLocalizedPathname(path, zhCN) {
+export function getLocalizedPathname(path: string, zhCN: boolean) {
   let pathname = path.startsWith('/') ? path : `/${path}`;
   pathname = pathname.replace('-cn', '');
   if (pathname === '/' || pathname === '/index') {
@@ -38,12 +38,19 @@ export function getLocalizedPathname(path, zhCN) {
   return `${pathname}-cn`;
 }
 
-export function getMenuItems(moduleData, locale) {
-  const menuMeta = moduleData.map(item => item.meta);
-  const menuItems = {};
+export function getMenuItems(
+  moduleData: {
+    [key: string]: any;
+  },
+  locale: string
+) {
+  const menuMeta = moduleData.map((item: { meta: any }) => item.meta);
+  const menuItems: {
+    [key: string]: any;
+  } = {};
   menuMeta
-    .sort((a, b) => (a.order || 0) - (b.order || 0))
-    .forEach(meta => {
+    .sort((a: { order: any }, b: { order: any }) => (a.order || 0) - (b.order || 0))
+    .forEach((meta: { category: { [x: string]: any }; type: string }) => {
       const category = (meta.category && meta.category[locale]) || meta.category || 'topLevel';
       if (!menuItems[category]) {
         menuItems[category] = {};
@@ -59,7 +66,7 @@ export function getMenuItems(moduleData, locale) {
   return menuItems;
 }
 
-export function ping(callback) {
+export function ping(callback: (arg0: any) => void) {
   // eslint-disable-next-line
   const url =
     'https://private-a' +
@@ -68,8 +75,8 @@ export function ping(callback) {
     'ay.com/alip' +
     'ay-rmsdeploy-image/rmsportal/RKuAiriJqrUhyqW.png';
   const img = new Image();
-  let done;
-  const finish = status => {
+  let done: boolean;
+  const finish = (status: string) => {
     if (!done) {
       done = true;
       img.src = '';
@@ -94,7 +101,7 @@ export function isLocalStorageNameSupported() {
   }
 }
 
-export const transformerFrontmatter = frontmatter => {
+export const transformerFrontmatter = (frontmatter: { title: any }) => {
   const { title } = frontmatter;
   return {
     ...frontmatter,

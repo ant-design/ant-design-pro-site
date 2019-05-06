@@ -11,8 +11,7 @@ module.exports = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   // Used to detect and prevent duplicate redirects
 
-  const docsTemplate = resolve(__dirname, '../src/templates/docs.js');
-  const componentsTemplate = resolve(__dirname, '../src/templates/components.js');
+  const docsTemplate = resolve(__dirname, '../src/templates/docs.tsx');
   // Redirect /index.html to root.
   createRedirect({
     fromPath: '/index.html',
@@ -49,10 +48,7 @@ module.exports = async ({ graphql, actions }) => {
   edges.forEach(edge => {
     const { slug, underScoreCasePath, path: mdPath } = edge.node.fields;
     if (slug.includes('docs/') || slug.includes('/components')) {
-      let template = docsTemplate;
-      if (slug.includes('/components')) {
-        template = componentsTemplate;
-      }
+      const template = docsTemplate;
       const createArticlePage = path => {
         if (underScoreCasePath !== path) {
           redirects[underScoreCasePath] = path;
@@ -90,7 +86,7 @@ module.exports = async ({ graphql, actions }) => {
     }
   });
   // 首页的中文版
-  const indexTemplate = resolve(__dirname, '../src/pages/index.js');
+  const indexTemplate = resolve(__dirname, '../src/pages/index.tsx');
 
   createPage({
     path: '/index-cn',

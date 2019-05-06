@@ -1,6 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/jsx-wrap-multilines */
 import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
@@ -9,7 +6,21 @@ import { Timeline, Affix } from 'antd';
 import delegate from 'delegate';
 import EditButton from './EditButton';
 
-export default class Article extends React.PureComponent {
+interface ArticleProps {
+  content: {
+    meta: {
+      title: string;
+      subtitle: string;
+      path: string;
+      timeline: any;
+      toc: boolean;
+    };
+    toc: string | false;
+    content: string;
+  };
+}
+
+export default class Article extends React.PureComponent<ArticleProps> {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
   };
@@ -20,15 +31,16 @@ export default class Article extends React.PureComponent {
       this.node,
       '.resource-card',
       'click',
-      e => {
-        if (window.ga) {
-          window.ga('send', 'event', 'Download', 'resource', e.delegateTarget.href);
+      (e: { delegateTarget: { href: any } }) => {
+        if ((window as any).ga) {
+          (window as any).ga('send', 'event', 'Download', 'resource', e.delegateTarget.href);
         }
       },
       false
     );
   }
-
+  delegation: any;
+  pingTimer: number;
   componentWillUnmount() {
     clearTimeout(this.pingTimer);
     if (this.delegation) {
@@ -36,30 +48,7 @@ export default class Article extends React.PureComponent {
     }
   }
 
-  getArticle(article) {
-    const { content } = this.props;
-    const { meta } = content;
-    if (!meta.timeline) {
-      return article;
-    }
-    const timelineItems = [];
-    let temp = [];
-    let i = 1;
-    Children.forEach(article.props.children, child => {
-      if (child.type === 'h2' && temp.length > 0) {
-        timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
-        temp = [];
-        i += 1;
-      }
-      temp.push(child);
-    });
-    if (temp.length > 0) {
-      timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
-    }
-    return cloneElement(article, {
-      children: <Timeline>{timelineItems}</Timeline>,
-    });
-  }
+  node: HTMLElement | null | undefined;
 
   render() {
     const props = this.props;

@@ -1,7 +1,8 @@
 import React from 'react';
 
 export default class BrowserFrame extends React.Component {
-  getNode = n => {
+  node: HTMLDivElement;
+  getNode = (n: HTMLDivElement) => {
     this.node = n;
   };
 

@@ -4,7 +4,11 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { Row, Col, Badge } from 'antd';
 import * as utils from '../utils';
 
-class Footer extends React.Component {
+class Footer extends React.Component<{
+  location: {
+    pathname: string;
+  };
+}> {
   handleLangChange = () => {
     const {
       location: { pathname },
@@ -274,4 +278,4 @@ class Footer extends React.Component {
   }
 }
 
-export default injectIntl(Footer);
+export default Footer;
