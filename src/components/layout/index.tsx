@@ -2,7 +2,6 @@ import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import { LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
-import { setTheme } from 'bizcharts';
 import Media from 'react-media';
 import enLocale from '../../locale/en-US';
 import cnLocale from '../../locale/zh-CN';
@@ -11,30 +10,30 @@ import '../../static/style';
 import Header from './header';
 import Footer from './Footer';
 
-export class Layout extends React.PureComponent {
-  constructor(props) {
+interface LayoutProps {
+  location: {
+    pathname: string;
+  };
+  isMobile: boolean;
+  children: React.ReactElement<LayoutProps>;
+}
+
+interface LayoutState {
+  appLocale: {
+    locale: any;
+    messages: any;
+  };
+}
+
+export class Layout extends React.Component<LayoutProps, LayoutState> {
+  constructor(props: LayoutProps) {
     super(props);
     const { pathname } = props.location;
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
     addLocaleData(appLocale.data);
-
     this.state = {
       appLocale,
     };
-  }
-
-  componentDidMount() {
-    // 全局 G2 设置
-    const config = {
-      defaultColor: '#1089ff',
-      shape: {
-        interval: {
-          fillOpacity: 1,
-        },
-      },
-    };
-
-    setTheme(config);
   }
 
   render() {
@@ -61,7 +60,7 @@ export class Layout extends React.PureComponent {
   }
 }
 
-const WrapperLayout = props => (
+const WrapperLayout = (props: LayoutProps) => (
   <Media query="(max-width: 996px)">
     {isMobile => {
       const isNode = typeof window === `undefined`;

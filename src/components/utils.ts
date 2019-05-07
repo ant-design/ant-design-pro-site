@@ -1,3 +1,5 @@
+import { IFrontmatterData, IGraphqlFrontmatterData } from '../templates/docs';
+
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 
@@ -101,7 +103,7 @@ export function isLocalStorageNameSupported() {
   }
 }
 
-export const transformerFrontmatter = (frontmatter: { title: any }) => {
+export const transformerFrontmatter = (frontmatter: IGraphqlFrontmatterData): IFrontmatterData => {
   const { title } = frontmatter;
   return {
     ...frontmatter,

@@ -4,7 +4,62 @@ import WrapperLayout from '../components/layout';
 import MainContent from '../components/Content/MainContent';
 import { transformerFrontmatter } from '../components/utils';
 
-export default function Template({ data, ...rest }) {
+export interface IFrontmatterData {
+  title: {
+    'zh-CN': string;
+    'en-US': string;
+  };
+  toc: string | boolean;
+  order: string;
+  type: string;
+  filename: string;
+  subtitle: string;
+  path: string;
+  disabled: boolean;
+  important: boolean;
+}
+
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+
+export interface IGraphqlFrontmatterData extends Omit<IFrontmatterData, 'title'> {
+  title: {
+    zh_CN: string;
+    en_US: string;
+  };
+}
+
+export interface IMarkdownRemarkData {
+  html: string;
+  tableOfContents: string;
+  frontmatter: IGraphqlFrontmatterData;
+  fields: {
+    path: string;
+    slug: string;
+  };
+}
+
+export interface IAllMarkdownRemarkData {
+  edges: Array<{
+    node: {
+      frontmatter: IGraphqlFrontmatterData;
+      fields: {
+        slug: string;
+        path: string;
+      };
+    };
+  }>;
+}
+
+export default function Template({
+  data,
+  ...rest
+}: {
+  data: { markdownRemark: IMarkdownRemarkData; allMarkdownRemark: IAllMarkdownRemarkData };
+  isMobile: boolean;
+  location: {
+    pathname: string;
+  };
+}) {
   const { markdownRemark, allMarkdownRemark } = data;
   const { frontmatter, fields, html, tableOfContents } = markdownRemark;
   const { edges } = allMarkdownRemark;
@@ -34,7 +89,6 @@ export default function Template({ data, ...rest }) {
           toc: tableOfContents,
           content: html,
         }}
-        demos={false}
         menuList={menuList}
       />
     </WrapperLayout>

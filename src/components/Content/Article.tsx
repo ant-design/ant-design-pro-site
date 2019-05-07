@@ -1,20 +1,15 @@
-import React, { Children, cloneElement } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
-import { Timeline, Affix } from 'antd';
+import { Affix } from 'antd';
 import delegate from 'delegate';
 import EditButton from './EditButton';
+import { IFrontmatterData } from '../../templates/docs';
 
 interface ArticleProps {
   content: {
-    meta: {
-      title: string;
-      subtitle: string;
-      path: string;
-      timeline: any;
-      toc: boolean;
-    };
+    meta: IFrontmatterData;
     toc: string | false;
     content: string;
   };
@@ -57,7 +52,11 @@ export default class Article extends React.PureComponent<ArticleProps> {
     const { title, subtitle, path } = meta;
     const {
       intl: { locale },
-    } = this.context;
+    } = this.context as {
+      intl: {
+        locale: 'zh-CN' | 'en-US';
+      };
+    };
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
         <article

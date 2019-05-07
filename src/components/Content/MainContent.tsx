@@ -8,40 +8,26 @@ import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
 import Article from './Article';
 import { isZhCN, getMenuItems } from '../utils';
+import { IFrontmatterData } from '../../templates/docs';
 
 const { SubMenu } = Menu;
 
-interface MenuDataItem {
-  filename: string;
-  disabled: boolean;
-  title: {
-    'zh-CN': string;
-    'en-US': string;
-  };
-  subtitle: string;
-  link: string;
-  important: boolean;
-  topLevel: {
+interface MenuDataItem extends IFrontmatterData {
+  link?: string;
+  topLevel?: {
     [x: string]: { sort: (arg0: (a: any, b: any) => number) => { map: (arg0: any) => void } };
     topLevel?: any;
   };
 }
 
-interface MainContentProps {
+export interface MainContentProps {
   isMobile: boolean;
   location: {
     pathname: string;
   };
   menuList: MenuDataItem[];
   localizedPageData: {
-    meta: {
-      title: string;
-      filename: string;
-      subtitle: string;
-      path: string;
-      timeline: any;
-      toc: boolean;
-    };
+    meta: IFrontmatterData;
     toc: string | false;
     content: string;
   };
