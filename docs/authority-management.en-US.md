@@ -61,9 +61,9 @@ You can check the call to [reloadAuthorized](https://github.com/ant-design/ant-d
 
 ### How do I control the access authority(User roles)？
 
-Just gain routerData in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111),There are several ways to get it here,Reference from config like pro,request from the server,or import local file. routerData is a json array. Just returns a json of similar format.
+Just gain routerData in [models/menu](https://github.com/ant-design/ant-design-pro/blob/a375bddc60fc48a377c28e6a15613c1cc96b4a94/src/models/menu.js#L111),There are several ways to get it here,Reference from config like pro,request from the server,or import local file. routerData is a json array. Just returns a json of similar format.
 
-```json
+```js
 routerData: {
     routes: [
       // dashboard
