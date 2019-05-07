@@ -53,7 +53,7 @@ const getLocalIdent = (context, localIdentName, localName) => {
 
 这样只要抽取 less 的时候通过同样的方式生成类名就可以保证两者是相同的.
 
-> 这里使用了 [`postcss-less-engine`](https://www.npmjs.com/package/postcss-less-engine)，可以将 less 生成语法树。并且将其修改。
+> 这里使用了 [`postcss-less-engine`](https://www.npmjs.com/package/postcss-less-engine)，可以将 less 生成语法树，并且将其修改。
 
 ### 抽取 less 变量
 

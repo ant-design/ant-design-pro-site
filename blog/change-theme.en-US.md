@@ -53,7 +53,7 @@ const getLocalIdent = (context, localIdentName, localName) => {
 
 This way, as long as the extraction is small, the class name is generated in the same way to ensure that the two are the same.
 
-> Using [`postcss-less-engine`](https://www.npmjs.com/package/postcss-less-engine) here, you can generate less syntax trees. And modify it.
+> Using [`postcss-less-engine`](https://www.npmjs.com/package/postcss-less-engine) here, you can generate less syntax trees and modify it.
 
 ## Extracting fewer variables
 
