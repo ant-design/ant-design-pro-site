@@ -46,37 +46,21 @@ module.exports = async ({ graphql, actions }) => {
 
   const edges = allMarkdown.data.allMarkdownRemark.edges;
   edges.forEach(edge => {
-    const { slug, underScoreCasePath, path: mdPath } = edge.node.fields;
-    if (slug.includes('docs/') || slug.includes('/components')) {
+    const { slug, underScoreCasePath } = edge.node.fields;
+    if (slug.includes('docs/') || slug.includes('/blog')) {
       const template = docsTemplate;
       const createArticlePage = path => {
         if (underScoreCasePath !== path) {
           redirects[underScoreCasePath] = path;
         }
 
-        const demoQuery = slug
-          .split('.')
-          .shift()
-          .split('/')
-          .pop()
-          .replace('-cn', '');
-
-        if (!slug.includes('demo/') && !mdPath.includes('.zh-CN') && !mdPath.includes('.en-US')) {
-          createPage({
-            path: `${path}-cn`,
-            component: template,
-            context: {
-              slug,
-              demo: `/${demoQuery}/demo/`,
-            },
-          });
-        }
         return createPage({
           path,
           component: template,
           context: {
             slug,
-            demo: `/${demoQuery}/demo/`,
+            // if is docs page
+            type: slug.includes('docs/') ? '/docs/' : '/blog/',
           },
         });
       };
@@ -100,9 +84,9 @@ module.exports = async ({ graphql, actions }) => {
   });
 
   createRedirect({
-    fromPath: '/components/',
+    fromPath: '/blog/',
     redirectInBrowser: true,
-    toPath: '/components/avatar-list',
+    toPath: '/blog/change-theme',
   });
   Object.keys(redirects).map(path =>
     createRedirect({

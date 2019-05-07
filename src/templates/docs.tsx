@@ -42,7 +42,7 @@ export default function Template({ data, ...rest }) {
 }
 
 export const pageQuery = graphql`
-  query TemplateDocsMarkdown($slug: String!) {
+  query TemplateDocsMarkdown($slug: String!, $type: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       tableOfContents(maxDepth: 3)
@@ -60,7 +60,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/docs/" } }
+      filter: { fileAbsolutePath: { regex: $type } }
       sort: { fields: [fields___slug], order: DESC }
     ) {
       edges {

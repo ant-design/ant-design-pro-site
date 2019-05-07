@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import { Row, Col, Icon, Menu, Button, Input, Modal, Popover, Select } from 'antd';
 import * as utils from '../utils';
 
-const { Option, OptGroup } = Select;
+const { Option } = Select;
 
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
@@ -171,7 +171,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   };
 
   render() {
-    const { inputValue, menuMode, menuVisible, searchOption } = this.state;
+    const { menuMode, menuVisible } = this.state;
     const { location, intl } = this.props;
     const path = location.pathname;
 
@@ -181,8 +181,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       .slice(0, -1)
       .join('/');
     let activeMenuItem = module || 'home';
-    if (/^components/.test(path)) {
-      activeMenuItem = 'components';
+    if (/^blog/.test(path)) {
+      activeMenuItem = 'blog';
     } else if (/docs/.test(path)) {
       activeMenuItem = 'docs';
     } else if (path === '/') {
@@ -203,8 +203,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             <FormattedMessage id="app.header.menu.docs" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="components">
-          <Link to={utils.getLocalizedPathname('/blog', isZhCN)}>Blog</Link>
+        <Menu.Item key="blog">
+          <Link to={utils.getLocalizedPathname('/blog/change-theme', isZhCN)}>Blog</Link>
         </Menu.Item>
         {menuMode === 'inline' && (
           <Menu.Item key="preview">

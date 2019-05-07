@@ -1,7 +1,8 @@
 ---
 order: 0
 title: pro-layout
-type: FAQ
+type: Blog
+time: 2019-05-08
 ---
 
 在 Pro V4 中我们引入了新的方案来减少开发者需要关注的代码细节。pro-layout 就是一个其中一个方案。 Pro-Layout 的封装了原来 BasicLayout 中的代码。
