@@ -8,20 +8,20 @@ type: 其他
 
 ### 2.3.0
 
-2.3.0 将会是 pro 的最后的一个版本，主要用于修正 ts 错误，此后将不接受 master 的功能添加。
+2.3.0 将会是 Ant Design Pro 组件库的最后的一个版本，主要用于修正 ts 错误，此后将不接受组件库的功能添加。组件会迁移到 Ant Design 中这些组件会得到更加完善的支持与维护，Pro 中进行维护。在 Ant Design 中这些组件会得到更加完善的支持与维护，Pro 将会专注的做 Layout 和脚手架的工作。
 
 #### 脚手架
 
 - 增加了图编辑器的 demo。可以轻松的在 pro 中使用 g6。[#3810](https://github.com/ant-design/ant-design-pro/pull/3810)
 - defaultSettings 新增了 menu.enableLocale 的配置，用于关闭菜单的全球化。[#3310](https://github.com/ant-design/ant-design-pro/pull/3310)
 - defaultSettings 新增了 pwa 配置，用于关闭 pwa 功能。[#3508](https://github.com/ant-design/ant-design-pro/pull/3508)
-- 增加IconFont组件、菜单图标可以使用自己的IconFont项目图标。[#3517](https://github.com/ant-design/ant-design-pro/pull/3517)
+- 增加 IconFont 组件、菜单图标可以使用自己的 IconFont 项目图标。[#3517](https://github.com/ant-design/ant-design-pro/pull/3517)
 - 修复 Login 的 `onPressEnter` 在 IE11 中会触发两次的问题。[#3557](https://github.com/ant-design/ant-design-pro/pull/3557)
 - 修复菜单项设置`hideInMenu` 为 `true` 时，面包屑无法显示的问题。[#3606](https://github.com/ant-design/ant-design-pro/pull/3606)
 - 重写了权限控制模块。[#3587](https://github.com/ant-design/ant-design-pro/pull/3587)
 - 修复网络过慢时会出现两个 loading 的问题。[#3746](https://github.com/ant-design/ant-design-pro/issues/3746)
 - 修复 layout 中 menu 为空时，会获得另一个 layout menu 的问题。[#3724](https://github.com/ant-design/ant-design-pro/pull/3724)
-- 修复在"顶部菜单布局"且内容区域宽度为“定宽”时，若屏幕尺寸小于1200，顶部菜单右侧内容被遮挡的问题。[#3726](https://github.com/ant-design/ant-design-pro/pull/3726)
+- 修复在"顶部菜单布局"且内容区域宽度为“定宽”时，若屏幕尺寸小于 1200，顶部菜单右侧内容被遮挡的问题。[#3726](https://github.com/ant-design/ant-design-pro/pull/3726)
 
 #### 组件
 
@@ -93,8 +93,7 @@ type: 其他
 - 增加和完善了多处[文档](https://pro.ant.design/docs/getting-started-cn)。
 - 修复退出登录不工作的问题。[#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
 - 增加一个环境变量 `APP_TYPE`，在非 pro 官网的环境下，默认不添加设置边栏。[8e28420](https://github.com/ant-design/ant-design-pro/commit/8e28420e0bb68d1cfc5fb3e6b3f943c043a2e770)
-- 修复在白色主题下，logo 和 侧边栏边框样式错误的问题。[3472590](https://github.com/ant-design/ant-design-pro/commit/3472590fca1834f86126b6e2665e677e93f52eae) [
-  57cb464](https://github.com/ant-design/ant-design-pro/commit/57cb464f9ea2e9b444f76451c422304cfa724249)
+- 修复在白色主题下，logo 和 侧边栏边框样式错误的问题。[3472590](https://github.com/ant-design/ant-design-pro/commit/3472590fca1834f86126b6e2665e677e93f52eae) [ 57cb464](https://github.com/ant-design/ant-design-pro/commit/57cb464f9ea2e9b444f76451c422304cfa724249)
 - 侧边栏现在可以单独滚动。 [#2191](https://github.com/ant-design/ant-design-pro/issues/2191)
 - 修复注册成功之后报错的 bug。[de86a3](https://github.com/ant-design/ant-design-pro/commit/de86a30cc717ab8945e8fdb56604dbbac7f91b5e)
 - 修复了未登录时不跳转到登录界面的问题。[#2157](https://github.com/ant-design/ant-design-pro/issues/2157)
@@ -174,8 +173,7 @@ restored the es directory and index.less.
 
 ### 2.0.0-beta.1
 
-此次更新主要是支持了 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)。
-通过如下配置来使用：
+此次更新主要是支持了 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)。通过如下配置来使用：
 
 ```
  {
