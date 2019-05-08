@@ -1,7 +1,7 @@
 ---
 order: 24
 title: Authority Management
-subtitle: 数据文本
+subtitle: Data text
 col: 1
 cols: 1
 type: Advanced
@@ -61,9 +61,9 @@ You can check the call to [reloadAuthorized](https://github.com/ant-design/ant-d
 
 ### How do I control the access authority(User roles)？
 
-Just gain routerData in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111),There are several ways to get it here,Reference from config like pro,request from the server,or import local file. routerData is a json array. Just returns a json of similar format.
+Just gain routerData in [models/menu](https://github.com/ant-design/ant-design-pro/blob/a375bddc60fc48a377c28e6a15613c1cc96b4a94/src/models/menu.js#L111),There are several ways to get it here,Reference from config like pro,request from the server,or import local file. routerData is a json array. Just returns a json of similar format.
 
-```json
+```js
 routerData: {
     routes: [
       // dashboard
@@ -114,4 +114,4 @@ export function patchRoutes(routes) {
 }
 ```
 
-> Note: Page files cannot be dynamically loaded here. paths must be defined in routre. config. js. (Conventional routing is not required, just the page is real and effective).
+> Note: Page files cannot be dynamically loaded here. Paths must be defined in router.config.js. (Conventional routing is not required, just the page is real and effective).
