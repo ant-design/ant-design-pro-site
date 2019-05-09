@@ -90,3 +90,7 @@ export const onPreRouteUpdate = () => {
 export const onRouteUpdate = () => {
   NProgress.done(true);
 };
+
+export const shouldUpdateScroll = () => {
+  return false;
+};
