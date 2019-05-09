@@ -169,7 +169,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname))
       );
   };
-
+  onVersionChange = (value: string) => {
+    if (value === 'v1') {
+      window.open('https://v1.pro.ant.design/');
+    }
+    if (value === 'v2') {
+      window.open('https://pro.ant.design/');
+    }
+  };
   render() {
     const { menuMode, menuVisible } = this.state;
     const { location, intl } = this.props;
@@ -270,7 +277,12 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     </Button>
                   </a>
                 </div>
-                <Select defaultValue="lucy" size="small" value="stable">
+                <Select
+                  defaultValue="stable"
+                  size="small"
+                  onChange={this.onVersionChange}
+                  value="stable"
+                >
                   <Option value="v1">1.x</Option>
                   <Option value="v2">2.x</Option>
                   <Option value="stable">stable</Option>

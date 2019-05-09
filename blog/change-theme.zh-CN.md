@@ -17,11 +17,11 @@ Pro 中为了简化 less 的使用，启用了 [`css-module`](https://github.com
 
 在线换主题的插件主要是由通过在浏览器中编译 less 来实现的，首先他找到项目所有的 less，并且将其中带有 less 的变量的选择器抽出。组合成一个新的 less，也就是 color.less，并且在浏览器中通过 less.js 来编译他，然后覆盖掉原本的属性。它是由以下三个步骤完成的：
 
-### 合并 less
+## 合并 less
 
 这个功能主要靠一个插件来实现，`antd-pro-merge-less`，这个插件会扫描 src 中所有的 less，并且将其合并为一个 `./temp/ant-deigin-pro.ess`， 这个插件也是问题最多的插件，会造成部分 less 的引用失效，
 
-### 转化 css-module
+## 转化 css-module
 
 但是作为一个换主题的插件，要保证类名进行是固定的，但是又不能重复。我们进行了两个处理。首先自定义了类名。利用 `css-module` 的 api `getLocalIdent` 可以很容易的做到这件事情。这是 pro 的处理方式。
 
@@ -55,7 +55,7 @@ const getLocalIdent = (context, localIdentName, localName) => {
 
 > 这里使用了 [`postcss-less-engine`](https://www.npmjs.com/package/postcss-less-engine)，可以将 less 生成语法树，并且将其修改。
 
-### 抽取 less 变量
+## 抽取 less 变量
 
 这一步是通过 `antd-theme-webpack-plugin` 来做到的。它通过遍历 less 的语法树，抽取配置中所有拥有 less 变量的选择器，并且将其组合成一个 color.less 的文件。[antd-theme-generator](git://github.com/mzohaibqc/antd-theme-generator) 可以查看具体实现。
 
@@ -84,7 +84,7 @@ window.less
   });
 ```
 
-### 现有的问题
+## 现有的问题
 
 使用以上的方案可以实现在线换主题的功能，但是同时引入了一些新的问题。所以我们并不推荐在生产环境使用它。Pro v4 中将会对他再次完善。
 
@@ -92,7 +92,7 @@ window.less
 
 `antd-theme-webpack-plugin` 抽取变量的方式也有一些问题，编译出来的 css 在小细节方面表现并不好。远远不如在 webpack 编译中进行修改来的完美。
 
-### 未来的改进
+## 未来的改进
 
 现在的在线换主题是个 demo 方案，有一些问题，并且不适合在正式环境中适应。在 v4 中我们会改进他的表现。首先使用更加优雅的方案进行 less 的合并和抽取。支持 less 的全特性，这样不会造成开发中的坑，反而降低影响开发体验。
 
