@@ -14,6 +14,7 @@ export default {
     'app.header.menu.resource': '资源',
     'app.header.lang': 'English',
     'app.content.edit-page': '在 Github 上编辑此页！',
+    'app.content.modifiedTime': '上次修改时间：',
     'app.content.edit-demo': '在 Github 上编辑此示例！',
     'app.component.examples': '代码演示',
     'app.component.refer.title': '引用方式：',

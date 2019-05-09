@@ -14,6 +14,7 @@ export default {
     'app.header.menu.resource': 'Resources',
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',
+    'app.content.modifiedTime': 'Last updated on ',
     'app.content.edit-demo': 'Edit this demo on GitHub!',
     'app.component.examples': 'Examples',
     'app.component.refer.title': 'Usage:',

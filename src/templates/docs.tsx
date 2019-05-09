@@ -4,7 +4,17 @@ import WrapperLayout from '../components/layout';
 import MainContent from '../components/Content/MainContent';
 import { transformerFrontmatter } from '../components/utils';
 
-export interface IFrontmatterData {
+interface IMarkDownFields {
+  path: string;
+  slug: string;
+  modifiedTime: number;
+  avatarList: Array<{
+    href: string;
+    text: string;
+    src: string;
+  }>;
+}
+export interface IFrontmatterData extends IMarkDownFields {
   title: {
     'zh-CN': string;
     'en-US': string;
@@ -32,20 +42,14 @@ export interface IMarkdownRemarkData {
   html: string;
   tableOfContents: string;
   frontmatter: IGraphqlFrontmatterData;
-  fields: {
-    path: string;
-    slug: string;
-  };
+  fields: IMarkDownFields;
 }
 
 export interface IAllMarkdownRemarkData {
   edges: Array<{
     node: {
       frontmatter: IGraphqlFrontmatterData;
-      fields: {
-        slug: string;
-        path: string;
-      };
+      fields: IMarkDownFields;
     };
   }>;
 }
@@ -83,6 +87,7 @@ export default function Template({
         localizedPageData={{
           meta: {
             ...transformerFrontmatter(frontmatter),
+            ...fields,
             filename: fields.slug,
             path: fields.path,
           },
@@ -111,6 +116,12 @@ export const pageQuery = graphql`
       fields {
         path
         slug
+        modifiedTime
+        avatarList {
+          href
+          text
+          src
+        }
       }
     }
     allMarkdownRemark(

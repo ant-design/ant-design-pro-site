@@ -6,6 +6,8 @@ import { Affix } from 'antd';
 import delegate from 'delegate';
 import EditButton from './EditButton';
 import { IFrontmatterData } from '../../templates/docs';
+import moment from 'moment';
+import AvatarList from './AvatarList';
 
 interface ArticleProps {
   content: {
@@ -49,7 +51,7 @@ export default class Article extends React.PureComponent<ArticleProps> {
     const props = this.props;
     const content = props.content;
     const { meta } = content;
-    const { title, subtitle, path } = meta;
+    const { title, subtitle, path, modifiedTime, avatarList } = meta;
     const {
       intl: { locale },
     } = this.context as {
@@ -70,6 +72,11 @@ export default class Article extends React.PureComponent<ArticleProps> {
             {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
             <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={path} />
           </h1>
+          <div className="modifiedTime">
+            <AvatarList avatarList={avatarList} />
+            <FormattedMessage id="app.content.modifiedTime" />
+            {moment(modifiedTime).format('YYYY-MM-DD HH:mm:SS')}
+          </div>
           {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
             <Affix className="toc-affix" offsetTop={16}>
               <div

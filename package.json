@@ -11,7 +11,6 @@
   "scripts": {
     "authors": "rm AUTHORS.yaml && git log --format='- %aN : <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'wasd2144@hotmail.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' | uniq  > AUTHORS.yaml",
     "build": "gatsby build",
-    "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "components-build": "node ./tool/bin/let -c && cd ./config/components",
     "components-publish": "node ./tool/bin/let -c && cd ./config/components && npm publish",
     "gh-pages": "cp  CNAME ./public/ && gh-pages -d public",
@@ -26,6 +25,7 @@
     "serve": "gatsby serve",
     "site": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run build && npm run gh-pages",
     "start": "gatsby develop",
+    "dev": "rm -rf .cache && gatsby develop",
     "test": "npm run lint"
   },
   "pre-commit": [
@@ -50,8 +50,10 @@
     "bizcharts-plugin-slider": "^2.0.4",
     "core-js": "^2.6.5",
     "docsearch.js": "^2.5.2",
+    "himalaya": "^1.1.0",
     "lodash-decorators": "^6.0.0",
     "lz-string": "^1.4.4",
+    "node-fetch": "^2.5.0",
     "react-copy-to-clipboard": "^5.0.0",
     "react-document-title": "^2.0.3",
     "react-github-button": "^0.1.11",
