@@ -49,7 +49,7 @@ import { queryCurrent } from '../services/user';
 effects: {
   *fetch({ payload }, { call, put }) {
     ...
-    const response = yield call(queryUsers);
+    const response = yield call(queryCurrent);
     ...
   },
 }

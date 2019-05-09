@@ -86,20 +86,17 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
   }
   timer: number;
   componentDidUpdate() {
-    if (!location.hash) {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    } else {
-      if (this.timer) {
-        clearTimeout(this.timer);
-      }
-      this.timer = window.setTimeout(() => {
-        const dom = document.getElementById(decodeURI(location.hash.replace('#', '')));
-        if (dom) {
-          dom.scrollIntoView();
-        }
-      }, 10);
+    if (!window.location.hash) {
+      return;
     }
+    const element = document.getElementById(
+      decodeURIComponent(window.location.hash.replace('#', ''))
+    );
+    setTimeout(() => {
+      if (element) {
+        element.scrollIntoView(true);
+      }
+    }, 100);
   }
 
   componentWillUnmount() {

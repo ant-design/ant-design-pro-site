@@ -8,7 +8,7 @@ type: Other
 
 ### 2.3.0
 
-2.3.0 will be the last version of pro, mainly used to fix ts errors, after which will not accept the function of the master.
+2.3 will be the last version of the [Ant Design Pro](https://www.npmjs.com/package/ant-design-pro) component library, mainly used to fix ts errors, after which the functionality of the component library will not be added. Components will be migrated to Ant Design. These components will be more fully supported and maintained, and maintained in Pro. These components will be more fully supported and maintained in Ant Design, and Pro will focus on Layout and scaffolding.
 
 #### 脚手架
 

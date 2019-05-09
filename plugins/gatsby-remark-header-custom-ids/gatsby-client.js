@@ -23,8 +23,3 @@ exports.onInitialClientRender = (_, pluginOptions) => {
     }
   });
 };
-
-exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
-  const offset = getTargetOffset(location.hash);
-  return offset !== null ? [0, offset] : true;
-};
