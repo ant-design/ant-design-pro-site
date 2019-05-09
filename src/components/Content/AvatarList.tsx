@@ -11,7 +11,10 @@ class AvatarList extends React.Component<{
   main: HTMLDivElement | null;
   async componentDidMount() {}
   render() {
-    const { avatarList } = this.props;
+    const { avatarList = [] } = this.props;
+    if (!avatarList) {
+      return null;
+    }
     return (
       <div className="doc-avatar-list">
         {avatarList.map(item => {
