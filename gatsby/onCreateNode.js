@@ -8,7 +8,7 @@ const fetch = require('node-fetch');
 const himalaya = require('himalaya');
 
 const getAvatarList = async filename => {
-  const sourcePath = 'https://github.com/ant-design/ant-design-pro-site/contributors/master';
+  const sourcePath = 'https://github.com/ant-design/ant-design-pro-site/contributors/v4';
   const url = `${sourcePath}${filename}/list`;
   const html = await fetch(url).then(res => res.text());
   const ast = himalaya.parse(html)[0].children || [];
