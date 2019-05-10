@@ -8,10 +8,6 @@ module.exports = ({ stage, actions, loaders }) => {
             use: loaders.null(),
           },
           {
-            test: /ant-design-pro/,
-            use: loaders.null(),
-          },
-          {
             test: /bizcharts/,
             use: loaders.null(),
           },
