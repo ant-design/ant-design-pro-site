@@ -19,7 +19,7 @@ class AvatarList extends React.Component<{
       <div className="doc-avatar-list">
         {avatarList.map(item => {
           return (
-            <a className="href-box" href={`http://github.com${item.href}`}>
+            <a className="href-box" target="_blank" href={`http://github.com${item.href}`}>
               <Tooltip title={item.text}>
                 <Avatar src={item.src} alt={item.text} size="small" />
               </Tooltip>
