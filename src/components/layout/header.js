@@ -2,28 +2,43 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
-import axios from 'axios';
-import { Row, Col, Icon, Menu, Button, Modal, Popover, Select } from 'antd';
+import { Row, Col, Icon, Input, Menu, Button, Modal, Popover } from 'antd';
 import * as utils from '../utils';
 
-const { Option, OptGroup } = Select;
-
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
-const textSearchUrl = 'https://www.google.com/search?q=site:pro.ant.design+';
-
-// https://www.algolia.com/apps/YEWBNYLVLW/
-const searchUrl =
-  'https://yewbnylvlw-dsn.algolia.net/1/indexes/antd pro/query?x-algolia-agent=Algolia for vanilla JavaScript 3.21.1&x-algolia-application-id=YEWBNYLVLW&x-algolia-api-key=b42bc1a0c8ab7be447666944228a3176';
 
 const key = 'antd-pro@2.0.0-notification-sent';
 
+let docSearch;
+if (typeof window !== 'undefined') {
+  docSearch = require('docsearch.js'); // eslint-disable-line
+}
+
+function initDocSearch(locale) {
+  if (!docSearch) {
+    return;
+  }
+  const lang = locale === 'zh-CN' ? 'cn' : 'en';
+  docSearch({
+    apiKey: 'dfba5eddecb719460b9fd232af57748d',
+    indexName: 'pro_ant_design',
+    inputSelector: '#search-box input',
+    algoliaOptions: { facetFilters: [`tags:${lang}`] },
+    transformData(hits) {
+      hits.forEach(hit => {
+        hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
+        hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
+      });
+      return hits;
+    },
+    debug: true, // Set debug to true if you want to inspect the dropdown
+  });
+}
+
 class Header extends React.Component {
   state = {
-    inputValue: '',
     menuVisible: false,
     menuMode: 'horizontal',
-    searchOption: [],
-    searching: false,
   };
 
   componentDidMount() {
@@ -38,6 +53,11 @@ class Header extends React.Component {
     if (localStorage.getItem(key) !== 'true' && Date.now() < new Date('2018/9/5').getTime()) {
       this.infoNewVersion();
     }
+
+    const {
+      intl: { locale },
+    } = this.props;
+    initDocSearch(locale);
   }
 
   setMenuMode = isMobile => {
@@ -50,40 +70,6 @@ class Header extends React.Component {
       this.setMenuMode(isMobile);
     }
   }
-
-  search = (searchKey, success, error) => {
-    clearTimeout(this.timer);
-    if (!searchKey) {
-      success();
-      return;
-    }
-
-    this.timer = setTimeout(() => {
-      this.setState({
-        searching: true,
-      });
-      axios
-        .post(searchUrl, {
-          params: `query=${searchKey}&hitsPerPage=20&facets=*&maxValuesPerFacet=10&facetFilters=[]`,
-        })
-        .then(response => {
-          this.setState({
-            searching: false,
-          });
-          if (success) {
-            success(response);
-          }
-        })
-        .catch(err => {
-          this.setState({
-            searching: false,
-          });
-          if (error) {
-            error(err);
-          }
-        });
-    }, 200);
-  };
 
   handleHideMenu = () => {
     this.setState({
@@ -105,18 +91,6 @@ class Header extends React.Component {
 
   handleSelect = value => {
     window.location.href = value;
-  };
-
-  handleChange = value => {
-    this.setState({ inputValue: value });
-
-    this.search(value, data => {
-      if (data && data.data && data.data.hits) {
-        this.setState({
-          searchOption: data.data.hits,
-        });
-      }
-    });
   };
 
   infoNewVersion = () => {
@@ -175,7 +149,7 @@ class Header extends React.Component {
   };
 
   render() {
-    const { inputValue, menuMode, menuVisible, searchOption, searching } = this.state;
+    const { menuMode, menuVisible } = this.state;
     const { location, intl } = this.props;
     const path = location.pathname;
 
@@ -227,43 +201,6 @@ class Header extends React.Component {
       </Menu>,
     ];
 
-    const componentSearchOption = searchOption
-      .filter(v => v.type === 'component')
-      .map(d => (
-        <Option key={d.url}>
-          {d.title} {isZhCN && d.subTitle}
-        </Option>
-      ));
-    const docSearchOption = searchOption
-      .filter(v => v.type === 'doc')
-      .map(d => <Option key={d.url}>{isZhCN ? d.title : d['title-en'] || d.title}</Option>);
-
-    const options = [];
-
-    if (componentSearchOption) {
-      options.push(
-        <OptGroup label={intl.formatMessage({ id: 'app.header.search.component' })} key="component">
-          {componentSearchOption}
-        </OptGroup>
-      );
-    }
-    if (docSearchOption) {
-      options.push(
-        <OptGroup label={intl.formatMessage({ id: 'app.header.search.doc' })} key="doc">
-          {docSearchOption}
-        </OptGroup>
-      );
-    }
-
-    if (inputValue) {
-      options.push(
-        <Option key={`${textSearchUrl}${inputValue}`}>
-          <FormattedMessage id="app.header.search.all" />
-          {inputValue}
-        </Option>
-      );
-    }
-
     return (
       <div id="header" className="header">
         {menuMode === 'inline' ? (
@@ -292,25 +229,12 @@ class Header extends React.Component {
           <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
             <div id="search-box">
               <Icon type="search" />
-              <Select
-                mode="combobox"
-                value={inputValue}
+              <Input
+                ref={ref => {
+                  this.searchInput = ref;
+                }}
                 placeholder={intl.formatMessage({ id: 'app.header.search' })}
-                notFoundContent=""
-                defaultActiveFirstOption={false}
-                showArrow={false}
-                filterOption={false}
-                optionLabelProp="label"
-                onSelect={this.handleSelect}
-                onChange={this.handleChange}
-              >
-                {searching && (
-                  <Option className="search-loading" key="search">
-                    <Icon type="loading" />
-                  </Option>
-                )}
-                {options}
-              </Select>
+              />
             </div>
             <div className="header-meta">
               <div id="preview">

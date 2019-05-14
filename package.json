@@ -46,6 +46,7 @@
     "bizcharts": "^3.2.2",
     "bizcharts-plugin-slider": "^2.0.4",
     "core-js": "^2.6.5",
+    "docsearch.js": "^2.6.3",
     "gatsby-plugin-google-analytics": "^2.0.20",
     "lodash-decorators": "^6.0.0",
     "lz-string": "^1.4.4",
