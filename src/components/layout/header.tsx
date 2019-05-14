@@ -22,8 +22,8 @@ function initDocSearch(locale: 'zh-CN' | 'en-US') {
   }
   const lang = locale === 'zh-CN' ? 'cn' : 'en';
   docSearch({
-    apiKey: '25626fae796133dc1e734c6bcaaeac3c',
-    indexName: 'docsearch',
+    apiKey: 'dfba5eddecb719460b9fd232af57748d',
+    indexName: 'pro_ant_design',
     inputSelector: '#search-box input',
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
     transformData(
