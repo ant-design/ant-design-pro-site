@@ -46,12 +46,14 @@
     "bizcharts": "^3.2.2",
     "bizcharts-plugin-slider": "^2.0.4",
     "core-js": "^2.6.5",
+    "gatsby-plugin-google-analytics": "^2.0.20",
     "lodash-decorators": "^6.0.0",
     "lz-string": "^1.4.4",
     "react-copy-to-clipboard": "^5.0.0",
     "react-document-title": "^2.0.3",
     "react-github-button": "^0.1.11",
-    "react-intl": "^2.4.0"
+    "react-intl": "^2.4.0",
+    "react-media": "^1.9.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
