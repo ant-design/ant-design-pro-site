@@ -61,36 +61,41 @@ export default class Article extends React.PureComponent<ArticleProps> {
     };
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
-        <article
-          className="markdown"
-          ref={node => {
-            this.node = node;
-          }}
-        >
-          <h1>
-            {title[locale] || title}
-            {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
-            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={path} />
-          </h1>
+        <>
+          <article
+            className="markdown"
+            ref={node => {
+              this.node = node;
+            }}
+          >
+            <h1>
+              {title[locale] || title}
+              {!subtitle || locale === 'en-US' ? null : (
+                <span className="subtitle">{subtitle}</span>
+              )}
+              <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={path} />
+            </h1>
+
+            {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
+              <Affix className="toc-affix" offsetTop={16}>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: content.toc.replace(/<ul>/g, '<ul class="toc">').replace(/\/#/g, '#'),
+                  }}
+                />
+              </Affix>
+            )}
+            <section
+              className="markdown api-container"
+              dangerouslySetInnerHTML={{ __html: content.content }}
+            />
+          </article>
           <div className="modifiedTime">
             <AvatarList avatarList={avatarList} />
             <FormattedMessage id="app.content.modifiedTime" />
             {moment(modifiedTime).format('YYYY-MM-DD HH:mm:SS')}
           </div>
-          {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
-            <Affix className="toc-affix" offsetTop={16}>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: content.toc.replace(/<ul>/g, '<ul class="toc">').replace(/\/#/g, '#'),
-                }}
-              />
-            </Affix>
-          )}
-          <section
-            className="markdown api-container"
-            dangerouslySetInnerHTML={{ __html: content.content }}
-          />
-        </article>
+        </>
       </DocumentTitle>
     );
   }
