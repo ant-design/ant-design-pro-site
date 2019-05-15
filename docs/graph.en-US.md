@@ -21,7 +21,7 @@ Currently chart components have 10 type of charts and 2 type of chart suites:
 - ChartCard
 - Field
 
-[View chart components doc](https://pro.ant.design/components/Charts/)
+[View chart components doc](https://pro.ant.design/components/charts/)
 
 ## Use Chart Components
 

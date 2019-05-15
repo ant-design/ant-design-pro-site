@@ -13,6 +13,7 @@
     "build": "gatsby build",
     "components-build": "node ./tool/bin/let -c && cd ./config/components",
     "components-publish": "node ./tool/bin/let -c && cd ./config/components && npm publish",
+    "dev": "rm -rf .cache && gatsby develop",
     "gh-pages": "cp  CNAME ./public/ && gh-pages -d public",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint-staged": "lint-staged",
@@ -25,7 +26,6 @@
     "serve": "gatsby serve",
     "site": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run build && npm run gh-pages",
     "start": "gatsby develop",
-    "dev": "rm -rf .cache && gatsby develop",
     "test": "npm run lint"
   },
   "pre-commit": [
@@ -49,7 +49,9 @@
     "bizcharts": "^3.2.2",
     "bizcharts-plugin-slider": "^2.0.4",
     "core-js": "^2.6.5",
-    "docsearch.js": "^2.5.2",
+    "docsearch.js": "^2.6.3",
+    "gatsby-plugin-google-analytics": "^2.0.20",
+    "gatsby-plugin-sitemap": "^2.1.0",
     "himalaya": "^1.1.0",
     "lodash-decorators": "^6.0.0",
     "lz-string": "^1.4.4",

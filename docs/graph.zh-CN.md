@@ -21,7 +21,7 @@ Ant Design Pro 提供了由设计师精心设计抽象的图表类型，是在 [
 - 图表卡片（ChartCard）
 - 图表字段（Field）
 
-[查看图表组件](https://pro.ant.design/components/Charts-cn/)
+[查看图表组件](https://pro.ant.design/components/charts-cn/)
 
 ## 使用 Ant Design Pro 的图表
 

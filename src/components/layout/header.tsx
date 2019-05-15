@@ -2,10 +2,8 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
-import { Row, Col, Icon, Menu, Button, Input, Modal, Popover, Select } from 'antd';
 import * as utils from '../utils';
-
-const { Option } = Select;
+import { Row, Col, Icon, Select, Input, Menu, Button, Modal, Popover } from 'antd';
 
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
@@ -32,7 +30,7 @@ function initDocSearch(locale: 'zh-CN' | 'en-US') {
       }>
     ) {
       hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
+        hit.url = hit.url.replace('ant.design.pro', window.location.host); // eslint-disable-line
         hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
       });
       return hits;
@@ -61,8 +59,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     inputValue: undefined,
     menuVisible: false,
     menuMode: 'horizontal',
-    searchOption: [],
-    searching: false,
   };
 
   searchInput: Input | null | undefined;
@@ -80,6 +76,11 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     if (localStorage.getItem(key) !== 'true' && Date.now() < new Date('2018/9/5').getTime()) {
       this.infoNewVersion();
     }
+
+    const {
+      intl: { locale },
+    } = this.props;
+    initDocSearch(locale);
   }
 
   setMenuMode = (isMobile: boolean) => {
