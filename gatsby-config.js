@@ -3,6 +3,7 @@ module.exports = {
     title: 'ANT DESIGN PRO',
     description: 'Out-of-box UI solution for enterprise applications',
     author: 'Ant Design',
+    siteUrl: `https://pro.ant.design`,
   },
   plugins: [
     {
@@ -72,5 +73,6 @@ module.exports = {
         icon: 'src/images/favicon.png',
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 };

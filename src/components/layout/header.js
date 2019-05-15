@@ -26,7 +26,7 @@ function initDocSearch(locale) {
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
     transformData(hits) {
       hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
+        hit.url = hit.url.replace('ant.design.pro', window.location.host); // eslint-disable-line
         hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
       });
       return hits;
