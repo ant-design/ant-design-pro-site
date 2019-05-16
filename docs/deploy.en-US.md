@@ -1,7 +1,7 @@
 ---
 order: 8
-title: Build & Deploy
-type: Introduction
+title: Deployment
+type: Build & Deployment
 ---
 
 ## Build

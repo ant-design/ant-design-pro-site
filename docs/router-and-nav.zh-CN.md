@@ -1,7 +1,7 @@
 ---
 order: 3
 title: 路由和菜单
-type: 入门
+type: 开发
 ---
 
 路由和菜单是组织起一个应用的关键骨架，pro 中的路由为了方便管理，使用了中心化的方式，在 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 统一配置和管理。

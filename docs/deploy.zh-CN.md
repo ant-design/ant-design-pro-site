@@ -1,7 +1,7 @@
 ---
 order: 8
-title: 构建和发布
-type: 入门
+title: 部署
+type: 构建和部署
 ---
 
 ## 构建

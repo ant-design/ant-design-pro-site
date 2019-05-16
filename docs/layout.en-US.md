@@ -1,11 +1,10 @@
 ---
 order: 3
 title: Layout
-type: Introduction
+type: Development
 ---
 
 Layout is the outermost structure for a project, usually consists of navigation, footer, sidebar, notification and content. There are also a lot of different layouts within a page.
-
 
 ## Layout in Ant Design Pro
 

@@ -1,11 +1,10 @@
 ---
 order: 6
-title: Style
-type: Introduction
+title: Edit Style
+type: Development
 ---
 
 This document is mainly about how to use and organize style files in projects. If you want to get a basic knowledge of CSS or look for properties usage, you can refer to the [MDN doc](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
-
 
 ## less
 
@@ -104,7 +103,7 @@ body {
 }
 
 // temporary font size patch
-:global(.ant-tag)  {
+:global(.ant-tag) {
     font-size: 12px;
 }
 ```

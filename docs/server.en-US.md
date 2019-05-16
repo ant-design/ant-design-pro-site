@@ -1,7 +1,7 @@
 ---
 order: 7
 title: Communicate with Server
-type: Introduction
+type: Development
 ---
 
 Ant Design Pro is a SPA based on the React technology stack. We provide a set of front-end code and local simulation data development model. Work in the form of an API with the server application of any technology stack. The basics of interacting with the server are briefly described below.

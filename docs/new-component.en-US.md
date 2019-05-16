@@ -1,7 +1,7 @@
 ---
 order: 5
 title: New Component
-type: Introduction
+type: Development
 ---
 
 For some reusable UI, it is a best practice to abstract it as React components which should have these features:
@@ -9,7 +9,6 @@ For some reusable UI, it is a best practice to abstract it as React components w
 - Independent, reusable and stable pieces.
 - Don't contain routes info.
 - Stateless or contain isolate state within it.
-
 
 Now we try to write a simple component as sample. Assume that you have a picture presentation UI which has fixed width, grey background, and text description like this:
 

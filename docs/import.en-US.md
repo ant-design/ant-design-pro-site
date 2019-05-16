@@ -1,11 +1,10 @@
 ---
 order: 8
 title: Import Module
-type: Introduction
+type: Development
 ---
 
 In addition to the antd components and the built-in business components of the scaffold, sometimes we need to introduce other external modules. Here we introduce the rich text component [react-quill](https://www.npmjs.com/package/react-quill) as an example.
-
 
 ## Introduce Dependencies
 
