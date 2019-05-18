@@ -20,7 +20,9 @@ In the style development process, there are two prominent problems:
 In order to solve the above problems, our scaffold use CSS Modules as a modular solution. Let us have a look at how to write style in this mode.
 
 ```html
-// example.js import styles from './example.less'; export default ({title}) =>
+// example.js
+import styles from './example.less';
+export default ({title}) =>
 <div className="{styles.title}">{title}</div>
 ;
 ```
