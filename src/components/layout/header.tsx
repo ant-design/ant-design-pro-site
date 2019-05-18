@@ -175,7 +175,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       window.open('https://v1.pro.ant.design/');
     }
     if (value === 'v2') {
-      window.open('https://pro.ant.design/');
+      window.open('https://v2.pro.ant.design/');
     }
   };
   render() {

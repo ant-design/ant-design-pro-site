@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 0
 title: Environment Variables
 type: Build & Deployment
 ---

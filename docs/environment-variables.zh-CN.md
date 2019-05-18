@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 0
 title: 环境变量
 type: 构建和部署
 ---

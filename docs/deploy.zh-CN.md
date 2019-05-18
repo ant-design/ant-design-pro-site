@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title: 部署
 type: 构建和部署
 ---
