@@ -1,5 +1,13 @@
 import { IFrontmatterData, IGraphqlFrontmatterData } from '../templates/docs';
 
+export interface MenuDataItem extends IFrontmatterData {
+  link?: string;
+}
+
+export interface IMenuData {
+  [key: string]: IMenuData | MenuDataItem[];
+}
+
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
 
@@ -49,9 +57,9 @@ export function getMenuItems(
   const menuMeta = moduleData.map((item: { meta: any }) => item.meta);
   const menuItems: {
     [key: string]: any;
-  } = {};
+  } = { topLevel: {} };
   menuMeta
-    .sort((a: { order: any }, b: { order: any }) => (a.order || 0) - (b.order || 0))
+    .sort((a: { order: number }, b: { order: number }) => (a.order || 0) - (b.order || 0))
     .forEach((meta: { category: { [x: string]: any }; type: string }) => {
       const category = (meta.category && meta.category[locale]) || meta.category || 'topLevel';
       if (!menuItems[category]) {

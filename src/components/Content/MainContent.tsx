@@ -7,18 +7,10 @@ import { Badge, Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
 import Article from './Article';
-import { isZhCN, getMenuItems } from '../utils';
+import { isZhCN, getMenuItems, MenuDataItem, IMenuData } from '../utils';
 import { IFrontmatterData } from '../../templates/docs';
 
 const { SubMenu } = Menu;
-
-interface MenuDataItem extends IFrontmatterData {
-  link?: string;
-  topLevel?: {
-    [x: string]: { sort: (arg0: (a: any, b: any) => number) => { map: (arg0: any) => void } };
-    topLevel?: any;
-  };
-}
 
 export interface MainContentProps {
   isMobile: boolean;
@@ -39,6 +31,9 @@ interface MainContentState {
 
 function getActiveMenuItem(props: MainContentProps) {
   const { pathname } = props.location;
+  if (pathname.endsWith('/')) {
+    return pathname.substring(0, pathname.length - 1);
+  }
   return pathname;
 }
 
@@ -111,17 +106,12 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
   currentModule: string;
   getSideBarOpenKeys(nextProps: MainContentProps) {
     const { pathname } = nextProps.location;
-    const prevModule = this.currentModule;
-    this.currentModule = pathname.replace(/^\//, '').split('/')[1] || 'components';
-    if (this.currentModule === 'react') {
-      this.currentModule = 'components';
+    const moduleData = getModuleDataWithProps(nextProps);
+    const item = moduleData.find(({ slug }) => pathname.includes(slug));
+    if (item) {
+      return [item.type];
     }
-    const locale = isZhCN(pathname) ? 'zh-CN' : 'en-US';
-    if (prevModule !== this.currentModule) {
-      const moduleData = getModuleDataWithProps(nextProps);
-      const shouldOpenKeys = Object.keys(getMenuItems(moduleData, locale));
-      return shouldOpenKeys;
-    }
+    return [];
   }
 
   convertFilename = (filename: string) => {
@@ -179,30 +169,33 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     );
   };
 
-  generateSubMenuItems = (
-    obj: {
-      [x: string]: { sort: (arg0: (a: any, b: any) => number) => { map: (arg0: any) => void } };
-      topLevel?: any;
-    },
-    footerNavIcons = {}
-  ) => {
+  generateSubMenuItems = (obj?: IMenuData, footerNavIcons = {}) => {
+    const {
+      intl: { locale },
+    } = this.context as {
+      intl: {
+        locale: 'zh-CN' | 'en-US';
+      };
+    };
     if (!obj) return [];
-    const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, footerNavIcons));
+    const topLevel = ((obj.topLevel as MenuDataItem[]) || []).map(
+      this.generateMenuItem.bind(this, footerNavIcons)
+    );
     const itemGroups = Object.keys(obj)
       .filter(isNotTopLevel)
       .map(type => {
-        const groupItems = obj[type]
+        const groupItems = (obj[type] as MenuDataItem[])
           .sort((a, b) => {
             if ('order' in a && 'order' in b) {
               return a.order - b.order;
             }
-            return a.title.charCodeAt(0) - b.title.charCodeAt(0);
+            return a.title[locale].charCodeAt(0) - b.title[locale].charCodeAt(0);
           })
           .map(this.generateMenuItem.bind(this, footerNavIcons));
         return (
-          <Menu.ItemGroup title={type} key={type}>
+          <SubMenu title={type} key={type}>
             {groupItems}
-          </Menu.ItemGroup>
+          </SubMenu>
         );
       });
     return [...topLevel, ...itemGroups];
@@ -213,26 +206,11 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     const {
       intl: { locale },
     } = this.context;
-    const menuItems: {
-      [key: string]: any;
-      topLevel?: MenuDataItem['topLevel'];
-    } = getMenuItems(moduleData, locale) || {};
-    let topLevel = [];
-    if (menuItems.topLevel) {
-      topLevel = this.generateSubMenuItems(menuItems.topLevel, footerNavIcons);
-    }
+    const menuItems: IMenuData = getMenuItems(moduleData, locale) || {};
+    let topLevel =
+      this.generateSubMenuItems(menuItems['topLevel'] as IMenuData, footerNavIcons) || [];
 
-    const subMenu = Object.keys(menuItems)
-      .filter(isNotTopLevel)
-      .map((category: string) => {
-        const subMenuItems = this.generateSubMenuItems(menuItems[category], footerNavIcons);
-        return (
-          <SubMenu title={<h4>{category}</h4>} key={category}>
-            {subMenuItems}
-          </SubMenu>
-        );
-      });
-    const result = [...topLevel, ...subMenu].filter(({ key }) => key);
+    const result = [...topLevel].filter(({ key }) => key);
     return result;
   };
 
@@ -272,7 +250,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     const { openKeys } = this.state;
     const menuChild = (
       <Menu
-        inlineIndent={54}
+        inlineIndent={16}
         className="aside-container"
         mode="inline"
         openKeys={openKeys}

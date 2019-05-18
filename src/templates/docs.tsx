@@ -20,7 +20,7 @@ export interface IFrontmatterData extends IMarkDownFields {
     'en-US': string;
   };
   toc: string | boolean;
-  order: string;
+  order: number;
   type: string;
   filename: string;
   subtitle: string;
