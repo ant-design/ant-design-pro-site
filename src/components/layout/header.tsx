@@ -5,6 +5,8 @@ import { Link } from 'gatsby';
 import * as utils from '../utils';
 import { Row, Col, Icon, Select, Input, Menu, Button, Modal, Popover } from 'antd';
 
+const { Option } = Select;
+
 const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
 const key = 'antd-pro@2.0.0-notification-sent';
@@ -49,9 +51,9 @@ interface HeaderProps {
 interface HeaderState {
   inputValue?: string;
   menuVisible: boolean;
-  menuMode: 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
-  searchOption: any[];
-  searching: boolean;
+  menuMode?: 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
+  searchOption?: any[];
+  searching?: boolean;
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
