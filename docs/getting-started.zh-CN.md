@@ -84,21 +84,20 @@ Ant Design Pro 脚手架将会自动安装。
 
 ```bash
 ├── config                   # umi 配置，包含路由，构建等配置
+├── e2e                      # 集成测试用例
 ├── mock                     # 本地模拟数据
 ├── public
 │   └── favicon.png          # Favicon
 ├── src
 │   ├── assets               # 本地静态资源
 │   ├── components           # 业务通用组件
-│   ├── e2e                  # 集成测试用例
 │   ├── layouts              # 通用布局
 │   ├── models               # 全局 dva model
 │   ├── pages                # 业务页面入口和常用模板
 │   ├── services             # 后台接口服务
 │   ├── utils                # 工具库
 │   ├── locales              # 国际化资源
-│   ├── global.less          # 全局样式
-│   └── global.js            # 全局 JS
+│   └── global.less          # 全局样式
 ├── tests                    # 测试工具
 ├── README.md
 └── package.json
@@ -122,6 +121,6 @@ npm start
 
 启动完成后会自动打开浏览器访问 [http://localhost:8000](http://localhost:8000)，你看到下面的页面就代表成功了。
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/PVmvmxKUsAryuFbGqUmV.png" width="700" alt="首页截图" />
+<img src="https://user-images.githubusercontent.com/5378891/58090083-0b68c700-7bf9-11e9-8f52-d55ab2ebaab5.png" width="700" alt="首页截图" />
 
-接下来你可以修改代码进行业务开发了，我们内建了典型业务模板、常用业务组件、模拟数据、HMR 实时预览、状态管理、国际化、全局路由等等各种实用的功能辅助开发，你可以继续阅读和探索左侧的其他文档。
+接下来你可以修改代码进行业务开发了，我们内建了模拟数据、HMR 实时预览、状态管理、国际化、全局路由等等各种实用的功能辅助开发，你可以继续阅读和探索左侧的其他文档。

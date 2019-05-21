@@ -59,16 +59,26 @@ We will walk you through the steps to get started.
 
 ## Preparation
 
-You will need [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](https://babeljs.io/learn-es2015/), [React](http://facebook.github.io/react/), [UmiJS](https://umijs.org/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.
+You will need [yarn](https://yarnpkg.com), [node](http://nodejs.org/) and [git](https://git-scm.com/). The project is based on [ES2015+](https://babeljs.io/learn-es2015/), [React](http://facebook.github.io/react/), [UmiJS](https://umijs.org/), [dva](http://github.com/dvajs/dva), [g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) and [antd](https://ant.design/docs/react/introduce). It would be helpful if you have pre-existing knowledge on those.
 
 ## Installation
 
-Install our newest scaffold by cloning git repository.
-
+Create a new empty folder as project root. Execute command in the folder:
 ```bash
-$ git clone --depth=1 https://github.com/ant-design/ant-design-pro.git my-project
-$ cd my-project
+yarn create umi
 ```
+
+Choose `ant-design-pro`：
+```bash
+ Select the boilerplate type (Use arrow keys)
+❯ ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block.
+  app             - Create project with a simple boilerplate, support typescript.
+  block           - Create a umi block.
+  library         - Create a library with umi.
+  plugin          - Create a umi plugin.
+```
+
+Ant Design Pro will be installed automatically.
 
 ## Scaffolding
 
@@ -76,21 +86,20 @@ We have provided a scaffold which includes common routes for admins and demonstr
 
 ```bash
 ├── config                   # umi config, include routes and webpack etc.
+├── e2e                      # Integrated Test Case
 ├── mock                     # Local Mock Data
 ├── public
-│   └── favicon.png          # Favicon
+│   └── favicon.png          # Favicon
 ├── src
 │   ├── assets               # Local static files
 │   ├── components           # Components
-│   ├── e2e                  # Integrated Test Case
 │   ├── layouts              # Common Layouts
 │   ├── models               # Global dva Model
 │   ├── pages                # Sub-pages and templates
 │   ├── services             # Back-end Services
 │   ├── utils                # Utility
 │   ├── locales              # i18n resources
-│   ├── global.less          # Global Stylesheet
-│   └── global.js            # Global JS
+│   └── global.less          # Global Stylesheet
 ├── tests                    # Tests Configuration
 ├── README.md
 └── package.json
@@ -111,8 +120,8 @@ $ npm start
 <img src="https://gw.alipayobjects.com/zos/rmsportal/uHAzKpIQDMGdmjIxZLOV.png" width="700" />
 
 This will automatically open [http://localhost:8000](http://localhost:8000). If you see the following page then you have succeeded.
-<img src="https://gw.alipayobjects.com/zos/rmsportal/PVmvmxKUsAryuFbGqUmV.png" width="700" alt="Screenshot" />
+<img src="https://user-images.githubusercontent.com/5378891/58090083-0b68c700-7bf9-11e9-8f52-d55ab2ebaab5.png" width="700" alt="Screenshot" />
 
 You're all set!
 
-We have built-in models, standard components, mock data, hot module reloading, state management, i18n, global router, etc. You can continue exploring other documents for more details on those topics.
+We have built-in mock data, hot module reloading, state management, i18n, global router, etc. You can continue exploring other documents for more details on those topics.
