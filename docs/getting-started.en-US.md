@@ -105,7 +105,8 @@ We have provided a scaffold which includes common routes for admins and demonstr
 │   ├── services             # Back-end Services
 │   ├── utils                # Utility
 │   ├── locales              # i18n resources
-│   └── global.less          # Global Stylesheet
+│   ├── global.less          # Global Stylesheet
+│   └── global.js            # Global JS
 ├── tests                    # Tests Configuration
 ├── README.md
 └── package.json
