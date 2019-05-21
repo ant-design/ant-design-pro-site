@@ -94,7 +94,7 @@ We have provided a scaffold which includes common routes for admins and demonstr
 ├── config                   # umi config, include routes and webpack etc.
 ├── mock                     # Local Mock Data
 ├── public
-│   └── favicon.png          # Favicon
+│   └── favicon.png          # Favicon
 ├── src
 │   ├── assets               # Local static files
 │   ├── components           # Components
@@ -105,7 +105,7 @@ We have provided a scaffold which includes common routes for admins and demonstr
 │   ├── services             # Back-end Services
 │   ├── utils                # Utility
 │   ├── locales              # i18n resources
-│   ├── global.less          # Global Stylesheet
+│   ├── global.less          # Global Stylesheet
 │   └── global.js            # Global JS
 ├── tests                    # Tests Configuration
 ├── README.md
