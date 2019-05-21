@@ -57,16 +57,26 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 
 ## 前序准备
 
-你的本地环境需要安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)。我们的技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[React](http://facebook.github.io/react/)、[UmiJS](https://umijs.org/)、[dva](http://github.com/dvajs/dva)、[g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) 和 [antd](https://ant.design/docs/react/introduce-cn)，提前了解和学习这些知识会非常有帮助。
+你的本地环境需要安装 [yarn](https://yarnpkg.com)、[node](http://nodejs.org/) 和 [git](https://git-scm.com/)。我们的技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[React](http://facebook.github.io/react/)、[UmiJS](https://umijs.org/)、[dva](http://github.com/dvajs/dva)、[g2](https://antv.alipay.com/zh-cn/g2/3.x/index.html) 和 [antd](https://ant.design/docs/react/introduce-cn)，提前了解和学习这些知识会非常有帮助。
 
 ## 安装
 
-从 GitHub 仓库中直接安装最新的脚手架代码。
-
+新建一个空的文件夹作为项目目录，并在目录下执行：
 ```bash
-$ git clone --depth=1 https://github.com/ant-design/ant-design-pro.git my-project
-$ cd my-project
+yarn create umi
 ```
+
+选择 `ant-design-pro`：
+```bash
+ Select the boilerplate type (Use arrow keys)
+❯ ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block.
+  app             - Create project with a simple boilerplate, support typescript.
+  block           - Create a umi block.
+  library         - Create a library with umi.
+  plugin          - Create a umi plugin.
+```
+
+Ant Design Pro 脚手架将会自动安装。
 
 ## 目录结构
 
