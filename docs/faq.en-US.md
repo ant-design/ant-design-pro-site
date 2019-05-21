@@ -214,7 +214,7 @@ Try using cnpm or setting environment variables to see this [issue](https://gith
 
 English Documentation will be translated in next couple of monthes, trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) and [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) for more detail.
 
-### After Ant Design Pro upgrades from 1.X to 2.X, page layout components (such as BasicLayout) are reloaded when the page is redirected (redirect)
+### After Ant Design Pro upgrades from 1.X to 2.X and after version, page layout components (such as BasicLayout) are reloaded when the page is redirected (redirect)
 
 Add `disableRedirectHoist: true` in config.js configuration:
 
