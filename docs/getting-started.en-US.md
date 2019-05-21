@@ -66,9 +66,11 @@ You will need [yarn](https://yarnpkg.com), [node](http://nodejs.org/) and [git](
 Create a new empty folder as project root. Execute command in the folder:
 ```bash
 yarn create umi
+```
 
 or
 
+```bash
 npm create umi
 ```
 
