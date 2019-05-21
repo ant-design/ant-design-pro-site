@@ -92,13 +92,13 @@ We have provided a scaffold which includes common routes for admins and demonstr
 
 ```bash
 ├── config                   # umi config, include routes and webpack etc.
-├── e2e                      # Integrated Test Case
 ├── mock                     # Local Mock Data
 ├── public
 │   └── favicon.png          # Favicon
 ├── src
 │   ├── assets               # Local static files
 │   ├── components           # Components
+│   ├── e2e                  # Integrated Test Case
 │   ├── layouts              # Common Layouts
 │   ├── models               # Global dva Model
 │   ├── pages                # Sub-pages and templates
