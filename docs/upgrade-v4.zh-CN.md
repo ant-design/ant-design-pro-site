@@ -10,7 +10,7 @@ Ant Design Pro 4.0 兼容了 2.0 的所有特性，从 2.0 升级到 4.0 不需�
 
 ## 可选更新
 
-在 Ant Design Pro 4.0 中，我们将 Layout 抽离成了单独的组件。你可以选择将其替换成最新的组件。
+在 Ant Design Pro 4.0 中，我们将 Layout 抽离成了[单独的组件](https://github.com/ant-design/ant-design-pro-layout)。你可以选择将其替换成最新的组件。
 
 ### 安装依赖
 

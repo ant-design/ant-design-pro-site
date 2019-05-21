@@ -10,7 +10,7 @@ We keep the best compatibility. There is nothing **must** to do with the upgrade
 
 ## Optional Upgrade
 
-We move Layout into single component in Ant Design 4.0.
+We move Layout into [single component](https://github.com/ant-design/ant-design-pro-layout) in Ant Design 4.0.
 You can consider to replace Layout with latest Layout component.
 
 ### Install Dependencies
