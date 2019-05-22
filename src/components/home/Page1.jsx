@@ -113,7 +113,7 @@ const featuresEN = [
   },
   {
     title: 'International',
-    content: 'Built-in i18n solution (Comming soon)',
+    content: 'Built-in i18n solution',
     src: 'https://gw.alipayobjects.com/zos/rmsportal/JsixxWSViARJnQbAAPkI.svg',
     color: '#722ED1',
     shadowColor: 'rgba(114,46,209,.12)',
