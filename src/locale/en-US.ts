@@ -30,6 +30,8 @@ export default {
     'app.home.start': 'Getting Started',
     'app.home.download': 'Download',
     'app.home.letspro': 'Run commands below, explore it!',
+    'app.home.selectpro': 'Select Ant Design Pro',
+    'app.home.selectlanguage': 'Select language you use',
     'app.home.openbrowser': 'open browser and visit',
     'app.home.needhelp':
       "Need help? You can see {docs} and {faq} first, and {ask} in GitHub if they don't help.",

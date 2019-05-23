@@ -30,6 +30,8 @@ export default {
     'app.home.start': '开始使用',
     'app.home.download': '下载',
     'app.home.letspro': '命令行运行下列命令，快速启动开发服务：',
+    'app.home.selectpro': '选择 Ant Design Pro',
+    'app.home.selectlanguage': '选择你使用的语言',
     'app.home.openbrowser': '打开浏览器访问',
     'app.home.needhelp':
       '需要帮助？请先阅读 {docs} 和 {faq}， 如果未能解决，可以到 GitHub 上 {ask}。',
