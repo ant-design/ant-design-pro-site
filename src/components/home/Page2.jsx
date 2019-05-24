@@ -58,9 +58,9 @@ function Page2({ location }) {
               {/* Start */}
               <br />
               <div>$ cd my-app</div>
-              <div>$ npm install</div>
+              <div>$ yarn</div>
               <div>
-                $ npm start{' '}
+                $ yarn start{' '}
                 <span className="home-code-comment">
                   {'#'} <FormattedMessage id="app.home.openbrowser" /> http://localhost:8000
                 </span>
