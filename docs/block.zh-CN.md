@@ -21,6 +21,8 @@ umi block add [block url]
 
 在我们的[预览网站](https://preview.pro.ant.design)中，你可以通过点击右下角的“添加到项目中”获取对应页面的命令内容。
 
+![block sample](https://user-images.githubusercontent.com/5378891/58394196-98d26e00-8074-11e9-87c7-c527cf87545d.png)
+
 ## 添加到路由
 
 默认情况下，添加的区块路由为 `/[区块名]`。如果希望添加到对应路径上，可以使用 `--path` 参数指定路由：
