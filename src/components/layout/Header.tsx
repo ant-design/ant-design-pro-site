@@ -281,14 +281,13 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   </a>
                 </div>
                 <Select
-                  defaultValue="stable"
                   size="small"
                   onChange={this.onVersionChange}
-                  value="stable"
+                  value="v4"
                 >
-                  <Option value="v1">1.x</Option>
-                  <Option value="v2">2.x</Option>
-                  <Option value="stable">stable</Option>
+                  <Option value="v1">v1</Option>
+                  <Option value="v2">v2</Option>
+                  <Option value="stable">v4</Option>
                 </Select>
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
