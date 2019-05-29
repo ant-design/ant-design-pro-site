@@ -1,7 +1,7 @@
 ---
 order: 22
 title: 常见问题
-type: 其他
+type: 入门
 ---
 
 提问之前，请先查阅下面的常见问题。
@@ -216,7 +216,7 @@ pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-lo
 
 English Documentation will be translated in next couple of monthes， trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) 和 [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) 了解更多细节。
 
-### Ant Design Pro 从 1.X 升级到 2.X 后，页面进行重定向（redirect）时，页面布局组件（如 BasicLayout）会重新加载
+### Ant Design Pro 从 1.X 升级到 2.X 以及之后版本，页面进行重定向（redirect）时，页面布局组件（如 BasicLayout）会重新加载
 
 在 config.js 中添加 `disableRedirectHoist: true` 配置：
 

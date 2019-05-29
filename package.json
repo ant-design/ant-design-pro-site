@@ -11,9 +11,9 @@
   "scripts": {
     "authors": "rm AUTHORS.yaml && git log --format='- %aN : <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'wasd2144@hotmail.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' | uniq  > AUTHORS.yaml",
     "build": "gatsby build",
-    "clean": "rm -rf node_modules && cd ./scaffold && rm -rf node_modules",
     "components-build": "node ./tool/bin/let -c && cd ./config/components",
     "components-publish": "node ./tool/bin/let -c && cd ./config/components && npm publish",
+    "dev": "rm -rf .cache && gatsby develop",
     "gh-pages": "cp  CNAME ./public/ && gh-pages -d public",
     "lint": "npm run lint:es && npm run lint:style && npm run lint:demo",
     "lint-staged": "lint-staged",
@@ -40,6 +40,9 @@
     "**/*.{js,jsx}": "npm run lint-staged:js"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/react-document-title": "^2.0.3",
+    "@types/react-intl": "^2.3.17",
     "ant-design-pro": "latest",
     "antd": "latest",
     "axios": "^0.18.0",
@@ -48,8 +51,11 @@
     "core-js": "^2.6.5",
     "docsearch.js": "^2.6.3",
     "gatsby-plugin-google-analytics": "^2.0.20",
+    "gatsby-plugin-sitemap": "^2.1.0",
+    "himalaya": "^1.1.0",
     "lodash-decorators": "^6.0.0",
     "lz-string": "^1.4.4",
+    "node-fetch": "^2.5.0",
     "react-copy-to-clipboard": "^5.0.0",
     "react-document-title": "^2.0.3",
     "react-github-button": "^0.1.11",
@@ -78,7 +84,6 @@
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-react": "^7.0.1",
     "eslint-tinker": "^0.5.0",
-    "extract-text-webpack-plugin": "^3.0.0",
     "fs-extra": "^7.0.0",
     "gatsby": "^2.2.7",
     "gatsby-plugin-antd": "^2.0.2",
@@ -89,6 +94,7 @@
     "gatsby-plugin-netlify": "^2.0.0",
     "gatsby-plugin-offline": "^2.0.16",
     "gatsby-plugin-react-helmet": "^3.0.2",
+    "gatsby-plugin-typescript": "^2.0.13",
     "gatsby-remark-copy-linked-files": "^2.0.0",
     "gatsby-remark-embed-snippet": "^3.0.0",
     "gatsby-remark-prismjs": "^3.0.2",
@@ -103,7 +109,6 @@
     "mdast-util-to-string": "^1.0.5",
     "npm-run-all": "^4.0.2",
     "nprogress": "^0.2.0",
-    "optimize-css-assets-webpack-plugin": "5.0.0",
     "parallelshell": "^3.0.1",
     "pre-commit": "^1.2.2",
     "prettier": "^1.14.0",
@@ -118,8 +123,7 @@
     "style-loader": "^0.21.0",
     "stylelint": "^9.4.0",
     "stylelint-config-prettier": "^3.3.0",
-    "stylelint-config-standard": "^18.2.0",
-    "webpack": "3.12.0"
+    "stylelint-config-standard": "^18.2.0"
   },
   "title": "Ant Design Pro"
 }

@@ -12,6 +12,7 @@ module.exports = {
         javascriptEnabled: true,
       },
     },
+    `gatsby-plugin-typescript`,
     {
       resolve: 'gatsby-plugin-antd',
       options: {
@@ -28,15 +29,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: '/components',
-        path: `${__dirname}/scaffold/src/components`,
+        name: '/docs',
+        path: `${__dirname}/docs/`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: '/docs',
-        path: `${__dirname}/docs/`,
+        name: '/blog',
+        path: `${__dirname}/blog/`,
       },
     },
     {

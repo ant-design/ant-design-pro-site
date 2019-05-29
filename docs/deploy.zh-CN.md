@@ -1,36 +1,8 @@
 ---
-order: 8
-title: 构建和发布
-type: 入门
+order: 2
+title: 部署
+type: 构建和部署
 ---
-
-## 构建
-
-当项目开发完毕，只需要运行一行命令就可以打包你的应用：
-
-```bash
-$ npm run build
-```
-
-[![asciicast](https://asciinema.org/a/198144.png)](https://asciinema.org/a/198144)
-
-由于 Ant Design Pro 使用的工具 [Umi](https://umijs.org/) 已经将复杂的流程封装完毕，构建打包文件只需要一个命令 `umi build`，构建打包成功之后，会在根目录生成 `dist` 文件夹，里面就是构建打包好的文件，通常是 `*.js`、`*.css`、`index.html` 等静态文件。。
-
-如果需要自定义构建，比如指定 `dist` 目录等，可以通过 `config/config.js` 进行配置，详情参看：[Umi 配置](https://umijs.org/guide/config.html)。
-
-### 分析构建文件体积
-
-如果你的构建文件很大，你可以通过 `analyze` 命令构建并分析依赖模块的体积分布，从而优化你的代码。
-
-```bash
-$ npm run analyze
-```
-
-上面的命令会自动在浏览器打开显示体积分布数据的网页。
-
-## 发布
-
-对于发布来讲，只需要将最终生成的静态文件，也就是通常情况下 `dist` 文件夹的静态文件发布到你的 cdn 或者静态服务器即可，需要注意的是其中的 `index.html` 通常会是你后台服务的入口页面，在确定了 js 和 css 的静态之后可能需要改变页面的引入路径。
 
 ### 前端路由与服务端的结合
 

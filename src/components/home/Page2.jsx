@@ -24,13 +24,43 @@ function Page2({ location }) {
               <FormattedMessage id="app.home.letspro" />
             </p>
             <div key="code1" className="home-code">
+              <div>$ yarn create umi my-app</div>
+
+              {/* Select Pro */}
+              <br />
               <div>
-                $ <span>git clone</span> https://github.com/ant-design/ant-design-pro.git --depth=1
+                {' '}
+                Select the boilerplate type:{' '}
+                <span className="home-code-comment">
+                  <FormattedMessage id="app.home.selectpro" />
+                </span>
               </div>
-              <div>$ cd ant-design-pro</div>
-              <div>$ npm install</div>
               <div>
-                $ npm start{' '}
+                <span className="home-code-selection">❯</span> ant-design-pro{' '}
+              </div>
+
+              {/* Select TypeScript */}
+              <br />
+              <div>
+                {' '}
+                Which language do you want to use?{' '}
+                <span className="home-code-comment">
+                  <FormattedMessage id="app.home.selectlanguage" />
+                </span>
+              </div>
+              <div>
+                <span className="home-code-selection">❯</span> TypeScript
+              </div>
+              <div>
+                <span className="home-code-selection" /> JavaScript
+              </div>
+
+              {/* Start */}
+              <br />
+              <div>$ cd my-app</div>
+              <div>$ yarn</div>
+              <div>
+                $ yarn start{' '}
                 <span className="home-code-comment">
                   {'#'} <FormattedMessage id="app.home.openbrowser" /> http://localhost:8000
                 </span>

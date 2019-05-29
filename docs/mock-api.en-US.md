@@ -1,7 +1,7 @@
 ---
 order: 13
 title: Mock Data
-type: Advanced
+type: Development
 ---
 
 Mocking data is a significant part of web application front end development which is the key of separating front-end and back-end. We can mock Restful API of background service to avoid development block of service side development progress.
