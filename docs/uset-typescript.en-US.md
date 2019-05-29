@@ -20,7 +20,7 @@ Using TypeScript is more friendly to the IDE. If you are developing with vscode,
 
 Pro comes with the configuration files required by TypeScript.
 
-- tsconfig.js
+- tsconfig.json
 - tslint.json
 
 Tsconfig will declare that this is a TypeScript project, which will do some configuration, the details can be seen [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html). Tslint like eslint will check your code. To improve the experience, you can install vscode's tslint plugin. Next, we can start TypeScript development by just creating a new tsx file.
