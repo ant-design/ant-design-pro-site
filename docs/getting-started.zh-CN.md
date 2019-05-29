@@ -64,7 +64,7 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 从 GitHub 仓库中直接安装最新的脚手架代码。
 
 ```bash
-$ git clone --depth=1 https://github.com/ant-design/ant-design-pro.git my-project
+$ git clone --depth=1 https://github.com/ant-design/ant-design-pro.git my-project -b v2
 $ cd my-project
 ```
 

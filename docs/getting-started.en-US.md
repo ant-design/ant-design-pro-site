@@ -66,7 +66,7 @@ You will need [node](http://nodejs.org/) and [git](https://git-scm.com/). The pr
 Install our newest scaffold by cloning git repository.
 
 ```bash
-$ git clone --depth=1 https://github.com/ant-design/ant-design-pro.git my-project
+$ git clone --depth=1 https://github.com/ant-design/ant-design-pro.git my-project -b v2
 $ cd my-project
 ```
 
@@ -110,8 +110,7 @@ $ npm start
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/uHAzKpIQDMGdmjIxZLOV.png" width="700" />
 
-This will automatically open [http://localhost:8000](http://localhost:8000). If you see the following page then you have succeeded.
-<img src="https://gw.alipayobjects.com/zos/rmsportal/PVmvmxKUsAryuFbGqUmV.png" width="700" alt="Screenshot" />
+This will automatically open [http://localhost:8000](http://localhost:8000). If you see the following page then you have succeeded. <img src="https://gw.alipayobjects.com/zos/rmsportal/PVmvmxKUsAryuFbGqUmV.png" width="700" alt="Screenshot" />
 
 You're all set!
 
