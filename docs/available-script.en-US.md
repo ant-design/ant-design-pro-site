@@ -1,12 +1,12 @@
 ---
 order: 3
-title: available script
+title: Available Scripts
 type: Introduction
 ---
 
 n the project, you can run these commands:
 
-### `npm run start`
+### `npm start`
 
 Running this script will start the service and automatically open the default browser to display your page. When you re-edit the code, the page will automatically refresh.
 
@@ -32,7 +32,7 @@ We have provided a series of lint scripts, including TypeScript, less, css, md f
 
 This script will automatically fix some lint errors. If you are ruined by lint, try it.
 
-### `npm run test`
+### `npm test`
 
 This script will perform a series of tests, including e2e testing. For details, see [test](/doc/ui-test).
 
