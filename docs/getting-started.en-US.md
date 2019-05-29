@@ -39,6 +39,10 @@ With those objectives in mind, we have built the following templates and a scaff
 - Account
   - Account Center
   - Account Settings
+- Graphic Editor
+  - Flow Editor
+  - Mind Editor
+  - Koni Editor
 - User
   - Login
   - Register
@@ -64,6 +68,7 @@ You will need [yarn](https://yarnpkg.com), [node](http://nodejs.org/) and [git](
 ## Installation
 
 Create a new empty folder as project root. Execute command in the folder:
+
 ```bash
 yarn create umi
 ```
@@ -75,6 +80,7 @@ npm create umi
 ```
 
 Choose `ant-design-pro`：
+
 ```bash
  Select the boilerplate type (Use arrow keys)
 ❯ ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block.
@@ -126,8 +132,7 @@ $ npm start
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/uHAzKpIQDMGdmjIxZLOV.png" width="700" />
 
-This will automatically open [http://localhost:8000](http://localhost:8000). If you see the following page then you have succeeded.
-<img src="https://user-images.githubusercontent.com/5378891/58090083-0b68c700-7bf9-11e9-8f52-d55ab2ebaab5.png" width="700" alt="Screenshot" />
+This will automatically open [http://localhost:8000](http://localhost:8000). If you see the following page then you have succeeded. <img src="https://user-images.githubusercontent.com/5378891/58090083-0b68c700-7bf9-11e9-8f52-d55ab2ebaab5.png" width="700" alt="Screenshot" />
 
 You're all set!
 

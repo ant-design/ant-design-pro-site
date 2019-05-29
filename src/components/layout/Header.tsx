@@ -177,7 +177,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       window.open('https://v1.pro.ant.design/');
     }
     if (value === 'v2') {
-      window.open('https://v2.pro.ant.design/');
+      window.open('https://v2-pro.ant.design/');
     }
   };
   render() {
@@ -280,11 +280,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     </Button>
                   </a>
                 </div>
-                <Select
-                  size="small"
-                  onChange={this.onVersionChange}
-                  value="v4"
-                >
+                <Select size="small" onChange={this.onVersionChange} value="v4">
                   <Option value="v1">v1</Option>
                   <Option value="v2">v2</Option>
                   <Option value="stable">v4</Option>
