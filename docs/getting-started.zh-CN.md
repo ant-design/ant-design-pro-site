@@ -37,6 +37,10 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 - 个人页
   - 个人中心
   - 个人设置
+- 图形编辑器
+  - 流程图编辑器
+  - 脑图编辑器
+  - 拓扑编辑器
 - 帐户
   - 登录
   - 注册
@@ -62,6 +66,7 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 ## 安装
 
 新建一个空的文件夹作为项目目录，并在目录下执行：
+
 ```bash
 yarn create umi
 ```
@@ -73,6 +78,7 @@ npm create umi
 ```
 
 选择 `ant-design-pro`：
+
 ```bash
  Select the boilerplate type (Use arrow keys)
 ❯ ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block.
