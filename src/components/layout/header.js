@@ -241,7 +241,7 @@ class Header extends React.Component {
                 <a
                   id="preview-button"
                   target="_blank"
-                  href="http://preview.pro.ant.design"
+                  href="https://v2-preview-ant-design-pro.netlify.com"
                   rel="noopener noreferrer"
                 >
                   <Button icon="eye-o">
