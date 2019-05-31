@@ -280,7 +280,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     </Button>
                   </a>
                 </div>
-                <Select size="small" onChange={this.onVersionChange} value="v4">
+                <Select size="small" onChange={this.onVersionChange} value="stable">
                   <Option value="v1">v1</Option>
                   <Option value="v2">v2</Option>
                   <Option value="stable">v4</Option>
