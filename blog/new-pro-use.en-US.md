@@ -1,6 +1,6 @@
 ---
 order: 1
-title: Pro-layout
+title: Layout component of Ant Design Pro
 type: Blog
 time: 2019-05-08
 ---
