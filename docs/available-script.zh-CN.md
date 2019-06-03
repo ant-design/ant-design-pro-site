@@ -26,7 +26,7 @@ analyze 脚本做的事情与 build 的相同，但是他会打开一个页面�
 
 ### `npm run lint`
 
-我们提供了已系列的 lint 脚本，包括 TypeScript，less，css，md 文件。你可以通过这个脚本来查看你的代码有哪些问题。在 commit 中我们自动运行相关 lint。
+我们提供了一系列的 lint 脚本，包括 TypeScript，less，css，md 文件。你可以通过这个脚本来查看你的代码有哪些问题。在 commit 中我们自动运行相关 lint。
 
 ### `npm run lint:fix`
 
