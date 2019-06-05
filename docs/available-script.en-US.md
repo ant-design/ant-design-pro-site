@@ -4,7 +4,7 @@ title: Available Scripts
 type: Introduction
 ---
 
-n the project, you can run these commands:
+In the project, you can run these commands:
 
 ### `npm start`
 
