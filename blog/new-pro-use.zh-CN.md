@@ -1,6 +1,6 @@
 ---
 order: 1
-title: Layout component of Ant Design Pro
+title: Ant Design Pro 的 Layout 组件
 type: Blog
 time: 2019-05-08
 ---
