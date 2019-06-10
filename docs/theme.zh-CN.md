@@ -8,7 +8,7 @@ type: 进阶
 
 ## 主题定制
 
-我们基于 Ant Design React 进行开发，完全支持官方提供的 less 变量定制功能. 你可以在脚手架目录中找到 `config/config.js` 代码类似这样:
+我们基于 Ant Design React 进行开发，完全支持官方提供的 less 变量定制功能. 你可以在脚手架目录中找到 `config/config.ts` 代码类似这样:
 
 ```js
 ...
@@ -72,9 +72,9 @@ pro 中提供了一个可以在线切换主题和布局的 设置抽屉，使用
 
 > 由于 react-router 的特性，地址栏的参数可能被清空。
 
-您一旦确定了这个配置，可以点击 拷贝代码 按钮将其拷贝，并在 `src/defaultSetting.js` 中覆盖默认设置。这样您可以将该主题发布和部署。
+您一旦确定了这个配置，可以点击 拷贝代码 按钮将其拷贝，并在 `src/defaultSetting.ts` 中覆盖默认设置。这样您可以将该主题发布和部署。
 
-[`src/defaultSetting.js`](https://github.com/ant-design/ant-design-pro/blob/master/src/defaultSettings.js) 内容如下：
+[`src/defaultSetting.ts`](https://github.com/ant-design/ant-design-pro/blob/master/src/defaultSettings.ts) 内容如下：
 
 ```js
 module.exports = {
@@ -88,4 +88,4 @@ module.exports = {
 };
 ```
 
-> 在线修改颜色使用的是 less 在线编译，建议在 [`config/config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/config.js) 中配置，提升用户体验。在线编译 less 需要时间，并且会造成卡顿。
+> 在线修改颜色使用的是 less 在线编译，建议在 [`config/config.ts`](https://github.com/ant-design/ant-design-pro/blob/master/config/config.ts) 中配置，提升用户体验。在线编译 less 需要时间，并且会造成卡顿。

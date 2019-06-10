@@ -6,7 +6,6 @@ type: Introduction
 
 Before you ask a question, please check the following FAQ.
 
-
 ### What is the difference between Ant Design React and Ant Design Pro?
 
 It can be understood that Ant Design React is a set of React component libraries, and Pro is a complete front-end scaffolding using this set of component libraries.
@@ -58,11 +57,11 @@ Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design
 ]
 ```
 
-> Note that path must be defined in routre.config.js.(All you need in Conventional Routing is the correct page.)
+> Note that path must be defined in config.ts. (All you need in Conventional Routing is the correct page.)
 
 ### How to use Conventional Routing?
 
-Sometimes you may not want to use `config/router.config.js`. Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
+Sometimes you may not want to use `config/config.ts`. Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
 
 Specific how to use convention routing in pro, you can see this [commit](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7).
 
@@ -124,11 +123,11 @@ Modify the request address in the project,such as `http://localhost:8001/api/use
 
 > Note: If there is no global installation, but only in the project, add the umi-server command to the script of package.json.
 
-> Note: Proxy is not valid after build. Do not configure request `http://localhost:8001/api/users` in proxy,when http requests, access the address directly.For example, add a request prefix uniformly in `src/utils/request.js`.
+> Note: Proxy is not valid after build. Do not configure request `http://localhost:8001/api/users` in proxy,when http requests, access the address directly.For example, add a request prefix uniformly in `src/utils/request.ts`.
 
 ### How to close page permission control
 
-Configurable routing,remove `Routes: ['src/pages/Authorized']` configurations in `config/router.config.js`.
+Configurable routing,remove `Routes: ['src/pages/Authorized']` configurations in `config/config.ts`.
 
 ```diff
 {
@@ -216,7 +215,7 @@ English Documentation will be translated in next couple of monthes, trace [ant-d
 
 ### After Ant Design Pro upgrades from 1.X to 2.X and after version, page layout components (such as BasicLayout) are reloaded when the page is redirected (redirect)
 
-Add `disableRedirectHoist: true` in config.js configuration:
+Add `disableRedirectHoist: true` in config.ts configuration:
 
 ```diff
 export default {

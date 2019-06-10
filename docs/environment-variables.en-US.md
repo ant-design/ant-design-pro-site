@@ -8,7 +8,7 @@ There are often requirements in development, depending on the environment, such 
 
 ## Used in config
 
-In Pro's [config](https://github.com/ant-design/ant-design-pro/blob/fbeb545a0fd050e701924cba4b8889398e474525/config/config.js#L53) there is an environment variable to confirm whether you want to join Google Analytics. Statistical code. If it's a site deployment of Pro, add the statistics for Google Analytics. If it is a user, this feature will be turned off by default.
+In Pro's [config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts#L65) there is an environment variable to confirm whether you want to join Google Analytics. Statistical code. If it's a site deployment of Pro, add the statistics for Google Analytics. If it is a user, this feature will be turned off by default.
 
 ```js
 const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION } = process.env;
@@ -29,7 +29,7 @@ if (ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
 
 ## Used in src code
 
-[config](https://github.com/ant-design/ant-design-pro/blob/fbeb545a0fd050e701924cba4b8889398e474525/config/config.js) is a node environment, so you can get it directly with `process.env` Environment variables, but in the js code, you can only use `process.env` to get `NODE_ENV` which is a convention variable. Other variables webpack will not automatically inject for you.
+[config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) is a node environment, so you can get it directly with `process.env` Environment variables, but in the js code, you can only use `process.env` to get `NODE_ENV` which is a convention variable. Other variables webpack will not automatically inject for you.
 
 > For `process.env` and `NODE_ENV` see [here](https://webpack.js.org/configuration/mode/#usagee).
 
@@ -47,7 +47,7 @@ export default {
 };
 ```
 
-Use only the following settings, the specific code to see [here](https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/utils/authority.ts#L17).
+Use only the following settings, the specific code to see [here](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/utils/authority.ts#L17).
 
 ```js
 if (!authority && ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
@@ -75,7 +75,7 @@ Errors can be handled in eslint by adding [`globals`](https://eslint.org/docs/us
 }
 ```
 
-The TypeScript can be defined in [`typings.d.ts`](https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/typings.d.ts#L18):
+The TypeScript can be defined in [`typings.d.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/typings.d.ts#L18):
 
 ```ts
 declare var ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: string;

@@ -8,7 +8,7 @@ type: 构建和部署
 
 ## config 中使用
 
-在 Pro 的[config](https://github.com/ant-design/ant-design-pro/blob/fbeb545a0fd050e701924cba4b8889398e474525/config/config.js#L53) 中有根据环境变量来确认是否要加入 Google Analytics 的统计代码。如果是 Pro 的 site 部署就加入 Google Analytics 的统计。如果是用户就会默认的关闭掉这个功能。
+在 Pro 的[config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts#L65) 中有根据环境变量来确认是否要加入 Google Analytics 的统计代码。如果是 Pro 的 site 部署就加入 Google Analytics 的统计。如果是用户就会默认的关闭掉这个功能。
 
 ```js
 const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION } = process.env;
@@ -30,11 +30,11 @@ if (ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
 
 ## 处理在 lint 中的报错
 
-[config](https://github.com/ant-design/ant-design-pro/blob/fbeb545a0fd050e701924cba4b8889398e474525/config/config.js) 是 node 环境，所以可以直接用 `process.env` 的来直接拿到环境变量，但是在 js 的代码中,您使用 `process.env`可能只会获得 `NODE_ENV`这个在约定俗称的变量，别的变量 webpack 并不会自动帮你注入。
+[config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是 node 环境，所以可以直接用 `process.env` 的来直接拿到环境变量，但是在 js 的代码中,您使用 `process.env`可能只会获得 `NODE_ENV`这个在约定俗称的变量，别的变量 webpack 并不会自动帮你注入。
 
 > 关于 `process.env` 和 `NODE_ENV` 看[这里](https://webpack.docschina.org/guides/production/#%E6%8C%87%E5%AE%9A-mode)。
 
-这时候我们就需要使用 [`define`](https://umijs.org/zh/config/#define),他是根据[`define-plugin`](https://webpack.docschina.org/plugins/define-plugin/),在 Pro 中我们也是用了这个特性,在 [`config`](https://github.com/ant-design/ant-design-pro/blob/fbeb545a0fd050e701924cba4b8889398e474525/config/config.js#L65) 中将 node 的环境变量注入 define 配置中
+这时候我们就需要使用 [`define`](https://umijs.org/zh/config/#define),他是根据[`define-plugin`](https://webpack.docschina.org/plugins/define-plugin/),在 Pro 中我们也是用了这个特性,在 [`config`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts#L65) 中将 node 的环境变量注入 define 配置中
 
 ```js
 export default {
@@ -49,7 +49,7 @@ export default {
 };
 ```
 
-使用的时候只需要如下设置，具体代码看[这里](https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/utils/authority.ts#L17)。
+使用的时候只需要如下设置，具体代码看[这里](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/utils/authority.ts#L17)。
 
 ```js
 if (!authority && ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
@@ -77,7 +77,7 @@ eslint 中可以通过增加 [`globals`](https://eslint.org/docs/user-guide/conf
 }
 ```
 
-在 TypeScript 可以在[`typings.d.ts`](https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/typings.d.ts#L18) 中进行定义：
+在 TypeScript 可以在[`typings.d.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/typings.d.ts#L18) 中进行定义：
 
 ```ts
 declare var ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: string;

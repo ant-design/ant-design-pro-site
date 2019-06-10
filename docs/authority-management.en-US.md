@@ -9,20 +9,15 @@ type: Advanced
 
 Authority Management control is one of the common requirements in the background system. You can use the permission control components provided by us to implement some basic permission control functions. The scaffold also contains several simple examples to provide reference.
 
-
-## Authorization component Authorized
-
-This is the basis for scaffolding rights management. The basic idea is to determine whether to display normal rendering content or abnormal content by comparing the current permissions and access permissions. For details, see [Authorized Documentation](/components/Authorized).
-
 ## Applications
 
 Through the application of data organization and permission components, the scaffold implements basic rights management. The following briefly introduces the application of several common scenarios.
 
-> The basic encapsulation of the RenderAuthorized function of component export in the scaffold (https://github.com/ant-design/ant-design-pro/blob/master/src/utils/Authorized.js) The permissions (mock data), so when using in the scaffold, do not need to pay attention to the current permissions.
+> The basic encapsulation of the RenderAuthorized function of component export in the [scaffold](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/utils/Authorized.ts) The permissions (mock data), so when using in the scaffold, do not need to pay attention to the current permissions.
 
 ### Menu and router permission
 
-For permission control of certain menus, just go to the router configuration file [router.config.js](https://github.com/ant-design/ant-design-pro/blob/master/src/config/router.config.js). The menu item sets the authority attribute, which represents the access permission of the route. In the route generation file, page components will be wrapped by `Authorized` by default for judgment processing.
+For permission control of certain menus, just go to the router configuration file [config.ts](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts). The menu item sets the authority attribute, which represents the access permission of the route. In the route generation file, page components will be wrapped by `Authorized` by default for judgment processing.
 
 ```js
 {
@@ -57,61 +52,28 @@ Scaffolding uses localstorage to simulate the role of permissions, which may nee
 
 A simple method of refreshing permissions was implemented in the scaffold, and the current permissions were updated at the key nodes such as login/logout.
 
-You can check the call to [reloadAuthorized](https://github.com/ant-design/ant-design-pro/blob/c93b0169a500427ee5fdd3c2977886c86aa3d59a/src/pages/User/models/login.js#L24) in login.js.
+For details, see the definition of [reloadAuthorized](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/utils/Authorized.ts) in `Authorized.ts`.
 
 ### How do I control the access authority(User roles)？
 
-Just gain routerData in [models/menu](https://github.com/ant-design/ant-design-pro/blob/a375bddc60fc48a377c28e6a15613c1cc96b4a94/src/models/menu.js#L111),There are several ways to get it here,Reference from config like pro,request from the server,or import local file. routerData is a json array. Just returns a json of similar format.
+There are several ways to get it here, like pro now passes the value from config, it can also be obtained from the server via http request, and even the local json file can be loaded. routerData is a json array. Just get back to json in a similar format after getting it.
 
 ```js
 routerData: {
-    routes: [
-      // dashboard
-      {
-        path: '/dashboard',
-        authority: ['admin'],
-        routes: [
-          {
-            path: '/dashboard/analysis',
-            authority: ['admin','user'],
-          },
-        ],
-      },
-   ]
+  routes: [
+    // dashboard
+    {
+      path: '/dashboard',
+      authority: ['admin'],
+      routes: [
+        {
+          path: '/dashboard/analysis',
+          authority: ['admin', 'user'],
+        },
+      ],
+    },
+  ];
 }
 ```
 
 > Note that routerData and menuData can use the same data or different data, just pay attention to their necessary attributes.
-
-### How do I control the access authority from the server ？
-
-Runtime configuration files,[src/app](https://umijs.org/zh/guide/app-structure.html#src-app-js), where runtime capabilities can be extended, such as modifying routing, modifying render methods, and so on.
-
-```js
-export function render(oldRender) {
-  if (defaultSettings.runtimeMenu) {
-    fetch('/api/auth_routes')
-      .then(res => res.json())
-      .then(ret => {
-        authRoutes = ret;
-        oldRender();
-      });
-  } else {
-    oldRender();
-  }
-}
-```
-
-Then in the `patchRoutes` method, the routing configuration can be added according to `authRoutes`.
-
-```js
-export function patchRoutes(routes) {
-  if (defaultSettings.runtimeMenu) {
-    const routesRender = renderRoutes(authRoutes); // renderRoutes -- add route authority
-    routes.length = 0; // eslint-disable-line
-    Object.assign(routes, routesRender);
-  }
-}
-```
-
-> Note: Page files cannot be dynamically loaded here. Paths must be defined in router.config.js. (Conventional routing is not required, just the page is real and effective).

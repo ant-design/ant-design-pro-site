@@ -19,16 +19,14 @@ In the style development process, there are two prominent problems:
 
 In order to solve the above problems, our scaffold use CSS Modules as a modular solution. Let us have a look at how to write style in this mode.
 
-```html
-// example.js
+```tsx
+// example.ts
 import styles from './example.less';
-export default ({title}) =>
-<div className="{styles.title}">{title}</div>
-;
+export default ({ title }) => <div className={styles.title}>{title}</div>;
 ```
 
 ```css
-// example.less
+/* example.less */
 .title {
     color: @heading-color;
     font-weight: 600;
@@ -41,7 +39,7 @@ Write style use less file does not seem to change much, but the class name is re
 In the above style file, `.title` will only work in this file, you can use the same selector name in any other file, it will not affect here. But sometimes, we just want a global style which can take effect everywhere? You can use `:global`.
 
 ```css
-// example.less
+ /* example.less */
 .title {
   color: @ heading-color;
   font-weight: 600;
@@ -122,7 +120,7 @@ Files that use for a module or page.
 
 #### Universal module level
 
-For example, `src/layouts/BasicLayout.less`, which contains some basic layout styles, is referenced by `src/layouts/BasicLayout.js`, and the pages that use this layout do not need to care about the overall layout settings anymore. If you need to use other layouts in your project, it is also recommended to put layout-related js and less in `src/layouts`.
+For example, `src/layouts/BasicLayout.less`, which contains some basic layout styles, is referenced by `src/layouts/BasicLayout.ts`, and the pages that use this layout do not need to care about the overall layout settings anymore. If you need to use other layouts in your project, it is also recommended to put layout-related js and less in `src/layouts`.
 
 #### Page level
 
@@ -141,7 +139,7 @@ Because of the special needs of the project, we often meet the need to cover the
 Antd Select In multi-select state, the default will show all the select items, here we add a limit height for display scroll bar when the content beyond this height.
 
 ```js
-// TestPage.js
+// TestPage.ts
 import { Select } from 'antd';
 import styles from './TestPage.less';
 const Option = Select.Option;

@@ -10,7 +10,7 @@ type: 构建和部署
 
 Ant Design Pro 使用的 Umi 支持两种路由方式：`browserHistory` 和 `hashHistory`。
 
-可以在 `config/config.js` 中进行配置选择用哪个方式：
+可以在 `config/config.ts` 中进行配置选择用哪个方式：
 
 ```javascript
 export default {

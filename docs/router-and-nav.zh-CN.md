@@ -4,13 +4,13 @@ title: 路由和菜单
 type: 开发
 ---
 
-路由和菜单是组织起一个应用的关键骨架，pro 中的路由为了方便管理，使用了中心化的方式，在 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 统一配置和管理。
+路由和菜单是组织起一个应用的关键骨架，pro 中的路由为了方便管理，使用了中心化的方式，在 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 统一配置和管理。
 
 ## 基本结构
 
 在这一部分，脚手架通过结合一些配置文件、基本算法及工具函数，搭建好了路由和菜单的基本框架，主要涉及以下几个模块/功能：
 
-- `路由管理` 通过约定的语法根据在 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 中配置路由。
+- `路由管理` 通过约定的语法根据在 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 中配置路由。
 - `菜单生成` 根据路由配置来生成菜单。菜单项名称，嵌套路径与路由高度耦合。
 - `面包屑` 组件 [PageHeader](http://pro.ant.design/components/PageHeader) 中内置的面包屑也可由脚手架提供的配置信息自动生成。
 
@@ -18,23 +18,23 @@ type: 开发
 
 ### 路由
 
-目前脚手架中所有的路由都通过 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 来统一管理，在 umi 的配置中我们增加了一些参数，如 `name`，`icon`，`hideChildrenInMenu`，`authority`，来辅助生成菜单。其中：
+目前脚手架中所有的路由都通过 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 来统一管理，在 umi 的配置中我们增加了一些参数，如 `name`，`icon`，`hideChildrenInMenu`，`authority`，来辅助生成菜单。其中：
 
 - `name` 和 `icon`分别代表生成菜单项的文本和图标。
 - `hideChildrenInMenu` 用于隐藏不需要在菜单中展示的子路由。用法可以查看 `分步表单` 的配置。
-- `hideInMenu` 可以在菜单中不展示这个路由，包括子路由。效果可以查看 `exception/trigger`页面。
+- `hideInMenu` 可以在菜单中不展示这个路由，包括子路由。
 - `authority` 用来配置这个路由的权限，如果配置了将会验证当前用户的权限，并决定是否展示。
   > 你可能注意到配置中的 `name` 和菜单实际展示的不同，这是因为我们使用了全球化组件的原因，具体参见 [i18n](/docs/i18n)
 
 ### 菜单
 
-菜单根据 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 生成，具体逻辑在 `src/models/menu.js` 中的 `formatter` 方法实现。
+菜单根据 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 生成。
 
-> 如果你的项目并不需要菜单，你可以直接在 `BasicLayout` 中删除 `SiderMenu` 组件的挂载。并在 [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227) 中设置 `const MenuData = []`。
+> 如果你的项目并不需要菜单，你可以在 [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.tsx#L116) 中设置 `menuRender={false}`，
 
 ### 从服务器请求菜单
 
-只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111) 中发起 http 请求，menuData 是一个 json 数组。只需服务器返回类似格式的 json 即可。
+只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.ts#L111) 中发起 http 请求，menuData 是一个 json 数组。只需服务器返回类似格式的 json 即可。
 
 ```js
 [
@@ -64,7 +64,7 @@ type: 开发
 ]
 ```
 
-> 注意 path 必须要在 router.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）
+> 注意 path 必须要在 config.ts 中定义。（约定式路由不需要，只需页面真实有效即可）
 
 ### 面包屑
 
@@ -127,7 +127,7 @@ type: 开发
 
 ### 新增布局
 
-在脚手架中我们通过嵌套路由来实现布局模板。[`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以再直接增加一个新的一级数据。
+在脚手架中我们通过嵌套路由来实现布局模板。[`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以再直接增加一个新的一级数据。
 
 ```js
 module.exports = [
@@ -155,9 +155,7 @@ module.exports = [
 
 ### 在菜单中使用自定义的 icon
 
-由于 umi 的限制，在 [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) 是不能直接只是用组件的，Pro 中暂时支持 使用 [`ant.design`](https://ant.design/components/icon-cn/) 本身的 icon type，和传入一个 img 的 url。只需要直接在 icon 属性上配置即可，如果是个 url，Pro 会自动处理为一个 img 标签。
-
-如果这样还不能满足需求，可以自定义 [`getIcon`](https://github.com/ant-design/ant-design-pro/blob/master/src/components/SiderMenu/BaseMenu.js#L18) 方法。
+由于 umi 的限制，在 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是不能直接只是用组件的，Pro 中暂时支持 使用 [`ant.design`](https://ant.design/components/icon-cn/) 本身的 icon type，和传入一个 img 的 url。只需要直接在 icon 属性上配置即可，如果是个 url，Pro 会自动处理为一个 img 标签。
 
 > 如果你想使用 iconfont 的图标，你可以使用[ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%)的自定义图标.
 

@@ -62,7 +62,7 @@ In a single-page application, the most common requirement is to handle network e
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/cVTaurnfguplvNbctgBN.png" width="400" />
 
-Ant Design Pro encapsulates a powerful `request.js` unified processing request, providing default error handling and hints.
+Ant Design Pro encapsulates a powerful `request.ts` unified processing request, providing default error handling and hints.
 
 ```js
 const checkStatus = response => {
@@ -81,7 +81,7 @@ const checkStatus = response => {
 };
 ```
 
-In order to facilitate the display of 404 and other pages, we encapsulate the logic in the `request.js` to jump to the corresponding page according to the state. It is recommended to delete this logic in the online environment. The code is as follows:
+In order to facilitate the display of 404 and other pages, we encapsulate the logic in the `request.ts` to jump to the corresponding page according to the state. It is recommended to delete this logic in the online environment. The code is as follows:
 
 ```js
     .catch(e => {
@@ -109,4 +109,4 @@ In order to facilitate the display of 404 and other pages, we encapsulate the lo
     });
 ```
 
-The complete code can refer to: https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js
+The complete code can refer to: https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/utils/request.ts

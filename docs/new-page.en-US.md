@@ -17,14 +17,14 @@ config
 src
   models
   pages
-+   NewPage.js
++   NewPage.ts
 +   NewPage.less
   ...
 ...
 package.json
 ```
 
-For better Demonstration, we initialize the contents of `NewPage.js` as follows:
+For better Demonstration, we initialize the contents of `NewPage.ts` as follows:
 
 ```jsx
 export default () => {
@@ -44,7 +44,7 @@ This makes it easy to get antd style variables and use them in your files, which
 
 ## Second, add the files into menus,routes
 
-Because Ant Design Pro uses the configuration route of umi, you need to add the corresponding routing information in the configuration file `config/router.config.js`:
+Because Ant Design Pro uses the configuration route of umi, you need to add the corresponding routing information in the configuration file `config/config.ts`:
 
 ```diff
 ...
@@ -63,12 +63,12 @@ Because Ant Design Pro uses the configuration route of umi, you need to add the 
 ...
 ```
 
-Where `icon` and `name` are the required configuration in the menu component, and `config/router.config.js` is also read in the menu component to add the relevant logic.
+Where `icon` and `name` are the required configuration in the menu component, and `config/config.ts` is also read in the menu component to add the relevant logic.
 
-We implemented internationalization in Ant Design Pro 2.0, so you also need to add the relevant copy in `src/locales/zh-CN.js` and `src/locales/en-US`:
+We implemented internationalization in Ant Design Pro 2.0, so you also need to add the relevant copy in `src/locales/zh-CN.ts` and `src/locales/en-US`:
 
 ```diff
-// zh-CN.js
+// zh-CN.ts
 export default {
   'navbar.lang': 'English',
 + 'menu.new': '新页面',
@@ -77,7 +77,7 @@ export default {
 ```
 
 ```diff
-// en-US.js
+// en-US.ts
 export default {
   'navbar.lang': '中文',
 + 'menu.new': 'New Page',
@@ -93,4 +93,4 @@ See the introduction in [Router and Nav](/docs/router-and-nav) for more details 
 
 ## Third, add model,service
 
-After the layout and routes are configured, go back to the newly created `NewPage.js` and start writing business codes! If you need to use the data flow in [dva](https://github.com/dvajs/dva/), you also need to set the corresponding model and service in `src/models` and `src/services`. Refer to the writing of the built-in page of the scaffold for details.
+After the layout and routes are configured, go back to the newly created `NewPage.ts` and start writing business codes! If you need to use the data flow in [dva](https://github.com/dvajs/dva/), you also need to set the corresponding model and service in `src/models` and `src/services`. Refer to the writing of the built-in page of the scaffold for details.

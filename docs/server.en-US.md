@@ -13,26 +13,26 @@ In Ant Design Pro, a complete front-end UI interaction to the server-side proces
 1. UI component interaction;
 2. Call the effect of model;
 3. Call the unified management service request function;
-4. Send the request using the encapsulated request.js;
+4. Send the request using the encapsulated request.ts;
 5. Get the server response;
 6. Then call reducer to change state;
 7. Update the model.
 
 As can be seen from the above process, in order to facilitate management and maintenance, unified request processing is placed in the `services` folder, and the files are generally split according to the model dimension, such as:
 
-```
+```text
 services/
-  user.js
-  api.js
+  user.ts
+  api.ts
   ...
 ```
 
-Among them, `utils/request.js` is based on [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), which is convenient for handling POST, GET and other parameters, headers, and error messages. See [request.js](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js) for details.
+Among them, `utils/request.ts` is based on [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), which is convenient for handling POST, GET and other parameters, headers, and error messages. See [request.ts](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.ts) for details.
 
 For example, an example of requesting user information in services:
 
-```
-// services/user.js
+```ts
+// services/user.ts
 import request from '../utils/request';
 
 export async function query() {
@@ -43,7 +43,7 @@ export async function queryCurrent() {
   return request('/api/currentUser');
 }
 
-// models/user.js
+// models/user.ts
 import { queryCurrent } from '../services/user';
 ...
 effects: {

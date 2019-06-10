@@ -21,7 +21,7 @@ We abstract common layouts in Ant Design Pro, and put them in `/layouts`, includ
 
 ### Usage
 
-To manage mappings between routes and pages, we could configure `config/router.config.js` as follows:
+To manage mappings between routes and pages, we could configure `config/config.ts` as follows:
 
 ```jsx
 module.exports = [
@@ -46,7 +46,7 @@ module.exports = [
 ];
 ```
 
-See [router.js](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) for more details.
+See [config.ts](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) for more details.
 
 And more router config could be found in：[Umi router](https://umijs.org/guide/router.html#%E9%85%8D%E7%BD%AE%E5%BC%8F%E8%B7%AF%E7%94%B1)。
 
@@ -65,7 +65,7 @@ We extend some configuration for Ant Design Pro's nav menu and authority.
 }
 ```
 
-- `name`: display name in menu and breadcrumb. Note that it is the key of locales data, you can change display text in [/src/locales/en-US.js](https://github.com/ant-design/ant-design-pro/blob/v2/src/locales/en-US.js).
+- `name`: display name in menu and breadcrumb. Note that it is the key of locales data, you can change display text in [/src/locales/en-US.ts](https://github.com/ant-design/ant-design-pro/blob/v2/src/locales/en-US.ts).
 - `icon`: icon type of menu item.
 - `hideInMenu`: whether hide itself in menu, default `false`。
 - `hideChildrenInMenu`: whether hide it's children in menu, default `false`.
@@ -88,7 +88,7 @@ If you need more structured layout components, then [Layout](http://ant.design/c
 
 ## Building layout components for specific use cases.
 
-Under most cases, we will build more specific components from the above ones, that includes navigation, sidebar, notification, titles etc., An example would be [BasicLayout](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js) from Ant Design Pro.
+Under most cases, we will build more specific components from the above ones, that includes navigation, sidebar, notification, titles etc., An example would be [BasicLayout](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/layouts/BasicLayout.tsx) from Ant Design Pro.
 
 We put layout components inside `layouts`, parrallel to `pages` and `components`. It is worth noting that layout components has no fundamental difference from other components, just that it deals with layout.
 
