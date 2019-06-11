@@ -18,21 +18,21 @@ type: 开发
 
 ## 新建文件
 
-在 `src/components` 下新建一个以组件名命名的文件夹，注意首字母大写，命名尽量体现组件的功能，这里就叫 `ImageWrapper`。在此文件夹下新增 js 文件及样式文件（如果需要），命名为 `index.js` 和 `index.less`。
+在 `src/components` 下新建一个以组件名命名的文件夹，注意首字母大写，命名尽量体现组件的功能，这里就叫 `ImageWrapper`。在此文件夹下新增 js 文件及样式文件（如果需要），命名为 `index.ts` 和 `index.less`。
 
-> 在使用组件时，默认会在 `index.js` 中寻找 export 的对象，如果你的组件比较复杂，可以分为多个文件，最后在 `index.js` 中统一 export，就像这样：
+> 在使用组件时，默认会在 `index.ts` 中寻找 export 的对象，如果你的组件比较复杂，可以分为多个文件，最后在 `index.ts` 中统一 export，就像这样：
 
 > ```js
-> // MainComponent.js
+> // MainComponent.ts
 > export default ({ ... }) => (...);
 >
-> // SubComponent1.js
+> // SubComponent1.ts
 > export default ({ ... }) => (...);
 >
-> // SubComponent2.js
+> // SubComponent2.ts
 > export default ({ ... }) => (...);
 >
-> // index.js
+> // index.ts
 > import MainComponent from './MainComponent';
 > import SubComponent1 from './SubComponent1';
 > import SubComponent2 from './SubComponent2';
@@ -47,7 +47,7 @@ type: 开发
 你的代码大概是这个样子：
 
 ```jsx
-// index.js
+// index.ts
 import React from 'react';
 import styles from './index.less';    // 按照 CSS Modules 的方式引入样式文件。
 

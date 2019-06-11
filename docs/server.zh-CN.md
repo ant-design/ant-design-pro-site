@@ -13,7 +13,7 @@ Ant Design Pro 是一套基于 React 技术栈的单页面应用，我们提供�
 1. UI 组件交互操作；
 2. 调用 model 的 effect；
 3. 调用统一管理的 service 请求函数；
-4. 使用封装的 request.js 发送请求；
+4. 使用封装的 request.ts 发送请求；
 5. 获取服务端返回；
 6. 然后调用 reducer 改变 state；
 7. 更新 model。
@@ -22,17 +22,17 @@ Ant Design Pro 是一套基于 React 技术栈的单页面应用，我们提供�
 
 ```
 services/
-  user.js
-  api.js
+  user.ts
+  api.ts
   ...
 ```
 
-其中，`utils/request.js` 是基于 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) 的封装，便于统一处理 POST，GET 等请求参数，请求头，以及错误提示信息等。具体可以参看 [request.js](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js)。
+其中，`utils/request.ts` 是基于 [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) 的封装，便于统一处理 POST，GET 等请求参数，请求头，以及错误提示信息等。具体可以参看 [request.ts](https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.ts)。
 
 例如在 services 中的一个请求用户信息的例子：
 
-```
-// services/user.js
+```ts
+// services/user.ts
 import request from '../utils/request';
 
 export async function query() {
@@ -43,7 +43,7 @@ export async function queryCurrent() {
   return request('/api/currentUser');
 }
 
-// models/user.js
+// models/user.ts
 import { queryCurrent } from '../services/user';
 ...
 effects: {

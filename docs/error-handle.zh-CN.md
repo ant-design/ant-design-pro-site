@@ -62,7 +62,7 @@ type: 进阶
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/cVTaurnfguplvNbctgBN.png" width="400" />
 
-Ant Design Pro 封装了一个强大的 `request.js` 统一处理请求，提供了默认的错误处理以及提示。
+Ant Design Pro 封装了一个强大的 `request.ts` 统一处理请求，提供了默认的错误处理以及提示。
 
 ```js
 const checkStatus = response => {
@@ -81,7 +81,7 @@ const checkStatus = response => {
 };
 ```
 
-为了方便展示 404 等页面，我们在 `request.js` 中封装了根据状态跳转到相应页面的逻辑,建议在线上环境中删除这个逻辑，代码如下：
+为了方便展示 404 等页面，我们在 `request.ts` 中封装了根据状态跳转到相应页面的逻辑,建议在线上环境中删除这个逻辑，代码如下：
 
 ```js
     .catch(e => {
@@ -109,4 +109,4 @@ const checkStatus = response => {
     });
 ```
 
-完整代码可参考：https://github.com/ant-design/ant-design-pro/blob/master/src/utils/request.js
+完整代码可参考：https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/utils/request.ts

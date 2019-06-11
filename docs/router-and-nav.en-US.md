@@ -4,13 +4,13 @@ title: Router and Nav
 type: Development
 ---
 
-Routing and menus are the key skeletons for organizing an application. The routes in pro are centrally managed in a convenient way to manage and manage them in [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js).
+Routing and menus are the key skeletons for organizing an application. The routes in pro are centrally managed in a convenient way to manage and manage them in [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts).
 
 ## Basic Structure
 
 In this part, scaffolding builds the basic framework of routing and menus by combining some configuration files, basic algorithms and tool functions, mainly involving the following modules/functions:
 
-- `Routing Management` Configure the route in [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) according to the agreed syntax.
+- `Routing Management` Configure the route in [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) according to the agreed syntax.
 - `Menu generation` Generates a menu based on the routing configuration. The name of the menu item, the nested path is highly coupled to the route.
 - Breadcrumbs component The breadcrumbs built into [PageHeader](http://pro.ant.design/components/PageHeader) can also be automatically generated from the configuration information provided by the scaffolding.
 
@@ -18,7 +18,7 @@ The following is a brief introduction to the basic ideas of each module. If you 
 
 ### Router
 
-At present, all the routes in the scaffolding are managed by [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js). In the configuration of umi, we add some parameters, such as `name`, `icon`, `hideChildren`, `authority`, to assist the generation. menu. among them:
+At present, all the routes in the scaffolding are managed by [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts). In the configuration of umi, we add some parameters, such as `name`, `icon`, `hideChildren`, `authority`, to assist the generation. menu. among them:
 
 - `name` and `icon` represent the icon and text of the generated menu item, respectively.
 - `hideChildrenInMenu` is used to hide sub-routes that do not need to be displayed in the menu. Usage can view the configuration of the `Step by Step Form`.
@@ -28,9 +28,9 @@ At present, all the routes in the scaffolding are managed by [`router.config.js`
 
 ### Menu
 
-The menu is generated according to [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js), and the concrete logic is implemented in the `formatter` method in [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.js#L227).
+The menu is generated according to [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts).
 
-> If your project does not require a menu, you can remove the mount of the `SiderMenu` component directly in `BasicLayout`. And set `const MenuData = []` in `src/layouts/BasicLayout`.
+> If your project does not require a menu, you can do it at [`src/layouts/BasicLayout`] (https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout `menuRender={false}` in .tsx#L116)
 
 ### request a menu from the server
 
@@ -64,7 +64,7 @@ Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design
 ]
 ```
 
-> Note that path must be defined in routre.config.js.(All you need in Conventional Routing is the correct page.)
+> Note that path must be defined in config.ts.(All you need in Conventional Routing is the correct page.)
 
 ### Bread Crumbs
 
@@ -126,7 +126,7 @@ When added, the relevant routing and navigation will be automatically generated.
 
 ### Add layout
 
-In the scaffolding we implement the layout template by nesting the route. [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) is an array, the first level of which is our layout. If you need to add a new layout, you can directly add a new first-level element in the array.
+In the scaffolding we implement the layout template by nesting the route. [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) is an array, the first level of which is our layout. If you need to add a new layout, you can directly add a new first-level element in the array.
 
 ```js
 module.exports = [
@@ -154,7 +154,7 @@ module.exports = [
 
 ### Use a custom icon in the menu
 
-Due to umi's limitations, the [`router.config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/router.config.js) is not directly With components, Pro temporarily supports the use of [`ant.design`](https://ant.design/components/icon-cn/) its own icon type, and the url of an img. Just configure it directly on the icon property. If it's a url, Pro will automatically process it as an img tag.
+Due to umi's limitations, the [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) is not directly With components, Pro temporarily supports the use of [`ant.design`](https://ant.design/components/icon-cn/) its own icon type, and the url of an img. Just configure it directly on the icon property. If it's a url, Pro will automatically process it as an img tag.
 
 If this does not meet the requirements, you can customize [`getIcon`](https://github.com/ant-design/ant-design-pro/blob/master/src/components/SiderMenu/BaseMenu.js#L18) method.
 

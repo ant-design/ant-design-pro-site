@@ -110,7 +110,7 @@ Ant Design Pro 脚手架将会自动安装。
 │   ├── utils                # 工具库
 │   ├── locales              # 国际化资源
 │   ├── global.less          # 全局样式
-│   └── global.js            # 全局 JS
+│   └── global.ts            # 全局 JS
 ├── tests                    # 测试工具
 ├── README.md
 └── package.json

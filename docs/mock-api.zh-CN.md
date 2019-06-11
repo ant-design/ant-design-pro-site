@@ -50,9 +50,9 @@ export default {
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/OLHIXePGHkkFoaZVQAts.png" width="600" />
 
-### 引入 Mock.js
+### 引入 Mock.ts
 
-[Mock.js](http://mockjs.com/) 是常用的辅助生成模拟数据的第三方库，当然你可以用你喜欢的任意库来结合 umi 构建数据模拟功能。
+[Mock.ts](http://mockjs.com/) 是常用的辅助生成模拟数据的第三方库，当然你可以用你喜欢的任意库来结合 umi 构建数据模拟功能。
 
 ```js
 import mockjs from 'mockjs';
@@ -101,7 +101,7 @@ export default {
 
 ### 使用插件模拟延迟
 
-上面的方法虽然简便，但是当你需要添加所有的请求延迟的时候，可能就麻烦了，不过可以通过第三方插件来简化这个问题，如：[roadhog-api-doc#delay](https://github.com/nikogu/roadhog-api-doc/blob/master/lib/utils.js#L5)。
+上面的方法虽然简便，但是当你需要添加所有的请求延迟的时候，可能就麻烦了，不过可以通过第三方插件来简化这个问题，如：[roadhog-api-doc#delay](https://github.com/nikogu/roadhog-api-doc/blob/master/lib/utils.ts#L5)。
 
 ```js
 import { delay } from 'roadhog-api-doc';

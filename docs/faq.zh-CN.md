@@ -6,7 +6,6 @@ type: 入门
 
 提问之前，请先查阅下面的常见问题。
 
-
 ### Ant Design React 和 Ant Design Pro 有什么区别？
 
 可以理解为 Ant Design React 是一套 React 组件库，而 Pro 是使用了这套组件库的完整前端脚手架。
@@ -58,11 +57,11 @@ type: 入门
 ]
 ```
 
-> 注意 path 必须要在 routre.config.js 中定义。（约定式路由不需要，只需页面真实有效即可）。
+> 注意 path 必须要在 config.ts 中定义。（约定式路由不需要，只需页面真实有效即可）。
 
 ### 如何使用 Umi 约定式路由
 
-有时候你可能不想要使用 config/router.config.js 的配置。那你可以考虑 umi 的[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)。
+有时候你可能不想要使用 config/config.ts 的配置。那你可以考虑 umi 的[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)。
 
 具体的如何在 pro 中使用约定式路由，可以查看这次[提交](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
 
@@ -120,11 +119,11 @@ $ umi-serve
 ]
 ```
 
-> 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面。注意：build 之后 proxy 无效，不要在 proxy 中配置请求`http://localhost:8001/api/users` ，而是要在 http 请求的时候，直接访问该地址。如在 `src/utils/request.js` 中统一添加请求前缀。
+> 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面。注意：build 之后 proxy 无效，不要在 proxy 中配置请求`http://localhost:8001/api/users` ，而是要在 http 请求的时候，直接访问该地址。如在 [`src/utils/request.ts`](https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/utils/request.ts) 中统一添加请求前缀。
 
 ### 如何关闭页面权限控制
 
-配置式路由，删除 `config/router.config.js` 中的 `Routes: ['src/pages/Authorized']` 配置。
+配置式路由，删除 `config/config.ts` 中的 `Routes: ['src/pages/Authorized']` 配置。
 
 ```diff
 {
@@ -188,7 +187,7 @@ Ant Design Pro 内置了 umi，umi 使用了 webpack [devServer](https://webpack
 $ npm i node-sass sass-loader --save
 ```
 
-然后修改 `.umirc.js`或者`config/config.js`:
+然后修改 `.umirc.js`或者`config/config.ts`:
 
 ```json
 {
@@ -218,7 +217,7 @@ English Documentation will be translated in next couple of monthes， trace [ant
 
 ### Ant Design Pro 从 1.X 升级到 2.X 以及之后版本，页面进行重定向（redirect）时，页面布局组件（如 BasicLayout）会重新加载
 
-在 config.js 中添加 `disableRedirectHoist: true` 配置：
+在 config.ts 中添加 `disableRedirectHoist: true` 配置：
 
 ```diff
 export default {

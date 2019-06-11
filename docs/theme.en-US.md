@@ -10,7 +10,7 @@ We built Ant Design Pro based on the Ant Design visual style, which was carefull
 
 We developed based on Ant Design React and fully support the official less variable customization feature:
 
-Find `config/config.js` in the scaffolding directory as follows:
+Find `config/config.ts` in the scaffolding directory as follows:
 
 ```js
 ...
@@ -74,9 +74,9 @@ In order to facilitate preview, the configuration items in the settings will be 
 
 > Due to the nature of the react-router, the parameters of the address bar may be cleared.
 
-Once you have determined this configuration, you can copy it by clicking the Copy Code button and override the default setting in `src/defaultSetting.js`. This way you can publish and deploy on this theme.
+Once you have determined this configuration, you can copy it by clicking the Copy Code button and override the default setting in `src/defaultSetting.ts`. This way you can publish and deploy on this theme.
 
-[`src/defaultSetting.js`](https://github.com/ant-design/ant-design-pro/blob/master/src/defaultSettings.js) The content is as follows:
+[`src/defaultSetting.ts`](https://github.com/ant-design/ant-design-pro/blob/master/src/defaultSettings.ts) The content is as follows:
 
 ```
 module.exports = {
@@ -90,4 +90,4 @@ module.exports = {
 };
 ```
 
-> Modifying the color online is using less online compilation, it is recommended to configure in [`config/config.js`](https://github.com/ant-design/ant-design-pro/blob/master/config/config.js) to improve the user experience. Compiling online less takes time and can cause stuttering.
+> Modifying the color online is using less online compilation, it is recommended to configure in [`config/config.ts`](https://github.com/ant-design/ant-design-pro/blob/master/config/config.ts) to improve the user experience. Compiling online less takes time and can cause stuttering.
