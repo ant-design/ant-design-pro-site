@@ -21,57 +21,11 @@ Ant Design Pro 提供了由设计师精心设计抽象的图表类型，是在 [
 - 图表卡片（ChartCard）
 - 图表字段（Field）
 
-[查看图表组件](https://pro.ant.design/components/charts-cn/)
+[查看图表组件](https://v2-pro.ant.design/components/charts-cn/)
 
 ## 使用 Ant Design Pro 的图表
 
-Charts 图表套件是在 `components/Charts` 包中，引用到项目就像使用其它组件一样：
-
-> 你也可以通过单独使用 pro 的包的方式使用图表组件：[独立使用 Pro 组件](https://pro.ant.design/docs/use-components-alone-cn)
-
-```jsx
-import { ChartCard, MiniBar } from '@/components/Charts';
-import { Tooltip, Icon } from 'antd';
-
-const visitData = [
-  {
-    x: '2017-09-01',
-    y: 100,
-  },
-  {
-    x: '2017-09-02',
-    y: 120,
-  },
-  {
-    x: '2017-09-03',
-    y: 88,
-  },
-  {
-    x: '2017-09-04',
-    y: 65,
-  },
-];
-
-ReactDOM.render(
-  <ChartCard
-    title="支付笔数"
-    action={
-      <Tooltip title="支付笔数反应交易质量">
-        <Icon type="exclamation-circle-o" />
-      </Tooltip>
-    }
-    total="6,500"
-    contentHeight={46}
-  >
-    <MiniBar height={46} data={visitData} />
-  </ChartCard>,
-  mountNode
-);
-```
-
-就可以实现一个最简单的图表组合：
-
-<img width="260" src="https://gw.alipayobjects.com/zos/rmsportal/yzmUFELvhCXXhsIRZOLT.png" />
+v4 中删除了组件库，如果你好要使用可以看 [图表组件](https://v2-pro.ant.design/components/charts-cn/)
 
 ## 使用 BizCharts 绘制图表
 

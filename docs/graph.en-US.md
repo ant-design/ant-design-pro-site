@@ -21,57 +21,11 @@ Currently chart components have 10 type of charts and 2 type of chart suites:
 - ChartCard
 - Field
 
-[View chart components doc](https://pro.ant.design/components/charts/)
+[View chart components doc](https://v2-pro.ant.design/components/charts/)
 
 ## Use Chart Components
 
-Chart components are included in `components/Charts`. Just use then as other components:
-
-> You can also import then as pro module: [Use components alone](https://pro.ant.design/docs/use-components-alone)
-
-```jsx
-import { ChartCard, MiniBar } from '@/components/Charts';
-import { Tooltip, Icon } from 'antd';
-
-const visitData = [
-  {
-    x: '2017-09-01',
-    y: 100,
-  },
-  {
-    x: '2017-09-02',
-    y: 120,
-  },
-  {
-    x: '2017-09-03',
-    y: 88,
-  },
-  {
-    x: '2017-09-04',
-    y: 65,
-  },
-];
-
-ReactDOM.render(
-  <ChartCard
-    title="Payments"
-    action={
-      <Tooltip title="Payments reflect the quality of transaction">
-        <Icon type="exclamation-circle-o" />
-      </Tooltip>
-    }
-    total="6,500"
-    contentHeight={46}
-  >
-    <MiniBar height={46} data={visitData} />
-  </ChartCard>,
-  mountNode
-);
-```
-
-And now you have the combined chart:
-
-<img width="260" src="https://gw.alipayobjects.com/zos/rmsportal/yzmUFELvhCXXhsIRZOLT.png" />
+The component library has been deleted in v4. If you want to use it, you can see [Chart Component](https://v2-pro.ant.design/components/charts/)
 
 ## Use BizCharts
 

@@ -44,7 +44,7 @@ For permission control of certain menus, just go to the router configuration fil
 
 ### Control page element display
 
-Using [Authorized](http://pro.ant.design/components/Authorized#Authorized) or [Authorized.Secured](http://pro.ant.design/components/Authorized#Authorized.Secured) can be easily Control element/component rendering. For details, see the component documentation.
+Using [Authorized](http://v2-pro.ant.design/components/Authorized#Authorized) or [Authorized.Secured](http://v2-pro.ant.design/components/Authorized#Authorized.Secured) can be easily Control element/component rendering. For details, see the component documentation.
 
 ### Modify current permissions
 

@@ -3,84 +3,84 @@
     "title": "AvatarList",
     "subTitle": "用户头像列表",
     "type": "component",
-    "url": "http://pro.ant.design/components/AvatarList",
+    "url": "http://v2-pro.ant.design/components/AvatarList",
     "rating": 1
   },
   {
     "title": "Charts",
     "subTitle": "图表",
     "type": "component",
-    "url": "http://pro.ant.design/components/Charts",
+    "url": "http://v2-pro.ant.design/components/Charts",
     "rating": 1
   },
   {
     "title": "CountDown",
     "subTitle": "倒计时",
     "type": "component",
-    "url": "http://pro.ant.design/components/CountDown",
+    "url": "http://v2-pro.ant.design/components/CountDown",
     "rating": 1
   },
   {
     "title": "DescriptionList",
     "subTitle": "描述列表",
     "type": "component",
-    "url": "http://pro.ant.design/components/DescriptionList",
+    "url": "http://v2-pro.ant.design/components/DescriptionList",
     "rating": 1
   },
   {
     "title": "Exception",
     "subTitle": "异常",
     "type": "component",
-    "url": "http://pro.ant.design/components/Exception",
+    "url": "http://v2-pro.ant.design/components/Exception",
     "rating": 1
   },
   {
     "title": "FooterToolbar",
     "subTitle": "底部工具栏",
     "type": "component",
-    "url": "http://pro.ant.design/components/FooterToolbar",
+    "url": "http://v2-pro.ant.design/components/FooterToolbar",
     "rating": 1
   },
   {
     "title": "GlobalFooter",
     "subTitle": "全局页脚",
     "type": "component",
-    "url": "http://pro.ant.design/components/GlobalFooter",
+    "url": "http://v2-pro.ant.design/components/GlobalFooter",
     "rating": 1
   },
   {
     "title": "HeaderSearch",
     "subTitle": "顶部搜索",
     "type": "component",
-    "url": "http://pro.ant.design/components/HeaderSearch",
+    "url": "http://v2-pro.ant.design/components/HeaderSearch",
     "rating": 1
   },
   {
     "title": "NoticeIcon",
     "subTitle": "通知菜单",
     "type": "component",
-    "url": "http://pro.ant.design/components/NoticeIcon",
+    "url": "http://v2-pro.ant.design/components/NoticeIcon",
     "rating": 1
   },
   {
     "title": "PageHeader",
     "subTitle": "页头",
     "type": "component",
-    "url": "http://pro.ant.design/components/PageHeader",
+    "url": "http://v2-pro.ant.design/components/PageHeader",
     "rating": 1
   },
   {
     "title": "Result",
     "subTitle": "处理结果",
     "type": "component",
-    "url": "http://pro.ant.design/components/Result",
+    "url": "http://v2-pro.ant.design/components/Result",
     "rating": 1
   },
   {
     "title": "TagSelect",
     "subTitle": "标签选择器",
     "type": "component",
-    "url": "http://pro.ant.design/components/TagSelect",
+    "url": "http://v2-pro.ant.design/components/TagSelect",
     "rating": 1
   },
   {
