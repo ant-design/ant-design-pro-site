@@ -60,7 +60,7 @@ export default class Article extends React.PureComponent<ArticleProps> {
       };
     };
     return (
-      <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
+      <DocumentTitle title={`${title[locale] || title} - Ant Design Pro`}>
         <>
           <article
             className="markdown"
