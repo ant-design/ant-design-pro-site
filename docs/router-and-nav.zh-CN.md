@@ -30,13 +30,35 @@ type: 开发
 
 菜单根据 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 生成。
 
-> 如果你的项目并不需要菜单，你可以在 [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.tsx#L116) 中设置 `menuRender={false}`，
+> 如果你的项目并不需要菜单，你可以在 [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.tsx#L116) 中设置 `menuRender={false}`。
 
 ### 从服务器请求菜单
 
-只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.ts#L111) 中发起 http 请求，menuData 是一个 json 数组。只需服务器返回类似格式的 json 即可。
+你可以在 [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/98be9f18fe5acdabb59c7a6372b4070c0ebbfbaf/src/layouts/BasicLayout.tsx#L116) 中修改 `menuDataRender`，并在代码中发起 http 请求，只需服务器返回下面格式的 json 即可。
 
-```js
+```jsx
+state = {
+  menuData: [],
+};
+
+componentDidMount() {
+  fetch('/api/example.json')
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        menuData: data,
+      });
+    });
+}
+
+...
+
+menuDataRender={() => this.state.menuData || []}
+```
+
+`menuData` 数据格式如下，ts 定义在此：[MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
+
+```json
 [
   {
     path: '/dashboard',
@@ -60,7 +82,7 @@ type: 开发
       },
     ],
   }
-  ...
+  ....
 ]
 ```
 

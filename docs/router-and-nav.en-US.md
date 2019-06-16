@@ -30,9 +30,9 @@ At present, all the routes in the scaffolding are managed by [`config.ts`](https
 
 The menu is generated according to [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts).
 
-> If your project does not require a menu, you can do it at [`src/layouts/BasicLayout`] (https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout `menuRender={false}` in .tsx#L116)
+> If your project does not require a menu, you can do it at [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.tsx#L116) by setting `menuRender={false}`.
 
-### request a menu from the server
+### Fetch menu from server
 
 Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
 
