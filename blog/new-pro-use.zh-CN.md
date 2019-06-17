@@ -106,7 +106,7 @@ const Layout = (props: BasicLayoutProps) => {
 };
 ```
 
-### menuItemRender Props
+#### menuItemRender Props
 
 `menuItemRender` 控制具体的菜单 dom 渲染，你可以自定义 menuItem 的点击事件等等。
 
@@ -133,3 +133,42 @@ const Layout = (props: BasicLayoutProps) => {
   );
 };
 ```
+
+### SettingDrawer
+
+SettingDrawer 提供了一个界面来动态的设置 Layout 的一些参数。具体效果可以在 [preview](https://preview.pro.ant.design/) 预览效果。使用方式也很简单。
+
+```jsx
+import BasicLayout, { SettingDrawer } from '@ant-design/pro-layout';
+import React, { useState } from 'react';
+
+const Layout = (props: BasicLayoutProps) => {
+  const [settings, setSettings] = useState({});
+  return (
+    <>
+      <BasicLayout
+        {...settings}
+        title="Ant Design Pro"
+        menuItemRender={(menuItemProps, defaultDom) => {
+          return <Link to={menuItemProps.path}>{defaultDom}</Link>;
+        }}
+      />
+      <SettingDrawer settings={settings} onSettingChange={setSettings} />
+    </>
+  );
+};
+```
+
+### PageHeaderWrapper
+
+PageHeaderWrapper 提供了对 antd 的 pageHeader 的封装提供了面包屑和 title 的自动配置。
+
+```jsx
+import { PageHeaderWrapper } from '@ant-design/pro-layout';
+
+const Page = () => <PageHeaderWrapper>this is a page</PageHeaderWrapper>;
+```
+
+### RouteContext
+
+RouteContext 可以提供 Layout 的内置的数据。
