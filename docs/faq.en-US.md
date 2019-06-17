@@ -29,6 +29,30 @@ Of course you can! Ant Design Pro is based on the latest antd version. There are
 
 Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
 
+You need to update `menuDataRender` prop in [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/98be9f18fe5acdabb59c7a6372b4070c0ebbfbaf/src/layouts/BasicLayout.tsx#L116) as below, fetch menuData from your service.
+
+```jsx
+state = {
+  menuData: [],
+};
+
+componentDidMount() {
+  fetch('/api/example.json')
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        menuData: data,
+      });
+    });
+}
+
+...
+
+menuDataRender={() => this.state.menuData || []}
+```
+
+The above menuData definite is [MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
+
 ```json
 [
   {

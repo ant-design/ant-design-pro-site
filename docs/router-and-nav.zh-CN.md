@@ -30,13 +30,35 @@ type: 开发
 
 菜单根据 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 生成。
 
-> 如果你的项目并不需要菜单，你可以在 [`src/layouts/BasicLayout`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.tsx#L116) 中设置 `menuRender={false}`，
+> 如果你的项目并不需要菜单，你可以在 [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.tsx#L116) 中设置 `menuRender={false}`。
 
 ### 从服务器请求菜单
 
-只需在 [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.ts#L111) 中发起 http 请求，menuData 是一个 json 数组。只需服务器返回类似格式的 json 即可。
+你可以在 [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/98be9f18fe5acdabb59c7a6372b4070c0ebbfbaf/src/layouts/BasicLayout.tsx#L116) 中修改 `menuDataRender`，并在代码中发起 http 请求，只需服务器返回下面格式的 json 即可。
 
-```js
+```jsx
+state = {
+  menuData: [],
+};
+
+componentDidMount() {
+  fetch('/api/example.json')
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        menuData: data,
+      });
+    });
+}
+
+...
+
+menuDataRender={() => this.state.menuData || []}
+```
+
+`menuData` 数据格式如下，ts 定义在此：[MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
+
+```json
 [
   {
     path: '/dashboard',
@@ -60,7 +82,7 @@ type: 开发
       },
     ],
   }
-  ...
+  ....
 ]
 ```
 
@@ -153,9 +175,9 @@ module.exports = [
 
 ```
 
-### 在菜单中使用自定义的 icon
+### 在菜单中使用自定义图标
 
-由于 umi 的限制，在 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是不能直接只是用组件的，Pro 中暂时支持 使用 [`ant.design`](https://ant.design/components/icon-cn/) 本身的 icon type，和传入一个 img 的 url。只需要直接在 icon 属性上配置即可，如果是个 url，Pro 会自动处理为一个 img 标签。
+由于 umi 的限制，在 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是不能直接使用 React 组件的，Pro 中暂时支持使用 [`ant.design`](https://ant.design/components/icon-cn/) 本身的 icon `type`，和传入一个 img 的 url。只需要直接在 icon 属性上配置即可，如果是个 url，Pro 会自动处理为一个 img 标签。
 
 > 如果你想使用 iconfont 的图标，你可以使用[ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%)的自定义图标.
 
