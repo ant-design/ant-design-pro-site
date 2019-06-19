@@ -171,4 +171,122 @@ const Page = () => <PageHeaderWrapper>this is a page</PageHeaderWrapper>;
 
 ### RouteContext
 
-RouteContext 可以提供 Layout 的内置的数据。
+RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collapsed，你可以消费这些数据来自定义一些行为。
+
+```jsx
+import { RouteContext } from '@ant-design/pro-layout';
+
+const Page = () => (
+  <RouteContext.Consumer>
+    {value => {
+      return value.title;
+    }}
+  </RouteContext.Consumer>
+);
+```
+
+#### menuDataRender Props
+
+`menuDataRender` performs a new filter on the menu data, and the menu permissions in Pro are implemented in this way.
+
+```tsx
+Export interface MenuDataItem {
+  Authority?: string[] | string;
+  Children?: MenuDataItem[];
+  hideChildrenInMenu?: boolean;
+  hideInMenu?: boolean;
+  Icon?: string;
+  Locale?: string;
+  Name?: string;
+  Path: string;
+}
+
+Const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] => {
+  Return menuList.map(item => {
+    Const localItem = { ...item, children: item.children ? menuDataRender(item.children) : [] };
+    Return Authorized.check(item.authority, localItem, null) as MenuDataItem;
+  });
+};
+Const Layout = (props: BasicLayoutProps) => {
+  Return <BasicLayout title="Ant Design Pro" menuDataRender={menuDataRender} />;
+};
+```
+
+#### menuItemRender Props
+
+`menuItemRender` controls the specific menu dom rendering, you can customize the click event of the menuItem and so on.
+
+```tsx
+Export interface MenuDataItem {
+  Authority?: string[] | string;
+  Children?: MenuDataItem[];
+  hideChildrenInMenu?: boolean;
+  hideInMenu?: boolean;
+  Icon?: string;
+  Locale?: string;
+  Name?: string;
+  Path: string;
+}
+
+Const Layout = (props: BasicLayoutProps) => {
+  Return (
+    <BasicLayout
+      Title="Ant Design Pro"
+      menuItemRender={(menuItemProps, defaultDom) => {
+        Return <Link to={menuItemProps.path}>{defaultDom}</Link>;
+      }}
+    />
+  );
+};
+```
+
+### SettingDrawer
+
+SettingDrawer provides an interface to dynamically set some parameters of the Layout. The effect can be previewed in [preview](https://preview.pro.ant.design/). The way to use it is also very simple.
+
+```jsx
+Import BasicLayout, { SettingDrawer } from '@ant-design/pro-layout';
+Import React, { useState } from 'react';
+
+Const Layout = (props: BasicLayoutProps) => {
+  Const [settings, setSettings] = useState({});
+  Return (
+    <>
+      <BasicLayout
+        {...settings}
+        Title="Ant Design Pro"
+        menuItemRender={(menuItemProps, defaultDom) => {
+          Return <Link to={menuItemProps.path}>{defaultDom}</Link>;
+        }}
+      />
+      <SettingDrawer settings={settings} onSettingChange={setSettings} />
+    </>
+  );
+};
+```
+
+### PageHeaderWrapper
+
+PageHeaderWrapper provides a wrapper around antd's pageHeader that provides automatic configuration of breadcrumbs and title.
+
+```jsx
+Import { PageHeaderWrapper } from '@ant-design/pro-layout';
+
+Const Page = () => <PageHeaderWrapper>this is a page</PageHeaderWrapper>;
+```
+
+### RouteContext
+
+RouteContext can provide built-in data for Layout. For example, isMobile and collapsed, you can consume this data to customize some behavior.
+
+```jsx
+Import { RouteContext } from '@ant-design/pro-layout';
+
+Const Page = () => (
+  <RouteContext.Consumer>
+    {value => {
+      Return value.title;
+    }}
+  </RouteContext.Consumer>
+);
+```
