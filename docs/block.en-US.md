@@ -6,8 +6,8 @@ type: Development
 
 ## What is Block
 
-Block is a set of code block. It helps you to fast initialize an page with prepared code.
-Current Blocks are all the page level block. You can tread them as typical page template.
+Block is a set of code block. It helps you to fast initialize a page with prepared code.
+Current Blocks are all page level blocks. You can treat them as typical page templates.
 Use block is alike copy exist page code into your project.
 
 * Previous: Create JS -> Create CSS -> Create Model -> Create service -> Write page component.
@@ -15,7 +15,7 @@ Use block is alike copy exist page code into your project.
 
 ## Use Block
 
-We use umi to management block in Ant Design Pro. It's very easy to add a block:
+We use umi to manage blocks in Ant Design Pro. It's very easy to add a block:
 
 ```bash
 umi block add [block url]
