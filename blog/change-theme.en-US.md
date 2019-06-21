@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 1
 title: Customize theme on runtime
 type: Blog
 time: 2019-05-07
