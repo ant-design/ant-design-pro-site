@@ -13,11 +13,11 @@ time: 2019-06-21
 
 比如这里：
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/93819/1561039456413-1a389431-a7ff-4b00-b872-8f34249bab35.png#align=left&display=inline&height=159&name=image.png&originHeight=318&originWidth=2848&size=96918&status=done&width=1424)
+![image](https://user-images.githubusercontent.com/8186664/59903736-55311100-9434-11e9-99b0-8406d5b56b97.png)
 
 还有这里：
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/93819/1561039496763-22b0d0d8-172b-4b74-b50d-908a47024d22.png#align=left&display=inline&height=474&name=image.png&originHeight=948&originWidth=2238&size=175958&status=done&width=1119)
+![image](https://user-images.githubusercontent.com/8186664/59903712-4185aa80-9434-11e9-84fd-4cf2ff3ec0ca.png)
 
 ## 结果
 
