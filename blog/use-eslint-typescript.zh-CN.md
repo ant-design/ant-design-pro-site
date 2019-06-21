@@ -9,7 +9,7 @@ time: 2019-06-21
 
 ## 起因
 
-在 Pro v4 的筹备中，我们增加了一个功能，将 typescript  转化为 javascript 的 功能，转化完成之后我们跑了一遍 eslint 和 prettier 来让代码更像是人写的。结果转化完成之后的 js 代码无法通过 eslint 的检查:
+在 Pro v4 的筹备中，我们增加了一个将 TypeScript 转化为 JavaScript 的 功能，转化完成之后我们跑了一遍 eslint 和 prettier 来让代码更像是人写的。结果转化完成之后的 js 代码无法通过 eslint 的检查:
 
 比如这里：
 
@@ -27,7 +27,7 @@ time: 2019-06-21
 
 ## 使用
 
-**umi-fabric **的使用非常简单。
+**umi-fabric** 的使用非常简单。
 
 ```bash
 npm install eslint @umijs/fabric -save-dev

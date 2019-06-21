@@ -9,7 +9,7 @@ We always use tslint in TypeScript to guarantee the quality of our code. But tsl
 
 ## 起因
 
-In the preparation of Pro v4, we added a feature that converts typescript into javascript. After the conversion is complete, we ran eslint and prettier to make the code more human-like. The js code after the conversion is complete cannot pass the eslint check:
+In the preparation of Pro v4, we added a feature that converts TypeScript into JavaScript. After the conversion is complete, we ran eslint and prettier to make the code more human-like. The js code after the conversion is complete cannot pass the eslint check:
 
 For example here:
 
@@ -27,7 +27,7 @@ We publish these rules as a package  🌟🌟**umi-fabric** 🌟🌟, This lib
 
 ## Use
 
-The use of **umi-fabric ** is very simple.
+The use of **umi-fabric** is very simple.
 
 ```bash
 npm install eslint @umijs/fabric -save-dev
