@@ -27,26 +27,30 @@ type: 入门
 
 ### 如何从服务器请求菜单？
 
-你可以在 [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/98be9f18fe5acdabb59c7a6372b4070c0ebbfbaf/src/layouts/BasicLayout.tsx#L116) 中修改 `menuDataRender`，并在代码中发起 http 请求，只需服务器返回下面格式的 json 即可。
+你可以在 [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/4420ae2c224144c4114e5384bddc3e8ab0e1dc1c/src/layouts/BasicLayout.tsx#L116) 中修改 `menuDataRender`，并在代码中发起 http 请求，只需服务器返回下面格式的 json 即可。
 
 ```jsx
-state = {
-  menuData: [],
-};
+const [menuData, setMenuData] = useState([]);
 
-componentDidMount() {
+useEffect(() => {
+  // 这里是一个演示用法
+  // 真实项目中建议使用 dva dispatch 或者 umi-request
   fetch('/api/example.json')
     .then(response => response.json())
     .then(data => {
-      this.setState({
-        menuData: data,
-      });
+      setMenuData(data || []);
     });
-}
+}, []);
 
 ...
 
-menuDataRender={() => this.state.menuData || []}
+return (
+  <ProLayout
+    ...
+    menuDataRender={() => menuData}
+    ...
+  />
+);
 ```
 
 `menuData` 数据格式如下，ts 定义在此：[MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).

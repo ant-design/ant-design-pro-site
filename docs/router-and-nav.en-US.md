@@ -36,35 +36,63 @@ The menu is generated according to [`config.ts`](https://github.com/ant-design/a
 
 Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design-pro/blob/master/src/models/menu.js#L111), which is a json array. Just the server returns a json of similar format.
 
-```js
+You need to update `menuDataRender` prop in [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/4420ae2c224144c4114e5384bddc3e8ab0e1dc1c/src/layouts/BasicLayout.tsx#L116) as below, fetch menuData from your service.
+
+```jsx
+const [menuData, setMenuData] = useState([]);
+
+useEffect(() => {
+  // just for sample
+  // please use dva dispatch or umi-request in real world
+  fetch('/api/example.json')
+    .then(response => response.json())
+    .then(data => {
+      setMenuData(data || []);
+    });
+}, []);
+
+...
+
+return (
+  <ProLayout
+    ...
+    menuDataRender={() => menuData}
+    ...
+  />
+);
+```
+
+The above menuData definite is [MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
+
+```json
 [
   {
-    path: '/dashboard'，
-    name: 'dashboard'，
-    icon: 'dashboard'，
+    path: '/dashboard',
+    name: 'dashboard',
+    icon: 'dashboard',
     children: [
       {
-        path: '/dashboard/analysis'，
-        name: 'analysis'，
-        exact: true，
-      }，
+        path: '/dashboard/analysis',
+        name: 'analysis',
+        exact: true,
+      },
       {
-        path: '/dashboard/monitor'，
-        name: 'monitor'，
-        exact: true，
-      }，
+        path: '/dashboard/monitor',
+        name: 'monitor',
+        exact: true,
+      },
       {
-        path: '/dashboard/workplace'，
-        name: 'workplace'，
-        exact: true，
-      }，
-    ]，
+        path: '/dashboard/workplace',
+        name: 'workplace',
+        exact: true,
+      },
+    ],
   }
-  ...
+  ....
 ]
 ```
 
-> Note that path must be defined in config.ts.(All you need in Conventional Routing is the correct page.)
+> Note that path must be defined in config.ts. (All you need in Conventional Routing is the correct page.)
 
 ### Bread Crumbs
 
