@@ -10,4 +10,4 @@ For Ant Financial Company User, [Bigfish](https://bigfish.alipay.com) is recomme
 
 ## Note
 
-The usage of menu, router and authority is different in Bigfish, you can consult to relervant Bigfish document.
+The use of menu, router and authority is different in Bigfish, you can consult the relevant Bigfish document.
