@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import { Badge, Row, Col, Menu, Icon } from 'antd';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
+import moment from 'moment';
 import Article from './Article';
 import { isZhCN, getMenuItems, MenuDataItem, IMenuData } from '../utils';
 import { IFrontmatterData } from '../../templates/docs';
@@ -186,6 +187,9 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
       .map(type => {
         const groupItems = (obj[type] as MenuDataItem[])
           .sort((a, b) => {
+            if ('time' in a && 'time' in b) {
+              return moment(b.time).valueOf() - moment(a.time).valueOf();
+            }
             if ('order' in a && 'order' in b) {
               return a.order - b.order;
             }

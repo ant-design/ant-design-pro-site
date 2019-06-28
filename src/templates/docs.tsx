@@ -19,6 +19,7 @@ export interface IFrontmatterData extends IMarkDownFields {
     'zh-CN': string;
     'en-US': string;
   };
+  time: string;
   toc: string | boolean;
   order: number;
   type: string;
@@ -126,7 +127,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: $type } }
-      sort: { fields: [fields___slug], order: DESC }
+      sort: { fields: [fields___slug, frontmatter___time], order: DESC }
     ) {
       edges {
         node {
@@ -137,6 +138,7 @@ export const pageQuery = graphql`
             }
             order
             type
+            time
           }
           fields {
             slug

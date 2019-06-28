@@ -76,6 +76,12 @@ export default class Article extends React.PureComponent<ArticleProps> {
               <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={path} />
             </h1>
 
+            <div className="modifiedTime">
+              <AvatarList avatarList={avatarList} />
+              <FormattedMessage id="app.content.modifiedTime" />
+              {moment(modifiedTime).format('YYYY-MM-DD HH:mm:SS')}
+            </div>
+
             {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
               <Affix className="toc-affix" offsetTop={16}>
                 <div
@@ -90,11 +96,6 @@ export default class Article extends React.PureComponent<ArticleProps> {
               dangerouslySetInnerHTML={{ __html: content.content }}
             />
           </article>
-          <div className="modifiedTime">
-            <AvatarList avatarList={avatarList} />
-            <FormattedMessage id="app.content.modifiedTime" />
-            {moment(modifiedTime).format('YYYY-MM-DD HH:mm:SS')}
-          </div>
         </>
       </DocumentTitle>
     );
