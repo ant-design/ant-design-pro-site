@@ -33,4 +33,4 @@ umi block add ant-design-pro/analysis --path=your/path/here
 
 ## 更多内容
 
-如果你想进行区块开发，可以在 [umi 区块](https://umijs.org/zh/guide/block.html)中查看完整内容。
+如果你想进行区块开发，可以在 [umi 区块](https://umijs.org/zh/guide/block.html) 中查看完整内容。
