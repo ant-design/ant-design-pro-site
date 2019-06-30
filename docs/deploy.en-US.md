@@ -4,6 +4,8 @@ title: Deployment
 type: Build & Deployment
 ---
 
+Pro provides mock data by default, but mock data will no longer work after build. If you still want to use this data to build a demo site, you can launch an express service via [umi-mock](https://www.npmjs.com/package/umi-mock). This service is the same as the mock data.
+
 ## Release
 
 For release purposes, you only need publish the resulting static file, which is usually the static file in the `dist` folder, to your CDN or static server. It should be noted that`index.html` will be your application's entry page.
@@ -13,6 +15,24 @@ For release purposes, you only need publish the resulting static file, which is 
 Umi has two modes of router, `browserHistory` and `hashHistory`.
 
 `hashHistory` uses a URL such as `https://cdn.com/#/users/123` and take the path following the `#` as the application route. `browserHistory` uses `https://cdn.com/users/123` directly. When using `hashHistory` the browser always requests `index.html` under the root directory. Using `browserHistory` requires that the server be prepared to handle URLs. It should be OK to handle the initial `/`. However, when the user jumps back and forth and refreshes `/users/123`, the server receives a `/users/123` request, then you need to configure the server to handle this URL to return the correct index.html. If you can control the server, we recommend using browserHistory.
+
+## Deploy to a non-root directory
+
+A common requirement when deploying non-directed directories, such as being deployed in gitHub pages. Next we assume that we are deploying the project to `${host}/admin`.
+
+First we need to configure [base](https://umijs.org/zh/config/#base) in config.ts, which is the prefix of react-router. We need to configure base as `admin`, if we still need to deploy it to the `/admin` directory, we also need to set `publicPath`. After setting it is like this:
+
+```json
+{
+  // ... some config
+  "": "/admin/",
+  "publishPath": "/admin/"
+}
+```
+
+Next we can access our static files in `${host}/admin`. It is worth noting that `base` and `publishPath` do not take effect in dev mode.
+
+## Deploy to different platforms
 
 ### use nginx
 
@@ -24,7 +44,7 @@ server {
     # gzip config
     gzip on;
     gzip_min_length 1k;
-    gzip_comp_level 9
+    gzip_comp_level 9;
     gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
     gzip_vary on;
     gzip_disable "MSIE [1-6]\.";
@@ -32,35 +52,35 @@ server {
     root /usr/share/nginx/html;
 
     location / {
-        # Used in conjunction with browserHistory
+        # 用于配合 browserHistory使用
         try_files $uri $uri/ /index.html;
 
-        # If you have resources, it is recommended to use https + http2 for a better experience with on-demand loading.
+        # 如果有资源，建议使用 https + http2，配合按需加载可以获得更好的体验
         # rewrite ^/(.*)$ https://preview.pro.ant.design/$1 permanent;
 
     }
     location /api {
-        proxy_pass https://preview.pro.ant.design;
+        proxy_pass https://ant-design-pro.netlify.com;
         proxy_set_header   X-Forwarded-Proto $scheme;
-        proxy_set_header   Host              $http_host;
         proxy_set_header   X-Real-IP         $remote_addr;
     }
 }
+
 server {
-   # If you have resources, it is recommended to use https + http2 for a better experience with on-demand loading.
+  # 如果有资源，建议使用 https + http2，配合按需加载可以获得更好的体验
   listen 443 ssl http2 default_server;
 
-  # Public and private key of the certificate
+  # 证书的公私钥
   ssl_certificate /path/to/public.crt;
   ssl_certificate_key /path/to/private.key;
 
   location / {
-        # Used in conjunction with browserHistory
+        # 用于配合 browserHistory使用
         try_files $uri $uri/ /index.html;
 
   }
   location /api {
-      proxy_pass https://preview.pro.ant.design;
+      proxy_pass https://ant-design-pro.netlify.com;
       proxy_set_header   X-Forwarded-Proto $scheme;
       proxy_set_header   Host              $http_host;
       proxy_set_header   X-Real-IP         $remote_addr;
