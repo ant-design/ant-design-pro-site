@@ -49,6 +49,8 @@ With those objectives in mind, we have built the following templates and a scaff
   - Register Result
 ```
 
+> All of the above pages can be found in Pro's [Blocks](https://github.com/ant-design/pro-blocks).
+
 ## Users of Ant Design Pro
 
 Hundreds of applications within Ant Financial and Alibaba Group are using Ant Design Pro. You are welcome to leave your information in [Ant Design Pro Users](https://github.com/ant-design/ant-design-pro/issues/99) if you or your organization is using it.
@@ -136,4 +138,10 @@ This will automatically open [http://localhost:8000](http://localhost:8000). If 
 
 You're all set!
 
-We have built-in mock data, hot module reloading, state management, i18n, global router, etc. You can continue exploring other documents for more details on those topics.
+We have built-in **mock data**, **hot module reloading**, **state management**,**i18n**, **global router**, etc. You can continue exploring other documents for more details on those topics.
+
+## 后续步骤
+
+[> Block Development](/docs/block-cn) Quickly build standard pages.
+
+[> Traditional development mode](/docs/router-and-nav-cn), fully custom development.

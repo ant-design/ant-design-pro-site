@@ -105,7 +105,7 @@ export const pageQuery = graphql`
   query TemplateDocsMarkdown($slug: String!, $type: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      tableOfContents(maxDepth: 3)
+      tableOfContents(maxDepth: 2)
       frontmatter {
         title {
           zh_CN

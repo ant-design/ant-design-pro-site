@@ -12,7 +12,7 @@ type: 开发
 
 - `路由管理` 通过约定的语法根据在 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 中配置路由。
 - `菜单生成` 根据路由配置来生成菜单。菜单项名称，嵌套路径与路由高度耦合。
-- `面包屑` 组件 [PageHeader](http://v2-pro.ant.design/components/PageHeader) 中内置的面包屑也可由脚手架提供的配置信息自动生成。
+- `面包屑` 组件 [PageHeaderWrapper](https://github.com/ant-design/ant-design-pro-layout#pageheaderwrapper) 中内置的面包屑,也可通过 [RouteContext](/blog/new-pro-use-cn#routecontext) 提供的信息自定义生成。
 
 下面简单介绍下各个模块的基本思路，如果你对实现过程不感兴趣，只想了解应该怎么实现相关需求，可以直接查看[需求实例](/docs/router-and-nav#需求实例)。
 
@@ -53,9 +53,9 @@ useEffect(() => {
 
 return (
   <ProLayout
-    ...
+    // ...
     menuDataRender={() => menuData}
-    ...
+    // ...
   />
 );
 ```
@@ -65,28 +65,28 @@ return (
 ```json
 [
   {
-    path: '/dashboard',
-    name: 'dashboard',
-    icon: 'dashboard',
-    children: [
+    "path": "/dashboard",
+    "name": "dashboard",
+    "icon": "dashboard",
+    "children": [
       {
-        path: '/dashboard/analysis',
-        name: 'analysis',
-        exact: true,
+        "path": "/dashboard/analysis",
+        "name": "analysis",
+        "exact": true
       },
       {
-        path: '/dashboard/monitor',
-        name: 'monitor',
-        exact: true,
+        "path": "/dashboard/monitor",
+        "name": "monitor",
+        "exact": true
       },
       {
-        path: '/dashboard/workplace',
-        name: 'workplace',
-        exact: true,
-      },
-    ],
+        "path": "/dashboard/workplace",
+        "name": "workplace",
+        "exact": true
+      }
+    ]
   }
-  ....
+  // ....
 ]
 ```
 
@@ -94,21 +94,7 @@ return (
 
 ### 面包屑
 
-面包屑由 `PageHeaderWrapper` 实现，`MenuContext` 将 根据 `MenuData` 生成的 `breadcrumbNameMap` 通过 props 传递给了 `PageHeader`，如果你要做自定义的面包屑，可以通过修改传入的 `breadcrumbNameMap` 来解决。
-
-`breadcrumbNameMap` 示例数据如下：
-
-```js
-{
-  '/': { path: '/', redirect: '/dashboard/analysis', locale: 'menu' },
-  '/dashboard/analysis': {
-    name: 'analysis',
-    component: './Dashboard/Analysis',
-    locale: 'menu.dashboard.analysis',
-  },
-  ...
-}
-```
+面包屑由 `PageHeaderWrapper` 实现，`Layout` 将 根据 `MenuData` 生成的 `breadcrumb`，并通过 PageHeaderWrapper 将其展现。 PageHeaderWrapper 封装至 Ant Design 的 [PageHeader](https://ant.design/components/page-header-cn)，api 完全相同。
 
 ## 需求实例
 
@@ -126,7 +112,11 @@ return (
 }
 ```
 
+如果你需要自定义 menuItem 的点击逻辑，你可以通过 [menuItemRender](https://github.com/ant-design/ant-design-pro/blob/e14b1311d5efdd032a04d86ed4ed80292b832822/src/layouts/BasicLayout.tsx#L103) 的来实现。
+
 ### 新增页面
+
+> 通过区块新增请阅读 [Block](/docs/block-cn)
 
 脚手架默认提供了两种布局模板：`基础布局 - BasicLayout` 以及 `账户相关布局 - UserLayout`：
 
