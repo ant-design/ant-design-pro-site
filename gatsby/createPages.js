@@ -84,10 +84,23 @@ module.exports = async ({ graphql, actions }) => {
   });
 
   createRedirect({
+    fromPath: '/blog/beter-block/',
+    redirectInBrowser: true,
+    toPath: '/blog/better-block',
+  });
+
+  createRedirect({
+    fromPath: '/blog/beter-block-cn/',
+    redirectInBrowser: true,
+    toPath: '/blog/better-block-cn',
+  });
+
+  createRedirect({
     fromPath: '/blog/',
     redirectInBrowser: true,
     toPath: '/blog/change-theme',
   });
+
   Object.keys(redirects).map(path =>
     createRedirect({
       fromPath: path,
