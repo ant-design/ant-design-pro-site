@@ -1,12 +1,10 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable jsx-a11y/html-has-lang */
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable react/no-danger */
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export default function HTML(props) {
   return (
+    // eslint-disable-next-line jsx-a11y/html-has-lang
     <html {...props.htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
@@ -75,12 +73,3 @@ export default function HTML(props) {
     </html>
   );
 }
-
-HTML.propTypes = {
-  htmlAttributes: PropTypes.object,
-  headComponents: PropTypes.array,
-  bodyAttributes: PropTypes.object,
-  preBodyComponents: PropTypes.array,
-  body: PropTypes.string,
-  postBodyComponents: PropTypes.array,
-};

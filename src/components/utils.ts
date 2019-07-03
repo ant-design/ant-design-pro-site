@@ -13,7 +13,7 @@ export interface IMenuData {
 
 export function isZhCN(pathname: string) {
   if (pathname === '/') {
-    if (typeof window !== `undefined`) {
+    if (typeof window !== 'undefined') {
       const locale = localStorage ? localStorage.getItem('locale') : 'en-US';
       if (locale === 'zh-CN') {
         return true;
@@ -56,7 +56,7 @@ export function getMenuItems(
   moduleData: {
     [key: string]: any;
   },
-  locale: string
+  locale: string,
 ) {
   const menuMeta = moduleData.map((item: { meta: any }) => item.meta);
   const menuItems: {
@@ -81,13 +81,13 @@ export function getMenuItems(
 }
 
 export function ping(callback: (arg0: any) => void) {
-  // eslint-disable-next-line
   const url =
     'https://private-a' +
     'lipay' +
     'objects.alip' +
     'ay.com/alip' +
     'ay-rmsdeploy-image/rmsportal/RKuAiriJqrUhyqW.png';
+
   const img = new Image();
   let done: boolean;
   const finish = (status: string) => {

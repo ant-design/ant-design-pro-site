@@ -6,7 +6,6 @@ type: Other
 
 The Resource of Ant Design Pro.
 
-
 ## Axure Library <img src="https://zos.alipayobjects.com/rmsportal/qXrCHrsuyrINSeerFOerLcTTFZiEzHAJ.png" width="24" />
 
 Axure Package for Ant Design 3.0 and Ant Design Pro.

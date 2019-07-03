@@ -6,7 +6,6 @@ type: 其他
 
 Ant Design Pro 配套的设计资源。
 
-
 ## Axure Library <img  class="icon" src="https://zos.alipayobjects.com/rmsportal/qXrCHrsuyrINSeerFOerLcTTFZiEzHAJ.png" width="24" />
 
 Ant Design 3.0 和 Ant Design Pro 的配套 Axure 资源包。

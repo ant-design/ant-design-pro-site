@@ -10,7 +10,7 @@ import '../../static/style';
 import Header from './Header';
 import Footer from './Footer';
 
-interface LayoutProps {
+export interface LayoutProps {
   location: {
     pathname: string;
   };
@@ -63,7 +63,7 @@ export class Layout extends React.Component<LayoutProps, LayoutState> {
 const WrapperLayout = (props: LayoutProps) => (
   <Media query="(max-width: 996px)">
     {isMobile => {
-      const isNode = typeof window === `undefined`;
+      const isNode = typeof window === 'undefined';
       return <Layout {...props} isMobile={isMobile && !isNode} />;
     }}
   </Media>

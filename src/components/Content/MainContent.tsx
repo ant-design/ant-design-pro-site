@@ -1,9 +1,10 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { Badge, Row, Col, Menu, Icon } from 'antd';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
 import moment from 'moment';
@@ -61,6 +62,10 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     intl: PropTypes.object.isRequired,
   };
 
+  timer: number;
+
+  currentModule: string;
+
   constructor(props: MainContentProps) {
     super(props);
     this.state = {
@@ -80,13 +85,13 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
       });
     }
   }
-  timer: number;
+
   componentDidUpdate() {
     if (!window.location.hash) {
       return;
     }
     const element = document.getElementById(
-      decodeURIComponent(window.location.hash.replace('#', ''))
+      decodeURIComponent(window.location.hash.replace('#', '')),
     );
     setTimeout(() => {
       if (element) {
@@ -99,13 +104,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     clearTimeout(this.timer);
   }
 
-  handleMenuOpenChange = (openKeys: string[]) => {
-    this.setState({
-      openKeys,
-    });
-  };
-  currentModule: string;
-  getSideBarOpenKeys(nextProps: MainContentProps) {
+  getSideBarOpenKeys = (nextProps: MainContentProps) => {
     const { pathname } = nextProps.location;
     const moduleData = getModuleDataWithProps(nextProps);
     const item = moduleData.find(({ slug }) => pathname.includes(slug));
@@ -113,7 +112,13 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
       return [item.type];
     }
     return [];
-  }
+  };
+
+  handleMenuOpenChange = (openKeys: string[]) => {
+    this.setState({
+      openKeys,
+    });
+  };
 
   convertFilename = (filename: string) => {
     const {
@@ -127,7 +132,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
 
   generateMenuItem = ({ before = null, after = null }, item: MenuDataItem) => {
     if (!item.title) {
-      return;
+      return null;
     }
     const {
       intl: { locale },
@@ -143,7 +148,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
       </span>,
     ];
 
-    const disabled = item.disabled;
+    const { disabled } = item;
 
     const child = !item.link ? (
       <Link to={this.convertFilename(item.filename)}>
@@ -163,6 +168,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
         {after}
       </a>
     );
+
     return (
       <Menu.Item key={this.convertFilename(item.filename)} disabled={disabled}>
         {item.important ? <Badge dot={item.important}>{child}</Badge> : child}
@@ -180,7 +186,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     };
     if (!obj) return [];
     const topLevel = ((obj.topLevel as MenuDataItem[]) || []).map(
-      this.generateMenuItem.bind(this, footerNavIcons)
+      this.generateMenuItem.bind(this, footerNavIcons),
     );
     const itemGroups = Object.keys(obj)
       .filter(isNotTopLevel)
@@ -211,8 +217,8 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
       intl: { locale },
     } = this.context;
     const menuItems: IMenuData = getMenuItems(moduleData, locale) || {};
-    let topLevel =
-      this.generateSubMenuItems(menuItems['topLevel'] as IMenuData, footerNavIcons) || [];
+    const topLevel =
+      this.generateSubMenuItems(menuItems.topLevel as IMenuData, footerNavIcons) || [];
 
     const result = [...topLevel].filter(({ key }) => key);
     return result;
@@ -228,12 +234,13 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     const list =
       menuItems.length && !menuItems[0].props.children.length
         ? menuItems
-        : Object.keys(menuItems).reduce((pre, key) => {
-            return pre.concat(menuItems[key].props.children);
-          }, []);
-    const index = list.findIndex((item: { key: string }) => {
-      return item.key === filename || item.key === `${filename}-cn`;
-    });
+        : Object.keys(menuItems).reduce(
+            (pre, key) => pre.concat(menuItems[key].props.children),
+            [],
+          );
+    const index = list.findIndex(
+      (item: { key: string }) => item.key === filename || item.key === `${filename}-cn`,
+    );
 
     if (index === -1) {
       return {};

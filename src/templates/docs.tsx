@@ -8,11 +8,11 @@ interface IMarkDownFields {
   path: string;
   slug: string;
   modifiedTime: number;
-  avatarList: Array<{
+  avatarList: {
     href: string;
     text: string;
     src: string;
-  }>;
+  }[];
 }
 export interface IFrontmatterData extends IMarkDownFields {
   title: {
@@ -47,12 +47,12 @@ export interface IMarkdownRemarkData {
 }
 
 export interface IAllMarkdownRemarkData {
-  edges: Array<{
+  edges: {
     node: {
       frontmatter: IGraphqlFrontmatterData;
       fields: IMarkDownFields;
     };
-  }>;
+  }[];
 }
 
 export default function Template({

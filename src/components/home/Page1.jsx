@@ -1,3 +1,4 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
@@ -5,10 +6,9 @@ import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import Parallax from 'rc-scroll-anim/lib/ScrollParallax';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
-import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 
-const TweenOneGroup = TweenOne.TweenOneGroup;
+const { TweenOneGroup } = TweenOne;
 const featuresCN = [
   {
     title: '优雅美观',
@@ -151,10 +151,6 @@ const pointPos = [
 ];
 
 class Page1 extends React.PureComponent {
-  static contextTypes = {
-    intl: PropTypes.object.isRequired,
-  };
-
   constructor(props) {
     super(props);
     this.state = {

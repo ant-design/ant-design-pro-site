@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
-import * as utils from '../utils';
 import { Row, Col, Icon, Select, Input, Menu, Button, Modal, Popover } from 'antd';
+import * as utils from '../utils';
 
 const { Option } = Select;
 
@@ -13,7 +12,8 @@ const key = 'antd-pro@2.0.0-notification-sent';
 
 let docSearch: (config: any) => void;
 if (typeof window !== 'undefined') {
-  docSearch = require('docsearch.js'); // eslint-disable-line
+  // eslint-disable-next-line global-require
+  docSearch = require('docsearch.js');
 }
 
 function initDocSearch(locale: 'zh-CN' | 'en-US') {
@@ -27,13 +27,15 @@ function initDocSearch(locale: 'zh-CN' | 'en-US') {
     inputSelector: '#search-box input',
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
     transformData(
-      hits: Array<{
+      hits: {
         url: string;
-      }>
+      }[],
     ) {
       hits.forEach(hit => {
-        hit.url = hit.url.replace('ant.design.pro', window.location.host); // eslint-disable-line
-        hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
+        // eslint-disable-next-line  no-param-reassign
+        hit.url = hit.url.replace('ant.design.pro', window.location.host);
+        // eslint-disable-next-line  no-param-reassign
+        hit.url = hit.url.replace('https:', window.location.protocol);
       });
       return hits;
     },
@@ -58,19 +60,22 @@ interface HeaderState {
 
 class Header extends React.Component<HeaderProps, HeaderState> {
   state: HeaderState = {
-    inputValue: undefined,
     menuVisible: false,
     menuMode: 'horizontal',
   };
 
   searchInput: Input | null | undefined;
 
+  timer: number;
+
   componentDidMount() {
     const { searchInput } = this;
     const { intl } = this.props;
     document.addEventListener('keyup', event => {
       if (event.keyCode === 83 && event.target === document.body) {
-        searchInput && searchInput.focus();
+        if (searchInput) {
+          searchInput.focus();
+        }
       }
     });
     initDocSearch(intl.locale);
@@ -85,17 +90,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     initDocSearch(locale);
   }
 
-  setMenuMode = (isMobile: boolean) => {
-    this.setState({ menuMode: isMobile ? 'inline' : 'horizontal' });
-  };
-
   componentDidUpdate(preProps: HeaderProps) {
     const { isMobile } = this.props;
     if (isMobile !== preProps.isMobile) {
       this.setMenuMode(isMobile);
     }
   }
-  timer: number;
+
+  setMenuMode = (isMobile: boolean) => {
+    this.setState({ menuMode: isMobile ? 'inline' : 'horizontal' });
+  };
+
   handleHideMenu = () => {
     this.setState({
       menuVisible: false,
@@ -169,9 +174,10 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       currentProtocol +
       currentHref.replace(
         window.location.pathname,
-        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname))
+        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
       );
   };
+
   onVersionChange = (value: string) => {
     if (value === 'v1') {
       window.open('https://v1.pro.ant.design/');
@@ -180,6 +186,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       window.open('https://v2-pro.ant.design/');
     }
   };
+
   render() {
     const { menuMode, menuVisible } = this.state;
     const { location, intl } = this.props;

@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { Row, Col, Badge } from 'antd';
 import * as utils from '../utils';
 
@@ -24,7 +23,7 @@ class Footer extends React.Component<{
       currentProtocol +
       currentHref.replace(
         window.location.pathname,
-        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname))
+        utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)),
       );
   };
 

@@ -2,14 +2,14 @@ import React from 'react';
 import { Avatar, Tooltip } from 'antd';
 
 class AvatarList extends React.Component<{
-  avatarList: Array<{
+  avatarList: {
     href: string;
     text: string;
     src: string;
-  }>;
+  }[];
 }> {
   main: HTMLDivElement | null;
-  async componentDidMount() {}
+
   render() {
     const { avatarList = [] } = this.props;
     if (!avatarList) {
@@ -17,15 +17,18 @@ class AvatarList extends React.Component<{
     }
     return (
       <div className="doc-avatar-list">
-        {avatarList.map(item => {
-          return (
-            <a className="href-box" target="_blank" href={`http://github.com${item.href}`}>
-              <Tooltip title={item.text}>
-                <Avatar src={item.src} alt={item.text} size="small" />
-              </Tooltip>
-            </a>
-          );
-        })}
+        {avatarList.map(item => (
+          <a
+            className="href-box"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`http://github.com${item.href}`}
+          >
+            <Tooltip title={item.text}>
+              <Avatar src={item.src} alt={item.text} size="small" />
+            </Tooltip>
+          </a>
+        ))}
       </div>
     );
   }

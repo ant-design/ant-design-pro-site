@@ -4,9 +4,9 @@ import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { Affix } from 'antd';
 import delegate from 'delegate';
+import moment from 'moment';
 import EditButton from './EditButton';
 import { IFrontmatterData } from '../../templates/docs';
-import moment from 'moment';
 import AvatarList from './AvatarList';
 
 interface ArticleProps {
@@ -22,6 +22,12 @@ export default class Article extends React.PureComponent<ArticleProps> {
     intl: PropTypes.object.isRequired,
   };
 
+  delegation: any;
+
+  pingTimer: number;
+
+  node: HTMLElement | null | undefined;
+
   componentDidMount() {
     // Add ga event click
     this.delegation = delegate(
@@ -33,11 +39,10 @@ export default class Article extends React.PureComponent<ArticleProps> {
           (window as any).ga('send', 'event', 'Download', 'resource', e.delegateTarget.href);
         }
       },
-      false
+      false,
     );
   }
-  delegation: any;
-  pingTimer: number;
+
   componentWillUnmount() {
     clearTimeout(this.pingTimer);
     if (this.delegation) {
@@ -45,11 +50,9 @@ export default class Article extends React.PureComponent<ArticleProps> {
     }
   }
 
-  node: HTMLElement | null | undefined;
-
   render() {
-    const props = this.props;
-    const content = props.content;
+    const { props } = this;
+    const { content } = props;
     const { meta } = content;
     const { title, subtitle, path, modifiedTime, avatarList } = meta;
     const {
