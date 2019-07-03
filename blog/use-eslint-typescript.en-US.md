@@ -7,7 +7,7 @@ time: 2019-06-21
 
 We always use tslint in TypeScript to guarantee the quality of our code. But tslint is a subset of eslint. Tslint offers about 151 basic rules, but eslint has 249, not to mention the well-developed ecology of eslint, which provides more specification code. The tslint team also found this problem and decided to [transfer](https://eslint.org/blog/2019/01/future-typescript-eslint) into eslint.
 
-## 起因
+## Cause
 
 In the preparation of Pro v4, we added a feature that converts TypeScript into JavaScript. After the conversion is complete, we ran eslint and prettier to make the code more human-like. The js code after the conversion is complete cannot pass the eslint check:
 
