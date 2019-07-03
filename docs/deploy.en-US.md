@@ -4,7 +4,7 @@ title: Deployment
 type: Build & Deployment
 ---
 
-Pro provides mock data by default, but mock data will no longer work after build. If you still want to use this data to build a demo site, you can launch an express service via [umi-mock](https://www.npmjs.com/package/umi-mock). This service is the same as the mock data.
+Pro provides mock data by default, but mock data will no longer work after build. If you still want to use this data to build a demo site, you can launch an express service via [umi-serve](https://www.npmjs.com/package/umi-serve). This service is the same as the mock data.
 
 ## Release
 

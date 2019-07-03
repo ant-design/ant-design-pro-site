@@ -4,7 +4,7 @@ title: 部署
 type: 构建和部署
 ---
 
-Pro 默认提供了 mock 数据，但是在 build 之后 mock 数据将不再起作用。如果你仍想使用这些数据来搭建演示站点，你可以通过 [umi-mock](https://www.npmjs.com/package/umi-mock) 来启动一个 express 服务。这个服务与 mock 的数据是相同的。
+Pro 默认提供了 mock 数据，但是在 build 之后 mock 数据将不再起作用。如果你仍想使用这些数据来搭建演示站点，你可以通过 [umi-serve](https://www.npmjs.com/package/umi-serve) 来启动一个 express 服务。这个服务与 mock 的数据是相同的。
 
 ## 部署
 
