@@ -19,7 +19,7 @@ The online theme plugin is mainly implemented by compiling less in the browser. 
 
 ## Merge less
 
-This function is mainly implemented by a plugin, `antd-pro-merge-less`, which scans all the lesss in src and merges them into a `./ temp / ant-deigin-pro.ess`. Plugins are also the most problematic plugins, causing some of the fewer references to fail.
+This function is mainly implemented by a plugin, `antd-pro-merge-less`, which scans all the less in src and merges them into a `./ temp / ant-design-pro.ess`. Plugins are also the most problematic plugins, causing some of the fewer references to fail.
 
 ## Convert css-module
 

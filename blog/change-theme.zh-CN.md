@@ -19,7 +19,7 @@ Pro 中为了简化 less 的使用，启用了 [`css-module`](https://github.com
 
 ## 合并 less
 
-这个功能主要靠一个插件来实现，`antd-pro-merge-less`，这个插件会扫描 src 中所有的 less，并且将其合并为一个 `./temp/ant-deigin-pro.ess`， 这个插件也是问题最多的插件，会造成部分 less 的引用失效，
+这个功能主要靠一个插件来实现，`antd-pro-merge-less`，这个插件会扫描 src 中所有的 less，并且将其合并为一个 `./temp/ant-design-pro.ess`， 这个插件也是问题最多的插件，会造成部分 less 的引用失效，
 
 ## 转化 css-module
 

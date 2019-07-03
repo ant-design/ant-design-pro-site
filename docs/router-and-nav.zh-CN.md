@@ -173,7 +173,7 @@ module.exports = [
 
 由于 umi 的限制，在 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是不能直接使用 React 组件的，Pro 中暂时支持使用 [`ant.design`](https://ant.design/components/icon-cn/) 本身的 icon `type`，和传入一个 img 的 url。只需要直接在 icon 属性上配置即可，如果是个 url，Pro 会自动处理为一个 img 标签。
 
-> 如果你想使用 iconfont 的图标，你可以使用[ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%)的自定义图标.
+> 如果你想使用 iconfont 的图标，你可以使用[ant.design](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%)的自定义图标.
 
 ### 带参数的路由
 
