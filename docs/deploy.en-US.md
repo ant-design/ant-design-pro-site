@@ -20,17 +20,17 @@ Umi has two modes of router, `browserHistory` and `hashHistory`.
 
 A common requirement when deploying non-directed directories, such as being deployed in gitHub pages. Next we assume that we are deploying the project to `${host}/admin`.
 
-First we need to configure [base](https://umijs.org/zh/config/#base) in config.ts, which is the prefix of react-router. We need to configure base as `admin`, if we still need to deploy it to the `/admin` directory, we also need to set `publicPath`. After setting it is like this:
+First we need to configure [base](https://umijs.org/zh/config/#base) in `config/config.ts`, which is the prefix of react-router. We need to configure base as `admin`, if we still need to deploy it to the `/admin` directory, we also need to set `publicPath`. After setting it is like this:
 
-```json
-{
+```javascript
+export default {
   // ... some config
-  "": "/admin/",
-  "publishPath": "/admin/"
-}
+  base: "/admin/",
+  publicPath: "/admin/",
+};
 ```
 
-Next we can access our static files in `${host}/admin`. It is worth noting that `base` and `publishPath` do not take effect in dev mode.
+Next we can access our static files in `${host}/admin`. The url path will also be modified in dev mode.
 
 ## Deploy to different platforms
 

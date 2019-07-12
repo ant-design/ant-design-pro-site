@@ -28,17 +28,17 @@ export default {
 
 ## 部署到非根目录
 
-部署在非跟目录时一种常见的需求，比如部署在 gitHub pages 中。接下来我们假设我们要部署项目到 `${host}/admin` 中。首先我们需要在 config.ts 中配置 [base](https://umijs.org/zh/config/#base),`base` 是 react-router 的前缀。我们需要将 base 配置为 `admin`, 如果我们还需要将其部署到 `/admin` 目录中，我们还需要设置 [`publicPath`](https://umijs.org/zh/config/#publicpath)。设置完之后是这样的：
+部署在非跟目录时一种常见的需求，比如部署在 gitHub pages 中。接下来我们假设我们要部署项目到 `${host}/admin` 中。首先我们需要在 `config/config.ts` 中配置 [base](https://umijs.org/zh/config/#base),`base` 是 react-router 的前缀。我们需要将 base 配置为 `admin`, 如果我们还需要将其部署到 `/admin` 目录中，我们还需要设置 [`publicPath`](https://umijs.org/zh/config/#publicpath)。设置完之后是这样的：
 
-```json
-{
+```javascript
+export default {
   // ... some config
-  "": "/admin/",
-  "publishPath": "/admin/"
-}
+  base: "/admin/",
+  publicPath: "/admin/",
+};
 ```
 
-接下来我们就可以在 `${host}/admin` 中访问我们的静态文件了。值得注意的是，在 dev 模式下 `base`和 `publishPath` 并不会生效。
+接下来我们就可以在 `${host}/admin` 中访问我们的静态文件了。值得注意的是，在 dev 模式下 url 路径同样也会被修改。
 
 ## 部署到不同的平台
 
