@@ -39,3 +39,7 @@ This script will perform a series of tests, including e2e testing. For details, 
 ### `npm run fetch:blocks`
 
 This script can download all the blocks to the current project. You will get the same interface as `https://preview.pro.ant.design/`.
+
+### `npm run i18n-remove`
+
+This script will try to delete all the i18n code in the project, which is not good for complex runtime code.

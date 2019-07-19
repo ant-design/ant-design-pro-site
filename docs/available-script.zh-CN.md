@@ -39,3 +39,7 @@ analyze 脚本做的事情与 build 的相同，但是他会打开一个页面�
 ### `npm run fetch:blocks`
 
 这个脚本可以将所有的区块下载到当前项目中。你会得到与 `https://preview.pro.ant.design/` 相同的界面。
+
+### `npm run i18n-remove`
+
+这个脚本将会尝试删除项目中所有的 i18n 代码，对于复杂的运行时代码，表现并不好，慎用。
