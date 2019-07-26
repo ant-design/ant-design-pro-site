@@ -21,7 +21,8 @@
     "precommit": "npm run lint-staged",
     "prettier": "prettier --write **/**",
     "serve": "gatsby serve",
-    "site": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run build && npm run gh-pages",
+    "presite": "cross-env NODE_OPTIONS=--max-old-space-size=4096 npm run build",
+    "site": "npm run gh-pages",
     "start": "gatsby develop",
     "test": "npm run lint"
   },
