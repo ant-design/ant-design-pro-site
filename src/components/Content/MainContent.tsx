@@ -224,7 +224,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     return result;
   };
 
-  getPreAndNext = (menuItems: any) => {
+  getPreAndNext = (menuItems: any) => { // eslint-disable-line
     const {
       localizedPageData: {
         meta: { filename },

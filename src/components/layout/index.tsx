@@ -20,8 +20,8 @@ export interface LayoutProps {
 
 interface LayoutState {
   appLocale: {
-    locale: any;
-    messages: any;
+    locale: any; // eslint-disable-line
+    messages: any; // eslint-disable-line
   };
 }
 

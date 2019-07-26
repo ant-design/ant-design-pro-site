@@ -3,3 +3,10 @@ package.json
 .umi
 .umi-production
 .cache
+**/*.lock
+**/*.toml
+CNAME
+scaffold/Dockerfile
+scaffold/Dockerfile.dev
+scaffold/Dockerfile.hub
+scaffold/LICENSE

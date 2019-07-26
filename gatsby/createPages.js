@@ -1,3 +1,4 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable no-console */
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -34,7 +35,7 @@ module.exports = async ({ graphql, actions }) => {
           }
         }
       }
-    `
+    `,
   );
 
   if (allMarkdown.errors) {
@@ -44,7 +45,7 @@ module.exports = async ({ graphql, actions }) => {
   }
   const redirects = {};
 
-  const edges = allMarkdown.data.allMarkdownRemark.edges;
+  const { edges } = allMarkdown.data.allMarkdownRemark;
   edges.forEach(edge => {
     const { slug, underScoreCasePath } = edge.node.fields;
     if (slug.includes('docs/') || slug.includes('/blog')) {
@@ -106,6 +107,6 @@ module.exports = async ({ graphql, actions }) => {
       fromPath: path,
       redirectInBrowser: true,
       toPath: redirects[path],
-    })
+    }),
   );
 };

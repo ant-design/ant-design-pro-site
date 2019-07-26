@@ -10,7 +10,7 @@ const LOGO_URL = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicR
 
 const key = 'antd-pro@2.0.0-notification-sent';
 
-let docSearch: (config: any) => void;
+let docSearch: (config: any) => void; // eslint-disable-line
 if (typeof window !== 'undefined') {
   // eslint-disable-next-line global-require
   docSearch = require('docsearch.js');
@@ -45,7 +45,7 @@ function initDocSearch(locale: 'zh-CN' | 'en-US') {
 
 interface HeaderProps {
   isMobile: boolean;
-  intl: any;
+  intl: any; // eslint-disable-line
   location: {
     pathname: string;
   };
@@ -54,7 +54,7 @@ interface HeaderState {
   inputValue?: string;
   menuVisible: boolean;
   menuMode?: 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
-  searchOption?: any[];
+  searchOption?: any[]; // eslint-disable-line
   searching?: boolean;
 }
 

@@ -54,17 +54,17 @@ export function getLocalizedPathname(path: string, zhCN: boolean) {
 
 export function getMenuItems(
   moduleData: {
-    [key: string]: any;
+    [key: string]: any; // eslint-disable-line
   },
   locale: string,
 ) {
-  const menuMeta = moduleData.map((item: { meta: any }) => item.meta);
+  const menuMeta = moduleData.map((item: { meta: any }) => item.meta); // eslint-disable-line
   const menuItems: {
-    [key: string]: any;
+    [key: string]: any; // eslint-disable-line
   } = { topLevel: {} };
   menuMeta
     .sort((a: { order: number }, b: { order: number }) => (a.order || 0) - (b.order || 0))
-    .forEach((meta: { category: { [x: string]: any }; type: string }) => {
+    .forEach((meta: { category: { [x: string]: any }; type: string }) => { // eslint-disable-line
       const category = (meta.category && meta.category[locale]) || meta.category || 'topLevel';
       if (!menuItems[category]) {
         menuItems[category] = {};
@@ -80,7 +80,7 @@ export function getMenuItems(
   return menuItems;
 }
 
-export function ping(callback: (arg0: any) => void) {
+export function ping(callback: (arg0: any) => void) { // eslint-disable-line
   const url =
     'https://private-a' +
     'lipay' +

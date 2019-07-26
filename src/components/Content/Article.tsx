@@ -22,7 +22,7 @@ export default class Article extends React.PureComponent<ArticleProps> {
     intl: PropTypes.object.isRequired,
   };
 
-  delegation: any;
+  delegation: any; // eslint-disable-line
 
   pingTimer: number;
 
@@ -34,9 +34,9 @@ export default class Article extends React.PureComponent<ArticleProps> {
       this.node,
       '.resource-card',
       'click',
-      (e: { delegateTarget: { href: any } }) => {
-        if ((window as any).ga) {
-          (window as any).ga('send', 'event', 'Download', 'resource', e.delegateTarget.href);
+      (e: { delegateTarget: { href: any } }) => { // eslint-disable-line
+        if ((window as any).ga) { // eslint-disable-line
+          (window as any).ga('send', 'event', 'Download', 'resource', e.delegateTarget.href); // eslint-disable-line
         }
       },
       false,
@@ -88,7 +88,7 @@ export default class Article extends React.PureComponent<ArticleProps> {
             {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
               <Affix className="toc-affix" offsetTop={16}>
                 <div
-                  dangerouslySetInnerHTML={{
+                  dangerouslySetInnerHTML={{ // eslint-disable-line
                     __html: content.toc.replace(/<ul>/g, '<ul class="toc">').replace(/\/#/g, '#'),
                   }}
                 />
@@ -96,7 +96,7 @@ export default class Article extends React.PureComponent<ArticleProps> {
             )}
             <section
               className="markdown api-container"
-              dangerouslySetInnerHTML={{ __html: content.content }}
+              dangerouslySetInnerHTML={{ __html: content.content }} // eslint-disable-line
             />
           </article>
         </>
