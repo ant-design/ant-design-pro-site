@@ -13,7 +13,7 @@ Block is a set of code block. It helps you to fast initialize a page with prepar
 
 ## Use Block
 
-> Interactive umi block list requires umi@2.8.7 and above, see [blog](/blog/beter-block) for details.
+> Interactive umi block list requires umi@2.8.7 and above, see [blog](/blog/better-block) for details.
 
 In Ant Design Pro, use umi for block management. When we need to install a block, we need to know which blocks the .umi provides for the umi block list to view the block. The effect of using it in pro is shown in the figure below. You can select the block name to install.
 

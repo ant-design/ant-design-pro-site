@@ -13,7 +13,7 @@ type: 开发
 
 ## 使用区块
 
-> 交互式的 umi block list 需要 umi@2.8.7 及以上版本,详情请见[blog](/blog/beter-block)。
+> 交互式的 umi block list 需要 umi@2.8.7 及以上版本,详情请见[blog](/blog/better-block)。
 
 Ant Design Pro 中，使用 umi 进行区块管理。当我们需要安装一个区块的时候，我们需要知道区块有哪些。 umi 提供了 umi block list 的方式来查看区块。在 pro 中使用效果看如下图所示。你可以选中区块名来进行安装。
 
