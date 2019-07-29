@@ -25,7 +25,7 @@ Ant Design Pro 提供了由设计师精心设计抽象的图表类型，是在 [
 
 ## 使用 Ant Design Pro 的图表
 
-v4 中删除了组件库，如果你好要使用可以看 [图表组件](https://v2-pro.ant.design/components/charts-cn/)
+v4 中删除了组件库，如果你还要使用可以看 [图表组件](https://v2-pro.ant.design/components/charts-cn/)
 
 ## 使用 BizCharts 绘制图表
 
