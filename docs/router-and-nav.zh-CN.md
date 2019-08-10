@@ -91,6 +91,7 @@ return (
 ```
 
 > 注意 path 必须要在 config.ts 中定义。（约定式路由不需要，只需页面真实有效即可）
+> 注意 如果没有选用typescript，config.js 中菜单的嵌套写法，需要把 "children" 换成 "routes"
 
 ### 面包屑
 
