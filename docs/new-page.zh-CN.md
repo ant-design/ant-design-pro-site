@@ -10,19 +10,37 @@ type: 开发
 
 ## 一、新增 js、less 文件
 
-在 `src/pages` 下新建页面的 js 及 less 文件，如果相关页面有多个，可以新建一个文件夹来放置相关文件。
+在 src / pages 下创建新的 js，less 文件。 如果有多个相关页面，您可以创建一个新文件夹来放置相关文件。
 
-<img width="300" alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/hjDyFTVOgRwDzAIHApMO.png" />
+```diff
+config
+src
+  models
+  pages
++   NewPage.ts
++   NewPage.less
+  ...
+...
+package.json
+```
 
-<br />
+为了更好的演示，我们初始化`NewPage.ts`的内容如下：
 
-样式文件默认使用 [CSS Modules](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)，如果需要，你可以在样式文件的头部引入 [antd 样式变量文件](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)：
+```jsx
+export default () => {
+  return <div>New Page</div>;
+};
+```
 
-```css
+暂时不向本文档中的样式文件添加内容，您也可以尝试自己添加内容。
+
+样式文件默认使用[CSS Modules](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)，如果需要，可以导入[antd less 变量](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 在文件的头部：
+
+```less
 @import '~antd/lib/style/themes/default.less';
 ```
 
-这样可以很方便地获取 antd 样式变量并在你的文件里使用，有利于保持页面的一致性，也方便实现定制主题。
+这样可以轻松获取 antd 样式变量并在文件中使用它们，这可以保持保持页面的一致性，并有助于实现自定义主题。
 
 ## 二、将文件加入菜单和路由
 
