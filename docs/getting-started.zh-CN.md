@@ -126,7 +126,7 @@ Ant Design Pro 脚手架将会自动安装。
 npm install
 ```
 
-> 如果网络状况不佳，可以使用 [cnpm](https://cnpmjs.org/) 进行加速。
+> 如果网络状况不佳，可以使用 [tyarn](https://www.npmjs.com/package/tyarn) 进行加速。
 
 ```bash
 npm start

@@ -16,7 +16,7 @@ time: 2019-06-28
 如果你想使用自己的包管理工具和源，你可以通过 `--npm-client`  和 `--registry`  来自定义。
 
 ```bash
-npx umi block add AccountSettings --npm-client=cnpm --registry=https://registry.npm.taobao.org
+npx umi block add AccountSettings --npm-client=tyarn --registry=https://registry.npm.taobao.org
 ```
 
 > 🌟block 自带了 npm 和 taobao 两种源, 会根据网络来决定使用哪个源。同时如果你的项目中包含 yarn.lock 文件，block 会使用 yarn 来安装区块。

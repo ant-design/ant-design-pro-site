@@ -235,7 +235,7 @@ pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-lo
 
 ### npm 安装 puppeteer 失败
 
-尝试使用 cnpm 或者设置环境变量，可以查看这个 [issue](https://github.com/cnpm/cnpmjs.org/issues/1246)。
+尝试使用 tyarn 或者设置环境变量，可以查看这个 [issue](https://github.com/cnpm/cnpmjs.org/issues/1246)。
 
 ### English Documentation？
 

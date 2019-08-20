@@ -235,7 +235,7 @@ This is one of the features of Ant Design Pro. The first version is currently av
 
 ### Npm installation of [puppeteer](https://github.com/GoogleChrome/puppeteer/) is failing
 
-Try using cnpm or setting environment variables to see this [issue](https://github.com/cnpm/cnpmjs.org/issues/1246).
+Try using tyarn or setting environment variables to see this [issue](https://github.com/cnpm/cnpmjs.org/issues/1246).
 
 ### Is english documentation available?
 
