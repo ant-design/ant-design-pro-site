@@ -40,6 +40,8 @@ analyze 脚本做的事情与 build 的相同，但是他会打开一个页面�
 
 这个脚本可以将所有的区块下载到当前项目中。你会得到与 `https://preview.pro.ant.design/` 相同的界面。
 
+> 如果速度缓慢，可以尝试升级 umi 版本到最新，并在 [config.ts](https://github.com/ant-design/ant-design-pro/blob/ad5db1c268100735b5d99624aa75a5cd1be56e2c/config/config.ts#L78) 设置 block.defaultGitUrl 为 'https://gitee.com/ant-design/pro-blocks'。
+
 ### `npm run i18n-remove`
 
 这个脚本将会尝试删除项目中所有的 i18n 代码，对于复杂的运行时代码，表现并不好，慎用。
