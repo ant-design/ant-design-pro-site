@@ -68,7 +68,7 @@ return (
     "path": "/dashboard",
     "name": "dashboard",
     "icon": "dashboard",
-    "routes": [
+    "children": [
       {
         "path": "/dashboard/analysis",
         "name": "analysis",
