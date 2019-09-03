@@ -140,7 +140,7 @@ You're all set!
 
 We have built-in **mock data**, **hot module reloading**, **state management**,**i18n**, **global router**, etc. You can continue exploring other documents for more details on those topics.
 
-## 后续步骤
+## Next Steps
 
 [> Block Development](/docs/block-cn) Quickly build standard pages.
 
