@@ -68,21 +68,18 @@ return (
     "path": "/dashboard",
     "name": "dashboard",
     "icon": "dashboard",
-    "routes": [
+    "children": [
       {
         "path": "/dashboard/analysis",
-        "name": "analysis",
-        "exact": true
+        "name": "analysis"
       },
       {
         "path": "/dashboard/monitor",
-        "name": "monitor",
-        "exact": true
+        "name": "monitor"
       },
       {
         "path": "/dashboard/workplace",
-        "name": "workplace",
-        "exact": true
+        "name": "workplace"
       }
     ]
   }
