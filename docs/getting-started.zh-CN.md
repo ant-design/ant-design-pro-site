@@ -142,6 +142,5 @@ npm start
 
 ## 后续步骤
 
-[> 基于区块开发](/docs/block-cn) 快速搭建标准页面。
-
-[> 传统开发模式](/docs/router-and-nav-cn)，完全自定义开发。
+- [基于区块开发](/docs/block-cn)：快速搭建标准页面。
+- [传统开发模式](/docs/router-and-nav-cn)：完全自定义开发。
