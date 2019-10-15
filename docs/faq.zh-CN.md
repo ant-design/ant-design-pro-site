@@ -145,7 +145,7 @@ $ umi-serve
 ]
 ```
 
-> 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面。注意：build 之后 proxy 无效，不要在 proxy 中配置请求`http://localhost:8001/api/users` ，而是要在 http 请求的时候，直接访问该地址。如在 [`src/utils/request.ts`](https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/utils/request.ts) 中统一添加请求前缀。
+> 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面。注意：build 之后 proxy 无效，不要在 proxy 中配置请求`http://localhost:8001/api/users`，而是要在 http 请求的时候，直接访问该地址。如在 [`src/utils/request.ts`](https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/utils/request.ts) 中统一添加请求前缀。
 
 ### 如何关闭页面权限控制
 
@@ -187,7 +187,7 @@ $ umi-serve
 
 ### 如何代理到后端服务器？
 
-Ant Design Pro 内置了 umi，umi 使用了 webpack [devServer](https://webpack.docschina.org/configuration/dev-server/)来支持代理。你只需要在 config.js 中配置 proxy 属性。只要 proxy 和 mock url 不同，是可以共存的。
+Ant Design Pro 内置了 umi，umi 使用了 [webpack-dev-server](https://webpack.docschina.org/configuration/dev-server/) 来支持代理。你只需要在 `config.js` 中配置 `proxy` 属性。只要 `proxy` 和 `mock` 的 url 不同，是可以共存的。
 
 ```js
 {
@@ -203,7 +203,7 @@ Ant Design Pro 内置了 umi，umi 使用了 webpack [devServer](https://webpack
 }
 ```
 
-在浏览器中输入 http://localhost:8000/server/api/currentUser 预览。
+在浏览器中输入 http://localhost:8000/server/api/currentUser 预览。注意，配置了 proxy 之后，本地浏览器内的请求路径不会变（依然是 localhost），但是发送的请求会被反向代理的你配置的 `target` 后端服务上。
 
 ### 如何添加 scss 支持？
 
