@@ -61,7 +61,7 @@ function Page2({ location }) {
               <div>
                 $ yarn start{' '}
                 <span className="home-code-comment">
-                  {'#'} <FormattedMessage id="app.home.openbrowser" /> http://localhost:8000
+                  # <FormattedMessage id="app.home.openbrowser" /> http://localhost:8000
                 </span>
               </div>
             </div>

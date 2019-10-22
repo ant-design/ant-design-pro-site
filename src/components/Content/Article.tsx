@@ -18,15 +18,15 @@ interface ArticleProps {
 }
 
 export default class Article extends React.PureComponent<ArticleProps> {
-  static contextTypes = {
-    intl: PropTypes.object.isRequired,
-  };
-
   delegation: any;
 
   pingTimer: number;
 
   node: HTMLElement | null | undefined;
+
+  static contextTypes = {
+    intl: PropTypes.object.isRequired,
+  };
 
   componentDidMount() {
     // Add ga event click

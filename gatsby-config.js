@@ -3,7 +3,7 @@ module.exports = {
     title: 'ANT DESIGN PRO',
     description: 'Out-of-box UI solution for enterprise applications',
     author: 'Ant Design',
-    siteUrl: `https://pro.ant.design`,
+    siteUrl: 'https://pro.ant.design',
   },
   plugins: [
     {
@@ -12,7 +12,7 @@ module.exports = {
         javascriptEnabled: true,
       },
     },
-    `gatsby-plugin-typescript`,
+    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-antd',
       options: {
@@ -47,7 +47,7 @@ module.exports = {
           'gatsby-remark-header-custom-ids',
           'gatsby-remark-img-warpper-p',
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: 'gatsby-remark-prismjs',
             options: {
               noInlineHighlight: true,
             },
@@ -56,12 +56,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-72788897-5',
       },
     },
-    `gatsby-plugin-netlify`,
+    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -74,6 +74,6 @@ module.exports = {
         icon: 'src/images/favicon.png',
       },
     },
-    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-sitemap',
   ],
 };

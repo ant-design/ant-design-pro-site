@@ -58,13 +58,13 @@ function isNotTopLevel(level: string) {
 }
 
 export default class MainContent extends React.PureComponent<MainContentProps, MainContentState> {
-  static contextTypes = {
-    intl: PropTypes.object.isRequired,
-  };
-
   timer: number;
 
   currentModule: string;
+
+  static contextTypes = {
+    intl: PropTypes.object.isRequired,
+  };
 
   constructor(props: MainContentProps) {
     super(props);
