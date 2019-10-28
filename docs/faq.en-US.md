@@ -63,7 +63,7 @@ The above menuData definite is [MenuDataItem](https://github.com/ant-design/ant-
     path: '/dashboard',
     name: 'dashboard',
     icon: 'dashboard',
-    children: [
+    routes: [
       {
         path: '/dashboard/analysis',
         name: 'analysis',
