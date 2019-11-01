@@ -7,7 +7,7 @@ time: 2019-11-02
 
 ![cdn-hosting](https://user-images.githubusercontent.com/8186664/68047427-585cd780-fd19-11e9-9439-0fe05aa93475.png)
 
-要想成为一个好的开源项目，一个官网必不可少，Pro 也不例外。 Pro 还有一个预览界面，其中带有 API 的访问，需要带有 function 的功能。
+要想成为一个好的开源项目，一个官网必不可少，Pro 也不例外。 Pro 还有一个预览界面，其中带有 API 的访问，需要支持一定的动态能力。
 
 ### 技术选型
 
