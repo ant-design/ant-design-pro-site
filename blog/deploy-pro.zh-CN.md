@@ -1,6 +1,6 @@
 ---
 order: 6
-title: 我们是怎么开源项目的
+title: 我们是如何部署开源项目的?
 type: Blog
 time: 2019-11-02
 ---

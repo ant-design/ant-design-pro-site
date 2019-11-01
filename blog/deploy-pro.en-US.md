@@ -1,6 +1,6 @@
 ---
 order: 6
-title: How are we open source projects?
+title: How do we deploy open source projects?
 type: Blog
 time: 2019-11-02
 ---
