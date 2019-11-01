@@ -5,7 +5,7 @@ type: Blog
 time: 2019-11-02
 ---
 
-![cdn-hosting.png](https://cdn.nlark.com/yuque/0/2019/png/84868/1572630353124-6e7289a2-0fb2-461c-9dee-69d90f830f4f.png#align=left&display=inline&height=427&name=cdn-hosting.png&originHeight=427&originWidth=997&search=&size=74873&status=done&width=997)
+![cdn-hosting](https://user-images.githubusercontent.com/8186664/68047427-585cd780-fd19-11e9-9439-0fe05aa93475.png)
 
 要想成为一个好的开源项目，一个官网必不可少，Pro 也不例外。 Pro 还有一个预览界面，其中带有 API 的访问，需要带有 function 的功能。
 
