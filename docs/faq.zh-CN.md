@@ -258,3 +258,14 @@ This is a problem introduced using the umijs framework. For details, please refe
 ---
 
 更多常见问题可以查看 [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting) 和 [umi](https://github.com/umijs/umi)。如果这里未能解决你的问题，欢迎 [报告给我们](https://github.com/ant-design/ant-design-pro/issues)。
+
+### 切换语言时某些组件语言无法切换
+
+Pro 中使用了 context 来管理语言的动态切换，可以做到无刷新切换语言的效果，但是某些组件优化的比较好，context 修改不会重新渲染组件，或者像 Portal 这样组件上下文不存在， 所以无法切换。我们可以通过配置的方式来让页面重新加载来实现完全重新渲染。
+
+```tsx
+import { setLocale } from 'umi-plugin-react/locale';
+
+// 设置第二个参数为 true 即可强制刷新
+setLocale(key, false);
+```

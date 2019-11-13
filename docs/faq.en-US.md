@@ -258,3 +258,14 @@ export default {
 ---
 
 More FAQs can be found in [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting). If this does not solve your problem, please [Report to us](https://github.com/ant-design/ant-design-pro/issues).
+
+### Some component languages cannot be switched when switching languages
+
+Pro uses context to manage the dynamic switching of the language, which can achieve the effect of no refresh switching language, but some components are better optimized, the context modification does not re-render the component, or the component context like Portal does not exist, so it can't Switch. We can configure the way to reload the page for full re-rendering.
+
+```tsx
+Import { setLocale } from 'umi-plugin-react/locale';
+
+// Set the second parameter to true to force a refresh
+setLocale(key, false);
+```
