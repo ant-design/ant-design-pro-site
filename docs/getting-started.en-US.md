@@ -72,13 +72,13 @@ You will need [yarn](https://yarnpkg.com), [node](http://nodejs.org/) and [git](
 Create a new empty folder as project root. Execute command in the folder:
 
 ```bash
-yarn create umi
+yarn create umi myApp
 ```
 
 or
 
 ```bash
-npm create umi
+npm create umi myApp
 ```
 
 Choose `ant-design-pro`：
