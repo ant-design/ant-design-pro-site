@@ -5,6 +5,8 @@ type: Blog
 time: 2019-06-28
 ---
 
+> umi ui 已经发布，点此快速[体验](https://umijs.org/zh/guide/umi-ui.html)。
+
 在 v4 中我们发布了 block 功能，在一段时间的使用和反馈中我们增加了一些新的特性，来帮助用户更好的使用和体验 block。
 
 ## 🚀 更快的安装速度

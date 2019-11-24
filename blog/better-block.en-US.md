@@ -5,6 +5,8 @@ type: Blog
 time: 2019-06-28
 ---
 
+> umi ui has been released, click here [experience](https://umijs.org/zh/guide/umi-ui.html).
+
 In v4 we released the block function, and we added some new features in a period of use and feedback to help users better use and experience the block.
 
 ## 🚀 Faster
