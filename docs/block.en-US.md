@@ -13,31 +13,21 @@ Block is a set of code block. It helps you to fast initialize a page with prepar
 
 ## Use Block
 
-> Interactive umi block list requires umi@2.8.7 and above, see [blog](/blog/better-block) for details.
+Ant Design Pro 中，使用 umi ui 进行区块管理。
 
-In Ant Design Pro, use umi for block management. When we need to install a block, we need to know which blocks the .umi provides for the umi block list to view the block. The effect of using it in pro is shown in the figure below. You can select the block name to install.
+![ umi block list](https://gw.alipayobjects.com/zos/antfincdn/YWjTPDQAeq/CF034E49-0FE8-4011-B282-6956FC1B312C.png)
 
-![umi block list](https://gw.alipayobjects.com/zos/antfincdn/x4QZO%24Ubyh/1561713223131-f7111829-e270-4569-b5ac-8e8585581b96.png)
+### Block and template
 
-Adding other blocks is also very easy, type in the command line:
+Assets in Pro are divided into two categories, blocks and templates. A block can be analogized to a component, and a template represents a page. The block now supports all demos in antd, allowing you to import demos into your projects more quickly. The following image demonstrates the rapid development of a crud page.
 
-```Celebration
-Umi block add [block url]
-```
+![](https://gw.alipayobjects.com/zos/antfincdn/75%26lzz1F9P/Kapture%2525202019-11-25%252520at%25252015.35.41.gif)
 
-> Pro will go to [pro-blocks](https://github.com/ant-design/pro-blocks) to find the block by default, and the default block address is [umi-blocks] (https:/ /github.com/umijs/umi-blocks). If you want to use the umi block in Pro, you need to add the full path. The same is true for blocks that use Pro in an empty project.
+### Layout block
 
-In our [Preview Site](https://preview.pro.ant.design), you can get the command content of the corresponding page by clicking [_Add to Project_] in the lower right corner.
+This type of block provides the ability to place places, add other blocks at the specified location, and add them to the target file by code merging, which is more in line with the intuition of the code organization.
 
-![Block sample](https://user-images.githubusercontent.com/5378891/58394196-98d26e00-8074-11e9-87c7-c527cf87545d.png)
-
-By default, router of added block is `/[block name]`. You can use `--path` to set the block router:
-
-## Add to router
-
-```bash
-umi block add ant-design-pro/analysis --path=your/path/here
-```
+![](https://gw.alipayobjects.com/zos/antfincdn/FjLAmnNnwA/Kapture%2525202019-11-25%252520at%25252017.32.25.gif)
 
 ## Retrieve all the interfaces in Pro v2
 

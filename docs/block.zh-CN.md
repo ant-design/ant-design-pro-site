@@ -13,31 +13,21 @@ type: 开发
 
 ## 使用区块
 
-> 交互式的 umi block list 需要 umi@2.8.7 及以上版本,详情请见[blog](/blog/better-block)。
+Ant Design Pro 中，使用 umi ui 进行区块管理。
 
-Ant Design Pro 中，使用 umi 进行区块管理。当我们需要安装一个区块的时候，我们需要知道区块有哪些。 umi 提供了 umi block list 的方式来查看区块。在 pro 中使用效果如下图所示。你可以选中区块名来进行安装。
+![ umi block list](https://gw.alipayobjects.com/zos/antfincdn/YWjTPDQAeq/CF034E49-0FE8-4011-B282-6956FC1B312C.png)
 
-![ umi block list](https://gw.alipayobjects.com/zos/antfincdn/x4QZO%24Ubyh/1561713223131-f7111829-e270-4569-b5ac-8e8585581b96.png)
+### 区块和模板
 
-添加别的区块也非常容易，在命令行中输入：
+在 Pro 中资产被分为了两种，区块和模板。区块可以类比为一个组件，而模板代表一个页面。区块现在支持所有 antd 中的 demo，可以更加快速的将 demo 导入到项目中去。下图演示了快速开发一个 crud 页面。
 
-```bash
-umi block add [block url]
-```
+![](https://gw.alipayobjects.com/zos/antfincdn/75%26lzz1F9P/Kapture%2525202019-11-25%252520at%25252015.35.41.gif)
 
-> Pro 中会默认去 [pro-blocks](https://github.com/ant-design/pro-blocks) 去寻找区块，而默认的区块地址则是 [umi-blocks](https://github.com/umijs/umi-blocks)。如果你要在 Pro 中使用 umi 的区块，需要 add 全路径。在空项目中使用 Pro 的区块也是如此。
+### 布局区块
 
-在我们的[预览网站](https://preview.pro.ant.design)中，你可以通过点击右下角的“添加到项目中”获取对应页面的命令内容。
+该类区块提供了占位的能力，可以在指定位置添加其他区块；并且会通过代码合并的方式添加到目标文件中，这点更加符合代码组织的直觉。
 
-![block sample](https://user-images.githubusercontent.com/5378891/58394196-98d26e00-8074-11e9-87c7-c527cf87545d.png)
-
-## 添加到路由
-
-默认情况下，添加的区块路由为 `/[区块名]`。如果希望添加到对应路径上，可以使用 `--path` 参数指定路由：
-
-```bash
-umi block add ant-design-pro/analysis --path=your/path/here
-```
+![](https://gw.alipayobjects.com/zos/antfincdn/FjLAmnNnwA/Kapture%2525202019-11-25%252520at%25252017.32.25.gif)
 
 ## 找回 Pro v2 中的所有界面
 
