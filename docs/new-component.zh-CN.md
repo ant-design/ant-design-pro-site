@@ -42,8 +42,6 @@ type: 开发
 > export default MainComponent;
 > ```
 
-````
-
 你的代码大概是这个样子：
 
 ```jsx
@@ -57,7 +55,7 @@ export default ({ src, desc, style }) => (
     {desc && <div className={styles.desc}>{desc}</div>}
   </div>
 );
-````
+```
 
 ```css
 // index.less
