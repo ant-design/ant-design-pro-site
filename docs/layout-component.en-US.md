@@ -79,4 +79,4 @@ SettingDrawer provides a graphical interface to set the layout configuration. No
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/iITLeL7TVb/6ED60335-2A24-4C13-91CE-FD782FB2D219.png)
 
-Setting the theme color of the settingDrawer needs to be used with [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme), otherwise the theme color configuration will not be displayed.
+[Setting the theme color](/docs/dynamic-theme) of the settingDrawer needs to be used with [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme), otherwise the theme color configuration will not be displayed.

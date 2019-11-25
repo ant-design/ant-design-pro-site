@@ -79,4 +79,4 @@ SettingDrawer 提供了一个图形界面来设置 layout 的配置。不建议�
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/iITLeL7TVb/6ED60335-2A24-4C13-91CE-FD782FB2D219.png)
 
-SettingDrawer 的 切换主题色功能需要配和 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme) 一起使用，否则会不展示主题色配置。
+SettingDrawer 的[切换主题色](/docs/dynamic-theme-cn)功能需要配和 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme) 一起使用，否则会不展示主题色配置。
