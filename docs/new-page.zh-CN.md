@@ -17,14 +17,14 @@ config
 src
   models
   pages
-+   NewPage.ts
++   NewPage.js
 +   NewPage.less
   ...
 ...
 package.json
 ```
 
-为了更好的演示，我们初始化`NewPage.ts`的内容如下：
+为了更好的演示，我们初始化`NewPage.js`的内容如下：
 
 ```jsx
 export default () => {
