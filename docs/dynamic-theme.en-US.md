@@ -45,6 +45,8 @@ His configuration is as follows:
 
 After configuring the plugin, the plugin will generate css according to the configuration of theme. Each node in the theme array will generate a file. We can find them in `src/page/.umi/plugin-theme/theme`. When used, we can introduce them via `/theme/filename.css`.
 
+> The more the number of configured theme nodes, the slower the compilation. It takes about 1s to compile a css file.
+
 ```js
 Const style = document.createElement('link');
 Style.type = 'text/css';

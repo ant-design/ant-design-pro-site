@@ -45,6 +45,8 @@ Pro 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/ch
 
 配置插件之后，插件会根据 theme 的配置生成 css，theme 数组中每个节点都会生成一个文件，我们可以在 `src/page/.umi/plugin-theme/theme` 中找到它们。当使用时我们可以通过 `/theme/filename.css` 来引入它们。
 
+> 配置的 theme 节点数量越多编译越慢，一个 css 文件编译大约需要 1s。
+
 ```js
 const style = document.createElement('link');
 style.type = 'text/css';
