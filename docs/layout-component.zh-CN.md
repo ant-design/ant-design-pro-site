@@ -67,16 +67,40 @@ type: 开发
 </BasicLayout>
 ```
 
-### PageHeaderWrapper
+## PageHeaderWrapper
 
 PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList，和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageHeaderWrapper 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
 
 > PageHeaderWrapper 必须要被 ProLayout 包裹才能自动生成面包屑和标题。
 
-### SettingDrawer
+## SettingDrawer
 
 SettingDrawer 提供了一个图形界面来设置 layout 的配置。不建议在正式环境中使用。
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/iITLeL7TVb/6ED60335-2A24-4C13-91CE-FD782FB2D219.png)
 
 SettingDrawer 的[切换主题色](/docs/dynamic-theme-cn)功能需要配和 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme) 一起使用，否则会不展示主题色配置。
+
+## 嵌套布局
+
+在某些时候可能需要进行 layout 的嵌套，Pro-Layout 提供了足够的 api 来支持嵌套。
+
+![](https://gw.alipayobjects.com/zos/antfincdn/F6Rhw6KYUt/C253E5E1-2790-4224-9D7F-C24F39AEF398.png)
+
+代码配置如下:
+
+```tsx
+<ProLayout
+  layout="topmenu"
+  className="chenshuai2144"
+  disableMobile
+  rightContentRender={rightProps => <RightContent {...rightProps} {...settings} />}
+  contentStyle={{ margin: 0 }}
+>
+  <ProLayout navTheme="light" menuHeaderRender={false} {...props} {...settings}>
+    <PageHeaderWrapper content="欢迎您的使用">{props.children}</PageHeaderWrapper>
+  </ProLayout>
+</ProLayout>
+```
+
+> 这里需要 disableMobile 来禁用手机端菜单，不然在手机端下会表现异常

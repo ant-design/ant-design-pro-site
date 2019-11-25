@@ -67,16 +67,42 @@ If you need a custom menu, the `siderWidth` property controls the width of the m
 </BasicLayout>
 ```
 
-### PageHeaderWrapper
+## PageHeaderWrapper
 
 PageHeaderWrapper encapsulates the PageHeader component of ant design, adds tabList, and content. Fill in the title and breadcrumb based on the current route. It depends on the route property of the Layout. Of course you can pass in parameters to override the default values. PageHeaderWrapper supports all the attributes of [Tabs](https://ant.design/components/tabs-cn/) and [PageHeader](https://ant.design/components/page-header-cn/).
 
 > PageHeaderWrapper must be wrapped by ProLayout to automatically generate breadcrumbs and titles.
 
-### SettingDrawer
+## SettingDrawer
 
 SettingDrawer provides a graphical interface to set the layout configuration. Not recommended for use in a formal environment.
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/iITLeL7TVb/6ED60335-2A24-4C13-91CE-FD782FB2D219.png)
 
 [Setting the theme color](/docs/dynamic-theme) of the settingDrawer needs to be used with [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme), otherwise the theme color configuration will not be displayed.
+
+## Nested Layout
+
+At some point it may be necessary to nest the layout, and Pro-Layout provides enough apis to support nesting.
+
+![](https://gw.alipayobjects.com/zos/antfincdn/F6Rhw6KYUt/C253E5E1-2790-4224-9D7F-C24F39AEF398.png)
+
+The code is configured as follows:
+
+```tsx
+<ProLayout
+  Layout="topmenu"
+  className="chenshuai2144"
+  disableMobile
+  rightContentRender={rightProps => <RightContent {...rightProps} {...settings} />}
+  contentStyle={{ margin: 0 }}
+>
+    {' '}
+  <ProLayout navTheme="light" menuHeaderRender={false} {...props} {...settings}>
+         <PageHeaderWrapper content="Welcome to your use">{props.children}</PageHeaderWrapper>
+      {' '}
+  </ProLayout>
+</ProLayout>
+```
+
+> Here you need disableMobile to disable the phone menu, otherwise it will behave abnormally under the phone.
