@@ -12,35 +12,34 @@ Pro 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/ch
 
 ```js
 [
-      'umi-plugin-antd-theme',
+  'umi-plugin-antd-theme',
+  {
+    theme: [
       {
-        theme: [
-          {
-            theme: 'dark',
-            key:'dark',
-            fileName: 'dark.css',
-          },
-          {
-            fileName: 'mingQing.css',
-            key:'dark',
-            modifyVars: {
-              '@primary-color': '#13C2C2',
-            },
-          },
-        ],
-        // 是否压缩css
-        min: true,
-        // css module
-        isModule: true,
-        // 忽略 antd 的依赖
-        ignoreAntd: false,
-        // 忽略 pro-layout
-        ignoreProLayout: false,
-        // 不使用缓存
-        cache: true,
+        theme: 'dark',
+        key: 'dark',
+        fileName: 'dark.css'
       },
+      {
+        fileName: 'mingQing.css',
+        key: 'dark',
+        modifyVars: {
+          '@primary-color': '#13C2C2'
+        }
+      }
     ],
-
+    // 是否压缩css
+    min: true,
+    // css module
+    isModule: true,
+    // 忽略 antd 的依赖
+    ignoreAntd: false,
+    // 忽略 pro-layout
+    ignoreProLayout: false,
+    // 不使用缓存
+    cache: true
+  }
+]
 ```
 
 配置插件之后，插件会根据 theme 的配置生成 css，theme 数组中每个节点都会生成一个文件，我们可以在 `src/page/.umi/plugin-theme/theme` 中找到它们。当使用时我们可以通过 `/theme/filename.css` 来引入它们。
