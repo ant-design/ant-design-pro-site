@@ -75,7 +75,9 @@ PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList
 
 ## SettingDrawer
 
-SettingDrawer 提供了一个图形界面来设置 layout 的配置。不建议在正式环境中使用。
+> 因为我们不建议在正式环境中使用 SettingDrawer，所以你人肉引入一下 [SettingDrawer](https://github.com/ant-design/ant-design-pro-layout/blob/90464d9bf1c4b76e25efdf0160ae183be59062e5/example/src/layouts/BasicLayout.tsx)。预览网站中是通过 `fetch:blocks` 来添加的。
+
+SettingDrawer 提供了一个图形界面来设置 layout 的配置。
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/iITLeL7TVb/6ED60335-2A24-4C13-91CE-FD782FB2D219.png)
 

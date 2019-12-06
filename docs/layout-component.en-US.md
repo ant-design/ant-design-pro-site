@@ -75,7 +75,9 @@ PageHeaderWrapper encapsulates the PageHeader component of ant design, adds tabL
 
 ## SettingDrawer
 
-SettingDrawer provides a graphical interface to set the layout configuration. Not recommended for use in a formal environment.
+> Because we do not recommend using SettingDrawer in a formal environment, you should introduce [SettingDrawer](https://github.com/ant-design/ant-design-pro-layout/blob/90464d9bf1c4b76e25efdf0160ae183be59062e5/example/src/layouts/BasicLayout.tsx). The preview site is added via `fetch: blocks`.
+
+SettingDrawer provides a graphical interface to set the layout configuration.
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/iITLeL7TVb/6ED60335-2A24-4C13-91CE-FD782FB2D219.png)
 
