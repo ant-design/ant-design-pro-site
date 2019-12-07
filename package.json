@@ -11,7 +11,7 @@
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby develop",
-    "gh-pages": "cp  CNAME ./public/ && gh-pages -d public",
+    "gh-pages": "gh-pages -d public",
     "lint": "npm run lint:js && npm run lint:style",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
