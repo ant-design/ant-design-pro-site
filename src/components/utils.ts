@@ -114,14 +114,3 @@ export function isLocalStorageNameSupported() {
     return false;
   }
 }
-
-export const transformerFrontmatter = (frontmatter: IGraphqlFrontmatterData): IFrontmatterData => {
-  const { title } = frontmatter;
-  return {
-    ...frontmatter,
-    title: {
-      'zh-CN': title.zh_CN,
-      'en-US': title.en_US,
-    },
-  };
-};

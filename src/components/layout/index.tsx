@@ -1,6 +1,6 @@
 import React from 'react';
 import { addLocaleData, IntlProvider } from 'react-intl';
-import { LocaleProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 import Media from 'react-media';
 import enLocale from '../../locale/en-US';
@@ -42,7 +42,7 @@ export class Layout extends React.Component<LayoutProps, LayoutState> {
     const { appLocale } = this.state;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <LocaleProvider locale={enUS}>
+        <ConfigProvider locale={enUS}>
           <div
             className={`page-wrapper ${(pathname === '/' || pathname === 'index-cn') &&
               'index-page-wrapper'}`}
@@ -54,7 +54,7 @@ export class Layout extends React.Component<LayoutProps, LayoutState> {
             })}
             <Footer {...restProps} location={location} />
           </div>
-        </LocaleProvider>
+        </ConfigProvider>
       </IntlProvider>
     );
   }

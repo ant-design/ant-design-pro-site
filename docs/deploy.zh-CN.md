@@ -33,8 +33,8 @@ export default {
 ```javascript
 export default {
   // ... some config
-  base: "/admin/",
-  publicPath: "/admin/",
+  base: '/admin/',
+  publicPath: '/admin/',
 };
 ```
 

@@ -4,6 +4,7 @@
  * Copyright (c) 2015 Gatsbyjs
  */
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const visit = require('unist-util-visit');
 
 module.exports = ({ markdownAST }) => {

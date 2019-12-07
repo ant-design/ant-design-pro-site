@@ -10,10 +10,6 @@ export default function HTML(props) {
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <script src="https://gw.alipayobjects.com/os/lib/react/16.6.3/umd/react.production.min.js" />
-        <script src="https://gw.alipayobjects.com/os/lib/react-dom/16.6.3/umd/react-dom.production.min.js" />
-        <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.8.9/dist/data-set.min.js" />
-        <script src="https://gw.alipayobjects.com/os/lib/bizcharts/3.4.3/umd/BizCharts.min.js" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -51,7 +47,6 @@ export default function HTML(props) {
               var lang = (window.localStorage && localStorage.getItem('locale')) || (navigator.language.toLowerCase() === 'zh-cn' ? 'zh-CN' : 'en-US');
               // safari is 'zh-cn', while other browser is 'zh-CN';
               if ((lang === 'zh-CN') !== isZhCN(pathname)) {
-                console.log(pathname)
                 location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
               }
             }

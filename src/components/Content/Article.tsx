@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import DocumentTitle from 'react-document-title';
+import { Helmet } from 'react-helmet';
 import { Affix } from 'antd';
 import delegate from 'delegate';
 import moment from 'moment';
@@ -63,44 +63,44 @@ export default class Article extends React.PureComponent<ArticleProps> {
       };
     };
     return (
-      <DocumentTitle title={`${title[locale] || title} - Ant Design Pro`}>
-        <>
-          <article
-            className="markdown"
-            ref={node => {
-              this.node = node;
-            }}
-          >
-            <h1>
-              {title[locale] || title}
-              {!subtitle || locale === 'en-US' ? null : (
-                <span className="subtitle">{subtitle}</span>
-              )}
-              <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={path} />
-            </h1>
+      <>
+        <Helmet>
+          <title>{`${title} - Ant Design Pro`}</title>
+          <meta name="description" content={title} />
+        </Helmet>
+        <article
+          className="markdown"
+          ref={node => {
+            this.node = node;
+          }}
+        >
+          <h1>
+            {title}
+            {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
+            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={path} />
+          </h1>
 
-            <div className="modifiedTime">
-              <AvatarList avatarList={avatarList} />
-              <FormattedMessage id="app.content.modifiedTime" />
-              {moment(modifiedTime).format('YYYY-MM-DD HH:mm:SS')}
-            </div>
+          <div className="modifiedTime">
+            <AvatarList avatarList={avatarList} />
+            <FormattedMessage id="app.content.modifiedTime" />
+            {moment(modifiedTime).format('YYYY-MM-DD HH:mm:SS')}
+          </div>
 
-            {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
-              <Affix className="toc-affix" offsetTop={16}>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: content.toc.replace(/<ul>/g, '<ul class="toc">').replace(/\/#/g, '#'),
-                  }}
-                />
-              </Affix>
-            )}
-            <section
-              className="markdown api-container"
-              dangerouslySetInnerHTML={{ __html: content.content }}
-            />
-          </article>
-        </>
-      </DocumentTitle>
+          {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
+            <Affix className="toc-affix" offsetTop={16}>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: content.toc.replace(/<ul>/g, '<ul class="toc">').replace(/\/#/g, '#'),
+                }}
+              />
+            </Affix>
+          )}
+          <section
+            className="markdown api-container"
+            dangerouslySetInnerHTML={{ __html: content.content }}
+          />
+        </article>
+      </>
     );
   }
 }

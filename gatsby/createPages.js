@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -34,7 +33,7 @@ module.exports = async ({ graphql, actions }) => {
           }
         }
       }
-    `
+    `,
   );
 
   if (allMarkdown.errors) {
@@ -44,7 +43,7 @@ module.exports = async ({ graphql, actions }) => {
   }
   const redirects = {};
 
-  const edges = allMarkdown.data.allMarkdownRemark.edges;
+  const { edges } = allMarkdown.data.allMarkdownRemark;
   edges.forEach(edge => {
     const { slug, underScoreCasePath } = edge.node.fields;
     if (slug.includes('docs/') || slug.includes('/blog')) {
@@ -61,6 +60,7 @@ module.exports = async ({ graphql, actions }) => {
             slug,
             // if is docs page
             type: slug.includes('docs/') ? '/docs/' : '/blog/',
+            locale: slug.includes('-cn') ? '/-cn/' : '//',
           },
         });
       };
@@ -106,6 +106,6 @@ module.exports = async ({ graphql, actions }) => {
       fromPath: path,
       redirectInBrowser: true,
       toPath: redirects[path],
-    })
+    }),
   );
 };

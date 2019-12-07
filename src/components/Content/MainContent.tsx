@@ -46,9 +46,6 @@ function getModuleDataWithProps(props: MainContentProps) {
     if (!filename) {
       return false;
     }
-    if (!filename.includes('zh-CN') && !filename.includes('en-US')) {
-      return true;
-    }
     return filename.includes(excludedSuffix);
   });
 }
@@ -142,7 +139,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
       };
     };
     const text = [
-      <span key="english">{item.title[locale] || item.title}</span>,
+      <span key="english">{item.title}</span>,
       <span className="chinese" key="chinese">
         {locale === 'zh-CN' && item.subtitle}
       </span>,
@@ -177,13 +174,6 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
   };
 
   generateSubMenuItems = (obj?: IMenuData, footerNavIcons = {}) => {
-    const {
-      intl: { locale },
-    } = this.context as {
-      intl: {
-        locale: 'zh-CN' | 'en-US';
-      };
-    };
     if (!obj) return [];
     const topLevel = ((obj.topLevel as MenuDataItem[]) || []).map(
       this.generateMenuItem.bind(this, footerNavIcons),
@@ -199,7 +189,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
             if ('order' in a && 'order' in b) {
               return a.order - b.order;
             }
-            return a.title[locale].charCodeAt(0) - b.title[locale].charCodeAt(0);
+            return a.title.charCodeAt(0) - b.title.charCodeAt(0);
           })
           .map(this.generateMenuItem.bind(this, footerNavIcons));
         return (
@@ -246,7 +236,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
       return {};
     }
     return {
-      prev: list[index - 1],
+      previous: list[index - 1],
       next: list[index + 1],
     };
   };
@@ -256,7 +246,9 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
 
     const activeMenuItem = getActiveMenuItem(this.props);
     const menuItems = this.getMenuItems();
-    const { prev, next } = this.getPreAndNext(menuItems);
+
+    const currentItem = this.getPreAndNext(menuItems);
+    const { next, previous } = currentItem;
     const mainContainerClass = classNames('main-container', {});
     const { openKeys } = this.state;
     const menuChild = (
@@ -297,17 +289,17 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
         <Row>
           <Col lg={{ span: 20, offset: 4 }} md={24} sm={24} xs={24}>
             <section className="prev-next-nav">
-              {prev ? (
-                <a className="prev-page">
+              {previous ? (
+                <div className="prev-page">
                   <Icon className="footer-nav-icon-before" type="left" />
-                  {prev.props.children}
-                </a>
+                  {previous.props.children}
+                </div>
               ) : null}
               {next ? (
-                <a className="next-page">
+                <div className="next-page">
                   {next.props.children}
                   <Icon className="footer-nav-icon-after" type="right" />
-                </a>
+                </div>
               ) : null}
             </section>
           </Col>

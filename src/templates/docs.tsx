@@ -2,23 +2,18 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import WrapperLayout from '../components/layout';
 import MainContent from '../components/Content/MainContent';
-import { transformerFrontmatter } from '../components/utils';
 
 interface IMarkDownFields {
   path: string;
   slug: string;
   modifiedTime: number;
   avatarList: {
-    href: string;
-    text: string;
-    src: string;
+    url: string;
+    username: string;
   }[];
 }
 export interface IFrontmatterData extends IMarkDownFields {
-  title: {
-    'zh-CN': string;
-    'en-US': string;
-  };
+  title: string;
   time: string;
   toc: string | boolean;
   order: number;
@@ -28,15 +23,17 @@ export interface IFrontmatterData extends IMarkDownFields {
   path: string;
   disabled: boolean;
   important: boolean;
+  next: {
+    frontmatter: IGraphqlFrontmatterData;
+    fields: IMarkDownFields;
+  };
+  previous: { frontmatter: IGraphqlFrontmatterData; fields: IMarkDownFields };
 }
 
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
 export interface IGraphqlFrontmatterData extends Omit<IFrontmatterData, 'title'> {
-  title: {
-    zh_CN: string;
-    en_US: string;
-  };
+  title: string;
 }
 
 export interface IMarkdownRemarkData {
@@ -52,6 +49,11 @@ export interface IAllMarkdownRemarkData {
       frontmatter: IGraphqlFrontmatterData;
       fields: IMarkDownFields;
     };
+    next: {
+      frontmatter: IGraphqlFrontmatterData;
+      fields: IMarkDownFields;
+    };
+    previous: { frontmatter: IGraphqlFrontmatterData; fields: IMarkDownFields };
   }[];
 }
 
@@ -68,17 +70,20 @@ export default function Template({
   const { markdownRemark, allMarkdownRemark } = data;
   const { frontmatter, fields, html, tableOfContents } = markdownRemark;
   const { edges } = allMarkdownRemark;
-  const menuList = edges.map(({ node }) => {
-    const newFrontmatter = transformerFrontmatter(node.frontmatter);
+  const menuList = edges.map(({ node, next, previous }) => {
+    const { fields: nodeFields } = node;
+
     return {
-      slug: node.fields.slug,
+      slug: nodeFields.slug,
       meta: {
-        ...newFrontmatter,
-        slug: node.fields.slug,
-        filename: node.fields.slug,
+        ...node.frontmatter,
+        slug: nodeFields.slug,
+        filename: nodeFields.slug,
       },
-      ...newFrontmatter,
-      filename: node.fields.path,
+      ...node.frontmatter,
+      filename: nodeFields.path,
+      next,
+      previous,
     };
   });
   return (
@@ -87,7 +92,7 @@ export default function Template({
         {...rest}
         localizedPageData={{
           meta: {
-            ...transformerFrontmatter(frontmatter),
+            ...frontmatter,
             ...fields,
             filename: fields.slug,
             path: fields.path,
@@ -102,15 +107,12 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-  query TemplateDocsMarkdown($slug: String!, $type: String!) {
+  query TemplateDocsMarkdown($slug: String!, $type: String!, $locale: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      tableOfContents(maxDepth: 2)
+      tableOfContents(maxDepth: 3)
       frontmatter {
-        title {
-          zh_CN
-          en_US
-        }
+        title
         order
         type
       }
@@ -118,24 +120,17 @@ export const pageQuery = graphql`
         path
         slug
         modifiedTime
-        avatarList {
-          href
-          text
-          src
-        }
+        avatarList
       }
     }
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: $type } }
-      sort: { fields: [fields___slug, frontmatter___time], order: DESC }
+      filter: { fileAbsolutePath: { regex: $type }, fields: { slug: { regex: $locale } } }
+      sort: { fields: [frontmatter___order, frontmatter___type, frontmatter___time], order: DESC }
     ) {
       edges {
         node {
           frontmatter {
-            title {
-              zh_CN
-              en_US
-            }
+            title
             order
             type
             time

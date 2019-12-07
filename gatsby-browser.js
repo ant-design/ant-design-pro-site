@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import NProgress from 'nprogress';
 
 export const onClientEntry = () => {
@@ -74,8 +75,8 @@ export const onClientEntry = () => {
     }
   `;
 
-  const node = document.createElement(`style`);
-  node.id = `nprogress-styles`;
+  const node = document.createElement('style');
+  node.id = 'nprogress-styles';
   node.innerHTML = styles;
   document.head.appendChild(node);
 
@@ -91,6 +92,4 @@ export const onRouteUpdate = () => {
   NProgress.done(true);
 };
 
-export const shouldUpdateScroll = () => {
-  return false;
-};
+export const shouldUpdateScroll = () => false;

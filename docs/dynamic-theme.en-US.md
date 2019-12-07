@@ -1,7 +1,7 @@
 ---
 order: 5
 title: Dynamic theme
-type: 开发
+type: Development
 ---
 
 ntd-theme] (https://github.com/chenshuai2144/umi-plugin-antd-theme), and the main idea is still to implement the ant variable rules and the rules in the project. Extract and then compile the less.

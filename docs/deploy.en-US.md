@@ -25,8 +25,8 @@ First we need to configure [base](https://umijs.org/zh/config/#base) in `config/
 ```javascript
 export default {
   // ... some config
-  base: "/admin/",
-  publicPath: "/admin/",
+  base: '/admin/',
+  publicPath: '/admin/',
 };
 ```
 

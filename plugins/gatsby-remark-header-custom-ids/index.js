@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable import/no-extraneous-dependencies */
 /*!
  * Based on 'gatsby-remark-autolink-headers'
  * Original Author: Kyle Mathews <mathews.kyle@gmail.com>
@@ -16,7 +18,7 @@ function patch(context, key, value) {
   return context[key];
 }
 
-module.exports = ({ markdownAST }, { icon = '#', className = `anchor`, maintainCase = false }) => {
+module.exports = ({ markdownAST }, { icon = '#', className = 'anchor', maintainCase = false }) => {
   slugs.reset();
 
   visit(markdownAST, 'heading', node => {
@@ -51,7 +53,6 @@ module.exports = ({ markdownAST }, { icon = '#', className = `anchor`, maintainC
           hChildren: [
             {
               type: 'raw',
-              // The Octicon link icon is the default. But users can set their own icon via the "icon" option.
               value: icon,
             },
           ],

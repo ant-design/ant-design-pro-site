@@ -1,7 +1,7 @@
 ---
 order: 4
 title: Layout Component
-type: 开发
+type: Development
 ---
 
 [Layout](https://github.com/ant-design/ant-design-pro-layout) The component is a new component in Pro v4. Unlike the normal components, it is very heavy and integrates menus. Layout, header, breadcrumbs, set drawers and more.

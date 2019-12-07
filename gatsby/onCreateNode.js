@@ -1,3 +1,4 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable camelcase */
 /* eslint-disable no-case-declarations */
 /* eslint-disable default-case */
@@ -5,41 +6,38 @@
 const path = require('path');
 const fs = require('fs');
 const fetch = require('node-fetch');
-const himalaya = require('himalaya');
+const cheerio = require('cheerio');
+const slash = require('slash2');
 
-// 获取用户的头像列表
+// 获取头像列表
 const getAvatarList = async filename => {
-  const sourcePath = 'https://github.com/ant-design/ant-design-pro-site/contributors/master';
-  const url = `${sourcePath}${filename}/list`;
-  const html = await fetch(url).then(res => res.text());
-  const ast = himalaya.parse(html)[0].children || [];
-  const data = ast
-    .map(item => {
-      if (item.type === 'element') {
-        const AlinkAST = item.children[1];
-        const href = AlinkAST.attributes.find(({ key }) => key === 'href').value;
-        const img = AlinkAST.children[1];
-        const text = AlinkAST.children[2].content;
-        const src = img.attributes.find(({ key }) => key === 'src').value;
-        return {
-          href,
-          text,
-          src,
-        };
-      }
-      return null;
-    })
-    .filter(item => item && item.src);
+  const sourcePath = 'https://github.com/ant-design/ant-design-pro-site/contributors-list/master';
+  const url = `${sourcePath}${slash(filename)}`;
+  const html = await fetch(url)
+    .then(res => res.text())
+    .catch(e => console.log(e));
+  if (!html) {
+    return [];
+  }
+  const $ = cheerio.load(html || '');
+  const data = [];
+  $('li a').map((index, ele) => {
+    data.push({
+      username: $(ele)
+        .text()
+        .trim(),
+      url: $(ele)
+        .children('img')
+        .attr('src'),
+    });
+    return false;
+  });
   return data;
 };
 
-const getKebabCase = str => {
-  return str
-    .replace(/[A-Z]/g, letter => {
-      return `-${letter.toLowerCase()}`;
-    })
-    .replace(/\/-/g, '/');
-};
+const getKebabCase = str =>
+  str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`).replace(/\/-/g, '/');
+
 // Add custom fields to MarkdownRemark nodes.
 module.exports = exports.onCreateNode = async ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -54,7 +52,7 @@ module.exports = exports.onCreateNode = async ({ node, actions, getNode }) => {
       const mdFilePath = path.join(sourceInstanceName, relativePath);
       createNodeField({
         node,
-        name: `modifiedTime`,
+        name: 'modifiedTime',
         value: mtime,
       });
 
@@ -68,24 +66,25 @@ module.exports = exports.onCreateNode = async ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: 'slug',
-        value: getKebabCase(slug.replace('/index', '')),
+        value: slash(getKebabCase(slug.replace('/index', ''))),
       });
       createNodeField({
         node,
         name: 'underScoreCasePath',
-        value: slug.replace('/index', ''),
+        value: slash(slug.replace('/index', '')),
       });
 
       createNodeField({
         node,
         name: 'path',
-        value: mdFilePath,
+        value: slash(mdFilePath),
       });
       const html = await getAvatarList(mdFilePath);
       createNodeField({
         node,
         name: 'avatarList',
-        value: html,
+        value: JSON.stringify(html),
       });
+      break;
   }
 };

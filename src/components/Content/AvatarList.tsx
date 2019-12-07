@@ -3,16 +3,20 @@ import { Avatar, Tooltip } from 'antd';
 
 class AvatarList extends React.Component<{
   avatarList: {
-    href: string;
-    text: string;
-    src: string;
+    username: string;
+    url: string;
   }[];
 }> {
   main: HTMLDivElement | null;
 
   render() {
-    const { avatarList = [] } = this.props;
-    if (!avatarList) {
+    let { avatarList = [] } = this.props;
+    try {
+      avatarList = JSON.parse((avatarList as unknown) as string);
+    } catch (error) {
+      // do not need
+    }
+    if (!avatarList || !Array.isArray(avatarList)) {
       return null;
     }
     return (
@@ -21,11 +25,12 @@ class AvatarList extends React.Component<{
           <a
             className="href-box"
             target="_blank"
+            key={item.username}
             rel="noopener noreferrer"
-            href={`http://github.com${item.href}`}
+            href={`http://github.com/${item.username}`}
           >
-            <Tooltip title={item.text}>
-              <Avatar src={item.src} alt={item.text} size="small" />
+            <Tooltip title={item.username}>
+              <Avatar src={item.url} alt={item.username} size="small" />
             </Tooltip>
           </a>
         ))}

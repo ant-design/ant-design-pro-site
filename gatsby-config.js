@@ -7,6 +7,25 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-72788897-5',
+      },
+    },
+    'gatsby-plugin-netlify',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Ant Design Pro',
+        short_name: 'Ant Design Pro Doc',
+        display: 'standalone',
+        start_url: './?utm_source=homescreen',
+        theme_color: '#002140',
+        background_color: '#001529',
+        icon: 'src/images/favicon.png',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-less',
       options: {
         javascriptEnabled: true,
@@ -26,6 +45,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -41,7 +61,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-transformer-remark-antd',
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           'gatsby-remark-header-custom-ids',
@@ -55,25 +75,7 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-72788897-5',
-      },
-    },
-    'gatsby-plugin-netlify',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Ant Design Pro',
-        short_name: 'Ant Design Pro Doc',
-        display: 'standalone',
-        start_url: './?utm_source=homescreen',
-        theme_color: '#002140',
-        background_color: '#001529',
-        icon: 'src/images/favicon.png',
-      },
-    },
+
     'gatsby-plugin-sitemap',
   ],
 };
