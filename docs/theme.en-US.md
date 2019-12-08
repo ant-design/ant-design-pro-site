@@ -90,4 +90,4 @@ module.exports = {
 };
 ```
 
-> Modifying the color online is using less online compilation, it is recommended to configure in [`config/config.ts`](https://github.com/ant-design/ant-design-pro/blob/master/config/config.ts) to improve the user experience. Compiling online less takes time and can cause stuttering.
+> Specific implementation see here [Dynamic Theme](/docs/dynamic-theme/)

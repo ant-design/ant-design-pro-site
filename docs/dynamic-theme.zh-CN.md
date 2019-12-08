@@ -4,7 +4,7 @@ title: 动态主题
 type: 开发
 ---
 
-Pro 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme),主要思路仍然是将 antd 的变量规则与项目中规则进行抽取，然后进行的 less 的编译。
+Pro 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme)，主要思路仍然是将 antd 的变量规则与项目中规则进行抽取，然后进行的 less 的编译。
 
 他的配置如下：
 
@@ -60,4 +60,4 @@ document.body.append(style);
 
 ## 与 SettingDrawer 一起使用
 
-建议配置 [SettingDrawer](https://github.com/ant-design/ant-design-pro-layout#settingdrawer) 一起使用，[umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme) 插件会将主题配置信息挂载到 `window.umi_plugin_ant_themeVar`, SettingDrawer 会去读这个配置自动生成相应的 UI。
+建议配置 [SettingDrawer](https://github.com/ant-design/ant-design-pro-layout#settingdrawer) 一起使用，[umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme) 插件会将主题配置信息挂载到 `window.umi_plugin_ant_themeVar`，SettingDrawer 会去读这个配置自动生成相应的 UI。

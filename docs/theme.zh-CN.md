@@ -24,7 +24,7 @@ theme: {
 ...
 ```
 
-Find the variables that need to be modified in [All Variables Table](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less), and start `npm start` after modification. , you can see the effect in your app interface.
+在[变量表](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)中找到需要修改的变量，然后`npm start`，您可以在应用界面中看到效果。
 
 更多方式可以参考官方文档：[定制主题](https://ant.design/docs/react/customize-theme-cn)。
 
@@ -88,4 +88,4 @@ module.exports = {
 };
 ```
 
-> 在线修改颜色使用的是 less 在线编译，建议在 [`config/config.ts`](https://github.com/ant-design/ant-design-pro/blob/master/config/config.ts) 中配置，提升用户体验。在线编译 less 需要时间，并且会造成卡顿。
+> 具体实现看这里 [动态主题](/docs/dynamic-theme-cn/)
