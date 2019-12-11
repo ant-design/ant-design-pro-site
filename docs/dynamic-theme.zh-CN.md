@@ -3,59 +3,150 @@ order: 5
 title: 动态主题
 type: 开发
 ---
+简单几步可以实现Pro动态主题，此方法既适应于`V4`版本，也适应于`v2`版本。
 
-Pro 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme)，主要思路仍然是将 antd 的变量规则与项目中规则进行抽取，然后进行的 less 的编译。
+#### antd 主题切换
 
-他的配置如下：
+antd 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme)，主要思路仍然是将 antd 的变量规则与项目中规则进行抽取，然后进行的 less 的编译。
 
-> key 与文件名应该相同，如果是黑色主题，文件名应为类似`dark-green.css`。
+首先，安装此插件：
+```
+npm i umi-plugin-antd-theme
+```
+* v2版本
 
+将下面的代码复制到config/config.*.js文件中去，最后如下：
 ```js
-[
-  'umi-plugin-antd-theme',
-  {
-    theme: [
-      {
-        theme: 'dark',
-        key: 'dark',
-        fileName: 'dark.css',
-      },
-      {
-        fileName: 'mingQing.css',
-        key: 'dark',
-        modifyVars: {
-          '@primary-color': '#13C2C2',
+const plugins = [
+  [
+    'umi-plugin-react',
+    ...
+  ],
+  [
+    'umi-plugin-antd-theme',
+    {
+      theme: [
+        {
+          fileName: 'theme1.css',
+          key:'theme1',
+          modifyVars: {
+            '@primary-color': '#13C2C2',
+            '@menu-dark-color': '#324444',
+            '@menu-dark-bg': '#5A5A5A',
+          },
         },
-      },
-    ],
-    // 是否压缩css
-    min: true,
-    // css module
-    isModule: true,
-    // 忽略 antd 的依赖
-    ignoreAntd: false,
-    // 忽略 pro-layout
-    ignoreProLayout: false,
-    // 不使用缓存
-    cache: true,
-  },
+        {
+          fileName: 'theme2.css',
+          key:'theme2',
+          modifyVars: {
+            '@primary-color': '#4992BF',
+            '@menu-dark-color': '#9B9B9B',
+            '@menu-dark-bg': '#3A3A3A',
+          },
+        },
+      ],
+      // 是否压缩css
+      min: true,
+      // css module
+      isModule: true,
+      // 忽略 antd 的依赖
+      ignoreAntd: false,
+      // 忽略 pro-layout
+      ignoreProLayout: false,
+      // 不使用缓存
+      cache: true,
+    },
+  ],
 ];
 ```
+* v4 版本
 
-配置插件之后，插件会根据 theme 的配置生成 css，theme 数组中每个节点都会生成一个文件，我们可以在 `src/page/.umi/plugin-theme/theme` 中找到它们。当使用时我们可以通过 `/theme/filename.css` 来引入它们。
+在 `config/themePluginConfig.ts`添加类似代码：
+```js
+export default {
+  theme: [
+    ...
+   {
+          fileName: 'theme1.css',
+          key:'theme1',
+          modifyVars: {
+            '@primary-color': '#13C2C2',
+            '@menu-dark-color': '#324444',
+            '@menu-dark-bg': '#5A5A5A',
+          },
+        },
+        {
+          fileName: 'theme2.css',
+          key:'theme2',
+          modifyVars: {
+            '@primary-color': '#4992BF',
+            '@menu-dark-color': '#9B9B9B',
+            '@menu-dark-bg': '#3A3A3A',
+          },
+        },
+  ],
+};
+```
+所有的配置变量都可以在[default.less](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)找到
 
 > 配置的 theme 节点数量越多编译越慢，一个 css 文件编译大约需要 1s。
 
+#### 自定义组件
+
+在`global.less`文件中，添加如下代码：
 ```js
-const style = document.createElement('link');
-style.type = 'text/css';
-style.rel = 'stylesheet';
-style.id = 'theme-style';
-style.onload = () => {
-  // do something
-};
-style.href = '/theme/dark.css';
-document.body.append(style);
+.body-warp-theme1 {
+    // theme1下的全局变量在此定义
+    --font-color: #000000;
+    --bg-color: #011313;
+}
+
+.body-warp-theme2 {
+    // theme2下的全局变量在此定义
+    --font-color: #ffffff;
+    --bg-color: #ffffff;
+}
+```
+自定义组件的`index.less`中用法如下：
+```js
+.flatButton{
+  color: var(--font-color);
+  backgroud: var(--bg-color);
+}
+```
+
+### 主题切换
+在主题切换的方法中添加如下代码，可以根据自己需要进行修改，比如添加从本地获取上次主题配置项等：
+```js
+theme1 = true;
+onClick = () => {
+    let styleLink = document.getElementById("theme-style");
+    let body = document.getElementsByTagName('body')[0];
+    if (styleLink) { // 假如存在id为theme-style 的link标签，直接修改其href
+      if (this.theme1) {
+        styleLink.href = '/theme/theme1.css';  // 切换 antd 组件主题
+        body.className = "body-warp-theme1";  // 切换自定义组件的主题
+      } else {
+        styleLink.href = '/theme/theme2.css';
+        body.className = "body-warp-theme2";
+      }
+      this.theme1 = !this.theme1;
+    } else { // 不存在的话，则新建一个
+      styleLink = document.createElement('link');
+      styleLink.type = 'text/css';
+      styleLink.rel = 'stylesheet';
+      styleLink.id = 'theme-style';
+      if (this.theme1) {
+        styleLink.href = '/theme/theme1.css';
+        body.className = "body-warp-theme1";
+      } else {
+        styleLink.href = '/theme/theme2.css';
+        body.className = "body-warp-theme2";
+      }
+      this.theme1 = !this.theme1;
+      document.body.append(styleLink);
+    }
+  }
 ```
 
 ## 与 SettingDrawer 一起使用
