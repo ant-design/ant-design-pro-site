@@ -3,19 +3,23 @@ order: 5
 title: 动态主题
 type: 开发
 ---
-简单几步可以实现Pro动态主题，此方法既适应于`V4`版本，也适应于`v2`版本。
+
+简单几步可以实现 Pro 动态主题，此方法既适应于 `v4` 版本，也适应于 `v2` 版本。
 
 #### antd 主题切换
 
 antd 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme)，主要思路仍然是将 antd 的变量规则与项目中规则进行抽取，然后进行的 less 的编译。
 
 首先，安装此插件：
+
 ```
 npm i umi-plugin-antd-theme
 ```
+
 * v2版本
 
-将下面的代码复制到config/config.*.js文件中去，最后如下：
+将下面的代码复制到 `config/config.*.js` 文件中去，最后如下：
+
 ```js
 const plugins = [
   [
@@ -62,28 +66,29 @@ const plugins = [
 * v4 版本
 
 在 `config/themePluginConfig.ts`添加类似代码：
+
 ```js
 export default {
   theme: [
     ...
-   {
-          fileName: 'theme1.css',
-          key:'theme1',
-          modifyVars: {
-            '@primary-color': '#13C2C2',
-            '@menu-dark-color': '#324444',
-            '@menu-dark-bg': '#5A5A5A',
-          },
-        },
-        {
-          fileName: 'theme2.css',
-          key:'theme2',
-          modifyVars: {
-            '@primary-color': '#4992BF',
-            '@menu-dark-color': '#9B9B9B',
-            '@menu-dark-bg': '#3A3A3A',
-          },
-        },
+    {
+      fileName: 'theme1.css',
+      key:'theme1',
+      modifyVars: {
+        '@primary-color': '#13C2C2',
+        '@menu-dark-color': '#324444',
+        '@menu-dark-bg': '#5A5A5A',
+      },
+    },
+    {
+      fileName: 'theme2.css',
+      key:'theme2',
+      modifyVars: {
+        '@primary-color': '#4992BF',
+        '@menu-dark-color': '#9B9B9B',
+        '@menu-dark-bg': '#3A3A3A',
+      },
+    },
   ],
 };
 ```
@@ -96,15 +101,15 @@ export default {
 在`global.less`文件中，添加如下代码：
 ```js
 .body-warp-theme1 {
-    // theme1下的全局变量在此定义
-    --font-color: #000000;
-    --bg-color: #011313;
+  // theme1下的全局变量在此定义
+  --font-color: #000000;
+  --bg-color: #011313;
 }
 
 .body-warp-theme2 {
-    // theme2下的全局变量在此定义
-    --font-color: #ffffff;
-    --bg-color: #ffffff;
+  // theme2下的全局变量在此定义
+  --font-color: #ffffff;
+  --bg-color: #ffffff;
 }
 ```
 自定义组件的`index.less`中用法如下：
@@ -120,33 +125,33 @@ export default {
 ```js
 theme1 = true;
 onClick = () => {
-    let styleLink = document.getElementById("theme-style");
-    let body = document.getElementsByTagName('body')[0];
-    if (styleLink) { // 假如存在id为theme-style 的link标签，直接修改其href
-      if (this.theme1) {
-        styleLink.href = '/theme/theme1.css';  // 切换 antd 组件主题
-        body.className = "body-warp-theme1";  // 切换自定义组件的主题
-      } else {
-        styleLink.href = '/theme/theme2.css';
-        body.className = "body-warp-theme2";
-      }
-      this.theme1 = !this.theme1;
-    } else { // 不存在的话，则新建一个
-      styleLink = document.createElement('link');
-      styleLink.type = 'text/css';
-      styleLink.rel = 'stylesheet';
-      styleLink.id = 'theme-style';
-      if (this.theme1) {
-        styleLink.href = '/theme/theme1.css';
-        body.className = "body-warp-theme1";
-      } else {
-        styleLink.href = '/theme/theme2.css';
-        body.className = "body-warp-theme2";
-      }
-      this.theme1 = !this.theme1;
-      document.body.append(styleLink);
+  let styleLink = document.getElementById('theme-style');
+  let body = document.getElementsByTagName('body')[0];
+  if (styleLink) { // 假如存在id为theme-style 的link标签，直接修改其href
+    if (this.theme1) {
+      styleLink.href = '/theme/theme1.css';  // 切换 antd 组件主题
+      body.className = "body-warp-theme1";  // 切换自定义组件的主题
+    } else {
+      styleLink.href = '/theme/theme2.css';
+      body.className = "body-warp-theme2";
     }
+    this.theme1 = !this.theme1;
+  } else { // 不存在的话，则新建一个
+    styleLink = document.createElement('link');
+    styleLink.type = 'text/css';
+    styleLink.rel = 'stylesheet';
+    styleLink.id = 'theme-style';
+    if (this.theme1) {
+      styleLink.href = '/theme/theme1.css';
+      body.className = "body-warp-theme1";
+    } else {
+      styleLink.href = '/theme/theme2.css';
+      body.className = "body-warp-theme2";
+    }
+    this.theme1 = !this.theme1;
+    document.body.append(styleLink);
   }
+}
 ```
 
 ## 与 SettingDrawer 一起使用
