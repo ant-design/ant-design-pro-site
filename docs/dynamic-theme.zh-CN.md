@@ -100,13 +100,13 @@ export default {
 
 在`global.less`文件中，添加如下代码：
 ```js
-.body-warp-theme1 {
+.body-wrap-theme1 {
   // theme1下的全局变量在此定义
   --font-color: #000000;
   --bg-color: #011313;
 }
 
-.body-warp-theme2 {
+.body-wrap-theme2 {
   // theme2下的全局变量在此定义
   --font-color: #ffffff;
   --bg-color: #ffffff;
@@ -130,10 +130,10 @@ onClick = () => {
   if (styleLink) { // 假如存在id为theme-style 的link标签，直接修改其href
     if (this.theme1) {
       styleLink.href = '/theme/theme1.css';  // 切换 antd 组件主题
-      body.className = "body-warp-theme1";  // 切换自定义组件的主题
+      body.className = "body-wrap-theme1";  // 切换自定义组件的主题
     } else {
       styleLink.href = '/theme/theme2.css';
-      body.className = "body-warp-theme2";
+      body.className = "body-wrap-theme2";
     }
     this.theme1 = !this.theme1;
   } else { // 不存在的话，则新建一个
@@ -143,10 +143,10 @@ onClick = () => {
     styleLink.id = 'theme-style';
     if (this.theme1) {
       styleLink.href = '/theme/theme1.css';
-      body.className = "body-warp-theme1";
+      body.className = "body-wrap-theme1";
     } else {
       styleLink.href = '/theme/theme2.css';
-      body.className = "body-warp-theme2";
+      body.className = "body-wrap-theme2";
     }
     this.theme1 = !this.theme1;
     document.body.append(styleLink);
