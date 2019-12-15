@@ -6,7 +6,7 @@ type: 开发
 
 简单几步可以实现 Pro 动态主题，此方法既适应于 `v4` 版本，也适应于 `v2` 版本。
 
-#### antd 主题切换
+## antd 主题切换
 
 antd 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme)，主要思路仍然是将 antd 的变量规则与项目中规则进行抽取，然后进行的 less 的编译。
 
@@ -63,6 +63,7 @@ const plugins = [
   ],
 ];
 ```
+
 * v4 版本
 
 在 `config/themePluginConfig.ts`添加类似代码：
@@ -92,11 +93,12 @@ export default {
   ],
 };
 ```
-所有的配置变量都可以在[default.less](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)找到
 
-> 配置的 theme 节点数量越多编译越慢，一个 css 文件编译大约需要 1s。
+所有的配置变量都可以在 [default.less](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 找到
 
-#### 自定义组件
+> 配置的 theme 节点数量越多编译越慢，一个 css 文件编译大约需要 `1s`。
+
+## 自定义组件
 
 在`global.less`文件中，添加如下代码：
 ```js
@@ -112,7 +114,9 @@ export default {
   --bg-color: #ffffff;
 }
 ```
-自定义组件的`index.less`中用法如下：
+
+自定义组件的 `index.less` 中用法如下：
+
 ```js
 .flatButton{
   color: var(--font-color);
@@ -120,8 +124,10 @@ export default {
 }
 ```
 
-### 主题切换
+## 主题切换
+
 在主题切换的方法中添加如下代码，可以根据自己需要进行修改，比如添加从本地获取上次主题配置项等：
+
 ```js
 theme1 = true;
 onClick = () => {
