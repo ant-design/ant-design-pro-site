@@ -5,7 +5,7 @@ type: 开发
 ---
 简单几步可以实现Pro动态主题，此方法既适应于`V4`版本，也适应于`v2`版本。
 
-#### antd 主题切换
+## antd 主题切换
 
 antd 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme)，主要思路仍然是将 antd 的变量规则与项目中规则进行抽取，然后进行的 less 的编译。
 
@@ -91,17 +91,17 @@ export default {
 
 > 配置的 theme 节点数量越多编译越慢，一个 css 文件编译大约需要 1s。
 
-#### 自定义组件
+## 自定义组件
 
 在`global.less`文件中，添加如下代码：
 ```js
-.body-warp-theme1 {
+.body-wrap-theme1 {
     // theme1下的全局变量在此定义
     --font-color: #000000;
     --bg-color: #011313;
 }
 
-.body-warp-theme2 {
+.body-wrap-theme2 {
     // theme2下的全局变量在此定义
     --font-color: #ffffff;
     --bg-color: #ffffff;
@@ -111,11 +111,11 @@ export default {
 ```js
 .flatButton{
   color: var(--font-color);
-  backgroud: var(--bg-color);
+  background: var(--bg-color);
 }
 ```
 
-### 主题切换
+## 主题切换
 在主题切换的方法中添加如下代码，可以根据自己需要进行修改，比如添加从本地获取上次主题配置项等：
 ```js
 theme1 = true;
@@ -125,10 +125,10 @@ onClick = () => {
     if (styleLink) { // 假如存在id为theme-style 的link标签，直接修改其href
       if (this.theme1) {
         styleLink.href = '/theme/theme1.css';  // 切换 antd 组件主题
-        body.className = "body-warp-theme1";  // 切换自定义组件的主题
+        body.className = "body-wrap-theme1";  // 切换自定义组件的主题
       } else {
         styleLink.href = '/theme/theme2.css';
-        body.className = "body-warp-theme2";
+        body.className = "body-wrap-theme2";
       }
       this.theme1 = !this.theme1;
     } else { // 不存在的话，则新建一个
@@ -138,10 +138,10 @@ onClick = () => {
       styleLink.id = 'theme-style';
       if (this.theme1) {
         styleLink.href = '/theme/theme1.css';
-        body.className = "body-warp-theme1";
+        body.className = "body-wrap-theme1";
       } else {
         styleLink.href = '/theme/theme2.css';
-        body.className = "body-warp-theme2";
+        body.className = "body-wrap-theme2";
       }
       this.theme1 = !this.theme1;
       document.body.append(styleLink);
