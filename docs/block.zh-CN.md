@@ -31,7 +31,7 @@ Ant Design Pro 中，使用 umi ui 进行区块管理。
 
 ## 找回 Pro v2 中的所有界面
 
-可以在 pro 项目跟目录中执行 `npm run fetch:blocks` 来下载所有的区块。得到的界面将与 [preview](https://preview.pro.ant.design/) 中相同。
+可以在 pro 项目根目录中执行 `npm run fetch:blocks` 来下载所有的区块。得到的界面将与 [preview](https://preview.pro.ant.design/) 中相同。
 
 > fetch:blocks 脚本可能有一些兼容性的问题，如果您碰到了问题，请到官方仓库提 [issue](https://github.com/ant-design/ant-design-pro/issues)。
 
