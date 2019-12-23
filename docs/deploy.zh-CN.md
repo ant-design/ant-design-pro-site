@@ -8,7 +8,7 @@ Pro 默认提供了 mock 数据，但是在 build 之后 mock 数据将不再起
 
 ## 部署
 
-如果你只是简单的部署，你只需要将整个 dist 文件夹复制到你的 CDN 和静态服务器。index.html 应该是你的服务器入口。
+如果你只是简单的部署，你只需要将整个 dist 文件夹复制到你的 CDN 或静态服务器。index.html 应该是你的服务器入口。
 
 ## 前端路由与服务端的结合
 
@@ -28,7 +28,7 @@ export default {
 
 ## 部署到非根目录
 
-部署在非根目录时一种常见的需求，比如部署在 gitHub pages 中。接下来我们假设我们要部署项目到 `${host}/admin` 中。首先我们需要在 `config/config.ts` 中配置 [base](https://umijs.org/zh/config/#base),`base` 是 react-router 的前缀。我们需要将 base 配置为 `admin`, 如果我们还需要将其部署到 `/admin` 目录中，我们还需要设置 [`publicPath`](https://umijs.org/zh/config/#publicpath)。设置完之后是这样的：
+部署在非根目录时一种常见的需求，比如部署在 GitHub pages 中。接下来我们假设我们要部署项目到 `${host}/admin` 中。首先我们需要在 `config/config.ts` 中配置 [base](https://umijs.org/zh/config/#base),`base` 是 react-router 的前缀。我们需要将 base 配置为 `admin`, 如果我们还需要将其部署到 `/admin` 目录中，我们还需要设置 [`publicPath`](https://umijs.org/zh/config/#publicpath)。设置完之后是这样的：
 
 ```javascript
 export default {

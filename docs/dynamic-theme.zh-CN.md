@@ -87,27 +87,30 @@ export default {
   ],
 };
 ```
-所有的配置变量都可以在[default.less](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)找到
 
-> 配置的 theme 节点数量越多编译越慢，一个 css 文件编译大约需要 1s。
+所有的配置变量都可以在 [default.less](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 找到
+
+> 配置的 theme 节点数量越多编译越慢，一个 css 文件编译大约需要 `1s`。
 
 ## 自定义组件
 
 在`global.less`文件中，添加如下代码：
 ```js
 .body-wrap-theme1 {
-    // theme1下的全局变量在此定义
-    --font-color: #000000;
-    --bg-color: #011313;
+  // theme1下的全局变量在此定义
+  --font-color: #000000;
+  --bg-color: #011313;
 }
 
 .body-wrap-theme2 {
-    // theme2下的全局变量在此定义
-    --font-color: #ffffff;
-    --bg-color: #ffffff;
+  // theme2下的全局变量在此定义
+  --font-color: #ffffff;
+  --bg-color: #ffffff;
 }
 ```
-自定义组件的`index.less`中用法如下：
+
+自定义组件的 `index.less` 中用法如下：
+
 ```js
 .flatButton{
   color: var(--font-color);
@@ -116,6 +119,7 @@ export default {
 ```
 
 ## 主题切换
+
 在主题切换的方法中添加如下代码，可以根据自己需要进行修改，比如添加从本地获取上次主题配置项等：
 ```js
 theme1 = true;

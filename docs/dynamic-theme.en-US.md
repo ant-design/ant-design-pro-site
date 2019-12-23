@@ -106,11 +106,12 @@ In your custom component, usage as follows in `index.less`
 ```js
 .flatButton{
   color: var(--font-color);
-  backgroud: var(--bg-color);
+  background: var(--bg-color);
 }
 ```
 
 ## switch theme
+
 Add codes in your switch theme function
 ```js
 theme1 = true;
