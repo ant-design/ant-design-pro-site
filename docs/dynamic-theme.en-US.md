@@ -5,7 +5,7 @@ type: Development
 ---
 In just a few steps, you can complete dynamic theme function. It applies to Ant Design Pro v2 and v4.
 
-#### antd dynamic theme
+## antd dynamic theme
 
 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme), and the main idea is still to implement the ant variable rules and the rules in the project. Extract and then compile the less.
 
@@ -86,17 +86,17 @@ All variables could be found in [default.less](https://github.com/ant-design/ant
 
 > The more the number of configured theme nodes, the slower the compilation. It takes about 1s to compile a css file.
 
-#### custom component
+## custom component
 
 Add codes as follows in file `global.less`
 ```js
-.body-warp-theme1 {
+.body-wrap-theme1 {
     // theme1下的全局变量在此定义
     --font-color: #000000;
     --bg-color: #011313;
 }
 
-.body-warp-theme2 {
+.body-wrap-theme2 {
     // theme2下的全局变量在此定义
     --font-color: #ffffff;
     --bg-color: #ffffff;
@@ -106,11 +106,12 @@ In your custom component, usage as follows in `index.less`
 ```js
 .flatButton{
   color: var(--font-color);
-  backgroud: var(--bg-color);
+  background: var(--bg-color);
 }
 ```
 
-### switch theme
+## switch theme
+
 Add codes in your switch theme function
 ```js
 theme1 = true;
@@ -120,10 +121,10 @@ onClick = () => {
     if (styleLink) { // if link tag which id is 'theme-style' exsits, modify its href
       if (this.theme1) {
         styleLink.href = '/theme/theme1.css';  // switch antd component theme
-        body.className = "body-warp-theme1";  // switch custom component theme
+        body.className = "body-wrap-theme1";  // switch custom component theme
       } else {
         styleLink.href = '/theme/theme2.css';
-        body.className = "body-warp-theme2";
+        body.className = "body-wrap-theme2";
       }
       this.theme1 = !this.theme1;
     } else { // if link tag which id is 'theme-style' do not exsit, create it
@@ -133,10 +134,10 @@ onClick = () => {
       styleLink.id = 'theme-style';
       if (this.theme1) {
         styleLink.href = '/theme/theme1.css';
-        body.className = "body-warp-theme1";
+        body.className = "body-wrap-theme1";
       } else {
         styleLink.href = '/theme/theme2.css';
-        body.className = "body-warp-theme2";
+        body.className = "body-wrap-theme2";
       }
       this.theme1 = !this.theme1;
       document.body.append(styleLink);
