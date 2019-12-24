@@ -115,7 +115,7 @@ $ npm run build
 ```java
 @RequestMapping("/api/**")
 public ApiResult api(HttpServletRequest request, HttpServletResponse response){
-    return apiProxy.proxy(request, reponse);
+    return apiProxy.proxy(request, response);
 }
 
 @RequestMapping(value="/**", method=HTTPMethod.GET)
