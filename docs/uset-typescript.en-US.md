@@ -75,7 +75,7 @@ class FormComponent extends React.Component<IFormComponentProps> {
 
 #### Use a library without d.ts
 
-In the actual use of some libraries and there is no relevant d.ts, this time we can directly define in the file used, taking the high German map as an example.
+In the actual use of some libraries and there is no relevant d.ts, this time we can directly define in the file used, taking the AutoNavi map as an example.
 
 ```tsx
 import React from 'react';
