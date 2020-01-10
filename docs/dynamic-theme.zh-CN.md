@@ -10,9 +10,11 @@ type: 开发
 antd 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme)，主要思路仍然是将 antd 的变量规则与项目中规则进行抽取，然后进行的 less 的编译。
 
 首先，安装此插件：
+
 ```
-npm i umi-plugin-antd-theme
+npm i umi-plugin-antd-theme --save-dev
 ```
+
 * v2版本
 
 将下面的代码复制到config/config.*.js文件中去，最后如下：
@@ -59,9 +61,11 @@ const plugins = [
   ],
 ];
 ```
+
 * v4 版本
 
 在 `config/themePluginConfig.ts`添加类似代码：
+
 ```js
 export default {
   theme: [
@@ -94,7 +98,8 @@ export default {
 
 ## 自定义组件
 
-在`global.less`文件中，添加如下代码：
+在 `global.less` 文件中，添加如下代码：
+
 ```js
 .body-wrap-theme1 {
   // theme1下的全局变量在此定义
@@ -121,6 +126,7 @@ export default {
 ## 主题切换
 
 在主题切换的方法中添加如下代码，可以根据自己需要进行修改，比如添加从本地获取上次主题配置项等：
+
 ```js
 theme1 = true;
 onClick = () => {
