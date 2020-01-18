@@ -5,8 +5,6 @@ type: Blog
 time: 2020-01-16
 ---
 
-## Migration antd@4 Guide
-
 antd@4 rc has been released for a while (about two weeks), and [Official Website](https://next.ant.design/index) has also been released simultaneously. For a person who loves early adopters, of course, he must install and upgrade the first time. After consulting the bean paste teacher and getting a promise that the api will not be modified, I have completed the migration in my project. Enjoy the advantages of antd@4 for the first time.
 
 ### 🚀 Upgrade points

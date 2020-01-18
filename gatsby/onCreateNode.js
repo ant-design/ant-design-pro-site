@@ -14,8 +14,16 @@ const getAvatarList = async filename => {
   const sourcePath = 'https://github.com/ant-design/ant-design-pro-site/contributors-list/master';
   const url = `${sourcePath}${slash(filename)}`;
   const html = await fetch(url)
-    .then(res => res.text())
-    .catch(e => console.log(e));
+    .then(res => {
+      if (res.status === 200) {
+        return res.text();
+      }
+      throw new Error('');
+    })
+    .catch(() => {
+      // console.log(e)
+    });
+
   if (!html) {
     return [];
   }
