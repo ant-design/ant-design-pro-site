@@ -27,7 +27,7 @@ Table 现在也可以自动的获得宽度，并且拥有更加优秀的固定�
 
 ### 🚚 迁移方法
 
-antd@4 变得更加多才多亿，带来了巨量的提升，那我们怎么才能使用到这么棒的 4.0 呢 , 其实很简单，Pro 已经全部迁移了[一把](https://github.com/ant-design/pro-blocks/issues/145) 。官方贴心的为我们提供了 `codemod-v4`，使用起来也是非常简单。
+antd@4 变得更加多才多艺，带来了巨量的提升，那我们怎么才能使用到这么棒的 4.0 呢 , 其实很简单，Pro 已经全部迁移了[一把](https://github.com/ant-design/pro-blocks/issues/145) 。官方贴心的为我们提供了 `codemod-v4`，使用起来也是非常简单。
 
 ```shell
 # 通过 npx 直接运行
