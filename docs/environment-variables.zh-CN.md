@@ -4,7 +4,7 @@ title: 环境变量
 type: 构建和部署
 ---
 
-在开发中经常会有一些需求，根据不同的环境进行不同的操作，比如 url 的替换，dev 环境在 dev 的 url，而线上使用 prd 的环境。在 pro 的脚手架中就有这样的一个环境变量 `ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION`,我们希望有一些方法只能在演示网站中使用，不会让 git clone 的用户错误的将这些功能引入。
+在开发中经常会有一些需求，根据不同的环境进行不同的操作，比如 url 的替换，dev 环境在 dev 的 url，而线上使用 prod 的环境。在 pro 的脚手架中就有这样的一个环境变量 `ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION`,我们希望有一些方法只能在演示网站中使用，不会让 git clone 的用户错误的将这些功能引入。
 
 ## config 中使用
 
