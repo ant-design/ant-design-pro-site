@@ -15,9 +15,10 @@ type: 开发
 <img src="https://gw.alipayobjects.com/zos/rmsportal/oXmyfmffJVvdbmDoGvuF.png" />
 
 - UserLayout：抽离出用于登录注册页面的通用布局
-- BlankLayout：空白的布局
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/mXsydBXvLqBVEZLMssEy.png" />
+
+- BlankLayout：空白的布局
 
 ### 如何使用 Ant Design Pro 布局
 
