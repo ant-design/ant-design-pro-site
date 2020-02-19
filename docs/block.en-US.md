@@ -4,16 +4,18 @@ title: Block
 type: Development
 ---
 
-## What is Block
+## What is a Block?
 
-Block is a set of code block. It helps you to fast initialize a page with prepared code. Current Blocks are all page level blocks. You can treat them as typical page templates. Use block is alike copy exist page code into your project.
+A Block is a set of components, it helps you quickly build pages by using multiple blocks. The code for each block is copied directly into your project. Modify the block to fit your needs.
 
-- Previous: Create JS -> Create CSS -> Create Model -> Create service -> Write page component.
-- Current: Download Block -> Modify on initialized code.
+Currenlty, all blocks are page level blocks. You can treat them as a typical page templates. 
 
-## Use Block
+- Previously: Write JS -> Write CSS -> Create a Model -> Create a service -> Write page component.
+- Now: Download a Block -> Modify genereted code.
 
-Ant Design Pro 中，使用 umi ui 进行区块管理。
+## Using Blocks
+
+Ant Design Pro offers `umi ui` to help you manage blocks.
 
 ![ umi block list](https://gw.alipayobjects.com/zos/antfincdn/YWjTPDQAeq/CF034E49-0FE8-4011-B282-6956FC1B312C.png)
 
@@ -25,7 +27,7 @@ Assets in Pro are divided into two categories, blocks and templates. A block can
 
 ### Layout block
 
-This type of block provides the ability to place places, add other blocks at the specified location, and add them to the target file by code merging, which is more in line with the intuition of the code organization.
+This type of block provides the ability to: define the placement of blocks, add additional blocks at a specified location, and adding blocks to a target file -- to help keep the code organized.
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/FjLAmnNnwA/Kapture%2525202019-11-25%252520at%25252017.32.25.gif)
 
