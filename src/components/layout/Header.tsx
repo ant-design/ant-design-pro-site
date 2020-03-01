@@ -221,7 +221,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           </Link>
         </Menu.Item>
         <Menu.Item key="blog">
-          <Link to={utils.getLocalizedPathname('/blog/change-theme', isZhCN)}>Blog</Link>
+          <Link to={utils.getLocalizedPathname('/blog/', isZhCN)}>Blog</Link>
         </Menu.Item>
         {menuMode === 'inline' && (
           <Menu.Item key="preview">

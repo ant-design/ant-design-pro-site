@@ -95,10 +95,38 @@ module.exports = async ({ graphql, actions }) => {
     toPath: '/blog/better-block-cn',
   });
 
+  const blogEdges = await graphql(
+    `
+      {
+        allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/blog/" }, fields: { slug: {} } }
+          sort: { order: DESC, fields: [frontmatter___time] }
+          limit: 1
+        ) {
+          edges {
+            node {
+              id
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+
+  const { node } = blogEdges.data.allMarkdownRemark.edges[0];
+  createRedirect({
+    fromPath: '/blog-cn',
+    redirectInBrowser: true,
+    toPath: node.fields.slug,
+  });
+
   createRedirect({
     fromPath: '/blog/',
     redirectInBrowser: true,
-    toPath: '/blog/change-theme',
+    toPath: node.fields.slug.replace('-cn', ''),
   });
 
   Object.keys(redirects).map(path =>

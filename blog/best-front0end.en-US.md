@@ -1,6 +1,6 @@
 ---
 order: 7
-title: 前端最佳实践即将发布
+title: Front-end best practices coming soon
 type: Blog
 time: 2020-02-29
 ---

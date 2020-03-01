@@ -246,7 +246,6 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
 
     const activeMenuItem = getActiveMenuItem(this.props);
     const menuItems = this.getMenuItems();
-
     const currentItem = this.getPreAndNext(menuItems);
     const { next, previous } = currentItem;
     const mainContainerClass = classNames('main-container', {});
