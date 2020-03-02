@@ -7,7 +7,7 @@ time: 2020-03-01
 
 Most background pages are made up of very homogenized CRUDs, many times a Table, then provide some action buttons and have a new form. It looks like this:
 
-![0BAFCFEF-9EA2-4DB7-A36D-4D5A092BCC30.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1582038656687-065b40ef-5029-4bf7-8941-6e843570e4e0.png#align=left&display=inline&height=409&name=0BAFCFEF-9EA2-4DB7-A36D-4D5A092BCC30.png&originHeight=1706&originWidth=2822&size=595928&status=done&style=none&width=677)
+![0BAFCFEF-9EA2-4DB7-A36D-4D5A092BCC30.png](https://gw.alipayobjects.com/zos/antfincdn/w6XCWacQH6/1582038656687-065b40ef-5029-4bf7-8941-6e843570e4e0.png)
 
 ## 🤷‍♂️ Why Do You Make ProTable
 
@@ -59,13 +59,13 @@ toolBarRender = (_, { selectedRowKeys }) => [
 
 A complete page requires a query form in addition to Table, which is largely generated from columns, some of which correspond almost to the column. To reduce this amount of work, ProTable automatically generates query forms through the configuration of columns.
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1582127528798-704c4833-955e-4020-9f41-5206c42f2389.png#align=left&display=inline&height=240&name=image.png&originHeight=480&originWidth=1128&size=33714&status=done&style=none&width=564)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/aIkGYS0KvN/1582127528798-704c4833-955e-4020-9f41-5206c42f2389.png)
 
 Depending on the value type, the form generates different input boxes, and the data that succeeds automatically initiates the query through the params parameter of the request, without any data binding.
 
 If your form is simple, there aren't too many special components, or you've encapsulated a lot of antd-compliant components (i.e. having a controlled value and onChange method), you can generate form elements from rows from the renderFormItem, and then configure 'type-FormForm' 'You can generate an add form.
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1582130440043-71722655-42e6-4698-a37a-14d69f6008b8.png#align=left&display=inline&height=436&name=image.png&originHeight=872&originWidth=856&size=36866&status=done&style=none&width=428)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/p3YxxMOlwz/1582130440043-71722655-42e6-4698-a37a-14d69f6008b8%252520%281%29.png)
 
 This allows you to achieve a complete CRUD interface at very low cost, complete your needs early and leave work early.。
 

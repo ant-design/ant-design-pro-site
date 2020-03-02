@@ -7,7 +7,7 @@ time: 2020-03-01
 
 大部分中后台页面都是非常同质化的 CRUD 组成的，很多时候都是一个 Table, 然后提供一些操作按钮，并且有一个新增表单。看起来就像这样：
 
-![0BAFCFEF-9EA2-4DB7-A36D-4D5A092BCC30.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1582038656687-065b40ef-5029-4bf7-8941-6e843570e4e0.png#align=left&display=inline&height=409&name=0BAFCFEF-9EA2-4DB7-A36D-4D5A092BCC30.png&originHeight=1706&originWidth=2822&size=595928&status=done&style=none&width=677)
+![0BAFCFEF-9EA2-4DB7-A36D-4D5A092BCC30.png](https://gw.alipayobjects.com/zos/antfincdn/w6XCWacQH6/1582038656687-065b40ef-5029-4bf7-8941-6e843570e4e0.png)
 
 ## 🤷‍♂️ 为什么要做 ProTable
 
@@ -59,13 +59,13 @@ toolBarRender = (_, { selectedRowKeys }) => [
 
 一个完整的页面除了 Table 之外，还需要一个查询表单，查询表单很大程度上也是根据列来生成的，有些表单几乎和列是一一对应的。为了减少这部分的工作量，ProTable 会通过列的配置来自动生成查询表单。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1582127528798-704c4833-955e-4020-9f41-5206c42f2389.png#align=left&display=inline&height=240&name=image.png&originHeight=480&originWidth=1128&size=33714&status=done&style=none&width=564)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/aIkGYS0KvN/1582127528798-704c4833-955e-4020-9f41-5206c42f2389.png)
 
 根据不同的值类型，表单会生成不同的输入框，查询成功之后的数据会通过  request 的 params 参数自动发起查询，无需进行任何的数据绑定。
 
 如果你的表单比较简单，没有过多的特殊组件，或者你自行封装了很多符合 antd 表单的组件(指拥有受控的 value 和 onChange 方法)，你可以通过  renderFormItem 来自行生成表单元素, 然后配置  `type=Form`，就可以生成一个添加表单。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1582130440043-71722655-42e6-4698-a37a-14d69f6008b8.png#align=left&display=inline&height=436&name=image.png&originHeight=872&originWidth=856&size=36866&status=done&style=none&width=428)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/p3YxxMOlwz/1582130440043-71722655-42e6-4698-a37a-14d69f6008b8%252520%281%29.png)
 
 这样就可以用极低成本来实现一个 完整的 CRUD 界面，早日完成需求，早点下班。
 
