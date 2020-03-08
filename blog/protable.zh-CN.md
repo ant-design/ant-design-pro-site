@@ -5,7 +5,7 @@ type: Blog
 time: 2020-03-01
 ---
 
-大部分中后台页面都是非常同质化的 CRUD 组成的，很多时候都是一个 Table, 然后提供一些操作按钮，并且有一个新增表单。看起来就像这样：
+大部分中后台页面都是非常同质化的 CRUD 组成的，很多时候都是一个 Table，然后提供一些操作按钮，并且有一个新增表单。看起来就像这样：
 
 ![0BAFCFEF-9EA2-4DB7-A36D-4D5A092BCC30.png](https://gw.alipayobjects.com/zos/antfincdn/w6XCWacQH6/1582038656687-065b40ef-5029-4bf7-8941-6e843570e4e0.png)
 
