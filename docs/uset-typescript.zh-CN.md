@@ -4,7 +4,7 @@ title: 使用 TypeScript
 type: 进阶
 ---
 
-TypeScript is a superset of javascript that adds a lot of useful features compared to javascript:
+TypeScript 是Javascript的超集，它相对于Javascript，增加了许多实用的新特性:
 
 - 类型批注和编译时类型检查
 - 类型推断
