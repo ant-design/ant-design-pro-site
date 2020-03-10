@@ -5,15 +5,15 @@ type: Blog
 time: 2020-03-01
 ---
 
-大部分中后台页面都是非常同质化的 CRUD 组成的，很多时候都是一个 Table, 然后提供一些操作按钮，并且有一个新增表单。看起来就像这样：
+大部分中后台页面都是非常同质化的 CRUD 组成的，很多时候都是一个 Table，然后提供一些操作按钮，并且有一个新增表单。看起来就像这样：
 
 ![0BAFCFEF-9EA2-4DB7-A36D-4D5A092BCC30.png](https://gw.alipayobjects.com/zos/antfincdn/w6XCWacQH6/1582038656687-065b40ef-5029-4bf7-8941-6e843570e4e0.png)
 
 ## 🤷‍♂️ 为什么要做 ProTable
 
-antd 作为服务于企业级产品的设计体系的组件库，已经提供了强大的 Table，但是业务的不同导致我们仍有需要进行一些定制，不同的单元格有很多不同的数据格式，金额，日期，数字等，包括一些常用的操作，页码切换时的重新请求，刷新数据等，这些都是很简单的重复劳动,但是却不可避免。
+antd 作为服务于企业级产品的设计体系的组件库，已经提供了强大的 Table，但是业务的不同导致我们仍有需要进行一些定制，不同的单元格有很多不同的数据格式，金额，日期，数字等，包括一些常用的操作，页码切换时的重新请求，刷新数据等，这些都是很简单的重复劳动，但是却不可避免。
 
-ProTable 就是为了解决这些问题，在 Table 的层面上提供了一些预设，你可以通过 [`valueType` ](https://protable.ant.design/value-type)来支持各种类型的数据，预设了 金额，日期，序号，进度条 等多种类型，并且支持通过  `valueEnum`  来映射枚举，解决非常烦人的各种枚举配置，可以大大的简化代码。
+ProTable 就是为了解决这些问题，在 Table 的层面上提供了一些预设，你可以通过 [`valueType` ](https://protable.ant.design/value-type)来支持各种类型的数据，预设了 金额，日期，序号，进度条 等多种类型，并且支持通过 `valueEnum` 来映射枚举，解决非常烦人的各种枚举配置，可以大大的简化代码。
 
 ```typescript
 const columns = [
@@ -34,7 +34,7 @@ const columns = [
 
 ProTable 接管了翻页，页码改变等事件，理论上你只要有配置列和 request 属性，就可以生成一个全功能的表格，完成分页查询，刷新，列属性修改等功能。
 
-在很多项目中 Table 的操作按钮与标题的位置都会不一致，即使是一个项目中也可以能有一些不同，ProTable 提供了相应的规范，toolBarRender 与  headerTitle 实现了规范，toolBarRender 支持返回一个 ReactNode 数组，会自动的增间隔等样式，toolBarRender 提供 action 与当前选中的列等数据，方便进行一些快捷的操作。代码看起来是这样的
+在很多项目中 Table 的操作按钮与标题的位置都会不一致，即使是一个项目中也可能有一些不同，ProTable 提供了相应的规范，toolBarRender 与 headerTitle 实现了规范，toolBarRender 支持返回一个 ReactNode 数组，会自动地增加间隔等样式，toolBarRender 提供 action 与当前选中的列等数据，方便进行一些快捷的操作。代码看起来是这样的
 
 ```typescript
 toolBarRender = (_, { selectedRowKeys }) => [
@@ -61,9 +61,9 @@ toolBarRender = (_, { selectedRowKeys }) => [
 
 ![image.png](https://gw.alipayobjects.com/zos/antfincdn/aIkGYS0KvN/1582127528798-704c4833-955e-4020-9f41-5206c42f2389.png)
 
-根据不同的值类型，表单会生成不同的输入框，查询成功之后的数据会通过  request 的 params 参数自动发起查询，无需进行任何的数据绑定。
+根据不同的值类型，表单会生成不同的输入框，查询成功之后的数据会通过 request 的 params 参数自动发起查询，无需进行任何的数据绑定。
 
-如果你的表单比较简单，没有过多的特殊组件，或者你自行封装了很多符合 antd 表单的组件(指拥有受控的 value 和 onChange 方法)，你可以通过  renderFormItem 来自行生成表单元素, 然后配置  `type=Form`，就可以生成一个添加表单。
+如果你的表单比较简单，没有过多的特殊组件，或者你自行封装了很多符合 antd 表单的组件（指拥有受控的 value 和 onChange 方法），你可以通过  renderFormItem 来自行生成表单元素，然后配置  `type=Form`，就可以生成一个添加表单。
 
 ![image.png](https://gw.alipayobjects.com/zos/antfincdn/p3YxxMOlwz/1582130440043-71722655-42e6-4698-a37a-14d69f6008b8%252520%281%29.png)
 
