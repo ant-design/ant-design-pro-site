@@ -142,6 +142,6 @@ We have built-in **mock data**, **hot module reloading**, **state management**,*
 
 ## Next Steps
 
-[> Block Development](/docs/block-cn) Quickly build standard pages.
+[> Block Development](/docs/block) Quickly build standard pages.
 
-[> Traditional development mode](/docs/router-and-nav-cn), fully custom development.
+[> Traditional development mode](/docs/router-and-nav), fully custom development.
