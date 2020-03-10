@@ -108,8 +108,8 @@ You can fill the url directly into the path and the framework will handle it aut
 
 ```js
 {
-    path: 'https://pro.ant.design/docs/getting-started-cn',
-    name: "文档"
+    path: 'https://pro.ant.design/docs/getting-started',
+    name: "Docs"
 }
 ```
 
@@ -135,7 +135,7 @@ If your page can take advantage of both layouts, you only need to add one to the
     routes: [
       // dashboard
       { path: '/', redirect: '/dashboard/analysis' },
-      { path :'/dashboard/test',component:"./Dashboard/Test"},
+      { path: '/dashboard/test', component:"./Dashboard/Test" },
     ...
 },
 ```
@@ -172,11 +172,11 @@ module.exports = [
 
 ### Use a custom icon in the menu
 
-Due to umi's limitations, the [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) is not directly With components, Pro temporarily supports the use of [`ant.design`](https://ant.design/components/icon-cn/) its own icon type, and the url of an img. Just configure it directly on the icon property. If it's a url, Pro will automatically process it as an img tag.
+Due to umi's limitations, the [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) is not directly With components, Pro temporarily supports the use of [`ant.design`](https://ant.design/components/icon/) its own icon type, and the url of an img. Just configure it directly on the icon property. If it's a url, Pro will automatically process it as an img tag.
 
 If this does not meet the requirements, you can customize [`getIcon`](https://github.com/ant-design/ant-design-pro/blob/master/src/components/SiderMenu/BaseMenu.js#L18) method.
 
-> If you need to use the iconfont icon, you can try the custom icon for [ant.desgin](https://ant.design/components/icon-cn/#%E8%87%AA%E5%AE%9A%E4%B9%).
+> If you need to use the iconfont icon, you can try the custom icon for [ant.desgin](https://ant.design/components/icon/#%E8%87%AA%E5%AE%9A%E4%B9%).
 
 ### Routing with parameters
 
