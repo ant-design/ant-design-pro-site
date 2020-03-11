@@ -57,14 +57,51 @@ Detailed configuration recommendations directly look at the configuration of [we
 
 If you think that the above changes require more configuration, the system is simpler and you don't need to introduce new complexity. We can use [`CORS`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS) to allow cross-domain calls, which can be set in express:
 
+#### express config
+
 ```javascript
-res.header(
-  'Access-Control-Allow-Origin',
-  'Your project address, using * will bring security issues',
-);
+res.header('Access-Control-Allow-Origin', '你的项目地址，用*将会带来安全问题');
 res.header('Access-Control-Allow-Headers', '*');
 res.header('Access-Control-Allow-Methods', '*');
 res.header('Content-Type', 'application/json;charset=utf-8');
+```
+
+#### nginx config
+
+```nginx
+location ^~ /api {
+  proxy_set_header Origin '';
+  add_header Access-Control-Allow-Credentials true;
+  add_header Access-Control-Allow-Headers $http_access_control_request_headers;
+  add_header Access-Control-Allow-Methods POST,GET,OPTIONS,DELETE,PUT,HEAD,PATCH;
+  add_header Access-Control-Allow-Origin $http_origin;
+  add_header Access-Control-Expose-Headers $http_access_control_request_headers;
+
+  if ($request_method = 'OPTIONS') {
+    return 204;
+  }
+  if ($request_method != 'OPTIONS'){
+    proxy_pass "your serve url";
+  }
+}
+```
+
+> It should be noted that before the current version of nginx 1.7.5, add_header is only effective for 2xx and 3xx requests. Headers of 5xx cannot add headers and will still be intercepted by the browser ’s cross-domain policy. Errors contained in the body of 5xx requests The information cannot be obtained by the front end.
+
+#### java config
+
+```java
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class HttpErrorResponseUtil {
+    public static void setResponeCorsHeader(HttpServletRequest request, HttpServletResponse response) {
+      response.addHeader("Access-Control-Allow-Credentials", "true");
+      response.addHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS,DELETE,PUT,HEAD,PATCH");
+      response.addHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+      response.addHeader("Access-Control-Allow-Headers", request.getHeader("Access-Control-Request-Headers"));
+    }
+}
 ```
 
 The methods are similar in other languages. The most important one is the corresponding setting of the `Access-Control-Allow-Origin` `Access-Control-Allow-Headers` `Access-Control-Allow-Methods` header.

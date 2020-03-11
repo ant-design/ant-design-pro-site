@@ -57,11 +57,51 @@ app.listen(3000);
 
 如果觉得以上改动需要配置比较麻烦，系统又比较简单，无需引入新的复杂度。我们可以使用 [`CORS`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS) 的方式来允许跨域调用，在 express 中可以这么设置：
 
+#### express 中的配置
+
 ```javascript
 res.header('Access-Control-Allow-Origin', '你的项目地址，用*将会带来安全问题');
 res.header('Access-Control-Allow-Headers', '*');
 res.header('Access-Control-Allow-Methods', '*');
 res.header('Content-Type', 'application/json;charset=utf-8');
+```
+
+#### nginx 中的配置
+
+```nginx
+location ^~ /api {
+  proxy_set_header Origin '';
+  add_header Access-Control-Allow-Credentials true;
+  add_header Access-Control-Allow-Headers $http_access_control_request_headers;
+  add_header Access-Control-Allow-Methods POST,GET,OPTIONS,DELETE,PUT,HEAD,PATCH;
+  add_header Access-Control-Allow-Origin $http_origin;
+  add_header Access-Control-Expose-Headers $http_access_control_request_headers;
+
+  if ($request_method = 'OPTIONS') {
+    return 204;
+  }
+  if ($request_method != 'OPTIONS'){
+    proxy_pass "你的项目地址";
+  }
+}
+```
+
+> 需要注意的是，目前 nginx 1.7.5 之前的版本，add_header 只对 2xx，3xx 的请求生效，5xx 的请求无法增加 header，仍会被浏览器跨域策略拦截，在 5xx 请求的 body 中包含的错误信息，前端无法获取到。
+
+#### java 手动配置
+
+```java
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class HttpErrorResponseUtil {
+    public static void setResponeCorsHeader(HttpServletRequest request, HttpServletResponse response) {
+      response.addHeader("Access-Control-Allow-Credentials", "true");
+      response.addHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS,DELETE,PUT,HEAD,PATCH");
+      response.addHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+      response.addHeader("Access-Control-Allow-Headers", request.getHeader("Access-Control-Request-Headers"));
+    }
+}
 ```
 
 在别的语言中方法也大同小异，最重要的是 `Access-Control-Allow-Origin`  `Access-Control-Allow-Headers` `Access-Control-Allow-Methods`  头的相应设置。
