@@ -1,0 +1,25 @@
+name: Deploy CI
+
+on: [push]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - run: yarn
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@master
+        env:
+          CI: true
+          PROGRESS: none
+          GIT_CONFIG_NAME: qixian.cs
+          GIT_CONFIG_EMAIL: qixian.cs@outlook.com
+          NODE_OPTIONS: --max_old_space_size=4096
+          ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: site
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: 'public/'
+          BUILD_SCRIPT: yarn && npm uninstall husky && npm run build && git checkout . && git clean -df
