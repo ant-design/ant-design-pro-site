@@ -1,4 +1,4 @@
-import { IFrontmatterData, IGraphqlFrontmatterData } from '../templates/docs';
+import { IFrontmatterData } from '../templates/docs';
 
 export interface MenuDataItem extends IFrontmatterData {
   link?: string;

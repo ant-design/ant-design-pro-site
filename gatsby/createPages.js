@@ -117,16 +117,18 @@ module.exports = async ({ graphql, actions }) => {
   );
 
   const { node } = blogEdges.data.allMarkdownRemark.edges[0];
+  const blogPath = node.fields.slug.replace('-cn', '');
+
   createRedirect({
     fromPath: '/blog-cn',
     redirectInBrowser: true,
-    toPath: node.fields.slug,
+    toPath: `${blogPath}-cn`,
   });
 
   createRedirect({
     fromPath: '/blog/',
     redirectInBrowser: true,
-    toPath: node.fields.slug.replace('-cn', ''),
+    toPath: blogPath,
   });
 
   Object.keys(redirects).map(path =>
