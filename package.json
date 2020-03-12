@@ -38,7 +38,7 @@
     "**/*.{js,jsx}": "npm run lint-staged:js"
   },
   "dependencies": {
-    "antd": "latest",
+    "antd": "3.x",
     "cheerio": "^1.0.0-rc.3",
     "classnames": "^2.2.6",
     "delegate": "^3.2.0",
