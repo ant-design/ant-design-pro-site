@@ -8,7 +8,7 @@ type: Development
 
 A Block is a set of components, it helps you quickly build pages by using multiple blocks. The code for each block is copied directly into your project. Modify the block to fit your needs.
 
-Currenlty, all blocks are page level blocks. You can treat them as a typical page templates. 
+Currenlty, all blocks are page level blocks. You can treat them as typical page templates. 
 
 - Previously: Write JS -> Write CSS -> Create a Model -> Create a service -> Write page component.
 - Now: Download a Block -> Modify genereted code.
