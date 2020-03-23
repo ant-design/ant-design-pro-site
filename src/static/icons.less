@@ -1,40 +1,39 @@
 ul.anticons-list {
   margin: 40px 0;
-  list-style: none;
   overflow: hidden;
+  list-style: none;
   li {
+    position: relative;
     float: left;
     width: 16.66%;
+    height: 100px;
+    margin: 3px 0;
+    padding: 10px 0 0;
+    overflow: hidden;
+    color: #555;
     text-align: center;
     list-style: none;
-    cursor: pointer;
-    height: 100px;
-    color: #555;
-    transition: all 0.3s;
-    position: relative;
-    margin: 3px 0;
-    border-radius: 4px;
     background-color: #fff;
-    overflow: hidden;
-    padding: 10px 0 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
 
     .anticon {
-      font-size: 24px;
       margin: 12px 0 16px;
+      font-size: 24px;
       transition: all 0.3s;
     }
 
     .anticon-class {
       display: block;
+      white-space: nowrap;
       text-align: center;
       transform: scale(0.83);
-      font-family: 'Lucida Console', Consolas;
-      white-space: nowrap;
     }
 
     &:hover {
-      background-color: @primary-color;
       color: #fff;
+      background-color: @primary-color;
       .anticon {
         transform: scale(1.4);
       }
@@ -44,23 +43,23 @@ ul.anticons-list {
       color: rgba(255, 255, 255, 0.2);
     }
 
-    &:after {
+    &::after {
       position: absolute;
       top: 0;
       left: 0;
-      height: 100%;
       width: 100%;
-      content: 'Copied!';
-      text-align: center;
-      line-height: 110px;
+      height: 100%;
       color: #fff;
-      transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      line-height: 110px;
+      text-align: center;
       opacity: 0;
+      transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      content: 'Copied!';
     }
 
-    &.copied:after {
-      opacity: 1;
+    &.copied::after {
       top: -10px;
+      opacity: 1;
     }
   }
 }

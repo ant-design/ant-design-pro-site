@@ -17,7 +17,7 @@
     "lint-staged:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:fix": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src --fix",
-    "lint:style": "stylelint \"site/**/*.less\" --syntax less",
+    "lint:style": "stylelint \"src/**/*.less\" --syntax less --fix",
     "precommit": "npm run lint-staged",
     "prettier": "prettier --write \"**/**\"",
     "serve": "gatsby serve",

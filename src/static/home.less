@@ -6,8 +6,8 @@
   .ant-btn {
     min-width: 110px;
     height: 40px;
-    border-radius: 20px;
     font-size: 16px;
+    border-radius: 20px;
   }
 }
 
@@ -17,45 +17,48 @@ svg g {
 }
 
 .banner-wrapper {
-  height: 526px;
+  position: relative;
   width: 100%;
   max-width: 1500px;
+  height: 526px;
   margin: auto;
-  position: relative;
   .banner-title-wrapper {
-    width: 40%;
-    max-width: 480px;
-    height: 245px;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 8%;
-    margin: auto;
     z-index: 1;
+    width: 40%;
+    max-width: 480px;
+    height: 245px;
+    margin: auto;
     > * {
       will-change: transform;
     }
     h1 {
+      margin: 12px 0;
+      font-size: 54px;
       font-family: 'Futura', 'Helvetica Neue For Number', -apple-system, BlinkMacSystemFont,
         'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue',
         Helvetica, Arial, sans-serif;
-      font-size: 54px;
-      margin: 12px 0;
     }
     p {
       font-size: 20px;
     }
     .button-wrapper {
+      display: flex;
+      align-items: center;
       margin-top: 64px;
       line-height: 40px;
-      align-items: center;
-      display: flex;
       .github-btn {
         display: inline-block;
         height: 28px;
         .gh-btn {
+          display: flex;
+          align-items: center;
           height: 28px;
-          border-radius: 4px;
+          padding: 0 12px;
+          font-size: 13px;
           background: rgba(243, 243, 243, 1);
           background: linear-gradient(
             to bottom,
@@ -63,10 +66,7 @@ svg g {
             rgba(243, 243, 243, 1) 100%
           );
           border: 1px solid #ebedf0;
-          align-items: center;
-          display: flex;
-          padding: 0 12px;
-          font-size: 13px;
+          border-radius: 4px;
           &:hover {
             color: @primary-color;
           }
@@ -76,12 +76,12 @@ svg g {
         }
         .gh-count {
           height: 28px;
+          padding: 2px 8px;
+          font-size: 13px;
           line-height: 22px;
           background: #fff;
           border: 1px solid #ebedf0;
           border-radius: 4px;
-          padding: 2px 8px;
-          font-size: 13px;
         }
       }
     }
@@ -92,14 +92,14 @@ svg g {
   }
 
   .banner-image-wrapper {
+    position: absolute;
+    top: 0;
+    right: 8%;
+    bottom: 0;
     width: 45%;
     max-width: 598px;
     height: 324px;
-    position: absolute;
-    right: 8%;
     margin: auto;
-    top: 0;
-    bottom: 0;
     opacity: 0;
   }
 }
@@ -109,25 +109,25 @@ svg g {
 }
 
 .title-line-wrapper {
-  height: 2px;
   width: 100%;
+  height: 2px;
   overflow: hidden;
   .title-line {
-    height: 100%;
     width: 64px;
-    transform: translateX(-64px);
+    height: 100%;
     background: linear-gradient(to right, rgba(24, 144, 255, 0) 0%, rgba(24, 144, 255, 1) 100%);
+    transform: translateX(-64px);
   }
 }
 
 .home-page {
   margin: 50px auto;
   h2 {
-    text-align: center;
+    color: #314659;
     font-weight: 300;
     font-size: 28px;
-    color: #314659;
     letter-spacing: 0.6px;
+    text-align: center;
     span {
       font-weight: 600;
     }
@@ -135,10 +135,10 @@ svg g {
 }
 
 .home-page-wrapper {
-  max-width: 1280px;
-  width: 100%;
-  margin: auto;
   position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
 }
 
 /** page1 **/
@@ -154,58 +154,58 @@ svg g {
 }
 
 .page1-bg {
-  font-size: 320px;
-  color: #ebedf0;
   position: absolute;
-  width: 100%;
-  text-align: center;
-  opacity: 0.25;
   top: 0;
+  width: 100%;
+  color: #ebedf0;
+  font-size: 320px;
+  text-align: center;
   transform: translateY(960px);
+  opacity: 0.25;
 }
 
 .page1-box-wrapper {
-  margin-bottom: 62px;
   display: flex;
   align-items: flex-start;
+  margin-bottom: 62px;
   li {
-    width: 33.33%;
     display: inline-block;
+    width: 33.33%;
     will-change: transform;
     .page1-box {
+      position: relative;
       width: 194px;
       margin: auto;
       text-align: center;
-      position: relative;
       .page1-image {
-        width: 80px;
-        height: 80px;
-        border-radius: 40px;
-        margin: 20px auto 32px;
         position: relative;
         z-index: 1;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 80px;
+        height: 80px;
+        margin: 20px auto 32px;
         background: #fff;
+        border-radius: 40px;
         transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
       }
       &:hover .page1-image {
         transform: translateY(-5px);
       }
       h3 {
+        margin: 8px auto;
         color: #0d1a26;
         font-size: 16px;
-        margin: 8px auto;
       }
     }
   }
 }
 .page1-point-wrapper {
   position: absolute;
-  width: 0;
-  left: 50%;
   top: 0;
+  left: 50%;
+  width: 0;
   .point-0 {
     width: 4px;
     height: 4px;
@@ -216,9 +216,9 @@ svg g {
     height: 10px;
   }
   .point-ring {
+    background: transparent !important;
     border-style: solid;
     border-width: 1px;
-    background: transparent !important;
   }
   .point-1 {
     width: 6px;
@@ -229,17 +229,18 @@ svg g {
     height: 15px;
   }
   i {
+    position: absolute;
     display: inline-block;
     border-radius: 100%;
-    position: absolute;
-    opacity: 0;
     transform: translate(0, 30px);
+    opacity: 0;
   }
 }
+
 /** page2 **/
 .page2 {
-  text-align: center;
   height: 588px;
+  text-align: center;
 
   .page2-content {
     will-change: transform;
@@ -247,8 +248,8 @@ svg g {
 }
 
 .page2-line {
-  margin: 148px auto 24px;
   width: 114px;
+  margin: 148px auto 24px;
 
   .title-line {
     animation: page2TitleLine 3s ease-in-out 0s infinite;
@@ -264,15 +265,15 @@ svg g {
 .home-code {
   width: 90%;
   max-width: 840px;
-  border-radius: 4px;
-  background: #f2f4f5;
-  line-height: 28px;
   margin: 16px auto;
+  padding: 20px 50px;
   color: #151e26;
   font-size: 16px;
   font-family: @code-family;
+  line-height: 28px;
   text-align: left;
-  padding: 20px 50px;
+  background: #f2f4f5;
+  border-radius: 4px;
   span {
     color: #f5222d;
   }
@@ -280,9 +281,9 @@ svg g {
 
 .home-code-selection {
   display: inline-block;
-  text-align: right;
   width: 16px;
   color: @primary-color !important;
+  text-align: right;
 }
 
 .home-code-comment {

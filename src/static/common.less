@@ -16,32 +16,32 @@ a {
 }
 
 .main-wrapper {
-  background: #fff;
-  margin: 0;
-  border-radius: @border-radius-base;
-  padding: 40px 0 0;
   position: relative;
+  margin: 0;
+  padding: 40px 0 0;
+  background: #fff;
+  border-radius: @border-radius-base;
 }
 
 .main-container {
-  padding: 0 194px 84px 64px;
-  margin-left: -1px;
-  background: #fff;
-  min-height: 500px;
-  overflow: hidden;
-  border-left: 1px solid #e9e9e9;
   position: relative;
+  min-height: 500px;
+  margin-left: -1px;
+  padding: 0 194px 84px 64px;
+  overflow: hidden;
+  background: #fff;
+  border-left: 1px solid #e9e9e9;
   .modifiedTime {
+    margin: 24px 0;
     font-size: 13px;
     font-style: italic;
     text-align: right;
-    margin: 24px 0;
   }
   .doc-avatar-list {
     .href-box {
-      height: 18px;
-      width: 18px;
       float: left;
+      width: 18px;
+      height: 18px;
       margin-left: 12px;
       .ant-avatar > img {
         max-width: 32px;
@@ -59,14 +59,14 @@ a {
 
 .aside-container {
   padding-bottom: 50px;
-  font-family: Lato, @font-family;
+  font-family: @font-family;
 
   &.ant-menu-inline .ant-menu-submenu-title h4,
   &.ant-menu-inline > .ant-menu-item,
   &.ant-menu-inline .ant-menu-item a {
+    overflow: hidden;
     font-size: 14px;
     text-overflow: ellipsis;
-    overflow: hidden;
   }
 
   a[disabled] {
@@ -76,12 +76,12 @@ a {
   .menu-item-link-outside {
     position: relative;
     .anticon {
-      font-size: 12px;
-      color: @primary-color;
-      opacity: 0;
       position: absolute;
-      right: -10px;
       top: 16px;
+      right: -10px;
+      color: @primary-color;
+      font-size: 12px;
+      opacity: 0;
       transition: all 0.3s;
     }
     &:hover .anticon {
@@ -95,9 +95,9 @@ a {
 }
 
 .aside-container .chinese {
-  font-size: 12px;
   margin-left: 6px;
   font-weight: normal;
+  font-size: 12px;
   opacity: 0.67;
 }
 
@@ -105,12 +105,11 @@ a {
   display: inline-block;
 }
 
-.outside-link:after {
-  content: '\e691';
-  font-family: 'anticon';
+.outside-link::after {
   margin-left: 5px;
-  font-size: 12px;
   color: #aaa;
+  font-size: 12px;
+  content: '\e691';
 }
 
 .outside-link.internal {

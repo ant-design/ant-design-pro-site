@@ -3,7 +3,8 @@ order: 5
 title: 动态主题
 type: 开发
 ---
-简单几步可以实现Pro动态主题，此方法既适应于`V4`版本，也适应于`v2`版本。
+
+简单几步可以实现 Pro 动态主题，此方法既适应于`V4`版本，也适应于`v2`版本。
 
 ## antd 主题切换
 
@@ -15,9 +16,14 @@ antd 中的动态主题能力来自 [umi-plugin-antd-theme](https://github.com/c
 npm i umi-plugin-antd-theme --save-dev
 ```
 
-* v2版本
+- umi@3
 
-将下面的代码复制到config/config.*.js文件中去，最后如下：
+umi@3 会自动读取插件 只需要安装 `umi-plugin-antd-theme` 即可生效。为了简化使用现在需要通过 `config/theme.config.json` 来配置主题。
+
+- v2 版本
+
+将下面的代码复制到 config/config.\*.js 文件中去，最后如下：
+
 ```js
 const plugins = [
   [
@@ -62,32 +68,31 @@ const plugins = [
 ];
 ```
 
-* v4 版本
+- umi@2 版本
 
 在 `config/themePluginConfig.ts`添加类似代码：
 
 ```js
 export default {
   theme: [
-    ...
-   {
-          fileName: 'theme1.css',
-          key:'theme1',
-          modifyVars: {
-            '@primary-color': '#13C2C2',
-            '@menu-dark-color': '#324444',
-            '@menu-dark-bg': '#5A5A5A',
-          },
-        },
-        {
-          fileName: 'theme2.css',
-          key:'theme2',
-          modifyVars: {
-            '@primary-color': '#4992BF',
-            '@menu-dark-color': '#9B9B9B',
-            '@menu-dark-bg': '#3A3A3A',
-          },
-        },
+    ...{
+      fileName: 'theme1.css',
+      key: 'theme1',
+      modifyVars: {
+        '@primary-color': '#13C2C2',
+        '@menu-dark-color': '#324444',
+        '@menu-dark-bg': '#5A5A5A',
+      },
+    },
+    {
+      fileName: 'theme2.css',
+      key: 'theme2',
+      modifyVars: {
+        '@primary-color': '#4992BF',
+        '@menu-dark-color': '#9B9B9B',
+        '@menu-dark-bg': '#3A3A3A',
+      },
+    },
   ],
 };
 ```
@@ -95,6 +100,12 @@ export default {
 所有的配置变量都可以在 [default.less](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 找到
 
 > 配置的 theme 节点数量越多编译越慢，一个 css 文件编译大约需要 `1s`。
+
+v4 中自带了 [theme](https://github.com/ant-design/ant-design-pro/blob/b60aa50f9b17ef222accfabaa493d58d2c8367b3/config/config.ts#L63) 插件，但是只有在 Pro 部署的时候才打开，你可以删除判断，直接打开，比如：
+
+```js
+plugins.push(['umi-plugin-antd-theme', themePluginConfig]);
+```
 
 ## 自定义组件
 
@@ -127,38 +138,42 @@ export default {
 
 在主题切换的方法中添加如下代码，可以根据自己需要进行修改，比如添加从本地获取上次主题配置项等：
 
+### 与 SettingDrawer 一起使用
+
+建议配置 [SettingDrawer](https://github.com/ant-design/ant-design-pro-layout#settingdrawer) 一起使用，[umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme) 插件会将主题配置信息挂载到 `window.umi_plugin_ant_themeVar`，SettingDrawer 会去读这个配置自动生成相应的 UI。
+
+### 自定义的使用方式
+
 ```js
 theme1 = true;
 onClick = () => {
-    let styleLink = document.getElementById("theme-style");
-    let body = document.getElementsByTagName('body')[0];
-    if (styleLink) { // 假如存在id为theme-style 的link标签，直接修改其href
-      if (this.theme1) {
-        styleLink.href = '/theme/theme1.css';  // 切换 antd 组件主题
-        body.className = "body-wrap-theme1";  // 切换自定义组件的主题
-      } else {
-        styleLink.href = '/theme/theme2.css';
-        body.className = "body-wrap-theme2";
-      }
-      this.theme1 = !this.theme1;
-    } else { // 不存在的话，则新建一个
-      styleLink = document.createElement('link');
-      styleLink.type = 'text/css';
-      styleLink.rel = 'stylesheet';
-      styleLink.id = 'theme-style';
-      if (this.theme1) {
-        styleLink.href = '/theme/theme1.css';
-        body.className = "body-wrap-theme1";
-      } else {
-        styleLink.href = '/theme/theme2.css';
-        body.className = "body-wrap-theme2";
-      }
-      this.theme1 = !this.theme1;
-      document.body.append(styleLink);
+  let styleLink = document.getElementById('theme-style');
+  let body = document.getElementsByTagName('body')[0];
+  if (styleLink) {
+    // 假如存在id为theme-style 的link标签，直接修改其href
+    if (this.theme1) {
+      styleLink.href = '/theme/theme1.css'; // 切换 antd 组件主题
+      body.className = 'body-wrap-theme1'; // 切换自定义组件的主题
+    } else {
+      styleLink.href = '/theme/theme2.css';
+      body.className = 'body-wrap-theme2';
     }
+    this.theme1 = !this.theme1;
+  } else {
+    // 不存在的话，则新建一个
+    styleLink = document.createElement('link');
+    styleLink.type = 'text/css';
+    styleLink.rel = 'stylesheet';
+    styleLink.id = 'theme-style';
+    if (this.theme1) {
+      styleLink.href = '/theme/theme1.css';
+      body.className = 'body-wrap-theme1';
+    } else {
+      styleLink.href = '/theme/theme2.css';
+      body.className = 'body-wrap-theme2';
+    }
+    this.theme1 = !this.theme1;
+    document.body.append(styleLink);
   }
+};
 ```
-
-## 与 SettingDrawer 一起使用
-
-建议配置 [SettingDrawer](https://github.com/ant-design/ant-design-pro-layout#settingdrawer) 一起使用，[umi-plugin-antd-theme](https://github.com/chenshuai2144/umi-plugin-antd-theme) 插件会将主题配置信息挂载到 `window.umi_plugin_ant_themeVar`，SettingDrawer 会去读这个配置自动生成相应的 UI。
