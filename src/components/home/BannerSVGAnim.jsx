@@ -165,7 +165,10 @@ export default () => (
                 </TweenOne>
                 <TweenOne
                   component="g"
-                  animation={[{ ...animate.scale, delay: 50 }, { y: -10, ...animate.loop }]}
+                  animation={[
+                    { ...animate.scale, delay: 50 },
+                    { y: -10, ...animate.loop },
+                  ]}
                 >
                   <g id="Group-4" transform="translate(11.000000, 14.000000)">
                     <polygon
@@ -197,7 +200,10 @@ export default () => (
                 <g id="Group-7" transform="translate(0.000000, 265.000000)">
                   <TweenOne
                     component="g"
-                    animation={[{ ...animate.scale, delay: 1000 }, { y: 5, ...animate.loop }]}
+                    animation={[
+                      { ...animate.scale, delay: 1000 },
+                      { y: 5, ...animate.loop },
+                    ]}
                   >
                     <rect
                       id="Rectangle-17-Copy-20"
@@ -212,7 +218,10 @@ export default () => (
                   </TweenOne>
                   <TweenOne
                     component="g"
-                    animation={[{ ...animate.scale, delay: 1150 }, { y: -5, ...animate.loop }]}
+                    animation={[
+                      { ...animate.scale, delay: 1150 },
+                      { y: -5, ...animate.loop },
+                    ]}
                   >
                     <rect
                       id="Rectangle-17-Copy-43"
@@ -227,7 +236,10 @@ export default () => (
                   </TweenOne>
                   <TweenOne
                     component="g"
-                    animation={[{ ...animate.scale, delay: 1200 }, { y: 5, ...animate.loop }]}
+                    animation={[
+                      { ...animate.scale, delay: 1200 },
+                      { y: 5, ...animate.loop },
+                    ]}
                   >
                     <rect
                       id="Rectangle-17-Copy-44"
@@ -1373,7 +1385,10 @@ export default () => (
                 </TweenOne>
                 <TweenOne
                   component="g"
-                  animation={[{ ...animate.scale, delay: 1200 }, { y: 10, ...animate.loop }]}
+                  animation={[
+                    { ...animate.scale, delay: 1200 },
+                    { y: 10, ...animate.loop },
+                  ]}
                 >
                   <rect
                     id="Rectangle-17-Copy-22"
@@ -1388,7 +1403,10 @@ export default () => (
                 </TweenOne>
                 <TweenOne
                   component="g"
-                  animation={[{ ...animate.scale, delay: 1250 }, { y: -10, ...animate.loop }]}
+                  animation={[
+                    { ...animate.scale, delay: 1250 },
+                    { y: -10, ...animate.loop },
+                  ]}
                 >
                   <rect
                     id="Rectangle-17-Copy-24"
@@ -1403,7 +1421,10 @@ export default () => (
                 </TweenOne>
                 <TweenOne
                   component="g"
-                  animation={[{ ...animate.scale, delay: 1300 }, { y: 15, ...animate.loop }]}
+                  animation={[
+                    { ...animate.scale, delay: 1300 },
+                    { y: 15, ...animate.loop },
+                  ]}
                 >
                   <rect
                     id="Rectangle-17-Copy-26"

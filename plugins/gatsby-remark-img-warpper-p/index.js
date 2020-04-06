@@ -8,12 +8,14 @@
 const visit = require('unist-util-visit');
 
 module.exports = ({ markdownAST }) => {
-  visit(markdownAST, 'html', node => {
+  // eslint-disable-next-line arrow-parens
+  visit(markdownAST, 'html', (node) => {
     if (
       node.value.includes('<img') &&
       !node.value.includes('<pre') &&
       !node.value.includes('class="icon" ')
     ) {
+      // eslint-disable-next-line no-param-reassign
       node.value = `<p> ${node.value} </p>`;
     }
   });

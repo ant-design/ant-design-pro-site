@@ -158,7 +158,7 @@ class Page1 extends React.PureComponent {
     };
   }
 
-  onMouseOver = i => {
+  onMouseOver = (i) => {
     this.setState({
       hoverNum: i,
     });
@@ -170,7 +170,7 @@ class Page1 extends React.PureComponent {
     });
   };
 
-  getEnter = e => {
+  getEnter = (e) => {
     const i = e.index;
     const r = Math.random() * 2 - 1;
     const y = Math.random() * 10 + 5;
@@ -205,7 +205,7 @@ class Page1 extends React.PureComponent {
         'point-1',
         'point-2',
         'point-3',
-      ].map(className => (
+      ].map((className) => (
         <TweenOne
           component="i"
           className={className}

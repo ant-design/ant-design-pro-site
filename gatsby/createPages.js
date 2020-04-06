@@ -44,11 +44,11 @@ module.exports = async ({ graphql, actions }) => {
   const redirects = {};
 
   const { edges } = allMarkdown.data.allMarkdownRemark;
-  edges.forEach(edge => {
+  edges.forEach((edge) => {
     const { slug, underScoreCasePath } = edge.node.fields;
     if (slug.includes('docs/') || slug.includes('/blog')) {
       const template = docsTemplate;
-      const createArticlePage = path => {
+      const createArticlePage = (path) => {
         if (underScoreCasePath !== path) {
           redirects[underScoreCasePath] = path;
         }
@@ -131,7 +131,7 @@ module.exports = async ({ graphql, actions }) => {
     toPath: blogPath,
   });
 
-  Object.keys(redirects).map(path =>
+  Object.keys(redirects).map((path) =>
     createRedirect({
       fromPath: path,
       redirectInBrowser: true,

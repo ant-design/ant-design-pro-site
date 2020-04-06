@@ -4,18 +4,18 @@ title: Environment Variables
 type: Build & Deployment
 ---
 
-There are often requirements in development, depending on the environment, such as the replacement of url, the dev environment in the dev url, and the online use of the prd environment. There is such an environment variable `ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION` in the pro scaffolding. We hope that some methods can only be used in the demo website, and will not let git clone users mistakenly introduce these functions.
+There are often requirements in development, depending on the environment, such as the replacement of url, the dev environment in the dev url, and the online use of the prd environment. There is such an environment variable `REACT_APP_ENV` in the pro scaffolding. We hope that some methods can only be used in the demo website, and will not let git clone users mistakenly introduce these functions.
 
 ## Used in config
 
 In Pro's [config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts#L65) there is an environment variable to confirm whether you want to join Google Analytics. Statistical code. If it's a site deployment of Pro, add the statistics for Google Analytics. If it is a user, this feature will be turned off by default.
 
 ```js
-const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION } = process.env;
+const { REACT_APP_ENV } = process.env;
 
 // Google Analytics stats for preview.pro.ant.design
 // preview.pro.ant.design only do not use in your production ;
-if (ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
+if (REACT_APP_ENV === 'site') {
   plugins.push([
     'umi-plugin-ga',
     {
@@ -33,24 +33,23 @@ if (ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
 
 > For `process.env` and `NODE_ENV` see [here](https://webpack.js.org/configuration/mode/#usagee).
 
-At this time we need to use [`define`](https://umijs.org/config/#define), which is based on [`define-plugin`](https://webpack.js.org/plugins/define-plugin/), we also use this feature in Pro, in [`config`] (https://github.com/ant-design/ant-design-pro/blob/fbeb545a0fd050e701924cba4b8889398e474525/config/config. Js#L65) Inject the environment variable of node into the define configuration
+At this time we need to use [`define`](https://umijs.org/config/#define), which is based on [`define-plugin`](https://webpack.js.org/plugins/define-plugin/), we also use this feature in Pro, in [`config`](https://github.com/ant-design/ant-design-pro/blob/fbeb545a0fd050e701924cba4b8889398e474525/config/config.js#L65) Inject the environment variable of node into the define configuration
 
 ```js
 export default {
   // some config
   // preview.pro.ant.design only do not use in your production ;
   define: {
-    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION:
-      ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION || '',
+    REACT_APP_ENV: REACT_APP_ENV || '',
   },
   // ....
 };
 ```
 
-Use only the following settings, the specific code to see [here](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/utils/authority.ts#L17).
+Use only the following settings, the specific code to see [here](https://github.com/ant-design/ant-design-pro/blob/b005f2a465c799bb259320bdfe3386c000b07c63/src/components/GlobalHeader/RightContent.tsx#L67).
 
 ```js
-if (!authority && ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
+if (REACT_APP_ENV === 'site') {
   return ['admin'];
 }
 ```
@@ -59,7 +58,7 @@ The caveat here is that we don't need to use it by window['key'], but instead us
 
 ## Umi's default environment variable
 
-A large number of [default environment variables] are available in umi (https://umijs.org/en/guide/env-variables.html#%E5%A6%82%E4%BD%95%E9%85%8D%E7 %BD%AE). These variables can help us automate some of the scaffolding features.
+A large number of [default environment variables] are available in umi (https://umijs.org/en/guide/env-variables.html#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE). These variables can help us automate some of the scaffolding features.
 
 ## Handling errors in Lint
 
@@ -78,5 +77,5 @@ Errors can be handled in eslint by adding [`globals`](https://eslint.org/docs/us
 The TypeScript can be defined in [`typings.d.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/typings.d.ts#L18):
 
 ```ts
-declare var ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: string;
+declare var REACT_APP_ENV: string;
 ```

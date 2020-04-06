@@ -11,7 +11,7 @@ type: 开发
 在终端输入下面的命令完成安装：
 
 ```bash
-$ npm install react-quill --save
+npm install react-quill --save
 ```
 
 > 加上 `--save` 参数会自动添加依赖到 package.json 中去。
@@ -31,7 +31,7 @@ export default class NewPage extends React.Component {
     value: 'test',
   };
 
-  handleChange = value => {
+  handleChange = (value) => {
     this.setState({
       value,
     });

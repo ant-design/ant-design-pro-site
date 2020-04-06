@@ -1,4 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
 /*!
  * Based on 'gatsby-remark-autolink-headers'
@@ -12,6 +11,7 @@ const slugs = require('github-slugger')();
 
 function patch(context, key, value) {
   if (!context[key]) {
+    // eslint-disable-next-line no-param-reassign
     context[key] = value;
   }
 
@@ -23,11 +23,12 @@ const svgIcon =
 
 module.exports = (
   { markdownAST },
-  { icon = svgIcon, className = `anchor`, maintainCase = false },
+  { icon = svgIcon, className = 'anchor', maintainCase = false },
 ) => {
   slugs.reset();
 
-  visit(markdownAST, 'heading', node => {
+  // eslint-disable-next-line arrow-parens
+  visit(markdownAST, 'heading', (node) => {
     // Support custom-id syntax.
     const rawHeader = toString(node);
     const match = /^.+(\s*\{#([a-z0-9\-_]+?)\}\s*)$/.exec(rawHeader);
@@ -59,7 +60,8 @@ module.exports = (
           hChildren: [
             {
               type: 'raw',
-              // The Octicon link icon is the default. But users can set their own icon via the "icon" option.
+              // The Octicon link icon is the default.
+              // But users can set their own icon via the "icon" option.
               value: icon,
             },
           ],

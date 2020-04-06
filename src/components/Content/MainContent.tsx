@@ -3,7 +3,16 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { Link } from 'gatsby';
-import { Badge, Row, Col, Menu, Icon } from 'antd';
+
+import {
+  ExportOutlined,
+  LeftOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  RightOutlined,
+} from '@ant-design/icons';
+
+import { Badge, Row, Col, Menu } from 'antd';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
@@ -133,11 +142,13 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     }
     const {
       intl: { locale },
-    } = this.context as {
-      intl: {
-        locale: 'zh-CN' | 'en-US';
+    } =
+      this.context as
+      {
+        intl: {
+          locale: 'zh-CN' | 'en-US';
+        };
       };
-    };
     const text = [
       <span key="english">{item.title}</span>,
       <span className="chinese" key="chinese">
@@ -161,7 +172,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
         className="menu-item-link-outside"
       >
         {before}
-        {text} <Icon type="export" />
+        {text} <ExportOutlined />
         {after}
       </a>
     );
@@ -180,7 +191,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     );
     const itemGroups = Object.keys(obj)
       .filter(isNotTopLevel)
-      .map(type => {
+      .map((type) => {
         const groupItems = (obj[type] as MenuDataItem[])
           .sort((a, b) => {
             if ('time' in a && 'time' in b) {
@@ -267,7 +278,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
         <Row>
           {isMobile ? (
             <MobileMenu
-              iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
+              iconChild={[<MenuUnfoldOutlined />, <MenuFoldOutlined />]}
               key="mobile-menu"
               wrapperClassName="drawer-wrapper"
             >
@@ -290,14 +301,14 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
             <section className="prev-next-nav">
               {previous ? (
                 <div className="prev-page">
-                  <Icon className="footer-nav-icon-before" type="left" />
+                  <LeftOutlined className="footer-nav-icon-before" />
                   {previous.props.children}
                 </div>
               ) : null}
               {next ? (
                 <div className="next-page">
                   {next.props.children}
-                  <Icon className="footer-nav-icon-after" type="right" />
+                  <RightOutlined className="footer-nav-icon-after" />
                 </div>
               ) : null}
             </section>

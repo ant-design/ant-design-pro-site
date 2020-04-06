@@ -7,6 +7,8 @@ cols: 1
 type: Advanced
 ---
 
+> If you use umi @ 3, it is recommended to use [plugin-access](https://umijs.org/plugins/plugin-access), please migrate to this plugin later.
+
 Authority Management control is one of the common requirements in the background system. You can use the permission control components provided by us to implement some basic permission control functions. The scaffold also contains several simple examples to provide reference.
 
 ## Applications

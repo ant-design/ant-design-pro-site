@@ -106,7 +106,7 @@ class MapComponent extends React.Component {
     this.map.destroy();
   }
   public render() {
-    return <div ref={ref => (this.mapDom = ref)} />;
+    return <div ref={(ref) => (this.mapDom = ref)} />;
   }
 }
 

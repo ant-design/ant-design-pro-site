@@ -4,19 +4,19 @@ title: 环境变量
 type: 构建和部署
 ---
 
-在开发中经常会有一些需求，根据不同的环境进行不同的操作，比如 url 的替换，dev 环境在 dev 的 url，而线上使用 prod 的环境。在 Pro 的脚手架中就有这样的一个环境变量 `ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION`,我们希望有一些方法只能在演示网站中使用，不会让 git clone 的用户错误的将这些功能引入。
+在开发中经常会有一些需求，根据不同的环境进行不同的操作，比如 url 的替换，dev 环境在 dev 的 url，而线上使用 prod 的环境。在 Pro 的脚手架中就有这样的一个环境变量 `REACT_APP_ENV`,我们希望有一些方法只能在演示网站中使用，不会让 git clone 的用户错误的将这些功能引入。
 
 ## config 中使用
 
 在 Pro 的 [config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts#L65) 中有根据环境变量来确认是否要加入 Google Analytics 的统计代码。如果是 Pro 的 site 部署就加入 Google Analytics 的统计。如果是用户就会默认的关闭掉这个功能。
 
 ```js
-const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION } = process.env;
+const { REACT_APP_ENV } = process.env;
 
 // 针对 preview.pro.ant.design 的 Google Analytics 统计代码
 // preview.pro.ant.design only do not use in your production ;
 // preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
-if (ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
+if (REACT_APP_ENV === 'site') {
   plugins.push([
     'umi-plugin-ga',
     {
@@ -42,17 +42,16 @@ export default {
   // preview.pro.ant.design only do not use in your production ;
   // preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
   define: {
-    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION:
-      ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION || '',
+    REACT_APP_ENV: REACT_APP_ENV || '',
   },
   // ....
 };
 ```
 
-使用的时候只需要如下设置，具体代码看[这里](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/utils/authority.ts#L17)。
+使用的时候只需要如下设置，具体代码看[这里](https://github.com/ant-design/ant-design-pro/blob/b005f2a465c799bb259320bdfe3386c000b07c63/src/components/GlobalHeader/RightContent.tsx#L67)。
 
 ```js
-if (!authority && ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site') {
+if (!authority && REACT_APP_ENV === 'site') {
   return ['admin'];
 }
 ```
@@ -80,5 +79,5 @@ eslint 中可以通过增加 [`globals`](https://eslint.org/docs/user-guide/conf
 在 TypeScript 可以在[`typings.d.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/typings.d.ts#L18) 中进行定义：
 
 ```ts
-declare var ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: string;
+declare var REACT_APP_ENV: string;
 ```

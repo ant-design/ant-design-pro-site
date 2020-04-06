@@ -1,7 +1,8 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
-import { Row, Col, Icon, Select, Input, Menu, Button, Modal, Popover } from 'antd';
+import { EyeOutlined, MenuOutlined, SearchOutlined } from '@ant-design/icons';
+import { Row, Col, Select, Input, Menu, Button, Modal, Popover } from 'antd';
 import * as utils from '../utils';
 
 const { Option } = Select;
@@ -31,7 +32,7 @@ function initDocSearch(locale: 'zh-CN' | 'en-US') {
         url: string;
       }[],
     ) {
-      hits.forEach(hit => {
+      hits.forEach((hit) => {
         // eslint-disable-next-line  no-param-reassign
         hit.url = hit.url.replace('ant.design.pro', window.location.host);
         // eslint-disable-next-line  no-param-reassign
@@ -71,7 +72,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   componentDidMount() {
     const { searchInput } = this;
     const { intl } = this.props;
-    document.addEventListener('keyup', event => {
+    document.addEventListener('keyup', (event) => {
       if (event.keyCode === 83 && event.target === document.body) {
         if (searchInput) {
           searchInput.focus();
@@ -245,7 +246,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             arrowPointAtCenter
             onVisibleChange={this.onMenuVisibleChange}
           >
-            <Icon className="nav-phone-icon" type="menu" onClick={this.handleShowMenu} />
+            <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
           </Popover>
         ) : null}
         <Row>
@@ -260,9 +261,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           </Col>
           <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
             <div id="search-box">
-              <Icon type="search" />
+              <SearchOutlined />
               <Input
-                ref={ref => {
+                ref={(ref) => {
                   this.searchInput = ref;
                 }}
                 placeholder={intl.formatMessage({ id: 'app.header.search' })}
@@ -282,7 +283,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     href="http://preview.pro.ant.design"
                     rel="noopener noreferrer"
                   >
-                    <Button icon="eye-o" size="small">
+                    <Button icon={<EyeOutlined />} size="small">
                       <FormattedMessage id="app.home.preview" />
                     </Button>
                   </a>

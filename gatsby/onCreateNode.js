@@ -10,11 +10,11 @@ const cheerio = require('cheerio');
 const slash = require('slash2');
 
 // 获取头像列表
-const getAvatarList = async filename => {
+const getAvatarList = async (filename) => {
   const sourcePath = 'https://github.com/ant-design/ant-design-pro-site/contributors-list/master';
   const url = `${sourcePath}${slash(filename)}`;
   const html = await fetch(url)
-    .then(res => {
+    .then((res) => {
       if (res.status === 200) {
         return res.text();
       }
@@ -31,20 +31,16 @@ const getAvatarList = async filename => {
   const data = [];
   $('li a').map((index, ele) => {
     data.push({
-      username: $(ele)
-        .text()
-        .trim(),
-      url: $(ele)
-        .children('img')
-        .attr('src'),
+      username: $(ele).text().trim(),
+      url: $(ele).children('img').attr('src'),
     });
     return false;
   });
   return data;
 };
 
-const getKebabCase = str =>
-  str.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`).replace(/\/-/g, '/');
+const getKebabCase = (str) =>
+  str.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`).replace(/\/-/g, '/');
 
 // Add custom fields to MarkdownRemark nodes.
 module.exports = exports.onCreateNode = async ({ node, actions, getNode }) => {

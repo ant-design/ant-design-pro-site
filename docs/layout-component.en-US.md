@@ -96,7 +96,7 @@ The code is configured as follows:
   Layout="topmenu"
   className="chenshuai2144"
   disableMobile
-  rightContentRender={rightProps => <RightContent {...rightProps} {...settings} />}
+  rightContentRender={(rightProps) => <RightContent {...rightProps} {...settings} />}
   contentStyle={{ margin: 0 }}
 >
     {' '}

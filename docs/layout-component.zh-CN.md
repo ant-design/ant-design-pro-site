@@ -96,7 +96,7 @@ SettingDrawer 的[切换主题色](/docs/dynamic-theme-cn)功能需要配和 [um
   layout="topmenu"
   className="chenshuai2144"
   disableMobile
-  rightContentRender={rightProps => <RightContent {...rightProps} {...settings} />}
+  rightContentRender={(rightProps) => <RightContent {...rightProps} {...settings} />}
   contentStyle={{ margin: 0 }}
 >
   <ProLayout navTheme="light" menuHeaderRender={false} {...props} {...settings}>

@@ -7,7 +7,7 @@ exports.onCreatePage = require('./gatsby/onCreatePage');
 
 exports.onPostBuild = () => {
   // 复制 CNAME
-  fsExtra.copyFileSync(`${__dirname}/CNAME`, `${__dirname}/public/CNAME`, err => {
+  fsExtra.copyFileSync(`${__dirname}/CNAME`, `${__dirname}/public/CNAME`, (err) => {
     if (err) {
       console.error('Error copying file', err);
     }

@@ -21,7 +21,7 @@ class AvatarList extends React.Component<{
     }
     return (
       <div className="doc-avatar-list">
-        {avatarList.map(item => (
+        {avatarList.map((item) => (
           <a
             className="href-box"
             target="_blank"

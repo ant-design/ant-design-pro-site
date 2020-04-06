@@ -231,7 +231,7 @@ $ npm i node-sass sass-loader --save
 
 ### 站点是否支持国际化？
 
-pro 通过 umi 插件 [umi-plugin-locale](https://github.com/umijs/umi-plugin-locale) 来实现全球化的功能，详情请见 [国际化](/docs/i18n)。
+pro 通过 umi 插件 [@umijs/plugin-locale](https://github.com/umijs/@umijs/plugin-locale) 来实现全球化的功能，详情请见 [国际化](/docs/i18n)。
 
 ### npm 安装 puppeteer 失败
 

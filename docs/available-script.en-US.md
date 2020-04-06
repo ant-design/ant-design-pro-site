@@ -38,7 +38,9 @@ This script will perform a series of tests, including e2e testing. For details, 
 
 ### `npm run fetch:blocks`
 
-This script can download all the blocks to the current project. You will get the same interface as `https://preview.pro.ant.design/`.
+> fetch: blocks may be too slow. If you are just looking at the demo, it is recommended to use the complete mode in yarn create umi
+
+![](https://user-images.githubusercontent.com/8186664/78555213-1fcca700-783f-11ea-94e6-b1fea09f3553.png)
 
 ### `npm run i18n-remove`
 

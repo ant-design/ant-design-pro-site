@@ -96,7 +96,7 @@ export interface MenuDataItem {
 }
 
 const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] => {
-  return menuList.map(item => {
+  return menuList.map((item) => {
     const localItem = { ...item, children: item.children ? menuDataRender(item.children) : [] };
     return Authorized.check(item.authority, localItem, null) as MenuDataItem;
   });
@@ -178,7 +178,7 @@ import { RouteContext } from '@ant-design/pro-layout';
 
 const Page = () => (
   <RouteContext.Consumer>
-    {value => {
+    {(value) => {
       return value.title;
     }}
   </RouteContext.Consumer>

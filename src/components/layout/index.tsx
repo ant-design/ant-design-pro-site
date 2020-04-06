@@ -44,8 +44,9 @@ export class Layout extends React.Component<LayoutProps, LayoutState> {
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <ConfigProvider locale={enUS}>
           <div
-            className={`page-wrapper ${(pathname === '/' || pathname === 'index-cn') &&
-              'index-page-wrapper'}`}
+            className={`page-wrapper ${
+              (pathname === '/' || pathname === 'index-cn') && 'index-page-wrapper'
+            }`}
           >
             <Header {...restProps} location={location} />
             {React.cloneElement(children, {
@@ -62,7 +63,7 @@ export class Layout extends React.Component<LayoutProps, LayoutState> {
 
 const WrapperLayout = (props: LayoutProps) => (
   <Media query="(max-width: 996px)">
-    {isMobile => {
+    {(isMobile) => {
       const isNode = typeof window === 'undefined';
       return <Layout {...props} isMobile={isMobile && !isNode} />;
     }}

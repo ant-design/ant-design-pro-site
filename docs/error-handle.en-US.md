@@ -65,7 +65,7 @@ In a single-page application, the most common requirement is to handle network e
 Ant Design Pro encapsulates a powerful `request.ts` unified processing request, providing default error handling and hints.
 
 ```js
-const checkStatus = response => {
+const checkStatus = (response) => {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }

@@ -31,7 +31,7 @@ export default class NewPage extends React.Component {
     value: 'test',
   };
 
-  handleChange = value => {
+  handleChange = (value) => {
     this.setState({
       value,
     });

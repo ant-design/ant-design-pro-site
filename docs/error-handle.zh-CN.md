@@ -65,7 +65,7 @@ type: 进阶
 Ant Design Pro 封装了一个强大的 `request.ts` 统一处理请求，提供了默认的错误处理以及提示。
 
 ```js
-const checkStatus = response => {
+const checkStatus = (response) => {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }

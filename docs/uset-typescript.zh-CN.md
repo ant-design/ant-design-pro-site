@@ -4,7 +4,7 @@ title: 使用 TypeScript
 type: 进阶
 ---
 
-TypeScript 是Javascript的超集，它相对于Javascript，增加了许多实用的新特性:
+TypeScript 是 Javascript 的超集，它相对于 Javascript，增加了许多实用的新特性:
 
 - 类型批注和编译时类型检查
 - 类型推断
@@ -105,7 +105,7 @@ class MapComponent extends React.Component {
     this.map.destroy();
   }
   public render() {
-    return <div ref={ref => (this.mapDom = ref)} />;
+    return <div ref={(ref) => (this.mapDom = ref)} />;
   }
 }
 
