@@ -18,7 +18,6 @@
     "lint:fix": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src --fix",
     "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:style": "stylelint \"src/**/*.less\" --syntax less --fix",
-    "precommit": "npm run lint-staged",
     "prettier": "prettier --write \"**/**\"",
     "serve": "gatsby serve",
     "presite": "npm run build",
@@ -26,9 +25,6 @@
     "start": "gatsby develop",
     "test": "npm run lint"
   },
-  "pre-commit": [
-    "precommit"
-  ],
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
     "**/*.{js,jsx,less}": [
