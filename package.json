@@ -25,6 +25,11 @@
     "start": "gatsby develop",
     "test": "npm run lint"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
     "**/*.{js,jsx,less}": [
@@ -55,6 +60,7 @@
     "gatsby-remark-prismjs": "^3.0.2",
     "gatsby-source-filesystem": "^2.0.0",
     "gatsby-transformer-remark": "^2.7.1",
+    "husky": "^4.2.3",
     "moment": "^2.24.0",
     "node-fetch": "^2.5.0",
     "prop-types": "^15.7.2",
