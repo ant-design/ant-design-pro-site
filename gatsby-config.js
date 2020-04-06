@@ -51,7 +51,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-header-custom-ids',
+          'gatsby-remark-autolink-headers',
           'gatsby-remark-img-warpper-p',
           {
             resolve: 'gatsby-remark-prismjs',
@@ -62,7 +62,6 @@ module.exports = {
         ],
       },
     },
-
     'gatsby-plugin-sitemap',
   ],
 };

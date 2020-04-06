@@ -110,6 +110,7 @@ export const pageQuery = graphql`
   query TemplateDocsMarkdown($slug: String!, $type: String!, $locale: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      tableOfContents
       frontmatter {
         title
         order
