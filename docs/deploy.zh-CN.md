@@ -20,7 +20,7 @@ Ant Design Pro 使用的 Umi 支持两种路由方式：`browserHistory` 和 `ha
 
 ```javascript
 export default {
-  history: 'hash', // 默认是 browser
+  history: { type: 'hash' }, // 默认是 browser
 };
 ```
 
