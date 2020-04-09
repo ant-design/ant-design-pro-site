@@ -14,6 +14,14 @@ For release purposes, you only need publish the resulting static file, which is 
 
 Umi has two modes of router, `browserHistory` and `hashHistory`.
 
+Config it at  `config/config.ts` file.
+
+```javascript
+export default {
+  history: { type: 'hash' }, // default type is browser
+};
+```
+
 `hashHistory` uses a URL such as `https://cdn.com/#/users/123` and take the path following the `#` as the application route. `browserHistory` uses `https://cdn.com/users/123` directly. When using `hashHistory` the browser always requests `index.html` under the root directory. Using `browserHistory` requires that the server be prepared to handle URLs. It should be OK to handle the initial `/`. However, when the user jumps back and forth and refreshes `/users/123`, the server receives a `/users/123` request, then you need to configure the server to handle this URL to return the correct index.html. If you can control the server, we recommend using browserHistory.
 
 ## Deploy to a non-root directory
