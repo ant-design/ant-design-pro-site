@@ -4,7 +4,7 @@ title: 快速升级到 umi@3
 type: 入门
 ---
 
-升级 umi@3 改动较小，主要是插件的配置，与 import 内容的变化。需要注意的是 umi@3 会自动导入已 `umi-plugin` 或`@umijs` 开头的插件。
+升级 umi@3 改动较小，主要是插件的配置，与 import 内容的变化。需要注意的是 umi@3 会自动导入以 `umi-plugin` 或`@umijs` 开头的插件。
 
 ## 配置
 
