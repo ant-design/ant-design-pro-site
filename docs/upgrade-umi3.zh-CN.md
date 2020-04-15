@@ -71,7 +71,7 @@ tsconfig  中增加
 
 ### lint 和 typescript 类型问题
 
-由于 umi@3 使用了运行时类型，所以在依赖安装完成之时 lint 与 typescript 可能报错，这是因为定义文件没有生成导致的，我们可以执行的 `npm run lint` 或 ```yarn run umi g tmp`  来生成临时文件。如果觉得比较麻烦，可以在 package.json 的 scripts 中做如下配置。
+由于 umi@3 使用了运行时类型，所以在依赖安装完成之时 lint 与 typescript 可能报错，这是因为定义文件没有生成导致的，我们可以执行的 `npm run lint` 或 `yarn run umi g tmp`  来生成临时文件。如果觉得比较麻烦，可以在 package.json 的 scripts 中做如下配置。
 
 ```bash
 "postinstall": "umi g tmp"
