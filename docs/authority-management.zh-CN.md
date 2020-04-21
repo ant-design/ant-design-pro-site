@@ -1,5 +1,5 @@
 ---
-order: 19
+order: 20
 title: 权限管理
 type: 基础使用
 ---

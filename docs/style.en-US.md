@@ -1,5 +1,5 @@
 ---
-order: 16
+order: 17
 title: Edit Style
 type: Basic Usage
 ---

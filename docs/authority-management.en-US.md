@@ -1,5 +1,5 @@
 ---
-order: 19
+order: 20
 title: Authority Management
 type: Basic Usage
 ---
