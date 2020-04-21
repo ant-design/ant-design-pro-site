@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 32
 title: Deployment
 type: Build & Deployment
 ---
@@ -14,7 +14,7 @@ For release purposes, you only need publish the resulting static file, which is 
 
 Umi has two modes of router, `browserHistory` and `hashHistory`.
 
-Config it at  `config/config.ts` file.
+Config it at `config/config.ts` file.
 
 ```javascript
 export default {

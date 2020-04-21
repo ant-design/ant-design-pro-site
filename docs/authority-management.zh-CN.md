@@ -1,81 +1,123 @@
 ---
-order: 24
+order: 20
 title: 权限管理
-type: 进阶
+type: 基础使用
 ---
 
-> 如果你使用了 umi@3，推荐使用 [plugin-access](https://umijs.org/plugins/plugin-access)，pro 会稍后迁移到这个插件。
+## 一、简介
 
-权限控制是中后台系统中常见的需求之一，你可以利用我们提供的权限控制组件，实现一些基本的权限控制功能，脚手架中也包含了几个简单示例以提供参考。
+在项目中经常有的场景是不同的用户的权限不同，通常有如下场景：
 
-## 应用实例
+- 不同的用户对页面的访问权限不同。
+- 不同的用户在页面中可以看到的元素和操作不同。
 
-通过对数据的组织及权限组件的应用，脚手架实现了基本的权限管理，下面简单介绍了几个常见场景的应用方式。
+> 针对这些场景，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案。实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](./plugin-access)。通过定义权限，使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@alipay/umi-plugin-layout](./plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
 
-> 脚手架中对组件 export 的 RenderAuthorized 函数进行了[基本封装](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/utils/Authorized.ts)，默认传入当前的权限（mock 数据），因此在脚手架中使用时，无需再关注当前权限。
+对于 bigfish 应用，上述插件已内置支持，直接使用即可。
 
-### 控制菜单和路由显示
+## 二、如何使用
 
-如需对某些页面进行权限控制，只须在路由配置文件 [config.ts](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 中设置 `Routes` 属性即可，代表该路由的准入权限，pro 的路由系统中会默认包裹 `Authorized` 进行判断处理。
+### 初始化
 
-```js
-{
-  path: '/',
-  component: '../layouts/BasicLayout',
-  Routes: ['src/pages/Authorized'],
-  authority: ['admin', 'user'],
+新建 `src/access.ts` ，在该文件中定义用户所有的权限，该文件的一个初步的内容如下：
+
+```typescript
+// src/access.ts
+export default function (initialState) {
+  return {
+    canReadFoo: true,
+    canUpdateFoo: () => true,
+    canDeleteFoo: (data) => data?.status < 1, // 按业务需求自己任意定义鉴权函数
+  };
+}
+```
+
+该文件需要返回一个 function，返回的 function 会在应用初始化阶段被执行，执行后返回的对象将会被作为用户所有权限的定义。对象的每个 key 对应一个 boolean 值，只有 true 和 false，代表用户是否有该权限。
+
+其中的 `initialState`  来自于[全局初始化数据](./console-initial-state)，你可以基于这些数据来初始化用户权限。
+
+### 页面内的权限控制
+
+使用示例如下：
+
+```typescript
+import React from 'react';
+import { useAccess, Access } from 'umi';
+
+const PageA = (props) => {
+  const { foo } = props;
+  const access = useAccess(); // access 实例的成员: canReadFoo, canUpdateFoo, canDeleteFoo
+
+  if (access.canReadFoo) {
+    // 任意操作
+  }
+
+  return (
+    <div>
+      <Access accessible={access.canReadFoo} fallback={<div>Can not read foo content.</div>}>
+        Foo content.
+      </Access>
+      <Access accessible={access.canUpdateFoo()} fallback={<div>Can not update foo.</div>}>
+        Update foo.
+      </Access>
+      <Access accessible={access.canDeleteFoo(foo)} fallback={<div>Can not delete foo.</div>}>
+        Delete foo.
+      </Access>
+    </div>
+  );
+};
+```
+
+你可以通过 `useAccess` hook 来消费权限相关数据，另外我们内置了 `Access`  组件用于做页面的元素显示和隐藏的控制。
+
+## 三、路由和菜单的权限控制
+
+如果需要对路由还有菜单进行权限控制，可以直接在路由上原有基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（前提需要使用最佳实践的 Layout 方案 - [@alipay/umi-plugin-layout](./plugin-layout) ）**。
+
+在以上定义(`src/access.ts`, `src/app.ts`)完成的基础上，再在路由配置项上添加 `access` 属性即可完成路由和菜单的权限控制。`access` 属性的值为 `src/access.ts` 中返回的对象的 key。以下为实际例子：
+
+假设权限定义文件 `src/access.ts` 内容如下：
+
+```typescript
+// src/access.ts
+export default function (initialState = {}) {
+  const { isAdmin, hasRoutes = [] } = initialState;
+  return {
+    // ...
+    adminRouteFilter: () => isAdmin, // 只有管理员可访问
+    normalRouteFilter: (route) => hasRoutes.includes(route.name), // initialState 中包含了的路由才有权限访问
+  };
+}
+```
+
+> 通过以上示例可以看到，权限路由控制的函数定义，接收"当前处理的路由"作为第一个参数
+
+那么只需要按以下方式在常规路由配置中加上 `access` 这一项即可：
+
+```typescript
+// config/config.ts
+import { BigfishConfig } from '@alipay/bigfish';
+
+const config: BigfishConfig = {
+  plugins: ['@alipay/umi-preset-console'],
   routes: [
-    // forms
     {
-      path: '/form',
-      icon: 'form',
-      name: 'form',
-      routes: [
-        {
-          path: '/form/basic-form',
-          name: 'basicform',
-          component: './Forms/BasicForm',
-        },
-        {
-          path: '/form/advanced-form',
-          name: 'advancedform',
-          authority: ['admin'],//配置准入权限,可以配置多个角色
-          component: './Forms/AdvancedForm',
-        },
-      ],
+      path: '/foo',
+      name: 'foo',
+      // ...
+      access: 'normalRouteFilter', // 会调用 src/access.ts 中返回的 normalRouteFilter 进行鉴权
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      // ...
+      access: 'adminRouteFilter', // 会调用 src/access.ts 中返回的 adminRouteFilter 进行鉴权
     },
   ],
-}
+  // ...
+};
+
+export default config;
 ```
 
-### 修改当前权限
-
-脚手架中使用 `localStorage` 模拟权限角色，实际项目中可能需要从后台读取。
-
-脚手架中实现了一个简单的刷新权限方法，在登录/注销等关键节点对当前权限进行了更新。
-
-具体可以查看 `Authorized.ts` 中 [reloadAuthorized](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/utils/Authorized.ts) 的定义。
-
-### 如何控制页面访问权限（用户角色）
-
-这里的获取方式有几种，像 pro 现在这样从 config 中传值，也可以通过 http 请求从服务端获取，甚至本地的 json 文件加载也可以。routerData 是一个 json 数组。获取之后只需返回类似格式的 json 即可。
-
-```js
-router: {
-  routes: [
-    // dashboard
-    {
-      path: '/dashboard',
-      authority: ['admin'],
-      routes: [
-        {
-          path: '/dashboard/analysis',
-          authority: ['admin', 'user'],
-        },
-      ],
-    },
-  ];
-}
-```
-
-> 注意 router 和 menuData 可以使用同一个数据，也可以使用不同的数据，注意他们的必要属性即可。
+经过鉴权后鉴权函数(比如 `adminRouteFilter` )返回值为 falsy 的，该条路由将会被禁用，并且从左侧 layout 菜单中移除，如果直接从 URL 访问对应路由，将看到一个 403 页面。

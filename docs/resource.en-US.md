@@ -1,5 +1,5 @@
 ---
-order: 23
+order: 94
 title: Design Kit
 type: Other
 ---
