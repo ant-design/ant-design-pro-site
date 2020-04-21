@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 32
 title: 部署
 type: 构建和部署
 ---

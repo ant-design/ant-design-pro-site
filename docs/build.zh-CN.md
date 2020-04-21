@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 31
 title: 构建
 type: 构建和部署
 ---

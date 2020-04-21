@@ -1,7 +1,7 @@
 ---
-order: 21
+order: 93
 title: 更新日志
-type: 其他
+type: 其它
 ---
 
 [旧版文档](http://03x.pro.ant.design/)

@@ -1,96 +1,39 @@
 ---
-order: 3
-title: 布局
-type: 开发
+order: 14
+title: 内置布局
+type: 基础使用
 ---
 
-页面整体布局是一个产品最外层的框架结构，往往会包含导航、页脚、侧边栏、通知栏以及内容等。在页面之中，也有很多区块的布局结构。在真实项目中，页面布局通常统领整个应用的界面，有非常重要的作用。
+## 简介
 
-## Ant Design Pro 的布局
+在最佳实践中我们内置了 Layout，你可以通过简单的配置就可以让项目拥有侧边菜单和头部导航，最佳实践插件会通过路由配置自动生成相关菜单。不再需要在项目中直接引入 `@ant-design/pro-layout`  相关代码。
 
-在 Ant Design Pro 中，我们抽离了使用过程中的通用布局，都放在 `layouts` 目录中，分别为：
+## 如何使用
 
-- BasicLayout：基础页面布局，包含了头部导航，侧边栏和通知栏：
+### 初始配置
 
-<img src="https://gw.alipayobjects.com/zos/rmsportal/oXmyfmffJVvdbmDoGvuF.png" />
+要打开 layout 你需要在配置文件 `config/config.ts`  中配置 `layout` 。
 
-- UserLayout：抽离出用于登录注册页面的通用布局
-
-<img src="https://gw.alipayobjects.com/zos/rmsportal/mXsydBXvLqBVEZLMssEy.png" />
-
-- BlankLayout：空白的布局
-
-### 如何使用 Ant Design Pro 布局
-
-通常布局是和路由系统紧密结合的，Ant Design Pro 的路由使用了 Umi 的路由方案，我们将配置信息统一抽离到 `config/config.ts` 下，通过如下配置定义每个页面的布局：
-
-```js
-routers: [
-  {
-    path: '/',
-    component: '../layouts/BasicLayout', // 指定以下页面的布局
-    routes: [
-      // dashboard
-      { path: '/', redirect: '/dashboard/analysis' },
-      {
-        path: '/dashboard',
-        name: 'dashboard',
-        icon: 'dashboard',
-        routes: [
-          { path: '/dashboard/analysis', name: 'analysis', component: './Dashboard/Analysis' },
-          { path: '/dashboard/monitor', name: 'monitor', component: './Dashboard/Monitor' },
-          { path: '/dashboard/workplace', name: 'workplace', component: './Dashboard/Workplace' },
-        ],
-      },
-    ],
+```typescript
+export default {
+  // 其它配置
+  routes: [
+    /* 路由配置 */
+  ],
+  layout: {
+    name: '你的项目名称',
   },
-];
+};
 ```
 
-映射路由和页面布局（组件）的关系如代码所示，完整映射转换实现可以参看 [config.ts](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts)。
+### 更多配置
 
-更多 Umi 的路由配置方式可以参考：[Umi 配置式路由](https://umijs.org/guide/router.html#%E9%85%8D%E7%BD%AE%E5%BC%8F%E8%B7%AF%E7%94%B1)。
+1. 除了在 `config/config.ts`  中的配置以外，还支持在 `src/app.ts`  中配置更多的运行时配置，你可以自定义登出的方法，可以自定义头部导航扩展区域等，具体参考[ Layout 插件详细文档](./plugin-layout)。
 
-#### Pro 扩展配置
+2. layout 的 `PRO` 主题完全内置了 pro-layout 的所有功能，更多用例请参考：[Pro-Layout](https://prolayout.ant.design/example)
 
-我们在 `config.ts` 扩展了一些关于 pro 全局菜单的配置。
+3. 如果 layout 插件实在难以满足您的需求，可以通过配置 `layout: false`, 来关闭它。（方便的话也请告诉一下你们的需求，我们可以考虑是否内置，也欢迎给我们提 pr）
 
-```
-{
-  name: 'dashboard',
-  icon: 'dashboard',
-  hideInMenu: true,
-  hideChildrenInMenu: true,
-  hideInBreadcrumb: true,
-  authority: ['admin'],
-}
-```
+### 路由和菜单的关系
 
-- `name`: 当前路由在菜单和面包屑中的名称，注意这里是国际化配置的 key，具体展示菜单名可以在 [/src/locales/zh-CN.ts](https://github.com/ant-design/ant-design-pro/blob/v2/src/locales/zh-CN.ts) 进行配置。
-- `icon`: 当前路由在菜单下的图标名。
-- `hideInMenu`: 当前路由在菜单中不展现，默认 `false`。
-- `hideChildrenInMenu`: 当前路由的子级在菜单中不展现，默认 `false`。
-- `hideInBreadcrumb`: 当前路由在面包屑中不展现，默认 `false`。
-- `authority`: 允许展示的权限，不设则都可见，详见：[权限管理](/docs/authority-management)。
-
-## Ant Design 布局组件
-
-除了 Pro 里的内建布局以外，在一些页面中需要进行布局，可以使用 Ant Design 目前提供的两套布局组件工具：[Layout](http://ant.design/components/layout/) 和 [Grid](http://ant.design/components/grid/)。
-
-### Grid 组件
-
-栅格布局是网页中最常用的布局，其特点就是按照一定比例划分页面，能够随着屏幕的变化依旧保持比例，从而具有弹性布局的特点。
-
-而 Ant Design 的栅格组件提供的功能更为强大，能够设置间距、具有支持响应式的比例设置，以及支持 `flex` 模式，基本上涵盖了大部分的布局场景，详情参看：[Grid](http://ant.design/components/grid/)。
-
-### Layout 组件
-
-如果你需要辅助页面框架级别的布局设计，那么 [Layout](http://ant.design/components/layout/) 则是你最佳的选择，它抽象了大部分框架布局结构，使得只需要填空就可以开发规范专业的页面整体布局，详情参看：[Layout](http://ant.design/components/layout/)。
-
-### 根据不同场景区分抽离布局组件
-
-在大部分场景下，我们需要基于上面两个组件封装一些适用于当下具体业务的组件，包含了通用的导航、侧边栏、顶部通知、页面标题等元素。例如 Ant Design Pro 的 [BasicLayout](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/layouts/BasicLayout.tsx)。
-
-通常，我们会把抽象出来的布局组件，放到跟 `pages`、 `components` 平行的 `layouts` 文件夹中方便管理。需要注意的是，这些布局组件和我们平时使用的其它组件并没有什么不同，只不过功能性上是为了处理布局问题。
-
-> 除了 Ant Design 官方提供的布局组件，也可以试试 [社区精选](https://ant.design/docs/react/recommendation-cn) 里推荐的布局组件。
+路由的基础配置还是和 Bigfish 本身的路由配置一致，只是在那之上扩展支持了一些额外的配置用于支持不同的菜单的需求。比如在菜单中隐藏部分路由入口，或者和权限打通等。路由和权限支持部分，可以到[权限处理](/doc/console-access)查看。

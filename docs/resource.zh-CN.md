@@ -1,7 +1,7 @@
 ---
-order: 23
+order: 94
 title: 设计资源
-type: 其他
+type: 其它
 ---
 
 Ant Design Pro 配套的设计资源。

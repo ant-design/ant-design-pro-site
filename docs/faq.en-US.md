@@ -1,7 +1,7 @@
 ---
-order: 22
+order: 91
 title: FAQ
-type: Introduction
+type: Other
 ---
 
 Before you ask a question, please check the following FAQ.
