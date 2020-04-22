@@ -1,6 +1,6 @@
 ---
 order: 8
-title: Layout 的全新样式
+title: Layout New Style
 type: Blog
 time: 2020-04-21
 ---
