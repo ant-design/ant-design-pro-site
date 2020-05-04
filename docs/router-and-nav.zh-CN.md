@@ -14,7 +14,7 @@ type: 开发
 - `菜单生成` 根据路由配置来生成菜单。菜单项名称，嵌套路径与路由高度耦合。
 - `面包屑` 组件 [PageHeaderWrapper](https://github.com/ant-design/ant-design-pro-layout#pageheaderwrapper) 中内置的面包屑,也可通过 [RouteContext](/blog/new-pro-use-cn#routecontext) 提供的信息自定义生成。
 
-下面简单介绍下各个模块的基本思路，如果你对实现过程不感兴趣，只想了解应该怎么实现相关需求，可以直接查看[需求实例](/docs/router-and-nav#需求实例)。
+下面简单介绍下各个模块的基本思路，如果你对实现过程不感兴趣，只想了解应该怎么实现相关需求，可以直接查看[需求实例](/docs/router-and-nav-cn#需求实例)。
 
 ### 路由
 
