@@ -4,12 +4,10 @@ title: Introduction
 type: Introduction
 ---
 
-> This article has not been translated yet. Wan't to help us out? Click the Edit this doc on GitHub at the title of the page.
-
----
-
 Ant Design Pro is a production-ready solution for admin interfaces. Built on the design principles developed by [Ant Design](http://ant.design/), this project introduces higher level components; we have developed templates, components, and a corresponding design kit to improve the user and development experience for admin interfaces.
 
-Your help is welcomed and much appreciated. With your feedback we can make incremental progress towards elegant and well designed components. Please open an issue or submit a pull request!
+Ant Design Pro is striving to provide an out-of-the-box development experience, for which we offer a complete scaffolding involving [the internationalization of the world](https://umijs.org/plugins/plugin-locale), [Permissions](https://umijs.org/plugins/plugin-access), the mock, [the data stream](https://umijs.org/plugins/plugin-model), [the network requests](https://umijs.org/plugins/plugin-request) Best practices are provided for scenarios common in these backgrounds to reduce learning and development costs.
 
-With those objectives in mind, we have built the following templates and a scaffold based on React.js, which should help you prototyping production-ready admin interfaces.
+At the same time, to provide a more efficient development experience, we have provided a number of column heavy components, [ProLayout](https://prolayout.ant.design/), [ProTable](https://protable.ant.design/), and [ProList](https.ant.design/) are good helpers in the background in development, significantly reducing boilerplate code.
+
+Let's take a big look at the architecture of the entire Ant Design Pro in the big picture below.
