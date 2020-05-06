@@ -23,7 +23,7 @@ $ npm run build
 如果你的构建文件很大，你可以通过 `analyze` 命令构建并分析依赖模块的体积分布，从而优化你的代码。
 
 ```bash
-$ npm run analyze
+npm run analyze
 ```
 
 上面的命令会自动在浏览器打开显示体积分布数据的网页。

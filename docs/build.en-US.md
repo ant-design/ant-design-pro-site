@@ -23,7 +23,7 @@ But if you want to custom the build result, like specify the result directory, y
 If your build file is large, you can optimize your code with the `analyze` command to build and analyze the volume distribution of dependent modules.
 
 ```bash
-$ npm run analyze
+npm run analyze
 ```
 
 The command will open analyze result in your default browser automatically.
