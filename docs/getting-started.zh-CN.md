@@ -98,3 +98,9 @@ analyze 脚本做的事情与 build 的相同，但是他会打开一个页面�
 ### `npm run i18n-remove`
 
 这个脚本将会尝试删除项目中所有的 i18n 代码，对于复杂的运行时代码，表现并不好，慎用。
+
+## 内部使用
+
+在蚂蚁金服内部，推荐使用 [Bigfish](https://bigfish.antfin-inc.com/doc/getting-started) 作为前端整体解决方案。
+
+> 在 Bigfish 中使用 Ant Design Pro，菜单、路由及权限配置等功能需要依照 Bigfish 提供的解决方案实现，请直接参考内网相关文档。
