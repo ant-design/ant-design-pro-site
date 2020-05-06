@@ -11,3 +11,5 @@ Ant Design Pro 在力求提供开箱即用的开发体验，为此我们提供�
 同时为了提供更加高效的开发体验，我们提供了一些列重型组件，[ProLayout](https://prolayout.ant.design/)，[ProTable](https://protable.ant.design/)，[ProList](https://prolist.ant.design/) 都是开发中后台的好帮手，可以显著的减少样板代码。
 
 我们可以通过下面的大图来了解整个 Ant Design Pro 的架构。
+
+![pro](https://gw.alipayobjects.com/zos/antfincdn/D%24cnH8cIhS/pro%252520%281%29.svg)

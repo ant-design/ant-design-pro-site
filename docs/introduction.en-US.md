@@ -11,3 +11,5 @@ Ant Design Pro is striving to provide an out-of-the-box development experience, 
 At the same time, to provide a more efficient development experience, we have provided a number of column heavy components, [ProLayout](https://prolayout.ant.design/), [ProTable](https://protable.ant.design/), and [ProList](https.ant.design/) are good helpers in the background in development, significantly reducing boilerplate code.
 
 Let's take a big look at the architecture of the entire Ant Design Pro in the big picture below.
+
+![pro](https://gw.alipayobjects.com/zos/antfincdn/D%24cnH8cIhS/pro%252520%281%29.svg)
