@@ -17,8 +17,8 @@ type: 基础使用
 useRequest 是最佳实践中内置的一个 Hook，通过它你可以获得强大的请求接口的能力，不管是翻页还是加载更多还是和 antd 的 Table 组件结合都变得非常简单。一个最简单的示例如下：
 
 ```javascript
-import React from '@alipay/bigfish/react';
-import { useRequest } from '@alipay/bigfish';
+import React from 'react';
+import { useRequest } from 'umi';
 import services from '@/services/afs2demo';
 
 const YourComponent: React.FC = () => {
@@ -36,13 +36,13 @@ export default YourComponent;
 
 其中 useRequest 的第一个参数接收一个 function，该 function 需要返回一个 Promise，如果你接入了 OneAPI 那么 OneAPI 自动生成的 services 就是一个个这样的 function。
 
-该 Hook 的返回中暴露了各项值，然后你就可以消费它们了，该 Hook 返回的 data 是后端实际返回 JSON 数据中的 data 字段，方便使用（当然你也可以通过配置修改）。更多关于 useRequest 的用法参考它的 [API 文档](https://yuque.antfin-inc.com/bigfish/doc/wdpzrp#XvldN)。
+该 Hook 的返回中暴露了各项值，然后你就可以消费它们了，该 Hook 返回的 data 是后端实际返回 JSON 数据中的 data 字段，方便使用（当然你也可以通过配置修改）。更多关于 useRequest 的用法参考它的 [API 文档](https://umijs.org/plugins/plugin-request#userequest)。
 
 ### 统一错误处理
 
 接口请求并不一定是 100% 成功的，但是正常情况下我们预期接口都是成功的，只有网络异常或者权限等问题的情况下才会出现接口请求失败。所以我们通常期望的是代码逻辑只需要考虑成功的情况，对于异常情况只要在一个地方统一处理即可。
 
-在最佳实践中，我们定义了一套接口格式和错误处理的规范，当失败时会统一提示错误，代码只需要考虑成功即可。你可以使用 `import { request } from '@alipay/bigfish';`  来使用最佳实践内置的请求方法来获得该能力。
+在最佳实践中，我们定义了一套接口格式和错误处理的规范，当失败时会统一提示错误，代码只需要考虑成功即可。你可以使用 `import { request } from 'umi';`  来使用最佳实践内置的请求方法来获得该能力。
 
 默认的接口格式为：
 
@@ -58,7 +58,7 @@ export interface response {
 }
 ```
 
-当然你也可以通过 `app.ts`  中暴露的 `request`  的运行时配置来修改或者自定义自己项目的一些逻辑，具体参考 `@umijs/plugin-request`  的[文档](./plugin-request)。
+当然你也可以通过 `app.ts`  中暴露的 `request`  的运行时配置来修改或者自定义自己项目的一些逻辑，具体参考 `@umijs/plugin-request`  的[文档](https://umijs.org/plugins/plugin-request)。
 
 当出现 HTTP 错误或者返回的数据中 `success`  为 `false`  的情况下 request 会抛出一个异常，当你使用 useRequest 的时候该异常会被 useRequest 捕获，大部分情况下你不需要关心异常的情况，统一的错误处理会做统一的错误提示。对于部分场景需要手动处理错误的时候你可以通过 useRequest 暴露的 `onError`  方法或者 `error`  对象来做自定义处理。
 
@@ -75,14 +75,6 @@ export interface response {
    total?: number,
 }
 ```
-
-### 开发和调试
-
-当你使用 `tnpm run dev`  的时候 Bigfish 会默认走 mock 数据，这种模式适用于在联调前前端开发阶段使用。如果需要和后端调试那么运行 `tnpm run devs` ，该模式会忽略 mock 数据并走 `proxy`  配置的代理，背后执行的本质是 `bigfish dev --no-mock` 。
-
-更多关于接口调试参考 Bigfish 的文档，[前后端联调](https://yuque.antfin-inc.com/bigfish/doc/wuiaag#4d846c72)。
-
-<a name="Xcf4D"></a>
 
 ## 参考：后端接口规范建议
 
@@ -114,4 +106,4 @@ export interface response {
 
 具体参考上面的统一错误处理和统一接口规范。
 
-如果后端返回格式不符合规范的可以参考 `@umijs/plugin-request` 的[文档](./plugin-request)，配置运行时配置中的 `errorConfig.adaptor` 兼容。
+如果后端返回格式不符合规范的可以参考 `@umijs/plugin-request` 的[文档](https://umijs.org/plugins/plugin-request)，配置运行时配置中的 `errorConfig.adaptor` 兼容。
