@@ -1,6 +1,6 @@
 ---
 order: 12
-title: Use Ant Design Pro Assets
+title: Use Pro's Assets
 type: Basic Usage
 ---
 

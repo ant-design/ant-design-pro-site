@@ -57,13 +57,13 @@ create umi 提供了丰富的选项来满足不同用户的脚手架需求，我
 
 脚手架初始化成功之后就可以开始进行开发了，我们提供了一些命令来辅助开发。
 
-### `npm start`
+### `start`
 
 运行这个脚本会启动服务，自动打开默认浏览器展示你的页面。当你重新编辑代码后，页面还会自动刷新。
 
 ![start](https://gw.alipayobjects.com/zos/antfincdn/1x2QB6onvP/74FDD893-9DBD-4A8F-BB70-C0649189BA3C.png)
 
-### `npm run build`
+### `build`
 
 运行这个脚本将会编译你的项目，你可以在项目中的 dist 目录中找到编译后的文件用于部署。
 
@@ -71,25 +71,25 @@ create umi 提供了丰富的选项来满足不同用户的脚手架需求，我
 
 如果你需要部署，可以查阅[部署](/docs/deploy-cn)。
 
-### `npm run analyze`
+### `analyze`
 
 analyze 脚本做的事情与 build 的相同，但是他会打开一个页面来展示你的依赖信息。如果需要优化性能和包大小，你需要它。
 
 ![analyze](https://gw.alipayobjects.com/zos/antfincdn/ZTXFIYGGr%24/F8302DCB-DA37-4EDE-B6FF-76E35F727BBC.png)
 
-### `npm run lint`
+### `lint`
 
 我们提供了一系列的 lint 脚本，包括 TypeScript，less，css，md 文件。你可以通过这个脚本来查看你的代码有哪些问题。在 commit 中我们自动运行相关 lint。
 
 ![lint](https://gw.alipayobjects.com/zos/antfincdn/bUQ%24NATOiD/AEA3029A-4B88-4BEF-9C37-166BB32442A4.png)
 
-### `npm run lint:fix`
+### `lint:fix`
 
 与 lint 相同，但是会自动修复 lint 的错误。
 
 ![lint:fix](https://gw.alipayobjects.com/zos/antfincdn/v%24E7PNxq%24R/210AAD0A-0CA1-47F3-9397-85EBD9CD4152.png)
 
-### `npm run i18n-remove`
+### `i18n-remove`
 
 这个脚本将会尝试删除项目中所有的 i18n 代码，对于复杂的运行时代码，表现并不好，慎用。
 

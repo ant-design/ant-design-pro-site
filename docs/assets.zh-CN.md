@@ -1,6 +1,6 @@
 ---
 order: 11
-title: 使用 Ant Design Pro 资产
+title: 使用 Pro 的资产
 type: 基础使用
 ---
 
