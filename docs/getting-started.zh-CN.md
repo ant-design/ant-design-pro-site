@@ -20,11 +20,7 @@ Ant Design Pro 基于 umi 来构架脚手架，我们可以通过简单的操作
 
 非 windows 用户没什么好说的，iTrem2 和 my zsh 是最强选择。
 
-对于 windows 用户而言，bash on linux 是最好的选择，但是可能会造成一些性能问题。这里推荐使用 [Windows Terminal](https://github.com/microsoft/terminal) 和 [Powershell](https://github.com/PowerShell/Powershell)。
-
-Windows Terminal 可以直接在微软商店中下载，美貌与实力并存，不逊于 iTrem2，微软官方维护品质也值得信赖。
-
-Powershell 是 window7 以来内置的命令行工具，被 linux 常使人称赞为不那么烂的命令行。并且可以配置 [posh-git](http://dahlbyk.github.io/posh-git/) ,能的到部分 zsh 的能力。
+对于 windows 用户而言，bash on linux 是最好的选择，但是可能会造成一些性能问题。这里推荐使用 [Windows Terminal](https://github.com/microsoft/terminal) 和 [Powershell](https://github.com/PowerShell/Powershell)。Windows Terminal 可以直接在微软商店中下载，美貌与实力并存，不逊于 iTrem2，微软官方维护品质也值得信赖。Powershell 是 window7 以来内置的命令行工具，被 linux 常使人称赞为不那么烂的命令行。并且可以配置 [posh-git](http://dahlbyk.github.io/posh-git/) ,能的到部分 zsh 的能力。
 
 配置好后效果
 
