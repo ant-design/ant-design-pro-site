@@ -47,11 +47,9 @@ Running this script starts the service and automatically opens the default brows
 
 Running this script will compile your project, and you can find the compiled files in the dist directory of the project for deployment.
 
-The compiled file is compressed. If you want to know more about it, you can refer to Compilation.
-
 ![build](https://gw.alipayobjects.com/zos/antfincdn/DVK9LCd9Te/75ED2D26-2984-4A8C-886D-C106D9BE4B70.png)
 
-If you need to deploy, you can review the deployment.
+If you need to deploy, you can review the [deployment]((/docs/deploy).
 
 ### `npm run analyze`
 

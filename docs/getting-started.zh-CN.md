@@ -67,11 +67,9 @@ create umi 提供了丰富的选项来满足不同用户的脚手架需求，我
 
 运行这个脚本将会编译你的项目，你可以在项目中的 dist 目录中找到编译后的文件用于部署。
 
-编译之后的文件经过压缩。如果你想知道更详细的信息可以查阅 编译。
-
 ![build](https://gw.alipayobjects.com/zos/antfincdn/DVK9LCd9Te/75ED2D26-2984-4A8C-886D-C106D9BE4B70.png)
 
-如果你需要部署，可以查阅 部署。
+如果你需要部署，可以查阅[部署](/docs/deploy-cn)。
 
 ### `npm run analyze`
 
