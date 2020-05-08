@@ -28,7 +28,7 @@ export default {
 
 ### 更多配置
 
-1. 除了在 `config/config.ts`  中的配置以外，还支持在 `src/app.ts`  中配置更多的运行时配置，你可以自定义登出的方法，可以自定义头部导航扩展区域等，具体参考[ Layout 插件详细文档](./plugin-layout)。
+1. 除了在 `config/config.ts`  中的配置以外，还支持在 `src/app.ts`  中配置更多的运行时配置，你可以自定义登出的方法，可以自定义头部导航扩展区域等，具体参考[ Layout 插件详细文档](https://umijs.org/plugins/plugin-layout)。
 
 2. layout 的 `PRO` 主题完全内置了 pro-layout 的所有功能，更多用例请参考：[Pro-Layout](https://prolayout.ant.design/example)
 
@@ -36,4 +36,4 @@ export default {
 
 ### 路由和菜单的关系
 
-路由的基础配置还是和 Bigfish 本身的路由配置一致，只是在那之上扩展支持了一些额外的配置用于支持不同的菜单的需求。比如在菜单中隐藏部分路由入口，或者和权限打通等。路由和权限支持部分，可以到[权限处理](/doc/console-access)查看。
+路由的基础配置还是和 umi 本身的路由配置一致，只是在那之上扩展支持了一些额外的配置用于支持不同的菜单的需求。比如在菜单中隐藏部分路由入口，或者和权限打通等。路由和权限支持部分，可以到[权限处理](authority-management)查看。
