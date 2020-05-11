@@ -94,7 +94,7 @@
     "pre-commit": "^1.2.2",
     "prettier": "^2.0.0",
     "prismjs": "^1.15.0",
-    "stylelint": "^12.0.0",
+    "stylelint": "^13.3.3",
     "typescript": "^3.5.2"
   },
   "title": "Ant Design Pro"
