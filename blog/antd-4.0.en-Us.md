@@ -13,7 +13,7 @@ First of all, the biggest improvement for me is performance. Select, table and t
 
 The rewritten table and from solve many of the remaining incurable diseases. For details, please see the antd@4 series of the bean paste teacher [article](https://www.zhihu.com/people/smith-jiang/activities), which contains details. After writing the mental journey, we don't need to use the two methods `getFieldDecorator` and `Form.create` in the form. Pro full block has been taken as an example. These two methods have appeared 87 and 22 times respectively. I found 142 `getFieldDecorator` in one of my own maintenance projects, not to mention that in order to encapsulate components,`getFieldDecorator` was passed as props The complexity caused by the pass has increased. We can finally get rid of it in v4.
 
-![](https://gw.alipayobjects.com/zos/antfincdn/xJ0Xhrkwvu/8EA666B0-76C7-47AC-B999-9EE15D043215.png#align=left&display=inline&height=399&name=&originHeight=1800&originWidth=2880&status=done&style=none)
+![diff](https://gw.alipayobjects.com/zos/antfincdn/xJ0Xhrkwvu/8EA666B0-76C7-47AC-B999-9EE15D043215.png#align=left&display=inline&height=399&name=&originHeight=1800&originWidth=2880&status=done&style=none)
 
 See this is the removed diff
 
@@ -52,10 +52,10 @@ In addition, because form is not compatible, codemod will not automatically help
 If you encounter the problem that the form cannot be extended, you can add the following code:
 
 ```css
-: global {
-  .ant-legacy-form-item .ant-legacy-form-item-control-wrapper {
-    width: 100%;
-  }
+:global {
+  .ant-legacy-form-item .ant-legacy-form-item-control-wrapper {
+    width: 100%;
+  }
 }
 ```
 
