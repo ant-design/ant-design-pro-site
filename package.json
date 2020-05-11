@@ -80,7 +80,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.7",
     "@types/react-helmet": "^5.0.13",
-    "@types/react-intl": "^2.3.17",
+    "@types/react-intl": "^3.0.0",
     "@umijs/fabric": "^2.0.0",
     "cross-env": "^5.1.1",
     "eslint": "^6.8.0",
