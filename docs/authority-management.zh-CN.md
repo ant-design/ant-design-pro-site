@@ -11,9 +11,7 @@ type: 基础使用
 - 不同的用户对页面的访问权限不同。
 - 不同的用户在页面中可以看到的元素和操作不同。
 
-> 针对这些场景，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案。实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](./plugin-access)。通过定义权限，使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@alipay/umi-plugin-layout](./plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
-
-对于 bigfish 应用，上述插件已内置支持，直接使用即可。
+> 针对这些场景，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案。实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](https://umijs.org/plugins/plugin-access)。通过定义权限，使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@alipay/umi-plugin-layout](https://umijs.org/plugins/plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
 
 ## 二、如何使用
 
@@ -34,7 +32,7 @@ export default function (initialState) {
 
 该文件需要返回一个 function，返回的 function 会在应用初始化阶段被执行，执行后返回的对象将会被作为用户所有权限的定义。对象的每个 key 对应一个 boolean 值，只有 true 和 false，代表用户是否有该权限。
 
-其中的 `initialState`  来自于[全局初始化数据](./console-initial-state)，你可以基于这些数据来初始化用户权限。
+其中的 `initialState`  来自于[全局初始化数据](initial-state)，你可以基于这些数据来初始化用户权限。
 
 ### 页面内的权限控制
 
@@ -72,7 +70,7 @@ const PageA = (props) => {
 
 ## 三、路由和菜单的权限控制
 
-如果需要对路由还有菜单进行权限控制，可以直接在路由上原有基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（前提需要使用最佳实践的 Layout 方案 - [@alipay/umi-plugin-layout](./plugin-layout) ）**。
+如果需要对路由还有菜单进行权限控制，可以直接在路由上原有基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（前提需要使用最佳实践的 Layout 方案 - [@alipay/umi-plugin-layout](https://umijs.org/plugins/plugin-layout) ）**。
 
 在以上定义(`src/access.ts`, `src/app.ts`)完成的基础上，再在路由配置项上添加 `access` 属性即可完成路由和菜单的权限控制。`access` 属性的值为 `src/access.ts` 中返回的对象的 key。以下为实际例子：
 
@@ -96,9 +94,9 @@ export default function (initialState = {}) {
 
 ```typescript
 // config/config.ts
-import { BigfishConfig } from '@alipay/bigfish';
+import { defineConfig } from 'umi';
 
-const config: BigfishConfig = {
+export default defineConfig({
   plugins: ['@alipay/umi-preset-console'],
   routes: [
     {
@@ -115,9 +113,7 @@ const config: BigfishConfig = {
     },
   ],
   // ...
-};
-
-export default config;
+});
 ```
 
 经过鉴权后鉴权函数(比如 `adminRouteFilter` )返回值为 falsy 的，该条路由将会被禁用，并且从左侧 layout 菜单中移除，如果直接从 URL 访问对应路由，将看到一个 403 页面。
