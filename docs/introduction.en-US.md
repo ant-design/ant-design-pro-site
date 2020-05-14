@@ -12,4 +12,4 @@ At the same time, to provide a more efficient development experience, we have pr
 
 Let's take a big look at the architecture of the entire Ant Design Pro in the big picture below.
 
-![pro](https://gw.alipayobjects.com/zos/antfincdn/D%24cnH8cIhS/pro%252520%281%29.svg)
+![pro](https://gw.alipayobjects.com/zos/antfincdn/gjQQ3WuG8E/huitu1.svg)

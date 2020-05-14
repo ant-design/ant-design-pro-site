@@ -12,4 +12,4 @@ Ant Design Pro 在力求提供开箱即用的开发体验，为此我们提供�
 
 我们可以通过下面的大图来了解整个 Ant Design Pro 的架构。
 
-![pro](https://gw.alipayobjects.com/zos/antfincdn/D%24cnH8cIhS/pro%252520%281%29.svg)
+![pro](https://gw.alipayobjects.com/zos/antfincdn/gjQQ3WuG8E/huitu1.svg)
