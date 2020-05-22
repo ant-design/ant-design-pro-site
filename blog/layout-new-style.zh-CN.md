@@ -65,7 +65,7 @@ time: 2020-04-21
 
 实用工具 Hover 由蓝色背景色改为深黑色 `#161726`。
 
-![image.png](hthttps://gw.alipayobjects.com/zos/antfincdn/dvccJS41Tl/1586503854420-8236a5b9-66da-48a7-9f58-ea5c40a3b479.png)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/dvccJS41Tl/1586503854420-8236a5b9-66da-48a7-9f58-ea5c40a3b479.png)
 
 ## 混合菜单新模式
 
