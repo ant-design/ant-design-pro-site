@@ -56,7 +56,7 @@
     "gatsby-plugin-sitemap": "^2.1.0",
     "gatsby-plugin-typescript": "^2.0.13",
     "gatsby-remark-copy-linked-files": "^2.0.0",
-    "gatsby-remark-embed-snippet": "^3.0.0",
+    "gatsby-remark-embed-snippet": "^4.3.3",
     "gatsby-remark-prismjs": "^3.0.2",
     "gatsby-source-filesystem": "^2.0.0",
     "gatsby-transformer-remark": "^2.7.1",
