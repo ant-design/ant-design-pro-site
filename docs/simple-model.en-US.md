@@ -14,7 +14,7 @@ In order to achieve data sharing between multiple pages, a simple data flow mana
 
 ### 1. Creating the Model
 
-Create a new file in the src/models directory, the file name will become the namespace of the model. You can .js, .jsx, .ts, and .tsx file extensions.
+Create a new file in the src/models directory, the file name will become the namespace of the model. You can use .js, .jsx, .ts, and .tsx file extensions.
 
 > For example, the namespace of demo.ts is demo.
 
