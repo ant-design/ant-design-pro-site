@@ -24,7 +24,7 @@ tsconfig  中增加
 ### config.ts
 
 - lessLoaderOptions 修改为 lessLoader
-- 移除 plugins 字段，umi 已经修改为自动扫描 package.json，无需
+- umi 会自动使用 package.json 中，以 `@umijs` 、 `umi-plugin` 或 `umi-preset` 开头的包名，请在 plugins 配置中移除相关插件
 - cssLoaderOptions 修改为 cssLoader
 - IConfig 修改为 defineConfig，从 umi 中直接引入
 - umi-plugin-react 的 dynamicImport，配置提升到第一级。
