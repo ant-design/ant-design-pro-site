@@ -8,7 +8,7 @@ type: 其他
 
 ### 2.3.0
 
-2.3 将会是 [Ant Design Pro](https://www.npmjs.com/package/ant-design-pro) 组件库的最后的一个版本，主要用于修正 ts 错误，此后将不接受组件库的功能添加。组件会迁移到 Ant Design 中这些组件会得到更加完善的支持与维护，Pro 中进行维护。在 Ant Design 中这些组件会得到更加完善的支持与维护，Pro 将会专注的做 Layout 和脚手架的工作。
+2.3 将会是 [Ant Design Pro](https://www.npmjs.com/package/ant-design-pro) 组件库的最后的一个版本，主要用于修正 ts 错误，此后将不接受组件库的功能添加。组件会迁移到 Ant Design。在 Ant Design 中这些组件会得到更加完善的支持与维护，Pro 将会专注的做 Layout 和脚手架的工作。
 
 #### 脚手架
 
