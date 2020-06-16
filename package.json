@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",
-    "@types/react-helmet": "^5.0.13",
+    "@types/react-helmet": "^6.0.0",
     "@types/react-intl": "^2.3.17",
     "@umijs/fabric": "^2.0.0",
     "cross-env": "^7.0.2",
