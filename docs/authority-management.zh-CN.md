@@ -8,16 +8,18 @@ type: 基础使用
 
 在项目中经常有的场景是不同的用户的权限不同，通常有如下场景：
 
-- 不同的用户对页面的访问权限不同。
-- 不同的用户在页面中可以看到的元素和操作不同。
+- 不同的用户在页面中可以看到的元素和操作不同
+- 不同的用户对页面的访问权限不同
 
-> 针对这些场景，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案。实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](https://umijs.org/plugins/plugin-access)。通过定义权限，使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@alipay/umi-plugin-layout](https://umijs.org/plugins/plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
+> 针对这些问题，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案，实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](https://umijs.org/plugins/plugin-access)。通过定义权限、使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@umijs/plugin-layout](https://umijs.org/plugins/plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
 
 ## 二、如何使用
 
 ### 初始化
 
-新建 `src/access.ts` ，在该文件中定义用户所有的权限，该文件的一个初步的内容如下：
+权限的定义依赖于初始数据，初始数据需要通过 [@umijs/plugin-initial-state](https://umijs.org/plugins/plugin-initial-state) 生成。
+
+生成完初始化数据后，就可以开始定义权限了。首先新建 `src/access.ts` ，在该文件中 `export default` 一个函数，定义用户拥有的权限，以下是示例定义：
 
 ```typescript
 // src/access.ts
@@ -25,14 +27,12 @@ export default function (initialState) {
   return {
     canReadFoo: true,
     canUpdateFoo: () => true,
-    canDeleteFoo: (data) => data?.status < 1, // 按业务需求自己任意定义鉴权函数
+    canDeleteFoo: data => data?.status < 1, // 按业务需求自己任意定义鉴权函数
   };
 }
 ```
 
-该文件需要返回一个 function，返回的 function 会在应用初始化阶段被执行，执行后返回的对象将会被作为用户所有权限的定义。对象的每个 key 对应一个 boolean 值，只有 true 和 false，代表用户是否有该权限。
-
-其中的 `initialState`  来自于[全局初始化数据](initial-state)，你可以基于这些数据来初始化用户权限。
+函数返回对象的每个 key 对应一个 `boolean` 或者 `Function` 值，如果是 `Function`，其返回值要求是 `boolean`。
 
 ### 页面内的权限控制
 
@@ -66,11 +66,11 @@ const PageA = (props) => {
 };
 ```
 
-你可以通过 `useAccess` hook 来消费权限相关数据，另外我们内置了 `Access`  组件用于做页面的元素显示和隐藏的控制。
+你可以通过 `useAccess` hook 来获取权限定义，另外我们内置了 `Access` 组件用于页面的元素显示和隐藏的控制。
 
 ## 三、路由和菜单的权限控制
 
-如果需要对路由还有菜单进行权限控制，可以直接在路由上原有基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（前提需要使用最佳实践的 Layout 方案 - [@alipay/umi-plugin-layout](https://umijs.org/plugins/plugin-layout) ）**。
+如果需要对路由还有页面左侧菜单进行权限控制，可以直接在路由原有的基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（需要搭配使用[@umijs/plugin-layout](https://umijs.org/plugins/plugin-layout) ）**。
 
 在以上定义(`src/access.ts`, `src/app.ts`)完成的基础上，再在路由配置项上添加 `access` 属性即可完成路由和菜单的权限控制。`access` 属性的值为 `src/access.ts` 中返回的对象的 key。以下为实际例子：
 
@@ -83,12 +83,12 @@ export default function (initialState = {}) {
   return {
     // ...
     adminRouteFilter: () => isAdmin, // 只有管理员可访问
-    normalRouteFilter: (route) => hasRoutes.includes(route.name), // initialState 中包含了的路由才有权限访问
+    normalRouteFilter: route => hasRoutes.includes(route.name), // initialState 中包含了的路由才有权限访问
   };
 }
 ```
 
-> 通过以上示例可以看到，权限路由控制的函数定义，接收"当前处理的路由"作为第一个参数
+> 通过以上示例可以看到，权限路由控制相关的函数，接收"当前处理的路由"作为第一个参数
 
 那么只需要按以下方式在常规路由配置中加上 `access` 这一项即可：
 
@@ -97,7 +97,6 @@ export default function (initialState = {}) {
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  plugins: ['@alipay/umi-preset-console'],
   routes: [
     {
       path: '/foo',
@@ -116,4 +115,4 @@ export default defineConfig({
 });
 ```
 
-经过鉴权后鉴权函数(比如 `adminRouteFilter` )返回值为 falsy 的，该条路由将会被禁用，并且从左侧 layout 菜单中移除，如果直接从 URL 访问对应路由，将看到一个 403 页面。
+对应鉴权函数(比如 `adminRouteFilter`)在接收路由作为参数后返回值为 `false`，该条路由将会被禁用，并且从左侧 layout 菜单中移除，如果直接从 URL 访问对应路由，将看到一个 403 页面。
