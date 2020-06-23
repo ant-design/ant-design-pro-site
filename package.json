@@ -83,7 +83,7 @@
     "@types/react-intl": "^2.3.17",
     "@umijs/fabric": "^2.0.0",
     "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
+    "eslint": "^7.3.1",
     "gatsby-remark-autolink-headers": "^2.2.1",
     "gh-pages": "^1.0.0",
     "github-slugger": "^1.2.1",
