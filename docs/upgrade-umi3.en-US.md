@@ -1,7 +1,7 @@
 ---
 order: 2
-title: 快速升级到 umi@3
-type: 入门
+title: Upgrade to umi@3
+type: Introduction
 ---
 
 Upgrading umi@3 has minor changes, mainly due to the configuration of the plugin and changes in the import content. It should be noted that umi@3 will automatically import the plug-ins starting with `umi-plugin` or `@umijs`.
