@@ -83,7 +83,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     this.componentDidUpdate();
   }
 
-  componentWillReceiveProps(nextProps: MainContentProps) {
+  UNSAVE_componentWillReceiveProps(nextProps: MainContentProps) {
     const openKeys = this.getSideBarOpenKeys(nextProps);
     if (openKeys) {
       this.setState({
