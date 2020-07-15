@@ -6,7 +6,7 @@ type: Introduction
 
 ## Usage
 
-For Ant Financial Company User, [Bigfish](https://bigfish.alipay.com) is recommended as a front end overall solution, you can visit [Using Ant Design Pro](https://bigfish.alipay.com/doc/antdpro) to get start.
+For Ant Financial Company User, [Bigfish](https://bigfish.alipay.com) is recommended as a front end overall solution, you can visit [Getting Started](https://bigfish.antfin-inc.com/doc/getting-started) to get start.
 
 ## Note
 
