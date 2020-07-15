@@ -4,7 +4,7 @@ title: Layout 组件
 type: 开发
 ---
 
-[Layout](https://github.com/ant-design/ant-design-pro-layout) 组件 是 Pro v4 中新增的组件，与一般的组件不同，它非常重型，在其中集成了 菜单，布局，页头，面包屑，设置抽屉等多种功能。
+[Layout](https://prolayout.ant.design) 组件 是 Pro v4 中新增的组件，与一般的组件不同，它非常重型，在其中集成了 菜单，布局，页头，面包屑，设置抽屉等多种功能。
 
 ## ProLayout
 

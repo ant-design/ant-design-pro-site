@@ -4,11 +4,11 @@ title: Layout Component
 type: Development
 ---
 
-[Layout](https://github.com/ant-design/ant-design-pro-layout) The component is a new component in Pro v4. Unlike the normal components, it is very heavy and integrates menus. Layout, header, breadcrumbs, set drawers and more.
+[Layout](https://prolayout.ant.design) The component is a new component in Pro v4. Unlike the normal components, it is very heavy and integrates menus. Layout, header, breadcrumbs, set drawers and more.
 
 ## ProLayout
 
-In Ant Design Pro, pro-layout is used by default. After opening Pro, we can see this interface:
+In Ant Design Pro, ProLayout is used by default. After opening Pro, we can see this interface:
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/qsgVmsWOrR/C8C775E0-6429-4B73-8CFD-F312ACCE9905.png)
 
