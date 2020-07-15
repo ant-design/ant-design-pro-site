@@ -5,14 +5,13 @@ type: Introduction
 ---
 
 ## Upward Compatibility
-
-We keep the best compatibility. There is nothing **must** to do with the upgrade.
+Ant Design Pro 4.0 is compatible with all the features of 2.0, and upgrading from 2.0 to 4.0 does not require any changes.
 
 ## Optional Upgrade
+In Ant Design Pro 4.0, we abstracted the Layout into a separate [single component](https://github.com/ant-design/ant-design-pro-layout), if you wish to replace your current layout with this new one. Read more on how to do so below:
 
-We move Layout into [single component](https://github.com/ant-design/ant-design-pro-layout) in Ant Design 4.0. You can consider to replace Layout with latest Layout component.
-
-### Install Dependencies
+### 1. Install Dependencies
+Using npm or yarn, install the new `pro-layout` component:
 
 ```bash
 npm i @ant-design/pro-layout --save
@@ -24,8 +23,8 @@ or
 yarn add @ant-design/pro-layout
 ```
 
-### Replace BasicLayout
+### 2. Replace BasicLayout 
 
-Delete `BasicLayout.js` and `BasicLayout.less` under `src/layouts` folder. Use [latest `BasicLayout.tsx`](https://github.com/ant-design/ant-design-pro/blob/v4/src/layouts/BasicLayout.tsx) to replace it.
+To replace the `BasicLayout` component, delete `BasicLayout.js` and `BasicLayout.less` in the `src/layouts` directory, and put in it's place the [latest `BasicLayout.tsx`](https://github.com/ant-design/ant-design-pro/blob/v4/src/layouts/BasicLayout.tsx) component.
 
-> If you modified origin `BasicLayout`, you should apply your code logic into replaced file.
+> Note: if you had modified the original `BasicLayout` component, you'll need to also apply your same changed logic in the replacement file as well.
