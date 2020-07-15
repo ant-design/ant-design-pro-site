@@ -168,11 +168,6 @@ class Footer extends React.Component<{
                   </a>
                 </div>
                 <div>
-                  <a href="/docs/changelog">
-                    <FormattedMessage id="app.footer.change-log" />
-                  </a>
-                </div>
-                <div>
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
