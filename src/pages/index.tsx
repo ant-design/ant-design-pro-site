@@ -1,6 +1,6 @@
 import React from 'react';
 import Media from 'react-media';
-
+// @ts-ignore
 import Home from '../components/home';
 import WrapperLayout, { LayoutProps } from '../components/layout';
 
