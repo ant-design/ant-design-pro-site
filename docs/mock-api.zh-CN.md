@@ -129,8 +129,33 @@ export default delay(proxy, 1000);
 
 ### 联调
 
-当本地开发完毕之后，如果服务器的接口满足之前的约定，那么只需要关闭 mock 数据或者代理到服务端的真实接口地址即可。
+当本地开发完毕之后，如果服务器的接口满足之前的约定，那么只需要关闭 mock 数据。
 
 ```bash
-$ npm run start:no-mock
+$ npm run start:no-mock // 不走 mock 数据
 ```
+
+或者代理到服务端的真实接口地址即可。
+
+```bash
+$ npm start
+```
+
+开启 proxy 反向代理到服务器 url：https://umijs.org/zh-CN/config#proxy
+
+```js
+// config/config.ts
+export default {
+  proxy: {
+    '/api': {
+      'target': 'http://jsonplaceholder.typicode.com/',
+      'changeOrigin': true,
+      'pathRewrite': { '^/api' : '' },
+    },
+  },
+}
+```
+
+在 Pro 中我们提取了一个 [proxy.ts](https://github.com/ant-design/ant-design-pro/blob/ebde795693bb6cba9ec3a1d7d5b4976d8de57f2a/config/proxy.ts) 统一存放代理配置。
+
+> 注意 proxy 配置不[会改变你本地请求的 url](https://github.com/umijs/umi/issues/1421#issuecomment-436546754)（依旧是 http://localhost:8000/api/xxx），但是会在本地服务转发到 target 上。

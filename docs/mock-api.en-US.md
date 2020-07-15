@@ -141,3 +141,28 @@ If you need to integrate with real service after finishing front end development
 ```bash
 $ npm run start:no-mock
 ```
+
+Or you can proxy localhost url to real service:
+
+```bash
+$ npm start
+```
+
+Use `proxy` config: http://umijs.org/en-US/config#proxy
+
+```js
+// config/config.ts
+export default {
+  proxy: {
+    '/api': {
+      'target': 'http://jsonplaceholder.typicode.com/',
+      'changeOrigin': true,
+      'pathRewrite': { '^/api' : '' },
+    },
+  },
+}
+```
+
+We create a [proxy.ts](https://github.com/ant-design/ant-design-pro/blob/ebde795693bb6cba9ec3a1d7d5b4976d8de57f2a/config/proxy.ts) file for proxy config in Ant Design Pro.
+
+> Note: `proxy` won't [chagne localhost url](https://github.com/umijs/umi/issues/1421#issuecomment-436546754) but proxy to remote url.
