@@ -6,6 +6,8 @@ type: Introduction
 
 Before you ask a question, please check the following FAQ.
 
+Ant Design Pro is developed upon [Umi](https://umijs.org/), please seach in Umi [FAQ](https://github.com/umijs/umi/issues/1421) first.
+
 ### What is the difference between Ant Design React and Ant Design Pro?
 
 It can be understood that Ant Design React is a set of React component libraries, and Pro is a complete front-end scaffolding using this set of component libraries.

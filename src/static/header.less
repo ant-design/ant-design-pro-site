@@ -28,16 +28,17 @@
   line-height: 64px;
   text-decoration: none;
   img {
+    position: relative;
+    top: -2px;
     height: 32px;
     margin-right: 16px;
     vertical-align: middle;
   }
-  img + img {
-    position: relative;
-    top: 1px;
-    width: auto;
-    height: 16px;
-    margin-right: 0;
+
+  > span {
+    color: @heading-color;
+    font-weight: 500;
+    font-size: 18px;
   }
 }
 
