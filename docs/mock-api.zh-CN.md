@@ -158,4 +158,4 @@ export default {
 
 在 Pro 中我们提取了一个 [proxy.ts](https://github.com/ant-design/ant-design-pro/blob/ebde795693bb6cba9ec3a1d7d5b4976d8de57f2a/config/proxy.ts) 统一存放代理配置。
 
-> 注意 proxy 配置不[会改变你本地请求的 url](https://github.com/umijs/umi/issues/1421#issuecomment-436546754)（依旧是 http://localhost:8000/api/xxx），但是会在本地服务转发到 target 上。
+> 注意 proxy 配置[不会改变你本地请求的 url](https://github.com/umijs/umi/issues/1421#issuecomment-436546754)（依旧是 http://localhost:8000/api/xxx），但是会在本地服务转发到 target 上。
