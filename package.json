@@ -73,7 +73,7 @@
     "react-dom": "^16.4.2",
     "react-github-button": "^0.1.11",
     "react-helmet": "^5.2.1",
-    "react-intl": "^2.4.0",
+    "react-intl": "^5.4.3",
     "react-media": "^1.9.2",
     "slash2": "^2.0.0"
   },
