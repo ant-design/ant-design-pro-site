@@ -6,13 +6,15 @@ type: 基础使用
 
 ## 简介
 
-配合 [plugin-model](./simple-model-cn)，提供一个在项目初始化之前获取全局数据的方法
+几乎大部分中台项目都有一个需求，就是在整个应用加载前请求用户信息或者一些全局依赖的基础数据。这些信息通常会用于 Layout 上的基础信息（通常是用户信息），权限初始化，以及很多页面都可能会用到的基础数据。
+
+在中台最佳实践中，我们提供了一个极简的方式来初始化这部分数据，并且和 Layout 以及权限打通。改方案基于 umi 插件 [@umijs/plugin-initial-state](https://umijs.org/zh-CN/plugins/plugin-initial-state)。
 
 ## 如何使用
 
 ### 初始化
 
-在项目的 `src/app.ts`  中添加运行时配置 `getInitialState` ，该配置需要是一个 async function，示例如下：
+在 umi 的运行时配置 `src/app.ts`  中添加运行时配置 `getInitialState` ，该配置是一个 async 的 function，示例如下：
 
 ```typescript
 export async function getInitialState() {
@@ -42,20 +44,18 @@ export default () => {
   return <div>{initialState.userName}</div>;
 };
 ```
+
 API:
 
-| 返回值 | 类型 | 说明 |
-|-|-|------|
-| initialState | T | getInitialState 的返回值 |
-| loading | boolean | 是否处在加载状态 |
-| refresh | () => void | 重新执行 getInitialState 方法 |
-| setInitialState | (newState: T) => void | 手动设置初始值 |
+| 返回值          | 类型                  | 说明                          |
+| --------------- | --------------------- | ----------------------------- |
+| initialState    | T                     | getInitialState 的返回值      |
+| loading         | boolean               | 是否处在加载状态              |
+| refresh         | () => void            | 重新执行 getInitialState 方法 |
+| setInitialState | (newState: T) => void | 手动设置初始值                |
 
 ### 相关 umi 插件
 
-- [plugin-model](./simple-model-cn)
-配合 plugin-initial-state 可以快速在组件内获取到全局初始状态
-- [plugin-layout](./layout-cn)
-layout 中可以获取到 initialState 的状态，用于展示用户信息
-- [plugin-access](./authority-management-cn)
-plugin-access 中可以获取到 initialState 的状态，用于决定用户权限
+- [plugin-model](./simple-model-cn) 配合 plugin-initial-state 可以快速在组件内获取到全局初始状态
+- [plugin-layout](./layout-cn) layout 中可以获取到 initialState 的状态，用于展示用户信息
+- [plugin-access](./authority-management-cn) plugin-access 中可以获取到 initialState 的状态，用于决定用户权限

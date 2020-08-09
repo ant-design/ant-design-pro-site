@@ -11,7 +11,7 @@ type: 基础使用
 - 不同的用户在页面中可以看到的元素和操作不同
 - 不同的用户对页面的访问权限不同
 
-> 针对这些问题，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案，实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](https://umijs.org/plugins/plugin-access)。通过定义权限、使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@umijs/plugin-layout](https://umijs.org/plugins/plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
+> 针对这些场景，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案。实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](https://umijs.org/plugins/plugin-access)。通过定义权限，使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@alipay/umi-plugin-layout](https://umijs.org/plugins/plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
 
 ## 二、如何使用
 
@@ -27,12 +27,14 @@ export default function (initialState) {
   return {
     canReadFoo: true,
     canUpdateFoo: () => true,
-    canDeleteFoo: data => data?.status < 1, // 按业务需求自己任意定义鉴权函数
+    canDeleteFoo: (data) => data?.status < 1, // 按业务需求自己任意定义鉴权函数
   };
 }
 ```
 
-函数返回对象的每个 key 对应一个 `boolean` 或者 `Function` 值，如果是 `Function`，其返回值要求是 `boolean`。
+该文件需要返回一个 function，返回的 function 会在应用初始化阶段被执行，执行后返回的对象将会被作为用户所有权限的定义。对象的每个 key 对应一个 boolean 值，只有 true 和 false，代表用户是否有该权限。
+
+其中的 `initialState`  来自于[全局初始化数据](initial-state)，你可以基于这些数据来初始化用户权限。
 
 ### 页面内的权限控制
 
@@ -66,11 +68,11 @@ const PageA = (props) => {
 };
 ```
 
-你可以通过 `useAccess` hook 来获取权限定义，另外我们内置了 `Access` 组件用于页面的元素显示和隐藏的控制。
+你可以通过 `useAccess` hook 来获取权限定义，另外我们内置了 `Access`  组件用于页面的元素显示和隐藏的控制。
 
 ## 三、路由和菜单的权限控制
 
-如果需要对路由还有页面左侧菜单进行权限控制，可以直接在路由原有的基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（需要搭配使用[@umijs/plugin-layout](https://umijs.org/plugins/plugin-layout) ）**。
+如果需要对路由还有菜单进行权限控制，可以直接在路由上原有基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（前提需要使用最佳实践的 Layout 方案 - [@alipay/umi-plugin-layout](https://umijs.org/plugins/plugin-layout) ）**。
 
 在以上定义(`src/access.ts`, `src/app.ts`)完成的基础上，再在路由配置项上添加 `access` 属性即可完成路由和菜单的权限控制。`access` 属性的值为 `src/access.ts` 中返回的对象的 key。以下为实际例子：
 
@@ -83,7 +85,7 @@ export default function (initialState = {}) {
   return {
     // ...
     adminRouteFilter: () => isAdmin, // 只有管理员可访问
-    normalRouteFilter: route => hasRoutes.includes(route.name), // initialState 中包含了的路由才有权限访问
+    normalRouteFilter: (route) => hasRoutes.includes(route.name), // initialState 中包含了的路由才有权限访问
   };
 }
 ```
