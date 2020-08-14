@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
 import { EyeOutlined, MenuOutlined, SearchOutlined } from '@ant-design/icons';
-import { Row, Col, Select, Input, Menu, Button, Modal, Popover } from 'antd';
+import { Row, Space, Col, Select, Alert, Input, Menu, Button, Modal, Popover } from 'antd';
 import * as utils from '../utils';
 
 const { Option } = Select;
@@ -235,66 +235,82 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     ];
 
     return (
-      <div id="header" className="header">
-        {menuMode === 'inline' ? (
-          <Popover
-            overlayClassName="popover-menu"
-            placement="bottomRight"
-            content={menu}
-            trigger="click"
-            visible={menuVisible}
-            arrowPointAtCenter
-            onVisibleChange={this.onMenuVisibleChange}
-          >
-            <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
-          </Popover>
-        ) : null}
-        <Row>
-          <Col xxl={4} xl={5} lg={8} md={8} sm={24} xs={24}>
-            <Link id="logo" to="/">
-              <img src={LOGO_URL} alt="logo" />
-              <span>Ant Design Pro</span>
-            </Link>
-          </Col>
-          <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
-            <div id="search-box">
-              <SearchOutlined />
-              <Input
-                ref={(ref) => {
-                  this.searchInput = ref;
-                }}
-                placeholder={intl.formatMessage({ id: 'app.header.search' })}
-              />
-            </div>
-            <div className="header-meta">
-              <div className="right-header">
-                <div id="lang">
-                  <Button onClick={this.handleLangChange} size="small">
-                    <FormattedMessage id="app.header.lang" />
-                  </Button>
-                </div>
-                <div id="preview">
-                  <a
-                    id="preview-button"
-                    target="_blank"
-                    href="http://preview.pro.ant.design"
-                    rel="noopener noreferrer"
-                  >
-                    <Button icon={<EyeOutlined />} size="small">
-                      <FormattedMessage id="app.home.preview" />
-                    </Button>
-                  </a>
-                </div>
-                <Select size="small" onChange={this.onVersionChange} value="stable">
-                  <Option value="v1">v1</Option>
-                  <Option value="v2">v2</Option>
-                  <Option value="stable">v4</Option>
-                </Select>
+      <div>
+        <Alert
+          message={
+            <Space>
+              {isZhCN
+                ? 'Pro V5 已支持预览，欢迎试用！'
+                : 'Pro V5 already supports preview, welcome to try!'}
+              <a href="https://beta-pro.ant.design" target="_blank" rel="noreferrer">
+                https://beta-pro.ant.design
+              </a>
+            </Space>
+          }
+          type="warning"
+          banner
+        />
+        <div id="header" className="header">
+          {menuMode === 'inline' ? (
+            <Popover
+              overlayClassName="popover-menu"
+              placement="bottomRight"
+              content={menu}
+              trigger="click"
+              visible={menuVisible}
+              arrowPointAtCenter
+              onVisibleChange={this.onMenuVisibleChange}
+            >
+              <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
+            </Popover>
+          ) : null}
+          <Row>
+            <Col xxl={4} xl={5} lg={8} md={8} sm={24} xs={24}>
+              <Link id="logo" to="/">
+                <img src={LOGO_URL} alt="logo" />
+                <span>Ant Design Pro</span>
+              </Link>
+            </Col>
+            <Col xxl={20} xl={19} lg={16} md={16} sm={0} xs={0}>
+              <div id="search-box">
+                <SearchOutlined />
+                <Input
+                  ref={(ref) => {
+                    this.searchInput = ref;
+                  }}
+                  placeholder={intl.formatMessage({ id: 'app.header.search' })}
+                />
               </div>
-              {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
-            </div>
-          </Col>
-        </Row>
+              <div className="header-meta">
+                <div className="right-header">
+                  <div id="lang">
+                    <Button onClick={this.handleLangChange} size="small">
+                      <FormattedMessage id="app.header.lang" />
+                    </Button>
+                  </div>
+                  <div id="preview">
+                    <a
+                      id="preview-button"
+                      target="_blank"
+                      href="http://preview.pro.ant.design"
+                      rel="noopener noreferrer"
+                    >
+                      <Button icon={<EyeOutlined />} size="small">
+                        <FormattedMessage id="app.home.preview" />
+                      </Button>
+                    </a>
+                  </div>
+                  <Select size="small" onChange={this.onVersionChange} value="stable">
+                    <Option value="v1">v1</Option>
+                    <Option value="v2">v2</Option>
+                    <Option value="stable">v4</Option>
+                  </Select>
+                </div>
+                {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
+              </div>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
