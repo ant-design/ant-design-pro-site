@@ -6,6 +6,8 @@ type: 其它
 
 提问之前，请先查阅下面的常见问题。
 
+Ant Design Pro 使用 [Umi](https://umijs.org/) 作为开发工具，建议你先查看 Umi 的[常见问题](https://umijs.org/zh-CN/docs/faq)。
+
 ### Ant Design React 和 Ant Design Pro 有什么区别？
 
 可以理解为 Ant Design React 是一套 React 组件库，而 Pro 是使用了这套组件库的完整前端脚手架。

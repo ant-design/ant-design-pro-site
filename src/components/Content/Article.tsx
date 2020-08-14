@@ -91,6 +91,7 @@ export default class Article extends React.PureComponent<ArticleProps> {
           {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
             <Affix className="toc-affix" offsetTop={16}>
               <div
+                // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
                   __html: content.toc.replace(/<ul>/g, '<ul class="toc">').replace(/\/#/g, '#'),
                 }}
@@ -99,6 +100,7 @@ export default class Article extends React.PureComponent<ArticleProps> {
           )}
           <section
             className="markdown api-container"
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{ __html: content.content }}
           />
         </article>

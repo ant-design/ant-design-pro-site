@@ -3,7 +3,6 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import { Link } from 'gatsby';
-
 import {
   ExportOutlined,
   LeftOutlined,
@@ -11,7 +10,6 @@ import {
   MenuUnfoldOutlined,
   RightOutlined,
 } from '@ant-design/icons';
-
 import { Badge, Row, Col, Menu } from 'antd';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -83,7 +81,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     this.componentDidUpdate();
   }
 
-  componentWillReceiveProps(nextProps: MainContentProps) {
+  UNSAVE_componentWillReceiveProps(nextProps: MainContentProps) {
     const openKeys = this.getSideBarOpenKeys(nextProps);
     if (openKeys) {
       this.setState({
@@ -185,12 +183,20 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
   };
 
   generateSubMenuItems = (obj?: IMenuData, footerNavIcons = {}) => {
-    if (!obj) return [];
+    if (!obj) {
+      return [];
+    };
     const topLevel = ((obj.topLevel as MenuDataItem[]) || []).map(
       this.generateMenuItem.bind(this, footerNavIcons),
     );
+    const lang = isZhCN(this.props.location.pathname) ? 'zh-CN' : 'en-US';
+    const order = {
+      'zh-CN': ['入门', '开发', '构建和部署', '进阶', '其他'],
+      'en-US': ['Introduction', 'Development', 'Build & Deployment', 'Advanced', 'Other'],
+    };
     const itemGroups = Object.keys(obj)
       .filter(isNotTopLevel)
+      .sort((a, b) => order[lang].findIndex(item => item === a) - order[lang].findIndex(item => item === b))
       .map((type) => {
         const groupItems = (obj[type] as MenuDataItem[])
           .sort((a, b) => {
@@ -200,7 +206,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
             if ('order' in a && 'order' in b) {
               return a.order - b.order;
             }
-            return a.title.charCodeAt(0) - b.title.charCodeAt(0);
+             return a.title.charCodeAt(0) - b.title.charCodeAt(0);
           })
           .map(this.generateMenuItem.bind(this, footerNavIcons));
         return (
