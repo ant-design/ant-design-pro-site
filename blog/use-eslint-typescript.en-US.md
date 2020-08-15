@@ -30,7 +30,7 @@ We publish these rules as a package  🌟🌟**umi-fabric** 🌟🌟, This lib
 The use of **umi-fabric** is very simple.
 
 ```bash
-npm install eslint @umijs/fabric -save-dev
+npm install eslint @umijs/fabric --save-dev
 ```
 
 And do the following configuration in the root directory `.eslintrc.js`.

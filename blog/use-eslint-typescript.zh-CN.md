@@ -30,7 +30,7 @@ time: 2019-06-21
 **umi-fabric** 的使用非常简单。
 
 ```bash
-npm install eslint @umijs/fabric -save-dev
+npm install eslint @umijs/fabric --save-dev
 ```
 
 并且在根目录 `.eslintrc.js`  中做如下配置。
