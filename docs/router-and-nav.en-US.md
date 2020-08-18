@@ -189,13 +189,13 @@ Scaffolding supports routing with parameters by default, but it is not a good id
 You can jump to this route with the following code:
 
 ```js
-import router from 'umi/router';
+import { history } from 'umi';
 
-router.push('/dashboard/anyParams');
+history.push('/dashboard/anyParams');
 
 //or
 
-import Link from 'umi/link';
+import { Link } from 'umi';
 
 <Link to="/dashboard/anyParams">go</Link>;
 ```
