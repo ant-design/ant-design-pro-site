@@ -49,7 +49,7 @@ create umi 提供了丰富的选项来满足不同用户的脚手架需求，我
 
 ![antd](https://gw.alipayobjects.com/zos/antfincdn/oPREL%26PSX9/sshot-2.png)
 
-一个执行成功的脚手架日志
+一个执行成功的脚手架日志。
 
 ![end](https://gw.alipayobjects.com/zos/antfincdn/c7f3Y9B5Om/sshot-3.png)
 
