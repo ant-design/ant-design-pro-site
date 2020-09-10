@@ -15,7 +15,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-less',
       options: {
-        javascriptEnabled: true,
+        lessOptions: {
+          javascriptEnabled: true,
+        },
       },
     },
     'gatsby-plugin-typescript',
@@ -30,14 +32,15 @@ module.exports = {
       options: {
         name: 'images',
         path: `${__dirname}/src/images`,
+        ignore: [`**/\.*`],
       },
     },
-
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: '/docs',
         path: `${__dirname}/docs/`,
+        ignore: [`**/\.*`],
       },
     },
     {
@@ -45,6 +48,7 @@ module.exports = {
       options: {
         name: '/blog',
         path: `${__dirname}/blog/`,
+        ignore: [`**/\.*`],
       },
     },
     {
