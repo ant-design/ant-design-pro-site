@@ -26,7 +26,6 @@ export const config = defineConfig({
   layout: {
     name: 'Ant Design Pro',
     logo: 'https://preview.pro.ant.design/static/logo.f0355d39.svg',
-
     // copy from pro site
     navTheme: 'dark',
     primaryColor: '#1890ff',
@@ -140,6 +139,17 @@ export const layout = {
   },
 };
 ```
+
+### 自定义 Layout
+
+layout 本质上就是一个特殊的组件，子路由的对应的组件会作为 props 传入到 layout 组件中。一个最简单的 layout 是这样的
+
+```tsx
+const layout = ({ children }) => children;
+export default layout;
+```
+
+我们可以对 children 进行修改或者包裹，ProLayout 组件就是通过这样的方案来注入菜单等配置。children 是什么与你当前的路径和 layout 在项目中的配置有关系，如果满足不了需求可以试试调整位置。
 
 ## 路由配置
 
