@@ -49,7 +49,7 @@ export interface UserProps {
 
 ## 为 Window 增加参数
 
-前端开发很大程序上就是与 Window 打交道，有时候我们不得不给 Window 增加参数，例如各种统计的代码。在 TypeScript 中提供一个方式来增加参数。在 `/src/typings.d.ts` 中做如下定义：
+前端开发很大程度上就是与 Window 打交道，有时候我们不得不给 Window 增加参数，例如各种统计的代码。在 TypeScript 中提供一个方式来增加参数。在 `/src/typings.d.ts` 中做如下定义：
 
 ```typescript
 interface Window {
