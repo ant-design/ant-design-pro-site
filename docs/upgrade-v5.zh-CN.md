@@ -219,6 +219,6 @@ chalk
 checkFiles
 ```
 
-现在 layout 最为插件会一直包裹在最外层，如果我们想在某个路由中不使用 layout，可以在菜单中配置 layout=false 来隐藏。详细的配置可以看[这里](https://umijs.org/zh-CN/plugins/plugin-layout#layout)。
+现在 layout 作为插件会一直包裹在最外层，如果我们想在某个路由中不使用 layout，可以在菜单中配置 layout=false 来隐藏。详细的配置可以看[这里](https://umijs.org/zh-CN/plugins/plugin-layout#layout)。
 
 对于 SettingDrawer，为了方便集成和部署，我们开发了 `umi-plugin-setting-drawer` ,只要在项目中安装这个插件即可快速使用。
