@@ -189,14 +189,9 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     const topLevel = ((obj.topLevel as MenuDataItem[]) || []).map(
       this.generateMenuItem.bind(this, footerNavIcons),
     );
-    const lang = isZhCN(this.props.location.pathname) ? 'zh-CN' : 'en-US';
-    const order = {
-      'zh-CN': ['入门', '开发', '构建和部署', '进阶', '其他'],
-      'en-US': ['Introduction', 'Development', 'Build & Deployment', 'Advanced', 'Other'],
-    };
+
     const itemGroups = Object.keys(obj)
       .filter(isNotTopLevel)
-      .sort((a, b) => order[lang].findIndex(item => item === a) - order[lang].findIndex(item => item === b))
       .map((type) => {
         const groupItems = (obj[type] as MenuDataItem[])
           .sort((a, b) => {
@@ -226,7 +221,6 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     const menuItems: IMenuData = getMenuItems(moduleData, locale) || {};
     const topLevel =
       this.generateSubMenuItems(menuItems.topLevel as IMenuData, footerNavIcons) || [];
-
     const result = [...topLevel].filter(({ key }) => key);
     return result;
   };

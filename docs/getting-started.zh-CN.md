@@ -32,7 +32,7 @@ Ant Design Pro 基于 umi 来构架脚手架，我们可以通过简单的操作
 
 ```bash
 # 使用 npm
-npx create umi
+npx npx create-umi
 # 使用 yarn
 yarn create umi
 ```
