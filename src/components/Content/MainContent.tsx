@@ -221,7 +221,6 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     const menuItems: IMenuData = getMenuItems(moduleData, locale) || {};
     const topLevel =
       this.generateSubMenuItems(menuItems.topLevel as IMenuData, footerNavIcons) || [];
-      console.log(topLevel, 'topLevel bug')
     const result = [...topLevel].filter(({ key }) => key);
     return result;
   };
