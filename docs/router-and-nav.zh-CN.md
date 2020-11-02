@@ -20,7 +20,7 @@ type: 开发
 
 目前脚手架中所有的路由都通过 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 来统一管理，在 umi 的配置中我们增加了一些参数，如 `name`，`icon`，`hideChildrenInMenu`，`authority`，来辅助生成菜单。其中：
 
-- `name` 和 `icon`分别代表生成菜单项的文本和图标。
+- `name` 和 `icon`分别代表生成菜单项的文本和图标。项目使用[Ant Design图标](https://ant.design/components/icon-cn/)，填入对应的图标名称即可使用。
 - `hideChildrenInMenu` 用于隐藏不需要在菜单中展示的子路由。用法可以查看 `分步表单` 的配置。
 - `hideInMenu` 可以在菜单中不展示这个路由，包括子路由。
 - `authority` 用来配置这个路由的权限，如果配置了将会验证当前用户的权限，并决定是否展示。
