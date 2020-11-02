@@ -39,7 +39,7 @@
     "**/*.{js,jsx}": "npm run lint-staged:js"
   },
   "resolutions": {
-    "@typescript-eslint/eslint-plugin": "^3.7.1"
+    "@typescript-eslint/eslint-plugin": "^4.6.0"
   },
   "dependencies": {
     "@ant-design/icons": "^4.0.5",
@@ -48,8 +48,8 @@
     "classnames": "^2.2.6",
     "delegate": "^3.2.0",
     "docsearch.js": "^2.6.3",
-    "gatsby": "^2.24.47",
-    "gatsby-plugin-antd": "^2.0.2",
+    "gatsby": "^2.24.89",
+    "gatsby-plugin-antd": "^2.2.0",
     "gatsby-plugin-catch-links": "^2.0.0",
     "gatsby-plugin-copy-files": "^1.0.3",
     "gatsby-plugin-google-analytics": "^2.0.0",
@@ -83,7 +83,7 @@
     "@types/classnames": "^2.2.7",
     "@types/react-helmet": "^6.0.0",
     "@types/react-intl": "^2.3.17",
-    "@umijs/fabric": "^2.0.0",
+    "@umijs/fabric": "^2.3.1",
     "cross-env": "^7.0.2",
     "eslint": "^7.8.1",
     "gh-pages": "^3.1.0",
@@ -98,7 +98,7 @@
     "prismjs": "^1.15.0",
     "slash2": "^2.0.0",
     "stylelint": "^13.6.0",
-    "typescript": "^3.5.2"
+    "typescript": "^4.0.0"
   },
   "title": "Ant Design Pro"
 }
