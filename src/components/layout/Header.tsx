@@ -186,6 +186,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     if (value === 'v2') {
       window.open('https://v2-pro.ant.design/');
     }
+    if (value === 'v2') {
+      window.open('https://v4-pro.ant.design/');
+    }
   };
 
   render() {
@@ -288,7 +291,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                 <Select size="small" onChange={this.onVersionChange} value="stable">
                   <Option value="v1">v1</Option>
                   <Option value="v2">v2</Option>
-                  <Option value="stable">v4</Option>
+                  <Option value="v4">v4</Option>
+                  <Option value="stable">v5</Option>
                 </Select>
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
