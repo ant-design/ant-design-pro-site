@@ -37,6 +37,8 @@ npx npx create-umi
 yarn create umi
 ```
 
+<video src="https://gw.alipayobjects.com/os/antfincdn/0wSaPUs36y/My%252520Sequence_1.mp4" controls width="100%"></video>
+
 create umi 提供了丰富的选项来满足不同用户的脚手架需求，我们可以选择开发语言 JavaScript 或者 TypeScript。
 
 ![language](https://gw.alipayobjects.com/zos/antfincdn/fvy3icO6IL/sshot-4.png)

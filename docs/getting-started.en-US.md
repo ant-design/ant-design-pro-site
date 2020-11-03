@@ -17,6 +17,8 @@ npx npx create-umi
 yarn create umi
 ```
 
+<video src="https://gw.alipayobjects.com/os/antfincdn/0wSaPUs36y/My%252520Sequence_1.mp4" controls width="100%"></video>
+
 Create umi offers a wide range of options to meet the scaffolding needs of different users, and we can choose to develop the language JavaScript or TypeScript.
 
 ![language](https://gw.alipayobjects.com/zos/antfincdn/fvy3icO6IL/sshot-4.png)
