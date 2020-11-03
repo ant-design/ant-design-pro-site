@@ -17,7 +17,7 @@ antd@4 rc 发布已经有一段时间了（大概已经两周了），[官网](h
 
 瞧这都是删除的 diff
 
-Table 现在也可以自动的获得宽度，并且拥有更加优秀的固定到侧边，已 [Pro-Table](https://protable.ant.design/)为例，这里是 3.0 的 table。
+Table 现在也可以自动的获得宽度，并且拥有更加优秀的固定到侧边，已 [Pro-Table](https://procomponents.ant.design/components/table)为例，这里是 3.0 的 table。
 
 ![image.png](https://gw.alipayobjects.com/zos/antfincdn/1nVM1VDeiz/a4ede9b8-1822-495d-9141-9c15107172a5.png)
 
