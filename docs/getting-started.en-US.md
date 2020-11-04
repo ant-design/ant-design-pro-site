@@ -74,3 +74,5 @@ Same as lint, but the lint error is fixed automatically.
 ### `i18n-remove`
 
 This script will attempt to remove all i18n code from the project, which is not good for complex run-time code and is used with caution.
+
+> more cli https://umijs.org/docs/cli

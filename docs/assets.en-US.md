@@ -1,7 +1,7 @@
 ---
 order: 12
 title: Use Pro's Assets
-type: Basic Usage
+type: Advanced Usage
 ---
 
 In the V3 version of Ant Design Pro, we introduced blocks to migrate our assets to blocks, which is convenient for on-demand use instead of being included in the project by default, which can reduce the project and allow more flexible use.
