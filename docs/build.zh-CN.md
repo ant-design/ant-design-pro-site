@@ -27,3 +27,17 @@ npm run analyze
 ```
 
 上面的命令会自动在浏览器打开显示体积分布数据的网页。
+
+### 服务端渲染（SSR）
+
+服务端渲染（Server-Side Rendering），是指由服务侧完成页面的 HTML 结构拼接的页面处理技术，发送到浏览器，然后为其绑定状态与事件，成为完全可交互页面的过程。
+
+如果需要打开，可以在 `config/config.tsx` 中配置以下代码来打开：
+
+```tsx
+export default {
+  ssr: {},
+};
+```
+
+[ssr](https://umijs.org/docs/ssr#%E5%BC%80%E5%8F%91) 是很高级的用法，需要对前端技术栈有很深的了解，请慎重使用。

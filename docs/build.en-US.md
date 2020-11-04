@@ -27,3 +27,17 @@ npm run analyze
 ```
 
 The command will open analyze result in your default browser automatically.
+
+### Server-side rendering (SSR)
+
+Server-Side Rendering refers to the process of page processing technology where the HTML structure of the page is spliced on the server side, sent to the browser, and then bound to the state and events to become a fully interactive page.
+
+If you need to open it, you can configure the following code in `config/config.tsx` to open:
+
+```tsx
+export default {
+  ssr: {},
+};
+```
+
+[ssr](https://umijs.org/docs/ssr#%E5%BC%80%E5%8F%91) is a very advanced usage and requires a deep understanding of the front-end technology stack, please use it with caution.
