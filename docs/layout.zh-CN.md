@@ -142,11 +142,25 @@ export const layout = {
 
 ### 自定义 Layout
 
-layout 本质上就是一个特殊的组件，子路由的对应的组件会作为 props 传入到 layout 组件中。一个最简单的 layout 是这样的
+The layout is essentially a special component, and the corresponding component of the sub-route will be passed into the layout component as props. The simplest layout is this:
 
 ```tsx
+// children must be mounted, otherwise the child routes cannot be displayed
+// Here you can also set the global provide
 const layout = ({ children }) => children;
 export default layout;
+```
+
+We create a new `BaseLayout.tsx` in `src/layouts/`, copy the above content, and add in `config/config.ts`
+
+```tsx
+defineConfig({
+  // added configuration
+  routes: {
+    path: '/',
+    component: '.../layouts/BaseLayout',
+  },
+});
 ```
 
 我们可以对 children 进行修改或者包裹，ProLayout 组件就是通过这样的方案来注入菜单等配置。children 是什么与你当前的路径和 layout 在项目中的配置有关系，如果满足不了需求可以试试调整位置。
