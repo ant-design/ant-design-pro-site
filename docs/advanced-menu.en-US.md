@@ -4,11 +4,11 @@ title: Advanced menu
 type: Advanced Usage
 ---
 
-By default, Pro will read the routes configuration in `config/config.tsx` as the menu data of ProLayout to generate the menu, and cooperate with [`plugin-access`](https://umijs.org/plugins/plugin-access) You can also easily manage the authority of the menu.
+Pro Intermediate will re-read the config / config.tsx Intermediate Route and configure it as the ProLayout menu data to generate the menu, and cooperate with [plugin-access`] (https://umijs.org/plugins/plugin-access). It is convenient to manage the authority of this menu. This mode can meet most of the needs, but the complexity of the business is always there, and sometimes it requires some advanced usage.
 
-In some cases, hard-coded menu data may not meet our needs. Pro also provides corresponding solutions for remote menu data requests. Here we need to use two APIs to complete the configuration. `menuDataRender` can customize the data format, `menu.loading` can show the menu as a loading state.
+## Request the menu from the server
 
-The specific code implementation is as follows, we can define the layout object in `src/app.tsx` and export it.
+In some cases, hard-coded menu data may not meet our needs. Pro also provides corresponding solutions for remote menu data requests. Here we need to use two APIs to complete the configuration. `menuDataRender` can customize the data format, `menu.loading` can make the menu display in a loading state.
 
 ```tsx
 export const layout = async ({
@@ -131,7 +131,7 @@ export default [
 
 In this way, you can also highlight `/product` in the path of `/list/:id`. The `key` in `parentKeys` is generally a path. If it is not convenient to set the flower as a path, you can add the key in the menu configuration Attribute, Layout will use the configured `Key` attribute first.
 
-### Change the layout according to the path
+## Change the layout according to the path
 
 In some complex paths, we may need to display different interfaces according to different url's.
 

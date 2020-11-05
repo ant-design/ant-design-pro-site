@@ -1,10 +1,12 @@
 ---
 order: 22
-title: menu 的高级用法
+title: 菜单的高级用法
 type: 高级使用
 ---
 
-Pro 中默认会读取 `config/config.tsx` 中的 routes 配置作为 ProLayout 的菜单数据来生成菜单，并且配合 [`plugin-access`](https://umijs.org/plugins/plugin-access) 还可以很方便的进行菜单的权限管理。
+Pro 中默认会读取 `config/config.tsx` 中的 routes 配置作为 ProLayout 的菜单数据来生成菜单，并且配合 [`plugin-access`](https://umijs.org/plugins/plugin-access) 还可以很方便的进行菜单的权限管理。这个模式可以满足大部分需求，但是业务的复杂度总是在的，有些时候就需要一些高级的用法。
+
+## 从服务端请求菜单
 
 在某些情况下，写死的菜单数据可能满足不了我们的需求，Pro 也提供了相应的解决方案来进行远程的菜单数据请求。这里我们需要用到两个 API 来配置完成。`menuDataRender` 可以自定义数据格式， `menu.loading` 可以让 menu 展示为一个 loading 的状态。
 
@@ -131,7 +133,7 @@ export default [
 
 这样就可以在`/list/:id`路径的时候，也高亮 `/product`, `parentKeys` 中的 `key` 一般是路径，如果不方便设置为路径的花可以在 菜单配置中增加 key 属性，Layout 会优先使用配置的 `Key` 属性。
 
-### 根据路径更换布局
+## 根据路径更换布局
 
 在一些复杂的路径中我们可以需要根据不同的 `url` 展示不同的界面，比如在新建的时候我们是不需要左侧菜单，如果用传统的方法实现需要根据 `pathname` 来进行不同的配置。实现成本比较高，为了降低实现成本，我们在 `routers` 配置中增加了一些约定。
 
