@@ -8,3 +8,6 @@ site
 config/components/es
 config/components/lib
 config/components/dist
+gatsby-node.js
+gatsby-config.js
+gatsby-browser.js
