@@ -18,12 +18,12 @@ export const layout = async ({
 }: {
   initialState: {
     settings?: LayoutSettings;
-    menuData: Promise<BasicLayoutProps>;
+    menuData?: MenuDataItem[];
     currentUser?: API.CurrentUser;
   };
 }): BasicLayoutProps => {
   return {
-    menuDateRender: (menuData) => initialState.menuData || menuData,
+    menuDateRender: () => initialState.menuData || [],
     ...initialState?.settings,
   };
 };
@@ -38,15 +38,23 @@ export async function getInitialState(): Promise<{
 }> {
   // 如果是登录页面，不执行
   if (history.location.pathname !== '/user/login') {
-    const currentUser = await queryMenuData();
+    const currentUser = await queryCurrent();
+    const menuTree = await queryMenuData();
     return {
       menuData,
+      currentUser,
       settings: defaultSettings,
     };
   }
   return {
     menuData: [],
-    settings: defaultSettings,
+    settings: {
+      ...defaultSettings,
+      menu: {
+        ...defaultSettings.menu, 
+        loading: true // 登陆时开始加载远程菜单
+      },
+    },
   };
 }
 ```
