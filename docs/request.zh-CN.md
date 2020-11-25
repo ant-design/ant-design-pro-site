@@ -119,7 +119,7 @@ const authHeaderInterceptor = (  url: string, options: RequestOptionsInit ) => {
 }
 ```
 
-更具体内容见 [umi-request](https://github.com/umijs/umi-request#interceptor) 的拦截器文档。
+更具体内容见 [umi-request](https://github.com/umijs/umi-request) 的 [拦截器文档]((https://github.com/umijs/umi-request#interceptor))。
 
 ### 响应后拦截：responseInterceptors
 在网络请求响应的 `.then` 或 `catch` 处理前拦截处理，使用方法基本和 [requestInterceptors](request-cn#请求前拦截：requestinterceptors) 相同。
