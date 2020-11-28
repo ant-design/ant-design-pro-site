@@ -68,6 +68,18 @@ const PageA = (props) => {
 
 You can get the permission definition through `useAccess` hook, in addition, we have built-in `Access` component for displaying and hiding control of the elements in the Component.
 
+`Access` component only can used in hook component, if you want to use it at class component, you can use custom component to define it.4
+
+For example:
+
+```react
+const Button=()=>{
+   const  access =  useXX();
+   // do anything you want
+   return <Button/>
+}
+```
+
 ## 3. Permission control for routing and menus
 
 If you need to control the routing and the menu on the left side of the page, you can directly add the attributes related to the permission control to the original basic configuration of the route. For this purpose, **[@umijs/plugin-layout](https://umijs.org/plugins/plugin-layout) is needed）**.
