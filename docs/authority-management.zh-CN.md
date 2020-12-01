@@ -70,6 +70,18 @@ const PageA = (props) => {
 
 你可以通过 `useAccess` hook 来获取权限定义，另外我们内置了 `Access`  组件用于页面的元素显示和隐藏的控制。
 
+ `Access`  组件只有hooks的用法，如果需要在class组件中使用的话，可以把需要用到权限的拆分为function。
+
+示例如下：
+
+```react
+const Button=()=>{
+   const  access =  useXX();
+   // 权限处理
+   return <Button/>
+}
+```
+
 ## 三、路由和菜单的权限控制
 
 如果需要对路由还有菜单进行权限控制，可以直接在路由上原有基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（前提需要使用最佳实践的 Layout 方案 - [@alipay/umi-plugin-layout](https://umijs.org/plugins/plugin-layout) ）**。
