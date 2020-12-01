@@ -12,31 +12,135 @@ type: 基础使用
 
 ## 如何使用
 
+### 使用 request
+
+通过 `import { request } from 'umi';` 你可以使用内置的请求方法。 [request](https://umijs.org/plugins/plugin-request#request) 接收两个参数，第一个参数是 url，第二个参数是请求的 options。options 具体格式参考 umi-request。
+
+[request](https://umijs.org/plugins/plugin-request#request) 的大部分用法等同于 umi-request，一个不同的是 options 扩展了一个配置 skipErrorHandler，该配置为 true 是会跳过默认的错误处理，用于项目中部分特殊的接口。
+
+示例代码如下：
+``` javascript
+request('/api/user', {
+  params: {
+    name: 1,
+  },
+  skipErrorHandler: true,
+})
+```
+
 ### 使用 useRequest
 
 useRequest 是最佳实践中内置的一个 Hook，通过它你可以获得强大的请求接口的能力，不管是翻页还是加载更多还是和 antd 的 Table 组件结合都变得非常简单。一个最简单的示例如下：
 
 ```javascript
-import React from 'react';
 import { useRequest } from 'umi';
-import services from '@/services/afs2demo';
-
-const YourComponent: React.FC = () => {
-  const { data, loading } = useRequest(() => {
-    return services.AccountController.addAccount();
+export default () => {
+  const { data, error, loading } = useRequest(() => {
+    return services.getUserList('/api/test');
   });
   if (loading) {
-    return <>Loading...</>;
+    return <div>loading...</div>;
   }
-  return <div>{data?.name}</div>;
+  if (error) {
+    return <div>{error.message}</div>;
+  }
+  return <div>{data.name}</div>;
 };
-
-export default YourComponent;
 ```
 
 其中 useRequest 的第一个参数接收一个 function，该 function 需要返回一个 Promise，如果你接入了 OneAPI 那么 OneAPI 自动生成的 services 就是一个个这样的 function。
 
 该 Hook 的返回中暴露了各项值，然后你就可以消费它们了，该 Hook 返回的 data 是后端实际返回 JSON 数据中的 data 字段，方便使用（当然你也可以通过配置修改）。更多关于 useRequest 的用法参考它的 [API 文档](https://umijs.org/plugins/plugin-request#userequest)。
+
+<!-- ### 中间件 -->
+
+## 中间件 & 拦截器
+在某些情况下我们需要在网络请求发出前或响应后做一些特殊处理。比如，在每次请求前在Header内自动加上对应的Access Token。
+
+[@umijs/plugin-request](https://umijs.org/plugins/plugin-request#responseinterceptors) 提供了三个运行时配置项来帮助我们完成类似需求。
+
+### 中间件：middlewares
+
+中间件和拦截器一样，同样可以让开发者优雅地做网络请求前后的增强处理。但是用起来稍复杂，推荐优先使用拦截器。
+
+示例代码如下：
+``` javascript
+// src/app.ts
+export const request: RequestConfig = {
+  errorHandler,
+  // 新增自动添加AccessToken的请求前拦截器
+  requestInterceptors: [authHeaderInterceptor],
+};
+
+const demo1Middleware = async (ctx: Context, next: () => void) => {
+  console.log('request1');
+  await next();
+  console.log('response1');
+}
+
+const demo2Middleware = async (ctx: Context, next: () => void) => {
+  console.log('request2');
+  await next();
+  console.log('response2');
+}
+
+export const request: RequestConfig = {
+  errorHandler,
+  middlewares: [demo1Middleware, demo2Middleware],
+};
+```
+执行顺序如下：
+> request1 -> request2 -> response -> response2 -> response1
+
+强烈建议你再细看一下 [umi-request](https://github.com/umijs/umi-request) 关于 [中间件的文档](https://github.com/umijs/umi-request/blob/master/README_zh-CN.md#中间件)。
+
+### 请求前拦截：requestInterceptors
+
+在网络请求的 `.then` 或 `catch` 处理前拦截，你可以在 `src/app.ts` 网络请求配置内增加如下配置： 
+``` javascript
+export const request: RequestConfig = {
+  errorHandler,
+  // 新增自动添加AccessToken的请求前拦截器
+  requestInterceptors: [authHeaderInterceptor],
+};
+```
+
+`requestInterceptors` 接收一个数组，数组的每一项为一个 request 拦截器。等同于 umi-request 的 `request.interceptors.request.use()` 。
+
+拦截器示例代码如下：
+``` javascript
+// src/app.ts
+const authHeaderInterceptor = (  url: string, options: RequestOptionsInit ) => {
+  const authHeader = {'Authorization': 'Bearer xxxxxx'}
+  return {
+    url: `${url}`,
+    options: { ...options , interceptors: true, headers: authHeader},
+  };    
+}
+```
+
+更具体内容见 [umi-request](https://github.com/umijs/umi-request) 的 [拦截器文档]((https://github.com/umijs/umi-request#interceptor))。
+
+### 响应后拦截：responseInterceptors
+在网络请求响应的 `.then` 或 `catch` 处理前拦截处理，使用方法基本和 [requestInterceptors](request-cn#请求前拦截：requestinterceptors) 相同。
+
+具体示例代码如下：
+
+``` javascript
+// src/app.ts
+const demoResponseInterceptors = (response: Response, options: RequestOptionsInit) => {
+  response.headers.append('interceptors', 'yes yo');
+  return response;
+}
+
+export const request: RequestConfig = {
+  errorHandler,
+  responseInterceptors: [demoResponseInterceptors],
+};
+``` 
+
+
+## 统一规范
 
 ### 统一错误处理
 

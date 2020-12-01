@@ -32,28 +32,49 @@ Ant Design Pro 基于 umi 来构架脚手架，我们可以通过简单的操作
 
 ```bash
 # 使用 npm
-npx npx create-umi
+npx npx create-umi myapp
 # 使用 yarn
-yarn create umi
+yarn create umi myapp
 ```
 
+按照umi脚手架的引导，第一步先选择ant-design-pro：
+
+``` shell
+? Select the boilerplate type (Use arrow keys)
+❯ ant-design-pro  - Create project with a layout-only ant-design-pro boilerplate, use together with umi block.
+  app             - Create project with a simple boilerplate, support typescript.
+  block           - Create a umi block.
+  library         - Create a library with umi.
+  plugin          - Create a umi plugin.
+```
+
+选择 antd 的版本，4 或者 5。
+
+``` shell
+? Select the boilerplate type ant-design-pro
+? 🧙 Be the first to experience the new umi@3 ?
+❯ Pro V5
+  Pro V4
+```
+
+安装依赖：
+``` shell
+$ cd myapp && tyarn
+// 或
+$ cd myapp && npm install 
+```
+
+开启 Umi UI（可选）：
+``` shell
+// 打开开发模式下页面右下角的小气泡，方便添加区块和模版等pro资产
+$ tyarn add @umijs/preset-ui -D
+// 或
+$ npm install --save-dev @umijs/preset-ui
+```
+
+操作视频：   
+
 <video src="https://gw.alipayobjects.com/os/antfincdn/0wSaPUs36y/My%252520Sequence_1.mp4" controls width="100%"></video>
-
-create umi 提供了丰富的选项来满足不同用户的脚手架需求，我们可以选择开发语言 JavaScript 或者 TypeScript。
-
-![language](https://gw.alipayobjects.com/zos/antfincdn/fvy3icO6IL/sshot-4.png)
-
-也可以选择是否获取全部区块。
-
-![simple](https://gw.alipayobjects.com/zos/antfincdn/Kqlh5sQslh/sshot-1.png)
-
-选择 antd 的版本，3 或者 4。
-
-![antd](https://gw.alipayobjects.com/zos/antfincdn/oPREL%26PSX9/sshot-2.png)
-
-一个执行成功的脚手架日志。
-
-![end](https://gw.alipayobjects.com/zos/antfincdn/c7f3Y9B5Om/sshot-3.png)
 
 ## 开发
 

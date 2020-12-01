@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 10
 title: 开发
 type: 基础使用
 ---
@@ -23,6 +23,8 @@ Ant Design Pro 以 umi 作为脚手架，启动和开发与 umi 基本相同。
 对于很多项目来说都需要一个区分环境的变量，同时也提供了快捷的启动方式和相应的 ui 展示。Pro 中内置 `dev`，`test`, `pre` 三个环境。可以分别通过运行 `npm run start:test` 等命令启动。同时也会给每个页面注入一个 `REACT_APP_ENV` 的变量来区分。
 
 > `dev`，`test`, `pre` 环境都默认关闭了 mock。 `REACT_APP_ENV` 并不是挂载在 windows 中的,不能通过 `windows.REACT_APP_ENV`来获取。
+
+更具体的配置说明，请见[这里](environment-manage-cn#获取当前运行环境名称)。
 
 ## MOCK
 
