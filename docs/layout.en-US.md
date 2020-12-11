@@ -261,6 +261,41 @@ export default [
 ];
 ```
 
+### Modification of menu layout mode
+
+Sometimes our menu may display at top, left or left and top either, This can be achieved by changing `layout` at defaultSettings.js.
+
+- top  Display at top
+- side Display at left side
+- mix  Display at left and top either，by the way，when the layout mode is `mix`， we need add `splitMenus: true` at defaultSettings.js
+
+```js
+// config/defaultSettings.ts
+export default {
+  layout: 'mix',
+  splitMenus: true,
+} 
+```
+
+Tips: When the layout mode is `mix`，click the first menu, page cannot route they first children menu page, you can add `redirect` at route.
+
+```json
+[
+  {
+    "path": "/test/list",
+    "component": "./test/list"
+  },
+  {
+    "path": "/test/list/testAdd",
+    "component": "./test/list/testAdd"
+  },
+  {
+    "redirect": "./test/list"
+  }
+]
+
+```
+
 ## Other
 
 ### Dynamically add routes
