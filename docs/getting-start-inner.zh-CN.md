@@ -1,12 +1,12 @@
 ---
 order: 1
-title: 开始使用（蚂蚁金服用户）
+title: 开始使用（蚂蚁集团用户）
 type: 入门
 ---
 
 ## 使用
 
-在蚂蚁金服内部，推荐使用 [Bigfish](https://bigfish.alipay.com) 作为前端整体解决方案。你可以直接访问 [快速上手](https://bigfish.antfin-inc.com/doc/getting-started) 开始使用。
+在蚂蚁集团内部，推荐使用 [Bigfish](https://bigfish.alipay.com) 作为前端整体解决方案。你可以直接访问 [快速上手](https://bigfish.antfin-inc.com/doc/getting-started) 开始使用。
 
 ## 注意
 
