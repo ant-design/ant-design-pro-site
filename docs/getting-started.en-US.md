@@ -12,9 +12,9 @@ We provide create umi to quickly initialize scaffolding.
 
 ```bash
 # use by npm
-npx npx create-umi
+npx create-umi myapp
 # use by yarn
-yarn create umi
+yarn create umi myapp
 ```
 
 <video src="https://gw.alipayobjects.com/os/antfincdn/0wSaPUs36y/My%252520Sequence_1.mp4" controls width="100%"></video>
