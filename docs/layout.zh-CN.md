@@ -275,6 +275,42 @@ export default [
 ];
 ```
 
+### 菜单布局展示方式的修改
+
+有时菜单可能需要于顶部显示，左侧显示，或者顶部显示一级菜单，左侧显示二三级菜单。我们可以修改defaultSettings中的layout的配置来决定菜单的展示方式。
+
+- top 菜单于顶部展示
+- side 菜单于左侧展示
+- mix 菜单于顶部和左侧混合展示，需要注意，当mix模式时，需要添加`splitMenus: true`，顶部才可以正确展示一级菜单
+
+```js
+// config/defaultSettings.ts
+export default {
+  layout: 'mix',
+  splitMenus: true,
+} 
+```
+
+同时，当使用mix模式后，点击一级菜单，并不会直接定位到第一个子级菜单页面，而是会呈现空白页面，需要于配置中设置一下redirect的地址
+
+```json
+[
+  {
+    "path": "/test/list",
+    "component": "./test/list"
+  },
+  {
+    "path": "/test/list/testAdd",
+    "component": "./test/list/testAdd"
+  },
+  {
+    "redirect": "./test/list"
+  }
+]
+
+```
+
+
 ## 其他
 
 ### 动态新增路由
