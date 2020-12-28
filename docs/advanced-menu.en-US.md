@@ -21,7 +21,7 @@ export const layout = async ({
   };
 }): BasicLayoutProps => {
   return {
-    menuDateRender: (menuData) => initialState.menuData || menuData,
+    menuDataRender: (menuData) => initialState.menuData || menuData,
     ...initialState?.settings,
   };
 };
