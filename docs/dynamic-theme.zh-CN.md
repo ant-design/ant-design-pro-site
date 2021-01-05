@@ -18,7 +18,7 @@ npm i umi-plugin-antd-theme --save-dev
 
 - umi@3
 
-umi@3 会自动读取插件 只需要安装 `umi-plugin-antd-theme` 即可生效。为了简化使用现在需要通过 `config/theme.config.json` 来配置主题。
+umi@3 会自动读取插件 只需要安装 `umi-plugin-antd-theme` 即可生效。为了简化使用，现在需要通过 `config/theme.config.json` 来配置主题。
 
 - v2 版本
 
