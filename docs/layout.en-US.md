@@ -84,20 +84,21 @@ For title and logo, Layout provides the `title` and `logo` properties. If you ha
 
 ```tsx
 <BasicLayout
-  {...defaultProps}
-  title="Remax"
-  logo="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ"
-  menuHeaderRender={(logo, title) => (
-    <div
-      id="customize_menu_header"
-      onClick={() => {
-        window.open('https://remaxjs.org/');
-      }}
-    >
-      {logo}
-      {title}
-    </div>
-  )}
+  {...defaultProps}
+  title="Remax"
+  logo="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ"
+  menuHeaderRender={(logo, title) => (
+    <div
+      id="customize_menu_header"
+      onClick={() => {
+        window.open('https://remaxjs.org/');
+      }}
+    >
+            {logo}
+            {title}
+          
+    </div>
+  )}
 />
 ```
 
@@ -134,11 +135,11 @@ If you need a custom menu, the `siderWidth` property controls the width of the m
 </BasicLayout>
 ```
 
-## PageHeaderWrapper
+## PageContainer
 
-PageHeaderWrapper encapsulates the PageHeader component of ant design, adds tabList, and content. Fill in the title and breadcrumb based on the current route. It depends on the route property of the Layout. Of course you can pass in parameters to override the default values. PageHeaderWrapper supports all the attributes of [Tabs](https://ant.design/components/tabs-cn/) and [PageHeader](https://ant.design/components/page-header-cn/).
+PageContainer encapsulates the PageHeader component of ant design, adds tabList, and content. Fill in the title and breadcrumb based on the current route. It depends on the route property of the Layout. Of course you can pass in parameters to override the default values. PageContainer supports all the attributes of [Tabs](https://ant.design/components/tabs-cn/) and [PageHeader](https://ant.design/components/page-header-cn/).
 
-> PageHeaderWrapper must be wrapped by ProLayout to automatically generate breadcrumbs and titles.
+> PageContainer must be wrapped by ProLayout to automatically generate breadcrumbs and titles.
 
 ## SettingDrawer
 
@@ -168,7 +169,7 @@ The code is configured as follows:
 >
     {' '}
   <ProLayout navTheme="light" menuHeaderRender={false} {...props} {...settings}>
-         <PageHeaderWrapper content="Welcome to your use">{props.children}</PageHeaderWrapper>
+         <PageContainer content="Welcome to your use">{props.children}</PageContainer>
       {' '}
   </ProLayout>
 </ProLayout>

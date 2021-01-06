@@ -12,7 +12,7 @@ type: 开发
 
 - `路由管理` 通过约定的语法根据在 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 中配置路由。
 - `菜单生成` 根据路由配置来生成菜单。菜单项名称，嵌套路径与路由高度耦合。
-- `面包屑` 组件 [PageHeaderWrapper](https://github.com/ant-design/ant-design-pro-layout#pageheaderwrapper) 中内置的面包屑,也可通过 [RouteContext](/blog/new-pro-use-cn#routecontext) 提供的信息自定义生成。
+- `面包屑` 组件 [PageContainer](https://github.com/ant-design/ant-design-pro-layout#PageContainer) 中内置的面包屑,也可通过 [RouteContext](/blog/new-pro-use-cn#routecontext) 提供的信息自定义生成。
 
 下面简单介绍下各个模块的基本思路，如果你对实现过程不感兴趣，只想了解应该怎么实现相关需求，可以直接查看[需求实例](/docs/router-and-nav-cn#需求实例)。
 
@@ -20,7 +20,7 @@ type: 开发
 
 目前脚手架中所有的路由都通过 [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 来统一管理，在 umi 的配置中我们增加了一些参数，如 `name`，`icon`，`hideChildrenInMenu`，`authority`，来辅助生成菜单。其中：
 
-- `name` 和 `icon`分别代表生成菜单项的文本和图标。项目使用[Ant Design图标](https://ant.design/components/icon-cn/)，填入对应的图标名称即可使用。
+- `name` 和 `icon`分别代表生成菜单项的文本和图标。项目使用[Ant Design 图标](https://ant.design/components/icon-cn/)，填入对应的图标名称即可使用。
 - `hideChildrenInMenu` 用于隐藏不需要在菜单中展示的子路由。用法可以查看 `分步表单` 的配置。
 - `hideInMenu` 可以在菜单中不展示这个路由，包括子路由。
 - `authority` 用来配置这个路由的权限，如果配置了将会验证当前用户的权限，并决定是否展示。
@@ -91,7 +91,7 @@ return (
 
 ### 面包屑
 
-面包屑由 `PageHeaderWrapper` 实现，`Layout` 将 根据 `MenuData` 生成的 `breadcrumb`，并通过 PageHeaderWrapper 将其展现。 PageHeaderWrapper 封装至 Ant Design 的 [PageHeader](https://ant.design/components/page-header-cn)，api 完全相同。
+面包屑由 `PageContainer` 实现，`Layout` 将 根据 `MenuData` 生成的 `breadcrumb`，并通过 PageContainer 将其展现。 PageContainer 封装至 Ant Design 的 [PageHeader](https://ant.design/components/page-header-cn)，api 完全相同。
 
 ## 需求实例
 

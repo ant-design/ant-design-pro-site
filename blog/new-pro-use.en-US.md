@@ -159,14 +159,14 @@ Const Layout = (props: BasicLayoutProps) => {
 };
 ```
 
-### PageHeaderWrapper
+### PageContainer
 
-PageHeaderWrapper provides a wrapper around antd's pageHeader that provides automatic configuration of breadcrumbs and title.
+PageContainer provides a wrapper around antd's pageHeader that provides automatic configuration of breadcrumbs and title.
 
 ```jsx
-Import { PageHeaderWrapper } from '@ant-design/pro-layout';
+import { PageContainer } from '@ant-design/pro-layout';
 
-Const Page = () => <PageHeaderWrapper>this is a page</PageHeaderWrapper>;
+Const Page = () => <PageContainer>this is a page</PageContainer>;
 ```
 
 ### RouteContext

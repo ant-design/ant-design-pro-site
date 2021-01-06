@@ -122,11 +122,11 @@ routers: [
 </BasicLayout>
 ```
 
-## PageHeaderWrapper
+## PageContainer
 
-PageHeaderWrapper 封装了 ant design 的 PageHeader 组件，增加了 tabList，和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageHeaderWrapper 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
+PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList，和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
 
-> PageHeaderWrapper 必须要被 ProLayout 包裹才能自动生成面包屑和标题。
+> PageContainer 必须要被 ProLayout 包裹才能自动生成面包屑和标题。
 
 ## SettingDrawer
 
@@ -155,7 +155,7 @@ SettingDrawer 的[切换主题色](/docs/dynamic-theme-cn)功能需要配和 [um
   contentStyle={{ margin: 0 }}
 >
   <ProLayout navTheme="light" menuHeaderRender={false} {...props} {...settings}>
-    <PageHeaderWrapper content="欢迎您的使用">{props.children}</PageHeaderWrapper>
+    <PageContainer content="欢迎您的使用">{props.children}</PageContainer>
   </ProLayout>
 </ProLayout>
 ```

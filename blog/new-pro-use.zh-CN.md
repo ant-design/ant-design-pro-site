@@ -159,14 +159,14 @@ const Layout = (props: BasicLayoutProps) => {
 };
 ```
 
-### PageHeaderWrapper
+### PageContainer
 
-PageHeaderWrapper 提供了对 antd 的 pageHeader 的封装提供了面包屑和 title 的自动配置。
+PageContainer 提供了对 antd 的 pageHeader 的封装提供了面包屑和 title 的自动配置。
 
 ```jsx
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
+import { PageContainer } from '@ant-design/pro-layout';
 
-const Page = () => <PageHeaderWrapper>this is a page</PageHeaderWrapper>;
+const Page = () => <PageContainer>this is a page</PageContainer>;
 ```
 
 ### RouteContext
