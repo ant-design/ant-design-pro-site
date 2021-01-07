@@ -98,7 +98,7 @@
     "typescript": "^4.0.5"
   },
   "resolutions": {
-    "@typescript-eslint/eslint-plugin": "^3.7.1"
+    "@typescript-eslint/eslint-plugin": "^4.12.0"
   },
   "title": "Ant Design Pro"
 }
