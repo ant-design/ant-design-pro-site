@@ -4,7 +4,6 @@ import React from 'react';
 
 export default function HTML(props) {
   return (
-    // eslint-disable-next-line jsx-a11y/html-has-lang
     <html {...props.htmlAttributes}>
       <head>
         <meta charSet="utf-8" />
