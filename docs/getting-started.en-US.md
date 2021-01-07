@@ -51,6 +51,34 @@ With those objectives in mind, we have built the following templates and a scaff
 
 > All of the above pages can be found in Pro's [Blocks](https://github.com/ant-design/pro-blocks).
 
+### Recommended page code structure
+
+In order to make the organisation of the project code more standardised and to make it easier for developers to locate the relevant page component code, we have defined a set of specifications which are currently only used as a recommended guide and are not mandatory.
+
+```
+src
+├── components
+└── pages
+    ├── Welcome // routed components should not contain other routed components, so that routed components can be clearly distinguished from non-routed components based on this convention
+    | ├── components // For complex pages you can do your own deeper organisation, but it is recommended that you do not exceed three levels
+    | ├── Form.tsx
+    | ├── index.tsx // The code for the page components
+    | └── index.less // page styles
+    ├── Order // No other routing components should be included under the routing component, based on this convention it's clear to distinguish between routing and non-routing components
+    | ├── index.tsx
+    | └── index.less
+    ├── user // A single lowercase letter is recommended for group directories on a range of pages
+    | ├── components // a collection of components common to the group
+    | ├── login // the group's page Login
+    | ├── Register // page under group Register
+    | └── util.ts // There can be some common methods and so on, not recommended and not constrained, it depends on the business scenario to make your own organization
+    └── * // Other page component code
+```
+
+All routing components (those that will be configured in the routing configuration) are recommended to be named with a big hump and leveled to the first level below pages (complex projects can add a group level and place pages under the group). It is not recommended to nest routing components inside routing components - it is not easy to tell if a component is a routing component and it is not easy to quickly locate a routing component from the global level.
+
+We recommend splitting routing components into finer-grained components where possible. For components that may be used by multiple pages we recommend putting them in src/components, and for components that are dependent on a single page (blocks) we recommend maintaining them in the routing components folder nearby.
+
 ## Users of Ant Design Pro
 
 Hundreds of applications within Ant Financial and Alibaba Group are using Ant Design Pro. You are welcome to leave your information in [Ant Design Pro Users](https://github.com/ant-design/ant-design-pro/issues/99) if you or your organization is using it.
