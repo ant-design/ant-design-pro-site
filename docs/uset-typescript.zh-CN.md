@@ -133,6 +133,6 @@ export as namespace
 
 ```tsx
 import AMapInterface from './AMap';
-`
+
 declare const AMap: typeof AMapInterface;
 ```
