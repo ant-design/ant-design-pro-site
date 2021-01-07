@@ -17,7 +17,7 @@ The rewritten table and from solve many of the remaining incurable diseases. For
 
 See this is the removed diff
 
-Table can now also get the width automatically, and has a better fixed to the side, [Pro-Table](https://protable.ant.design/) as an example, here is a table of 3.0.
+Table can now also get the width automatically, and has a better fixed to the side, [Pro-Table](https://procomponents.ant.design/components/table) as an example, here is a table of 3.0.
 
 ![image.png](https://gw.alipayobjects.com/zos/antfincdn/1nVM1VDeiz/a4ede9b8-1822-495d-9141-9c15107172a5.png)
 

@@ -9,9 +9,9 @@ time: 2019-05-08
 
 尤其是 Pro 的核心 Layout，作为 Pro 的中使用最多的一块，在业务支持中我们见到了几乎的各个时期的版本。 0.x，1.x，2.x，几乎每个版本都有用户，但是却无法跟随官方升级，只能发生了错误之后再官方社区提供帮助。
 
-在 V4 中我们提供了一个解决方案。将 Layout 进行组件化，既可以让任何脚手架使用 Layout 的能力，同时也可以平滑升级，跟进社区的发展。代码仓库在这里 [pro-layout](https://github.com/ant-design/ant-design-pro-layout)。
+在 V4 中我们提供了一个解决方案。将 Layout 进行组件化，既可以让任何脚手架使用 Layout 的能力，同时也可以平滑升级，跟进社区的发展。代码仓库在这里 [pro-layout](https://github.com/ant-design/pro-components)。
 
-Layout 提供了丰富的 api 配置,解耦了对 umi 的依赖,即使是旧的项目也可以快速接入。
+[ProLayout](https://procomponents.ant.design/components/layout) 提供了丰富的 api 配置,解耦了对 umi 的依赖,即使是旧的项目也可以快速接入。
 
 ## 使用
 
@@ -159,14 +159,14 @@ const Layout = (props: BasicLayoutProps) => {
 };
 ```
 
-### PageHeaderWrapper
+### PageContainer
 
-PageHeaderWrapper 提供了对 antd 的 pageHeader 的封装提供了面包屑和 title 的自动配置。
+PageContainer 提供了对 antd 的 pageHeader 的封装提供了面包屑和 title 的自动配置。
 
 ```jsx
-import { PageHeaderWrapper } from '@ant-design/pro-layout';
+import { PageContainer } from '@ant-design/pro-layout';
 
-const Page = () => <PageHeaderWrapper>this is a page</PageHeaderWrapper>;
+const Page = () => <PageContainer>this is a page</PageContainer>;
 ```
 
 ### RouteContext

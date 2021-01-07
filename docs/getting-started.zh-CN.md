@@ -37,9 +37,9 @@ npx create-umi myapp
 yarn create umi myapp
 ```
 
-按照umi脚手架的引导，第一步先选择ant-design-pro：
+按照 umi 脚手架的引导，第一步先选择 ant-design-pro：
 
-``` shell
+```shell
 ? Select the boilerplate type (Use arrow keys)
 ❯ ant-design-pro  - Create project with a layout-only ant-design-pro boilerplate, use together with umi block.
   app             - Create project with a simple boilerplate, support typescript.
@@ -50,7 +50,7 @@ yarn create umi myapp
 
 选择 antd 的版本，4 或者 5。
 
-``` shell
+```shell
 ? Select the boilerplate type ant-design-pro
 ? 🧙 Be the first to experience the new umi@3 ?
 ❯ Pro V5
@@ -58,21 +58,23 @@ yarn create umi myapp
 ```
 
 安装依赖：
-``` shell
+
+```shell
 $ cd myapp && tyarn
 // 或
-$ cd myapp && npm install 
+$ cd myapp && npm install
 ```
 
 开启 Umi UI（可选）：
-``` shell
+
+```shell
 // 打开开发模式下页面右下角的小气泡，方便添加区块和模版等pro资产
 $ tyarn add @umijs/preset-ui -D
 // 或
 $ npm install --save-dev @umijs/preset-ui
 ```
 
-操作视频：   
+操作视频：
 
 <video src="https://gw.alipayobjects.com/os/antfincdn/0wSaPUs36y/My%252520Sequence_1.mp4" controls width="100%"></video>
 

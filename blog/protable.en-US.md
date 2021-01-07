@@ -13,7 +13,7 @@ Most background pages are made up of very homogenized CRUDs, many times a Table,
 
 Antd, as a component library serving the design system for enterprise-class products, has provided a powerful Table, but the differences in business still require some customization, with many different data formats, amounts, dates, numbers, etc., including some commonly used operations, page number switching, re-requests, Refreshing data, etc., these are simple duplications, but they are inevitable.
 
-ProTable is designed to address these issues by providing presets at the Table level that you can support [`valueType` ](https://protable.ant.design/value-type) of data, such as amounts, dates, serial numbers, progress bars, etc., and can greatly simplify the code with the hashtags `valueEnum`.
+ProTable is designed to address these issues by providing presets at the Table level that you can support [`valueType` ](https://procomponents.ant.design/components/tablevalue-type) of data, such as amounts, dates, serial numbers, progress bars, etc., and can greatly simplify the code with the hashtags `valueEnum`.
 
 ```typescript
 const columns = [
@@ -69,6 +69,6 @@ If your form is simple, there aren't too many special components, or you've enca
 
 This allows you to achieve a complete CRUD interface at very low cost, complete your needs early and leave work early.。
 
-Website：[https://protable.ant.design/](https://protable.ant.design/)
+Website：[https://procomponents.ant.design/components/table](https://procomponents.ant.design/components/table)
 
 Ant Design Table [https://ant.design/components/table](https://ant.design/components/table-cn/)

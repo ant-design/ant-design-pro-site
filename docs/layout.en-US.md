@@ -128,6 +128,8 @@ export const layout = {
 
 The plugin does not provide a default footer UI. The customization can be done through the following configuration. If you want to use the same style as Pro's official website, please refer to: https://prolayout.ant.design/footer
 
+<<<<<<< HEAD
+
 ```js
 // src/app.tsx
 import React from 'react';
@@ -142,7 +144,31 @@ export const layout = {
 
 ### Custom Layout
 
-The layout is essentially a special component, and the corresponding component of the sub-route will be passed into the layout component as props. The simplest layout is like this
+# The layout is essentially a special component, and the corresponding component of the sub-route will be passed into the layout component as props. The simplest layout is like this
+
+```tsx
+<BasicLayout
+  {...defaultProps}
+  title="Remax"
+  logo="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ"
+  menuHeaderRender={(logo, title) => (
+    <div
+      id="customize_menu_header"
+      onClick={() => {
+        window.open('https://remaxjs.org/');
+      }}
+    >
+            {logo}
+            {title}
+          
+    </div>
+  )}
+/>
+```
+
+If you need a custom menu, the `siderWidth` property controls the width of the menu on the right, and `menuRender` and `menuItemRender` let you customize the entire menu. `menuDataRender` can be used to customize menu data, which you can replace with data obtained from the server.
+
+> > > > > > > master
 
 ```tsx
 const layout = ({ children }) => children;
@@ -265,19 +291,19 @@ export default [
 
 Sometimes our menu may display at top, left or left and top either, This can be achieved by changing `layout` at defaultSettings.js.
 
-- top  Display at top
+- top Display at top
 - side Display at left side
-- mix  Display at left and top either，by the way，when the layout mode is `mix`， we need add `splitMenus: true` at defaultSettings.js
+- mix Display at left and top either，by the way，when the layout mode is `mix`， we need add `splitMenus: true` at defaultSettings.js
 
 ```js
 // config/defaultSettings.ts
 export default {
   layout: 'mix',
   splitMenus: true,
-} 
+};
 ```
 
-Tips: When the layout mode is `mix`，click the first menu, page cannot route they first children menu page, you can add `redirect` at route.
+<<<<<<< HEAD Tips: When the layout mode is `mix`，click the first menu, page cannot route they first children menu page, you can add `redirect` at route.
 
 ```json
 [
@@ -293,27 +319,6 @@ Tips: When the layout mode is `mix`，click the first menu, page cannot route th
     "redirect": "./test/list"
   }
 ]
-
-```
-
-## Other
-
-### Dynamically add routes
-
-In rare cases, there may be a need to dynamically add routes.
-
-```js
-// src/app.ts
-export const layout = {
-  patchMenus: (menus, initialInfo) => {
-    return [
-      ...menus,
-      {
-        path: '/sss',
-      },
-    ];
-  },
-};
 ```
 
 ## More
@@ -326,7 +331,7 @@ You can also turn off the default function through the following configuration.
 
 Set the layout configuration to false.
 
-```js
+```tsx
 // config.js
 import { defineConfig } from 'umi';
 
