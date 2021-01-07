@@ -140,10 +140,10 @@ export default IconFont;
 
 > 如果不喜欢标签引入的方式，也可以直接拷贝上面链接中的代码到你的样式文件中。如果不喜欢网站默认生成的类名，自己重写这部分代码即可，比如：
 
-    ```diff
-    - .icon-ali-pay:before { content: "\e66b"; }              // 修改前
-    + .monitor-icon-alipay:before { content: "\e66b"; }       // 修改后
-    ```
+```diff
+- .icon-ali-pay:before { content: "\e66b"; }              // 修改前
++ .monitor-icon-alipay:before { content: "\e66b"; }       // 修改后
+```
 
 2. 这时你可以选择拷贝图标对应代码（就是类名，如果类名被重写过，这里记得用修改后的），直接使用：
 
