@@ -36,7 +36,7 @@ export async function getInitialState(): Promise<{
 }> {
   // If it is a login page, do not execute
   if (history.location.pathname !== '/user/login') {
-    const currentUser = await queryMenuData();
+    const menuData = await queryMenuData();
     return {
       menuData,
       settings: defaultSettings,
