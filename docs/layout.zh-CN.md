@@ -14,7 +14,7 @@ Pro 中内置了 [plugin-layout](https://umijs.org/plugins/plugin-layout) 来减
 
 layout 插件支持 [pro-layout](https://github.com/ant-design/ant-design-pro-layout) 的全部配置。
 
-推荐先使用 [Pro 站点](https://preview.pro.ant.design/dashboard/analysis?primaryColor=daybreak) 的左侧抽屉来帮助你完成布局相关的整体风格、主题色、导航模式、内容区域宽度、固定 Header、固定侧边菜单、色弱模式等配置选择。然后将拷贝的配置粘贴与 layout 配置中。
+推荐先使用 [Pro 站点](https://preview.pro.ant.design/dashboard/analysis?primaryColor=daybreak) 的右侧抽屉来帮助你完成布局相关的整体风格、主题色、导航模式、内容区域宽度、固定 Header、固定侧边菜单、色弱模式等配置选择。然后将拷贝的配置粘贴与 layout 配置中。
 
 ![Pro 站点](https://gw.alipayobjects.com/mdn/rms_30ab81/afts/img/A*NhA4To_Ccn8AAAAAAAAAAABkARQnAQ)
 
