@@ -14,7 +14,7 @@ With those objectives in mind, we have built the following templates and a scaff
 
 ```
 - Dashboard
-  - Analytic
+  - Analysis
   - Monitor
   - Workspace
 - Form
