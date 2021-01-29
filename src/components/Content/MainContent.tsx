@@ -10,7 +10,7 @@ import {
   MenuUnfoldOutlined,
   RightOutlined,
 } from '@ant-design/icons';
-import { Badge, Row, Col, Menu } from 'antd';
+import { Badge, Row, Col, Menu, Affix } from 'antd';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
@@ -18,14 +18,14 @@ import moment from 'moment';
 import Article from './Article';
 import { isZhCN, getMenuItems, MenuDataItem, IMenuData } from '../utils';
 import { IFrontmatterData } from '../../templates/docs';
-
-const { SubMenu } = Menu;
+import Footer from '../layout/Footer';
 
 export interface MainContentProps {
   isMobile: boolean;
   location: {
     pathname: string;
   };
+  layout: any;
   menuList: MenuDataItem[];
   localizedPageData: {
     meta: IFrontmatterData;
@@ -140,13 +140,11 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     }
     const {
       intl: { locale },
-    } =
-      this.context as
-      {
-        intl: {
-          locale: 'zh-CN' | 'en-US';
-        };
+    } = this.context as {
+      intl: {
+        locale: 'zh-CN' | 'en-US';
       };
+    };
     const text = [
       <span key="english">{item.title}</span>,
       <span className="chinese" key="chinese">
@@ -185,7 +183,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
   generateSubMenuItems = (obj?: IMenuData, footerNavIcons = {}) => {
     if (!obj) {
       return [];
-    };
+    }
     const topLevel = ((obj.topLevel as MenuDataItem[]) || []).map(
       this.generateMenuItem.bind(this, footerNavIcons),
     );
@@ -201,13 +199,13 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
             if ('order' in a && 'order' in b) {
               return a.order - b.order;
             }
-             return a.title.charCodeAt(0) - b.title.charCodeAt(0);
+            return a.title.charCodeAt(0) - b.title.charCodeAt(0);
           })
           .map(this.generateMenuItem.bind(this, footerNavIcons));
         return (
-          <SubMenu title={type} key={type}>
+          <Menu.ItemGroup title={type} key={type}>
             {groupItems}
-          </SubMenu>
+          </Menu.ItemGroup>
         );
       });
     return [...topLevel, ...itemGroups];
@@ -285,33 +283,35 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
               {menuChild}
             </MobileMenu>
           ) : (
-            <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
-              {menuChild}
+            <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24}>
+              <Affix offsetTop={10}>
+                <div className="main-menu">{menuChild}</div>
+              </Affix>
             </Col>
           )}
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
             <div className={mainContainerClass}>
               <Article {...this.props} content={localizedPageData} />
             </div>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col lg={{ span: 20, offset: 4 }} md={24} sm={24} xs={24}>
-            <section className="prev-next-nav">
-              {previous ? (
-                <div className="prev-page">
-                  <LeftOutlined className="footer-nav-icon-before" />
-                  {previous.props.children}
-                </div>
-              ) : null}
-              {next ? (
-                <div className="next-page">
-                  {next.props.children}
-                  <RightOutlined className="footer-nav-icon-after" />
-                </div>
-              ) : null}
-            </section>
+            <Row>
+              <Col lg={{ span: 24 }} md={24} sm={24} xs={24}>
+                <section className="prev-next-nav">
+                  {previous ? (
+                    <div className="prev-page">
+                      <LeftOutlined className="footer-nav-icon-before" />
+                      {previous.props.children}
+                    </div>
+                  ) : null}
+                  {next ? (
+                    <div className="next-page">
+                      {next.props.children}
+                      <RightOutlined className="footer-nav-icon-after" />
+                    </div>
+                  ) : null}
+                </section>
+              </Col>
+            </Row>
+            <Footer {...this.props.layout} />
           </Col>
         </Row>
       </div>

@@ -8,7 +8,6 @@ import cnLocale from '../../locale/zh-CN';
 import * as utils from '../utils';
 import '../../static/style';
 import Header from './Header';
-import Footer from './Footer';
 
 export interface LayoutProps {
   location: {
@@ -51,9 +50,9 @@ export class Layout extends React.Component<LayoutProps, LayoutState> {
             <Header {...restProps} location={location} />
             {React.cloneElement(children, {
               ...children.props,
+              layout: this.props,
               isMobile: restProps.isMobile,
             })}
-            <Footer {...restProps} location={location} />
           </div>
         </ConfigProvider>
       </IntlProvider>
