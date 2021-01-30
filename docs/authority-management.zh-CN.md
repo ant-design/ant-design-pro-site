@@ -70,7 +70,7 @@ const PageA = (props) => {
 
 你可以通过 `useAccess` hook 来获取权限定义，另外我们内置了 `Access`  组件用于页面的元素显示和隐藏的控制。
 
- `Access`  组件只有hooks的用法，如果需要在class组件中使用的话，可以把需要用到权限的拆分为function。
+`Access` 组件只有 hooks 的用法，如果需要在 class 组件中使用的话，可以把需要用到权限的拆分为 function。
 
 示例如下：
 

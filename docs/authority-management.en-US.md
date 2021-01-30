@@ -27,7 +27,7 @@ export default function (initialState) {
   return {
     canReadFoo: true,
     canUpdateFoo: () => true,
-    canDeleteFoo: data => data?.status < 1, // Make any definition as you need
+    canDeleteFoo: (data) => data?.status < 1, // Make any definition as you need
   };
 }
 ```
@@ -97,7 +97,7 @@ export default function (initialState = {}) {
   return {
     // ...
     adminRouteFilter: () => isAdmin, // Only admin could access it
-    normalRouteFilter: route => hasRoutes.includes(route.name), // Only the routes included in the initialState are accessible
+    normalRouteFilter: (route) => hasRoutes.includes(route.name), // Only the routes included in the initialState are accessible
   };
 }
 ```

@@ -28,9 +28,9 @@ export default ({ title }) => <div className={styles.title}>{title}</div>;
 ```css
 // example.less
 .title {
+  margin-bottom: 16px;
   color: @heading-color;
   font-weight: 600;
-  margin-bottom: 16px;
 }
 ```
 
@@ -41,9 +41,9 @@ export default ({ title }) => <div className={styles.title}>{title}</div>;
 ```css
 // example.less
 .title {
+  margin-bottom: 16px;
   color: @heading-color;
   font-weight: 600;
-  margin-bottom: 16px;
 }
 
 /* 定义全局样式 */

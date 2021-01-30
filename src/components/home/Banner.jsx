@@ -12,9 +12,12 @@ function Banner(props) {
   const { isMobile, location } = props;
   return (
     <div className="banner-wrapper">
-      <div className='banner-top-image'>
+      <div className="banner-top-image">
         {isMobile && (
-          <TweenOne animation={{ opacity: 1, type: 'to' }} className="banner-image-wrapper banner-svg-img">
+          <TweenOne
+            animation={{ opacity: 1, type: 'to' }}
+            className="banner-image-wrapper banner-svg-img"
+          >
             <div className="home-banner-image" key="home-banner-image">
               <img
                 alt="banner"
@@ -26,7 +29,7 @@ function Banner(props) {
           </TweenOne>
         )}
       </div>
-      <div className='banner-text'>
+      <div className="banner-text">
         <QueueAnim className="banner-title-wrapper" type={isMobile ? 'bottom' : 'right'}>
           <div key="line" className="title-line-wrapper">
             <div className="title-line" style={{ transform: 'translateX(-64px)' }} />
@@ -55,9 +58,13 @@ function Banner(props) {
           </div>
         </QueueAnim>
       </div>
-      <div className='banner-bottom-img'>
+      <div className="banner-bottom-img">
         {!isMobile && (
-          <TweenOne animation={{ opacity: 1, type: 'to' }} className="banner-image-wrapper banner-svg-anim" key='banner-bottom-img'>
+          <TweenOne
+            animation={{ opacity: 1, type: 'to' }}
+            className="banner-image-wrapper banner-svg-anim"
+            key="banner-bottom-img"
+          >
             <BannerSVGAnim key="banner-svg" />
           </TweenOne>
         )}

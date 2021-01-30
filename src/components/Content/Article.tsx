@@ -57,13 +57,11 @@ export default class Article extends React.PureComponent<ArticleProps> {
     const { title, subtitle, path, modifiedTime, avatarList } = meta;
     const {
       intl: { locale },
-    } =
-      this.context as
-      {
-        intl: {
-          locale: 'zh-CN' | 'en-US';
-        };
+    } = this.context as {
+      intl: {
+        locale: 'zh-CN' | 'en-US';
       };
+    };
     return (
       <>
         <Helmet>

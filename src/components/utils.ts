@@ -50,10 +50,7 @@ export function getLocalizedPathname(path: string, zhCN: boolean) {
   return `${pathname}-cn`;
 }
 
-export function getMenuItems(
-  moduleData: Record<string, any>,
-  locale: string,
-) {
+export function getMenuItems(moduleData: Record<string, any>, locale: string) {
   const menuMeta = moduleData.map((item: { meta: any }) => item.meta);
   const menuItems: Record<string, any> = { topLevel: {} };
   menuMeta

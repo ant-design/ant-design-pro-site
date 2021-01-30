@@ -19,6 +19,7 @@ Create a new file in the src/models directory, the file name will become the nam
 > For example, the namespace of demo.ts is demo.
 
 The content of a model needs to be a JavaScript function, and be exported by default, you can use hooks in the function. The below is an example of a valid model:
+
 ```
 // demo.ts
 export default () => 'Hello World';

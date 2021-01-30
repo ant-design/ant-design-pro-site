@@ -5,39 +5,46 @@ type: 基础使用
 ---
 
 ## 环境变量
+
 ### 默认环境变量
+
 Umi 中提供了大量的 [默认环境变量](https://umijs.org/zh/guide/env-variables.html#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE)，这些变量可以帮助我们管理一些脚手架功能。
 
 ### 设置环境变量
+
 在`package.json`内修改启动命令，以添加对应环境变量。
 
 示例代码如下：
-``` json
+
+```json
 {
-    /** 省略配置项 */ 
-    "scripts": {
-      /** 省略配置项 */ 
-      // 在start命令内添加UMI_ENV环境变量
-      "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
-      "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
-      /** 省略配置项 */ 
-    }
-    /** 省略配置项 */ 
+  /** 省略配置项 */
+  "scripts": {
+    /** 省略配置项 */
+    // 在start命令内添加UMI_ENV环境变量
+    "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
+    "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev"
+    /** 省略配置项 */
+  }
+  /** 省略配置项 */
 }
 ```
 
 ## 多运行环境管理
+
 在开发中经常会有一些需求，根据应用运行的不同环境进行不同的逻辑处理。
 
 比如，`dev` 环境使用 `dev` 的对应的 Url，而线上则使用 `prod` 对应的 Url。 或者，在某些特定的环境需要打开只有在该环境下才会生效的功能。
 
-### 获取当前运行环境名称   
-在 Pro 的脚手架中有这样的一个环境变量 `REACT_APP_ENV`，该变量代表当前应用所处环境的具体名称。如dev、test、pre、prod等。
+### 获取当前运行环境名称
 
-如若需要在 `config` 外的非node环境文件中使用该环境变量，则需要在 `config` 导出默认 `defineConfig()` 时配置 `define{}`。
+在 Pro 的脚手架中有这样的一个环境变量 `REACT_APP_ENV`，该变量代表当前应用所处环境的具体名称。如 dev、test、pre、prod 等。
+
+如若需要在 `config` 外的非 node 环境文件中使用该环境变量，则需要在 `config` 导出默认 `defineConfig()` 时配置 `define{}`。
 
 示例代码如下：
-``` js
+
+```js
 // config/config.ts
 const { REACT_APP_ENV } = process.env;
 
@@ -51,7 +58,8 @@ export default defineConfig({
 ```
 
 使用该变量[示例代码](https://github.com/ant-design/ant-design-pro/blob/b005f2a465/src/components/GlobalHeader/RightContent.tsx)如下：
-``` js
+
+```js
 // src/components/RightContent/index.tsx
 /** 省略其他代码 */
 const GlobalHeaderRight: React.FC<{}> = () => {
@@ -71,10 +79,12 @@ const GlobalHeaderRight: React.FC<{}> = () => {
 ```
 
 ### 多环境多份配置文件
-Pro脚手架默认使用Umi作为底层框架，在Umi内可通过指定 `UMI_ENV` 环境变量来[区分不同环境的配置文件](https://umijs.org/zh-CN/docs/config#多环境多份配置)，`UMI_ENV` 需要在 `package.json` 内配置。
+
+Pro 脚手架默认使用 Umi 作为底层框架，在 Umi 内可通过指定 `UMI_ENV` 环境变量来[区分不同环境的配置文件](https://umijs.org/zh-CN/docs/config#多环境多份配置)，`UMI_ENV` 需要在 `package.json` 内配置。
 
 示例配置如下：
-``` json
+
+```json
 {
   {/** 省略... */}
   "scripts": {
@@ -99,10 +109,11 @@ Pro脚手架默认使用Umi作为底层框架，在Umi内可通过指定 `UMI_EN
 }
 ```
 
-当 `UMI_ENV` 为 `test` 时，则必须在config目录下配置 `config.test.ts` 文件来管理 `test` 环境下的不同变量，Umi框架会在deep merge后形成最终配置。
+当 `UMI_ENV` 为 `test` 时，则必须在 config 目录下配置 `config.test.ts` 文件来管理 `test` 环境下的不同变量，Umi 框架会在 deep merge 后形成最终配置。
 
 示例代码如下：
-``` js
+
+```js
 // config/config.test.ts test环境对应的配置文件
 import { defineConfig } from 'umi';
 
@@ -112,14 +123,15 @@ import { defineConfig } from 'umi';
  */
 export default defineConfig({
   define: {
-    API_URL: "https://api-test.xxx.com", // API地址
-    API_SECRET_KEY: "XXXXXXXXXXXXXXXX"  // API调用密钥
+    API_URL: 'https://api-test.xxx.com', // API地址
+    API_SECRET_KEY: 'XXXXXXXXXXXXXXXX', // API调用密钥
   },
 });
 ```
 
 变量使用示例：
-``` js
+
+```js
 // src/services/user.ts
 import { request } from 'umi';
 
@@ -131,36 +143,27 @@ export async function query() {
 }
 ```
 
-配置文件 config 下的结构：
-ant-design-pro
-    -- config
-        -- config.dev.ts
-        -- config.test.ts
-        -- config.pre.ts
-        -- config.prod.ts
-        -- config.ts
-        -- proxy.ts
-        -- routes.ts
-        -- defaultSettings.ts
-    -- ...
+配置文件 config 下的结构： ant-design-pro -- config -- config.dev.ts -- config.test.ts -- config.pre.ts -- config.prod.ts -- config.ts -- proxy.ts -- routes.ts -- defaultSettings.ts -- ...
 
-## 报错的处理方式 
+## 报错的处理方式
+
 由于环境变量是直接使用，不会通过 window 对象的方式来使用，在 eslint 和 TypeScript 中都会报错。
 
-eslint 中可以通过增加  [`globals`](https://eslint.org/docs/user-guide/configuring#specifying-globals)  的配置来处理报错。代码看起来是这样的
+eslint 中可以通过增加 [`globals`](https://eslint.org/docs/user-guide/configuring#specifying-globals) 的配置来处理报错。代码看起来是这样的
 
-``` json
+```json
 {
- globals: {
-    page: true,
-  },
+  "globals": {
+    "page": true
+  }
 }
 ```
 
-在 TypeScript 可以在 [`typings.d.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/typings.d.ts#L18)  中进行定义：
+在 TypeScript 可以在 [`typings.d.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/src/typings.d.ts#L18) 中进行定义：
 
 示例代码如下：
-``` js
+
+```js
 // src/typings.d.ts
 // ... 代码省略
 declare const REACT_APP_ENV: 'test' | 'dev' | 'uat' | 'prod' | undefined;
@@ -170,7 +173,8 @@ declare const API_SECRET_KEY: string;
 ```
 
 ## 变量使用的原理
-[config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是 node 环境，所以可以直接用 `process.env` 来直接拿到环境变量，但是非node环境的代码中，使用 `process.env` 可能只会获得 `NODE_ENV` 这个约定俗成的变量，别的变量 webpack 并不会自动注入。
+
+[config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是 node 环境，所以可以直接用 `process.env` 来直接拿到环境变量，但是非 node 环境的代码中，使用 `process.env` 可能只会获得 `NODE_ENV` 这个约定俗成的变量，别的变量 webpack 并不会自动注入。
 
 > 关于 `process.env` 和 `NODE_ENV` 请看[这里](https://webpack.docschina.org/guides/production/#%E6%8C%87%E5%AE%9A-mode)。
 

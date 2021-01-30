@@ -16,7 +16,7 @@ Umi 会自动将对应目标的资源下载并添加到项目中，同时修改�
 
 如果找不到右下角的小气泡，请用以下命令打开 [Umi UI](https://umijs.org/zh-CN/docs/use-umi-ui)：
 
-``` shell
+```shell
 $ tyarn add @umijs/preset-ui -D
 // 或
 $ npm install --save-dev @umijs/preset-ui

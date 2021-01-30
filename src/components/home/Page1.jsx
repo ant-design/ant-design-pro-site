@@ -255,10 +255,7 @@ class Page1 extends React.PureComponent {
     });
 
     children = children.map((item, i) => (
-      <div
-        className="page1-box-wrapper"
-        key={i.toString()}
-      >
+      <div className="page1-box-wrapper" key={i.toString()}>
         {item}
       </div>
     ));

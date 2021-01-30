@@ -19,13 +19,14 @@ type: 基础使用
 [request](https://umijs.org/plugins/plugin-request#request) 的大部分用法等同于 umi-request，一个不同的是 options 扩展了一个配置 skipErrorHandler，该配置为 true 是会跳过默认的错误处理，用于项目中部分特殊的接口。
 
 示例代码如下：
-``` javascript
+
+```javascript
 request('/api/user', {
   params: {
     name: 1,
   },
   skipErrorHandler: true,
-})
+});
 ```
 
 ### 使用 useRequest
@@ -55,7 +56,8 @@ export default () => {
 <!-- ### 中间件 -->
 
 ## 中间件 & 拦截器
-在某些情况下我们需要在网络请求发出前或响应后做一些特殊处理。比如，在每次请求前在Header内自动加上对应的Access Token。
+
+在某些情况下我们需要在网络请求发出前或响应后做一些特殊处理。比如，在每次请求前在 Header 内自动加上对应的 Access Token。
 
 [@umijs/plugin-request](https://umijs.org/plugins/plugin-request#responseinterceptors) 提供了三个运行时配置项来帮助我们完成类似需求。
 
@@ -64,7 +66,8 @@ export default () => {
 中间件和拦截器一样，同样可以让开发者优雅地做网络请求前后的增强处理。但是用起来稍复杂，推荐优先使用拦截器。
 
 示例代码如下：
-``` javascript
+
+```javascript
 // src/app.ts
 export const request: RequestConfig = {
   errorHandler,
@@ -76,28 +79,31 @@ const demo1Middleware = async (ctx: Context, next: () => void) => {
   console.log('request1');
   await next();
   console.log('response1');
-}
+};
 
 const demo2Middleware = async (ctx: Context, next: () => void) => {
   console.log('request2');
   await next();
   console.log('response2');
-}
+};
 
 export const request: RequestConfig = {
   errorHandler,
   middlewares: [demo1Middleware, demo2Middleware],
 };
 ```
+
 执行顺序如下：
+
 > request1 -> request2 -> response -> response2 -> response1
 
 强烈建议你再细看一下 [umi-request](https://github.com/umijs/umi-request) 关于 [中间件的文档](https://github.com/umijs/umi-request/blob/master/README_zh-CN.md#中间件)。
 
 ### 请求前拦截：requestInterceptors
 
-在网络请求的 `.then` 或 `catch` 处理前拦截，你可以在 `src/app.ts` 网络请求配置内增加如下配置： 
-``` javascript
+在网络请求的 `.then` 或 `catch` 处理前拦截，你可以在 `src/app.ts` 网络请求配置内增加如下配置：
+
+```javascript
 export const request: RequestConfig = {
   errorHandler,
   // 新增自动添加AccessToken的请求前拦截器
@@ -108,37 +114,38 @@ export const request: RequestConfig = {
 `requestInterceptors` 接收一个数组，数组的每一项为一个 request 拦截器。等同于 umi-request 的 `request.interceptors.request.use()` 。
 
 拦截器示例代码如下：
-``` javascript
+
+```javascript
 // src/app.ts
-const authHeaderInterceptor = (  url: string, options: RequestOptionsInit ) => {
-  const authHeader = {'Authorization': 'Bearer xxxxxx'}
+const authHeaderInterceptor = (url: string, options: RequestOptionsInit) => {
+  const authHeader = { Authorization: 'Bearer xxxxxx' };
   return {
     url: `${url}`,
-    options: { ...options , interceptors: true, headers: authHeader},
-  };    
-}
+    options: { ...options, interceptors: true, headers: authHeader },
+  };
+};
 ```
 
-更具体内容见 [umi-request](https://github.com/umijs/umi-request) 的 [拦截器文档]((https://github.com/umijs/umi-request#interceptor))。
+更具体内容见 [umi-request](https://github.com/umijs/umi-request) 的 [拦截器文档](<(https://github.com/umijs/umi-request#interceptor)>)。
 
 ### 响应后拦截：responseInterceptors
+
 在网络请求响应的 `.then` 或 `catch` 处理前拦截处理，使用方法基本和 [requestInterceptors](request-cn#请求前拦截：requestinterceptors) 相同。
 
 具体示例代码如下：
 
-``` javascript
+```javascript
 // src/app.ts
 const demoResponseInterceptors = (response: Response, options: RequestOptionsInit) => {
   response.headers.append('interceptors', 'yes yo');
   return response;
-}
+};
 
 export const request: RequestConfig = {
   errorHandler,
   responseInterceptors: [demoResponseInterceptors],
 };
-``` 
-
+```
 
 ## 统一规范
 
