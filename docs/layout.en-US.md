@@ -1,7 +1,7 @@
 ---
 order: 14
 title: Layout
-type: Basic Usage
+type: Layout
 ---
 
 Layout is necessary for a middle and back-end application. One layout + ProTable + Form can get a CRUD page.
@@ -127,8 +127,6 @@ export const layout = {
 ![footer](https://gw.alipayobjects.com/mdn/rms_30ab81/afts/img/A*kzgBSqHIGOwAAAAAAAAAAABkARQnAQ)
 
 The plugin does not provide a default footer UI. The customization can be done through the following configuration. If you want to use the same style as Pro's official website, please refer to: https://prolayout.ant.design/footer
-
-<<<<<<< HEAD
 
 ```js
 // src/app.tsx
@@ -303,7 +301,7 @@ export default {
 };
 ```
 
-<<<<<<< HEAD Tips: When the layout mode is `mix`，click the first menu, page cannot route they first children menu page, you can add `redirect` at route.
+> Tips: When the layout mode is `mix`，click the first menu, page cannot route they first children menu page, you can add `redirect` at route.
 
 ```json
 [

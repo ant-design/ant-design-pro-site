@@ -1,7 +1,7 @@
 ---
 order: 15
 title: 内置布局
-type: 基础使用
+type: 布局
 ---
 
 布局是一个中后台应用必备的，一个布局 + ProTable + Form 即可获得一个 CRUD 页面。

@@ -6,22 +6,6 @@ type: 基础使用
 
 这里的『页面』指配置了路由，能够通过链接直接访问的模块，要新建一个页面，通常只需要在脚手架的基础上进行简单的配置。
 
-## 通过 UI 创建（推荐）
-
-项目启动后你会在右下角看到一个小气泡，那是 [Umi UI](https://umijs.org/zh-CN/docs/use-umi-ui) 的快捷入口，点击后你可以看到 [Umi UI](https://umijs.org/zh-CN/docs/use-umi-ui) 的页面。你可以通过点击进入 `资产 -> 模板` 查看模板列表，选择合适的页面添加到项目中。
-
-Umi 会自动将对应目标的资源下载并添加到项目中，同时修改路由配置。目标添加成功后就可以按照你的具体需求调整相关代码了。
-
-> 注意：当前该过程还不可逆，所以执行该操作前还请将已有改动提交到 Git。
-
-如果找不到右下角的小气泡，请用以下命令打开 [Umi UI](https://umijs.org/zh-CN/docs/use-umi-ui)：
-
-```shell
-$ tyarn add @umijs/preset-ui -D
-// 或
-$ npm install --save-dev @umijs/preset-ui
-```
-
 ## 手动创建
 
 ### 一、新增 js、less 文件
