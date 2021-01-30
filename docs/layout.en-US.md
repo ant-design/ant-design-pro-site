@@ -1,7 +1,7 @@
 ---
 order: 14
 title: Layout
-type: Layout
+type: Development page
 ---
 
 Layout is necessary for a middle and back-end application. One layout + ProTable + Form can get a CRUD page.
