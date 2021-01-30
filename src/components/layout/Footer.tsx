@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Row, Col, Badge } from 'antd';
+import { Row, Col } from 'antd';
 import * as utils from '../utils';
 
 class Footer extends React.Component<{

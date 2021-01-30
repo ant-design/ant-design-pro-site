@@ -10,14 +10,15 @@ import {
   MenuUnfoldOutlined,
   RightOutlined,
 } from '@ant-design/icons';
-import { Badge, Row, Col, Menu, Affix } from 'antd';
+import { Badge, Row, Col, Menu } from 'antd';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
 import moment from 'moment';
 import Article from './Article';
-import { isZhCN, getMenuItems, MenuDataItem, IMenuData } from '../utils';
-import { IFrontmatterData } from '../../templates/docs';
+import type { MenuDataItem, IMenuData } from '../utils';
+import { isZhCN, getMenuItems } from '../utils';
+import type { IFrontmatterData } from '../../templates/docs';
 import Footer from '../layout/Footer';
 
 export interface MainContentProps {
@@ -283,13 +284,30 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
               {menuChild}
             </MobileMenu>
           ) : (
-            <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24}>
-              <Affix offsetTop={10}>
-                <div className="main-menu">{menuChild}</div>
-              </Affix>
+            <Col
+              style={{
+                position: 'fixed',
+                top: '64px',
+                left: 0,
+                zIndex: 9,
+                height: 'calc(100vh - 64px)',
+                width: 274,
+              }}
+            >
+              <div className="main-menu">{menuChild}</div>
             </Col>
           )}
-          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
+          <Col
+            xxl={20}
+            xl={19}
+            lg={18}
+            md={24}
+            sm={24}
+            xs={24}
+            style={{
+              marginLeft: 274,
+            }}
+          >
             <div className={mainContainerClass}>
               <Article {...this.props} content={localizedPageData} />
             </div>

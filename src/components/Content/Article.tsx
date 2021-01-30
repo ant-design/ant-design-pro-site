@@ -6,7 +6,7 @@ import { Affix } from 'antd';
 import delegate from 'delegate';
 import moment from 'moment';
 import EditButton from './EditButton';
-import { IFrontmatterData } from '../../templates/docs';
+import type { IFrontmatterData } from '../../templates/docs';
 import AvatarList from './AvatarList';
 
 interface ArticleProps {

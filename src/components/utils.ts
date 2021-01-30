@@ -1,12 +1,10 @@
-import { IFrontmatterData } from '../templates/docs';
+import type { IFrontmatterData } from '../templates/docs';
 
 export interface MenuDataItem extends IFrontmatterData {
   link?: string;
 }
 
-export interface IMenuData {
-  [key: string]: IMenuData | MenuDataItem[];
-}
+export type IMenuData = Record<string, IMenuData | MenuDataItem[]>;
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
@@ -53,18 +51,14 @@ export function getLocalizedPathname(path: string, zhCN: boolean) {
 }
 
 export function getMenuItems(
-  moduleData: {
-    [key: string]: any;
-  },
+  moduleData: Record<string, any>,
   locale: string,
 ) {
   const menuMeta = moduleData.map((item: { meta: any }) => item.meta);
-  const menuItems: {
-    [key: string]: any;
-  } = { topLevel: {} };
+  const menuItems: Record<string, any> = { topLevel: {} };
   menuMeta
     .sort((a: { order: number }, b: { order: number }) => (a.order || 0) - (b.order || 0))
-    .forEach((meta: { category: { [x: string]: any }; type: string }) => {
+    .forEach((meta: { category: Record<string, any>; type: string }) => {
       const category = (meta.category && meta.category[locale]) || meta.category || 'topLevel';
       if (!menuItems[category]) {
         menuItems[category] = {};

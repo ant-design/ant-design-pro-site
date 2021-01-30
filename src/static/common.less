@@ -2,6 +2,18 @@
 
 html {
   height: 100%;
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(50, 50, 50, 0.3);
+    border-radius: 1em;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba(50, 50, 50, 0.1);
+    border-radius: 1em;
+  }
 }
 
 a {
@@ -18,7 +30,7 @@ a {
 .main-wrapper {
   position: relative;
   margin: 0;
-  padding-top: 40px;
+  padding-top: 110px;
   background: #fff;
   border-radius: @border-radius-base;
 }
@@ -60,6 +72,20 @@ a {
   padding-bottom: 80px;
   padding-left: 40px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(50, 50, 50, 0.3);
+    border-radius: 1em;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba(50, 50, 50, 0.1);
+    border-radius: 1em;
+  }
+
   .ant-menu-item-group-title {
     padding-left: 0 !important;
   }
@@ -71,6 +97,11 @@ a {
     height: 1px;
     background: #f0f0f0;
     content: '';
+  }
+  .ant-menu-item-group-list .ant-menu-item {
+    height: 32px;
+    padding: 0;
+    line-height: 32px;
   }
 }
 
