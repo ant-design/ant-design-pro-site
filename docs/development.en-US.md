@@ -48,46 +48,4 @@ The first part is the Method configuration of the network request, the full list
 
 The second part is the URL, which is the address where we initiate the network request. Generally we will use a uniform prefix to facilitate the use of agents.
 
-The third part is data processing, we can configure a JSON, JSON data will be returned directly. Or configure a function with three parameters [req](https://expressjs.com/en/4x/api.html#req), [res](https://expressjs.com/en/4x/api.html#res),url 。 Use it in the same way as [express](https://expressjs.com/). The data must be returned by `res.send`.
-
-## PROXY
-
-The agent is designed to solve cross-domain problems while facilitating the use of technology, in Pro we have built-in proxy, and made environmental distinctions. A standard configuration is this.
-
-```ts
-export default {
-  dev: {
-    '/api/': {
-      target: 'https://preview.pro.ant.design',
-      changeOrigin: true,
-      pathRewrite: { '^': '' },
-    },
-  },
-  test: {
-    '/api/': {
-      target: 'https://preview.pro.ant.design',
-      changeOrigin: true,
-      pathRewrite: { '^': '' },
-    },
-  },
-  pre: {
-    '/api/': {
-      target: 'your pre url',
-      changeOrigin: true,
-      pathRewrite: { '^': '' },
-    },
-  },
-};
-```
-
-The agent has some important configurations first one to match the route's regular rules, `/api/` will match `/api/list`, but will not match `api/list`, or `/list/api`. Target needs the location of the request, `target: 'https://preview.pro.ant.design,` will `/api/list` stitched into `https://preview.pro.ant.design/api/list` to make the request. pathRewrite is an object of `'/api': '/qixian'` will replace the url `/api` all with `/qixian` and then send out
-
-> The agent does not modify the url of the console, and all of its operations are in node.js.
-
-## ProTable
-
-Developing a table is a basic in-background practice, and we encapsulate a heavy-duty component to introduce boilerplate code, which has two code-saving features, starting with support for request to request data so that refreshes and all that he can trigger automatically. Second, it supports many presets such as common numbers, dates, or complex enumerations, which he can handle automatically for you and generate query forms by the way. The following image is a simple ProTable usage.
-
-![protable](https://gw.alipayobjects.com/zos/antfincdn/Qi5lwGanlE/47FCD236-C1D4-4FD1-9721-6B4F2443F420.png)
-
-Reference documents: <https://protable.ant.design/>
+The third part is data processing, we can configure a JSON, JSON data will be returned directly. Or configure a function with three parameters [req](https://expressjs.com/en/4x/api.html#req), [res](https://expressjs.com/en/4x/api.html#res),url. Use it in the same way as [express](https://expressjs.com/). The data must be returned by `res.send`.
