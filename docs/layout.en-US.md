@@ -14,7 +14,7 @@ Layout is necessary for a middle and back-end application. One layout + ProTable
 
 The layout plugin supports all configurations of [pro-layout](https://github.com/ant-design/ant-design-pro-layout).
 
-It is recommended to use the left drawer of [Pro site](https://preview.pro.ant.design/dashboard/analysis?primaryColor=daybreak) to help you complete the overall style, theme color, navigation mode, and content area related to the layout. Width, fixed Header, fixed side menu, color weak mode and other configuration options. Then paste the copied configuration into the layout configuration.
+It is recommended to use the right drawer of [Pro site](https://preview.pro.ant.design/dashboard/analysis?primaryColor=daybreak) to help you complete the overall style, theme color, navigation mode, and content area related to the layout. Width, fixed Header, fixed side menu, color weak mode and other configuration options. Then paste the copied configuration into the layout configuration.
 
 ![Pro site](https://gw.alipayobjects.com/mdn/rms_30ab81/afts/img/A*NhA4To_Ccn8AAAAAAAAAAABkARQnAQ)
 
