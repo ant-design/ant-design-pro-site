@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 30
 title: Use Pro's Assets
 type: Advanced Usage
 ---

@@ -87,7 +87,7 @@ export default class Article extends React.PureComponent<ArticleProps> {
           </div>
 
           {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
-            <Affix className="toc-affix" offsetTop={16}>
+            <Affix className="toc-affix" offsetTop={108}>
               <div
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{

@@ -1,7 +1,7 @@
 ---
 order: 19
 title: Simple Model
-type: Basic Usage
+type: Data Management
 ---
 
 ## Introduction

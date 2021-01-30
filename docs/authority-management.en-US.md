@@ -1,7 +1,7 @@
 ---
 order: 20
 title: Permission Management
-type: Basic Usage
+type: Data Management
 ---
 
 ## 1. Introduction
