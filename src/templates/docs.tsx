@@ -74,18 +74,19 @@ export default function Template({
     const { fields: nodeFields } = node;
 
     return {
-      slug: nodeFields.slug,
       meta: {
         ...node.frontmatter,
         slug: nodeFields.slug,
         filename: nodeFields.slug,
       },
       ...node.frontmatter,
+      slug: nodeFields.slug,
       filename: nodeFields.path,
       next,
       previous,
     };
   });
+
   return (
     <WrapperLayout {...rest}>
       <MainContent

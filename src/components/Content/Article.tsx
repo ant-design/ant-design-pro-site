@@ -8,6 +8,17 @@ import moment from 'moment';
 import EditButton from './EditButton';
 import type { IFrontmatterData } from '../../templates/docs';
 import AvatarList from './AvatarList';
+import Dashboard from './dashboard';
+
+const Doc: React.FC<{ content: string }> = ({ content }) => {
+  return (
+    <section
+      className="markdown api-container"
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
+  );
+};
 
 interface ArticleProps {
   content: {
@@ -15,6 +26,10 @@ interface ArticleProps {
     toc: string | false;
     content: string;
   };
+  location: {
+    pathname: string;
+  };
+  menuData: Record<string, any>;
 }
 
 export default class Article extends React.PureComponent<ArticleProps> {
@@ -52,16 +67,17 @@ export default class Article extends React.PureComponent<ArticleProps> {
 
   render() {
     const { props } = this;
-    const { content } = props;
+    const { content, menuData, location } = props;
     const { meta } = content;
     const { title, subtitle, path, modifiedTime, avatarList } = meta;
-    const {
-      intl: { locale },
-    } = this.context as {
+    const { intl } = this.context as {
       intl: {
         locale: 'zh-CN' | 'en-US';
       };
     };
+
+    const isDashboard = location.pathname.startsWith('/docs/overview');
+
     return (
       <>
         <Helmet>
@@ -76,7 +92,9 @@ export default class Article extends React.PureComponent<ArticleProps> {
         >
           <h1>
             {title}
-            {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
+            {!subtitle || intl.locale === 'en-US' ? null : (
+              <span className="subtitle">{subtitle}</span>
+            )}
             <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={path} />
           </h1>
 
@@ -96,11 +114,11 @@ export default class Article extends React.PureComponent<ArticleProps> {
               />
             </Affix>
           )}
-          <section
-            className="markdown api-container"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: content.content }}
-          />
+          {isDashboard ? (
+            <Dashboard intl={intl} menuData={menuData} />
+          ) : (
+            <Doc content={content.content} />
+          )}
         </article>
       </>
     );

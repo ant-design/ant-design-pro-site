@@ -26,7 +26,7 @@ export interface MainContentProps {
   location: {
     pathname: string;
   };
-  layout: any;
+  layout?: any;
   menuList: MenuDataItem[];
   localizedPageData: {
     meta: IFrontmatterData;
@@ -213,15 +213,15 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
   };
 
   getMenuItems = (footerNavIcons = {}) => {
-    const moduleData = getModuleDataWithProps(this.props);
     const {
       intl: { locale },
     } = this.context;
+    const moduleData = getModuleDataWithProps(this.props);
     const menuItems: IMenuData = getMenuItems(moduleData, locale) || {};
     const topLevel =
       this.generateSubMenuItems(menuItems.topLevel as IMenuData, footerNavIcons) || [];
     const result = [...topLevel].filter(({ key }) => key);
-    return result;
+    return { dom: result, menuData: menuItems };
   };
 
   getPreAndNext = (menuItems: any) => {
@@ -255,8 +255,9 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     const { localizedPageData, isMobile } = this.props;
 
     const activeMenuItem = getActiveMenuItem(this.props);
-    const menuItems = this.getMenuItems();
-    const currentItem = this.getPreAndNext(menuItems);
+
+    const { dom, menuData } = this.getMenuItems();
+    const currentItem = this.getPreAndNext(dom);
     const { next, previous } = currentItem;
     const mainContainerClass = classNames('main-container', {});
     const { openKeys } = this.state;
@@ -269,9 +270,56 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
         selectedKeys={[activeMenuItem]}
         onOpenChange={this.handleMenuOpenChange}
       >
-        {menuItems}
+        {dom}
       </Menu>
     );
+
+    const overviewData = {
+      模板组件: [
+        {
+          title: 'ProLayout - 高级布局',
+          cover: 'https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg',
+          slug: 'https://procomponents.ant.design/components/layout',
+        },
+        {
+          title: 'PageContainer - 页容器',
+          cover: 'https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg',
+          slug: 'https://procomponents.ant.design/components/page-container',
+        },
+        {
+          title: 'ProForm -高级表单',
+          cover: 'https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg',
+          slug: 'https://procomponents.ant.design/components/form',
+        },
+        {
+          title: 'Modal/Drawer - 浮层表单',
+          cover: 'https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg',
+          slug: 'https://procomponents.ant.design/components/modal-form',
+        },
+        {
+          title: 'ProTable - 高级表格',
+          cover: 'https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg',
+          slug: 'https://procomponents.ant.design/components/table',
+        },
+        {
+          title: 'EditableProTable - 可编辑表格',
+          cover: 'https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg',
+          slug: 'https://procomponents.ant.design/components/editable-table',
+        },
+        {
+          title: 'ProList - 高级列表',
+          cover: 'https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg',
+          slug: 'https://procomponents.ant.design/components/list',
+        },
+        {
+          title: 'ProDescriptions  - 高级定义列表',
+          cover: 'https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg',
+          slug: 'https://procomponents.ant.design/components/descriptions',
+        },
+      ],
+      ...menuData.topLevel,
+    };
+
     return (
       <div className="main-wrapper">
         <Row>
@@ -309,7 +357,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
             }}
           >
             <div className={mainContainerClass}>
-              <Article {...this.props} content={localizedPageData} />
+              <Article {...this.props} content={localizedPageData} menuData={overviewData} />
             </div>
             <Row>
               <Col lg={{ span: 24 }} md={24} sm={24} xs={24}>
