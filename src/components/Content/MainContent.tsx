@@ -27,7 +27,7 @@ export interface MainContentProps {
     pathname: string;
   };
   layout?: any;
-  menuList: MenuDataItem[];
+  menuList?: MenuDataItem[];
   localizedPageData: {
     meta: IFrontmatterData;
     toc: string | false;
