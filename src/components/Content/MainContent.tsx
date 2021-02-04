@@ -50,12 +50,14 @@ function getActiveMenuItem(props: MainContentProps) {
 function getModuleDataWithProps(props: MainContentProps) {
   const moduleData = props.menuList;
   const excludedSuffix = isZhCN(props.location.pathname) ? 'zh-CN' : 'en-US';
-  return moduleData.filter(({ filename }) => {
-    if (!filename) {
-      return false;
-    }
-    return filename.includes(excludedSuffix);
-  });
+  return (
+    moduleData?.filter(({ filename }) => {
+      if (!filename) {
+        return false;
+      }
+      return filename.includes(excludedSuffix);
+    }) || []
+  );
 }
 
 function isNotTopLevel(level: string) {
@@ -193,6 +195,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
       .filter(isNotTopLevel)
       .map((type) => {
         const groupItems = (obj[type] as MenuDataItem[])
+          .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
           .sort((a, b) => {
             if ('time' in a && 'time' in b) {
               return moment(b.time).valueOf() - moment(a.time).valueOf();
@@ -283,11 +286,11 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
         },
         {
           title: 'PageContainer - 页容器',
-          cover: 'https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg',
+          cover: 'https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg',
           slug: 'https://procomponents.ant.design/components/page-container',
         },
         {
-          title: 'ProForm -高级表单',
+          title: 'ProForm - 高级表单',
           cover: 'https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg',
           slug: 'https://procomponents.ant.design/components/form',
         },
@@ -312,7 +315,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
           slug: 'https://procomponents.ant.design/components/list',
         },
         {
-          title: 'ProDescriptions  - 高级定义列表',
+          title: 'ProDescriptions - 高级定义列表',
           cover: 'https://gw.alipayobjects.com/zos/alicdn/MjtG9_FOI/Descriptions.svg',
           slug: 'https://procomponents.ant.design/components/descriptions',
         },
