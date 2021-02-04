@@ -1,7 +1,7 @@
 ---
 order: 13
 title: Debug
-type: Basic Usage
+type: Development Page
 ---
 
 Writing code is really only a small part of the developer's work. To make our work more efficient, we must also be proficient in debug. The best tool for front-end development right now is google's [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools?utm_source=dcc&utm_medium=redirect&utm_campaign=2018Q2), and it's also a thoughtful, multilingual version.

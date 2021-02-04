@@ -1,7 +1,7 @@
 ---
 order: 15
 title: New Page
-type: Development page
+type: Page Development
 ---
 
 This "page" refers to a module that is configured with a route and can be directly accessed through a link. To create a new page, usually only a simple configuration is required on the scaffold.

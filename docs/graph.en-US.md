@@ -1,7 +1,7 @@
 ---
 order: 15
 title: Chart
-type: Development page
+type: Page Development
 ---
 
 In many cases, we need a beautiful and generous icon page to serve as the home page, which can quickly display market information while also attracting attention and enhancing the texture of the system. So we also made an icon library <b>Ant Design Charts</b>.

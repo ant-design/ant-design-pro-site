@@ -1,7 +1,7 @@
 ---
 order: 15
 title: Custom layout
-type: Development page
+type: Page Development
 ---
 
 Sometimes we don't want to use the built-in layout and want to do more customization. We also provide flexible customization solutions.
