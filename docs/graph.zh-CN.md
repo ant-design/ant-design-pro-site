@@ -1,7 +1,7 @@
 ---
 order: 15
 title: 图表
-type: Development page
+type: 开发页面
 ---
 
 很多时候我们都需要一个美观大方的图表页来充当首页，在快速展示大盘信息的同时还能吸引眼球，提升系统的质感。所以我们也做了一个图表库 Ant Design Charts。
