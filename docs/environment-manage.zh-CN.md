@@ -1,6 +1,6 @@
 ---
 order: 11
-title: 环境
+title: 环境变量
 type: 基础使用
 ---
 
