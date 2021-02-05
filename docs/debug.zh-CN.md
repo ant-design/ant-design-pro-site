@@ -1,7 +1,7 @@
 ---
 order: 12
 title: 调试
-type: 开发页面
+type: 后端集成
 ---
 
 编写代码其实只是开发者的一小部分工作。为了让工作更有效率，我们还必须精通 debug。工欲善其事必先利其器，前端开发现在最好的工具就是 google 的 [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools?utm_source=dcc&utm_medium=redirect&utm_campaign=2018Q2)，而且还贴心的准备了多语言的版本。

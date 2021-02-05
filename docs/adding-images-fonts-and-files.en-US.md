@@ -28,7 +28,7 @@ If you want to use the cache, you can put the file in `public/logo.png` and use 
 return <Image src="/logo.png" />;
 ```
 
-When compiling, all public will be moved to dist without any processing. Be sure to use the absolute path when using it.
+When compiling, all public will be moved to dist without any processing. Be sure to use the absolute path when using it. Usually we recommend importing stylesheets, images and fonts from JavaScript. The public folder can be used as a workaround for many unusual situations.
 
 ## Add SVG
 
