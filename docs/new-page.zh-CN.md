@@ -52,4 +52,6 @@ export default () => {
 
 ### 三、新增 model、service
 
-布局及路由都配置好之后，回到之前新建的 `NewPage.js`，可以开始写业务代码了！如果需要用到 [dva](https://github.com/dvajs/dva/) 中的数据流，还需要在 `src/models` `src/services` 中建立相应的 model 和 service，具体可以参考脚手架内置页面的写法。
+布局及路由都配置好之后，回到之前新建的 `NewPage.js`，可以开始写业务代码了！
+
+> 如果需要用到 [dva](https://github.com/dvajs/dva/) 中的数据流，还需要在 `src/models` `src/services` 中建立相应的 model 和 service，具体可以参考脚手架内置页面的写法。不过我们更加推荐使用轻量数据流管理数据，并且使用 openAPI 插件来生成 serves。

@@ -91,6 +91,8 @@ Then visit `http://localhost:8000/new` to see the new page.
 
 See the introduction in [Router and Nav](/docs/router-and-nav) for more details on routing.
 
-## Third, add model,service
+### Three, add model, service
 
-After the layout and routes are configured, go back to the newly created `NewPage.ts` and start writing business codes! If you need to use the data flow in [dva](https://github.com/dvajs/dva/), you also need to set the corresponding model and service in `src/models` and `src/services`. Refer to the writing of the built-in page of the scaffold for details.
+After the layout and routing are configured, go back to the newly created `NewPage.js`, and you can start writing business code!
+
+> If you need to use the data stream in [dva](https://github.com/dvajs/dva/), you also need to create the corresponding model and service in `src/models` `src/services`, which can be specific Refer to the writing of the built-in scaffolding page. However, we recommend using a lightweight data stream to manage data and using the openAPI plugin to generate serves.
