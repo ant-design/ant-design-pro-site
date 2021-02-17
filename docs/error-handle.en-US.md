@@ -1,21 +1,21 @@
 ---
 order: 17
-title: Error Handle
+title: Error Handling
 type: Advanced
 ---
 
-During the user's use, various abnormal situations may be encountered, such as page 404, application result failure, request return exception, etc. This document will introduce the corresponding processing suggestions according to the error report form.
+During the use, various abnormal situations may be encountered, such as page 404, application result failure, request exceptions, etc. This document will introduce the corresponding processing suggestions according to the error report form.
 
 ## Page Error
 
 ### When to be used
 
 - The route is directed to the error page. For example, the URL you entered does not match any page and can be routed to the default 404 page.
-- Code control jumps to the error page, such as the user returned without permission to the 403 page based on the data returned by the request.
+- Control flow jumps to the error page, such as the user returned without permission to the 403 page based on the data returned by the request.
 
 ### Achieve
 
-For page-level error reporting, we provide two business components for you to choose from, which makes it easy to implement an error page:
+For page-level error reporting, we provide two possible components for you to choose from, which makes it easy to implement an error page:
 
 - [Exception Page](http://preview.pro.ant.design/#/exception/404)
 
