@@ -61,9 +61,11 @@ interface HeaderState {
   defaultDarken?: boolean;
   key?: number;
 }
-
-const colorScheme = window?.matchMedia('(prefers-color-scheme: dark)').matches && 'dark';
-const defaultDarken = localStorage?.getItem('procomponents_dark_theme') || colorScheme;
+let defaultDarken = '';
+if (typeof window !== 'undefined') {
+  const colorScheme = window?.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  defaultDarken = localStorage?.getItem('procomponents_dark_theme') || colorScheme;
+}
 
 class Header extends React.Component<HeaderProps, HeaderState> {
   state: HeaderState = {
@@ -306,17 +308,19 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     marginLeft: 8,
                   }}
                 >
-                  <Darkreader
-                    key={this.state.key}
-                    defaultDarken={this.state.defaultDarken}
-                    onChange={(check) => {
-                      if (!check) {
-                        localStorage.setItem('procomponents_dark_theme', 'light');
-                        return;
-                      }
-                      localStorage.setItem('procomponents_dark_theme', 'dark');
-                    }}
-                  />
+                  {typeof window !== 'undefined' && (
+                    <Darkreader
+                      key={this.state.key}
+                      defaultDarken={this.state.defaultDarken}
+                      onChange={(check) => {
+                        if (!check) {
+                          localStorage.setItem('procomponents_dark_theme', 'light');
+                          return;
+                        }
+                        localStorage.setItem('procomponents_dark_theme', 'dark');
+                      }}
+                    />
+                  )}
                 </div>
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
