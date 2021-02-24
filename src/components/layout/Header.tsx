@@ -3,6 +3,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { Link } from 'gatsby';
 import { EyeOutlined, MenuOutlined, SearchOutlined } from '@ant-design/icons';
 import { Row, Col, Select, Input, Menu, Button, Modal, Popover } from 'antd';
+import Darkreader from 'react-darkreader';
 import * as utils from '../utils';
 
 const { Option } = Select;
@@ -57,12 +58,19 @@ interface HeaderState {
   menuMode?: 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
   searchOption?: any[];
   searching?: boolean;
+  defaultDarken?: boolean;
+  key?: number;
 }
+
+const colorScheme = window?.matchMedia('(prefers-color-scheme: dark)').matches && 'dark';
+const defaultDarken = localStorage?.getItem('procomponents_dark_theme') || colorScheme;
 
 class Header extends React.Component<HeaderProps, HeaderState> {
   state: HeaderState = {
     menuVisible: false,
     menuMode: 'horizontal',
+    key: Date.now(),
+    defaultDarken: defaultDarken === 'dark',
   };
 
   searchInput: Input | null | undefined;
@@ -236,7 +244,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         )}
       </Menu>,
     ];
-
     return (
       <div id="header" className="header">
         {menuMode === 'inline' ? (
@@ -294,6 +301,23 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <Option value="v4">v4</Option>
                   <Option value="stable">v5</Option>
                 </Select>
+                <div
+                  style={{
+                    marginLeft: 8,
+                  }}
+                >
+                  <Darkreader
+                    key={this.state.key}
+                    defaultDarken={this.state.defaultDarken}
+                    onChange={(check) => {
+                      if (!check) {
+                        localStorage.setItem('procomponents_dark_theme', 'light');
+                        return;
+                      }
+                      localStorage.setItem('procomponents_dark_theme', 'dark');
+                    }}
+                  />
+                </div>
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
             </div>
