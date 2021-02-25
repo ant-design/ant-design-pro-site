@@ -6,6 +6,12 @@ exports.onCreateNode = require('./gatsby/onCreateNode');
 exports.onCreatePage = require('./gatsby/onCreatePage');
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-javascript') {
+    // Turn off source maps
+    actions.setWebpackConfig({
+      devtool: false,
+    });
+  }
   if (stage === 'build-html') {
     actions.setWebpackConfig({
       module: {
