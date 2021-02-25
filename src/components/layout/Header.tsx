@@ -303,12 +303,12 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <Option value="v4">v4</Option>
                   <Option value="stable">v5</Option>
                 </Select>
-                <div
-                  style={{
-                    marginLeft: 8,
-                  }}
-                >
-                  {typeof window !== 'undefined' && (
+                {typeof window !== 'undefined' && (
+                  <div
+                    style={{
+                      marginLeft: 8,
+                    }}
+                  >
                     <Darkreader
                       key={this.state.key}
                       defaultDarken={this.state.defaultDarken}
@@ -320,8 +320,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                         localStorage.setItem('procomponents_dark_theme', 'dark');
                       }}
                     />
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
               {menuMode === 'horizontal' ? <div id="menu">{menu}</div> : null}
             </div>
