@@ -50,6 +50,10 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 };
 ```
 
+同时 ProLayout 支持根据菜单和路径来自动匹配浏览器的标题。欢迎页就会显示 `欢迎 - Ant Design Pro` ，如果你不喜欢这样可以设置 `pageTitleRender=false` 来关掉它。
+
+如果需要根据内容动态更新页面标题，则可以使用浏览器 document.title API。 对于更复杂的场景，当您想从 React 组件更改标题时，可以使用第三方库 React Helmet。
+
 ## favicon
 
 favicon 是展示在浏览器标签页上的内容，严格来说它是属于浏览器 meta 的一部分，浏览器认为 favicon 不会经常改动做了非常强的缓存。所以我们并没有做动态修改 favicon 的方案。
@@ -68,7 +72,7 @@ Pro 的默认 favicon 的配置存在于 `src\pages\document.ejs`, 我们可以�
 
 首先是的在 js 还没加载成功，但是 html 已经加载成功的 landing 页面。这个页面的配置存在于 `src\pages\document.ejs` 中。它使用了 `home_bg.png` ,`pro_icon.svg` 和 `KDpgvguMpGfqaHPjicRK.svg` 三个带有品牌信息的图片，你可以按需修改他们。
 
-[首页加载图]()
+![首页加载图](https://gw.alipayobjects.com/zos/antfincdn/xp9h2lyw8d/500D5525-C5A4-4ce8-9CB3-B76D14B50B98.png)
 
 ### js 加载后
 

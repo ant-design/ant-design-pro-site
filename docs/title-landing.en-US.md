@@ -50,6 +50,10 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 };
 ```
 
+At the same time, ProLayout supports to automatically match the title of the browser according to the menu and path. The welcome page will display `Welcome-Ant Design Pro`, if you don't like this, you can set `pageTitleRender=false` to turn it off.
+
+If you need to dynamically update the page title based on the content, you can use the browser document.title API. For more complex scenarios, when you want to change the title from React components, you can use the third-party library `React Helmet`.
+
 ## favicon
 
 A favicon is the content displayed on the browser tab. Strictly speaking, it is part of the browser meta. The browser believes that favicon will not be changed frequently and has a very strong cache. So we did not make a plan to dynamically modify the favicon.
@@ -68,7 +72,7 @@ Due to different scenes, there are many loading pages preset in Pro. It can be a
 
 The first is the landing page where js has not been loaded successfully, but html has been loaded successfully. The configuration of this page exists in `src\pages\document.ejs`. It uses `home_bg.png`, `pro_icon.svg` and `KDpgvguMpGfqaHPjicRK.svg` three pictures with brand information, you can modify them as needed.
 
-[Home page loading map]()
+![Home page loading map](https://gw.alipayobjects.com/zos/antfincdn/xp9h2lyw8d/500D5525-C5A4-4ce8-9CB3-B76D14B50B98.png)
 
 ### js after loading
 
