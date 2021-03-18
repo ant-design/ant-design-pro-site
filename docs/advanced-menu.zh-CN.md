@@ -53,9 +53,11 @@ export async function getInitialState(): Promise<{
 }
 ```
 
-如果我们需要在页面中的重新设置菜单，我们就可以通过 `useModel` 来进行更新。代码看起来是这样的：
+如果我们需要在页面中的重新设置菜单，我们就可以通过 [`useModel`](https://umijs.org/plugins/plugin-initial-state#usemodel) 来进行更新。代码看起来是这样的：
 
 ```tsx
+import { useModel } from 'umi';
+
 const { initialState, setInitialState } = useModel('@@initialState');
 
 const fetchMenuData = async () => {
@@ -67,17 +69,15 @@ const fetchMenuData = async () => {
       },
     },
   });
-  const menuData = await getMenuData();
 
-  setInitialState({
-    ...initialState,
-    menuData,
-    settings: {
-      menu: {
-        loading: false,
-      },
-    },
-  });
+  const menuData = await initialState?.fetchMenu?.();
+
+  if (menuData) {
+    setInitialState({
+      ...initialState,
+      menuData,
+    });
+  }
 };
 ```
 
