@@ -1,6 +1,6 @@
 ---
 order: 30
-title: Title and loading page
+title: 标题和加载页
 type: 构建和部署
 ---
 
