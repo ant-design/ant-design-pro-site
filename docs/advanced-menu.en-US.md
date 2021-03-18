@@ -11,12 +11,14 @@ Pro Intermediate will re-read the config / config.tsx Intermediate Route and con
 In some cases, hard-coded menu data may not meet our needs. Pro also provides corresponding solutions for remote menu data requests. Here we need to use two APIs to complete the configuration. `menuDataRender` can customize the data format, `menu.loading` can make the menu display in a loading state.
 
 ```tsx
+import type { MenuDataItem } from '@ant-design/pro-layout';
+
 export const layout = async ({
   initialState,
 }: {
   initialState: {
     settings?: LayoutSettings;
-    menuData: Promise<BasicLayoutProps>;
+    menuData: MenuDataItem[];
     currentUser?: API.CurrentUser;
   };
 }): BasicLayoutProps => {
