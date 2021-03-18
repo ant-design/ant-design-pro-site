@@ -22,13 +22,13 @@ First, search icons what you need, and add these icons into your shop bag. You c
 
 <br />
 
-In your project page, click the link『Click to generating Code, and it will automatically generate differect codes.
+In your project page, click the link『Click to generating Code, and it will automatically generate different codes.
 
 <img width="600" alt="layout-on-account" src="https://gw.alipayobjects.com/zos/rmsportal/DbDSgiRukSANKWyhULir.png" />
 
 ## Quote icons
 
-There're three differect ways to Quote icons: SVG Symbol(Recommended), Unicode and Font class.
+There're three different ways to Quote icons: SVG Symbol(Recommended), Unicode and Font class.
 
 ### SVG Symbol
 
