@@ -13,12 +13,14 @@ Pro 中默认会读取 `config/config.tsx` 中的 routes 配置作为 ProLayout 
 具体的代码实现如下，我们可以在 `src/app.tsx` 定义 layout 对象，并且导出。
 
 ```tsx
+import type { MenuDataItem } from '@ant-design/pro-layout';
+
 export const layout = async ({
   initialState,
 }: {
   initialState: {
     settings?: LayoutSettings;
-    menuData: Promise<BasicLayoutProps>;
+    menuData: MenuDataItem[];
     currentUser?: API.CurrentUser;
   };
 }): BasicLayoutProps => {
