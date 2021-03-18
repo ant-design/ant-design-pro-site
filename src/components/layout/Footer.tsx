@@ -193,13 +193,6 @@ const Footer = () => {
                 <FormattedMessage id="app.footer.yuque.slogan" />
               </div>
               <div>
-                <a target="_blank" rel="noopener noreferrer" href="https://yunfengdie.com/">
-                  <FormattedMessage id="app.footer.fengdie" />
-                </a>
-                <span> - </span>
-                <FormattedMessage id="app.footer.fengdie.slogan" />
-              </div>
-              <div>
                 <a target="_blank" rel="noopener noreferrer" href="https://antv.alipay.com/">
                   AntV
                 </a>

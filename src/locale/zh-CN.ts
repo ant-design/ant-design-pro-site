@@ -74,8 +74,6 @@ export default {
     'app.footer.ant-design': '蚂蚁 UI 体系',
     'app.footer.yuque': '语雀',
     'app.footer.yuque.slogan': '知识创作·协作平台',
-    'app.footer.fengdie': '云凤蝶',
-    'app.footer.fengdie.slogan': '移动建站平台',
     'app.footer.zhihu': '知乎专栏',
     'app.footer.zhihu.xtech': '体验科技专栏',
     'app.footer.seeconf': '蚂蚁体验科技大会',
