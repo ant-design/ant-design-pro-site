@@ -188,17 +188,16 @@ module.exports = [
 你可以通过以下代码来跳转到这个路由：
 
 ```js
-import router from 'umi/router';
+import { history } from 'umi';
 
-router.push('/dashboard/anyParams');
+history.push('/dashboard/anyParams');
 
 //or
-
-import Link from 'umi/link';
+import { Link } from 'umi';
 
 <Link to="/dashboard/anyParams">go</Link>;
 ```
 
 在路由组件中，可以通过`this.props.match.params` 来获得路由参数。
 
-更多详细内容请参见：[umi#路由](https://umijs.org/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
+更多详细内容请参见：[umi#路由](https://umijs.org/zh-CN/docs/routing#%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC)
