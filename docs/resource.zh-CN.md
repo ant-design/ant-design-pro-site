@@ -20,4 +20,4 @@ Ant Design Pro 的配套 Sketch 模板。
 
 ## 其他 Ant Design 设计资源
 
-- 链接：https://ant.design/docs/resource/download-cn
+- 链接：https://ant.design/docs/resources-cn
