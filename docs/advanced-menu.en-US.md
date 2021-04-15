@@ -4,7 +4,7 @@ title: Advanced menu
 type: Advanced Usage
 ---
 
-Pro Intermediate will re-read the config / config.tsx Intermediate Route and configure it as the ProLayout menu data to generate the menu, and cooperate with [plugin-access`] (https://umijs.org/plugins/plugin-access). It is convenient to manage the authority of this menu. This mode can meet most of the needs, but the complexity of the business is always there, and sometimes it requires some advanced usage.
+By default, Pro will read the routes configuration in `config/config.tsx` as the menu data of ProLayout to generate the menu. If you cooperate with [`plugin-access`](https://umijs.org/plugins/plugin-access), you can easily manage the authority of the menu. This mode can meet most of the needs, but the complexity of the business is always there, and sometimes it requires some advanced usage.
 
 ## Request the menu from the server
 
@@ -29,7 +29,7 @@ export const layout = async ({
 };
 ```
 
-In this way, we can use `initialState`to complete the update of the menu, we need to write the following code in `src/app.tsx`:
+In this way, we can use `initialState` to complete the update of the menu, we need to write the following code in `src/app.tsx`:
 
 ```tsx
 export async function getInitialState(): Promise<{
@@ -51,9 +51,11 @@ export async function getInitialState(): Promise<{
 }
 ```
 
-If we need to reset the menu on the page, we can update it through `useModel`. The code looks like this:
+If we need to reset the menu on the page, we can update it through [`useModel`](https://umijs.org/plugins/plugin-initial-state#usemodel). The code looks like this:
 
 ```tsx
+import { useModel } from 'umi';
+
 const { initialState, setInitialState } = useModel('@@initialState');
 
 const fetchMenuData = async () => {
@@ -65,17 +67,15 @@ const fetchMenuData = async () => {
       },
     },
   });
-  const menuData = await getMenuData();
 
-  setInitialState({
-    ...initialState,
-    menuData,
-    settings: {
-      menu: {
-        loading: false,
-      },
-    },
-  });
+  const menuData = await initialState?.fetchMenu?.();
+
+  if (menuData) {
+    setInitialState({
+      ...initialState,
+      menuData,
+    });
+  }
 };
 ```
 
