@@ -55,7 +55,7 @@ Ant Design Pro 是一个企业级中后台前端/设计解决方案，我们秉�
 
 ### For 设计者
 
-如果你是产品或设计师，你可以找到和 Pro 一一配套的 [Axure/Sketch 设计资源](/docs/resource)，大幅度提升设计效率和沟通效率。
+如果你是产品或设计师，你可以找到和 Pro 一一配套的 [Axure/Sketch 设计资源](/docs/resource-cn)，大幅度提升设计效率和沟通效率。
 
 ### For 开发者
 

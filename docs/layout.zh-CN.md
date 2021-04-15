@@ -57,7 +57,7 @@ routers: [
 - `hideInMenu`: 当前路由在菜单中不展现，默认 `false`。
 - `hideChildrenInMenu`: 当前路由的子级在菜单中不展现，默认 `false`。
 - `hideInBreadcrumb`: 当前路由在面包屑中不展现，默认 `false`。
-- `authority`: 允许展示的权限，不设则都可见，详见：[权限管理](/docs/authority-management)。
+- `authority`: 允许展示的权限，不设则都可见，详见：[权限管理](/docs/authority-management-cn)。
 
 ## Ant Design Pro Layout 组件
 
