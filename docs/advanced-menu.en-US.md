@@ -8,78 +8,47 @@ By default, Pro will read the routes configuration in `config/config.tsx` as the
 
 ## Request the menu from the server
 
-In some cases, hard-coded menu data may not meet our needs. Pro also provides corresponding solutions for remote menu data requests. Here we need to use two APIs to complete the configuration. `menuDataRender` can customize the data format, `menu.loading` can make the menu display in a loading state.
+In some cases, hard-coded menu data may not meet our needs. Pro also provides corresponding solutions for remote menu data requests. We need to use two APIs here, `menu.request` and `menu.params`. Request supports passing in a promise and automatically hosting loading. Modification of params will trigger request to facilitate re-requesting the menu.
+
+The specific code implementation is as follows, we can define the layout object in `src/app.tsx` and export it. It might look like this:
 
 ```tsx
-import type { MenuDataItem } from '@ant-design/pro-layout';
-
-export const layout = async ({
-  initialState,
-}: {
-  initialState: {
-    settings?: LayoutSettings;
-    menuData: MenuDataItem[];
-    currentUser?: API.CurrentUser;
-  };
-}): BasicLayoutProps => {
+// https://umijs.org/zh-CN/plugins/plugin-layout
+export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
-    menuDataRender: (menuData) => initialState.menuData || menuData,
-    ...initialState?.settings,
-  };
-};
-```
-
-In this way, we can use `initialState` to complete the update of the menu, we need to write the following code in `src/app.tsx`:
-
-```tsx
-export async function getInitialState(): Promise<{
-  settings?: LayoutSettings;
-  menuData: MenuDataItem[];
-}> {
-  // If it is a login page, do not execute
-  if (history.location.pathname !== '/user/login') {
-    const menuData = await queryMenuData();
-    return {
-      menuData,
-      settings: defaultSettings,
-    };
-  }
-  return {
-    menuData: [],
-    settings: defaultSettings,
-  };
-}
-```
-
-If we need to reset the menu on the page, we can update it through [`useModel`](https://umijs.org/plugins/plugin-initial-state#usemodel). The code looks like this:
-
-```tsx
-import { useModel } from 'umi';
-
-const { initialState, setInitialState } = useModel('@@initialState');
-
-const fetchMenuData = async () => {
-  setInitialState({
-    ...initialState,
-    settings: {
-      menu: {
-        loading: true,
+    menu: {
+      // Re-execute request whenever initialState?.currentUser?.userid is modified
+      params: {
+        userId: initialState?.currentUser?.userid,
+      },
+      request: async (params, defaultMenuData) => {
+        // initialState.currentUser contains all user information
+        const menuData = await fetchMenuData();
+        return menuData;
       },
     },
-  });
-
-  const menuData = await initialState?.fetchMenu?.();
-
-  if (menuData) {
-    setInitialState({
-      ...initialState,
-      menuData,
-    });
-  }
+  };
 };
 ```
 
-Since hooks need to be placed at the top of the component, this code should be placed at the top of a component.
+The above is a case of remotely requesting the menu. Generally, the menu is implemented according to the role. We can configure the data in the `initialState` to request different data from the backend.
+
+If your data wants to be saved by initialState, you can read it directly in the request, so that the menu will be reloaded every time the `initialState` changes.
+
+```tsx
+// https://umijs.org/zh-CN/plugins/plugin-layout
+export const layout: RunTimeLayoutConfig = ({ initialState }) => {
+  return {
+    menu: {
+      // Re-execute request whenever initialState?.currentUser?.userid is modified
+      params: initialState,
+      request: async (params, defaultMenuData) => {
+        return initialState.menuData;
+      },
+    },
+  };
+};
+```
 
 ## Custom highlight
 

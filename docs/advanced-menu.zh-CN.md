@@ -8,80 +8,47 @@ Pro 中默认会读取 `config/config.tsx` 中的 routes 配置作为 ProLayout 
 
 ## 从服务端请求菜单
 
-在某些情况下，写死的菜单数据可能满足不了我们的需求，Pro 也提供了相应的解决方案来进行远程的菜单数据请求。这里我们需要用到两个 API 来配置完成。`menuDataRender` 可以自定义数据格式， `menu.loading` 可以让 menu 展示为一个 loading 的状态。
+在某些情况下，写死的菜单数据可能满足不了我们的需求，Pro 也提供了相应的解决方案来进行远程的菜单数据请求。我们这里需要用到两个 API, `menu.request` 和 `menu.params`，request 支持传入一个 promise，并且会自动托管 loading，params 修改会触发 request 方便重新请求菜单。
 
-具体的代码实现如下，我们可以在 `src/app.tsx` 定义 layout 对象，并且导出。
+具体的代码实现如下，我们可以在 `src/app.tsx` 定义 layout 对象，并且导出。看起来可能是这样的：
 
 ```tsx
-import type { MenuDataItem } from '@ant-design/pro-layout';
-
-export const layout = async ({
-  initialState,
-}: {
-  initialState: {
-    settings?: LayoutSettings;
-    menuData: MenuDataItem[];
-    currentUser?: API.CurrentUser;
-  };
-}): BasicLayoutProps => {
+// https://umijs.org/zh-CN/plugins/plugin-layout
+export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
-    menuDataRender: (menuData) => initialState.menuData || menuData,
-    ...initialState?.settings,
-  };
-};
-```
-
-这样我们就可以通过 `initialState` 来完成菜单的更新工作了，我们需要在 `src/app.tsx` 中写入如下代码：
-
-```tsx
-export async function getInitialState(): Promise<{
-  settings?: LayoutSettings;
-  menuData: MenuDataItem[];
-}> {
-  // 如果是登录页面，不执行
-  if (history.location.pathname !== '/user/login') {
-    const menuData = await queryMenuData();
-    return {
-      menuData,
-      settings: defaultSettings,
-    };
-  }
-  return {
-    menuData: [],
-    settings: defaultSettings,
-  };
-}
-```
-
-如果我们需要在页面中的重新设置菜单，我们就可以通过 [`useModel`](https://umijs.org/plugins/plugin-initial-state#usemodel) 来进行更新。代码看起来是这样的：
-
-```tsx
-import { useModel } from 'umi';
-
-const { initialState, setInitialState } = useModel('@@initialState');
-
-const fetchMenuData = async () => {
-  setInitialState({
-    ...initialState,
-    settings: {
-      menu: {
-        loading: true,
+    menu: {
+      // 每当 initialState?.currentUser?.userid 发生修改时重新执行 request
+      params: {
+        userId: initialState?.currentUser?.userid,
+      },
+      request: async (params, defaultMenuData) => {
+        // initialState.currentUser 中包含了所有用户信息
+        const menuData = await fetchMenuData();
+        return menuData;
       },
     },
-  });
-
-  const menuData = await initialState?.fetchMenu?.();
-
-  if (menuData) {
-    setInitialState({
-      ...initialState,
-      menuData,
-    });
-  }
+  };
 };
 ```
 
-由于 hooks 需要放在 组件的最顶层，所以要把这段代码放到一个组件的最顶层。
+以上就是一个远程请求菜单的案例，一般情况的菜单都是根据角色来实现的，我们可以配置 `initialState` 中的数据来向后端请求不同的数据。
+
+如果你的数据希望通过 initialState 来保存，你可以在 request 中直接读取，这样每次 `initialState` 变化都会重新加载菜单。
+
+```tsx
+// https://umijs.org/zh-CN/plugins/plugin-layout
+export const layout: RunTimeLayoutConfig = ({ initialState }) => {
+  return {
+    menu: {
+      // 每当 initialState?.currentUser?.userid 发生修改时重新执行 request
+      params: initialState,
+      request: async (params, defaultMenuData) => {
+        return initialState.menuData;
+      },
+    },
+  };
+};
+```
 
 ## 自定义高亮
 
