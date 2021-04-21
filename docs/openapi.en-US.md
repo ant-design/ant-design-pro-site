@@ -23,7 +23,7 @@ Then configure the relevant configuration of openAPI in `config/config.ts`.
  openAPI: {
     requestLibPath: "import {request} from'umi'",
     // Or use the online version
-    // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json"
+    // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
     schemaPath: join(__dirname,'oneapi.json'),
     mock: false,
   }
@@ -51,7 +51,7 @@ We need to copy the url of swagger to the configuration of openapi. Taking the o
  openAPI: {
     requestLibPath: "import {request} from'umi'",
     // use the url of copy here
-    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json"
+    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
     mock: false,
   }
 ```
@@ -66,7 +66,7 @@ How can `requestLibPath` use `request`? Generally speaking, we recommend using u
  openAPI: {
     schemaPath: "import request from'@utils/request",
     // use the url of copy here
-    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json"
+    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
     mock: false,
   }
 ```

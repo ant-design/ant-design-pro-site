@@ -23,7 +23,7 @@ type: 后端集成
  openAPI: {
     requestLibPath: "import { request } from 'umi'",
     // 或者使用在线的版本
-    // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json"
+    // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
     schemaPath: join(__dirname, 'oneapi.json'),
     mock: false,
   }
@@ -51,7 +51,7 @@ openAPI 对于后端是有一些工作量的，但是工作量远远小于维护
  openAPI: {
     requestLibPath: "import { request } from 'umi'",
     // 这里使用 copy 的 url
-    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json"
+    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
     mock: false,
   }
 ```
@@ -66,7 +66,7 @@ openAPI 对于后端是有一些工作量的，但是工作量远远小于维护
  openAPI: {
     requestLibPath: "import request from '@utils/request",
     // 这里使用 copy 的 url
-    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json"
+    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
     mock: false,
   }
 ```
