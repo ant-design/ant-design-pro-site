@@ -1,5 +1,5 @@
 ---
-order: 14
+order: 32
 title: Proxy
 type: Network Request
 ---
@@ -22,7 +22,7 @@ The same-origin policy is called "Bubble-to-Domain Strategy", which is a securit
 
 ### Used in development
 
-All scaffolding on the market now provides [proxy](https://webpack.js.org/configuration/dev-server/#devserverproxy) capabilities based on [http-proxy-middleware](https://github) .com/chimurai/http-proxy-middleware), this package can forward all requests that match the regular match to an address. Here is a simple demo:
+All scaffolding on the market now provides [proxy](https://webpack.js.org/configuration/dev-server/#devserverproxy) capabilities based on [http-proxy-middleware](https://github) .com/chimurai/http-proxy-middleware), this package can forward all requests that match the regular match to an address. Here is a easy demo:
 
 ```javascript
 var express = require('express');
@@ -54,7 +54,7 @@ Detailed configuration recommendations directly look at the configuration of [we
 
 ### CORS
 
-If you think that the above changes require more configuration, the system is simpler and you don't need to introduce new complexity. We can use [`CORS`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS) to allow cross-domain calls, which can be set in express:
+If you think that the above changes require more configuration, the system is easy and you don't need to introduce new complexity. We can use [`CORS`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS) to allow cross-domain calls, which can be set in express:
 
 #### express config
 

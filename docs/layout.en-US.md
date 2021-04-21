@@ -1,12 +1,12 @@
 ---
-order: 14
+order: 10
 title: Layout
 type: Page Development
 ---
 
 Layout is necessary for a middle and back-end application. One layout + ProTable + Form can get a CRUD page.
 
-[Plugin-layout](https://umijs.org/plugins/plugin-layout) is built into Pro to reduce boilerplate code. In simple use, we only need to configure the layout attribute in `config.ts` to achieve a common page layout.
+[Plugin-layout](https://umijs.org/plugins/plugin-layout) is built into Pro to reduce boilerplate code. In easy use, we only need to configure the layout attribute in `config.ts` to achieve a common page layout.
 
 ## UI configuration
 
@@ -126,7 +126,7 @@ export const layout = {
 
 ![footer](https://gw.alipayobjects.com/mdn/rms_30ab81/afts/img/A*kzgBSqHIGOwAAAAAAAAAAABkARQnAQ)
 
-The plugin does not provide a default footer UI. The customization can be done through the following configuration. If you want to use the same style as Pro's official website, please refer to: https://prolayout.ant.design/footer
+The plugin does not provide a default footer UI. The customization can be done through the following configuration. If you want to use the same style as Pro's official website, please refer to: https://procomponents.ant.design/components/layout#footer
 
 ```js
 // src/app.tsx
@@ -142,7 +142,7 @@ export const layout = {
 
 ### Custom Layout
 
-# The layout is essentially a special component, and the corresponding component of the sub-route will be passed into the layout component as props. The simplest layout is like this
+# The layout is essentially a special component, and the corresponding component of the sub-route will be passed into the layout component as props. The easyst layout is like this
 
 ```tsx
 <BasicLayout

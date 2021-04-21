@@ -48,8 +48,6 @@ export default () => {
 
 <img alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/xZIqExWKhdnzDBjajnZg.png" />
 
-<br />
-
 ### 三、新增 model、service
 
 布局及路由都配置好之后，回到之前新建的 `NewPage.js`，可以开始写业务代码了！

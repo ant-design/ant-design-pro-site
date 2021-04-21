@@ -1,10 +1,10 @@
 ---
-order: 1
+order: 3
 title: Getting Started
 type: Introduction
 ---
 
-Ant Design Pro is based on umi to frame scaffolding, and we can initialize and start scaffolding with a simple operation.
+Ant Design Pro is based on umi to frame scaffolding, and we can initialize and start scaffolding with a easy operation.
 
 ## Init
 
@@ -25,7 +25,7 @@ Create umi offers a wide range of options to meet the scaffolding needs of diffe
 
 You can also choose whether to get all the chunks.
 
-![simple](https://gw.alipayobjects.com/zos/antfincdn/Kqlh5sQslh/sshot-1.png)
+![easy](https://gw.alipayobjects.com/zos/antfincdn/Kqlh5sQslh/sshot-1.png)
 
 Select the version of antd, 3 or 4.
 

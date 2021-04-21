@@ -37,7 +37,7 @@ it('sums numbers', () => {
 
 ## Test component
 
-The scope of component testing is very wide, from the smoke test to test whether the component can work normally, to the simple test of certain behaviors and outputs of the component, and the complete life cycle to the change of each state.
+The scope of component testing is very wide, from the smoke test to test whether the component can work normally, to the easy test of certain behaviors and outputs of the component, and the complete life cycle to the change of each state.
 
 Different components in the business should be weighed according to different business states. If you have not tested it yet, it is recommended to add a smoke test first.
 

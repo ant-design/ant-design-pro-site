@@ -56,6 +56,6 @@ API:
 
 ### Related umi plugins
 
-- [plugin-model](. /simple-model-cn) with plugin-initial-state can be used to quickly get the global initial state within the component
+- [plugin-model](. /easy-model-cn) with plugin-initial-state can be used to quickly get the global initial state within the component
 - [plugin-layout](. /layout-cn) layout can get the initialState state for displaying user information
 - [plugin-access](. /authority-management-cn) The state of the initialState is available in plugin-access and is used to determine user permissions

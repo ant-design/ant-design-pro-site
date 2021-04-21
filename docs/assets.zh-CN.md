@@ -6,7 +6,7 @@ type: 高级使用
 
 在 Ant Design Pro 的 V3 版本中我们引入了区块，将我们的资产迁移到了区块中，方便按需使用而不是默认全部包含在项目中，既可以减少项目又可以更灵活的使用。
 
-> 如果你想获取全部区块，可以在 create umi 创建脚手架时 配置 `🚀 Do you need all the blocks or a simple scaffold?` 选择 `complete` 来获取与官方预览地址相同的代码。
+> 如果你想获取全部区块，可以在 create umi 创建脚手架时 配置 `🚀 Do you need all the blocks or a easy scaffold?` 选择 `complete` 来获取与官方预览地址相同的代码。
 
 ## 什么是区块
 

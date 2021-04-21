@@ -4,7 +4,7 @@ title: Upgrade to V5
 type: Other
 ---
 
-Pro V5 can be used gradually, as long as you upgrade to umi @ 3 to use these features. Although the new data stream is simple and efficient, it does not meet all scenarios. We can mix and adapt and slowly migrate. Of course, we hope that we can relocate as early as possible to reduce historical debt.
+Pro V5 can be used gradually, as long as you upgrade to umi @ 3 to use these features. Although the new data stream is easy and efficient, it does not meet all scenarios. We can mix and adapt and slowly migrate. Of course, we hope that we can relocate as early as possible to reduce historical debt.
 
 ## initialState
 
@@ -187,7 +187,7 @@ export const request: RequestConfig = {
 };
 ```
 
-V5 also comes with useRequest hooks, many pages do not need data sharing, we can use useRequest to quickly network requests, and built loading and run to indicate the status and re-request data, the use is extremely simple.
+V5 also comes with useRequest hooks, many pages do not need data sharing, we can use useRequest to quickly network requests, and built loading and run to indicate the status and re-request data, the use is extremely easy.
 
 ```ts
 import { useRequest } from 'umi';

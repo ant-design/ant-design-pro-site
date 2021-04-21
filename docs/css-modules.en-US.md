@@ -1,5 +1,5 @@
 ---
-order: 17
+order: 32
 title: CSS Modules
 type: styles and resources
 ---
@@ -28,7 +28,7 @@ export default ({ title }) => <div className={styles.title}>{title}</div>;
 }
 ```
 
-Writing styles in less doesn't seem to change much, just the class name is simpler (as it is in the actual project), the change in the js file is that when setting the className, the original string is replaced with an object property, the property name is the same as the corresponding class name in the less file, and the object is introduced from the less file.
+Writing styles in less doesn't seem to change much, just the class name is easy (as it is in the actual project), the change in the js file is that when setting the className, the original string is replaced with an object property, the property name is the same as the corresponding class name in the less file, and the object is introduced from the less file.
 
 In the style file above, `.title` will only take effect in this file, you can use the selector with the same name in any other file and it will not affect it. But sometimes we just want a style that takes effect globally? You can use `:global`.
 
@@ -56,7 +56,7 @@ In the style file above, `.title` will only take effect in this file, you can us
 }
 ```
 
-The basic principle of CSS Modules is simple: each class name (not declared by :global) is transformed according to certain rules to ensure that it is unique. If you look at the dom structure of this example in your browser, you'll see that it actually renders like this
+The basic principle of CSS Modules is easy: each class name (not declared by :global) is transformed according to certain rules to ensure that it is unique. If you look at the dom structure of this example in your browser, you'll see that it actually renders like this
 
 ```html
 <div class="title___3TqAx">title</div>
@@ -67,7 +67,7 @@ The class name is automatically added with a hash value, which ensures that it i
 In addition to the basics above, there are some key points to note.
 
 - CSS Modules only converts `className` and `id`, other things like attribute selectors, tag selectors are not handled, and it is recommended to use className as much as possible.
-- Since you don't have to worry about duplicate class names, your className can be as simple as possible with basic semantics.
+- Since you don't have to worry about duplicate class names, your className can be as easy as possible with basic semantics.
 
 The above is only a very basic introduction to CSS Modules, for those interested you can refer to the following other documentation.
 

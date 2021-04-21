@@ -1,5 +1,5 @@
 ---
-order: 17
+order: 32
 title: CSS Modules
 type: 样式和资源
 ---

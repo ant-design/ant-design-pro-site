@@ -1,5 +1,5 @@
 ---
-order: 14
+order: 30
 title: OpenAPI
 type: 后端集成
 ---
@@ -117,7 +117,7 @@ declare namespace API {
 }
 ```
 
-这样我们就可以配合 ProTable，快速搞个 CURD，代码非常简单。
+这样我们就可以配合 ProTable，快速搞个 CURD。
 
 ```tsx
 import { rule } from '@/services/ant-design-pro/rule';

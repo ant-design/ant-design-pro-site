@@ -1,5 +1,5 @@
 ---
-order: 14
+order: 31
 title: Request
 type: Network Request
 ---
@@ -205,7 +205,7 @@ In addition, the return format of the interface is recommended to refer to the u
 }
 ```
 
-For simple ones it can be as follows.
+For easy ones it can be as follows.
 
 ```json
 {

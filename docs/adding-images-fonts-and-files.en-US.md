@@ -1,5 +1,5 @@
 ---
-order: 17
+order: 44
 title: Add pictures, fonts and files
 type: styles and resources
 ---

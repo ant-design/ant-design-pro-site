@@ -27,7 +27,7 @@ In 4.0, the problem of high misalignment does not occur.
 
 ### Migration method
 
-antd@4 has become more multi-billion and brought a huge amount of improvement, so how can we use such a great 4.0? In fact, it is very simple, Pro has all migrated [One] (https: // github. com / ant-design / pro-blocks / issues / 145). Officially provided us with `codemod-v4`, which is also very simple to use.
+antd@4 has become more multi-billion and brought a huge amount of improvement, so how can we use such a great 4.0? In fact, it is easy, Pro has all migrated [One] (https: // github. com / ant-design / pro-blocks / issues / 145). Officially provided us with `codemod-v4`, which is also easy to use.
 
 ```shell
 # Run directly through npx
@@ -91,7 +91,7 @@ export default {
 };
 ```
 
-Painless migration antd@4 is as simple as that. All official blocks also support antd@4. Please use it with peace of mind.
+Painless migration antd@4 is as easy as that. All official blocks also support antd@4. Please use it with peace of mind.
 
 > Due to the deletion of the 4.0 icon, if the icon disappears, please find a suitable replacement in the official website of antd.
 

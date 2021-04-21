@@ -159,7 +159,7 @@ interface Person {
 
 ### Value can be null or undefined
 
-In 3.8 it is already very simple, just `obj?.Xxx`.
+In 3.8 it is already easy, just `obj?.Xxx`.
 
 ### There is no typescript definition for a library
 

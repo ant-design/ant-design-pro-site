@@ -1,5 +1,5 @@
 ---
-order: 14
+order: 31
 title: 网络请求
 type: 后端集成
 ---
@@ -20,7 +20,7 @@ type: 后端集成
 
 示例代码如下：
 
-```javascript
+```tsx
 request('/api/user', {
   params: {
     name: 1,
@@ -31,9 +31,9 @@ request('/api/user', {
 
 ### 使用 useRequest
 
-useRequest 是最佳实践中内置的一个 Hook，通过它你可以获得强大的请求接口的能力，不管是翻页还是加载更多还是和 antd 的 Table 组件结合都变得非常简单。一个最简单的示例如下：
+useRequest 是最佳实践中内置的一个 Hook，通过它你可以获得强大的请求接口的能力，不管是翻页还是加载更多还是和 antd 的 Table 容易许多。一个最简单的示例如下：
 
-```javascript
+```tsx
 import { useRequest } from 'umi';
 export default () => {
   const { data, error, loading } = useRequest(() => {

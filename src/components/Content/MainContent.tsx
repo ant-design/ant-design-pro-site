@@ -194,18 +194,9 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     const itemGroups = Object.keys(obj)
       .filter(isNotTopLevel)
       .map((type) => {
-        const groupItems = (obj[type] as MenuDataItem[])
-          .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
-          .sort((a, b) => {
-            if ('time' in a && 'time' in b) {
-              return moment(b.time).valueOf() - moment(a.time).valueOf();
-            }
-            if ('order' in a && 'order' in b) {
-              return a.order - b.order;
-            }
-            return a.title.charCodeAt(0) - b.title.charCodeAt(0);
-          })
-          .map(this.generateMenuItem.bind(this, footerNavIcons));
+        const groupItems = (obj[type] as MenuDataItem[]).map(
+          this.generateMenuItem.bind(this, footerNavIcons),
+        );
         return (
           <Menu.ItemGroup title={type} key={type}>
             {groupItems}

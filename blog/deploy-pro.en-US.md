@@ -11,7 +11,7 @@ To be a good open source project, an official website is essential, and Pro is n
 
 ### Technical selection
 
-Static websites are very simple to deploy, and there are many options available on the market. More commonly used are:
+Static websites are easy to deploy, and there are many options available on the market. More commonly used are:
 
 - [Netlify](https://docs.netlify.com/) Support for static sites and functions, the user experience is great.
 - [Github pages](https://pages.github.com/) It's completely free, but only supports static.

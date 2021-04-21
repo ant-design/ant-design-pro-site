@@ -56,6 +56,6 @@ API:
 
 ### 相关 umi 插件
 
-- [plugin-model](./simple-model-cn) 配合 plugin-initial-state 可以快速在组件内获取到全局初始状态
+- [plugin-model](./easy-model-cn) 配合 plugin-initial-state 可以快速在组件内获取到全局初始状态
 - [plugin-layout](./layout-cn) layout 中可以获取到 initialState 的状态，用于展示用户信息
 - [plugin-access](./authority-management-cn) plugin-access 中可以获取到 initialState 的状态，用于决定用户权限

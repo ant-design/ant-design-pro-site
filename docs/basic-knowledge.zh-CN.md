@@ -1,5 +1,5 @@
 ﻿---
-order: 1
+order: 9
 title: 开发前准备
 type: 入门
 ---

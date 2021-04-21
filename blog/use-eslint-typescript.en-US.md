@@ -27,7 +27,7 @@ We publish these rules as a package  🌟🌟**umi-fabric** 🌟🌟, This lib
 
 ## Use
 
-The use of **umi-fabric** is very simple.
+The use of **umi-fabric** is easy.
 
 ```bash
 npm install eslint @umijs/fabric --save-dev

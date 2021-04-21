@@ -1,9 +1,3 @@
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * @emails react-core
- */
-
 const { resolve } = require('path');
 
 module.exports = async ({ graphql, actions }) => {
@@ -98,16 +92,13 @@ module.exports = async ({ graphql, actions }) => {
   const blogEdges = await graphql(
     `
       {
-        allMarkdownRemark(
-          filter: { fileAbsolutePath: { regex: "/blog/" }, fields: { slug: {} } }
-          sort: { order: DESC, fields: [frontmatter___time] }
-          limit: 1
-        ) {
+        allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }, limit: 1000) {
           edges {
             node {
-              id
               fields {
                 slug
+                underScoreCasePath
+                path
               }
             }
           }

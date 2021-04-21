@@ -44,7 +44,7 @@ Next we can access our static files in `${host}/admin`. The url path will also b
 
 ### use nginx
 
-As one of the most popular web containers, nginx is simple to configure and use, with high performance and high availability with a simple configuration. It is recommended to use nginx hosting. The sample configuration is as follows:
+As one of the most popular web containers, nginx is easy to configure and use, with high performance and high availability with a easy configuration. It is recommended to use nginx hosting. The sample configuration is as follows:
 
 ```
 server {
@@ -98,7 +98,7 @@ server {
 
 ### use Spring Boot
 
-Spring Boot is the most used java framework, and it can be integrated with Ant Design Pro in just a few simple steps.
+Spring Boot is the most used java framework, and it can be integrated with Ant Design Pro in just a few easy steps.
 
 first run build script
 

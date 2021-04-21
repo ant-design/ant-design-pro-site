@@ -6,7 +6,7 @@ type: Page Development
 
 Sometimes we don't want to use the built-in layout and want to do more customization. We also provide flexible customization solutions.
 
-The layout is essentially a special component, and the child pages will be passed to the layout component as attributes. The simplest layout is this:
+The layout is essentially a special component, and the child pages will be passed to the layout component as attributes. The easyst layout is this:
 
 ```tsx
 // Children must be rendered, otherwise the child routes cannot be displayed

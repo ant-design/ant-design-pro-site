@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 34
 title: 调试
 type: 后端集成
 ---
@@ -28,7 +28,7 @@ type: 后端集成
 
 ![png](https://gw.alipayobjects.com/zos/antfincdn/1tFWntZVBu/64790AE3-1625-45B8-9809-4EC5E7F4AB35.png)
 
-在面板中可以看到 js 的 `console` 输出，console.log 输出是非常简单有效的调试方式。这里介绍输出的小技巧。
+在面板中可以看到 js 的 `console` 输出，`console.log` 输出是简单有效的调试方式。这里介绍输出的小技巧。
 
 首先是输出 state，当然在 hooks 中我们一般是输出某些变量，这种输出方法可以保持格式，在 node 调试中也是非常好用的。
 

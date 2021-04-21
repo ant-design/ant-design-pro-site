@@ -15,7 +15,7 @@ time: 2019-05-08
 
 ## 使用
 
-使用起来也是非常简单
+使用 layout:
 
 ```shell
 npm i @ant-design/pro-layout --save

@@ -104,7 +104,7 @@ const featuresEN = [
   },
   {
     title: 'Theming',
-    content: 'Customizable theme with simple config',
+    content: 'Customizable theme with easy config',
     src: 'https://gw.alipayobjects.com/zos/rmsportal/XxqEexmShHOofjMYOCHi.svg',
     color: '#FAAD14',
     shadowColor: 'rgba(250,173,20,.12)',

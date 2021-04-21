@@ -54,7 +54,7 @@ externals: {
 };
 ```
 
-## Simple to use
+## easy to use
 
 Then we can use it in the code.
 

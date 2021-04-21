@@ -1,6 +1,6 @@
 ---
 order: 19
-title: Simple Model
+title: easy Model
 type: Data Management
 ---
 
@@ -8,7 +8,7 @@ type: Data Management
 
 In basic front-end/back-end data flow scenarios, when the page is mounted, the back-end is queried and data is returned to be consumed by the front-end. In this scenario, there is no need for a complicated data flow solution. This isn't always the case, and data may sometimes need to be shared globally, such as user role permissions or other data which is shared between multiple pages. So, what is the best way to cache and share the data directly between these pages?
 
-In order to achieve data sharing between multiple pages, a simple data flow management solution is needed. To facilitate this we have implemented a lightweight global data sharing solution based on hooks & a umi plug-in (@umijs/plugin-model). The plug-in is built into umi@3.
+In order to achieve data sharing between multiple pages, a easy data flow management solution is needed. To facilitate this we have implemented a lightweight global data sharing solution based on hooks & a umi plug-in (@umijs/plugin-model). The plug-in is built into umi@3.
 
 ## Usage
 
@@ -41,7 +41,7 @@ export default () => {
 
 ### 2. Using the Model
 
-To use the model in code, you need to export useModel from umi. useModel is a React Custom Hook that can accept 1-2 parameters. The simplest usage scenario is as follows:
+To use the model in code, you need to export useModel from umi. useModel is a React Custom Hook that can accept 1-2 parameters. The easyst usage scenario is as follows:
 
 ```
 import { useModel } from 'umi';
@@ -85,7 +85,7 @@ You can use the data of one Model in another Model, the usage method is exactly 
 
 ### VSCode plugin
 
-The plugin-model will monitor file changes and dynamically generate consumable hooks and corresponding ts types, so it has good code completion capabilities. If you need to implement code jump, you can install the below vscode plug-in. After enabling command + left mouse click on the namespace string in useModel('namespace'), you can jump to the corresponding model file. <br />![2019-12-23 11.57.43.gif](https://intranetproxy.alipay.com/skylark/lark/0/2019/gif/184725/1577073518336-afe6f03d-f817-491a-848a-5feeb4ecd72b.gif#align=left&display=inline&height=1138&name=2019-12-23%2011.57.43.gif&originHeight=1138&originWidth=2062&size=6737458&status=done&style=none&width=2062)<br />[https://marketplace.visualstudio.com/items?itemName=litiany4.umijs-plugin-model](https://marketplace.visualstudio.com/items?itemName=litiany4.umijs-plugin-model)
+The plugin-model will monitor file changes and dynamically generate consumable hooks and corresponding ts types, so it has good code completion capabilities. If you need to implement code jump, you can install the below vscode plug-in. After enabling command + left mouse click on the namespace string in useModel('namespace'), you can jump to the corresponding model file. <br />![2019-12-23 11.57.43.gif](https://gw.alipayobjects.com/zos/antfincdn/WcVbbF6KG2/1577073518336-afe6f03d-f817-491a-848a-5feeb4ecd72b.gif)<br />[https://marketplace.visualstudio.com/items?itemName=litiany4.umijs-plugin-model](https://marketplace.visualstudio.com/items?itemName=litiany4.umijs-plugin-model)
 
 ### DVA Migration
 

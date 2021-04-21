@@ -1,5 +1,5 @@
 ---
-order: 13
+order: 34
 title: Debug
 type: Network Request
 ---
@@ -26,7 +26,7 @@ The most important feature in the Element Panel is element checking, which is us
 
 ![png](https://gw.alipayobjects.com/zos/antfincdn/1tFWntZVBu/64790AE3-1625-45B8-9809-4EC5E7F4AB35.png)
 
-You can see the `console` output of js in the panel, which is a very simple and effective way to debug. Here's a tip for the output.
+You can see the `console` output of js in the panel, which is a easy and effective way to debug. Here's a tip for the output.
 
 The first is the output state, of course, in the hooks we generally output some variables, this output method can maintain the format, in node debugging is also very useful.
 
@@ -52,7 +52,7 @@ Add a `debugger;` to your code; You can stop the project while the source code p
 
 ![网络面板](https://gw.alipayobjects.com/zos/antfincdn/5VLhkjfCPu/A45663AA-4173-4A14-A3E4-1DB2DC2522FD.png)
 
-Simple usage is detailed in the official documentation, and we recommend a tip here that you can save the results of a network request as a variable called `temp1`, which we can view using `console.dir(temp1)` and of course we can manipulate it.
+easy usage is detailed in the official documentation, and we recommend a tip here that you can save the results of a network request as a variable called `temp1`, which we can view using `console.dir(temp1)` and of course we can manipulate it.
 
 ![查询为变量](https://gw.alipayobjects.com/zos/antfincdn/p4PHbdKvJB/A76A1E89-9498-49DB-9608-558D25394E10.png)
 

@@ -4,7 +4,7 @@ export interface MenuDataItem extends IFrontmatterData {
   link?: string;
 }
 
-export type IMenuData = Record<string, IMenuData | MenuDataItem[]>;
+export type IMenuData = Record<string, MenuDataItem[]>;
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82

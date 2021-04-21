@@ -6,7 +6,7 @@ type: Advanced Usage
 
 In the V3 version of Ant Design Pro, we introduced blocks to migrate our assets to blocks, which is convenient for on-demand use instead of being included in the project by default, which can reduce the project and allow more flexible use.
 
-> If you want to get all the blocks, you can configure `🚀 Do you need all the blocks or a simple scaffold?` When creating umi to create the scaffold? Select `complete` to get the same code as the official preview address.
+> If you want to get all the blocks, you can configure `🚀 Do you need all the blocks or a easy scaffold?` When creating umi to create the scaffold? Select `complete` to get the same code as the official preview address.
 
 ## What is a block
 

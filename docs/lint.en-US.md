@@ -21,7 +21,7 @@ In this update, there are 18 incompatible rules. The 102-page project is an exam
 'import / prefer-default-export': 0,
 ```
 
-You can also use eslint-disable-next-line to ignore certain rules, especially when writing simple deployment scripts.
+You can also use eslint-disable-next-line to ignore certain rules, especially when writing easy deployment scripts.
 
 ```typescript
 // eslint-disable-next-line prefer-destructuring

@@ -15,7 +15,7 @@ We offer a solution in V4. Make a Layout into a component that allows any scaffo
 
 ## Use
 
-It is also very simple to use
+It is also easy to use
 
 ```shell
 npm i @ant-design/pro-layout --save
@@ -136,7 +136,7 @@ Const Layout = (props: BasicLayoutProps) => {
 
 ### SettingDrawer
 
-SettingDrawer provides an interface to dynamically set some parameters of the Layout. The effect can be previewed in [preview](https://preview.pro.ant.design/). The way to use it is also very simple.
+SettingDrawer provides an interface to dynamically set some parameters of the Layout. The effect can be previewed in [preview](https://preview.pro.ant.design/). The way to use it is also easy.
 
 ```jsx
 Import BasicLayout, { SettingDrawer } from '@ant-design/pro-layout';

@@ -1,5 +1,5 @@
 ---
-order: 17
+order: 30
 title: Using css
 type: styles and resources
 ---
@@ -31,4 +31,4 @@ const Page = () => {
 
 Here I need to bring in styles to append to the className. The reason we need to `import styles from 'index.css';` is because we have `CSS Modules` enabled to solve the naming problem.
 
-> We don't recommend writing css for simple styles in practice, we recommend using template components for development, or writing in-line css directly. css doesn't have good dependencies, and many projects have redundant css, but are afraid to remove it.
+> We don't recommend writing css for easy styles in practice, we recommend using template components for development, or writing in-line css directly. css doesn't have good dependencies, and many projects have redundant css, but are afraid to remove it.

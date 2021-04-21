@@ -27,7 +27,7 @@ time: 2019-06-21
 
 ## 使用
 
-**umi-fabric** 的使用非常简单。
+项目中接入 **umi-fabric**
 
 ```bash
 npm install eslint @umijs/fabric --save-dev

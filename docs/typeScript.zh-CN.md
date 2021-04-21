@@ -6,6 +6,27 @@ type: 编码规范
 
 Pro 中是用 TypeScript 来作为默认的开发语言，TypeScript 的好处已经无须赘述，无论是开发成本还是维护成本都能大大减少，是中后台开发的必选。这里分几个维度来聊一下 Pro 中对于 TypeScript 的最佳实践。
 
+## 什么时候推荐用 type 什么时候用 interface ？
+
+推荐任何时候都是用 type， type 使用起来更像一个变量，与 interface 相比，type 的特点如下：
+
+- 表达功能更强大，不局限于 object/class/function
+- 要扩展已有 type 需要创建新 type，不可以重名
+- 支持更复杂的类型操作
+
+基本上所有用 interface 表达的类型都有其等价的 type 表达。在实践的过程中，我们也发现了一种类型只能用 interface 表达，无法用 type 表达，那就是往函数上挂载属性。
+
+```tsx
+interface FuncWithAttachment {
+  (param: string): boolean;
+  someProperty: number;
+}
+
+const testFunc: FuncWithAttachment = {};
+const result = testFunc('mike'); // 有类型提醒
+testFunc.someProperty = 3; // 有类型提醒
+```
+
 ## 定义接口数据
 
 任何一个项目都离不开对数据和接口的处理，拼接数据和接口是形成业务逻辑也是前端的主要工作之一，将接口返回的数据定义 TypeScript 类型可以减少很多维护成本和查询 api 的时间。
@@ -15,7 +36,7 @@ Pro 中是用 TypeScript 来作为默认的开发语言，TypeScript 的好处�
 ```typescript
 declare namespace API {
   // 用户基本信息
-  export interface CurrentUser {
+  export type CurrentUser = {
     avatar?: string;
     name?: string;
     title?: string;
@@ -28,7 +49,7 @@ declare namespace API {
     userid?: string;
     access?: 'user' | 'guest' | 'admin';
     unreadCount?: number;
-  }
+  };
 }
 ```
 
@@ -42,9 +63,96 @@ export async function query() {
 }
 
 // props
-export interface UserProps {
+export type UserProps = {
   userInfo: API.CurrentUser;
+};
+```
+
+## 泛型
+
+在业代码中开发时我们并不推荐大家写泛型，但是为了得到更好的 typescript 体验我们可能需要了解一下常用组件库的泛型提示，这里做个简单列举。
+
+```tsx
+import ProForm from '@ant-design/pro-form';
+import ProTable, { ActionType } from '@ant-design/pro-table';
+import React, { useState, useRef } from 'react';
+
+type DataType = {};
+
+const Page = () => {
+  // useState 的泛型会变成 state的类型
+  const [state, setState] = useState<string>('');
+  // useRef 的类型会被设置为 actionRef.current 的类型
+  const actionRef = useRef<ActionType>();
+
+  // click 使用 React.MouseEvent 加 dom 类型的泛型
+  // HTMLInputElement 代表 input标签 另外一个常用的是 HTMLDivElement
+  const onClick = (e: React.MouseEvent<HTMLInputElement>) => {};
+  // onChange使用 React.ChangeEvent 加 dom 类型的泛型
+  // 一般都是 HTMLInputElement,HTMLSelectElement 可能也会使用
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
+  return (
+    <>
+      {'ProForm 设置泛型可以约定 onFinish 等接口的参数类型'}
+      <ProForm<DataType> />
+      {`
+        DataType 设置render 中行的类型，
+        Params 是参数的提交类型
+        ValueType 表示自定的 valueType 类型，ProTable 会自动进行合并
+      `}
+      <ProTable<DataType, Params, ValueType> />
+      <input onClick={onClick} onChange={onChange} />
+    </>
+  );
+};
+```
+
+## 定义一个组件的 n 种写法
+
+```tsx
+const WrapComponent: React.FC<ExtendedProps> = (props) => {
+  // return ...
+};
+
+export default WrapComponent;
+
+// 或者
+export default function (props: React.PropsWithChildren<SpinProps>) {
+  // return ...
 }
+```
+
+## umi 常用类型
+
+umi 在很多地方都帮助我们进行了封装，如果知道具体的类型可以减少很多 any。
+
+### 页面相关
+
+`IRouteComponentProps` 是被配置在 `config.ts` 中组件的 props 类型，其中带入了一些 react-router 相关的 props
+
+```tsx
+export interface IRouteComponentProps<
+  Params extends { [K in keyof Params]?: string } = {},
+  Query extends { [K in keyof Query]?: string } = {}
+> {
+  children: JSX.Element;
+  location: Location & { query: Query };
+  route: IRoute;
+  routes: IRoute[];
+  history: History;
+  match: match<Params>;
+}
+```
+
+我们可以在页面中这样使用：
+
+```tsx
+import React from 'antd';
+import { IRouteComponentProps } from 'umi';
+
+const Page: React.FC<IRouteComponentProps> = () => {
+  return <Layout />;
+};
 ```
 
 ## 为 Window 增加参数
@@ -154,11 +262,11 @@ const rowSelection: TableRowSelection = {
 有时候我需要对一个 Object 的 key 进行动态的更新，为了方便我们可以对 key 设置为 any，这样就可以使用任何 key，多余 JSON.parse
 
 ```typescript
-interface Person {
+type Person = {
   name: string;
   age?: number;
   [propName: string]: any;
-}
+};
 ```
 
 ### 值可以为 null 或 undefined

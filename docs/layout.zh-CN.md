@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 10
 title: 内置布局
 type: 页面开发
 ---
@@ -126,7 +126,7 @@ export const layout = {
 
 ![footer](https://gw.alipayobjects.com/mdn/rms_30ab81/afts/img/A*kzgBSqHIGOwAAAAAAAAAAABkARQnAQ)
 
-插件并没有提供默认的 footer UI。可以通过以下配置来完成自定义。想和 Pro 官网使用相同的样式可以参考：https://prolayout.ant.design/footer
+插件并没有提供默认的 footer UI。可以通过以下配置来完成自定义。想和 Pro 官网使用相同的样式可以参考：https://procomponents.ant.design/components/layout#footer
 
 ```js
 // src/app.tsx

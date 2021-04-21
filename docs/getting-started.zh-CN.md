@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 3
 title: 开始使用
 type: 入门
 ---
@@ -42,7 +42,7 @@ yarn create umi myapp
 ```shell
 ? Select the boilerplate type (Use arrow keys)
 ❯ ant-design-pro  - Create project with a layout-only ant-design-pro boilerplate, use together with umi block.
-  app             - Create project with a simple boilerplate, support typescript.
+  app             - Create project with a easy boilerplate, support typescript.
   block           - Create a umi block.
   library         - Create a library with umi.
   plugin          - Create a umi plugin.

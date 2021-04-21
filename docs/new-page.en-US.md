@@ -4,7 +4,7 @@ title: New Page
 type: Page Development
 ---
 
-This "page" refers to a module that is configured with a route and can be directly accessed through a link. To create a new page, usually only a simple configuration is required on the scaffold.
+This "page" refers to a module that is configured with a route and can be directly accessed through a link. To create a new page, usually only a easy configuration is required on the scaffold.
 
 > If you want to create new landing page, check [this link](https://landing.ant.design/docs/use/pro-cn)
 
