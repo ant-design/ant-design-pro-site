@@ -50,6 +50,31 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 };
 ```
 
+如果你希望可以手动的控制菜单刷新，可以使用 `actionRef` 功能。
+
+```tsx
+import { createRef } from 'react';
+
+export const layoutActionRef = createRef<{ reload: () => void }>();
+
+// https://umijs.org/zh-CN/plugins/plugin-layout
+export const layout: RunTimeLayoutConfig = () => {
+  return {
+    actionRef: layoutActionRef,
+    menu: {
+      request: async (params, defaultMenuData) => {
+        return initialState.menuData;
+      },
+    },
+  };
+};
+
+// 调用
+request().then(() => {
+  layoutActionRef.current.reload();
+});
+```
+
 ## 自定义高亮
 
 大部分时候菜单的高亮是可以通过父子关系来满足的，我们也推荐这种用法。假如有一个增删改查的页面，可以如下设置：
