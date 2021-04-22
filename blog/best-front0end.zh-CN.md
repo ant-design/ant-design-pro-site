@@ -21,7 +21,7 @@ time: 2020-02-29
 
 ### 🕹 强约束
 
-这方面我们做了 ProLayout ，ProTable 两个重型组件，用于封装重复的逻辑，以后可能还会添加 ProForm 等组件来提升开发项目。
+这方面我们做了 ProLayout ，ProTable 两个模板组件，用于封装重复的逻辑，以后可能还会添加 ProForm 等组件来提升开发项目。
 
 - ProLayout 会提供一个标准化的布局组件，我们只需要通过插件就可以引入。
 - ProTable 封装了 Table 的常用行为，可以快速的撸出来一个美观的 CRUD 界面。

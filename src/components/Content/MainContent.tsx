@@ -276,29 +276,14 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
           slug: 'https://procomponents.ant.design/components/layout',
         },
         {
-          title: 'PageContainer - 页容器',
-          cover: 'https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg',
-          slug: 'https://procomponents.ant.design/components/page-container',
-        },
-        {
           title: 'ProForm - 高级表单',
           cover: 'https://gw.alipayobjects.com/zos/alicdn/ORmcdeaoO/Form.svg',
           slug: 'https://procomponents.ant.design/components/form',
         },
         {
-          title: 'Modal/Drawer - 浮层表单',
-          cover: 'https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg',
-          slug: 'https://procomponents.ant.design/components/modal-form',
-        },
-        {
           title: 'ProTable - 高级表格',
           cover: 'https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg',
           slug: 'https://procomponents.ant.design/components/table',
-        },
-        {
-          title: 'EditableProTable - 可编辑表格',
-          cover: 'https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg',
-          slug: 'https://procomponents.ant.design/components/editable-table',
         },
         {
           title: 'ProList - 高级列表',

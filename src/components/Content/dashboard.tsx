@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Input, Divider, Row, Col, Card, Typography, Tag, Space } from 'antd';
+import { Input, Divider, Row, Col, Card, Space } from 'antd';
+import { LinkOutlined, SearchOutlined, SelectOutlined } from '@ant-design/icons';
 import { Link } from 'gatsby';
-import { SearchOutlined } from '@ant-design/icons';
 import './dashboard.less';
-
-const { Title } = Typography;
 
 const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
   menuData,
@@ -13,7 +11,12 @@ const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
   const [search, setSearch] = useState<string>('');
   const sectionRef = React.createRef<HTMLDivElement>();
   return (
-    <div ref={sectionRef}>
+    <div
+      ref={sectionRef}
+      style={{
+        marginBottom: 32,
+      }}
+    >
       <Divider />
       <Input
         value={search}
@@ -26,58 +29,49 @@ const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
         suffix={<SearchOutlined />}
       />
       <Divider />
-      {Object.keys(menuData).map((key) => {
-        const group = menuData[key];
-        const components = group.filter(
-          (component) =>
-            !search.trim() ||
-            component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
-            (component.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
-        );
-
-        return components.length ? (
-          <div key={key} className="components-overview">
-            <Title level={2} className="components-overview-group-title">
-              <Space align="center">
-                {key}
-                <Tag style={{ display: 'block' }}>{components.length}</Tag>
-              </Space>
-            </Title>
-            <Row gutter={[24, 24]}>
-              {components.map((component) => {
-                const url = `${component.slug
-                  .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
-                  .toLowerCase()}/`;
-                return (
-                  <Col xs={24} sm={12} lg={8} xl={6} key={component.title}>
+      <Row gutter={[24, 24]}>
+        {Object.keys(menuData).map((key) => {
+          const group = menuData[key];
+          const components = group.filter(
+            (component) =>
+              !search.trim() ||
+              component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
+              (component.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
+          );
+          return components.length ? (
+            <Col xs={24} sm={12} lg={8} xl={6} key={key}>
+              <Card
+                bodyStyle={{
+                  height: 134,
+                }}
+                size="small"
+                className="components-overview-card"
+                title={key}
+              >
+                {components.map((component) => {
+                  const url = `${component.slug
+                    .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
+                    .toLowerCase()}/`;
+                  return (
                     <Link to={url}>
-                      <Card
-                        size="small"
-                        className="components-overview-card"
-                        title={
-                          <div className="components-overview-title">
-                            {component.title} {component.subtitle}
-                          </div>
-                        }
+                      <Space
+                        style={{
+                          display: 'flex',
+                        }}
                       >
-                        <div className="components-overview-img">
-                          <img
-                            src={
-                              component.cover ||
-                              'https://gw.alipayobjects.com/zos/alicdn/5swjECahe/Divider.svg'
-                            }
-                            alt={component.title}
-                          />
+                        <LinkOutlined />
+                        <div className="components-overview-title" key={component.title}>
+                          {component.title} {component.subtitle}
                         </div>
-                      </Card>
+                      </Space>
                     </Link>
-                  </Col>
-                );
-              })}
-            </Row>
-          </div>
-        ) : null;
-      })}
+                  );
+                })}
+              </Card>
+            </Col>
+          ) : null;
+        })}
+      </Row>
     </div>
   );
 };
