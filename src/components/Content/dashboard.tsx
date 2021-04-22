@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Input, Divider, Row, Col, Card, Space } from 'antd';
-import { LinkOutlined, SearchOutlined, SelectOutlined } from '@ant-design/icons';
+import { LinkOutlined, SearchOutlined } from '@ant-design/icons';
 import { Link } from 'gatsby';
 import './dashboard.less';
 

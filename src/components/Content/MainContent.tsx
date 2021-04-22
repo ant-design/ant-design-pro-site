@@ -14,7 +14,6 @@ import { Badge, Row, Col, Menu } from 'antd';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import MobileMenu from 'rc-drawer-menu';
-import moment from 'moment';
 import Article from './Article';
 import type { MenuDataItem, IMenuData } from '../utils';
 import { isZhCN, getMenuItems } from '../utils';
@@ -213,7 +212,7 @@ export default class MainContent extends React.PureComponent<MainContentProps, M
     const moduleData = getModuleDataWithProps(this.props);
     const menuItems: IMenuData = getMenuItems(moduleData, locale) || {};
     const topLevel =
-      this.generateSubMenuItems(menuItems.topLevel as IMenuData, footerNavIcons) || [];
+      this.generateSubMenuItems((menuItems.topLevel as unknown) as IMenuData, footerNavIcons) || [];
     const result = [...topLevel].filter(({ key }) => key);
     return { dom: result, menuData: menuItems };
   };
