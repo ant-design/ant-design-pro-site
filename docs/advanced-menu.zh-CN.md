@@ -125,7 +125,7 @@ export default [
 ];
 ```
 
-这样就可以在`/list/:id`路径的时候，也高亮 `/product`, `parentKeys` 中的 `key` 一般是路径，如果不方便设置为路径的花可以在 菜单配置中增加 key 属性，Layout 会优先使用配置的 `Key` 属性。
+这样就可以在`/list/:id`路径的时候，也高亮 `/product`。`parentKeys` 中的 `key` 一般是路径，如果不方便设置为路径的话，可以在菜单配置中增加`key`属性。Layout 会优先使用配置的 `key` 属性。
 
 ## 根据路径更换布局
 

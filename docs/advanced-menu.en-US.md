@@ -100,7 +100,7 @@ export default [
 ];
 ```
 
-In this way, you can also highlight `/product` in the path of `/list/:id`. The `key` in `parentKeys` is generally a path. If it is not convenient to set the flower as a path, you can add the key in the menu configuration Attribute, Layout will use the configured `Key` attribute first.
+In this way, you can also highlight `/product` in the path of `/list/:id`. The `key` in `parentKeys` is usually a path. If it is not convenient to set it as a path, you can add the `key` attribute to the menu configuration. The layout will give priority to the `key` attribute of the configuration.
 
 ## Change the layout according to the path
 
