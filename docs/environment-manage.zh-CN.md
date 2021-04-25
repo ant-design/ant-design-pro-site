@@ -143,7 +143,20 @@ export async function query() {
 }
 ```
 
-配置文件 config 下的结构： ant-design-pro -- config -- config.dev.ts -- config.test.ts -- config.pre.ts -- config.prod.ts -- config.ts -- proxy.ts -- routes.ts -- defaultSettings.ts -- ...
+配置文件夹 config 下的结构： 
+```bash
+ant-design-pro
+├── config
+│   ├── config.dev.ts
+│   ├── config.test.ts
+│   ├── config.pre.ts
+│   ├── config.prod.ts
+│   ├── config.ts
+│   ├── proxy.ts
+│   ├── routes.ts
+│   ├── defaultSettings.ts
+...
+```
 
 ## 报错的处理方式
 

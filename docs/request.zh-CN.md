@@ -69,12 +69,6 @@ export default () => {
 
 ```javascript
 // src/app.ts
-export const request: RequestConfig = {
-  errorHandler,
-  // 新增自动添加AccessToken的请求前拦截器
-  requestInterceptors: [authHeaderInterceptor],
-};
-
 const demo1Middleware = async (ctx: Context, next: () => void) => {
   console.log('request1');
   await next();

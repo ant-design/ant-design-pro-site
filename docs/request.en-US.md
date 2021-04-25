@@ -69,12 +69,6 @@ The sample code is as follows.
 
 ```javascript
 // src/app.ts
-export const request: RequestConfig = {
-  errorHandler,
-  // Add a pre-request interceptor that automatically adds an AccessToken
-  requestInterceptors: [authHeaderInterceptor],
-};
-
 const demo1Middleware = async (ctx: Context, next: () => void) => {
   console.log('request1');
   await next();

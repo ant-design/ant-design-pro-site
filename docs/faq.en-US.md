@@ -91,7 +91,7 @@ The above menuData definite is [MenuDataItem](https://github.com/ant-design/ant-
 
 ### How to use Conventional Routing?
 
-Sometimes you may not want to use `config/config.ts`. Then you can consider umi's [Conventional Routing](https://umijs.org/guide/router.html#conventional-routing).
+Sometimes you may not want to use `config/config.ts`. Then you can consider umi's [Conventional Routing](https://umijs.org/docs/convention-routing).
 
 Specific how to use convention routing in pro, you can see this [commit](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7).
 
