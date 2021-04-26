@@ -4,7 +4,11 @@ title: Getting Started
 type: Introduction
 ---
 
-Ant Design Pro is based on umi to frame scaffolding, and we can initialize and start scaffolding with a easy operation.
+Ant Design Pro is a production-ready solution for admin interfaces. Built on the design principles developed by [Ant Design](http://ant.design/), this project introduces higher level components; we have developed templates, components, and a corresponding design kit to improve the user and development experience for admin interfaces.
+
+## Tips before development
+
+Ant Design Pro is a front-end scaffolding. By default, readers have already understood some basic front-end knowledge, and understand umi and Ant Design. If you are a pure novice, it is recommended to read [Beginner's Guide](/docs/) getting-started-cn). Sharpen the knife and chop wood by mistake. Knowing some basic knowledge can make the learning curve smoother.
 
 ## Init
 
