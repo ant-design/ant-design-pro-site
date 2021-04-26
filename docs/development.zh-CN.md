@@ -16,7 +16,7 @@ Ant Design Pro 以 umi 作为脚手架，启动和开发与 umi 基本相同。
 
 ![app](https://gw.alipayobjects.com/zos/antfincdn/9bvHFQRjep/0B7EE9A4-2CD7-4626-9B8E-DEEA85EE2126.png)
 
-> 由于默认使用了 user 权限，可以需要使用 admin 登录才能看到全部页面。
+> 由于默认使用了 user 权限，所以需要使用 admin 登录才能看到全部页面。
 
 ### 区分环境
 

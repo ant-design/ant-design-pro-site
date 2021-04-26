@@ -89,7 +89,7 @@ return (
 
 ### 如何使用 Umi 约定式路由
 
-有时候你可能不想要使用 config/config.ts 的配置。那你可以考虑 umi 的[约定式路由](https://umijs.org/zh/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)。
+有时候你可能不想要使用 config/config.ts 的配置。那你可以考虑 umi 的[约定式路由](https://umijs.org/zh-CN/docs/convention-routing)。
 
 具体的如何在 pro 中使用约定式路由，可以查看这次[提交](https://github.com/ant-design/ant-design-pro/commit/a22d400328a7a391ed5e5a5f2bba1a5fecf9fad7)。
 
