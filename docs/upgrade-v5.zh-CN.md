@@ -42,7 +42,7 @@ export async function getInitialState(): Promise<{
 
 ## Layout
 
-在新的架构中 Layout 被作为插件使用，作为了替代品我们在 `app.ts` 中提供了   `layout`  的配置项来支持运行时配置,我们需要将 footer 和 menu 的自定义迁移到  `app.ts` 中，在 return 中我们可以原来的任何 props 配置。
+在新的架构中 Layout 被作为插件使用，作为了替代品我们在 `app.ts` 中提供了 `layout`  的配置项来支持运行时配置,我们需要将 footer 和 menu 的自定义迁移到  `app.ts` 中，在 return 中我们可以原来的任何 props 配置。
 
 ```typescript
 import React from 'react';
