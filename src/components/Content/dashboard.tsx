@@ -60,7 +60,17 @@ const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
                         }}
                       >
                         <LinkOutlined />
-                        <div className="components-overview-title" key={component.title}>
+                        <div
+                          className="components-overview-title"
+                          key={component.title}
+                          style={{
+                            height: 22,
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            maxWidth: '11vw',
+                          }}
+                        >
                           {component.title} {component.subtitle}
                         </div>
                       </Space>
