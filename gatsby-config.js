@@ -46,6 +46,14 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: '/config',
+        path: `${__dirname}/config/`,
+        ignore: [`**/\.*`],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: '/blog',
         path: `${__dirname}/blog/`,
         ignore: [`**/\.*`],

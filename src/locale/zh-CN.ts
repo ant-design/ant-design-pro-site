@@ -12,6 +12,7 @@ export default {
     'app.header.menu.docs': '文档',
     'app.header.menu.components': '组件',
     'app.header.menu.resource': '资源',
+    'app.header.menu.config': '配置',
     'app.header.lang': 'English',
     'app.content.edit-page': '在 Github 上编辑此页！',
     'app.content.modifiedTime': '上次修改时间：',

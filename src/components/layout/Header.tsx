@@ -234,6 +234,11 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             <FormattedMessage id="app.header.menu.docs" />
           </Link>
         </Menu.Item>
+        <Menu.Item key="config">
+          <Link to={utils.getLocalizedPathname('/config', isZhCN)}>
+            <FormattedMessage id="app.header.menu.config" />
+          </Link>
+        </Menu.Item>
         <Menu.Item key="blog">
           <Link to={utils.getLocalizedPathname('/blog/', isZhCN)}>Blog</Link>
         </Menu.Item>

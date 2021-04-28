@@ -302,13 +302,3 @@ export const config = defineConfig({
   layout: false,
 });
 ```
-
-### 隐藏侧边栏的 TechUI 模版
-
-模版本身只会在开发阶段生效，目的是为了更好的研发提效。如果阻塞了您的研发，也欢迎通过 issue 给我们提供更好的建议。
-
-您也可以通过设置环境变量 `TECHUI_PREVIEW` 来去掉它。
-
-```js
- TECHUI_PREVIEW='none' npm run dev
-```

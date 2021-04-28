@@ -10,6 +10,7 @@ export default {
     'app.header.search.component': 'Components',
     'app.header.menu.home': 'Home',
     'app.header.menu.docs': 'Docs',
+    'app.header.menu.config': 'Config',
     'app.header.menu.components': 'Components',
     'app.header.menu.resource': 'Resources',
     'app.header.lang': '中文',

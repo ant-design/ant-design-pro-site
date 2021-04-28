@@ -40,20 +40,32 @@ module.exports = async ({ graphql, actions }) => {
   const { edges } = allMarkdown.data.allMarkdownRemark;
   edges.forEach((edge) => {
     const { slug, underScoreCasePath } = edge.node.fields;
-    if (slug.includes('docs/') || slug.includes('/blog')) {
+    const getType = () => {
+      if (slug.includes('docs/')) {
+        return '/docs/';
+      }
+      if (slug.includes('blog/')) {
+        return '/blog/';
+      }
+      if (slug.includes('config/')) {
+        return '/config/';
+      }
+      return '/blog';
+    };
+    if (slug.includes('docs/') || slug.includes('/blog') || slug.includes('/config')) {
       const template = docsTemplate;
       const createArticlePage = (path) => {
         if (underScoreCasePath !== path) {
           redirects[underScoreCasePath] = path;
         }
-
+        console.log(path);
         return createPage({
           path,
           component: template,
           context: {
             slug,
             // if is docs page
-            type: slug.includes('docs/') ? '/docs/' : '/blog/',
+            type: getType(),
             locale: slug.includes('-cn') ? '/-cn/' : '//',
           },
         });
@@ -75,6 +87,18 @@ module.exports = async ({ graphql, actions }) => {
     fromPath: '/docs/',
     redirectInBrowser: true,
     toPath: '/docs/getting-started',
+  });
+
+  createRedirect({
+    fromPath: '/config',
+    redirectInBrowser: true,
+    toPath: '/config/config',
+  });
+
+  createRedirect({
+    fromPath: '/config-cn',
+    redirectInBrowser: true,
+    toPath: '/config/config-cn',
   });
 
   createRedirect({
