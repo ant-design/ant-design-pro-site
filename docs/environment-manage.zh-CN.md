@@ -143,7 +143,8 @@ export async function query() {
 }
 ```
 
-配置文件夹 config 下的结构： 
+配置文件夹 config 下的结构：
+
 ```bash
 ant-design-pro
 ├── config
