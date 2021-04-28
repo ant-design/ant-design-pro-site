@@ -50,7 +50,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 };
 ```
 
-同时 ProLayout 支持根据菜单和路径来自动匹配浏览器的标题。欢迎页就会显示 `欢迎 - Ant Design Pro` ，如果你不喜欢这样可以设置 `pageTitleRender=false` 来关掉它。
+同时 ProLayout 会根据菜单和路径来自动匹配浏览器的标题。欢迎页就会显示 `欢迎 - Ant Design Pro` ，如果你不喜欢这样可以设置 `pageTitleRender=false` 来关掉它。
 
 如果需要根据内容动态更新页面标题，则可以使用浏览器 document.title API。 对于更复杂的场景，当您想从 React 组件更改标题时，可以使用第三方库 React Helmet。
 
@@ -84,7 +84,7 @@ dynamicImport: {
 }
 ```
 
-这里的配置是一个路径的 string，支持别名的配置。
+这里的配置是一个路径的 string，也可以使用别名的配置。
 
 ### 业务中的加载
 
