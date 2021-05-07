@@ -18,6 +18,7 @@
     "__test__/**/*",
     "typings/**/*",
     "config/**/*",
+    "gatsby/**/*",
     ".eslintrc.js",
     ".stylelintrc.js",
     ".prettierrc.js",
