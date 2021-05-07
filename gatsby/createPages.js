@@ -27,7 +27,6 @@ module.exports = async ({ graphql, actions }) => {
 
   if (allMarkdown.errors) {
     console.error(allMarkdown.errors);
-
     throw Error(allMarkdown.errors);
   }
   const redirects = {};
@@ -87,6 +86,12 @@ module.exports = async ({ graphql, actions }) => {
     fromPath: '/config',
     redirectInBrowser: true,
     toPath: '/config/config',
+  });
+
+  createRedirect({
+    fromPath: '/config-cn',
+    redirectInBrowser: true,
+    toPath: '/config/config-cn',
   });
 
   createRedirect({

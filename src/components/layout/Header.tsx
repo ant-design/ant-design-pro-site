@@ -222,8 +222,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
     const isZhCN = intl.locale === 'zh-CN';
 
-    console.log(utils.getLocalizedPathname('/blog', isZhCN));
-
     const menu = [
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
@@ -241,14 +239,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             <FormattedMessage id="app.header.menu.config" />
           </Link>
         </Menu.Item>
-        <Menu.Item
-          key="blog"
-          onClick={() => {
-            console.log(navigate);
-            navigate(utils.getLocalizedPathname('/blog', isZhCN));
-          }}
-        >
-          <Link>Blog</Link>
+        <Menu.Item key="blog">
+          <Link to={utils.getLocalizedPathname('/blog', isZhCN)}>Blog</Link>
         </Menu.Item>
         {menuMode === 'inline' && (
           <Menu.Item key="preview">
