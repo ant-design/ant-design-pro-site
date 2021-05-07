@@ -8,7 +8,7 @@ type: 页面开发
 
 ## 手动创建
 
-### 一、新增 js、less 文件
+## 新增 ts、less 文件
 
 在 src / pages 下创建新的 js，less 文件。 如果有多个相关页面，您可以创建一个新文件夹来放置相关文件。
 
@@ -42,13 +42,41 @@ export default () => {
 
 这样可以轻松获取 antd 样式变量并在文件中使用它们，这可以保持保持页面的一致性，并有助于实现自定义主题。
 
-### 二、将文件加入菜单和路由
+### 新增布局
+
+在脚手架中我们通过嵌套路由来实现布局模板。[`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以再直接增加一个新的一级数据。
+
+```js
+module.exports = [
+   // user
+   {
+    path: '/user',
+    component: '../layouts/UserLayout',
+    routes:[...]
+   },
+   // app
+   {
+    path: '/',
+    component: '../layouts/BasicLayout',
+    routes:[...]
+   },
+   // new
+   {
+    path: '/new',
+    component: '../layouts/new_page',
+    routes:[...]
+   },
+]
+
+```
+
+## 将文件加入菜单和路由
 
 加入菜单和路由的方式请参照 [路由和菜单 - 添加路由/菜单](/docs/router-and-nav#添加路由/菜单) 中的介绍完成。加好后，访问 `http://localhost:8000/#/new` 就可以看到新增的页面了。
 
 <img alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/xZIqExWKhdnzDBjajnZg.png" />
 
-### 三、新增 model、service
+## 新增 model、service
 
 布局及路由都配置好之后，回到之前新建的 `NewPage.js`，可以开始写业务代码了！
 

@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 10
 title: 路由和菜单
 type: 页面开发
 ---
@@ -110,61 +110,6 @@ return (
 ```
 
 如果你需要自定义 menuItem 的点击逻辑，你可以通过 [menuItemRender](https://github.com/ant-design/ant-design-pro/blob/e14b1311d5efdd032a04d86ed4ed80292b832822/src/layouts/BasicLayout.tsx#L103) 的来实现。
-
-### 新增页面
-
-> 通过区块新增请阅读 [Block](/docs/block-cn)
-
-脚手架默认提供了两种布局模板：`基础布局 - BasicLayout` 以及 `账户相关布局 - UserLayout`：
-
-<img alt="基础布局" src="https://gw.alipayobjects.com/zos/rmsportal/oXmyfmffJVvdbmDoGvuF.png" />
-
-<img alt="账户相关布局" src="https://gw.alipayobjects.com/zos/rmsportal/mXsydBXvLqBVEZLMssEy.png" />
-
-如果你的页面可以利用这两种布局，那么只需要在路由配置中增加一条即可：
-
-```js
-  // app
-  {
-    path: '/',
-    component: '../layouts/BasicLayout',
-    routes: [
-      // dashboard
-      { path: '/', redirect: '/dashboard/analysis' },
-      { path :'/dashboard/test',component:"./Dashboard/Test"},
-    ...
-},
-```
-
-加好后，会默认生成相关的路由及导航。
-
-### 新增布局
-
-在脚手架中我们通过嵌套路由来实现布局模板。[`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以再直接增加一个新的一级数据。
-
-```js
-module.exports = [
-   // user
-   {
-    path: '/user',
-    component: '../layouts/UserLayout',
-    routes:[...]
-   },
-   // app
-   {
-    path: '/',
-    component: '../layouts/BasicLayout',
-    routes:[...]
-   },
-   // new
-   {
-    path: '/new',
-    component: '../layouts/new_page',
-    routes:[...]
-   },
-]
-
-```
 
 ### 在菜单中使用自定义图标
 

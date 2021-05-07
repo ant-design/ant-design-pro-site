@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 12
 title: Router and Nav
 type: Page Development
 ---
