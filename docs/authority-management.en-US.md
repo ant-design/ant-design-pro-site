@@ -1,5 +1,5 @@
 ---
-order: 20
+order: 30
 title: Permission Management
 type: Data Management
 ---

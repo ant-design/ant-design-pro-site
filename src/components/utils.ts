@@ -53,21 +53,19 @@ export function getLocalizedPathname(path: string, zhCN: boolean) {
 export function getMenuItems(moduleData: Record<string, any>, locale: string) {
   const menuMeta = moduleData.map((item: { meta: any }) => item.meta);
   const menuItems: Record<string, any> = { topLevel: {} };
-  menuMeta
-    .sort((a: { order: number }, b: { order: number }) => (a.order || 0) - (b.order || 0))
-    .forEach((meta: { category: Record<string, any>; type: string }) => {
-      const category = (meta.category && meta.category[locale]) || meta.category || 'topLevel';
-      if (!menuItems[category]) {
-        menuItems[category] = {};
-      }
+  menuMeta.forEach((meta: { category: Record<string, any>; type: string }) => {
+    const category = (meta.category && meta.category[locale]) || meta.category || 'topLevel';
+    if (!menuItems[category]) {
+      menuItems[category] = {};
+    }
 
-      const type = meta.type || 'topLevel';
-      if (!menuItems[category][type]) {
-        menuItems[category][type] = [];
-      }
+    const type = meta.type || 'topLevel';
+    if (!menuItems[category][type]) {
+      menuItems[category][type] = [];
+    }
 
-      menuItems[category][type].push(meta);
-    });
+    menuItems[category][type].push(meta);
+  });
   return menuItems;
 }
 

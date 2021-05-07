@@ -5,12 +5,7 @@ module.exports = async ({ graphql, actions }) => {
   // Used to detect and prevent duplicate redirects
 
   const docsTemplate = resolve(__dirname, '../src/templates/docs.tsx');
-  // Redirect /index.html to root.
-  createRedirect({
-    fromPath: '/index.html',
-    redirectInBrowser: true,
-    toPath: '/',
-  });
+  const blogTemplate = resolve(__dirname, '../src/templates/blog.tsx');
 
   const allMarkdown = await graphql(
     `
@@ -53,12 +48,11 @@ module.exports = async ({ graphql, actions }) => {
       return '/blog';
     };
     if (slug.includes('docs/') || slug.includes('/blog') || slug.includes('/config')) {
-      const template = docsTemplate;
+      const template = slug.includes('/blog') ? blogTemplate : docsTemplate;
       const createArticlePage = (path) => {
         if (underScoreCasePath !== path) {
           redirects[underScoreCasePath] = path;
         }
-        console.log(path);
         return createPage({
           path,
           component: template,
@@ -96,27 +90,19 @@ module.exports = async ({ graphql, actions }) => {
   });
 
   createRedirect({
-    fromPath: '/config-cn',
+    fromPath: '/blog',
     redirectInBrowser: true,
-    toPath: '/config/config-cn',
-  });
-
-  createRedirect({
-    fromPath: '/blog/beter-block/',
-    redirectInBrowser: true,
-    toPath: '/blog/better-block',
-  });
-
-  createRedirect({
-    fromPath: '/blog/beter-block-cn/',
-    redirectInBrowser: true,
-    toPath: '/blog/better-block-cn',
+    toPath: '/blog/layout-new-style',
   });
 
   const blogEdges = await graphql(
     `
       {
-        allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }, limit: 1000) {
+        allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/blog/" } }
+          sort: { order: DESC, fields: [frontmatter___time] }
+          limit: 10
+        ) {
           edges {
             node {
               fields {

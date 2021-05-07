@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: 'https://pro.ant.design',
   },
   plugins: [
+    `gatsby-plugin-meta-redirect`,
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

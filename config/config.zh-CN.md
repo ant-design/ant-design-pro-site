@@ -3,7 +3,7 @@ title: 配置
 order: 1
 ---
 
-> 查看 [umi 文档](https://umijs.org/zh-CN/config)获取更多配置
+> 查看 [umi 文档](https://umijs.org/zh-CN/config) 了解更多配置
 
 ## base
 

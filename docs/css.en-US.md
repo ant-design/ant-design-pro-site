@@ -1,5 +1,5 @@
 ---
-order: 30
+order: 20
 title: Using css
 type: styles and resources
 ---

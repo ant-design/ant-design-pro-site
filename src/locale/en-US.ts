@@ -75,7 +75,6 @@ export default {
     'app.footer.ant-design': 'UI Design Language',
     'app.footer.yuque': 'YuQue',
     'app.footer.yuque.slogan': 'Write your document as a team',
-
     'app.footer.zhihu': 'Zhihu',
     'app.footer.zhihu.xtech': 'Experience Cloud Blog',
     'app.footer.seeconf': 'Seeking Experience & Engineering Conference',

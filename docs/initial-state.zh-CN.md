@@ -1,5 +1,5 @@
 ---
-order: 18
+order: 32
 title: 全局初始数据
 type: 数据管理
 ---

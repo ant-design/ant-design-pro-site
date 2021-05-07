@@ -72,7 +72,6 @@ export default function Template({
   const { edges } = allMarkdownRemark;
   const menuList = edges.map(({ node, next, previous }) => {
     const { fields: nodeFields } = node;
-
     return {
       meta: {
         ...node.frontmatter,
@@ -108,7 +107,7 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-  query TemplateDocsMarkdown($slug: String!, $type: String!, $locale: String!) {
+  query TemplateBlogMarkdown($slug: String!, $type: String!, $locale: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       tableOfContents
@@ -126,7 +125,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: $type }, fields: { slug: { regex: $locale } } }
-      sort: { fields: [frontmatter___order, frontmatter___type], order: ASC }
+      sort: { fields: [frontmatter___time], order: DESC }
     ) {
       edges {
         node {

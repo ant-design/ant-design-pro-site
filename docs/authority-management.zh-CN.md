@@ -1,5 +1,5 @@
 ---
-order: 20
+order: 30
 title: 权限管理
 type: 数据管理
 ---

@@ -3,7 +3,7 @@ title: API
 order: 2
 ---
 
-> 查看 [umi 文档](https://umijs.org/zh-CN/api)获取更多配置
+> 查看 [umi 文档](https://umijs.org/zh-CN/api) 了解更多配置
 
 ## history
 

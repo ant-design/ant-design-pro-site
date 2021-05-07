@@ -1,5 +1,5 @@
 ---
-order: 32
+order: 22
 title: CSS Modules
 type: styles and resources
 ---

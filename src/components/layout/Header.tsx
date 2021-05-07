@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { EyeOutlined, MenuOutlined, SearchOutlined } from '@ant-design/icons';
 import { Row, Col, Select, Input, Menu, Button, Modal, Popover } from 'antd';
 import Darkreader from 'react-darkreader';
@@ -222,6 +222,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
     const isZhCN = intl.locale === 'zh-CN';
 
+    console.log(utils.getLocalizedPathname('/blog', isZhCN));
+
     const menu = [
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
@@ -239,8 +241,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             <FormattedMessage id="app.header.menu.config" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="blog">
-          <Link to={utils.getLocalizedPathname('/blog/', isZhCN)}>Blog</Link>
+        <Menu.Item
+          key="blog"
+          onClick={() => {
+            console.log(navigate);
+            navigate(utils.getLocalizedPathname('/blog', isZhCN));
+          }}
+        >
+          <Link>Blog</Link>
         </Menu.Item>
         {menuMode === 'inline' && (
           <Menu.Item key="preview">

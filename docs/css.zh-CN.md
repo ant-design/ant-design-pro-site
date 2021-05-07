@@ -1,5 +1,5 @@
 ---
-order: 30
+order: 20
 title: 使用 css
 type: 样式和资源
 ---

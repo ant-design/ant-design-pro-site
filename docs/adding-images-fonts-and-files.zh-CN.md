@@ -1,5 +1,5 @@
 ---
-order: 44
+order: 24
 title: 添加图片，字体和文件
 type: 样式和资源
 ---
