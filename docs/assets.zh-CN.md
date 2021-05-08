@@ -34,4 +34,4 @@ Ant Design Pro 中，使用 umi ui 进行区块管理。
 
 ## 更多内容
 
-如果你想进行区块开发，可以在 [umi 区块](https://umijs.org/docs/use-umi-ui) 中查看完整内容。
+如果你想进行区块开发，可以在 [umi 区块](https://umijs.org/zh-CN/docs/use-umi-ui) 中查看完整内容。

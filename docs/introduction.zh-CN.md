@@ -6,7 +6,7 @@ type: 入门
 
 > 此文档面向首次使用 前端框架的用户，如果你已经了解 umi ，Ant Design，webpack 等开发工具可以快速略过。
 
-Ant Design Pro 在力求提供开箱即用的开发体验，为此我们提供完整的脚手架，涉及[国际化](https://umijs.org/plugins/plugin-locale)，[权限](https://umijs.org/plugins/plugin-access)，mock，[数据流](https://umijs.org/plugins/plugin-model)，[网络请求](https://umijs.org/plugins/plugin-request)等各个方面。为这些中后台中常见的方案提供了最佳实践来减少学习和开发成本。
+Ant Design Pro 在力求提供开箱即用的开发体验，为此我们提供完整的脚手架，涉及[国际化](https://umijs.org/zh-CN/plugins/plugin-locale)，[权限](https://umijs.org/zh-CN/plugins/plugin-access)，mock，[数据流](https://umijs.org/zh-CN/plugins/plugin-model)，[网络请求](https://umijs.org/zh-CN/plugins/plugin-request)等各个方面。为这些中后台中常见的方案提供了最佳实践来减少学习和开发成本。
 
 同时为了提供更加高效的开发体验，我们提供了一些列模板组件，[ProLayout](https://procomponents.ant.design/components/layout)，[ProTable](https://procomponents.ant.design/components/table)，[ProList](https://procomponents.ant.design/components/list) 都是开发中后台的好帮手，可以显著的减少样板代码。
 
@@ -77,15 +77,15 @@ Pro 的底座基于 umi， umi 与 webpack 相比增加了运行时相关的能�
 
 Pro 的底座是 umi，umi 是一个 webpack 之上的整合工具。 umi 相比于 webpack 增加了运行时的能力，同时帮助我们配置了很多 webpack 的预设。也减少了 webpack 升级导致的问题。这也是我们为了还能提供插件的原因。
 
-- [plugin-access](https://umijs.org/plugins/plugin-access)，权限管理
-- [plugin-analytics](https://umijs.org/plugins/plugin-analytics)，统计管理
-- [plugin-antd](https://umijs.org/plugins/plugin-antd)，整合 antd UI 组件
-- [plugin-initial-state](https://umijs.org/plugins/plugin-initial-state)，初始化数据管理
-- [plugin-layout](https://umijs.org/plugins/plugin-layout)，配置启用 ant-design-pro 的布局
-- [plugin-locale](https://umijs.org/plugins/plugin-locale)，国际化能力
-- [plugin-model](https://umijs.org/plugins/plugin-model)，基于 hooks 的简易数据流
-- [plugin-request](https://umijs.org/plugins/plugin-request)，基于 umi-request 和 umi-hooks 的请求方案
+- [plugin-access](https://umijs.org/zh-CN/plugins/plugin-access)，权限管理
+- [plugin-analytics](https://umijs.org/zh-CN/plugins/plugin-analytics)，统计管理
+- [plugin-antd](https://umijs.org/zh-CN/plugins/plugin-antd)，整合 antd UI 组件
+- [plugin-initial-state](https://umijs.org/zh-CN/plugins/plugin-initial-state)，初始化数据管理
+- [plugin-layout](https://umijs.org/zh-CN/plugins/plugin-layout)，配置启用 ant-design-pro 的布局
+- [plugin-locale](https://umijs.org/zh-CN/plugins/plugin-locale)，国际化能力
+- [plugin-model](https://umijs.org/zh-CN/plugins/plugin-model)，基于 hooks 的简易数据流
+- [plugin-request](https://umijs.org/zh-CN/plugins/plugin-request)，基于 umi-request 和 umi-hooks 的请求方案
 
-如果不喜欢 umi 默认的配置，可以在这里看看有没有你喜欢的[配置](https://umijs.org/config)。如果还是不能满足就要自定义 webpack 了，[chainWebpack](https://umijs.org/config#chainwebpack) 可以自定义 内置的 webpack 配置。
+如果不喜欢 umi 默认的配置，可以在这里看看有没有你喜欢的[配置](https://umijs.org/zh-CN/config)。如果还是不能满足就要自定义 webpack 了，[chainWebpack](https://umijs.org/zh-CN/config#chainwebpack) 可以自定义 内置的 webpack 配置。
 
 webpack 对于 node 也是有版本需求的，不同 webpack 对 node 版本的依赖也不同，所以最好的办法是升级到最新的[长期维护版本](https://nodejs.org/en/)。

@@ -6,7 +6,7 @@ type: 页面开发
 
 布局是一个中后台应用必备的，一个布局 + ProTable + Form 即可获得一个 CRUD 页面。
 
-Pro 中内置了 [plugin-layout](https://umijs.org/plugins/plugin-layout) 来减少样板代码。简单的使用中我们只需要在 `config.ts` 中配置 layout 属性就可以实现通用的页面布局。
+Pro 中内置了 [plugin-layout](https://umijs.org/zh-CN/plugins/plugin-layout) 来减少样板代码。简单的使用中我们只需要在 `config.ts` 中配置 layout 属性就可以实现通用的页面布局。
 
 ## UI 配置
 
@@ -42,7 +42,7 @@ export const config = defineConfig({
 
 ### 菜单展示
 
-我们可以在 route 中进行 menu 相关配置，来决定当前路由是否会被渲染在菜单中。[详细配置说明](https://umijs.org/plugins/plugin-layout#menu)
+我们可以在 route 中进行 menu 相关配置，来决定当前路由是否会被渲染在菜单中。[详细配置说明](https://umijs.org/zh-CN/plugins/plugin-layout)
 
 - 当不需要展示在菜单中展示时，可以在路由上配置 hideInMenu 或者删除 menu 相关的配置；
 - 当不需要展示 children 时，可以在路由上配置 hideChildrenInMenu；
@@ -68,7 +68,7 @@ export default [
 
 ### 菜单国际化
 
-通过 layout 配置的 [locale](https://umijs.org/plugins/plugin-layout#locale) 配置开启国际化。
+通过 layout 配置的 [locale](https://umijs.org/zh-CN/plugins/plugin-layout#locale) 配置开启国际化。
 
 开启后路由里配置的菜单名会被当作菜单名国际化的 key，插件会去 locales 文件中查找 menu.[key]对应的文案，默认值为改 key。
 
@@ -148,7 +148,7 @@ export const layout = {
 
 ![403](https://gw.alipayobjects.com/mdn/rms_30ab81/afts/img/A*XdUsQa3xisIAAAAAAAAAAABkARQnAQ)
 
-详细的配置方案可：[点击查看](https://umijs.org/plugins/plugin-access#%E4%BB%8B%E7%BB%8D)
+详细的配置方案可：[点击查看](https://umijs.org/zh-CN/plugins/plugin-access#%E4%BB%8B%E7%BB%8D)
 
 1.通过全局初始化信息来请求权限相关的初始化信息
 
