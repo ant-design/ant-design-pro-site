@@ -50,9 +50,9 @@ export default {
 
 <img src="https://gw.alipayobjects.com/zos/rmsportal/OLHIXePGHkkFoaZVQAts.png" width="600" />
 
-### 引入 Mock.ts
+### 引入 Mock.js
 
-[Mock.ts](http://mockjs.com/) 是常用的辅助生成模拟数据的第三方库，当然你可以用你喜欢的任意库来结合 umi 构建数据模拟功能。
+[Mock.js](http://mockjs.com/) 是常用的辅助生成模拟数据的第三方库，当然你可以用你喜欢的任意库来结合 umi 构建数据模拟功能。
 
 ```js
 import mockjs from 'mockjs';
