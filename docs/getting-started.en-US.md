@@ -8,7 +8,7 @@ Ant Design Pro is a production-ready solution for admin interfaces. Built on the
 
 ## Tips before development
 
-Ant Design Pro is a front-end scaffolding. By default, readers have already understood some basic front-end knowledge, and understand umi and Ant Design. If you are a pure novice, it is recommended to read [Beginner's Guide](/docs/) getting-started-cn). Sharpen the knife and chop wood by mistake. Knowing some basic knowledge can make the learning curve smoother.
+Ant Design Pro is a front-end scaffolding. By default, readers have already understood some basic front-end knowledge, and understand umi and Ant Design. If you are a pure novice, it is recommended to read [Beginner's Need to know](/docs/introduction). Sharpen the knife and chop wood by mistake. Knowing some basic knowledge can make the learning curve smoother.
 
 ## Init
 
