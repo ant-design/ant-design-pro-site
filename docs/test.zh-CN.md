@@ -35,13 +35,13 @@ it('sums numbers', () => {
 });
 ```
 
-[这里的文档](https://jestjs.io/docs/en/expect.html#content)可以看到所有的断言函数。有些时候你可以需要 mock 函数，你可以使用 [`jest.fn()` 和 `expect(fn).toBeCalled()`](https://jestjs.io/docs/en/expect.html#tohavebeencalled) 来测试函数是否被调用。
+[这里的文档](https://jestjs.io/zh-Hans/docs/expect#%E6%96%B9%E6%B3%95)可以看到所有的断言函数。有些时候你可能需要 mock 函数，你可以使用 [`jest.fn()` 和 `expect(fn).toBeCalled()`](https://jestjs.io/zh-Hans/docs/expect#tohavebeencalled) 来测试函数是否被调用。
 
 ## 测试组件
 
-组件测试的范围很广，从冒烟测试测试组件是否可以正常工作，到浅显的测试的组件的某些行为和输出，也会测试完整的生命周期到各个状态的变化。
+组件测试的范围很广，从冒烟测试测试组件是否可以正常工作，到浅显的测试组件的某些行为和输出，也会测试完整的生命周期到各个状态的变化。
 
-在业务中不同的组件应该根据不同的业务状态的进行权衡，如果你还没有任何测试，这里建议先加个冒烟测试。
+在业务中不同的组件应该根据不同的业务状态进行权衡，如果你还没有任何测试，这里建议先加个冒烟测试。
 
 ```tsx
 import React from 'react';
@@ -78,7 +78,7 @@ npm install --save @testing-library/react @testing-library/jest-dom
 import '@testing-library/jest-dom';
 ```
 
-加下来我们就可以编写测试用例了。
+接下来我们就可以编写测试用例了。
 
 ```tsx
 import React from 'react';
@@ -96,7 +96,7 @@ it('renders', () => {
 });
 ```
 
-> [snapshot](https://jestjs.io/blog/2016/07/27/jest-14.html) 是一个相当低成本的测试方式，但是效果很好可以很方便的监听一些 dom 变化。
+> [snapshot](https://jestjs.io/blog/2016/07/27/jest-14.html) 是一个相当低成本的测试方式，但是效果很好，可以很方便的监听一些 dom 变化。
 
 我们可以从 [`react-testing-library 的文档和例子`](https://testing-library.com/docs/react-testing-library/intro/) 来查看更多的用法。
 
@@ -126,4 +126,4 @@ it('page should have footer', async () => {
 });
 ```
 
-以上的用例是去访问 `http://localhost:8000` 的页面，并且判断是否含有 footer 的 dom 元素。在 Pro 中 `page` 会默认注入，这样可以每个测试都公用一份代码，更多的细节可以访问 [puppeteer](https://github.com/puppeteer/puppeteer)。
+以上的用例是去访问 `http://localhost:8000` 的页面，并且判断是否含有 dom 元素 footer。在 Pro 中 `page` 会默认注入，这样可以每个测试都公用一份代码，更多的细节可以访问 [puppeteer](https://github.com/puppeteer/puppeteer)。

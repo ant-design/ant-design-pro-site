@@ -11,7 +11,7 @@ $ npm install
 $ npm start
 ```
 
-Then visit http://localhost:8001 .
+Then visit http://localhost:8000 .
 
 ### Deploy
 

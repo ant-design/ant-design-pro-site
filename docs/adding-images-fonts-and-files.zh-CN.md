@@ -28,7 +28,7 @@ return <Image src={logo} />;
 return <Image src="/logo.png" />;
 ```
 
-在编译的时候，public 会全部移动到 dist 中，不会进行任何处理。使用时的一定要使用绝对路径。通常我们建议从 JavaScript 导入 stylesheets，图片和字体。 public 文件夹可用作许多不常见情况的变通方法.
+在编译的时候，public 会全部移动到 dist 中，不会进行任何处理。使用时一定要使用绝对路径。通常我们建议从 JavaScript 导入 stylesheets，图片和字体。 public 文件夹可用作许多不常见情况的变通方法.
 
 ## 添加 SVG
 
