@@ -33,7 +33,7 @@ it('sums numbers', () => {
 });
 ```
 
-[Document here](https://jestjs.io/docs/en/expect.html#content) You can see all the assertion functions. Sometimes you may need a mock function, you can use [`jest.fn()` and ʻexpect(fn).toBeCalled()`](https://jestjs.io/docs/en/expect.html#tohavebeencalled) To test whether the function is called.
+[Document here](https://jestjs.io/docs/expect#methods) You can see all the assertion functions. Sometimes you may need a mock function, you can use [`jest.fn()` and `expect(fn).toBeCalled()`](https://jestjs.io/docs/expect#tohavebeencalled) To test whether the function is called.
 
 ## Test component
 
