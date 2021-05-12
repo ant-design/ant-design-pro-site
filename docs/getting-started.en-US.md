@@ -120,6 +120,10 @@ Choose `ant-design-pro`：
   plugin          - Create a umi plugin.
 ```
 
+```bash
+cd myApp
+```
+
 Ant Design Pro will be installed automatically.
 
 ## Scaffolding
