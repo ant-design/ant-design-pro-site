@@ -11,13 +11,13 @@ type: 数据管理
 - 不同的用户在页面中可以看到的元素和操作不同
 - 不同的用户对页面的访问权限不同
 
-> 针对这些场景，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案。实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](https://umijs.org/plugins/plugin-access)。通过定义权限，使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@alipay/umi-plugin-layout](https://umijs.org/plugins/plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
+> 针对这些场景，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案。实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](https://umijs.org/zh-CN/plugins/plugin-access)。通过定义权限，使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@alipay/umi-plugin-layout](https://umijs.org/zh-CN/plugins/plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
 
 ## 二、如何使用
 
 ### 初始化
 
-权限的定义依赖于初始数据，初始数据需要通过 [@umijs/plugin-initial-state](https://umijs.org/plugins/plugin-initial-state) 生成。
+权限的定义依赖于初始数据，初始数据需要通过 [@umijs/plugin-initial-state](https://umijs.org/zh-CN/plugins/plugin-initial-state) 生成。
 
 生成完初始化数据后，就可以开始定义权限了。首先新建 `src/access.ts` ，在该文件中 `export default` 一个函数，定义用户拥有的权限，以下是示例定义：
 
@@ -84,7 +84,7 @@ const Button=()=>{
 
 ## 三、路由和菜单的权限控制
 
-如果需要对路由还有菜单进行权限控制，可以直接在路由上原有基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（前提需要使用最佳实践的 Layout 方案 - [@alipay/umi-plugin-layout](https://umijs.org/plugins/plugin-layout) ）**。
+如果需要对路由还有菜单进行权限控制，可以直接在路由上原有基础配置上加上权限控制相关的属性，即可快速实现路由和菜单的权限控制。**（前提需要使用最佳实践的 Layout 方案 - [@alipay/umi-plugin-layout](https://umijs.org/zh-CN/plugins/plugin-layout) ）**。
 
 在以上定义(`src/access.ts`, `src/app.ts`)完成的基础上，再在路由配置项上添加 `access` 属性即可完成路由和菜单的权限控制。`access` 属性的值为 `src/access.ts` 中返回的对象的 key。以下为实际例子：
 

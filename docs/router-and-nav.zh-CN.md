@@ -146,4 +146,4 @@ import Link from 'umi/link';
 
 在路由组件中，可以通过`this.props.match.params` 来获得路由参数。
 
-更多详细内容请参见：[umi#路由](https://umijs.org/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
+更多详细内容请参见：[umi#路由](https://umijs.org/zh-CN/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)

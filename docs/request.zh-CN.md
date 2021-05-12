@@ -14,9 +14,9 @@ type: 后端集成
 
 ### 使用 request
 
-通过 `import { request } from 'umi';` 你可以使用内置的请求方法。 [request](https://umijs.org/plugins/plugin-request#request) 接收两个参数，第一个参数是 url，第二个参数是请求的 options。options 具体格式参考 umi-request。
+通过 `import { request } from 'umi';` 你可以使用内置的请求方法。 [request](https://umijs.org/zh-CN/plugins/plugin-request#request) 接收两个参数，第一个参数是 url，第二个参数是请求的 options。options 具体格式参考 umi-request。
 
-[request](https://umijs.org/plugins/plugin-request#request) 的大部分用法等同于 umi-request，一个不同的是 options 扩展了一个配置 skipErrorHandler，该配置为 true 是会跳过默认的错误处理，用于项目中部分特殊的接口。
+[request](https://umijs.org/zh-CN/plugins/plugin-request#request) 的大部分用法等同于 umi-request，一个不同的是 options 扩展了一个配置 skipErrorHandler，该配置为 true 是会跳过默认的错误处理，用于项目中部分特殊的接口。
 
 示例代码如下：
 
@@ -51,7 +51,7 @@ export default () => {
 
 其中 useRequest 的第一个参数接收一个 function，该 function 需要返回一个 Promise，如果你接入了 OneAPI 那么 OneAPI 自动生成的 services 就是一个个这样的 function。
 
-该 Hook 的返回中暴露了各项值，然后你就可以消费它们了，该 Hook 返回的 data 是后端实际返回 JSON 数据中的 data 字段，方便使用（当然你也可以通过配置修改）。更多关于 useRequest 的用法参考它的 [API 文档](https://umijs.org/plugins/plugin-request#userequest)。
+该 Hook 的返回中暴露了各项值，然后你就可以消费它们了，该 Hook 返回的 data 是后端实际返回 JSON 数据中的 data 字段，方便使用（当然你也可以通过配置修改）。更多关于 useRequest 的用法参考它的 [API 文档](https://umijs.org/zh-CN/plugins/plugin-request#userequest)。
 
 <!-- ### 中间件 -->
 
@@ -59,7 +59,7 @@ export default () => {
 
 在某些情况下我们需要在网络请求发出前或响应后做一些特殊处理。比如，在每次请求前在 Header 内自动加上对应的 Access Token。
 
-[@umijs/plugin-request](https://umijs.org/plugins/plugin-request#responseinterceptors) 提供了三个运行时配置项来帮助我们完成类似需求。
+[@umijs/plugin-request](https://umijs.org/zh-CN/plugins/plugin-request#responseinterceptors) 提供了三个运行时配置项来帮助我们完成类似需求。
 
 ### 中间件：middlewares
 
@@ -163,7 +163,7 @@ export interface response {
 }
 ```
 
-当然你也可以通过 `app.ts`  中暴露的 `request`  的运行时配置来修改或者自定义自己项目的一些逻辑，具体参考 `@umijs/plugin-request`  的[文档](https://umijs.org/plugins/plugin-request)。
+当然你也可以通过 `app.ts`  中暴露的 `request`  的运行时配置来修改或者自定义自己项目的一些逻辑，具体参考 `@umijs/plugin-request`  的[文档](https://umijs.org/zh-CN/plugins/plugin-request)。
 
 当出现 HTTP 错误或者返回的数据中 `success`  为 `false`  的情况下 request 会抛出一个异常，当你使用 useRequest 的时候该异常会被 useRequest 捕获，大部分情况下你不需要关心异常的情况，统一的错误处理会做统一的错误提示。对于部分场景需要手动处理错误的时候你可以通过 useRequest 暴露的 `onError`  方法或者 `error`  对象来做自定义处理。
 
@@ -211,4 +211,4 @@ export interface response {
 
 具体参考上面的统一错误处理和统一接口规范。
 
-如果后端返回格式不符合规范的可以参考 `@umijs/plugin-request` 的[文档](https://umijs.org/plugins/plugin-request)，配置运行时配置中的 `errorConfig.adaptor` 兼容。
+如果后端返回格式不符合规范的可以参考 `@umijs/plugin-request` 的[文档](https://umijs.org/zh-CN/plugins/plugin-request)，配置运行时配置中的 `errorConfig.adaptor` 兼容。
