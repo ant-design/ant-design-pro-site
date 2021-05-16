@@ -30,7 +30,7 @@ if (REACT_APP_ENV === 'site') {
 
 ## 处理在 lint 中的报错
 
-[config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是 node 环境，所以可以直接用 `process.env` 的来直接拿到环境变量，但是在 js 的代码中,您使用 `process.env`可能只会获得 `NODE_ENV`这个在约定俗称的变量，别的变量 webpack 并不会自动帮你注入。
+[config](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是 node 环境，所以可以直接用 `process.env` 的来直接拿到环境变量，但是在 js 的代码中,您使用 `process.env`可能只会获得 `NODE_ENV`这个约定俗成的变量，别的变量 webpack 并不会自动帮你注入。
 
 > 关于 `process.env` 和 `NODE_ENV` 看[这里](https://webpack.docschina.org/guides/production/#%E6%8C%87%E5%AE%9A-mode)。
 
