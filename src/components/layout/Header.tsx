@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Link, navigate } from 'gatsby';
+import { Link } from 'gatsby';
 import { EyeOutlined, MenuOutlined, SearchOutlined } from '@ant-design/icons';
 import { Row, Col, Select, Input, Menu, Button, Modal, Popover } from 'antd';
 import Darkreader from 'react-darkreader';
