@@ -1,7 +1,7 @@
 ---
-order: 32
+order: 13
 title: Title and loading page
-type: Build & Deployment
+type: Basic Usage
 ---
 
 Pro provides the configuration of the title Logo and loading page by default. By default, you don't need to modify them. If you need to modify it, this document can help you modify the loading everywhere.

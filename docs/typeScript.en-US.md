@@ -1,7 +1,7 @@
 ---
 order: 31
 title: TypeScript
-type: Code Style
+type: Quality
 ---
 
 In Pro, TypeScript is used as the default development language. The benefits of TypeScript are no longer necessary. Both development costs and maintenance costs can be greatly reduced. It is a must for middle and back-end development. Here are several dimensions to talk about the best practices for TypeScript in Pro.

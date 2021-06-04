@@ -1,7 +1,7 @@
 ---
-order: 30
+order: 12
 title: 标题和加载页
-type: 构建和部署
+type: 基础使用
 ---
 
 Pro 默认提供标题 Logo 和 loading 页面的配置，默认情况下你不需要改造他们，如果你有修改的需求，这个文档可以帮你修改各处的 loading。

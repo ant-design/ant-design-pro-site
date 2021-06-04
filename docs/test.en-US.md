@@ -1,7 +1,7 @@
 ---
 order: 32
 title: Test
-type: Advanced Usage
+type: Quality
 ---
 
 Umi has built-in [jest](https://jestjs.io/) as a test plan. Executing `npm test` will automatically execute the \*.(test|e2e).js file under your project.

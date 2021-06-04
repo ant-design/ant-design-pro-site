@@ -1,7 +1,7 @@
 ---
 order: 31
 title: Lint
-type: Code Style
+type: Quality
 ---
 
 Pro has always had its own list of lint rules. The default mode is strict. The following are some common lint errors, and the following are some built-in errors.

@@ -1,5 +1,5 @@
 ---
-order: 32
+order: 90
 title: 菜单的高级用法
 type: 高级使用
 ---

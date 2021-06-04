@@ -1,5 +1,5 @@
 ---
-order: 18
+order: 12
 title: folder structure
 type: Basic Usage
 ---

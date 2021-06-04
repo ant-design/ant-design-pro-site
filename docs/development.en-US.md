@@ -18,11 +18,9 @@ Visit the following interface at [http://localhost:8000/](http://localhost:8000/
 
 > Because user permissions are used by default, you can use admin to sign in to see all pages.
 
-### Environment
+## Differentiate environment
 
-For many projects, a variable that differentiates the environment is required, but it also provides a quick way to start and the corresponding ui presentation. Pro has three environments built in `dev`, `test`, `pre`. You can start separately by running commands such as `npm run start:test`. It also injects a 'REACT_APP_ENV' variable into each page to distinguish.
-
-> `dev`, `test`, `pre` environments all turn off the mock by default. `REACT_APP_ENV` is not mounted in windows and cannot pass `windows.REACT_APP_ENV` to get.
+For more information, see [environment variables](/docs/environment-manage)
 
 ## MOCK
 
