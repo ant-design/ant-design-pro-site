@@ -1,10 +1,10 @@
 ---
-order: 16
+order: 12
 title: 新增页面
 type: 页面开发
 ---
 
-这里的『页面』指配置了路由，能够通过链接直接访问的模块，要新建一个页面，通常只需要在脚手架的基础上进行简单的配置。
+这里的『页面』指配置了路由，能够通过链接直接访问的模块，要新建一个页面，通常可以在脚手架的基础上进行简单的配置。
 
 ## 手动创建
 
@@ -26,7 +26,7 @@ package.json
 
 为了更好的演示，我们初始化`NewPage.js`的内容如下：
 
-```jsx
+```jsx | pure
 export default () => {
   return <div>New Page</div>;
 };
@@ -46,8 +46,8 @@ export default () => {
 
 在脚手架中我们通过嵌套路由来实现布局模板。[`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以再直接增加一个新的一级数据。
 
-```js
-module.exports = [
+```typescript | pure
+export default [
    // user
    {
     path: '/user',
@@ -72,12 +72,86 @@ module.exports = [
 
 ## 将文件加入菜单和路由
 
-加入菜单和路由的方式请参照 [路由和菜单 - 添加路由/菜单](/docs/router-and-nav#添加路由/菜单) 中的介绍完成。加好后，访问 `http://localhost:8000/#/new` 就可以看到新增的页面了。
+Bigfish 的默认布局中的菜单根据 `routes.ts` 中的路由生成的，所以我们可以配置路由，菜单也会产生。
 
-<img alt="新增页面" src="https://gw.alipayobjects.com/zos/rmsportal/xZIqExWKhdnzDBjajnZg.png" />
+我们需要在 `routes.ts` 中使用 `component` 配置我们页面到路由中。
 
-## 新增 model、service
+```jsx | pure
+export default [
+  {
+    path: '/user',
+    component: '../layouts/UserLayout',
+    routes: [
+      {
+        // path 支持为一个 url，必须要以 http 开头
+        path: 'https://pro.ant.design/docs/getting-started-cn',
+        target: '_blank', // 点击新窗口打开
+        name: '文档',
+      },
+      {
+        // 访问路由，以 / 开头为绝对路径
+        path: '/user/login',
+        // ./Page ->src/pages/Login
+        component: './NewPage',
+      },
+      {
+        // 访问路由，如果不是以 / 开头会拼接父路由
+        // reg -> /user/reg
+        path: 'reg',
+        // ./Page ->src/pages/Reg
+        component: '../layouts/NewPage2',
+      },
+    ],
+  },
+];
+```
+
+路由配置完成后，访问页面即可看到效果，如果需要在菜单中显示，需要配置 `name`，`icon`，`hideChildrenInMenu`等来辅助生成菜单。
+
+具体值如下：
+
+- `name:string` 配置菜单的 name，如果配置了国际化，name 为国际化的 key。
+- `icon:string` 配置菜单的图表，默认使用 antd 的 icon 名，默认不适用二级菜单的 icon。
+- `access:string` 权限配置，需要预先配置权限
+- `hideChildrenInMenu:true` 用于隐藏不需要在菜单中展示的子路由。
+- `hideInMenu:true` 可以在菜单中不展示这个路由，包括子路由。
+- `hideInBreadcrumb:true` 可以在面包屑中不展示这个路由，包括子路由。
+- `headerRender:false` 当前路由不展示顶栏
+- `footerRender:false` 当前路由不展示页脚
+- `menuRender: false` 当前路由不展示菜单
+- `menuHeaderRender: false` 当前路由不展示菜单顶栏
+- `flatMenu` 子项往上提，只是不展示父菜单
+
+### 在菜单中使用 iconFont
+
+要使用 iconFont 的图标必须满足两个条件
+
+- 传入一个 iconFont 的 url 链接
+- icon 命名必须以 icon-开头
+
+在 `src/app.tsx` 中的配置：
+
+```tsx | pure
+export const layout: RunTimeLayoutConfig = ({ initialState }) => {
+  return {
+    iconfontUrl: '//at.alicdn.com/t/XXX.js',
+  };
+};
+```
+
+iconfontUrl 的连接需要在 [iconfont](https://www.iconfont.cn/) 官网中获取
+
+![iconfontUrl](https://gw.alipayobjects.com/zos/antfincdn/IDUHlF6tYH/16ed4957ec7b3af5.png)
+
+在路由中的配置:
+
+```jsx | pure
+{
+  path: '/home',
+  name: 'home',
+  icon: 'icon-home', // 需要以 icon- 开头
+  component: './home',
+};
+```
 
 布局及路由都配置好之后，回到之前新建的 `NewPage.js`，可以开始写业务代码了！
-
-> 如果需要用到 [dva](https://github.com/dvajs/dva/) 中的数据流，还需要在 `src/models` `src/services` 中建立相应的 model 和 service，具体可以参考脚手架内置页面的写法。不过我们更加推荐使用轻量数据流管理数据，并且使用 openAPI 插件来生成 serves。
