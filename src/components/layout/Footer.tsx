@@ -64,13 +64,12 @@ class Footer extends React.Component<{
                   <FormattedMessage id="app.footer.kitchen" />
                 </div>
                 <div>
-                  <Badge dot offset={[3, 0]}>
-                    <a target="_blank" rel="noopener noreferrer" href="http://landing.ant.design">
-                      Ant Design Landing
-                    </a>
-                    <span> - </span>
-                    <FormattedMessage id="app.footer.landing" />
-                  </Badge>
+                  <a target="_blank" rel="noopener noreferrer" href="http://landing.ant.design">
+                    Ant Design Landing
+                  </a>
+                  <span> - </span>
+                  <FormattedMessage id="app.footer.landing" />
+                  <Badge dot offset={[3, 0]} />
                 </div>
                 <div>
                   <a href="http://scaffold.ant.design">Scaffolds</a>
