@@ -2,9 +2,9 @@
 order: 3
 title: Getting Started
 group:
- title:  Introduction
- path: /
-nav: 
+  title: Introduction
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1

@@ -2,9 +2,9 @@
 order: 30
 title: Use Pro's Assets
 group:
- title:  Advanced Usage
- path: /
-nav: 
+  title: Advanced Usage
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1

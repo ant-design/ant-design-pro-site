@@ -2,9 +2,9 @@
 order: 30
 title: OpenAPI
 group:
- title:  Network Request
- path: /
-nav: 
+  title: Network Request
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -25,14 +25,14 @@ In Pro, we introduced an openAPI plug-in. In the scaffolding, we have this featu
 
 Then configure the relevant configuration of openAPI in `config/config.ts`.
 
- ```tsx | pure
- openAPI: {
-    requestLibPath: "import {request} from'umi'",
-    // Or use the online version
-    // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
-    schemaPath: join(__dirname,'oneapi.json'),
-    mock: false,
-  }
+```tsx | pure
+openAPI: {
+   requestLibPath: "import {request} from'umi'",
+   // Or use the online version
+   // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
+   schemaPath: join(__dirname,'oneapi.json'),
+   mock: false,
+ }
 ```
 
 You also need to add a command to the scripts of package.json.
@@ -53,13 +53,13 @@ After the back-end access to swagger is completed, we can access the documents g
 
 We need to copy the url of swagger to the configuration of openapi. Taking the openapi of pro as an example, let's configure it:
 
- ```tsx | pure
- openAPI: {
-    requestLibPath: "import {request} from'umi'",
-    // use the url of copy here
-    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
-    mock: false,
-  }
+```tsx | pure
+openAPI: {
+   requestLibPath: "import {request} from'umi'",
+   // use the url of copy here
+   schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
+   mock: false,
+ }
 ```
 
 There are two configurations `requestLibPath` and `mock` that need to be noted.
@@ -68,18 +68,18 @@ There are two configurations `requestLibPath` and `mock` that need to be noted.
 
 How can `requestLibPath` use `request`? Generally speaking, we recommend using umi's request directly, but sometimes you need to customize it and you can modify the configuration of `requestLibPath`. For example, to use the request in utils, we can configure it like this:
 
- ```tsx | pure
- openAPI: {
-    schemaPath: "import request from'@utils/request",
-    // use the url of copy here
-    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
-    mock: false,
-  }
+```tsx | pure
+openAPI: {
+   schemaPath: "import request from'@utils/request",
+   // use the url of copy here
+   schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
+   mock: false,
+ }
 ```
 
 Of course, you need to ensure that the `schemaPath` configuration introduces the request, otherwise the generated code may not be executed. The generated code is as follows:
 
- ```tsx | pure
+```tsx | pure
 // configuration of requestLibPath
 import { request } from 'umi';
 
@@ -97,7 +97,7 @@ export async function rule(params: API.PageParams, options?: { [key: string]: an
 
 The comments will also be loaded automatically, saving us the trouble of checking the documentation. At the same time, we will also generate the `typings.d.ts` file in the serves, which contains all the definitions in the openapi. `API.RuleList` is the description of the data that the backend needs to return. Examples are as follows:
 
- ```tsx | pure
+```tsx | pure
 declare namespace API {
   type RuleListItem = {
     key?: number;
@@ -125,7 +125,7 @@ declare namespace API {
 
 In this way, we can cooperate with ProTable to quickly make a CURD, the code is easy.
 
- ```tsx | pure
+```tsx | pure
 import { rule } from '@/services/ant-design-pro/rule';
 
 // Two generics, the first is the type definition of the list item, and the second is the definition of the query parameter.
@@ -139,7 +139,7 @@ import { rule } from '@/services/ant-design-pro/rule';
 
 The generated mock file is in the mock file under the project root path. The generated mock data is different every time. If you want to debug, you can modify it at will. Only by executing `npm run openapi` will it be modified.
 
- ```tsx | pure
+```tsx | pure
 import { Request, Response } from 'express';
 
 export default {

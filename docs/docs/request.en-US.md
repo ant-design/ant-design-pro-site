@@ -2,9 +2,9 @@
 order: 31
 title: Request
 group:
- title:  Network Request
- path: /
-nav: 
+  title: Network Request
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -26,7 +26,7 @@ Most of the usage of [request](https://umijs.org/plugins/plugin-request#request)
 
 The sample code is as follows.
 
-  ```tsx | pure
+```tsx | pure
 request('/api/user', {
   params: {
     name: 1,
@@ -39,7 +39,7 @@ request('/api/user', {
 
 useRequest is a Hook built into the best practices, through which you get the power of the request interface, whether it's page-flipping or loading more or combining with antd's Table component becomes very easy. A minimal example is as follows.
 
-  ```tsx | pure
+```tsx | pure
 import { useRequest } from 'umi';
 export default () => {
   const { data, error, loading } = useRequest(() => {
@@ -73,7 +73,7 @@ Middlewares, like interceptors, also allow developers to gracefully do enhanced 
 
 The sample code is as follows.
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 const demo1Middleware = async (ctx: Context, next: () => void) => {
   console.log('request1');
@@ -103,7 +103,7 @@ It is strongly recommended that you take a closer look at [umi-request](https://
 
 To intercept web requests before they are processed by `.then` or `catch`, you can add the following configuration inside the `src/app.ts` web request configuration.
 
-  ```tsx | pure
+```tsx | pure
 export const request: RequestConfig = {
   errorHandler,
   // Add a pre-request interceptor that automatically adds an AccessToken
@@ -115,14 +115,14 @@ export const request: RequestConfig = {
 
 The sample interceptor code is as follows.
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 const authHeaderInterceptor = (url: string, options: RequestOptionsInit) => {
-  const authHeader = { Authorization: 'Bearer xxxxxx' };
-  return {
-    url: `${url}`,
-    options: { . . options, interceptors: true, headers: authHeader }
-  };
+const authHeader = { Authorization: 'Bearer xxxxxx' };
+return {
+  url: `${url}`,
+  options: { . . options, interceptors: true, headers: authHeader }
+};
 };
 ```
 
@@ -134,7 +134,7 @@ In the network request response `.then` or `catch` processing interception befor
 
 The specific sample code is as follows.
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 const demoResponseInterceptors = (response: Response, options: RequestOptionsInit) => {
   response.headers.append('interceptors', 'yes yo');
@@ -157,7 +157,7 @@ In best practice, we have defined a set of interface formatting and error handli
 
 The default interface format is
 
-  ```tsx | pure
+```tsx | pure
 export interface response {
   success: boolean; // if request is success
   data?: any; // response data
@@ -177,13 +177,13 @@ When there is an HTTP error or `success` is `false` in the returned data request
 
 In addition to the outermost specification defined above for error handling, we also provide a specification for the data format within `data`. For paging scenarios we recommend the following format for the backend, so that the frontend can easily interface with antd's Table component, but of course, if the backend is not in this format, you can use the `formatResult` configuration of the `useRequest` Hook to do the conversion.
 
-  ```tsx | pure
+```tsx | pure
 {
-   list: [
-   current?]
-   current?: number,
-   pageSize?: number,
-   total?: number,
+ list: [
+ current?]
+ current?: number,
+ pageSize?: number,
+ total?: number,
 }
 ```
 
@@ -193,25 +193,25 @@ In order to be able to distinguish between pages and interfaces when finally dep
 
 In addition, the return format of the interface is recommended to refer to the unified interface specification, to facilitate uniform error handling, the example is as follows.
 
-  ```tsx | pure
+```tsx | pure
 {
-  "success": true,
-  "data": {},
-  "errorCode": "1001",
-  "errorMessage": "error message",
-  "showType": 2,
-  "traceId": "someid",
-  "host": "10.1.1.1"
+"success": true,
+"data": {},
+"errorCode": "1001",
+"errorMessage": "error message",
+"showType": 2,
+"traceId": "someid",
+"host": "10.1.1.1"
 }
 ```
 
 For easy ones it can be as follows.
 
-  ```tsx | pure
+```tsx | pure
 {
-  "success": true,
-  "data": {},
-  "errorMessage": "error message"
+"success": true,
+"data": {},
+"errorMessage": "error message"
 }
 ```
 

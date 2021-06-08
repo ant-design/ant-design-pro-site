@@ -2,9 +2,9 @@
 order: 32
 title: Global Initial State
 group:
- title:  Data Management
- path: /
-nav: 
+  title: Data Management
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -22,7 +22,7 @@ In the middleground best practice, we provide a minimalistic way to initialize t
 
 Add the runtime configuration `getInitialState` to umi's runtime configuration ``src/app.ts`, which is an async function, for example
 
-  ```tsx | pure
+```tsx | pure
 export async function getInitialState() {
   return {
     userName: 'xxx',
@@ -34,7 +34,7 @@ export async function getInitialState() {
 
 The data returned by this method is eventually injected by default into a model with namespace `@@initialState`. It can be consumed via the ``useModel`'' hook.
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 
 import { useModel } from 'umi';

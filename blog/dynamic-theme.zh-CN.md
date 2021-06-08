@@ -1,10 +1,10 @@
 ---
 order: 8
 title: 黑色主题和动态切换
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3

@@ -1,10 +1,10 @@
 ---
 order: 1
 title: Let's use eslint
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3
@@ -41,7 +41,7 @@ npm install eslint @umijs/fabric --save-dev
 
 And do the following configuration in the root directory `.eslintrc.js`.
 
- ```tsx | pure
+```tsx | pure
 const fabric = require('@umijs/fabric');
 
 module.exports = fabric.eslint;
@@ -49,13 +49,13 @@ module.exports = fabric.eslint;
 
 The eslint plugin in vscode does not default to the lint .ts file, we need to set it in `settings.json`
 
-  ```tsx | pure
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+```tsx | pure
+"eslint.validate": [
+  "javascript",
+  "javascriptreact",
+  "typescript",
+  "typescriptreact"
+],
 ```
 
 Then you can use it happily. Using `eslint fix` to get old ts code is amazing.

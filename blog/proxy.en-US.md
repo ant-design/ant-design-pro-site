@@ -1,10 +1,10 @@
 ---
 order: 7
 title: Same-origin policy cross-domain and agent
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3
@@ -31,7 +31,7 @@ The same-origin policy is called "Bubble-to-Domain Strategy", which is a securit
 
 All scaffolding on the market now provides [proxy](https://webpack.js.org/configuration/dev-server/#devserverproxy) capabilities based on [http-proxy-middleware](https://github) .com/chimurai/http-proxy-middleware), this package can forward all requests that match the regular match to an address. Here is a easy demo:
 
-  ```tsx | pure
+```tsx | pure
 var express = require('express');
 var proxy = require('http-proxy-middleware');
 
@@ -47,14 +47,14 @@ This configuration can forward all requests starting with `/api` to `http://www.
 
 In Pro, it is easier to configure with [proxy] in [config.ts](https://github.com/ant-design/ant-design-pro/blob/4c6a11eedad8baee97022ee452cedc76f097421a/config/config.ts#L185). Configuration may be like this:
 
-  ```tsx | pure
- proxy: {
-    '/server/api/': {
-      target: 'https://preview.pro.ant.design/',
-      changeOrigin: true,
-      pathRewrite: { '^/server': '' },
-    },
+```tsx | pure
+proxy: {
+  '/server/api/': {
+    target: 'https://preview.pro.ant.design/',
+    changeOrigin: true,
+    pathRewrite: { '^/server': '' },
   },
+},
 ```
 
 Detailed configuration recommendations directly look at the configuration of [webpack-dev](https://webpack.js.org/configuration/dev-server/#devserverproxy).
@@ -65,7 +65,7 @@ If you think that the above changes require more configuration, the system is ea
 
 #### express config
 
-  ```tsx | pure
+```tsx | pure
 res.header('Access-Control-Allow-Origin', '你的项目地址，用*将会带来安全问题');
 res.header('Access-Control-Allow-Headers', '*');
 res.header('Access-Control-Allow-Methods', '*');
@@ -118,7 +118,7 @@ It is highly recommended that everyone read through MDN's [HTTP Access Control](
 
 n development we may need to distinguish between multiple situations, such as the development environment, test environment, grammar environment, and the environment variables we can use in Pro to achieve this requirement.
 
-  ```tsx | pure
+```tsx | pure
 const serveUrlMap = {
   dev: 'https://dev.pro.ant.design/',
   pre: 'https://pre.pro.ant.design/',
@@ -142,13 +142,13 @@ export default {
 
 We can quickly switch by configuring various shortcut commands in package.json.
 
-  ```tsx | pure
+```tsx | pure
 {
-  "scripts": {
-    "start:dev": "cross-env SERVE_ENV=dev umi dev",
-    "start:pre": "cross-env SERVE_ENV=pre umi dev",
-    "start:test": "cross-env SERVE_ENV=test umi dev"
-  }
+"scripts": {
+  "start:dev": "cross-env SERVE_ENV=dev umi dev",
+  "start:pre": "cross-env SERVE_ENV=pre umi dev",
+  "start:test": "cross-env SERVE_ENV=test umi dev"
+}
 }
 ```
 

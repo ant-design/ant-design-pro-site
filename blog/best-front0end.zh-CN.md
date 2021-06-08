@@ -1,10 +1,10 @@
 ---
 order: 7
 title: 前端最佳实践即将发布
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3

@@ -2,9 +2,9 @@
 order: 32
 title: Test
 group:
- title:  Quality
- path: /
-nav: 
+  title: Quality
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -47,7 +47,7 @@ The scope of component testing is very wide, from the smoke test to test whether
 
 Different components in the business should be weighed according to different business states. If you have not tested it yet, it is recommended to add a smoke test first.
 
- ```tsx | pure
+```tsx | pure
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -84,7 +84,7 @@ import '@testing-library/jest-dom';
 
 Add it down and we can write test cases.
 
- ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
@@ -118,7 +118,7 @@ Relatively speaking, the E2E test does not emphasize the need to cover all usage
 
 Pro comes with an e2e test, we can quickly start a test case in the project.
 
- ```tsx | pure
+```tsx | pure
 it('page should have footer', async () => {
   const BASE_URL = 'http://localhost:8000';
   await page.goto(`${BASE_URL}`);

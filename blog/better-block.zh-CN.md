@@ -1,10 +1,10 @@
 ---
 order: 5
 title: Block 新升级
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3

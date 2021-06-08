@@ -2,9 +2,9 @@
 order: 34
 title: 调试
 group:
- title:  后端集成
- path: /
-nav: 
+  title: 后端集成
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1

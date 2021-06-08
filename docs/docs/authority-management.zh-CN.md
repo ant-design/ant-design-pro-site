@@ -2,9 +2,9 @@
 order: 30
 title: 权限管理
 group:
- title:  数据管理
- path: /
-nav: 
+  title: 数据管理
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -27,7 +27,7 @@ nav:
 
 生成完初始化数据后，就可以开始定义权限了。首先新建 `src/access.ts` ，在该文件中 `export default` 一个函数，定义用户拥有的权限，以下是示例定义：
 
-  ```tsx | pure
+```tsx | pure
 // src/access.ts
 export default function (initialState) {
   return {
@@ -46,7 +46,7 @@ export default function (initialState) {
 
 使用示例如下：
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { useAccess, Access } from 'umi';
 
@@ -96,7 +96,7 @@ const Button=()=>{
 
 假设权限定义文件 `src/access.ts` 内容如下：
 
-  ```tsx | pure
+```tsx | pure
 // src/access.ts
 export default function (initialState = {}) {
   const { isAdmin, hasRoutes = [] } = initialState;
@@ -112,7 +112,7 @@ export default function (initialState = {}) {
 
 那么只需要按以下方式在常规路由配置中加上 `access` 这一项即可：
 
-  ```tsx | pure
+```tsx | pure
 // config/config.ts
 import { defineConfig } from 'umi';
 

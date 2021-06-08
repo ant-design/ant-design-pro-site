@@ -1,7 +1,7 @@
 ﻿---
 title: Config
 order: 1
-nav: 
+nav:
   title: Config
   path: /config
   order: 2
@@ -25,7 +25,7 @@ Modify the webpack configuration through the API of [webpack-chain](https://gith
 
 such as:
 
-  ```tsx | pure
+```tsx | pure
 export default {
   chainWebpack(memo, { env, webpack, createCSSRule }) {
     // set alias
@@ -41,7 +41,7 @@ export default {
 
 Support asynchronous,
 
-  ```tsx | pure
+```tsx | pure
 export default {
   async chainWebpack(memo) {
     await delay(100);
@@ -52,7 +52,7 @@ export default {
 
 When SSR, modify the server-side build configuration
 
-  ```tsx | pure
+```tsx | pure
 import { BundlerConfigType } from 'umi';
 
 export default {
@@ -138,7 +138,7 @@ Contains the following sub-configuration items,
 
 such as:
 
-  ```tsx | pure
+```tsx | pure
 export default {
   dynamicImport: {
     loading: '@/Loading',
@@ -148,7 +148,7 @@ export default {
 
 Then create a new `Loading.tsx` in the src directory,
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 
 export default () => {
@@ -166,7 +166,7 @@ If you don't need to load routes on demand, but only need to support code splitt
 
 such as:
 
-  ```tsx | pure
+```tsx | pure
 export default {
   dynamicImportSyntax: {},
 };
@@ -194,7 +194,7 @@ Set which modules can not be packaged, and import them through `<script>` or oth
 
 such as,
 
-  ```tsx | pure
+```tsx | pure
 export default {
   externals: {
     react: 'window.React',
@@ -241,7 +241,7 @@ Configure the extra script in `<head>`, the array items are strings or objects.
 
 In most scenarios, the string format is sufficient, such as:
 
-  ```tsx | pure
+```tsx | pure
 export default {
   headScripts: [`alert(1);`, `https://a.com/b.js`],
 };
@@ -260,7 +260,7 @@ Will generate HTML,
 
 If you want to use additional attributes, you can use the object format,
 
-  ```tsx | pure
+```tsx | pure
 export default {
   headScripts: [
     { src: '/foo.js', defer: true },
@@ -342,7 +342,7 @@ Configure the publicPath of webpack. When packaging, webpack will add the value 
 
 If your application is deployed on a sub-path of the domain name, such as `https://www.your-app.com/foo/`, you need to set the `publicPath` to `/foo/`, if you also want to take into account the normal development environment For debugging, you can configure it like this:
 
-  ```tsx | pure
+```tsx | pure
 import { defineConfig } from 'umi';
 
 export default defineConfig({
@@ -360,7 +360,7 @@ umi's routing is implemented based on [react-router@5](https://reacttraining.com
 
 such as:
 
-  ```tsx | pure
+```tsx | pure
 export default {
   routes: [
     {
@@ -389,7 +389,7 @@ It is usually used for a set of codes that have different publicPath requirement
 
 After enabling, this paragraph will be added when packaging,
 
-  ```tsx | pure
+```tsx | pure
 __webpack_public_path__ = window.resourceBaseUrl || window.publicPath;
 ```
 
@@ -403,7 +403,7 @@ The configuration requires a compatible minimum version of the browser, and the 
 
 For example, to be compatible with ie11, you need to configure:
 
-  ```tsx | pure
+```tsx | pure
 export default {
   targets: {
     ie: 11,
@@ -423,7 +423,7 @@ Configuring the theme is actually configuring less variables.
 
 such as:
 
-  ```tsx | pure
+```tsx | pure
 export default {
   theme: {
     '@primary-color': '#1DA57A',

@@ -2,9 +2,9 @@
 order: 30
 title: OpenAPI
 group:
- title:  后端集成
- path: /
-nav: 
+  title: 后端集成
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -25,14 +25,14 @@ nav:
 
 然后再 `config/config.ts` 中配置 openAPI 的相关配置。
 
- ```tsx | pure
- openAPI: {
-    requestLibPath: "import { request } from 'umi'",
-    // 或者使用在线的版本
-    // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
-    schemaPath: join(__dirname, 'oneapi.json'),
-    mock: false,
-  }
+```tsx | pure
+openAPI: {
+   requestLibPath: "import { request } from 'umi'",
+   // 或者使用在线的版本
+   // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
+   schemaPath: join(__dirname, 'oneapi.json'),
+   mock: false,
+ }
 ```
 
 还需要再 package.json 的 scripts 中增加一个命令。
@@ -53,13 +53,13 @@ openAPI 对于后端是有一些工作量的，但是工作量远远小于维护
 
 我们需要复制 swagger 的 url 到 openapi 的配置中,以 pro 的 openapi 为例，我们配置一下：
 
- ```tsx | pure
- openAPI: {
-    requestLibPath: "import { request } from 'umi'",
-    // 这里使用 copy 的 url
-    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
-    mock: false,
-  }
+```tsx | pure
+openAPI: {
+   requestLibPath: "import { request } from 'umi'",
+   // 这里使用 copy 的 url
+   schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
+   mock: false,
+ }
 ```
 
 这里有两个配置 `requestLibPath` 和 `mock` 需要注意一下。
@@ -68,18 +68,18 @@ openAPI 对于后端是有一些工作量的，但是工作量远远小于维护
 
 `requestLibPath` 可以如何使用 `request`, 一般而言我们推荐直接使用 umi 的 request，但是有些时候需要自定义，可以修改 `requestLibPath` 的配置，比如要使用 utils 的中的 request，我们可以这么配置:
 
- ```tsx | pure
- openAPI: {
-    requestLibPath: "import request from '@utils/request",
-    // 这里使用 copy 的 url
-    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
-    mock: false,
-  }
+```tsx | pure
+openAPI: {
+   requestLibPath: "import request from '@utils/request",
+   // 这里使用 copy 的 url
+   schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
+   mock: false,
+ }
 ```
 
 当然需要保证 `schemaPath` 配置引入 request，不然生成的代码可能无法执行。生成的代码如下：
 
- ```tsx | pure
+```tsx | pure
 // requestLibPath 的配置
 import { request } from 'umi';
 
@@ -97,7 +97,7 @@ export async function rule(params: API.PageParams, options?: { [key: string]: an
 
 注释也会自动载入，省去了我们查文档的麻烦，同时在 serves 中我们也会生成 `typings.d.ts` 文件，里面有 openapi 中包含所有定义。`API.RuleList` 就是后端需要返回的数据的描述，例子如下:
 
- ```tsx | pure
+```tsx | pure
 declare namespace API {
   type RuleListItem = {
     key?: number;
@@ -125,7 +125,7 @@ declare namespace API {
 
 这样我们就可以配合 ProTable，快速搞个 CURD。
 
- ```tsx | pure
+```tsx | pure
 import { rule } from '@/services/ant-design-pro/rule';
 
 // 两个泛型，第一个是列表项的类型定义，第二个是查询参数的定义。
@@ -137,7 +137,7 @@ import { rule } from '@/services/ant-design-pro/rule';
 
 `mock` 就比较简单了，配置为 true 之后会自动生成一些 mock 的文件，虽然质量不如我们人肉写的，但是在开发中使用已经没问题了。生成的 mock 文件在项目根路径下的 mock 文件中,生成的 mock 数据每次都不同，如果要调试可以随意修改，只有执行 `npm run openapi` 才会进行修改。
 
- ```tsx | pure
+```tsx | pure
 import { Request, Response } from 'express';
 
 export default {

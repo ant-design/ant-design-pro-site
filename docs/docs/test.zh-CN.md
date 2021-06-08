@@ -2,9 +2,9 @@
 order: 94
 title: 测试
 group:
- title:  质量
- path: /
-nav: 
+  title: 质量
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -49,7 +49,7 @@ it('sums numbers', () => {
 
 在业务中不同的组件应该根据不同的业务状态进行权衡，如果你还没有任何测试，这里建议先加个冒烟测试。
 
- ```tsx | pure
+```tsx | pure
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -86,7 +86,7 @@ import '@testing-library/jest-dom';
 
 接下来我们就可以编写测试用例了。
 
- ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
@@ -120,7 +120,7 @@ E2E 是“End to End”的缩写，可以翻译成“端到端”测试。它模
 
 Pro 中自带了一个 e2e 的测试，我们可以在项目中快速的开始一个测试用例。
 
- ```tsx | pure
+```tsx | pure
 it('page should have footer', async () => {
   const BASE_URL = 'http://localhost:8000';
   await page.goto(`${BASE_URL}`);

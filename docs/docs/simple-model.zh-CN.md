@@ -2,9 +2,9 @@
 order: 19
 title: 简易数据流
 group:
- title:  数据管理
- path: /
-nav: 
+  title: 数据管理
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -26,14 +26,14 @@ nav:
 
 一个 model 的内容需要是一个标准的 JavaScript function，并被默认导出，可以在 function 中使用 hooks.<br />例如下面的例子就是一个合法的 model:
 
-  ```tsx | pure
+```tsx | pure
 // demo.ts
 export default () => 'Hello World';
 ```
 
 在实际使用场景中，model 可以包含其他 hooks，例如下面的计数器的例子：
 
-  ```tsx | pure
+```tsx | pure
 // counter.ts
 import { useState, useCallback } from 'react';
 
@@ -49,7 +49,7 @@ export default () => {
 
 在代码中使用 model，需要从 umi 中导出 useModel。useModel 是一个 React Custom Hook，传入 namespace 即可获取对应 model 的返回值。
 
-  ```tsx | pure
+```tsx | pure
 import { useModel } from 'umi';
 
 export default () => {
@@ -64,7 +64,7 @@ export default () => {
 
 useModel 可以接受一个可选的第二个参数，可以用于性能优化。当组件只需要消费 model 中的部分参数，而对其他参数的变化并不关心时，可以传入一个函数用于过滤。函数的返回值将取代 model 的返回值，成为 useModel 的最终返回值。例如：
 
-  ```tsx | pure
+```tsx | pure
 import { useModel } from 'umi';
 
 export default () => {

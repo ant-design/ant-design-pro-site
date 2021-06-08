@@ -2,9 +2,9 @@
 order: 23
 title: 使用 less
 group:
- title:  样式和资源
- path: /
-nav: 
+  title: 样式和资源
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -24,7 +24,7 @@ umi 自带了 less，css 的解析工具，所以我们可以自由的使用量�
 
 ## `index.ts`
 
- ```tsx | pure
+```tsx | pure
 import styles from 'index.less'; // 告诉 umi 编译这个 less
 
 const Page = () => {
@@ -75,7 +75,7 @@ less 作为 css 的超集，提供了很多 css 没有功能，其中最方便�
 
 ### index.ts
 
- ```tsx | pure
+```tsx | pure
 import styles from 'index.less'; // 告诉 umi 编译这个 less
 
 const Page = () => {

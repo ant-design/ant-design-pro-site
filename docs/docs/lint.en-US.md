@@ -2,9 +2,9 @@
 order: 31
 title: Lint
 group:
- title:  Quality
- path: /
-nav: 
+  title: Quality
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -20,7 +20,7 @@ Pro has always had its own list of lint rules. The default mode is strict. The f
 
 In this update, there are 18 incompatible rules. The 102-page project is an example. The migration time is about 2 hours. If it is a more standardized code written before, it may be faster. The following is a list of all rules that cannot be automatically fixed, and can be repaired according to the instructions. If you need a rule, you can configure the rule as 0 or 1 in `.eslintrc.js`.
 
-  ```tsx | pure
+```tsx | pure
 // 0 is off
 // 1 will report an error warning
 // 2 will report error, block ci and commit
@@ -29,7 +29,7 @@ In this update, there are 18 incompatible rules. The 102-page project is an exam
 
 You can also use eslint-disable-next-line to ignore certain rules, especially when writing easy deployment scripts.
 
-  ```tsx | pure
+```tsx | pure
 // eslint-disable-next-line prefer-destructuring
 packageName = packageName.match(/ ^ _ (@? [^ @] +) /)![1];
 ```
@@ -38,7 +38,7 @@ packageName = packageName.match(/ ^ _ (@? [^ @] +) /)![1];
 
 Disallow nested ternary expressions
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 var thing = foo ? bar : baz === qux ? quxx : foobar;
 
@@ -62,7 +62,7 @@ if (foo) {
 
 React label opening and closing should be aligned
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 <Hello>
   marklar
@@ -76,7 +76,7 @@ React label opening and closing should be aligned
 
 no-restricted-globals [react / no-access-state-in-setstate] (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-access-state-in -setstate.md) Does not support fix Do not use this.state in this.setState
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 setState({ value: this.state.value + 1 }); // 2
 setState({ value: this.state.value + 1 }); // 2, because setState is asynchronous, so 2 is not 3
@@ -89,7 +89,7 @@ this.setState((prevState) => ({ value: prevState.value + 1 }));
 
 Use consistent return, if there is a return value, each render should provide a return value
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 function doSomething(condition) {
   if (condition) {
@@ -113,7 +113,7 @@ function doSomething(condition) {
 
 If you don't use state, you should use react function
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 class Foo extends React.Component {
   render() {
@@ -137,7 +137,7 @@ const Foo = (props) => {
 
 Prohibit assignment operators in conditional statements
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 var x;
 if ((x = 0)) {
@@ -155,7 +155,7 @@ if (x === 0) {
 
 Disable the generator function without `yield` in the function
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 function* foo() {
   return 10;
@@ -172,7 +172,7 @@ function* foo() {
 
 Prioritize the use of arrays and object destructuring. This rule is only warning and will not hinder the submission, but it is still recommended to fix. Using destructuring assignment can easily set the default value
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 var foo = array[0];
 var foo = object.foo;
@@ -192,7 +192,7 @@ var foo = object.bar;
 
 Try to use destructuring assignment to get values ​​from props. This rule is only a warning, it will not hinder the submission, but it is still recommended to fix, using destructuring assignment can easily set the default value
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 const MyComponent = (props) => {
   return <div id={props.id} />;
@@ -209,7 +209,7 @@ const MyComponent = (props) => {
 
 According to the ECMAScript5 (and ECMAScript3!) Specifications, trailing commas in object literals are legal. Trailing commas simplify adding and deleting elements in objects and arrays, because you only need to touch the line you want to modify. Another point of view that supports trailing commas is that when objects or arrays add or remove elements, it improves the clarity of code differences.
 
-  ```tsx | pure
+```tsx | pure
 var foo = {
   bar: 'baz',
   qux: 'quux',
@@ -227,7 +227,7 @@ Very long lines of code are difficult to read in any language. To improve readab
 
 The prettier can be partially repaired, but the annotation needs to be repaired manually. url will be ignored.
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 var foo = { bar: 'This is a bar.', baz: { qux: 'This is a qux' }, difficult: 'to read' };
 
@@ -243,7 +243,7 @@ var foo = {
 
 Enclosed complex expressions are enclosed in parentheses to clarify the developer's intention and make the code more readable. When consecutive different operators in an expression are not enclosed in parentheses, an error will be reported.
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 var foo = (a && b) || c || d;
 var foo = (a && b < 0) || c > 0 || d + 1 === 0;
@@ -272,7 +272,7 @@ Don't use it before the definition, this needless to say, it will directly error
 
 Do not assign parameters to functions, you can significantly reduce the magic code.
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 wrong usage
 function foo(bar) {
   bar = 13;
@@ -294,7 +294,7 @@ function foo(a) {
 
 Only use hooks at the top level and only call hooks in React functions. This rule can avoid many low-level errors and is necessary.
 
-  ```tsx | pure
+```tsx | pure
 // 🔴 Using Hook in a conditional statement violates the first rule
 if (name! == '') {
   useEffect(function persistForm() {
@@ -314,7 +314,7 @@ useEffect(function persistForm() {
 
 It is not allowed to introduce dependencies that are not introduced in dependencies. In order to ensure the code such as testing, it is allowed to use the dependencies in devDependencies in the following directory
 
-  ```tsx | pure
+```tsx | pure
 '** / tests / **. {ts, js, jsx, tsx}',
 '** / _ test _ / **. {ts, js, jsx, tsx}',
 '/mock/**/**.{ts,js,jsx,tsx}',
@@ -332,7 +332,7 @@ Although it exists in dependencies, but require.resolve cannot be obtained, this
 
 If you want to continue to use the loose lint rules, you can configure the following in `.eslintrc.js`.
 
-  ```tsx | pure
+```tsx | pure
 {
   "extends": "@ alipay / bigfish / softyEslint",
   "rules": {

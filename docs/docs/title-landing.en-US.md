@@ -2,9 +2,9 @@
 order: 13
 title: Title and loading page
 group:
- title:  Basic Usage
- path: /
-nav: 
+  title: Basic Usage
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -16,7 +16,7 @@ Pro provides the configuration of the title Logo and loading page by default. By
 
 In actual use, we generally use `config\defaultSettings.ts` to control the title and logo. This part of the function comes from the function of [ProLayout](https://procomponents.ant.design/components/layout). We can copy the settings in [Preview Interface](https://preview.pro.ant.design/) and overwrite them to `config\defaultSettings.ts` to modify the configuration.
 
- ```tsx | pure
+```tsx | pure
 const settings: LayoutSettings & {
   pwa?: boolean;
   logo?: string;
@@ -40,14 +40,14 @@ export default settings;
 
 If you need to dynamically modify the title or logo, you need to use runtime capabilities. We can do the following configuration in `src\app.tsx`:
 
- ```tsx | pure
+```tsx | pure
 // https://umijs.org/zh-CN/plugins/plugin-layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {};
 ```
 
 The `initialState` is to get data through the initialization plug-in. Every time the `initialState` changes, it will trigger the re-rendering of the layout. We can customize the title according to the initialState. It looks like this, and the logo is the same.
 
- ```tsx | pure
+```tsx | pure
 // https://umijs.org/zh-CN/plugins/plugin-layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
@@ -66,7 +66,7 @@ A favicon is the content displayed on the browser tab. Strictly speaking, it is 
 
 The default favicon configuration of Pro exists in `src\pages\document.ejs`, we can write html related code here, we configure the `favicon.ico` file in the public folder by default, you can directly overwrite it to modify . Of course, you can also modify the href to the cdn address you want.
 
- ```tsx | pure
+```tsx | pure
 <link rel="icon" href="<%= context.config.publicPath +'favicon.ico'%>" type="image/x-icon" />
 ```
 
@@ -84,9 +84,9 @@ The first is the landing page where js has not been loaded successfully, but htm
 
 If we open [Code Split](https://umijs.org/zh-CN/config#dynamicimport) in the project, we will enter a loading page every time the route is switched.
 
- ```tsx | pure
+```tsx | pure
 dynamicImport: {
-  loading:'@ant-design/pro-layout/es/PageLoading',
+ loading:'@ant-design/pro-layout/es/PageLoading',
 }
 ```
 
@@ -96,7 +96,7 @@ The configuration here is a path string, which supports the configuration of ali
 
 In the actual project, we need to wait for the user information or the authentication system to complete the request before displaying the page. So we let `getInitialState` support asynchronous requests, and at the same time, the page rendering will be stopped when the request is made. In this case, a loading page is also required. We can configure in `src\app.tsx`:
 
- ```tsx | pure
+```tsx | pure
 /** When obtaining user information is slow, a loading */
 export const initialStateConfig = {
   loading: <PageLoading />,

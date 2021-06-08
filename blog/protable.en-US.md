@@ -1,10 +1,10 @@
 ---
 order: 7
 title: Quickly Builds CRUD's
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3
@@ -21,7 +21,7 @@ Antd, as a component library serving the design system for enterprise-class prod
 
 ProTable is designed to address these issues by providing presets at the Table level that you can support [`valueType` ](https://procomponents.ant.design/components/tablevalue-type) of data, such as amounts, dates, serial numbers, progress bars, etc., and can greatly simplify the code with the hashtags `valueEnum`.
 
-  ```tsx | pure
+```tsx | pure
 const columns = [
   {
     title: 'status',
@@ -42,7 +42,7 @@ ProTable takes over page-turning, page code changes, and in theory you can gener
 
 In many projects Table's action buttons and title positions are inconsistent, even in a project can be somewhat different, ProTable provides the corresponding specifications, toolBarRender and headerTitle implementation specification, toolBarRenderRender Supports the return of an ReactNode array, automatic additions and other styles, and toolBarRender provides data such as actions and columns currently selected for some quick action. The code looks like this.
 
-  ```tsx | pure
+```tsx | pure
 toolBarRender = (_, { selectedRowKeys }) => [
   <Button key="3" type="primary">
     <PlusOutlined />

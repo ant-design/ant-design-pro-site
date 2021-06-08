@@ -1,10 +1,10 @@
 ---
 order: 1
 title: Layout component of Ant Design Pro
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3
@@ -31,7 +31,7 @@ yarn add @ant-design/pro-layout
 
 In jsx:
 
-  ```tsx | pure
+```tsx | pure
 import BasicLayout from '@ant-design/pro-layout';
 
 render(<BasicLayout />, document.getElementById('root'));
@@ -49,7 +49,7 @@ Layout has a lot of requirements that need to be customized, so we expose a seri
 
 Layout uses menu props to generate menus, if you are using umi in prop or with this parameter. You can use it like this:
 
- ```tsx | pure
+```tsx | pure
 const Layout = (props: BasicLayoutProps) => {
   return <BasicLayout title="Ant Design Pro" {...props} />;
 };
@@ -57,7 +57,7 @@ const Layout = (props: BasicLayoutProps) => {
 
 If you use other scaffolding, you can manually pass the routing configuration, the data structure is as follows:
 
- ```tsx | pure
+```tsx | pure
 // can be imported { RouterTypes } from '@ant-design/pro-layout/typings' to get this type
 Export interface Route {
    Path?: string;
@@ -89,7 +89,7 @@ In addition, we also provide `menuDataRender` and `menuItemRender` props,
 
 `menuDataRender` performs a new filter on the menu data, and the menu permissions in Pro are implemented in this way.
 
- ```tsx | pure
+```tsx | pure
 Export interface MenuDataItem {
   Authority?: string[] | string;
   Children?: MenuDataItem[];
@@ -116,7 +116,7 @@ Const Layout = (props: BasicLayoutProps) => {
 
 `menuItemRender` controls the specific menu dom rendering, you can customize the click event of the menuItem and so on.
 
- ```tsx | pure
+```tsx | pure
 Export interface MenuDataItem {
   Authority?: string[] | string;
   Children?: MenuDataItem[];
@@ -144,7 +144,7 @@ Const Layout = (props: BasicLayoutProps) => {
 
 SettingDrawer provides an interface to dynamically set some parameters of the Layout. The effect can be previewed in [preview](https://preview.pro.ant.design/). The way to use it is also easy.
 
-  ```tsx | pure
+```tsx | pure
 Import BasicLayout, { SettingDrawer } from '@ant-design/pro-layout';
 Import React, { useState } from 'react';
 
@@ -169,7 +169,7 @@ Const Layout = (props: BasicLayoutProps) => {
 
 PageContainer provides a wrapper around antd's pageHeader that provides automatic configuration of breadcrumbs and title.
 
-  ```tsx | pure
+```tsx | pure
 import { PageContainer } from '@ant-design/pro-layout';
 
 Const Page = () => <PageContainer>this is a page</PageContainer>;
@@ -179,7 +179,7 @@ Const Page = () => <PageContainer>this is a page</PageContainer>;
 
 RouteContext can provide built-in data for Layout. For example, isMobile and collapsed, you can consume this data to customize some behavior.
 
-  ```tsx | pure
+```tsx | pure
 Import { RouteContext } from '@ant-design/pro-layout';
 
 Const Page = () => (

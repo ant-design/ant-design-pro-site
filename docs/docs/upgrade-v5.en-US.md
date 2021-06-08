@@ -2,9 +2,9 @@
 order: 92
 title: Upgrade to V5
 group:
- title:  Other
- path: /
-nav: 
+  title: Other
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -50,7 +50,7 @@ export async function getInitialState(): Promise<{
 
 In the new architecture, Layout is used as a plug-in. As an alternative, we provide a configuration item in `app.ts` to support runtime configuration. We need to migrate the custom footer and menu to the app In .ts`, in return we can configure any original props.
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 import {history} from 'umi';
 import {BasicLayoutProps, Settings as ProSettings} from '@ ant-design/pro-layout';
@@ -74,7 +74,7 @@ export const layout = ({
 
 In V4 we put the layout configuration in the model, in V5 we put it in the `initialState`, and very important user information was also initialized in`initialState`. In the default configuration, the `layout` attribute becomes`'side' | 'top' | 'mix'`. Here we need to pay attention to it. The default is `mix`.
 
-  ```tsx | pure
+```tsx | pure
 export async function getInitialState(): Promise<{
   currentUser?: API.CurrentUser;
   settings?: ProSettings;
@@ -135,7 +135,7 @@ export default () => (
 
 Our permission modification also depends on it. For the original permission, we can completely delete it, and add the corresponding permission identifier in `src / access.ts`. Taking pro as an example, we only used`canAdmin`.
 
-  ```tsx | pure
+```tsx | pure
 // src / access.ts
 export default function (initialState: { currentUser?: API.CurrentUser | undefined }) {
   const { currentUser } = initialState || {};
@@ -151,7 +151,7 @@ In the router of config.ts we need to delete `authority` and change it to`access
 
 For the runtime code, we provide two APIs to help us customize any form of UI and logic. Here is a demo that you can understand at a glance.
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 import {useAccess, Access} from 'umi';
 
@@ -180,7 +180,7 @@ const PageA = (props) => {
 
 In the original project, request is defined in `src / utils / request.ts`. In V5, you need to use umi to import. Each configuration needs to be written in app.ts for implementation.
 
- ```tsx | pure
+```tsx | pure
 import { RequestConfig } from 'umi';
 
 export const request: RequestConfig = {

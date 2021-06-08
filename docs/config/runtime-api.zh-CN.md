@@ -1,7 +1,7 @@
 ﻿---
 title: 运行时配置
 order: 3
-nav: 
+nav:
   title: 配置
   path: /config
   order: 2
@@ -13,7 +13,7 @@ nav:
 
 `getInitialState` 用于获取初始化数据，初始化数据使用 `useModel` 在各个组件中使用，在请求中 `getInitialState` 会堵塞页面加载。
 
- ```tsx | pure
+```tsx | pure
 /**
  * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
  * */
@@ -32,7 +32,7 @@ export async function getInitialState(): Promise<{
 
 `initialStateConfig` 是 `getInitialState` 的补充配置，`getInitialState` 支持异步的设置，在初始化没有完成之前我们展示了一个 loading，`initialStateConfig` 可以配置这个 loading。
 
- ```tsx | pure
+```tsx | pure
 /** 获取用户信息比较慢的时候会展示一个 loading */
 export const initialStateConfig = {
   loading: <PageLoading />,
@@ -43,7 +43,7 @@ export const initialStateConfig = {
 
 `request` 用于配置全局的网络请求，你可以在这里做拦截器，全局错误处理，鉴权的配置。
 
- ```tsx | pure
+```tsx | pure
 export const request: RequestConfig = {
   errorHandler: (error: ResponseError) => {
     const { messages } = getIntl(getLocale());
@@ -61,7 +61,7 @@ export const request: RequestConfig = {
 
 在构建时是无法使用 dom 的，所以有些配置可能需要运行时来配置，我们可以在`src/app.tsx` 中 export 一个 `layout` 来进行配置：
 
- ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { RunTimeLayoutConfig } from 'umi';
 import { BasicLayoutProps, Settings as LayoutSettings } from '@ant-design/pro-layout';

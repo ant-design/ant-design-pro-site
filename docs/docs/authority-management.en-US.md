@@ -2,9 +2,9 @@
 order: 30
 title: Permission Management
 group:
- title:  Data Management
- path: /
-nav: 
+  title: Data Management
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -27,7 +27,7 @@ The definition of permissions depends on the initial state, which needs to be ge
 
 After the initial state is generated, you can start to define permissions. First create a new `src/access.ts` file, in this file `export default` a function to define the permissions that the user has, for example:
 
-  ```tsx | pure
+```tsx | pure
 // src/access.ts
 export default function (initialState) {
   return {
@@ -44,7 +44,7 @@ Each key of the object returned by the function corresponds to a `boolean` or `F
 
 For example:
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { useAccess, Access } from 'umi';
 
@@ -96,7 +96,7 @@ The value of the `access` attribute is the key of the object returned in `src/ac
 
 Suppose the contents of the permission definition file `src/access.ts` are as follows:
 
-  ```tsx | pure
+```tsx | pure
 // src/access.ts
 export default function (initialState = {}) {
   const { isAdmin, hasRoutes = [] } = initialState;
@@ -112,7 +112,7 @@ export default function (initialState = {}) {
 
 Then you only need to add `access` to the basic route configuration as follows:
 
-  ```tsx | pure
+```tsx | pure
 // config/config.ts
 import { defineConfig } from 'umi';
 

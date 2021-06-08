@@ -2,9 +2,9 @@
 order: 11
 title: Start Project
 group:
- title:  Basic Usage
- path: /
-nav: 
+  title: Basic Usage
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -37,7 +37,7 @@ In many cases, the front end is really developed before it's completed, and we n
 
 A standard mock consists of three parts, for example, a List configuration.
 
- ```tsx | pure
+```tsx | pure
 export default {
   'GET /api/rule': [{ name: '12' }],
   'POST /api/rule': (req: Request, res: Response, u: string) => {

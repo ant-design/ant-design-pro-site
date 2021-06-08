@@ -2,9 +2,9 @@
 order: 31
 title: 网络请求
 group:
- title:  后端集成
- path: /
-nav: 
+  title: 后端集成
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -26,7 +26,7 @@ nav:
 
 示例代码如下：
 
- ```tsx | pure
+```tsx | pure
 request('/api/user', {
   params: {
     name: 1,
@@ -39,7 +39,7 @@ request('/api/user', {
 
 useRequest 是最佳实践中内置的一个 Hook，通过它你可以获得强大的请求接口的能力，不管是翻页还是加载更多还是和 antd 的 Table 容易许多。一个最简单的示例如下：
 
- ```tsx | pure
+```tsx | pure
 import { useRequest } from 'umi';
 export default () => {
   const { data, error, loading } = useRequest(() => {
@@ -73,7 +73,7 @@ export default () => {
 
 示例代码如下：
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 const demo1Middleware = async (ctx: Context, next: () => void) => {
   console.log('request1');
@@ -103,7 +103,7 @@ export const request: RequestConfig = {
 
 在网络请求的 `.then` 或 `catch` 处理前拦截，你可以在 `src/app.ts` 网络请求配置内增加如下配置：
 
-  ```tsx | pure
+```tsx | pure
 export const request: RequestConfig = {
   errorHandler,
   // 新增自动添加AccessToken的请求前拦截器
@@ -115,7 +115,7 @@ export const request: RequestConfig = {
 
 拦截器示例代码如下：
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 const authHeaderInterceptor = (url: string, options: RequestOptionsInit) => {
   const authHeader = { Authorization: 'Bearer xxxxxx' };
@@ -134,7 +134,7 @@ const authHeaderInterceptor = (url: string, options: RequestOptionsInit) => {
 
 具体示例代码如下：
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 const demoResponseInterceptors = (response: Response, options: RequestOptionsInit) => {
   response.headers.append('interceptors', 'yes yo');
@@ -157,7 +157,7 @@ export const request: RequestConfig = {
 
 默认的接口格式为：
 
-  ```tsx | pure
+```tsx | pure
 export interface response {
   success: boolean; // if request is success
   data?: any; // response data
@@ -177,13 +177,13 @@ export interface response {
 
 除了上面错误处理所定义的最外层的规范以外，对于 `data`  内的数据格式我们也提供了一套规范。对于分页场景来说我们推荐后端采用如下的格式，这样前端可以很简单的和 antd 的 Table 组件对接，当然，如果后端不是这个格式也可以使用 `useRequest` Hook 的 `formatResult`  配置来做转换。
 
-  ```tsx | pure
+```tsx | pure
 {
-   list: [
-   ],
-   current?: number,
-   pageSize?: number,
-   total?: number,
+ list: [
+ ],
+ current?: number,
+ pageSize?: number,
+ total?: number,
 }
 ```
 
@@ -193,25 +193,25 @@ export interface response {
 
 另外接口的返回格式建议参考统一的接口规范，方便做统一的错误处理，示例如下：
 
-  ```tsx | pure
+```tsx | pure
 {
-  "success": true,
-  "data": {},
-  "errorCode": "1001",
-  "errorMessage": "error message",
-  "showType": 2,
-  "traceId": "someid",
-  "host": "10.1.1.1"
+"success": true,
+"data": {},
+"errorCode": "1001",
+"errorMessage": "error message",
+"showType": 2,
+"traceId": "someid",
+"host": "10.1.1.1"
 }
 ```
 
 对于简单的可以如下：
 
-  ```tsx | pure
+```tsx | pure
 {
-  "success": true,
-  "data": {},
-  "errorMessage": "error message"
+"success": true,
+"data": {},
+"errorMessage": "error message"
 }
 ```
 

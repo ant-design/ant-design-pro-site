@@ -2,9 +2,9 @@
 order: 91
 title: FAQ
 group:
- title:  Other
- path: /
-nav: 
+  title: Other
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -39,57 +39,57 @@ Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design
 
 You need to update `menuDataRender` prop in [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/4420ae2c224144c4114e5384bddc3e8ab0e1dc1c/src/layouts/BasicLayout.tsx#L116) as below, fetch menuData from your service.
 
-  ```tsx | pure
+```tsx | pure
 const [menuData, setMenuData] = useState([]);
 
 useEffect(() => {
-  // just for sample
-  // please use dva dispatch or umi-request in real world
-  fetch('/api/example.json')
-    .then(response => response.json())
-    .then(data => {
-      setMenuData(data || []);
-    });
+// just for sample
+// please use dva dispatch or umi-request in real world
+fetch('/api/example.json')
+  .then(response => response.json())
+  .then(data => {
+    setMenuData(data || []);
+  });
 }, []);
 
 ...
 
 return (
-  <ProLayout
-    ...
-    menuDataRender={() => menuData}
-    ...
-  />
+<ProLayout
+  ...
+  menuDataRender={() => menuData}
+  ...
+/>
 );
 ```
 
 The above menuData definite is [MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
 
-  ```tsx | pure
+```tsx | pure
 [
-  {
-    path: '/dashboard',
-    name: 'dashboard',
-    icon: 'dashboard',
-    children: [
-      {
-        path: '/dashboard/analysis',
-        name: 'analysis',
-        exact: true,
-      },
-      {
-        path: '/dashboard/monitor',
-        name: 'monitor',
-        exact: true,
-      },
-      {
-        path: '/dashboard/workplace',
-        name: 'workplace',
-        exact: true,
-      },
-    ],
-  }
-  ....
+{
+  path: '/dashboard',
+  name: 'dashboard',
+  icon: 'dashboard',
+  children: [
+    {
+      path: '/dashboard/analysis',
+      name: 'analysis',
+      exact: true,
+    },
+    {
+      path: '/dashboard/monitor',
+      name: 'monitor',
+      exact: true,
+    },
+    {
+      path: '/dashboard/workplace',
+      name: 'workplace',
+      exact: true,
+    },
+  ],
+}
+....
 ]
 ```
 
@@ -134,27 +134,27 @@ $ umi-serve
 
 Modify the request address in the project,such as `http://localhost:8001/api/users`
 
-  ```tsx | pure
+```tsx | pure
 [
   {
-    "key": "1",
-    "name": "John Brown",
-    "age": 32,
-    "address": "New York No. 1 Lake Park"
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
   },
   {
-    "key": "2",
-    "name": "Jim Green",
-    "age": 42,
-    "address": "London No. 1 Lake Park"
+    key: '2',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
   },
   {
-    "key": "3",
-    "name": "Joe Black",
-    "age": 32,
-    "address": "Sidney No. 1 Lake Park"
-  }
-]
+    key: '3',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sidney No. 1 Lake Park',
+  },
+];
 ```
 
 > Note: If there is no global installation, but only in the project, add the umi-server command to the script of package.json.
@@ -191,7 +191,7 @@ See details [roadhog extraBabelPlugins](https://github.com/sorrycc/roadhog#extra
 
 Absolute paths can be used directly (map support is required). If you want to use local files directly, you can import them as follows.
 
-  ```tsx | pure
+```tsx | pure
 <img src={require('../assets/picture.png')} />
 ```
 
@@ -203,17 +203,17 @@ Please refer to the deploy document [Routing and server integration](/docs/deplo
 
 Ant Design Pro has built-in umi, umi uses webpack [devServer](https://webpack.docschina.org/configuration/dev-server/) to support the proxy. You only need to configure the proxy property in config.js.As long as the proxy and mock url are different, they can be used at the same time.
 
-  ```tsx | pure
+```tsx | pure
 {
-  ...
-  proxy:{
-    '/server/api/': {
-      target: 'https://preview.pro.ant.design/',
-      changeOrigin: true,
-      pathRewrite: { '^/server': '' }, // /server/api/currentUser -> /api/currentUser
-    },
+...
+proxy:{
+  '/server/api/': {
+    target: 'https://preview.pro.ant.design/',
+    changeOrigin: true,
+    pathRewrite: { '^/server': '' }, // /server/api/currentUser -> /api/currentUser
   },
-  ...
+},
+...
 }
 ```
 
@@ -233,7 +233,7 @@ Scaffolding defaults to the [eslint](http://eslint.org/) code style check. Pleas
 
 Modify `scripts.start` in `package.json` to:
 
-  ```tsx | pure
+```tsx | pure
 "start": "cross-env BROWSER=none roadhog server",
 ```
 
@@ -263,7 +263,6 @@ export default {
 
 这是使用 umijs 框架引入的问题。配置的具体说明参考 umijs 的[官方文档](https://umijs.org/zh/config/#disableredirecthoist)说明
 
-
 ---
 
 More FAQs can be found in [Trouble Shooting](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#troubleshooting). If this does not solve your problem, please [Report to us](https://github.com/ant-design/ant-design-pro/issues).
@@ -272,7 +271,7 @@ More FAQs can be found in [Trouble Shooting](https://github.com/facebookincubato
 
 Pro uses context to manage the dynamic switching of the language, which can achieve the effect of no refresh switching language, but some components are better optimized, the context modification does not re-render the component, or the component context like Portal does not exist, so it can't Switch. We can configure the way to reload the page for full re-rendering.
 
- ```tsx | pure
+```tsx | pure
 Import { setLocale } from 'umi-plugin-react/locale';
 
 // Set the second parameter to true to force a refresh

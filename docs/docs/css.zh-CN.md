@@ -2,9 +2,9 @@
 order: 20
 title: 使用 css
 group:
- title:  样式和资源
- path: /
-nav: 
+  title: 样式和资源
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -26,7 +26,7 @@ umi 自带了 less，css 的解析工具，所以我们可以自由的使用两�
 
 `index.ts`
 
- ```tsx | pure
+```tsx | pure
 import styles from 'index.css'; // 告诉 umi 编译这个 css
 
 const Page = () => {

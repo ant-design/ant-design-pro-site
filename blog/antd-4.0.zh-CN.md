@@ -1,10 +1,10 @@
 ---
 order: 6
 title: 迁移 antd@4 指南
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3
@@ -91,7 +91,7 @@ yarn add umi-plugin-antd-icon-config -D
 
 并且在 config.ts 中设置
 
-  ```tsx | pure
+```tsx | pure
 export default {
   plugins: [['umi-plugin-antd-icon-config', {}]],
 };

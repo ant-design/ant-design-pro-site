@@ -1,7 +1,7 @@
 ﻿---
 title: 配置
 order: 1
-nav: 
+nav:
   title: 配置
   path: /config
   order: 2
@@ -26,7 +26,7 @@ nav:
 
 比如：
 
-  ```tsx | pure
+```tsx | pure
 export default {
   chainWebpack(memo, { env, webpack, createCSSRule }) {
     // 设置 alias
@@ -42,7 +42,7 @@ export default {
 
 支持异步，
 
-  ```tsx | pure
+```tsx | pure
 export default {
   async chainWebpack(memo) {
     await delay(100);
@@ -53,7 +53,7 @@ export default {
 
 SSR 时，修改服务端构建配置
 
-  ```tsx | pure
+```tsx | pure
 import { BundlerConfigType } from 'umi';
 
 export default {
@@ -150,7 +150,7 @@ export default {
 
 比如：
 
-  ```tsx | pure
+```tsx | pure
 export default {
   dynamicImport: {
     loading: '@/Loading',
@@ -160,7 +160,7 @@ export default {
 
 然后在 src 目录下新建 `Loading.tsx`，
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 
 export default () => {
@@ -179,7 +179,7 @@ export default () => {
 
 比如：
 
-  ```tsx | pure
+```tsx | pure
 export default {
   dynamicImportSyntax: {},
 };
@@ -210,7 +210,7 @@ export default {
 
 比如，
 
-  ```tsx | pure
+```tsx | pure
 export default {
   externals: {
     react: 'window.React',
@@ -259,7 +259,7 @@ export default {
 
 大部分场景下用字符串格式就够了，比如：
 
-  ```tsx | pure
+```tsx | pure
 export default {
   headScripts: [`alert(1);`, `https://a.com/b.js`],
 };
@@ -278,7 +278,7 @@ export default {
 
 如果要使用额外属性，可以用对象的格式，
 
-  ```tsx | pure
+```tsx | pure
 export default {
   headScripts: [
     { src: '/foo.js', defer: true },
@@ -367,7 +367,7 @@ export default {
 
 如果你的应用部署在域名的子路径上，例如 `https://www.your-app.com/foo/`，你需要设置 `publicPath` 为 `/foo/`，如果同时要兼顾开发环境正常调试，你可以这样配置：
 
-  ```tsx | pure
+```tsx | pure
 import { defineConfig } from 'umi';
 
 export default defineConfig({
@@ -385,7 +385,7 @@ umi 的路由基于 [react-router@5](https://reacttraining.com/react-router/web/
 
 比如：
 
-  ```tsx | pure
+```tsx | pure
 export default {
   routes: [
     {
@@ -416,7 +416,7 @@ export default {
 
 启用后，打包时会额外加上这一段，
 
-  ```tsx | pure
+```tsx | pure
 __webpack_public_path__ = window.resourceBaseUrl || window.publicPath;
 ```
 
@@ -431,7 +431,7 @@ __webpack_public_path__ = window.resourceBaseUrl || window.publicPath;
 
 比如要兼容 ie11，需配置：
 
-  ```tsx | pure
+```tsx | pure
 export default {
   targets: {
     ie: 11,
@@ -453,7 +453,7 @@ export default {
 
 比如：
 
-  ```tsx | pure
+```tsx | pure
 export default {
   theme: {
     '@primary-color': '#1DA57A',

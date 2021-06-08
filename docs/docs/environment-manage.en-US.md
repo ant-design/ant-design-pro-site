@@ -2,9 +2,9 @@
 order: 11
 title: environment variable
 group:
- title:  Advanced Usage
- path: /
-nav: 
+  title: Advanced Usage
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -22,17 +22,17 @@ Modify the startup command in `package.json` to add corresponding environment va
 
 The sample code is as follows:
 
-  ```tsx | pure
+```tsx | pure
 {
+/** Omit configuration items */
+"scripts": {
   /** Omit configuration items */
-  "scripts": {
-    /** Omit configuration items */
-    // Add the UMI_ENV environment variable in the start command
-    "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
-    "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev"
-    /** Omit configuration items */
-  }
+  // Add the UMI_ENV environment variable in the start command
+  "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
+  "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev"
   /** Omit configuration items */
+}
+/** Omit configuration items */
 }
 ```
 
@@ -50,37 +50,37 @@ If you need to use this environment variable in a non-node environment file othe
 
 The sample code is as follows:
 
-  ```tsx | pure
+```tsx | pure
 // config/config.ts
 const {REACT_APP_ENV} = process.env;
 
 export default defineConfig({
-  {/** Omit other configuration */}
-  define: {
-    REACT_APP_ENV: REACT_APP_ENV || false,
-  }
-  {/** Omit other configuration */}
+{/** Omit other configuration */}
+define: {
+  REACT_APP_ENV: REACT_APP_ENV || false,
+}
+{/** Omit other configuration */}
 });
 ```
 
 Use this variable [Sample Code](https://github.com/ant-design/ant-design-pro/blob/b005f2a465/src/components/GlobalHeader/RightContent.tsx) as follows:
 
-  ```tsx | pure
+```tsx | pure
 // src/components/RightContent/index.tsx
 /** Omit other codes */
 const GlobalHeaderRight: React.FC<{}> = () => {
-  /** Omit other codes */
-  return (
-    <Space className={className}>
-      <!-- Omit other codes -->
-      <!-- Display the corresponding environment name on the top right side -->
-      {REACT_APP_ENV && (
-        <span>
-          <Tag color={ENVTagColor[REACT_APP_ENV]}>{REACT_APP_ENV}</Tag>
-        </span>
-      )}
-    </Space>
-  );
+/** Omit other codes */
+return (
+  <Space className={className}>
+    <!-- Omit other codes -->
+    <!-- Display the corresponding environment name on the top right side -->
+    {REACT_APP_ENV && (
+      <span>
+        <Tag color={ENVTagColor[REACT_APP_ENV]}>{REACT_APP_ENV}</Tag>
+      </span>
+    )}
+  </Space>
+);
 };
 ```
 
@@ -90,27 +90,27 @@ Pro scaffolding uses Umi as the underlying framework by default. In Umi, you can
 
 The sample configuration is as follows:
 
-  ```tsx | pure
+```tsx | pure
 {
+{/** omitted... */}
+"scripts": {
+  "analyze": "cross-env ANALYZE=1 umi build",
+  "build": "umi build",
+  "build:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi build",
+  "build:test": "cross-env REACT_APP_ENV=test UMI_ENV=test umi build",
+  "build:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=pre umi build",
+  "build:prod": "cross-env REACT_APP_ENV=prod UMI_ENV=prod umi build",
+  "deploy": "npm run site && npm run gh-pages",
+  "dev": "npm run start:dev",
   {/** omitted... */}
-  "scripts": {
-    "analyze": "cross-env ANALYZE=1 umi build",
-    "build": "umi build",
-    "build:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi build",
-    "build:test": "cross-env REACT_APP_ENV=test UMI_ENV=test umi build",
-    "build:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=pre umi build",
-    "build:prod": "cross-env REACT_APP_ENV=prod UMI_ENV=prod umi build",
-    "deploy": "npm run site && npm run gh-pages",
-    "dev": "npm run start:dev",
-    {/** omitted... */}
-    "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
-    "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
-    "start:no-mock": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
-    "start:no-ui": "cross-env REACT_APP_ENV=dev UMI_ENV=dev UMI_UI=none umi dev",
-    "start:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=pre MOCK=none umi dev",
-    "start:test": "cross-env REACT_APP_ENV=test UMI_ENV=test MOCK=none umi dev",
-    {/** omitted... */}
-  },
+  "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
+  "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
+  "start:no-mock": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
+  "start:no-ui": "cross-env REACT_APP_ENV=dev UMI_ENV=dev UMI_UI=none umi dev",
+  "start:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=pre MOCK=none umi dev",
+  "start:test": "cross-env REACT_APP_ENV=test UMI_ENV=test MOCK=none umi dev",
+  {/** omitted... */}
+},
 {/** omitted... */}
 }
 ```
@@ -119,7 +119,7 @@ When `UMI_ENV` is `test`, you must configure the `config.test.ts` file in the co
 
 The sample code is as follows:
 
-  ```tsx | pure
+```tsx | pure
 // config/config.test.ts the configuration file corresponding to the test environment
 import { defineConfig } from 'umi';
 
@@ -137,15 +137,15 @@ export default defineConfig({
 
 Examples of variable usage:
 
-  ```tsx | pure
+```tsx | pure
 // src/services/user.ts
-import {request} from'umi';
+import { request } from 'umi';
 
 export async function query() {
-// Use the API key to call the user interface
+  // Use the API key to call the user interface
   return request<API.CurrentUser[]>('${API_URL}/api/users', {
-API_SECRET_KEY,
-});
+    API_SECRET_KEY,
+  });
 }
 ```
 
@@ -171,11 +171,11 @@ Since environment variables are used directly, they will not be used by the wind
 
 In eslint, you can handle errors by adding the configuration of [`globals`](https://eslint.org/docs/user-guide/configuring#specifying-globals). The code looks like this
 
-  ```tsx | pure
+```tsx | pure
 {
-  "globals": {
-    "page": true
-  }
+"globals": {
+  "page": true
+}
 }
 ```
 
@@ -183,10 +183,10 @@ TypeScript can be defined in [`typings.d.ts`](https://github.com/ant-design/ant-
 
 The sample code is as follows:
 
-  ```tsx | pure
+```tsx | pure
 // src/typings.d.ts
 // ... code omitted
-declare const REACT_APP_ENV:'test' |'dev' |'uat' |'prod' | undefined;
+declare const REACT_APP_ENV: 'test' | 'dev' | 'uat' | 'prod' | undefined;
 // The following variable declaration corresponds to the variable defined in the config.[env].ts file
 declare const API_URL: string;
 declare const API_SECRET_KEY: string;

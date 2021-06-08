@@ -1,7 +1,7 @@
 ﻿---
 title: API
 order: 2
-nav: 
+nav:
   title: Config
   path: /config
   order: 2
@@ -13,7 +13,7 @@ nav:
 
 Can be used to obtain current routing information,
 
-  ```tsx | pure
+```tsx | pure
 import { history } from 'umi';
 
 // The number of entities in the history stack
@@ -30,7 +30,7 @@ console.log(history.location.hash);
 
 Can be used for routing jumps,
 
-  ```tsx | pure
+```tsx | pure
 import { history } from 'umi';
 
 // Jump to the specified route
@@ -51,7 +51,7 @@ history.goBack();
 
 It can also be used for routing monitoring,
 
-  ```tsx | pure
+```tsx | pure
 import { history } from 'umi';
 
 const unlisten = history.listen((location, action) => {
@@ -64,7 +64,7 @@ unlisten();
 
 Link components, for example:
 
- ```tsx | pure
+```tsx | pure
 import { Link } from 'umi';
 
 export default () => {
@@ -74,15 +74,15 @@ export default () => {
       <Link to="/about">About</Link>
 
       {/* Click to jump to the specified /courses route,
-          With query {sort:'name'}
-      */}
+         With query {sort:'name'}
+     */}
       <Link to="/courses?sort=name">Courses</Link>
 
       {/* Click to jump to the specified /list route,
-          With query: {sort:'name'}
-          With hash:'the-hash'
-          With state: {fromDashboard: true}
-      */}
+         With query: {sort:'name'}
+         With hash:'the-hash'
+         With state: {fromDashboard: true}
+     */}
       <Link
         to={{
           pathname: '/list',
@@ -95,8 +95,8 @@ export default () => {
       </Link>
 
       {/* Click to jump to the specified /profile route,
-          With all the parameters on the current location
-      */}
+         With all the parameters on the current location
+     */}
       <Link
         to={(location) => {
           return { ...location, pathname: '/profile' };
@@ -104,13 +104,13 @@ export default () => {
       />
 
       {/* Click to jump to the specified /courses route,
-          But it will replace the records in the current history stack
-      */}
+         But it will replace the records in the current history stack
+     */}
       <Link to="/courses" replace />
 
       {/*
-          innerRef allows you to get the basic components (here should be a tag or null)
-      */}
+         innerRef allows you to get the basic components (here should be a tag or null)
+     */}
       <Link
         to="/courses"
         innerRef={(node) => {
@@ -127,7 +127,7 @@ export default () => {
 
 Special version of `<Link />`. When the specified route (`to=specified route`) hits, a specific pattern can be attached.
 
- ```tsx | pure
+```tsx | pure
 import { NavLink } from 'umi';
 
 export default () => {
@@ -185,7 +185,7 @@ export default () => {
 
 hooks, get the `history` object
 
- ```tsx | pure
+```tsx | pure
 import { useHistory } from 'umi';
 
 export default () => {
@@ -204,7 +204,7 @@ export default () => {
 
 hooks, get the `location` object
 
- ```tsx | pure
+```tsx | pure
 import { useLocation } from 'umi';
 
 export default () => {
@@ -223,7 +223,7 @@ export default () => {
 
 hooks, get the `params` object. The `params` object is the parameter key-value pair in the dynamic route (for example: `/users/:id`).
 
- ```tsx | pure
+```tsx | pure
 import { useParams } from 'umi';
 
 export default () => {
@@ -242,7 +242,7 @@ export default () => {
 
 Get the matching information of the current route.
 
- ```tsx | pure
+```tsx | pure
 import { useRouteMatch } from 'umi';
 
 export default () => {

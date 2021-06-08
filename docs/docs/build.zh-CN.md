@@ -2,9 +2,9 @@
 order: 31
 title: 构建
 group:
- title:  构建和部署
- path: /
-nav: 
+  title: 构建和部署
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -40,7 +40,7 @@ npm run analyze
 
 如果需要打开，可以在 `config/config.tsx` 中配置以下代码来打开：
 
- ```tsx | pure
+```tsx | pure
 export default {
   ssr: {},
 };

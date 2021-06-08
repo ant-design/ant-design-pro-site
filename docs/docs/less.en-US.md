@@ -2,9 +2,9 @@
 order: 23
 title: use less
 group:
- title:  styles and resources
- path: /
-nav: 
+  title: styles and resources
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -24,7 +24,7 @@ Umi comes with less and css parsing tools, so we can use any of the two freely. 
 
 ## `index.ts`
 
- ```tsx | pure
+```tsx | pure
 import styles from 'index.less'; // Tell umi to compile this less
 
 const Page = () => {
@@ -75,7 +75,7 @@ Use these variables
 
 ### index.ts
 
- ```tsx | pure
+```tsx | pure
 import styles from 'index.less'; // Tell umi to compile this less
 
 const Page = () => {

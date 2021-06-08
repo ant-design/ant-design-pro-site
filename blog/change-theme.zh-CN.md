@@ -1,10 +1,10 @@
 ---
 order: 1
 title: 在线更换主题
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3
@@ -31,7 +31,7 @@ Pro 中为了简化 less 的使用，启用了 [`css-module`](https://github.com
 
 但是作为一个换主题的插件，要保证类名进行是固定的，但是又不能重复。我们进行了两个处理。首先自定义了类名。利用 `css-module` 的 api `getLocalIdent` 可以很容易的做到这件事情。这是 pro 的处理方式。
 
-  ```tsx | pure
+```tsx | pure
 const getLocalIdent = (context, localIdentName, localName) => {
   if (
     context.resourcePath.includes('node_modules') ||
@@ -76,7 +76,7 @@ const getLocalIdent = (context, localIdentName, localName) => {
 
 需要更换主题时通过调用 `window.less.modifyVars`， 即可编译引用的 less。
 
-  ```tsx | pure
+```tsx | pure
 // 因为编译时间过长，并且会堵塞渲染，请一定要增加提示。
 window.less
   .modifyVars({

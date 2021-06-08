@@ -2,9 +2,9 @@
 order: 10
 title: 启动项目
 group:
- title:  基础使用
- path: /
-nav: 
+  title: 基础使用
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -37,7 +37,7 @@ Ant Design Pro 以 umi 作为脚手架，启动和开发与 umi 基本相同。
 
 一个标准的 mock 由三部分组成，以 List 配置为例。
 
- ```tsx | pure
+```tsx | pure
 export default {
   'GET /api/rule': [{ name: '12' }],
   'POST /api/rule': (req: Request, res: Response, u: string) => {

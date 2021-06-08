@@ -1,10 +1,10 @@
 ---
 order: 6
 title: How do we deploy open source projects?
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3

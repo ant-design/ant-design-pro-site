@@ -2,9 +2,9 @@
 order: 20
 title: Using css
 group:
- title:  styles and resources
- path: /
-nav: 
+  title: styles and resources
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -26,7 +26,7 @@ umi comes with less and css parsing tools, so we are free to use either of the t
 
 ``index.ts`
 
- ```tsx | pure
+```tsx | pure
 import styles from 'index.css'; // tell umi to compile this css
 
 const Page = () => {

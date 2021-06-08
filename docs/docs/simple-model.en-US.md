@@ -2,9 +2,9 @@
 order: 19
 title: easy Model
 group:
- title:  Data Management
- path: /
-nav: 
+  title: Data Management
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1

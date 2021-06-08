@@ -2,9 +2,9 @@
 order: 31
 title: Build
 group:
- title:  Build & Deployment
- path: /
-nav: 
+  title: Build & Deployment
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -40,7 +40,7 @@ Server-Side Rendering refers to the process of page processing technology where 
 
 If you need to open it, you can configure the following code in `config/config.tsx` to open:
 
- ```tsx | pure
+```tsx | pure
 export default {
   ssr: {},
 };

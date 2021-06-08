@@ -1,23 +1,3 @@
-import { readdirSync } from 'fs';
-import chalk from 'chalk';
-import { join } from 'path';
-
-const headPkgList = [];
-// utils must build before core
-// runtime must build before renderer-react
-const pkgList = readdirSync(join(__dirname, 'packages')).filter(
-  (pkg) => pkg.charAt(0) !== '.' && !headPkgList.includes(pkg),
-);
-
-const alias = pkgList.reduce((pre, pkg) => {
-  pre[`@ant-design/pro-${pkg}`] = join(__dirname, 'packages', pkg, 'src');
-  return {
-    ...pre,
-  };
-}, {});
-
-console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
-
 const isProduction = process.env.NODE_ENV === 'production';
 
 const isDeploy = process.env.SITE_DEPLOY === 'TRUE';
@@ -94,7 +74,6 @@ export default {
         path: 'https://github.com/ant-design/ant-design-pro',
       },
     ],
-    
   },
   analytics: isProduction
     ? {
@@ -117,20 +96,20 @@ export default {
   ignoreMomentLocale: true,
   headScripts: ['https://gw.alipayobjects.com/os/antfincdn/fdj3WlJd5c/darkreader.js'],
   externals: { darkreader: 'window.DarkReader' },
- 
+
   webpack5: {},
   fastRefresh: {},
   lessLoader: {
     test: /\.less$/i,
     loader: [
       // compiles Less to CSS
-      "style-loader",
-      "css-loader",
-      "less-loader",
-    ]
+      'style-loader',
+      'css-loader',
+      'less-loader',
+    ],
   },
   postcssLoader: {
     test: /\.css$/i,
-    use: ["style-loader", "css-loader", "postcss-loader"],
-  }
+    use: ['style-loader', 'css-loader', 'postcss-loader'],
+  },
 };

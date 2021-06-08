@@ -2,9 +2,9 @@
 order: 22
 title: Advanced menu
 group:
- title:  Advanced Usage
- path: /
-nav: 
+  title: Advanced Usage
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -18,7 +18,7 @@ In some cases, hard-coded menu data may not meet our needs. Pro also provides co
 
 The specific code implementation is as follows, we can define the layout object in `src/app.tsx` and export it. It might look like this:
 
- ```tsx | pure
+```tsx | pure
 // https://umijs.org/zh-CN/plugins/plugin-layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
@@ -41,7 +41,7 @@ The above is a case of remotely requesting the menu. Generally, the menu is impl
 
 If your data wants to be saved by initialState, you can read it directly in the request, so that the menu will be reloaded every time the `initialState` changes.
 
- ```tsx | pure
+```tsx | pure
 // https://umijs.org/zh-CN/plugins/plugin-layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
@@ -60,7 +60,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 
 Most of the time, the highlighting of the menu can be satisfied by the parent-child relationship, and we also recommend this usage. Add a page with additions, deletions and changes, which can be set as follows:
 
- ```tsx | pure
+```tsx | pure
 export default {
   path: '/product',
   name: 'Product Management',
@@ -90,7 +90,7 @@ export default {
 
 This kind of routing is very standard and can be perfectly consumed by ProLayout, and the highlight can be displayed correctly, but not all menus can be so standardized. ProLayout also provides a way to redirect the highlight of the menu. If we want `/list/:id`, highlighting `/product` can be configured like this.
 
- ```tsx | pure
+```tsx | pure
 export default [
   {
     path: '/product',
@@ -114,7 +114,7 @@ In some complex paths, we may need to display different interfaces according to 
 
 For example, we don't need the left menu when creating new ones. If we use traditional methods to implement it, we need to perform different configurations based on `pathname`. The implementation cost is relatively high. In order to reduce the implementation cost, we have added some conventions in the `routers` configuration.
 
- ```tsx | pure
+```tsx | pure
 export default [
   {
     path: '/product',
@@ -134,7 +134,7 @@ export default [
 
 In this way, the menu is not displayed when in `/product`, and the top menu is displayed when in `/list/:id`. The following api can be configured in the menu.
 
- ```tsx | pure
+```tsx | pure
 export interface Setting {
   /**
    * Do not show the top bar when @name is false

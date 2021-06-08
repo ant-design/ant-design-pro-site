@@ -1,10 +1,10 @@
 ---
 order: 8
 title: Black theme and dynamic switching
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3

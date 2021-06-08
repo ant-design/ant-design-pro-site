@@ -2,9 +2,9 @@
 order: 15
 title: Chart
 group:
- title:  Page Development
- path: /
-nav: 
+  title: Page Development
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -40,7 +40,7 @@ Sometimes the chart size is relatively large, and CDN is needed to speed up the 
 
 We first need to configure in the script in config/config.ts:
 
- ```tsx | pure
+```tsx | pure
 script: [
   'https://unpkg.com/react@17/umd/react.production.min.js',
   'https://unpkg.com/react-dom@17/umd/react-dom.production.min.js',
@@ -52,11 +52,11 @@ script: [
 
 At the same time, configure in `externals` in `config/config.ts`:
 
- ```tsx | pure
+```tsx | pure
 externals: {
-  react:'React',
-  'react-dom':'ReactDOM',
-  "@ant-design/charts": "charts"
+ react:'React',
+ 'react-dom':'ReactDOM',
+ "@ant-design/charts": "charts"
 };
 ```
 
@@ -64,7 +64,7 @@ externals: {
 
 Then we can use it in the code.
 
- ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { Line } from '@ant-design/charts';
 

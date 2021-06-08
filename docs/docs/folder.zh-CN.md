@@ -2,9 +2,9 @@
 order: 11
 title: 文件夹结构
 group:
- title:  基础使用
- path: /
-nav: 
+  title: 基础使用
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1

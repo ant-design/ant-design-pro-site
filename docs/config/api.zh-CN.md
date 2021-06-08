@@ -1,7 +1,7 @@
 ﻿---
 title: API
 order: 2
-nav: 
+nav:
   title: 配置
   path: /config
   order: 2
@@ -13,7 +13,7 @@ nav:
 
 可用于获取当前路由信息，
 
-  ```tsx | pure
+```tsx | pure
 import { history } from 'umi';
 
 // history 栈里的实体个数
@@ -30,7 +30,7 @@ console.log(history.location.hash);
 
 可用于路由跳转，
 
-  ```tsx | pure
+```tsx | pure
 import { history } from 'umi';
 
 // 跳转到指定路由
@@ -51,7 +51,7 @@ history.goBack();
 
 也可用于路由监听，
 
-  ```tsx | pure
+```tsx | pure
 import { history } from 'umi';
 
 const unlisten = history.listen((location, action) => {
@@ -64,7 +64,7 @@ unlisten();
 
 链接组件，例如：
 
- ```tsx | pure
+```tsx | pure
 import { Link } from 'umi';
 
 export default () => {
@@ -74,15 +74,15 @@ export default () => {
       <Link to="/about">About</Link>
 
       {/* 点击跳转到指定 /courses 路由，
-          附带 query { sort: 'name' }
-      */}
+         附带 query { sort: 'name' }
+     */}
       <Link to="/courses?sort=name">Courses</Link>
 
       {/* 点击跳转到指定 /list 路由，
-          附带 query: { sort: 'name' }
-          附带 hash: 'the-hash'
-          附带 state: { fromDashboard: true }
-      */}
+         附带 query: { sort: 'name' }
+         附带 hash: 'the-hash'
+         附带 state: { fromDashboard: true }
+     */}
       <Link
         to={{
           pathname: '/list',
@@ -95,8 +95,8 @@ export default () => {
       </Link>
 
       {/* 点击跳转到指定 /profile 路由，
-          附带所有当前 location 上的参数
-      */}
+         附带所有当前 location 上的参数
+     */}
       <Link
         to={(location) => {
           return { ...location, pathname: '/profile' };
@@ -104,13 +104,13 @@ export default () => {
       />
 
       {/* 点击跳转到指定 /courses 路由，
-          但会替换当前 history stack 中的记录
-      */}
+         但会替换当前 history stack 中的记录
+     */}
       <Link to="/courses" replace />
 
       {/*
-          innerRef 允许你获取基础组件（这里应该就是 a 标签或者 null）
-      */}
+         innerRef 允许你获取基础组件（这里应该就是 a 标签或者 null）
+     */}
       <Link
         to="/courses"
         innerRef={(node) => {
@@ -127,7 +127,7 @@ export default () => {
 
 特殊版本的 `<Link />` 。当指定路由（`to=指定路由`）命中时，可以附着特定样式。
 
- ```tsx | pure
+```tsx | pure
 import { NavLink } from 'umi';
 
 export default () => {
@@ -185,7 +185,7 @@ export default () => {
 
 hooks，获取 `history` 对象
 
- ```tsx | pure
+```tsx | pure
 import { useHistory } from 'umi';
 
 export default () => {
@@ -204,7 +204,7 @@ export default () => {
 
 hooks，获取 `location` 对象
 
- ```tsx | pure
+```tsx | pure
 import { useLocation } from 'umi';
 
 export default () => {
@@ -223,7 +223,7 @@ export default () => {
 
 hooks，获取 `params` 对象。 `params` 对象为动态路由（例如：`/users/:id`）里的参数键值对。
 
- ```tsx | pure
+```tsx | pure
 import { useParams } from 'umi';
 
 export default () => {
@@ -242,7 +242,7 @@ export default () => {
 
 获取当前路由的匹配信息。
 
- ```tsx | pure
+```tsx | pure
 import { useRouteMatch } from 'umi';
 
 export default () => {

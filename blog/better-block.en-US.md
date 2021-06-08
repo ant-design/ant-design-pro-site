@@ -1,10 +1,10 @@
 ---
 order: 5
 title: Better Block
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3

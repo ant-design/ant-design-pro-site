@@ -2,9 +2,9 @@
 order: 92
 title: 环境变量
 group:
- title:  高级使用
- path: /
-nav: 
+  title: 高级使用
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -22,17 +22,17 @@ Umi 中提供了大量的 [默认环境变量](https://umijs.org/zh/guide/env-va
 
 示例代码如下：
 
-  ```tsx | pure
+```tsx | pure
 {
+/** 省略配置项 */
+"scripts": {
   /** 省略配置项 */
-  "scripts": {
-    /** 省略配置项 */
-    // 在start命令内添加UMI_ENV环境变量
-    "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
-    "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev"
-    /** 省略配置项 */
-  }
+  // 在start命令内添加UMI_ENV环境变量
+  "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
+  "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev"
   /** 省略配置项 */
+}
+/** 省略配置项 */
 }
 ```
 
@@ -50,37 +50,37 @@ Umi 中提供了大量的 [默认环境变量](https://umijs.org/zh/guide/env-va
 
 示例代码如下：
 
-  ```tsx | pure
+```tsx | pure
 // config/config.ts
 const { REACT_APP_ENV } = process.env;
 
 export default defineConfig({
-  {/** 省略其他配置 */}
-  define: {
-    REACT_APP_ENV: REACT_APP_ENV || false,
-  }
-  {/** 省略其他配置 */}
+{/** 省略其他配置 */}
+define: {
+  REACT_APP_ENV: REACT_APP_ENV || false,
+}
+{/** 省略其他配置 */}
 });
 ```
 
 使用该变量[示例代码](https://github.com/ant-design/ant-design-pro/blob/b005f2a465/src/components/GlobalHeader/RightContent.tsx)如下：
 
-  ```tsx | pure
+```tsx | pure
 // src/components/RightContent/index.tsx
 /** 省略其他代码 */
 const GlobalHeaderRight: React.FC<{}> = () => {
-  /** 省略其他代码 */
-  return (
-    <Space className={className}>
-      <!-- 省略其他代码 -->
-      <!-- 在顶部右侧显示对应环境名称 -->
-      {REACT_APP_ENV && (
-        <span>
-          <Tag color={ENVTagColor[REACT_APP_ENV]}>{REACT_APP_ENV}</Tag>
-        </span>
-      )}
-    </Space>
-  );
+/** 省略其他代码 */
+return (
+  <Space className={className}>
+    <!-- 省略其他代码 -->
+    <!-- 在顶部右侧显示对应环境名称 -->
+    {REACT_APP_ENV && (
+      <span>
+        <Tag color={ENVTagColor[REACT_APP_ENV]}>{REACT_APP_ENV}</Tag>
+      </span>
+    )}
+  </Space>
+);
 };
 ```
 
@@ -90,27 +90,27 @@ Pro 脚手架默认使用 Umi 作为底层框架，在 Umi 内可通过指定 `U
 
 示例配置如下：
 
-  ```tsx | pure
+```tsx | pure
 {
+{/** 省略... */}
+"scripts": {
+  "analyze": "cross-env ANALYZE=1 umi build",
+  "build": "umi build",
+  "build:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi build",
+  "build:test": "cross-env REACT_APP_ENV=test UMI_ENV=test umi build",
+  "build:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=pre umi build",
+  "build:prod": "cross-env REACT_APP_ENV=prod UMI_ENV=prod umi build",
+  "deploy": "npm run site && npm run gh-pages",
+  "dev": "npm run start:dev",
   {/** 省略... */}
-  "scripts": {
-    "analyze": "cross-env ANALYZE=1 umi build",
-    "build": "umi build",
-    "build:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi build",
-    "build:test": "cross-env REACT_APP_ENV=test UMI_ENV=test umi build",
-    "build:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=pre umi build",
-    "build:prod": "cross-env REACT_APP_ENV=prod UMI_ENV=prod umi build",
-    "deploy": "npm run site && npm run gh-pages",
-    "dev": "npm run start:dev",
-    {/** 省略... */}
-    "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
-    "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
-    "start:no-mock": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
-    "start:no-ui": "cross-env REACT_APP_ENV=dev UMI_ENV=dev UMI_UI=none umi dev",
-    "start:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=pre MOCK=none umi dev",
-    "start:test": "cross-env REACT_APP_ENV=test UMI_ENV=test MOCK=none umi dev",
-    {/** 省略... */}
-  },
+  "start": "cross-env REACT_APP_ENV=dev UMI_ENV=dev umi dev",
+  "start:dev": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
+  "start:no-mock": "cross-env REACT_APP_ENV=dev UMI_ENV=dev MOCK=none umi dev",
+  "start:no-ui": "cross-env REACT_APP_ENV=dev UMI_ENV=dev UMI_UI=none umi dev",
+  "start:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=pre MOCK=none umi dev",
+  "start:test": "cross-env REACT_APP_ENV=test UMI_ENV=test MOCK=none umi dev",
+  {/** 省略... */}
+},
 	{/** 省略... */}
 }
 ```
@@ -119,7 +119,7 @@ Pro 脚手架默认使用 Umi 作为底层框架，在 Umi 内可通过指定 `U
 
 示例代码如下：
 
-  ```tsx | pure
+```tsx | pure
 // config/config.test.ts test环境对应的配置文件
 import { defineConfig } from 'umi';
 
@@ -137,15 +137,15 @@ export default defineConfig({
 
 变量使用示例：
 
-  ```tsx | pure
+```tsx | pure
 // src/services/user.ts
 import { request } from 'umi';
 
 export async function query() {
-	// 使用API密钥调用用户接口
+  // 使用API密钥调用用户接口
   return request<API.CurrentUser[]>('${API_URL}/api/users', {
-		API_SECRET_KEY,
-	});
+    API_SECRET_KEY,
+  });
 }
 ```
 
@@ -171,11 +171,11 @@ ant-design-pro
 
 eslint 中可以通过增加 [`globals`](https://eslint.org/docs/user-guide/configuring#specifying-globals) 的配置来处理报错。代码看起来是这样的
 
-  ```tsx | pure
+```tsx | pure
 {
-  "globals": {
-    "page": true
-  }
+"globals": {
+  "page": true
+}
 }
 ```
 
@@ -183,7 +183,7 @@ eslint 中可以通过增加 [`globals`](https://eslint.org/docs/user-guide/conf
 
 示例代码如下：
 
-  ```tsx | pure
+```tsx | pure
 // src/typings.d.ts
 // ... 代码省略
 declare const REACT_APP_ENV: 'test' | 'dev' | 'uat' | 'prod' | undefined;

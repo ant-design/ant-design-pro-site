@@ -2,9 +2,9 @@
 order: 12
 title: 标题和加载页
 group:
- title:  基础使用
- path: /
-nav: 
+  title: 基础使用
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -16,7 +16,7 @@ Pro 默认提供标题 Logo 和 loading 页面的配置，默认情况下你不�
 
 在实际使用中我们一般会通过 `config\defaultSettings.ts` 来控制标题和 Logo，这部分功能来自 [ProLayout](https://procomponents.ant.design/components/layout) 的功能。我们可以在[预览界面](https://preview.pro.ant.design/) 中拷贝设置覆盖到 `config\defaultSettings.ts` 中来修改配置。
 
- ```tsx | pure
+```tsx | pure
 const settings: LayoutSettings & {
   pwa?: boolean;
   logo?: string;
@@ -40,14 +40,14 @@ export default settings;
 
 如果你需要动态的修改标题或者 Logo，就需要使用运行时的能力了。我们可以在 `src\app.tsx` 中做如下配置：
 
- ```tsx | pure
+```tsx | pure
 // https://umijs.org/zh-CN/plugins/plugin-layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {};
 ```
 
 其中的 `initialState` 就是通过初始化插件获得数据，每次 `initialState` 改变就会触发 layout 的重新渲染，我们就可以根据 initialState 来自定义 title，看起来像是这样的，Logo 也是同理。
 
- ```tsx | pure
+```tsx | pure
 // https://umijs.org/zh-CN/plugins/plugin-layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
@@ -66,7 +66,7 @@ favicon 是展示在浏览器标签页上的内容，严格来说它是属于浏
 
 Pro 的默认 favicon 的配置存在于 `src\pages\document.ejs`, 我们可以在这里写 html 相关的代码, 我们默认配置了 public 文件夹中的 `favicon.ico` 文件，你可以直接覆盖来修改。当然也可以修改 href 为你想要的 cdn 地址。
 
- ```tsx | pure
+```tsx | pure
 <link rel="icon" href="<%= context.config.publicPath +'favicon.ico'%>" type="image/x-icon" />
 ```
 
@@ -84,9 +84,9 @@ Pro 的默认 favicon 的配置存在于 `src\pages\document.ejs`, 我们可以�
 
 如果我们在项目中打开了[代码分割](https://umijs.org/zh-CN/config#dynamicimport)的话，在每次路由切换的时候都会进入一个加载页面。
 
- ```tsx | pure
+```tsx | pure
 dynamicImport: {
-  loading: '@ant-design/pro-layout/es/PageLoading',
+ loading: '@ant-design/pro-layout/es/PageLoading',
 }
 ```
 
@@ -96,7 +96,7 @@ dynamicImport: {
 
 在实际的项目中，我们需要等待用户信息或者鉴权系统的请求完成后才能展示页面。所以我们让 `getInitialState`支持了异步请求，同时在请求时会停止页面的渲染。这种情况下也是需要一个加载页的。我们可以在 `src\app.tsx` 中配置：
 
- ```tsx | pure
+```tsx | pure
 /** 获取用户信息比较慢的时候会展示一个 loading */
 export const initialStateConfig = {
   loading: <PageLoading />,

@@ -2,9 +2,9 @@
 order: 12
 title: 新增页面
 group:
- title:  页面开发
- path: /
-nav: 
+  title: 页面开发
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -32,7 +32,7 @@ package.json
 
 为了更好的演示，我们初始化`NewPage.js`的内容如下：
 
-  ```tsx | pure | pure
+```tsx | pure | pure
 export default () => {
   return <div>New Page</div>;
 };
@@ -52,26 +52,26 @@ export default () => {
 
 在脚手架中我们通过嵌套路由来实现布局模板。[`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以再直接增加一个新的一级数据。
 
-  ```tsx | pure | pure
+```tsx | pure | pure
 export default [
-   // user
-   {
-    path: '/user',
-    component: '../layouts/UserLayout',
-    routes:[...]
-   },
-   // app
-   {
-    path: '/',
-    component: '../layouts/BasicLayout',
-    routes:[...]
-   },
-   // new
-   {
-    path: '/new',
-    component: '../layouts/new_page',
-    routes:[...]
-   },
+ // user
+ {
+  path: '/user',
+  component: '../layouts/UserLayout',
+  routes:[...]
+ },
+ // app
+ {
+  path: '/',
+  component: '../layouts/BasicLayout',
+  routes:[...]
+ },
+ // new
+ {
+  path: '/new',
+  component: '../layouts/new_page',
+  routes:[...]
+ },
 ]
 
 ```
@@ -82,7 +82,7 @@ Bigfish 的默认布局中的菜单根据 `routes.ts` 中的路由生成的，�
 
 我们需要在 `routes.ts` 中使用 `component` 配置我们页面到路由中。
 
-  ```tsx | pure | pure
+```tsx | pure | pure
 export default [
   {
     path: '/user',
@@ -137,7 +137,7 @@ export default [
 
 在 `src/app.tsx` 中的配置：
 
-  ```tsx | pure| pure
+```tsx | pure| pure
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
     iconfontUrl: '//at.alicdn.com/t/XXX.js',
@@ -151,12 +151,12 @@ iconfontUrl 的连接需要在 [iconfont](https://www.iconfont.cn/) 官网中获
 
 在路由中的配置:
 
-  ```tsx | pure | pure
+```tsx | pure | pure
 {
-  path: '/home',
-  name: 'home',
-  icon: 'icon-home', // 需要以 icon- 开头
-  component: './home',
+path: '/home',
+name: 'home',
+icon: 'icon-home', // 需要以 icon- 开头
+component: './home',
 };
 ```
 

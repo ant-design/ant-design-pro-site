@@ -2,9 +2,9 @@
 order: 91
 title: 常见问题
 group:
- title:  其它
- path: /
-nav: 
+  title: 其它
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -37,57 +37,57 @@ Ant Design Pro 使用 [Umi](https://umijs.org/zh-CN) 作为开发工具，建议
 
 你可以在 [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/4420ae2c224144c4114e5384bddc3e8ab0e1dc1c/src/layouts/BasicLayout.tsx#L116) 中修改 `menuDataRender`，并在代码中发起 http 请求，只需服务器返回下面格式的 json 即可。
 
-  ```tsx | pure
+```tsx | pure
 const [menuData, setMenuData] = useState([]);
 
 useEffect(() => {
-  // 这里是一个演示用法
-  // 真实项目中建议使用 dva dispatch 或者 umi-request
-  fetch('/api/example.json')
-    .then(response => response.json())
-    .then(data => {
-      setMenuData(data || []);
-    });
+// 这里是一个演示用法
+// 真实项目中建议使用 dva dispatch 或者 umi-request
+fetch('/api/example.json')
+  .then(response => response.json())
+  .then(data => {
+    setMenuData(data || []);
+  });
 }, []);
 
 ...
 
 return (
-  <ProLayout
-    ...
-    menuDataRender={() => menuData}
-    ...
-  />
+<ProLayout
+  ...
+  menuDataRender={() => menuData}
+  ...
+/>
 );
 ```
 
 `menuData` 数据格式如下，ts 定义在此：[MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
 
-  ```tsx | pure
+```tsx | pure
 [
-  {
-    path: '/dashboard',
-    name: 'dashboard',
-    icon: 'dashboard',
-    children: [
-      {
-        path: '/dashboard/analysis',
-        name: 'analysis',
-        exact: true,
-      },
-      {
-        path: '/dashboard/monitor',
-        name: 'monitor',
-        exact: true,
-      },
-      {
-        path: '/dashboard/workplace',
-        name: 'workplace',
-        exact: true,
-      },
-    ],
-  }
-  ....
+{
+  path: '/dashboard',
+  name: 'dashboard',
+  icon: 'dashboard',
+  children: [
+    {
+      path: '/dashboard/analysis',
+      name: 'analysis',
+      exact: true,
+    },
+    {
+      path: '/dashboard/monitor',
+      name: 'monitor',
+      exact: true,
+    },
+    {
+      path: '/dashboard/workplace',
+      name: 'workplace',
+      exact: true,
+    },
+  ],
+}
+....
 ]
 ```
 
@@ -130,27 +130,27 @@ $ umi-serve
 
 修改项目中的请求地址，如 `http://localhost:8001/api/users`。
 
-  ```tsx | pure
+```tsx | pure
 [
   {
-    "key": "1",
-    "name": "John Brown",
-    "age": 32,
-    "address": "New York No. 1 Lake Park"
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York No. 1 Lake Park',
   },
   {
-    "key": "2",
-    "name": "Jim Green",
-    "age": 42,
-    "address": "London No. 1 Lake Park"
+    key: '2',
+    name: 'Jim Green',
+    age: 42,
+    address: 'London No. 1 Lake Park',
   },
   {
-    "key": "3",
-    "name": "Joe Black",
-    "age": 32,
-    "address": "Sidney No. 1 Lake Park"
-  }
-]
+    key: '3',
+    name: 'Joe Black',
+    age: 32,
+    address: 'Sidney No. 1 Lake Park',
+  },
+];
 ```
 
 > 注意：如果没有全局安装，而只是在项目中安装，要把 umi-serve 命令添加到 package.json 的 script 里面。注意：build 之后 proxy 无效，不要在 proxy 中配置请求`http://localhost:8001/api/users`，而是要在 http 请求的时候，直接访问该地址。如在 [`src/utils/request.ts`](https://github.com/ant-design/ant-design-pro/blob/80ce8fe43746426abc054c1cf76b8f733f54b001/src/utils/request.ts) 中统一添加请求前缀。
@@ -185,7 +185,7 @@ $ umi-serve
 
 可以直接使用绝对路径（需要图床支持），若需直接使用本地文件，可按以下方式引入。
 
-  ```tsx | pure
+```tsx | pure
 <img src={require('../assets/picture.png')} />
 ```
 
@@ -197,17 +197,17 @@ $ umi-serve
 
 Ant Design Pro 内置了 umi，umi 使用了 [webpack-dev-server](https://webpack.docschina.org/configuration/dev-server/) 来代理网络骑牛。你可以在 `config.js` 中配置 `proxy` 属性。`proxy` 和 `mock` 如果路径相同会优先使用 mock，如果不想使用 mock 可以用 `MOCK=none umi dev` 的方式关闭。
 
-  ```tsx | pure
+```tsx | pure
 {
-  ...
-  proxy:{
-    '/server/api/': {
-      target: 'https://preview.pro.ant.design/',
-      changeOrigin: true,
-      pathRewrite: { '^/server': '' }, // /server/api/currentUser -> /api/currentUser
-    },
+...
+proxy:{
+  '/server/api/': {
+    target: 'https://preview.pro.ant.design/',
+    changeOrigin: true,
+    pathRewrite: { '^/server': '' }, // /server/api/currentUser -> /api/currentUser
   },
-  ...
+},
+...
 }
 ```
 
@@ -223,9 +223,9 @@ $ npm i node-sass sass-loader --save
 
 然后修改 `.umirc.js`或者`config/config.ts`:
 
-  ```tsx | pure
+```tsx | pure
 {
-  "sass": {}
+"sass": {}
 }
 ```
 
@@ -271,7 +271,7 @@ This is a problem introduced using the umijs framework. For details, please refe
 
 Pro 中使用了 context 来管理语言的动态切换，可以做到无刷新切换语言的效果，但是某些组件优化的比较好，context 修改不会重新渲染组件，或者像 Portal 这样组件上下文不存在， 所以无法切换。我们可以通过配置的方式来让页面重新加载来实现完全重新渲染。
 
- ```tsx | pure
+```tsx | pure
 import { setLocale } from 'umi-plugin-react/locale';
 
 // 设置第二个参数为 true 即可强制刷新

@@ -2,9 +2,9 @@
 order: 3
 title: 开始使用
 group:
- title:  入门
- path: /
-nav: 
+  title: 入门
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1

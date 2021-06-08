@@ -1,10 +1,10 @@
 ---
 order: 7
 title: Front-end best practices coming soon
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3

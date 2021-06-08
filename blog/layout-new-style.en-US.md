@@ -1,10 +1,10 @@
 ---
 order: 8
 title: Layout New Style
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3

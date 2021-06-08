@@ -2,9 +2,9 @@
 order: 15
 title: Layout
 group:
- title:  Page Development
- path: /
-nav: 
+  title: Page Development
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -24,7 +24,7 @@ It is recommended to use the right drawer of [Pro site](https://preview.pro.ant.
 
 ![Pro site](https://gw.alipayobjects.com/mdn/rms_30ab81/afts/img/A*NhA4To_Ccn8AAAAAAAAAAABkARQnAQ)
 
-  ```tsx | pure
+```tsx | pure
 // config.js
 import { defineConfig } from 'umi';
 
@@ -56,21 +56,23 @@ We can configure the menu in the route to determine whether the current route wi
 - If the menu is not configured, and the name is not configured, the route will not appear in the sidebar.
 
   ```tsx | pure
-// config/routes.ts
-export default [
-  {
-    path: '/overview',
-    component: 'Overview/index',
-    menu: {
-      name: 'overview',
-      icon: 'testicon',
-      flatMenu: false,
-      hideInMenu: false,
-      hideChildrenInMenu: false,
+  // config/routes.ts
+  export default [
+    {
+      path: '/overview',
+      component: 'Overview/index',
+      menu: {
+        name: 'overview',
+        icon: 'testicon',
+        flatMenu: false,
+        hideInMenu: false,
+        hideChildrenInMenu: false,
+      },
     },
-  },
-];
-```
+  ];
+  ```
+
+````
 
 ### Menu internationalization
 
@@ -83,7 +85,7 @@ After opening, the menu name configured in the route will be used as the key for
 export default {
   'menu.overview': 'Overview',
 };
-```
+````
 
 ### Navigate the upper right corner
 
@@ -93,7 +95,7 @@ Username and internationalization can have a default UI through configuration. I
 
 User name and avatar information can provide data by configuring global initialization information.
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 export function getInitialState() {
   return {
@@ -105,7 +107,7 @@ export function getInitialState() {
 
 Logout logic can also be customized through configuration.
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 export const layout = {
   logout: () => {
@@ -116,7 +118,7 @@ export const layout = {
 
 If the above requirements cannot be met, the upper right corner UI can be completely customized through the following interface.
 
-  ```tsx | pure
+```tsx | pure
 // src/app.tsx
 import React from 'react';
 
@@ -134,7 +136,7 @@ export const layout = {
 
 The plugin does not provide a default footer UI. The customization can be done through the following configuration. If you want to use the same style as Pro's official website, please refer to: https://procomponents.ant.design/components/layout#footer
 
-  ```tsx | pure
+```tsx | pure
 // src/app.tsx
 import React from 'react';
 
@@ -150,7 +152,7 @@ export const layout = {
 
 # The layout is essentially a special component, and the corresponding component of the sub-route will be passed into the layout component as props. The easyst layout is like this
 
- ```tsx | pure
+```tsx | pure
 <BasicLayout
   {...defaultProps}
   title="Remax"
@@ -174,7 +176,7 @@ If you need a custom menu, the `siderWidth` property controls the width of the m
 
 > > > > > > > master
 
- ```tsx | pure
+```tsx | pure
 const layout = ({ children }) => children;
 export default layout;
 ```
@@ -193,7 +195,7 @@ The detailed configuration scheme can be: [click to view](https://umijs.org/plug
 
 1. Request permission-related initialization information through global initialization information
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 export async function getInitialState() {
   const data = await fetchXXX();
@@ -203,7 +205,7 @@ export async function getInitialState() {
 
 2. Added permission definition file
 
-  ```tsx | pure
+```tsx | pure
 // src/access.ts
 import { InitialState } from 'umi';
 
@@ -216,7 +218,7 @@ export default function accessFactory(initialState: InitialState) {
 
 3. Configure permissions for routing
 
-  ```tsx | pure
+```tsx | pure
 // config/route.ts
 export default [
   {
@@ -239,7 +241,7 @@ When accessing a UI that does not exist, the default UI is as follows![404](http
 
 Sometimes our page may have some global general processing logic or UI, we want to complete it before the page is added, usually we hope that we can wrap a layer of layout inside the built-in layout to complete the demand.
 
-  ```tsx | pure
+```tsx | pure
 // config/routes.ts
 export default [
   {
@@ -274,7 +276,7 @@ export default Layout;
 
 Sometimes our page may have some immersive design, and some layouts need to be hidden for routing. This can be achieved by adding an extended routing configuration. [Detailed configuration](https://umijs.org/zh-CN/plugins/plugin-layout#layout)
 
-  ```tsx | pure
+```tsx | pure
 // config/route.ts
 export default [
   {
@@ -300,12 +302,14 @@ Sometimes our menu may display at top, left or left and top either, This can be 
 - mix Display at left and top either，by the way，when the layout mode is `mix`， we need add `splitMenus: true` at defaultSettings.js
 
   ```tsx | pure
-// config/defaultSettings.ts
-export default {
-  layout: 'mix',
-  splitMenus: true,
-};
-```
+  // config/defaultSettings.ts
+  export default {
+    layout: 'mix',
+    splitMenus: true,
+  };
+  ```
+
+````
 
 > Tips: When the layout mode is `mix`，click the first menu, page cannot route they first children menu page, you can add `redirect` at route.
 
@@ -323,7 +327,7 @@ export default {
     "redirect": "./test/list"
   }
 ]
-```
+````
 
 ## Custom layout
 
@@ -331,7 +335,7 @@ Sometimes we don't want to use the built-in layout and want to do more customiza
 
 The layout is essentially a special component, and the child pages will be passed to the layout component as attributes. The easyst layout is this:
 
- ```tsx | pure
+```tsx | pure
 // Children must be rendered, otherwise the child routes cannot be displayed
 // Here you can also set global provision
 const layout = ({ children }) => children;
@@ -340,7 +344,7 @@ export default layout;
 
 We create a new BaseLayout.tsx in `src/layouts/`, copy the above code, and add the following code in `config/config.ts`:
 
- ```tsx | pure
+```tsx | pure
 defineConfig({
   // added configuration
   routes: {
@@ -354,7 +358,7 @@ We can modify or wrap children, and the ProLayout component uses such a scheme t
 
 The following is the default ProLayout configuration, we can copy the default code and then customize:
 
- ```tsx | pure
+```tsx | pure
 /**
  * Ant Design Pro v4 use `@ant-design/pro-layout` to handle Layout.
  *
@@ -482,7 +486,7 @@ You can also turn off the default function through the following configuration.
 
 Set the layout configuration to false.
 
- ```tsx | pure
+```tsx | pure
 // config.js
 import { defineConfig } from 'umi';
 

@@ -1,7 +1,7 @@
 ﻿---
 title: Runtime Config
 order: 3
-nav: 
+nav:
   title: Config
   path: /config
   order: 2
@@ -13,7 +13,7 @@ It is not possible to use dom during construction, so some configurations may ne
 
 `getInitialState` is used to obtain initial data, and the initial data is used in various components using `useModel`. In the request, `getInitialState` will block the page loading.
 
- ```tsx | pure
+```tsx | pure
 /**
  * @see https://umijs.org/zh-CN/plugins/plugin-initial-state
  * */
@@ -32,7 +32,7 @@ export async function getInitialState(): Promise<{
 
 `initialStateConfig` is the supplementary configuration of `getInitialState`, `getInitialState` supports asynchronous settings, we show a loading before the initialization is completed, and `initialStateConfig` can configure this loading.
 
- ```tsx | pure
+```tsx | pure
 /** When obtaining user information is slow, a loading */
 export const initialStateConfig = {
   loading: <PageLoading />,
@@ -43,7 +43,7 @@ export const initialStateConfig = {
 
 `request` is used to configure global network requests. You can configure interceptors, global error handling, and authentication here.
 
- ```tsx | pure
+```tsx | pure
 export const request: RequestConfig = {
   errorHandler: (error: ResponseError) => {
     const { messages } = getIntl(getLocale());
@@ -61,7 +61,7 @@ export const request: RequestConfig = {
 
 Dom cannot be used during construction, so some configurations may need to be configured at runtime. We can export a `layout` in `src/app.tsx` for configuration:
 
- ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { RunTimeLayoutConfig } from 'umi';
 import { BasicLayoutProps, Settings as LayoutSettings } from '@ant-design/pro-layout';

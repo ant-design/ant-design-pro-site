@@ -2,9 +2,9 @@
 order: 94
 title: Design Kit
 group:
- title:  Other
- path: /
-nav: 
+  title: Other
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1

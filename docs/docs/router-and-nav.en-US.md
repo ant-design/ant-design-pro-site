@@ -2,9 +2,9 @@
 order: 10
 title: Router and Nav
 group:
- title:  Page Development
- path: /
-nav: 
+  title: Page Development
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -44,58 +44,58 @@ Just update `menuData` in [models/menu](https://github.com/ant-design/ant-design
 
 You need to update `menuDataRender` prop in [src/layouts/BasicLayout.tsx](https://github.com/ant-design/ant-design-pro/blob/4420ae2c224144c4114e5384bddc3e8ab0e1dc1c/src/layouts/BasicLayout.tsx#L116) as below, fetch menuData from your service.
 
-  ```tsx | pure
+```tsx | pure
 const [menuData, setMenuData] = useState([]);
 
 useEffect(() => {
-  // just for sample
-  // please use dva dispatch or umi-request in real world
-  fetch('/api/example.json')
-    .then(response => response.json())
-    .then(data => {
-      setMenuData(data || []);
-    });
+// just for sample
+// please use dva dispatch or umi-request in real world
+fetch('/api/example.json')
+  .then(response => response.json())
+  .then(data => {
+    setMenuData(data || []);
+  });
 }, []);
 
 ...
 
 return (
-  <ProLayout
-    // ...
-    menuDataRender={() => menuData}
-    // ...
-  />
+<ProLayout
+  // ...
+  menuDataRender={() => menuData}
+  // ...
+/>
 );
 ```
 
 The above menuData definite is [MenuDataItem](https://github.com/ant-design/ant-design-pro-layout/blob/56590a06434c3d0e77dbddcd2bc60827c9866706/src/typings.ts#L18).
 
-  ```tsx | pure
+```tsx | pure
 [
   {
-    "path": "/dashboard",
-    "name": "dashboard",
-    "icon": "dashboard",
-    "children": [
+    path: '/dashboard',
+    name: 'dashboard',
+    icon: 'dashboard',
+    children: [
       {
-        "path": "/dashboard/analysis",
-        "name": "analysis",
-        "exact": true
+        path: '/dashboard/analysis',
+        name: 'analysis',
+        exact: true,
       },
       {
-        "path": "/dashboard/monitor",
-        "name": "monitor",
-        "exact": true
+        path: '/dashboard/monitor',
+        name: 'monitor',
+        exact: true,
       },
       {
-        "path": "/dashboard/workplace",
-        "name": "workplace",
-        "exact": true
-      }
-    ]
-  }
+        path: '/dashboard/workplace',
+        name: 'workplace',
+        exact: true,
+      },
+    ],
+  },
   // ....
-]
+];
 ```
 
 > Note that path must be defined in config.ts. (All you need in Conventional Routing is the correct page.)
@@ -112,10 +112,10 @@ The above outlines the implementation of this part, and then through the actual 
 
 You can fill the url directly into the path and the framework will handle it automatically.
 
-  ```tsx | pure
+```tsx | pure
 {
-    path: 'https://pro.ant.design/docs/getting-started',
-    name: "Docs"
+  path: 'https://pro.ant.design/docs/getting-started',
+  name: "Docs"
 }
 ```
 
@@ -133,16 +133,16 @@ Scaffolding provides two layout templates by default: `Basic Layout - BasicLayou
 
 If your page can take advantage of both layouts, you only need to add one to the corresponding routing configuration:
 
-  ```tsx | pure
-  // app
-  {
-    path: '/',
-    component: '../layouts/BasicLayout',
-    routes: [
-      // dashboard
-      { path: '/', redirect: '/dashboard/analysis' },
-      { path: '/dashboard/test', component:"./Dashboard/Test" },
-    ...
+```tsx | pure
+// app
+{
+  path: '/',
+  component: '../layouts/BasicLayout',
+  routes: [
+    // dashboard
+    { path: '/', redirect: '/dashboard/analysis' },
+    { path: '/dashboard/test', component:"./Dashboard/Test" },
+  ...
 },
 ```
 
@@ -152,26 +152,26 @@ When added, the relevant routing and navigation will be automatically generated.
 
 In the scaffolding we implement the layout template by nesting the route. [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) is an array, the first level of which is our layout. If you need to add a new layout, you can directly add a new first-level element in the array.
 
-  ```tsx | pure
+```tsx | pure
 module.exports = [
-   // user
-   {
-    path: '/user',
-    component: '../layouts/UserLayout',
-    routes:[...]
-   },
-   // app
-   {
-    path: '/',
-    component: '../layouts/BasicLayout',
-    routes:[...]
-   },
-   // new
-   {
-    path: '/new',
-    component: '../layouts/new_page',
-    routes:[...]
-   },
+ // user
+ {
+  path: '/user',
+  component: '../layouts/UserLayout',
+  routes:[...]
+ },
+ // app
+ {
+  path: '/',
+  component: '../layouts/BasicLayout',
+  routes:[...]
+ },
+ // new
+ {
+  path: '/new',
+  component: '../layouts/new_page',
+  routes:[...]
+ },
 ]
 
 ```
@@ -188,13 +188,13 @@ If this does not meet the requirements, you can customize [`getIcon`](https://gi
 
 Scaffolding supports routing with parameters by default, but it is not a good idea to display a route with parameters in the menu. We will not automatically inject a parameter for you, you may need to handle it yourself in the code.
 
-  ```tsx | pure
+```tsx | pure
 { path: '/dashboard/:page', hideInMenu: true, name: 'analysis', component: './Dashboard/Analysis' },
 ```
 
 You can jump to this route with the following code:
 
-  ```tsx | pure
+```tsx | pure
 import { history } from 'umi';
 
 history.push('/dashboard/anyParams');

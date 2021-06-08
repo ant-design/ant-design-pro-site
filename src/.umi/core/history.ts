@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createBrowserHistory, History } from '/Users/tianba/Documents/code/openSource/ant-design-pro-site/node_modules/@umijs/runtime';
+import { createBrowserHistory, History } from 'C:/github/ant-design-pro-site/node_modules/@umijs/runtime';
 
 let options = {
   "basename": "/"

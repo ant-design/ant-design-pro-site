@@ -2,9 +2,9 @@
 order: 15
 title: 布局
 group:
- title:  页面开发
- path: /
-nav: 
+  title: 页面开发
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -24,7 +24,7 @@ layout 插件 与[pro-layout](https://github.com/ant-design/ant-design-pro-layou
 
 ![Pro 站点](https://gw.alipayobjects.com/mdn/rms_30ab81/afts/img/A*NhA4To_Ccn8AAAAAAAAAAABkARQnAQ)
 
-  ```tsx | pure
+```tsx | pure
 // config.js
 import { defineConfig } from 'umi';
 
@@ -56,21 +56,23 @@ export const config = defineConfig({
 - 如果没有配置 menu，没有配置 name 的话，则该路由不会在侧边栏中出现。
 
   ```tsx | pure
-// config/routes.ts
-export default [
-  {
-    path: '/overview',
-    component: 'Overview/index',
-    menu: {
-      name: 'overview',
-      icon: 'testicon',
-      flatMenu: false,
-      hideInMenu: false,
-      hideChildrenInMenu: false,
+  // config/routes.ts
+  export default [
+    {
+      path: '/overview',
+      component: 'Overview/index',
+      menu: {
+        name: 'overview',
+        icon: 'testicon',
+        flatMenu: false,
+        hideInMenu: false,
+        hideChildrenInMenu: false,
+      },
     },
-  },
-];
-```
+  ];
+  ```
+
+````
 
 ### 菜单国际化
 
@@ -83,7 +85,7 @@ export default [
 export default {
   'menu.overview': '总览',
 };
-```
+````
 
 ### 导航右上角
 
@@ -93,7 +95,7 @@ export default {
 
 用户名、头像信息可以通过配置全局初始化信息来提供数据。
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 export function getInitialState() {
   return {
@@ -105,7 +107,7 @@ export function getInitialState() {
 
 退出登陆的逻辑也可以通过配置来自定义。
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 export const layout = {
   logout: () => {
@@ -116,7 +118,7 @@ export const layout = {
 
 如果以上满足不了需求，可以通过以下接口实现右上角 UI 完全的自定义。
 
-  ```tsx | pure
+```tsx | pure
 // src/app.tsx
 import React from 'react';
 
@@ -134,7 +136,7 @@ export const layout = {
 
 插件并没有提供默认的 footer UI。可以通过以下配置来完成自定义。想和 Pro 官网使用相同的样式可以参考：https://procomponents.ant.design/components/layout#footer
 
-  ```tsx | pure
+```tsx | pure
 // src/app.tsx
 import React from 'react';
 
@@ -158,7 +160,7 @@ export const layout = {
 
 1.通过全局初始化信息来请求权限相关的初始化信息
 
-  ```tsx | pure
+```tsx | pure
 // src/app.ts
 export async function getInitialState() {
   const data = await fetchXXX();
@@ -168,7 +170,7 @@ export async function getInitialState() {
 
 2.新增权限定义文件
 
-  ```tsx | pure
+```tsx | pure
 // src/access.ts
 import { InitialState } from 'umi';
 
@@ -181,7 +183,7 @@ export default function accessFactory(initialState: InitialState) {
 
 3.给路由配置权限
 
-  ```tsx | pure
+```tsx | pure
 // config/route.ts
 export default [
   {
@@ -204,7 +206,7 @@ export default [
 
 有时我们的页面可能会有一些全局的通用的处理逻辑或者 UI，会希望在页面加载前完成，通常会希望可以在内置布局内部再包一层 layout 来完成需求。
 
-  ```tsx | pure
+```tsx | pure
 // config/routes.ts
 export default [
   {
@@ -239,7 +241,7 @@ export default Layout;
 
 有时我们的页面可能存在一些沉浸式的设计，需要针对路由隐藏部分布局。可以通过添加扩展路由配置来实现。[详细配置](https://umijs.org/zh-CN/plugins/plugin-layout#layout)
 
-  ```tsx | pure
+```tsx | pure
 // config/route.ts
 export default [
   {
@@ -265,12 +267,14 @@ export default [
 - mix 菜单于顶部和左侧混合展示，需要注意，当 mix 模式时，需要添加`splitMenus: true`，顶部才可以正确展示一级菜单
 
   ```tsx | pure
-// config/defaultSettings.ts
-export default {
-  layout: 'mix',
-  splitMenus: true,
-};
-```
+  // config/defaultSettings.ts
+  export default {
+    layout: 'mix',
+    splitMenus: true,
+  };
+  ```
+
+````
 
 同时，当使用 mix 模式后，点击一级菜单，并不会直接定位到第一个子级菜单页面，而是会呈现空白页面，需要于配置中设置一下 redirect 的地址
 
@@ -288,7 +292,7 @@ export default {
     "redirect": "./test/list"
   }
 ]
-```
+````
 
 ## 自定义布局
 
@@ -296,7 +300,7 @@ export default {
 
 布局本质上是一个特殊的组件，子页面将作为属性传递到布局组件中。 最简单的布局是这样的：
 
- ```tsx | pure
+```tsx | pure
 // 必须渲染 children，否则子级路由无法显示
 // 在这里您还可以设置全局提供
 const layout = ({ children }) => children;
@@ -305,7 +309,7 @@ export default layout;
 
 我们在 `src/layouts/`中创建一个新的 BaseLayout.tsx，复制上面的代码，并在 `config/config.ts` 添加如下代码：
 
- ```tsx | pure
+```tsx | pure
 defineConfig({
   // added configuration
   routes: {
@@ -319,7 +323,7 @@ defineConfig({
 
 下面是默认的 ProLayout 的配置，我们可以复制默认代码然后再自定义：
 
- ```tsx | pure
+```tsx | pure
 /**
  * Ant Design Pro v4 use `@ant-design/pro-layout` to handle Layout.
  *
@@ -447,7 +451,7 @@ export default BasicLayout;
 
 将 layout 配置设置成 false。
 
-  ```tsx | pure
+```tsx | pure
 // config.js
 import { defineConfig } from 'umi';
 

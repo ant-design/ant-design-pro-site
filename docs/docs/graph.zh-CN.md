@@ -2,9 +2,9 @@
 order: 15
 title: 图表
 group:
- title:  页面开发
- path: /
-nav: 
+  title: 页面开发
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -40,7 +40,7 @@ nav:
 
 我们首先需要在 `config/config.ts` 中的 `script` 中配置:
 
- ```tsx | pure
+```tsx | pure
 script: [
   'https://unpkg.com/react@17/umd/react.production.min.js',
   'https://unpkg.com/react-dom@17/umd/react-dom.production.min.js',
@@ -52,11 +52,11 @@ script: [
 
 同时在 `config/config.ts` 中的 `externals` 中配置:
 
- ```tsx | pure
+```tsx | pure
 externals: {
-  react: 'React',
-  'react-dom': 'ReactDOM',
-  "@ant-design/charts": "charts"
+ react: 'React',
+ 'react-dom': 'ReactDOM',
+ "@ant-design/charts": "charts"
 };
 ```
 
@@ -64,7 +64,7 @@ externals: {
 
 接下来我们就可以在代码中使用了。
 
- ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { Line } from '@ant-design/charts';
 

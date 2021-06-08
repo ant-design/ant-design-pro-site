@@ -2,9 +2,9 @@
 order: 12
 title: New Page
 group:
- title:  Page Development
- path: /
-nav: 
+  title: Page Development
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -32,7 +32,7 @@ package.json
 
 For a better demonstration, we initialize the contents of `NewPage.js` as follows:
 
-  ```tsx | pure | pure
+```tsx | pure | pure
 export default () => {
   return <div>New Page</div>;
 };
@@ -52,26 +52,26 @@ This makes it easy to get the antd style variables and use them in the file, whi
 
 In scaffolding, we implement layout templates by nesting routes. [`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) is an array, where the first level of data is our layout, If you need to add a new layout, you can directly add a new first-level data.
 
-  ```tsx | pure | pure
+```tsx | pure | pure
 export default [
-   // user
-   {
-    path:'/user',
-    component:'../layouts/UserLayout',
-    routes:[...]
-   },
-   // app
-   {
-    path:'/',
-    component:'../layouts/BasicLayout',
-    routes:[...]
-   },
-   // new
-   {
-    path:'/new',
-    component:'../layouts/new_page',
-    routes:[...]
-   },
+ // user
+ {
+  path:'/user',
+  component:'../layouts/UserLayout',
+  routes:[...]
+ },
+ // app
+ {
+  path:'/',
+  component:'../layouts/BasicLayout',
+  routes:[...]
+ },
+ // new
+ {
+  path:'/new',
+  component:'../layouts/new_page',
+  routes:[...]
+ },
 ]
 
 ```
@@ -82,7 +82,7 @@ The menu in Bigfish's default layout is generated based on the route in `routes.
 
 We need to use `component` in `routes.ts` to configure our page to route.
 
-  ```tsx | pure | pure
+```tsx | pure | pure
 export default [
   {
     path: '/user',
@@ -126,7 +126,7 @@ To use the iconFont icon must meet two conditions
 
 Configuration in `src/app.tsx`:
 
-  ```tsx | pure| pure
+```tsx | pure| pure
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
     iconfontUrl: '//at.alicdn.com/t/XXX.js',
@@ -140,12 +140,12 @@ The connection of iconfontUrl needs to be obtained from the official website of 
 
 Configuration in routing:
 
-  ```tsx | pure | pure
+```tsx | pure | pure
 {
-  path:'/home',
-  name:'home',
-  icon:'icon-home', // need to start with icon-
-  component:'./home',
+path:'/home',
+name:'home',
+icon:'icon-home', // need to start with icon-
+component:'./home',
 };
 ```
 

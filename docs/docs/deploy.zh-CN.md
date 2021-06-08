@@ -2,9 +2,9 @@
 order: 32
 title: 部署
 group:
- title:  构建和部署
- path: /
-nav: 
+  title: 构建和部署
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -24,7 +24,7 @@ Ant Design Pro 使用的 Umi 可以使用两种路由方式：`browserHistory` �
 
 可以在 `config/config.ts` 中进行配置选择用哪个方式：
 
-  ```tsx | pure
+```tsx | pure
 export default {
   history: { type: 'hash' }, // 默认是 browser
 };
@@ -36,7 +36,7 @@ export default {
 
 部署在非根目录是一种常见的需求，比如部署在 GitHub pages 中。接下来我们假设我们要部署项目到 `${host}/admin` 中。首先我们需要在 `config/config.ts` 中配置 [base](https://umijs.org/zh/config/#base),`base` 是 react-router 的前缀。我们需要将 base 配置为 `admin`, 如果我们还需要将其部署到 `/admin` 目录中，我们还需要设置 [`publicPath`](https://umijs.org/zh/config/#publicpath)。设置完之后是这样的：
 
-  ```tsx | pure
+```tsx | pure
 export default {
   // ... some config
   base: '/admin/',

@@ -2,9 +2,9 @@
 order: 92
 title: 升级到 V5
 group:
- title:  其它
- path: /
-nav: 
+  title: 其它
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -50,7 +50,7 @@ export async function getInitialState(): Promise<{
 
 在新的架构中 Layout 被作为插件使用，作为了替代品我们在 `app.ts` 中提供了 `layout`  的配置项来支持运行时配置,我们需要将 footer 和 menu 的自定义迁移到  `app.ts` 中，在 return 中我们可以原来的任何 props 配置。
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { history } from 'umi';
 import { BasicLayoutProps, Settings as ProSettings } from '@ant-design/pro-layout';
@@ -74,7 +74,7 @@ export const layout = ({
 
 在 V4 中我们将 layout 的配置放到了 model 中，在 V5 中我们将其放入了  `initialState` 中，还有非常重要的用户信息也在  `initialState`进行了初始化。 默认配置中的 `layout`  属性变为   `'side' | 'top' | 'mix'`，这里需要注意一下，默认是 `mix`。
 
-  ```tsx | pure
+```tsx | pure
 export async function getInitialState(): Promise<{
   currentUser?: API.CurrentUser;
   settings?: ProSettings;
@@ -135,7 +135,7 @@ export default () => (
 
 我们的权限改造也依赖了它，对于原来的权限我们可以完全将其删除, 并且在  `src/access.ts`  增加相应的权限标识，以 pro 为例，我们只使用了 `canAdmin`。
 
-  ```tsx | pure
+```tsx | pure
 // src/access.ts
 export default function (initialState: { currentUser?: API.CurrentUser | undefined }) {
   const { currentUser } = initialState || {};
@@ -151,7 +151,7 @@ export default function (initialState: { currentUser?: API.CurrentUser | undefin
 
 对于运行时的代码，我们提供了两个 API 来帮助我们自定义任何形态的 UI 和逻辑，这里有个一看就懂的 demo。
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 import { useAccess, Access } from 'umi';
 
@@ -180,7 +180,7 @@ const PageA = (props) => {
 
 原有的项目中 request 定义在 `src/utils/request.ts`中，在 V5 中需要用 umi 中 import ，各项配置需要写在 app.ts 中进行实现。
 
- ```tsx | pure
+```tsx | pure
 import { RequestConfig } from 'umi';
 
 export const request: RequestConfig = {

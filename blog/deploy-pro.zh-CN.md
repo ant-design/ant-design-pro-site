@@ -1,10 +1,10 @@
 ---
 order: 6
 title: 我们是如何部署开源项目的?
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3

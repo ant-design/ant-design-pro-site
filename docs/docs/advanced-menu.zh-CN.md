@@ -2,9 +2,9 @@
 order: 90
 title: 菜单的高级用法
 group:
- title:  高级使用
- path: /
-nav: 
+  title: 高级使用
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -18,7 +18,7 @@ Pro 中默认会读取 `config/config.tsx` 中的 routes 配置作为 ProLayout 
 
 具体的代码实现如下，我们可以在 `src/app.tsx` 定义 layout 对象，并且导出。看起来可能是这样的：
 
- ```tsx | pure
+```tsx | pure
 // https://umijs.org/zh-CN/plugins/plugin-layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
@@ -41,7 +41,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 
 如果你的数据希望通过 initialState 来保存，你可以在 request 中直接读取，这样每次 `initialState` 变化都会重新加载菜单。
 
- ```tsx | pure
+```tsx | pure
 // https://umijs.org/zh-CN/plugins/plugin-layout
 export const layout: RunTimeLayoutConfig = ({ initialState }) => {
   return {
@@ -58,7 +58,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 
 如果你希望可以手动的控制菜单刷新，可以使用 `actionRef` 功能。
 
- ```tsx | pure
+```tsx | pure
 import { createRef } from 'react';
 
 export const layoutActionRef = createRef<{ reload: () => void }>();
@@ -85,7 +85,7 @@ request().then(() => {
 
 大部分时候菜单的高亮是可以通过父子关系来满足的，我们也推荐这种用法。假如有一个增删改查的页面，可以如下设置：
 
- ```tsx | pure
+```tsx | pure
 export default {
   path: '/product',
   name: '产品管理',
@@ -115,7 +115,7 @@ export default {
 
 这样的路由非常标准，可以被 ProLayout 完美的消费，高亮也能正确展示，但是不一定所有的菜单的都可以做的这么规范，ProLayout 也提供一个方式来重定向菜单的高亮。如果我们想要 `/list/:id`，高亮 `/product`可以这样配置。
 
- ```tsx | pure
+```tsx | pure
 export default [
   {
     path: '/product',
@@ -137,7 +137,7 @@ export default [
 
 在一些复杂的路径中我们可以需要根据不同的 `url` 展示不同的界面，比如在新建的时候我们是不需要左侧菜单，如果用传统的方法实现需要根据 `pathname` 来进行不同的配置。实现成本比较高，为了降低实现成本，我们在 `routers` 配置中增加了一些约定。
 
- ```tsx | pure
+```tsx | pure
 export default [
   {
     path: '/product',
@@ -157,7 +157,7 @@ export default [
 
 这样在 `/product` 的时候不展示菜单，在 `/list/:id` 中的时候展示了顶部菜单。在菜单中可以配置以下的 api。
 
- ```tsx | pure
+```tsx | pure
 export interface Setting {
   /**
    * @name false 时不展示顶栏

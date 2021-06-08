@@ -2,9 +2,9 @@
 order: 22
 title: CSS Modules
 group:
- title:  样式和资源
- path: /
-nav: 
+  title: 样式和资源
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -17,7 +17,7 @@ nav:
 
 为了解决上述问题，我们的脚手架默认使用 CSS Modules 模块化方案，先来看下在这种模式下怎么写样式。
 
-  ```tsx | pure
+```tsx | pure
 // example.ts
 import styles from './example.less';
 export default ({ title }) => <div className={styles.title}>{title}</div>;

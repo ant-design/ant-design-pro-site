@@ -1,10 +1,10 @@
 ---
 order: 1
 title: Customize theme on runtime
-group: 
+group:
   title: Blog
   path: /
-nav: 
+nav:
   title: Blog
   path: /blog
   order: 3
@@ -31,7 +31,7 @@ This function is mainly implemented by a plugin, `antd-pro-merge-less`, which sc
 
 However, as a plug-in for the theme, it is necessary to ensure that the class name is fixed, but it cannot be repeated. We did two things. First customize the class name. This can be done easily with the api`getLocalIdent` of `css-module`. This is how the pro is handled.
 
-  ```tsx | pure
+```tsx | pure
 const getLocalIdent = (context, localIdentName, localName) => {
   if (
     context.resourcePath.includes('node_modules') ||
@@ -77,7 +77,7 @@ After extracting color.less, add the introduction of less in the html generated 
 
 When you need to change the theme, you can compile the reference by calling `window.less.modifyVars`.
 
-  ```tsx | pure
+```tsx | pure
 //Because the compilation time is too long and the rendering will be blocked, be sure to add a hint.
 Window.less
   .modifyVars({

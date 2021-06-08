@@ -2,9 +2,9 @@
 order: 22
 title: CSS Modules
 group:
- title: styles and resources
- path: /
-nav: 
+  title: styles and resources
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -19,7 +19,7 @@ Two issues stand out in the style development process.
 
 To solve these problems, our scaffolding defaults to the CSS Modules modularity scheme, so let's look at how to write styles in this mode.
 
- ```tsx | pure
+```tsx | pure
 // example.ts
 import styles from '. /example.less';
 export default ({ title }) => <div className={styles.title}>{title}</div>;

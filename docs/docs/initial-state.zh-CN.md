@@ -2,9 +2,9 @@
 order: 32
 title: 全局初始数据
 group:
- title:  数据管理
- path: /
-nav: 
+  title: 数据管理
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -22,7 +22,7 @@ nav:
 
 在 umi 的运行时配置 `src/app.ts`  中添加运行时配置 `getInitialState` ，该配置是一个 async 的 function，示例如下：
 
-  ```tsx | pure
+```tsx | pure
 export async function getInitialState() {
   return {
     userName: 'xxx',
@@ -34,7 +34,7 @@ export async function getInitialState() {
 
 该方法返回的数据最后会被默认注入到一个 namespace 为 `@@initialState`  的 model 中。可以通过 `useModel`  这个 hook 来消费它：
 
-  ```tsx | pure
+```tsx | pure
 import React from 'react';
 
 import { useModel } from 'umi';

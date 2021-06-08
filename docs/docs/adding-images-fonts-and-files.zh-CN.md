@@ -2,9 +2,9 @@
 order: 24
 title: 添加图片，字体和文件
 group:
- title: 样式和资源
- path: /
-nav: 
+  title: 样式和资源
+  path: /
+nav:
   title: 文档
   path: /docs
   order: 1
@@ -14,7 +14,7 @@ nav:
 
 我们可以直接在 tsx 或者 jsx 中直接引用资源文件，大部分的资源文件引入之后都会转化为一个路径。我们可以将其设置为了图片的 src，或者是 window.open 的地址。
 
- ```tsx | pure
+```tsx | pure
 import logo from './logo.png';
 
 console.log(logo); //logo.84287d09.png
@@ -29,7 +29,7 @@ return <Image src={logo} />;
 
 如果想要使用缓存，可以把文件放到 `public/logo.png`，然后再代码中这样使用。
 
- ```tsx | pure
+```tsx | pure
 // 使用 antd 的图片
 return <Image src="/logo.png" />;
 ```
@@ -40,7 +40,7 @@ return <Image src="/logo.png" />;
 
 svg 是一种特殊标签，为了方便管理，我们建议大家将其转化为一个组件来使用。网络上有很多将 svg 转化为的 react 组件的[工具](https://github.com/sairion/svg-inline-react)。最后结果是这样的：
 
- ```tsx | pure
+```tsx | pure
 return (
   <svg width={300} height={300}>
     <rect
@@ -56,7 +56,7 @@ return (
 
 TypesScript 只支持 json 和 js ，要使用别的资源可能会报错。所以需要进行一些特殊配置。Pro 中默认设置了常用的，如果你有需要可以修改 `src/typing` 的代码。
 
- ```tsx | pure
+```tsx | pure
 declare module 'slash2';
 declare module '*.css';
 declare module '*.less';
