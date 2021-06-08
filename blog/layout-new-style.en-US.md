@@ -1,7 +1,13 @@
 ---
 order: 8
 title: Layout New Style
-type: Blog
+group: 
+  title: Blog
+  path: /
+nav: 
+  title: Blog
+  path: /blog
+  order: 3
 time: 2020-04-21
 ---
 

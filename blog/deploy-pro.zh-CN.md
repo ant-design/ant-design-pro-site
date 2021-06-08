@@ -1,7 +1,13 @@
 ---
 order: 6
 title: 我们是如何部署开源项目的?
-type: Blog
+group: 
+  title: Blog
+  path: /
+nav: 
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-11-02
 ---
 

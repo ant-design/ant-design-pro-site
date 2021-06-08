@@ -1,7 +1,13 @@
 ---
 order: 7
 title: Same-origin policy cross-domain and agent
-type: Blog
+group: 
+  title: Blog
+  path: /
+nav: 
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-11-24
 ---
 
@@ -25,7 +31,7 @@ The same-origin policy is called "Bubble-to-Domain Strategy", which is a securit
 
 All scaffolding on the market now provides [proxy](https://webpack.js.org/configuration/dev-server/#devserverproxy) capabilities based on [http-proxy-middleware](https://github) .com/chimurai/http-proxy-middleware), this package can forward all requests that match the regular match to an address. Here is a easy demo:
 
-```javascript
+  ```tsx | pure
 var express = require('express');
 var proxy = require('http-proxy-middleware');
 
@@ -41,7 +47,7 @@ This configuration can forward all requests starting with `/api` to `http://www.
 
 In Pro, it is easier to configure with [proxy] in [config.ts](https://github.com/ant-design/ant-design-pro/blob/4c6a11eedad8baee97022ee452cedc76f097421a/config/config.ts#L185). Configuration may be like this:
 
-```javascript
+  ```tsx | pure
  proxy: {
     '/server/api/': {
       target: 'https://preview.pro.ant.design/',
@@ -59,7 +65,7 @@ If you think that the above changes require more configuration, the system is ea
 
 #### express config
 
-```javascript
+  ```tsx | pure
 res.header('Access-Control-Allow-Origin', '你的项目地址，用*将会带来安全问题');
 res.header('Access-Control-Allow-Headers', '*');
 res.header('Access-Control-Allow-Methods', '*');
@@ -112,7 +118,7 @@ It is highly recommended that everyone read through MDN's [HTTP Access Control](
 
 n development we may need to distinguish between multiple situations, such as the development environment, test environment, grammar environment, and the environment variables we can use in Pro to achieve this requirement.
 
-```javascript
+  ```tsx | pure
 const serveUrlMap = {
   dev: 'https://dev.pro.ant.design/',
   pre: 'https://pre.pro.ant.design/',
@@ -136,7 +142,7 @@ export default {
 
 We can quickly switch by configuring various shortcut commands in package.json.
 
-```json
+  ```tsx | pure
 {
   "scripts": {
     "start:dev": "cross-env SERVE_ENV=dev umi dev",

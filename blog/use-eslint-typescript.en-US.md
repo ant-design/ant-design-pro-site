@@ -1,7 +1,13 @@
 ---
 order: 1
 title: Let's use eslint
-type: Blog
+group: 
+  title: Blog
+  path: /
+nav: 
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-06-21
 ---
 
@@ -35,7 +41,7 @@ npm install eslint @umijs/fabric --save-dev
 
 And do the following configuration in the root directory `.eslintrc.js`.
 
-```tsx
+ ```tsx | pure
 const fabric = require('@umijs/fabric');
 
 module.exports = fabric.eslint;
@@ -43,7 +49,7 @@ module.exports = fabric.eslint;
 
 The eslint plugin in vscode does not default to the lint .ts file, we need to set it in `settings.json`
 
-```jsx
+  ```tsx | pure
   "eslint.validate": [
     "javascript",
     "javascriptreact",

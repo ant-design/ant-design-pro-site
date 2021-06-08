@@ -1,7 +1,13 @@
 ---
 order: 7
 title: 前端最佳实践即将发布
-type: Blog
+group: 
+  title: Blog
+  path: /
+nav: 
+  title: Blog
+  path: /blog
+  order: 3
 time: 2020-02-29
 ---
 

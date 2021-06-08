@@ -1,7 +1,13 @@
 ---
 order: 6
 title: How do we deploy open source projects?
-type: Blog
+group: 
+  title: Blog
+  path: /
+nav: 
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-11-02
 ---
 

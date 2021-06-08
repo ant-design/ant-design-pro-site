@@ -1,7 +1,13 @@
 ---
 order: 7
 title: 同源策略 跨域与代理
-type: Blog
+group: 
+  title: Blog
+  path: /
+nav: 
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-11-24
 ---
 
@@ -25,7 +31,7 @@ time: 2019-11-24
 
 现在市面上所有的脚手架都提供了 [proxy](https://webpack.js.org/configuration/dev-server/#devserverproxy) 的能力，底层基于 [http-proxy-middleware](https://github.com/chimurai/http-proxy-middleware), 这个包可以把所有符合正则匹配的请求转发到某个地址，下面是个简单的 demo：
 
-```javascript
+  ```tsx | pure
 var express = require('express');
 var proxy = require('http-proxy-middleware');
 
@@ -41,7 +47,7 @@ app.listen(3000);
 
 在 Pro 中是用 proxy 更加简单在 [config.ts](https://github.com/ant-design/ant-design-pro/blob/4c6a11eedad8baee97022ee452cedc76f097421a/config/config.ts#L185)  中配置即可，配置出来可能是这样的：
 
-```javascript
+  ```tsx | pure
  proxy: {
     '/server/api/': {
       target: 'https://preview.pro.ant.design/',
@@ -59,7 +65,7 @@ app.listen(3000);
 
 #### express 中的配置
 
-```javascript
+  ```tsx | pure
 res.header('Access-Control-Allow-Origin', '你的项目地址，用*将会带来安全问题');
 res.header('Access-Control-Allow-Headers', '*');
 res.header('Access-Control-Allow-Methods', '*');
@@ -112,7 +118,7 @@ public class HttpErrorResponseUtil {
 
 在开发中我们可能需要区分多种情况，比如开发环境，测试环境，语法环境，在 Pro 中我们可以通过的环境变量来实现这个需求。
 
-```javascript
+  ```tsx | pure
 const serveUrlMap = {
   dev: 'https://dev.pro.ant.design/',
   pre: 'https://pre.pro.ant.design/',
@@ -136,7 +142,7 @@ export default {
 
 我们只要在 package.json 中配置好各种快捷命令，就可以做到快速切换。
 
-```json
+  ```tsx | pure
 {
   "scripts": {
     "start:dev": "cross-env SERVE_ENV=dev umi dev",

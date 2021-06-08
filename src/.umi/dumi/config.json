@@ -1,0 +1,793 @@
+{
+  "menus": {
+    "zh-CN": {
+      "*": [
+        {
+          "path": "/",
+          "title": "Ant Design Pro Site",
+          "meta": {
+            "order": null
+          }
+        }
+      ],
+      "/config": [
+        {
+          "path": "/config/config",
+          "title": "配置",
+          "meta": {
+            "order": 1
+          }
+        },
+        {
+          "path": "/config/api",
+          "title": "API",
+          "meta": {
+            "order": 2
+          }
+        },
+        {
+          "path": "/config/runtime-api",
+          "title": "运行时配置",
+          "meta": {
+            "order": 3
+          }
+        }
+      ],
+      "/docs": [
+        {
+          "title": "其它",
+          "path": "/docs/",
+          "meta": {},
+          "children": [
+            {
+              "path": "/docs/overview",
+              "title": "文档总览",
+              "meta": {
+                "order": 0
+              }
+            },
+            {
+              "path": "/docs/getting-started",
+              "title": "开始使用",
+              "meta": {
+                "order": 3
+              }
+            },
+            {
+              "path": "/docs/introduction",
+              "title": "新手需知",
+              "meta": {
+                "order": 4
+              }
+            },
+            {
+              "path": "/docs/development",
+              "title": "启动项目",
+              "meta": {
+                "order": 10
+              }
+            },
+            {
+              "path": "/docs/folder",
+              "title": "文件夹结构",
+              "meta": {
+                "order": 11
+              }
+            },
+            {
+              "path": "/docs/new-page",
+              "title": "新增页面",
+              "meta": {
+                "order": 12
+              }
+            },
+            {
+              "path": "/docs/title-landing",
+              "title": "标题和加载页",
+              "meta": {
+                "order": 12
+              }
+            },
+            {
+              "path": "/docs/graph",
+              "title": "图表",
+              "meta": {
+                "order": 15
+              }
+            },
+            {
+              "path": "/docs/layout",
+              "title": "布局",
+              "meta": {
+                "order": 15
+              }
+            },
+            {
+              "path": "/docs/simple-model",
+              "title": "简易数据流",
+              "meta": {
+                "order": 19
+              }
+            },
+            {
+              "path": "/docs/css",
+              "title": "使用 css",
+              "meta": {
+                "order": 20
+              }
+            },
+            {
+              "path": "/docs/css-modules",
+              "title": "CSS Modules",
+              "meta": {
+                "order": 22
+              }
+            },
+            {
+              "path": "/docs/less",
+              "title": "使用 less",
+              "meta": {
+                "order": 23
+              }
+            },
+            {
+              "path": "/docs/adding-images-fonts-and-files",
+              "title": "添加图片，字体和文件",
+              "meta": {
+                "order": 24
+              }
+            },
+            {
+              "path": "/docs/authority-management",
+              "title": "权限管理",
+              "meta": {
+                "order": 30
+              }
+            },
+            {
+              "path": "/docs/openapi",
+              "title": "OpenAPI",
+              "meta": {
+                "order": 30
+              }
+            },
+            {
+              "path": "/docs/build",
+              "title": "构建",
+              "meta": {
+                "order": 31
+              }
+            },
+            {
+              "path": "/docs/lint",
+              "title": "Lint",
+              "meta": {
+                "order": 31
+              }
+            },
+            {
+              "path": "/docs/request",
+              "title": "网络请求",
+              "meta": {
+                "order": 31
+              }
+            },
+            {
+              "path": "/docs/type-script",
+              "title": "TypeScript",
+              "meta": {
+                "order": 31
+              }
+            },
+            {
+              "path": "/docs/deploy",
+              "title": "部署",
+              "meta": {
+                "order": 32
+              }
+            },
+            {
+              "path": "/docs/initial-state",
+              "title": "全局初始数据",
+              "meta": {
+                "order": 32
+              }
+            },
+            {
+              "path": "/docs/proxy",
+              "title": "代理",
+              "meta": {
+                "order": 32
+              }
+            },
+            {
+              "path": "/docs/debug",
+              "title": "调试",
+              "meta": {
+                "order": 34
+              }
+            },
+            {
+              "path": "/docs/advanced-menu",
+              "title": "菜单的高级用法",
+              "meta": {
+                "order": 90
+              }
+            },
+            {
+              "path": "/docs/assets",
+              "title": "Pro 资产的使用",
+              "meta": {
+                "order": 91
+              }
+            },
+            {
+              "path": "/docs/faq",
+              "title": "常见问题",
+              "meta": {
+                "order": 91
+              }
+            },
+            {
+              "path": "/docs/environment-manage",
+              "title": "环境变量",
+              "meta": {
+                "order": 92
+              }
+            },
+            {
+              "path": "/docs/upgrade-v5",
+              "title": "升级到 V5",
+              "meta": {
+                "order": 92
+              }
+            },
+            {
+              "path": "/docs/i18n",
+              "title": "国际化",
+              "meta": {
+                "order": 93
+              }
+            },
+            {
+              "path": "/docs/resource",
+              "title": "设计资源",
+              "meta": {
+                "order": 94
+              }
+            },
+            {
+              "path": "/docs/test",
+              "title": "测试",
+              "meta": {
+                "order": 94
+              }
+            }
+          ]
+        }
+      ],
+      "/blog": [
+        {
+          "title": "Blog",
+          "path": "/blog/",
+          "meta": {},
+          "children": [
+            {
+              "path": "/blog/change-theme",
+              "title": "在线更换主题",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/blog/new-pro-use",
+              "title": "Pro 的 Layout 组件",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/blog/use-eslint-typescript",
+              "title": "一起来用 eslint 吧",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/blog/better-block",
+              "title": "Block 新升级",
+              "meta": {
+                "order": 5
+              }
+            },
+            {
+              "path": "/blog/antd-4.0",
+              "title": "迁移 antd@4 指南",
+              "meta": {
+                "order": 6
+              }
+            },
+            {
+              "path": "/blog/deploy-pro",
+              "title": "我们是如何部署开源项目的?",
+              "meta": {
+                "order": 6
+              }
+            },
+            {
+              "path": "/blog/best-front0end",
+              "title": "前端最佳实践即将发布",
+              "meta": {
+                "order": 7
+              }
+            },
+            {
+              "path": "/blog/protable",
+              "title": "ProTable 快速搭建 CRUD 的利器",
+              "meta": {
+                "order": 7
+              }
+            },
+            {
+              "path": "/blog/proxy",
+              "title": "同源策略 跨域与代理",
+              "meta": {
+                "order": 7
+              }
+            },
+            {
+              "path": "/blog/dynamic-theme",
+              "title": "黑色主题和动态切换",
+              "meta": {
+                "order": 8
+              }
+            },
+            {
+              "path": "/blog/layout-new-style",
+              "title": "Layout 的全新样式",
+              "meta": {
+                "order": 8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "en-US": {
+      "/en-US/config": [
+        {
+          "path": "/en-US/config/config",
+          "title": "Config",
+          "meta": {
+            "order": 1
+          }
+        },
+        {
+          "path": "/en-US/config/api",
+          "title": "API",
+          "meta": {
+            "order": 2
+          }
+        },
+        {
+          "path": "/en-US/config/runtime-api",
+          "title": "Runtime Config",
+          "meta": {
+            "order": 3
+          }
+        }
+      ],
+      "/en-US/docs": [
+        {
+          "title": "后端集成",
+          "path": "/en-US/docs",
+          "meta": {},
+          "children": [
+            {
+              "path": "/en-US/docs/proxy",
+              "title": "代理",
+              "meta": {
+                "order": 32
+              }
+            }
+          ]
+        },
+        {
+          "title": "Other",
+          "path": "/en-US/docs/",
+          "meta": {},
+          "children": [
+            {
+              "path": "/en-US/docs/overview",
+              "title": "Document overview",
+              "meta": {
+                "order": 0
+              }
+            },
+            {
+              "path": "/en-US/docs/getting-started",
+              "title": "Getting Started",
+              "meta": {
+                "order": 3
+              }
+            },
+            {
+              "path": "/en-US/docs/introduction",
+              "title": "Beginner's Need to know",
+              "meta": {
+                "order": 4
+              }
+            },
+            {
+              "path": "/en-US/docs/router-and-nav",
+              "title": "Router and Nav",
+              "meta": {
+                "order": 10
+              }
+            },
+            {
+              "path": "/en-US/docs/development",
+              "title": "Start Project",
+              "meta": {
+                "order": 11
+              }
+            },
+            {
+              "path": "/en-US/docs/environment-manage",
+              "title": "environment variable",
+              "meta": {
+                "order": 11
+              }
+            },
+            {
+              "path": "/en-US/docs/folder",
+              "title": "folder structure",
+              "meta": {
+                "order": 12
+              }
+            },
+            {
+              "path": "/en-US/docs/new-page",
+              "title": "New Page",
+              "meta": {
+                "order": 12
+              }
+            },
+            {
+              "path": "/en-US/docs/title-landing",
+              "title": "Title and loading page",
+              "meta": {
+                "order": 13
+              }
+            },
+            {
+              "path": "/en-US/docs/graph",
+              "title": "Chart",
+              "meta": {
+                "order": 15
+              }
+            },
+            {
+              "path": "/en-US/docs/layout",
+              "title": "Layout",
+              "meta": {
+                "order": 15
+              }
+            },
+            {
+              "path": "/en-US/docs/simple-model",
+              "title": "easy Model",
+              "meta": {
+                "order": 19
+              }
+            },
+            {
+              "path": "/en-US/docs/css",
+              "title": "Using css",
+              "meta": {
+                "order": 20
+              }
+            },
+            {
+              "path": "/en-US/docs/advanced-menu",
+              "title": "Advanced menu",
+              "meta": {
+                "order": 22
+              }
+            },
+            {
+              "path": "/en-US/docs/css-modules",
+              "title": "CSS Modules",
+              "meta": {
+                "order": 22
+              }
+            },
+            {
+              "path": "/en-US/docs/i18n",
+              "title": "i18n",
+              "meta": {
+                "order": 22
+              }
+            },
+            {
+              "path": "/en-US/docs/less",
+              "title": "use less",
+              "meta": {
+                "order": 23
+              }
+            },
+            {
+              "path": "/en-US/docs/assets",
+              "title": "Use Pro's Assets",
+              "meta": {
+                "order": 30
+              }
+            },
+            {
+              "path": "/en-US/docs/authority-management",
+              "title": "Permission Management",
+              "meta": {
+                "order": 30
+              }
+            },
+            {
+              "path": "/en-US/docs/openapi",
+              "title": "OpenAPI",
+              "meta": {
+                "order": 30
+              }
+            },
+            {
+              "path": "/en-US/docs/build",
+              "title": "Build",
+              "meta": {
+                "order": 31
+              }
+            },
+            {
+              "path": "/en-US/docs/lint",
+              "title": "Lint",
+              "meta": {
+                "order": 31
+              }
+            },
+            {
+              "path": "/en-US/docs/request",
+              "title": "Request",
+              "meta": {
+                "order": 31
+              }
+            },
+            {
+              "path": "/en-US/docs/type-script",
+              "title": "TypeScript",
+              "meta": {
+                "order": 31
+              }
+            },
+            {
+              "path": "/en-US/docs/deploy",
+              "title": "Deployment",
+              "meta": {
+                "order": 32
+              }
+            },
+            {
+              "path": "/en-US/docs/initial-state",
+              "title": "Global Initial State",
+              "meta": {
+                "order": 32
+              }
+            },
+            {
+              "path": "/en-US/docs/porxy",
+              "title": "Proxy",
+              "meta": {
+                "order": 32
+              }
+            },
+            {
+              "path": "/en-US/docs/test",
+              "title": "Test",
+              "meta": {
+                "order": 32
+              }
+            },
+            {
+              "path": "/en-US/docs/debug",
+              "title": "Debug",
+              "meta": {
+                "order": 34
+              }
+            },
+            {
+              "path": "/en-US/docs/adding-images-fonts-and-files",
+              "title": "Add pictures, fonts and files",
+              "meta": {
+                "order": 44
+              }
+            },
+            {
+              "path": "/en-US/docs/faq",
+              "title": "FAQ",
+              "meta": {
+                "order": 91
+              }
+            },
+            {
+              "path": "/en-US/docs/upgrade-v5",
+              "title": "Upgrade to V5",
+              "meta": {
+                "order": 92
+              }
+            },
+            {
+              "path": "/en-US/docs/resource",
+              "title": "Design Kit",
+              "meta": {
+                "order": 94
+              }
+            }
+          ]
+        }
+      ],
+      "/en-US/blog": [
+        {
+          "title": "Blog",
+          "path": "/en-US/blog/",
+          "meta": {},
+          "children": [
+            {
+              "path": "/en-US/blog/change-theme",
+              "title": "Customize theme on runtime",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/en-US/blog/new-pro-use",
+              "title": "Layout component of Ant Design Pro",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/en-US/blog/use-eslint-typescript",
+              "title": "Let's use eslint",
+              "meta": {
+                "order": 1
+              }
+            },
+            {
+              "path": "/en-US/blog/better-block",
+              "title": "Better Block",
+              "meta": {
+                "order": 5
+              }
+            },
+            {
+              "path": "/en-US/blog/antd-4.0",
+              "title": "Migration antd@4 Guide",
+              "meta": {
+                "order": 6
+              }
+            },
+            {
+              "path": "/en-US/blog/deploy-pro",
+              "title": "How do we deploy open source projects?",
+              "meta": {
+                "order": 6
+              }
+            },
+            {
+              "path": "/en-US/blog/best-front0end",
+              "title": "Front-end best practices coming soon",
+              "meta": {
+                "order": 7
+              }
+            },
+            {
+              "path": "/en-US/blog/protable",
+              "title": "Quickly Builds CRUD's",
+              "meta": {
+                "order": 7
+              }
+            },
+            {
+              "path": "/en-US/blog/proxy",
+              "title": "Same-origin policy cross-domain and agent",
+              "meta": {
+                "order": 7
+              }
+            },
+            {
+              "path": "/en-US/blog/dynamic-theme",
+              "title": "Black theme and dynamic switching",
+              "meta": {
+                "order": 8
+              }
+            },
+            {
+              "path": "/en-US/blog/layout-new-style",
+              "title": "Layout New Style",
+              "meta": {
+                "order": 8
+              }
+            }
+          ]
+        }
+      ],
+      "*": [
+        {
+          "path": "/en-US",
+          "title": "Ant Design Pro Site",
+          "meta": {
+            "order": null
+          }
+        }
+      ]
+    }
+  },
+  "locales": [
+    {
+      "name": "zh-CN",
+      "label": "中文"
+    },
+    {
+      "name": "en-US",
+      "label": "English"
+    }
+  ],
+  "navs": {
+    "en-US": [
+      {
+        "title": "文档",
+        "path": "/en-US/docs",
+        "order": 1
+      },
+      {
+        "title": "Config",
+        "path": "/en-US/config",
+        "order": 2
+      },
+      {
+        "title": "Blog",
+        "path": "/en-US/blog",
+        "order": 3
+      },
+      {
+        "title": "GitHub",
+        "path": "https://github.com/ant-design/ant-design-pro"
+      }
+    ],
+    "zh-CN": [
+      {
+        "title": "文档",
+        "path": "/docs",
+        "order": 1
+      },
+      {
+        "title": "配置",
+        "path": "/config",
+        "order": 2
+      },
+      {
+        "title": "Blog",
+        "path": "/blog",
+        "order": 3
+      },
+      {
+        "title": "GitHub",
+        "path": "https://github.com/ant-design/ant-design-pro"
+      }
+    ]
+  },
+  "title": "Ant Design Pro",
+  "logo": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+  "mode": "site",
+  "repository": {
+    "url": "https://github.com/ant-design/ant-design-pro-site",
+    "branch": "master"
+  },
+  "theme": {}
+}

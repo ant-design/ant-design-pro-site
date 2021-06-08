@@ -1,7 +1,13 @@
 ---
 order: 1
 title: Pro 的 Layout 组件
-type: Blog
+group: 
+  title: Blog
+  path: /
+nav: 
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-05-08
 ---
 
@@ -25,7 +31,7 @@ yarn add @ant-design/pro-layout
 
 在 jsx 中:
 
-```jsx
+  ```tsx | pure
 import BasicLayout from '@ant-design/pro-layout';
 
 render(<BasicLayout title="Ant Design Pro" />, document.getElementById('root'));
@@ -43,7 +49,7 @@ Layout 有很多需要自定义的需求，所以我们暴露了一系列的方�
 
 Layout 通过 route props 来生成菜单，如果你使用的是 umi 在 prop 中或自带这个参数。你可以这样使用：
 
-```tsx
+ ```tsx | pure
 const Layout = (props: BasicLayoutProps) => {
   return <BasicLayout title="Ant Design Pro" {...props} />;
 };
@@ -51,7 +57,7 @@ const Layout = (props: BasicLayoutProps) => {
 
 如果你使用的其他脚手架，你可以将路由配置手动传入，数据结构如下：
 
-```tsx
+ ```tsx | pure
 // can be imported { RouterTypes } from '@ant-design/pro-layout/typings'  to get this type
 export interface Route {
   path?: string;
@@ -83,7 +89,7 @@ const Layout = (props: BasicLayoutProps) => {
 
 `menuDataRender` 进行对菜单数据再进行一次筛选，Pro 中菜单权限就是通过这种方式实现的。
 
-```tsx
+ ```tsx | pure
 export interface MenuDataItem {
   authority?: string[] | string;
   children?: MenuDataItem[];
@@ -110,7 +116,7 @@ const Layout = (props: BasicLayoutProps) => {
 
 `menuItemRender` 控制具体的菜单 dom 渲染，你可以自定义 menuItem 的点击事件等等。
 
-```tsx
+ ```tsx | pure
 export interface MenuDataItem {
   authority?: string[] | string;
   children?: MenuDataItem[];
@@ -138,7 +144,7 @@ const Layout = (props: BasicLayoutProps) => {
 
 SettingDrawer 提供了一个界面来动态的设置 Layout 的一些参数。具体效果可以在 [preview](https://preview.pro.ant.design/) 预览效果。使用方式也很简单。
 
-```jsx
+  ```tsx | pure
 import BasicLayout, { SettingDrawer } from '@ant-design/pro-layout';
 import React, { useState } from 'react';
 
@@ -163,7 +169,7 @@ const Layout = (props: BasicLayoutProps) => {
 
 PageContainer 提供了对 antd 的 pageHeader 的封装提供了面包屑和 title 的自动配置。
 
-```jsx
+  ```tsx | pure
 import { PageContainer } from '@ant-design/pro-layout';
 
 const Page = () => <PageContainer>this is a page</PageContainer>;
@@ -173,7 +179,7 @@ const Page = () => <PageContainer>this is a page</PageContainer>;
 
 RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collapsed，你可以消费这些数据来自定义一些行为。
 
-```jsx
+  ```tsx | pure
 import { RouteContext } from '@ant-design/pro-layout';
 
 const Page = () => (
