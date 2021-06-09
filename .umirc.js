@@ -1,6 +1,5 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
-const isDeploy = process.env.SITE_DEPLOY === 'TRUE';
 const menus = require('./formatMenu');
 export default {
   title: 'Ant Design Pro',
@@ -47,7 +46,6 @@ export default {
       content: 'black-translucent',
     },
   ],
-  alias: process.env === 'development' ? alias : {},
   // 用于切换 antd 暗黑模式
   // antd: {
   //   dark: true,
