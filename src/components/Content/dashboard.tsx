@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Input, Divider, Row, Col, Card, Space } from 'antd';
 import { LinkOutlined, SearchOutlined } from '@ant-design/icons';
-import { Link } from 'gatsby';
 import './dashboard.less';
 
 const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
@@ -53,7 +52,7 @@ const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
                     .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
                     .toLowerCase()}/`;
                   return (
-                    <Link to={url}>
+                    <a href={url}>
                       <Space
                         style={{
                           display: 'flex',
@@ -74,7 +73,7 @@ const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
                           {component.title} {component.subtitle}
                         </div>
                       </Space>
-                    </Link>
+                    </a>
                   );
                 })}
               </Card>

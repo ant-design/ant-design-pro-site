@@ -31,32 +31,20 @@ const DarkButton = () => {
     return null;
   }
   return (
-    <div
-      style={{
-        position: 'fixed',
-        right: 8,
-        top: 0,
-        zIndex: 999,
-        display: 'flex',
-        alignItems: 'center',
+    <Switch
+      checkedChildren="🌜"
+      unCheckedChildren="🌞"
+      defaultChecked={defaultDarken === 'dark'}
+      checked={isDark}
+      onChange={(check) => {
+        toggle();
+        if (!check) {
+          localStorage.setItem('procomponents_dark_theme', 'light');
+          return;
+        }
+        localStorage.setItem('procomponents_dark_theme', 'dark');
       }}
-      className="procomponents_dark_theme_view"
-    >
-      <Switch
-        checkedChildren="🌜"
-        unCheckedChildren="🌞"
-        defaultChecked={defaultDarken === 'dark'}
-        checked={isDark}
-        onChange={(check) => {
-          toggle();
-          if (!check) {
-            localStorage.setItem('procomponents_dark_theme', 'light');
-            return;
-          }
-          localStorage.setItem('procomponents_dark_theme', 'dark');
-        }}
-      />
-    </div>
+    />
   );
 };
 function loadJS(url, callback) {
@@ -85,8 +73,21 @@ export default ({ children, ...props }: IRouteComponentProps) => {
             <Helmet>
               <title>{`${context.meta.title} - Ant Design Pro`}</title>
             </Helmet>
+            <h1>{context.meta.title}</h1>
             {children}
-            {isBrowser() ? <DarkButton /> : null}
+            <div
+              style={{
+                position: 'fixed',
+                right: 8,
+                top: 0,
+                zIndex: 999,
+                display: 'flex',
+                alignItems: 'center',
+              }}
+              className="procomponents_dark_theme_view"
+            >
+              {isBrowser() ? <DarkButton /> : null}
+            </div>
           </>
         </Layout>
       </ConfigProvider>
