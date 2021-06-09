@@ -75,7 +75,6 @@ export default {
       },
     ],
   },
-  title: false,
   analytics: isProduction
     ? {
         ga: 'UA-72788897-5',
