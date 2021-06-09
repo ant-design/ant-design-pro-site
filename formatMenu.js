@@ -24,12 +24,16 @@ filesPath.forEach(filePath => {
   if (!resultGroup) {
     resultGroup = {
       title: group.title,
-      children: []
+      children: [],
+      order
     }
     groups.push(resultGroup)
   }
   resultGroup.children.push(`docs/${filePath}`)
+  resultGroup.order = Math.min(resultGroup.order, order)
 })
-
+Object.keys(menu).forEach(key => {
+  menu[key].sort((a, b) => a.order - b.order)
+})
 module.exports = menu
 
