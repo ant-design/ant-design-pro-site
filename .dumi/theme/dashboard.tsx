@@ -3,10 +3,15 @@ import { Input, Divider, Row, Col, Card, Space } from 'antd';
 import { LinkOutlined, SearchOutlined } from '@ant-design/icons';
 import './dashboard.less';
 
-const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
-  menuData,
-  intl,
-}) => {
+export interface IMenuItem {
+  path?: string;
+  title: string;
+  subtitle?: string;
+  meta?: Record<string, any>;
+  children?: IMenuItem[];
+}
+
+const Dashboard: React.FC<{ menuData: IMenuItem[] }> = ({ menuData }) => {
   const [search, setSearch] = useState<string>('');
   const sectionRef = React.createRef<HTMLDivElement>();
   return (
@@ -19,7 +24,7 @@ const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
       <Divider />
       <Input
         value={search}
-        placeholder={intl.formatMessage({ id: 'app.header.search' })}
+        placeholder="请输入"
         className="components-overview-search"
         onChange={(e) => {
           setSearch(e.target.value);
@@ -29,26 +34,25 @@ const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
       />
       <Divider />
       <Row gutter={[24, 24]}>
-        {Object.keys(menuData).map((key) => {
-          const group = menuData[key];
-          const components = group.filter(
-            (component) =>
-              !search.trim() ||
-              component.title.toLowerCase().includes(search.trim().toLowerCase()) ||
-              (component.subtitle || '').toLowerCase().includes(search.trim().toLowerCase()),
-          );
+        {menuData.map((group) => {
+          const components =
+            group?.children?.filter(
+              (component) =>
+                !search.trim() ||
+                component.title.toLowerCase().includes(search.trim().toLowerCase()),
+            ) || [];
           return components.length ? (
-            <Col xs={24} sm={12} lg={8} xl={6} key={key}>
+            <Col xs={24} sm={12} lg={8} xl={6} key={group.path}>
               <Card
                 bodyStyle={{
                   height: 134,
                 }}
                 size="small"
                 className="components-overview-card"
-                title={key}
+                title={group.title}
               >
                 {components.map((component) => {
-                  const url = `${component.slug
+                  const url = `${component.path
                     .replace(/(\/index)?((\.zh-cn)|(\.en-us))?\.md$/i, '')
                     .toLowerCase()}/`;
                   return (
@@ -70,7 +74,7 @@ const Dashboard: React.FC<{ intl: any; menuData: Record<string, any[]> }> = ({
                             maxWidth: '11vw',
                           }}
                         >
-                          {component.title} {component.subtitle}
+                          {component.title}
                         </div>
                       </Space>
                     </a>

@@ -38,6 +38,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.7",
     "@types/react-helmet": "^6.0.0",
+    "babel-plugin-import": "^1.13.3",
     "eslint": "^7.8.1",
     "front-matter": "^4.0.2",
     "gh-pages": "^3.1.0",

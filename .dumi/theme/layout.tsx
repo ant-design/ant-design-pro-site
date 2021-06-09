@@ -9,6 +9,7 @@ import moment from 'moment';
 import useDarkreader from './useDarkreader';
 import 'moment/locale/zh-cn';
 import './layout.less';
+import Dashboard from './dashboard';
 moment.locale('zh-cn');
 
 const DarkButton = () => {
@@ -47,24 +48,14 @@ const DarkButton = () => {
     />
   );
 };
-function loadJS(url, callback) {
-  const script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.onload = function () {
-    callback?.();
-  };
-  script.src = url;
-
-  document.getElementsByTagName('head')[0].appendChild(script);
-}
 
 export default ({ children, ...props }: IRouteComponentProps) => {
   const context = useContext(dumiContext);
-  useEffect(() => {
-    if (!isBrowser()) {
-      return null;
-    }
-  }, []);
+  const { location } = props;
+  const { pathname = '/' } = location;
+  if (pathname === '/') {
+    return null;
+  }
   return (
     <HelmetProvider>
       <ConfigProvider locale={zhCN}>
@@ -88,6 +79,38 @@ export default ({ children, ...props }: IRouteComponentProps) => {
             >
               {isBrowser() ? <DarkButton /> : null}
             </div>
+            {props.location.pathname.includes('/docs/overview') ? (
+              <Dashboard
+                menuData={[
+                  {
+                    title: '模板组件',
+                    children: [
+                      {
+                        title: 'ProLayout - 高级布局',
+                        path: 'https://procomponents.ant.design/components/layout',
+                      },
+                      {
+                        title: 'ProForm - 高级表单',
+                        path: 'https://procomponents.ant.design/components/form',
+                      },
+                      {
+                        title: 'ProTable - 高级表格',
+                        path: 'https://procomponents.ant.design/components/table',
+                      },
+                      {
+                        title: 'ProList - 高级列表',
+                        path: 'https://procomponents.ant.design/components/list',
+                      },
+                      {
+                        title: 'ProDescriptions - 高级定义列表',
+                        path: 'https://procomponents.ant.design/components/descriptions',
+                      },
+                    ],
+                  },
+                  ...context.menu,
+                ]}
+              />
+            ) : null}
           </>
         </Layout>
       </ConfigProvider>
