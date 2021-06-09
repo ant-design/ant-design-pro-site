@@ -29,11 +29,14 @@ filesPath.forEach(filePath => {
     }
     groups.push(resultGroup)
   }
-  resultGroup.children.push(`docs/${filePath}`)
+  resultGroup.children.push({order, path: `docs/${filePath}`})
   resultGroup.order = Math.min(resultGroup.order, order)
 })
 Object.keys(menu).forEach(key => {
   menu[key].sort((a, b) => a.order - b.order)
+  menu[key].forEach(group => {
+    group.children = group.children.sort((a, b) => a.order - b.order).map((child) => child.path)
+  })
 })
 module.exports = menu
 
