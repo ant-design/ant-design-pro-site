@@ -1,4 +1,4 @@
-﻿import React, { useContext, useEffect, useState } from 'react';
+﻿import React, { useContext, useEffect, useMemo } from 'react';
 import Layout from 'dumi-theme-default/src/layout';
 import dumiContext from '@umijs/preset-dumi/lib/theme/context';
 import { ConfigProvider, Switch } from 'antd';
@@ -12,8 +12,20 @@ import './layout.less';
 moment.locale('zh-cn');
 
 const DarkButton = () => {
-  const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark';
-  const defaultDarken = localStorage.getItem('procomponents_dark_theme') || colorScheme;
+  const colorScheme = useMemo(() => {
+    if (!isBrowser()) {
+      return 'light';
+    }
+    return matchMedia?.('(prefers-color-scheme: dark)').matches && 'dark';
+  }, []);
+
+  const defaultDarken = useMemo(() => {
+    if (!isBrowser()) {
+      return 'light';
+    }
+    return localStorage.getItem('procomponents_dark_theme') || colorScheme;
+  }, []);
+
   const [isDark, { toggle }] = useDarkreader(defaultDarken === 'dark');
   if (!isBrowser()) {
     return null;
@@ -47,7 +59,6 @@ const DarkButton = () => {
     </div>
   );
 };
-
 function loadJS(url, callback) {
   const script = document.createElement('script');
   script.type = 'text/javascript';
@@ -66,7 +77,6 @@ export default ({ children, ...props }: IRouteComponentProps) => {
       return null;
     }
   }, []);
-  console.log(context);
   return (
     <HelmetProvider>
       <ConfigProvider locale={zhCN}>
@@ -76,7 +86,7 @@ export default ({ children, ...props }: IRouteComponentProps) => {
               <title>{`${context.meta.title} - Ant Design Pro`}</title>
             </Helmet>
             {children}
-            <DarkButton />
+            {isBrowser() ? <DarkButton /> : null}
           </>
         </Layout>
       </ConfigProvider>

@@ -7,7 +7,9 @@ export type Action = {
 
 export type Result = [boolean, Action];
 
-export default function useDarkreader(defaultDarken: boolean = false): [
+export default function useDarkreader(
+  defaultDarken: boolean = false,
+): [
   boolean,
   {
     toggle: () => void;
@@ -19,7 +21,8 @@ export default function useDarkreader(defaultDarken: boolean = false): [
     disable: disableDarkMode,
     exportGeneratedCSS: collectCSS,
     setFetchMethod,
-  } = window.DarkReader || {};
+    //@ts-ignore
+  } = DarkReader || {};
 
   const [isDark, setIsDark] = useState(defaultDarken);
 
@@ -37,10 +40,11 @@ export default function useDarkreader(defaultDarken: boolean = false): [
   };
 
   useEffect(() => {
-    if (!window.DarkReader) {
+    //@ts-ignore
+    if (!DarkReader) {
       return () => null;
     }
-    setFetchMethod(window.fetch);
+    setFetchMethod(fetch);
 
     isDark ? enableDarkMode(defaultTheme, defaultFixes) : disableDarkMode();
 
