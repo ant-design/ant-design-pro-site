@@ -3,7 +3,6 @@ order: 32
 title: Proxy
 group:
   title: Network Request
-  path: /
 nav:
   title: 文档
   path: /docs

@@ -3,7 +3,6 @@ order: 31
 title: Request
 group:
   title: Network Request
-  path: /
 nav:
   title: 文档
   path: /docs

@@ -3,7 +3,6 @@ order: 22
 title: Advanced menu
 group:
   title: Advanced Usage
-  path: /
 nav:
   title: 文档
   path: /docs

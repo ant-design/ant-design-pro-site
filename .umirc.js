@@ -1,7 +1,7 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 const isDeploy = process.env.SITE_DEPLOY === 'TRUE';
-
+const menus = require('./formatMenu')
 export default {
   title: 'Ant Design Pro',
   mode: 'site',
@@ -112,4 +112,5 @@ export default {
     test: /\.css$/i,
     use: ['style-loader', 'css-loader', 'postcss-loader'],
   },
+  menus
 };

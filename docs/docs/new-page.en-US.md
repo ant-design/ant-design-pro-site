@@ -3,7 +3,6 @@ order: 12
 title: New Page
 group:
   title: Page Development
-  path: /
 nav:
   title: 文档
   path: /docs

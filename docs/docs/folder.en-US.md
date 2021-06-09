@@ -3,7 +3,6 @@ order: 12
 title: folder structure
 group:
   title: Basic Usage
-  path: /
 nav:
   title: 文档
   path: /docs

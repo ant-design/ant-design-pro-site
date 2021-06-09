@@ -3,7 +3,6 @@ order: 10
 title: Router and Nav
 group:
   title: Page Development
-  path: /
 nav:
   title: 文档
   path: /docs

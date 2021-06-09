@@ -3,7 +3,6 @@ order: 12
 title: 标题和加载页
 group:
   title: 基础使用
-  path: /
 nav:
   title: 文档
   path: /docs

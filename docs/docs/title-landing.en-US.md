@@ -3,7 +3,6 @@ order: 13
 title: Title and loading page
 group:
   title: Basic Usage
-  path: /
 nav:
   title: 文档
   path: /docs

@@ -3,7 +3,6 @@ order: 91
 title: FAQ
 group:
   title: Other
-  path: /
 nav:
   title: 文档
   path: /docs

@@ -3,7 +3,6 @@ order: 23
 title: 使用 less
 group:
   title: 样式和资源
-  path: /
 nav:
   title: 文档
   path: /docs

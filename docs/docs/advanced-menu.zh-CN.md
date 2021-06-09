@@ -3,7 +3,6 @@ order: 90
 title: 菜单的高级用法
 group:
   title: 高级使用
-  path: /
 nav:
   title: 文档
   path: /docs

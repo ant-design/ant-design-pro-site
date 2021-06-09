@@ -3,7 +3,6 @@ order: 94
 title: 测试
 group:
   title: 质量
-  path: /
 nav:
   title: 文档
   path: /docs

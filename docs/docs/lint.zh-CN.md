@@ -3,7 +3,6 @@ order: 31
 title: Lint
 group:
   title: 质量
-  path: /
 nav:
   title: 文档
   path: /docs

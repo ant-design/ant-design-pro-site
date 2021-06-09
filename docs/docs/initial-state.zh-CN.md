@@ -3,7 +3,6 @@ order: 32
 title: 全局初始数据
 group:
   title: 数据管理
-  path: /
 nav:
   title: 文档
   path: /docs

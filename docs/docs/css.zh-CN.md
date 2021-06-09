@@ -3,7 +3,6 @@ order: 20
 title: 使用 css
 group:
   title: 样式和资源
-  path: /
 nav:
   title: 文档
   path: /docs

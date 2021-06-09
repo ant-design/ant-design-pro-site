@@ -3,7 +3,6 @@ order: 20
 title: Using css
 group:
   title: styles and resources
-  path: /
 nav:
   title: 文档
   path: /docs

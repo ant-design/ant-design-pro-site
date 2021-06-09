@@ -3,7 +3,6 @@ order: 92
 title: 环境变量
 group:
   title: 高级使用
-  path: /
 nav:
   title: 文档
   path: /docs

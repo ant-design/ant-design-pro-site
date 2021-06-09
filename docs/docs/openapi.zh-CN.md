@@ -3,7 +3,6 @@ order: 30
 title: OpenAPI
 group:
   title: 后端集成
-  path: /
 nav:
   title: 文档
   path: /docs

@@ -3,7 +3,6 @@ order: 0
 title: 文档总览
 group:
   title: 入门
-  path: /
 nav:
   title: 文档
   path: /docs

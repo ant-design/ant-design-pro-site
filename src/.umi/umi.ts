@@ -4,8 +4,8 @@ import '@@/core/devScripts';
 import { plugin } from './core/plugin';
 import './core/pluginRegister';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from 'C:/github/ant-design-pro-site/node_modules/@umijs/runtime';
-import { renderClient } from 'C:/github/ant-design-pro-site/node_modules/@umijs/renderer-react/dist/index.js';
+import { ApplyPluginsType } from '/Users/tianba/Documents/code/openSource/ant-design-pro-site/node_modules/@umijs/runtime';
+import { renderClient } from '/Users/tianba/Documents/code/openSource/ant-design-pro-site/node_modules/@umijs/renderer-react/dist/index.js';
 import { getRoutes } from './core/routes';
 
 

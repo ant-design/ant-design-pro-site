@@ -3,7 +3,6 @@ order: 34
 title: Debug
 group:
   title: Network Request
-  path: /
 nav:
   title: 文档
   path: /docs

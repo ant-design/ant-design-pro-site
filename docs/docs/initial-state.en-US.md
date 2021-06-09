@@ -3,7 +3,6 @@ order: 32
 title: Global Initial State
 group:
   title: Data Management
-  path: /
 nav:
   title: 文档
   path: /docs

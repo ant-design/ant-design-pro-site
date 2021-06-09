@@ -3,7 +3,6 @@ order: 4
 title: Beginner's Need to know
 group:
   title: Introduction
-  path: /
 nav:
   title: 文档
   path: /docs

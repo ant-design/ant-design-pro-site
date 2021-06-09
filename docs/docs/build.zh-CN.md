@@ -3,7 +3,6 @@ order: 31
 title: 构建
 group:
   title: 构建和部署
-  path: /
 nav:
   title: 文档
   path: /docs

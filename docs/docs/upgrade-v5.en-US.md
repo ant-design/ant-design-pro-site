@@ -3,7 +3,6 @@ order: 92
 title: Upgrade to V5
 group:
   title: Other
-  path: /
 nav:
   title: 文档
   path: /docs

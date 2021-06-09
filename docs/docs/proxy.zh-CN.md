@@ -3,7 +3,6 @@ order: 32
 title: 代理
 group:
   title: 后端集成
-  path: /
 nav:
   title: 文档
   path: /docs

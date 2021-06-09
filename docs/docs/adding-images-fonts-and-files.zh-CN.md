@@ -3,7 +3,6 @@ order: 24
 title: 添加图片，字体和文件
 group:
   title: 样式和资源
-  path: /
 nav:
   title: 文档
   path: /docs

@@ -3,7 +3,6 @@ order: 31
 title: TypeScript
 group:
   title: Quality
-  path: /
 nav:
   title: 文档
   path: /docs

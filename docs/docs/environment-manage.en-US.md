@@ -3,7 +3,6 @@ order: 11
 title: environment variable
 group:
   title: Advanced Usage
-  path: /
 nav:
   title: 文档
   path: /docs

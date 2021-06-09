@@ -3,7 +3,6 @@ order: 31
 title: 网络请求
 group:
   title: 后端集成
-  path: /
 nav:
   title: 文档
   path: /docs

@@ -3,7 +3,6 @@ order: 94
 title: 设计资源
 group:
   title: 其它
-  path: /
 nav:
   title: 文档
   path: /docs

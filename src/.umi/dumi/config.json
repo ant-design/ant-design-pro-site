@@ -35,233 +35,180 @@
       ],
       "/docs": [
         {
-          "title": "其它",
-          "path": "/docs/",
-          "meta": {},
+          "title": "样式和资源",
           "children": [
             {
-              "path": "/docs/overview",
-              "title": "文档总览",
-              "meta": {
-                "order": 0
-              }
-            },
-            {
-              "path": "/docs/getting-started",
-              "title": "开始使用",
-              "meta": {
-                "order": 3
-              }
-            },
-            {
-              "path": "/docs/introduction",
-              "title": "新手需知",
-              "meta": {
-                "order": 4
-              }
-            },
-            {
-              "path": "/docs/development",
-              "title": "启动项目",
-              "meta": {
-                "order": 10
-              }
-            },
-            {
-              "path": "/docs/folder",
-              "title": "文件夹结构",
-              "meta": {
-                "order": 11
-              }
-            },
-            {
-              "path": "/docs/new-page",
-              "title": "新增页面",
-              "meta": {
-                "order": 12
-              }
-            },
-            {
-              "path": "/docs/title-landing",
-              "title": "标题和加载页",
-              "meta": {
-                "order": 12
-              }
-            },
-            {
-              "path": "/docs/graph",
-              "title": "图表",
-              "meta": {
-                "order": 15
-              }
-            },
-            {
-              "path": "/docs/layout",
-              "title": "布局",
-              "meta": {
-                "order": 15
-              }
-            },
-            {
-              "path": "/docs/simple-model",
-              "title": "简易数据流",
-              "meta": {
-                "order": 19
-              }
-            },
-            {
-              "path": "/docs/css",
-              "title": "使用 css",
-              "meta": {
-                "order": 20
-              }
+              "path": "/docs/adding-images-fonts-and-files",
+              "title": "添加图片，字体和文件"
             },
             {
               "path": "/docs/css-modules",
-              "title": "CSS Modules",
-              "meta": {
-                "order": 22
-              }
+              "title": "CSS Modules"
+            },
+            {
+              "path": "/docs/css",
+              "title": "使用 css"
             },
             {
               "path": "/docs/less",
-              "title": "使用 less",
-              "meta": {
-                "order": 23
-              }
-            },
-            {
-              "path": "/docs/adding-images-fonts-and-files",
-              "title": "添加图片，字体和文件",
-              "meta": {
-                "order": 24
-              }
-            },
-            {
-              "path": "/docs/authority-management",
-              "title": "权限管理",
-              "meta": {
-                "order": 30
-              }
-            },
-            {
-              "path": "/docs/openapi",
-              "title": "OpenAPI",
-              "meta": {
-                "order": 30
-              }
-            },
-            {
-              "path": "/docs/build",
-              "title": "构建",
-              "meta": {
-                "order": 31
-              }
-            },
-            {
-              "path": "/docs/lint",
-              "title": "Lint",
-              "meta": {
-                "order": 31
-              }
-            },
-            {
-              "path": "/docs/request",
-              "title": "网络请求",
-              "meta": {
-                "order": 31
-              }
-            },
-            {
-              "path": "/docs/type-script",
-              "title": "TypeScript",
-              "meta": {
-                "order": 31
-              }
-            },
-            {
-              "path": "/docs/deploy",
-              "title": "部署",
-              "meta": {
-                "order": 32
-              }
-            },
-            {
-              "path": "/docs/initial-state",
-              "title": "全局初始数据",
-              "meta": {
-                "order": 32
-              }
-            },
-            {
-              "path": "/docs/proxy",
-              "title": "代理",
-              "meta": {
-                "order": 32
-              }
-            },
-            {
-              "path": "/docs/debug",
-              "title": "调试",
-              "meta": {
-                "order": 34
-              }
-            },
+              "title": "使用 less"
+            }
+          ]
+        },
+        {
+          "title": "高级使用",
+          "children": [
             {
               "path": "/docs/advanced-menu",
-              "title": "菜单的高级用法",
-              "meta": {
-                "order": 90
-              }
+              "title": "菜单的高级用法"
             },
             {
               "path": "/docs/assets",
-              "title": "Pro 资产的使用",
-              "meta": {
-                "order": 91
-              }
-            },
-            {
-              "path": "/docs/faq",
-              "title": "常见问题",
-              "meta": {
-                "order": 91
-              }
+              "title": "Pro 资产的使用"
             },
             {
               "path": "/docs/environment-manage",
-              "title": "环境变量",
-              "meta": {
-                "order": 92
-              }
-            },
-            {
-              "path": "/docs/upgrade-v5",
-              "title": "升级到 V5",
-              "meta": {
-                "order": 92
-              }
+              "title": "环境变量"
             },
             {
               "path": "/docs/i18n",
-              "title": "国际化",
-              "meta": {
-                "order": 93
-              }
+              "title": "国际化"
+            }
+          ]
+        },
+        {
+          "title": "数据管理",
+          "children": [
+            {
+              "path": "/docs/authority-management",
+              "title": "权限管理"
+            },
+            {
+              "path": "/docs/initial-state",
+              "title": "全局初始数据"
+            },
+            {
+              "path": "/docs/simple-model",
+              "title": "简易数据流"
+            }
+          ]
+        },
+        {
+          "title": "构建和部署",
+          "children": [
+            {
+              "path": "/docs/build",
+              "title": "构建"
+            },
+            {
+              "path": "/docs/deploy",
+              "title": "部署"
+            }
+          ]
+        },
+        {
+          "title": "后端集成",
+          "children": [
+            {
+              "path": "/docs/debug",
+              "title": "调试"
+            },
+            {
+              "path": "/docs/openapi",
+              "title": "OpenAPI"
+            },
+            {
+              "path": "/docs/proxy",
+              "title": "代理"
+            },
+            {
+              "path": "/docs/request",
+              "title": "网络请求"
+            }
+          ]
+        },
+        {
+          "title": "基础使用",
+          "children": [
+            {
+              "path": "/docs/development",
+              "title": "启动项目"
+            },
+            {
+              "path": "/docs/folder",
+              "title": "文件夹结构"
+            },
+            {
+              "path": "/docs/title-landing",
+              "title": "标题和加载页"
+            }
+          ]
+        },
+        {
+          "title": "其它",
+          "children": [
+            {
+              "path": "/docs/faq",
+              "title": "常见问题"
             },
             {
               "path": "/docs/resource",
-              "title": "设计资源",
-              "meta": {
-                "order": 94
-              }
+              "title": "设计资源"
+            },
+            {
+              "path": "/docs/upgrade-v5",
+              "title": "升级到 V5"
+            }
+          ]
+        },
+        {
+          "title": "入门",
+          "children": [
+            {
+              "path": "/docs/getting-started",
+              "title": "开始使用"
+            },
+            {
+              "path": "/docs/introduction",
+              "title": "新手需知"
+            },
+            {
+              "path": "/docs/overview",
+              "title": "文档总览"
+            }
+          ]
+        },
+        {
+          "title": "页面开发",
+          "children": [
+            {
+              "path": "/docs/graph",
+              "title": "图表"
+            },
+            {
+              "path": "/docs/layout",
+              "title": "布局"
+            },
+            {
+              "path": "/docs/new-page",
+              "title": "新增页面"
+            }
+          ]
+        },
+        {
+          "title": "质量",
+          "children": [
+            {
+              "path": "/docs/lint",
+              "title": "Lint"
             },
             {
               "path": "/docs/test",
-              "title": "测试",
-              "meta": {
-                "order": 94
-              }
+              "title": "测试"
+            },
+            {
+              "path": "/docs/type-script",
+              "title": "TypeScript"
             }
           ]
         }
@@ -379,254 +326,184 @@
       ],
       "/en-US/docs": [
         {
-          "title": "后端集成",
-          "path": "/en-US/docs",
-          "meta": {},
+          "title": "styles and resources",
           "children": [
             {
-              "path": "/en-US/docs/proxy",
-              "title": "代理",
-              "meta": {
-                "order": 32
-              }
+              "path": "/en-US/docs/adding-images-fonts-and-files",
+              "title": "Add pictures, fonts and files"
+            },
+            {
+              "path": "/en-US/docs/css-modules",
+              "title": "CSS Modules"
+            },
+            {
+              "path": "/en-US/docs/css",
+              "title": "Using css"
+            },
+            {
+              "path": "/en-US/docs/less",
+              "title": "use less"
+            }
+          ]
+        },
+        {
+          "title": "Advanced Usage",
+          "children": [
+            {
+              "path": "/en-US/docs/advanced-menu",
+              "title": "Advanced menu"
+            },
+            {
+              "path": "/en-US/docs/assets",
+              "title": "Use Pro's Assets"
+            },
+            {
+              "path": "/en-US/docs/environment-manage",
+              "title": "environment variable"
+            },
+            {
+              "path": "/en-US/docs/i18n",
+              "title": "i18n"
+            }
+          ]
+        },
+        {
+          "title": "Data Management",
+          "children": [
+            {
+              "path": "/en-US/docs/authority-management",
+              "title": "Permission Management"
+            },
+            {
+              "path": "/en-US/docs/initial-state",
+              "title": "Global Initial State"
+            },
+            {
+              "path": "/en-US/docs/simple-model",
+              "title": "easy Model"
+            }
+          ]
+        },
+        {
+          "title": "Build & Deployment",
+          "children": [
+            {
+              "path": "/en-US/docs/build",
+              "title": "Build"
+            },
+            {
+              "path": "/en-US/docs/deploy",
+              "title": "Deployment"
+            }
+          ]
+        },
+        {
+          "title": "Network Request",
+          "children": [
+            {
+              "path": "/en-US/docs/debug",
+              "title": "Debug"
+            },
+            {
+              "path": "/en-US/docs/openapi",
+              "title": "OpenAPI"
+            },
+            {
+              "path": "/en-US/docs/porxy",
+              "title": "Proxy"
+            },
+            {
+              "path": "/en-US/docs/request",
+              "title": "Request"
+            }
+          ]
+        },
+        {
+          "title": "Basic Usage",
+          "children": [
+            {
+              "path": "/en-US/docs/development",
+              "title": "Start Project"
+            },
+            {
+              "path": "/en-US/docs/folder",
+              "title": "folder structure"
+            },
+            {
+              "path": "/en-US/docs/title-landing",
+              "title": "Title and loading page"
             }
           ]
         },
         {
           "title": "Other",
-          "path": "/en-US/docs/",
-          "meta": {},
           "children": [
             {
-              "path": "/en-US/docs/overview",
-              "title": "Document overview",
-              "meta": {
-                "order": 0
-              }
-            },
-            {
-              "path": "/en-US/docs/getting-started",
-              "title": "Getting Started",
-              "meta": {
-                "order": 3
-              }
-            },
-            {
-              "path": "/en-US/docs/introduction",
-              "title": "Beginner's Need to know",
-              "meta": {
-                "order": 4
-              }
-            },
-            {
-              "path": "/en-US/docs/router-and-nav",
-              "title": "Router and Nav",
-              "meta": {
-                "order": 10
-              }
-            },
-            {
-              "path": "/en-US/docs/development",
-              "title": "Start Project",
-              "meta": {
-                "order": 11
-              }
-            },
-            {
-              "path": "/en-US/docs/environment-manage",
-              "title": "environment variable",
-              "meta": {
-                "order": 11
-              }
-            },
-            {
-              "path": "/en-US/docs/folder",
-              "title": "folder structure",
-              "meta": {
-                "order": 12
-              }
-            },
-            {
-              "path": "/en-US/docs/new-page",
-              "title": "New Page",
-              "meta": {
-                "order": 12
-              }
-            },
-            {
-              "path": "/en-US/docs/title-landing",
-              "title": "Title and loading page",
-              "meta": {
-                "order": 13
-              }
-            },
-            {
-              "path": "/en-US/docs/graph",
-              "title": "Chart",
-              "meta": {
-                "order": 15
-              }
-            },
-            {
-              "path": "/en-US/docs/layout",
-              "title": "Layout",
-              "meta": {
-                "order": 15
-              }
-            },
-            {
-              "path": "/en-US/docs/simple-model",
-              "title": "easy Model",
-              "meta": {
-                "order": 19
-              }
-            },
-            {
-              "path": "/en-US/docs/css",
-              "title": "Using css",
-              "meta": {
-                "order": 20
-              }
-            },
-            {
-              "path": "/en-US/docs/advanced-menu",
-              "title": "Advanced menu",
-              "meta": {
-                "order": 22
-              }
-            },
-            {
-              "path": "/en-US/docs/css-modules",
-              "title": "CSS Modules",
-              "meta": {
-                "order": 22
-              }
-            },
-            {
-              "path": "/en-US/docs/i18n",
-              "title": "i18n",
-              "meta": {
-                "order": 22
-              }
-            },
-            {
-              "path": "/en-US/docs/less",
-              "title": "use less",
-              "meta": {
-                "order": 23
-              }
-            },
-            {
-              "path": "/en-US/docs/assets",
-              "title": "Use Pro's Assets",
-              "meta": {
-                "order": 30
-              }
-            },
-            {
-              "path": "/en-US/docs/authority-management",
-              "title": "Permission Management",
-              "meta": {
-                "order": 30
-              }
-            },
-            {
-              "path": "/en-US/docs/openapi",
-              "title": "OpenAPI",
-              "meta": {
-                "order": 30
-              }
-            },
-            {
-              "path": "/en-US/docs/build",
-              "title": "Build",
-              "meta": {
-                "order": 31
-              }
-            },
-            {
-              "path": "/en-US/docs/lint",
-              "title": "Lint",
-              "meta": {
-                "order": 31
-              }
-            },
-            {
-              "path": "/en-US/docs/request",
-              "title": "Request",
-              "meta": {
-                "order": 31
-              }
-            },
-            {
-              "path": "/en-US/docs/type-script",
-              "title": "TypeScript",
-              "meta": {
-                "order": 31
-              }
-            },
-            {
-              "path": "/en-US/docs/deploy",
-              "title": "Deployment",
-              "meta": {
-                "order": 32
-              }
-            },
-            {
-              "path": "/en-US/docs/initial-state",
-              "title": "Global Initial State",
-              "meta": {
-                "order": 32
-              }
-            },
-            {
-              "path": "/en-US/docs/porxy",
-              "title": "Proxy",
-              "meta": {
-                "order": 32
-              }
-            },
-            {
-              "path": "/en-US/docs/test",
-              "title": "Test",
-              "meta": {
-                "order": 32
-              }
-            },
-            {
-              "path": "/en-US/docs/debug",
-              "title": "Debug",
-              "meta": {
-                "order": 34
-              }
-            },
-            {
-              "path": "/en-US/docs/adding-images-fonts-and-files",
-              "title": "Add pictures, fonts and files",
-              "meta": {
-                "order": 44
-              }
-            },
-            {
               "path": "/en-US/docs/faq",
-              "title": "FAQ",
-              "meta": {
-                "order": 91
-              }
-            },
-            {
-              "path": "/en-US/docs/upgrade-v5",
-              "title": "Upgrade to V5",
-              "meta": {
-                "order": 92
-              }
+              "title": "FAQ"
             },
             {
               "path": "/en-US/docs/resource",
-              "title": "Design Kit",
-              "meta": {
-                "order": 94
-              }
+              "title": "Design Kit"
+            },
+            {
+              "path": "/en-US/docs/upgrade-v5",
+              "title": "Upgrade to V5"
+            }
+          ]
+        },
+        {
+          "title": "Introduction",
+          "children": [
+            {
+              "path": "/en-US/docs/getting-started",
+              "title": "Getting Started"
+            },
+            {
+              "path": "/en-US/docs/introduction",
+              "title": "Beginner's Need to know"
+            },
+            {
+              "path": "/en-US/docs/overview",
+              "title": "Document overview"
+            }
+          ]
+        },
+        {
+          "title": "Page Development",
+          "children": [
+            {
+              "path": "/en-US/docs/graph",
+              "title": "Chart"
+            },
+            {
+              "path": "/en-US/docs/layout",
+              "title": "Layout"
+            },
+            {
+              "path": "/en-US/docs/new-page",
+              "title": "New Page"
+            },
+            {
+              "path": "/en-US/docs/router-and-nav",
+              "title": "Router and Nav"
+            }
+          ]
+        },
+        {
+          "title": "Quality",
+          "children": [
+            {
+              "path": "/en-US/docs/lint",
+              "title": "Lint"
+            },
+            {
+              "path": "/en-US/docs/test",
+              "title": "Test"
+            },
+            {
+              "path": "/en-US/docs/type-script",
+              "title": "TypeScript"
             }
           ]
         }

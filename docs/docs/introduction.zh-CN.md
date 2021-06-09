@@ -3,7 +3,6 @@ order: 4
 title: 新手需知
 group:
   title: 入门
-  path: /
 nav:
   title: 文档
   path: /docs

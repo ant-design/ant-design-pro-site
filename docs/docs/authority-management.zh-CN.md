@@ -3,7 +3,6 @@ order: 30
 title: 权限管理
 group:
   title: 数据管理
-  path: /
 nav:
   title: 文档
   path: /docs

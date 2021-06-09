@@ -3,7 +3,6 @@ order: 11
 title: Start Project
 group:
   title: Basic Usage
-  path: /
 nav:
   title: 文档
   path: /docs

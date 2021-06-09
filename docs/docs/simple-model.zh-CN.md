@@ -3,7 +3,6 @@ order: 19
 title: 简易数据流
 group:
   title: 数据管理
-  path: /
 nav:
   title: 文档
   path: /docs

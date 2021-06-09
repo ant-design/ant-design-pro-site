@@ -3,7 +3,6 @@ order: 91
 title: Pro 资产的使用
 group:
   title: 高级使用
-  path: /
 nav:
   title: 文档
   path: /docs

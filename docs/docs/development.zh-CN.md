@@ -3,7 +3,6 @@ order: 10
 title: 启动项目
 group:
   title: 基础使用
-  path: /
 nav:
   title: 文档
   path: /docs

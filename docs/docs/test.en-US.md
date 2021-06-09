@@ -3,7 +3,6 @@ order: 32
 title: Test
 group:
   title: Quality
-  path: /
 nav:
   title: 文档
   path: /docs

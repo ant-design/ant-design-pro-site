@@ -3,7 +3,6 @@ order: 32
 title: Deployment
 group:
   title: Build & Deployment
-  path: /
 nav:
   title: 文档
   path: /docs

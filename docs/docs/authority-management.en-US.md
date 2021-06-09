@@ -3,7 +3,6 @@ order: 30
 title: Permission Management
 group:
   title: Data Management
-  path: /
 nav:
   title: 文档
   path: /docs

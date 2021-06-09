@@ -3,7 +3,6 @@ order: 15
 title: Chart
 group:
   title: Page Development
-  path: /
 nav:
   title: 文档
   path: /docs

@@ -3,7 +3,6 @@ order: 15
 title: 图表
 group:
   title: 页面开发
-  path: /
 nav:
   title: 文档
   path: /docs

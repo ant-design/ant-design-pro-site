@@ -3,7 +3,6 @@ order: 22
 title: CSS Modules
 group:
   title: styles and resources
-  path: /
 nav:
   title: 文档
   path: /docs

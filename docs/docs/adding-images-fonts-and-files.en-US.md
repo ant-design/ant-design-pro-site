@@ -3,7 +3,6 @@ order: 44
 title: Add pictures, fonts and files
 group:
   title: styles and resources
-  path: /
 nav:
   title: 文档
   path: /docs
