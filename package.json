@@ -11,6 +11,7 @@
   "scripts": {
     "build": "dumi build",
     "dev": "dumi dev",
+    "start": "dumi dev",
     "gh-pages": "gh-pages -d public",
     "lint": "npm run lint:js && npm run lint:style",
     "lint-staged": "lint-staged",
@@ -19,10 +20,8 @@
     "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "lint:style": "stylelint \"src/**/*.less\" --syntax less --fix",
     "prettier": "prettier --write \"**/**\"",
-    "serve": "gatsby serve",
     "presite": "npm run build",
     "site": "npm run gh-pages",
-    "start": "gatsby develop",
     "test": "npm run lint"
   },
   "dependencies": {
@@ -43,6 +42,7 @@
     "react-dom": "^16.4.2",
     "react-github-button": "^0.1.11",
     "react-helmet": "^6.0.0",
+    "react-helmet-async": "^1.0.9",
     "react-intl": "^2.4.0",
     "react-media": "^1.9.2",
     "umi": "^3.4.24"

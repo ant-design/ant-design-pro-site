@@ -75,6 +75,7 @@ export default {
       },
     ],
   },
+  title: false,
   analytics: isProduction
     ? {
         ga: 'UA-72788897-5',
@@ -91,7 +92,7 @@ export default {
     ios: false,
   },
   theme: {
-    '@s-site-menu-width': '258px',
+    '@s-site-menu-width': '242px',
   },
   ignoreMomentLocale: true,
   headScripts: ['https://gw.alipayobjects.com/os/antfincdn/fdj3WlJd5c/darkreader.js'],
