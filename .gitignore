@@ -49,3 +49,5 @@ config/components/package.json
 public
 false
 .eslintcache
+.umi
+.dumi
