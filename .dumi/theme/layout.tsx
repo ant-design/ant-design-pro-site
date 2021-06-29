@@ -85,7 +85,7 @@ export default ({ children, ...props }: IRouteComponentProps) => {
             >
               {isBrowser() ? <DarkButton /> : null}
             </div>
-            {props.location.pathname.includes('/index') && <Home />}
+            {props.location.pathname.includes('/index') && <Home location={location} />}
             {props.location.pathname.includes('/docs/overview') ? (
               <Dashboard
                 menuData={[
