@@ -2,8 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import styles from './index.less';
 import anime from 'animejs';
 import GitHubButton from 'react-github-button';
+import * as utils from '../../utils';
+import { FormattedMessage } from 'react-intl';
+
 import '../../../../node_modules/react-github-button/assets/style.less';
-export default () => {
+export default ({ location }) => {
+  const isZhCN = utils.isZhCN(location?.pathname);
+
   const aniBg = useRef();
   const btn = useRef();
   const menu = useRef();
@@ -207,7 +212,7 @@ export default () => {
         <div className={styles['banner-title-wrapper']}>
           <h1 style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>ANT DESIGN PRO</h1>
           <p style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>
-            <span>Out-of-box UI solution for enterprise applications</span>
+            <FormattedMessage id="app.home.slogan" />
           </p>
           <div
             className={styles['button-wrapper']}
@@ -215,7 +220,7 @@ export default () => {
           >
             <a href="http://preview.pro.ant.design" target="_blank" rel="noopener noreferrer">
               <button type="button" className="ant-btn ant-btn-primary">
-                <span>Preview</span>
+                <FormattedMessage id="app.home.preview" />
               </button>
             </a>
             <a href="/docs/getting-started">
@@ -224,7 +229,7 @@ export default () => {
                 className="ant-btn ant-btn-primary ant-btn-background-ghost"
                 style={{ margin: '0px 16px' }}
               >
-                <span>Getting Started</span>
+                <FormattedMessage id="app.home.start" />
               </button>
             </a>
             <GitHubButton

@@ -1,6 +1,7 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 const menus = require('./formatMenu');
+console.log(menus);
 export default {
   title: 'Ant Design Pro',
   mode: 'site',
@@ -54,8 +55,8 @@ export default {
     includes: ['docs', 'config', 'blog'],
   },
   locales: [
-    ['zh-CN', '中文'],
     ['en-US', 'English'],
+    ['zh-CN', '中文'],
   ],
   navs: {
     'en-US': [

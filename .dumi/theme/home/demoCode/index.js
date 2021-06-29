@@ -3,9 +3,9 @@ import { Link } from 'dumi';
 import { Button } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import * as utils from '../../utils';
-
+import './index.less';
 function Page2({ location }) {
-  const isZhCN = utils.isZhCN(location.pathname);
+  const isZhCN = utils.isZhCN(location?.pathname);
   return (
     <div className="home-page page2">
       <div className="home-page-wrapper">

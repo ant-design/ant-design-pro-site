@@ -12,7 +12,7 @@ export function isZhCN(pathname: string) {
     }
     return false;
   }
-  return /-cn/.test(pathname);
+  return /zh-CN/.test(pathname);
 }
 
 /**
