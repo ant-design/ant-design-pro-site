@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styles from './index.less';
 import anime from 'animejs';
 import GitHubButton from 'react-github-button';
-
+import '../../../../node_modules/react-github-button/assets/style.less';
 export default () => {
   const aniBg = useRef();
   const btn = useRef();
@@ -227,7 +227,12 @@ export default () => {
                 <span>Getting Started</span>
               </button>
             </a>
-            <GitHubButton href="https://github.com/ant-design/ant-design-pro/issues" />
+            <GitHubButton
+              key="github-button"
+              type="stargazers"
+              namespace="ant-design"
+              repo="ant-design-pro"
+            />
           </div>
         </div>
         <div className={styles.con_right} onMouseEnter={handleOver} onMouseLeave={handleOut}>
