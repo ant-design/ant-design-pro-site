@@ -1,0 +1,292 @@
+//Const
+.layout(@dir:column; @justify:start; @align:top;) {
+  display: flex;
+  flex-direction: @dir;
+  justify-content: @justify;
+  align-items: @align;
+  margin: 0;
+}
+.img(@img:none) {
+  background-image: @img;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+.float(@yaxis:top; @xaxis:left; @yoff:0; @xoff:0 ) {
+  position: absolute;
+  @{yaxis}: @yoff;
+  @{xaxis}: @xoff;
+}
+@keyframes float_a {
+  0% {
+    transform: none;
+  }
+  25% {
+    transform: translate(5px, -8px) scale(1.05) rotate(-10deg);
+  }
+  50% {
+    transform: translate(3px, 0px) scale(1) rotate(0);
+  }
+  75% {
+    transform: translate(5px, -8px) scale(1) rotate(8deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes float_b {
+  0% {
+    transform: none;
+  }
+  33% {
+    transform: translate(-6px, 6px) rotate(-5deg);
+  }
+  66% {
+    transform: translate(-4px, -5px) rotate(-3deg);
+  }
+  100% {
+    transform: translate(-1px, 5px) rotate(0);
+  }
+}
+@keyframes float_c {
+  0% {
+    transform: none;
+  }
+  33% {
+    transform: translate(-2px, 5px);
+  }
+  66% {
+    transform: translate(2px, -5px);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+//banner 框架
+.banner {
+  background-color: transparent;
+  width: 100%;
+  height: 520px;
+  position: relative;
+
+  .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+  .content {
+    width: 100%;
+    height: 520px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .banner-title-wrapper {
+      width: 40%;
+      height: 245px;
+      h1 {
+        margin: 12px 0;
+        font-size: 48px;
+        font-family: Futura, Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI,
+          Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial,
+          sans-serif;
+      }
+      p {
+        font-size: 20px;
+      }
+      .button-wrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 64px;
+        line-height: 40px;
+        .github-btn {
+          display: inline-block;
+          height: 28px;
+          color: #697b8c;
+          font: 700 11px/14px Helvetica Neue, Helvetica, Arial, sans-serif;
+          overflow: hidden;
+          .gh-btn {
+            display: flex;
+            align-items: center;
+            height: 28px;
+            padding: 0 12px;
+            font-size: 13px;
+            background: #f3f3f3;
+            background: linear-gradient(180deg, #fff 0, #f3f3f3);
+            border: 1px solid #ebedf0;
+            border-radius: 4px;
+            .gh-ico {
+              margin-right: 8px;
+              width: 14px;
+              height: 14px;
+              background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjQwcHgiIGhlaWdodD0iNDBweCIgdmlld0JveD0iMTIgMTIgNDAgNDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMTIgMTIgNDAgNDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiMzMzMzMzMiIGQ9Ik0zMiAxMy40Yy0xMC41IDAtMTkgOC41LTE5IDE5YzAgOC40IDUuNSAxNS41IDEzIDE4YzEgMC4yIDEuMy0wLjQgMS4zLTAuOWMwLTAuNSAwLTEuNyAwLTMuMiBjLTUuMyAxLjEtNi40LTIuNi02LjQtMi42QzIwIDQxLjYgMTguOCA0MSAxOC44IDQxYy0xLjctMS4yIDAuMS0xLjEgMC4xLTEuMWMxLjkgMC4xIDIuOSAyIDIuOSAyYzEuNyAyLjkgNC41IDIuMSA1LjUgMS42IGMwLjItMS4yIDAuNy0yLjEgMS4yLTIuNmMtNC4yLTAuNS04LjctMi4xLTguNy05LjRjMC0yLjEgMC43LTMuNyAyLTUuMWMtMC4yLTAuNS0wLjgtMi40IDAuMi01YzAgMCAxLjYtMC41IDUuMiAyIGMxLjUtMC40IDMuMS0wLjcgNC44LTAuN2MxLjYgMCAzLjMgMC4yIDQuNyAwLjdjMy42LTIuNCA1LjItMiA1LjItMmMxIDIuNiAwLjQgNC42IDAuMiA1YzEuMiAxLjMgMiAzIDIgNS4xYzAgNy4zLTQuNSA4LjktOC43IDkuNCBjMC43IDAuNiAxLjMgMS43IDEuMyAzLjVjMCAyLjYgMCA0LjYgMCA1LjJjMCAwLjUgMC40IDEuMSAxLjMgMC45YzcuNS0yLjYgMTMtOS43IDEzLTE4LjFDNTEgMjEuOSA0Mi41IDEzLjQgMzIgMTMuNHoiLz48L3N2Zz4=);
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+              color: #333;
+            }
+          }
+          .gh-count {
+            position: relative;
+            margin-left: 4px;
+            height: 28px;
+            padding: 2px 8px;
+            font-size: 13px;
+            line-height: 22px;
+            background: #fff;
+            border: 1px solid #ebedf0;
+            border-radius: 4px;
+            color: #333;
+            text-decoration: none;
+            white-space: nowrap;
+            cursor: pointer;
+            display: block;
+            height: 28px;
+          }
+        }
+      }
+    }
+    .con_right {
+      width: 40%;
+      @media (max-width: 1024px) {
+        width: 100%;
+      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // border: 1px solid red;
+      &:hover .animate {
+        box-shadow: 4px 4px 32px rgba(204, 218, 233, 0.2);
+        background-image: url(../assets/background_hover.svg);
+      }
+    }
+  }
+}
+
+// 动画区域
+
+.banner .animate {
+  position: relative;
+  width: 480px;
+  height: 320px;
+  perspective: 1400px;
+  .img(url(../assets/background_normal.svg));
+  box-shadow: 6px 6px 20px rgba(204, 218, 233, 0.3);
+  transition: 0.2s ease-out;
+
+  // 三个关闭按钮
+  .ani_btn {
+    .float();
+    .layout(row);
+    padding: 12px 16px;
+    li {
+      list-style: none;
+      background-color: #e8ebec;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      margin-right: 6px;
+    }
+  }
+
+  // 左侧菜单
+  .ani_menu {
+    .float(top, left, 32px, 0);
+    .layout();
+    padding: 24px 16px;
+    li {
+      list-style: none;
+      width: 56px;
+      height: 12px;
+      background-color: #e8ebec;
+      margin-bottom: 16px;
+      border-radius: 6px;
+    }
+  }
+
+  //圆圈
+  .ani_stf_circle {
+    width: 103px;
+    height: 106px;
+    .img(url(../assets/stuffs_circle.png));
+    .float(top, right, -30px, -40px);
+    animation: float_a 8s ease-in-out infinite;
+  }
+
+  //代码块
+  .ani_stf_code {
+    width: 107px;
+    height: 105px;
+    .img(url(../assets/stuffs_code.png));
+    .float(bottom, left, -20px, 420px);
+    animation: float_b 6s ease-in-out infinite 1s alternate;
+  }
+
+  //饼图
+  .ani_stf_pie {
+    width: 132px;
+    height: 132px;
+    .img(url(../assets/stuffs_pie.png));
+    .float(top, right, 104px, 282px);
+    animation: float_a 10s ease-in-out 1s infinite alternate;
+  }
+
+  //文件夹
+  .ani_stf_folder {
+    width: 153px;
+    height: 100px;
+    .img(url(../assets/stuffs_folder.png));
+    .float(top, right, -56px, 248px);
+    animation: float_b 10s ease-in-out infinite alternate;
+  }
+  //文件夹列表
+  .ani_icn_folder {
+    .layout();
+    .float(top, left, 170px, 104px);
+    padding: 0;
+    li {
+      padding: 0;
+      margin-bottom: 5px;
+      list-style: none;
+      width: 42px;
+      height: 36px;
+      .img(url(../assets/icn_folder.svg));
+    }
+  }
+
+  //输入框
+  .ani_stf_input {
+    width: 155px;
+    height: 74px;
+    .img(url(../assets/stuffs_input.png));
+    .float(bottom, right, 0px, 380px);
+    animation: float_b 8s ease-in-out 0.5s infinite alternate;
+  }
+
+  //浮动球
+  .ani_stf_dot {
+    width: 155px;
+    height: 74px;
+    .img(url(../assets/stuffs_dot.png));
+    .float(top, right, 180px, -64px);
+    animation: float_b 8s ease-in-out 0.5s infinite alternate;
+  }
+
+  //图表面板
+  .ani_pn_chart {
+    width: 279px;
+    height: 179px;
+    .img(url(../assets/panel_chart.png));
+    .float(bottom, left, 170px, 44px);
+    animation: float_c 6s ease-in-out infinite alternate;
+  }
+
+  //代码面板
+  .ani_pn_code {
+    width: 158px;
+    height: 118px;
+    .img(url(../assets/panel_code.png));
+    .float(top, right, 200px, 170px);
+    animation: float_c 8s ease-in-out 0.5s infinite;
+  }
+}

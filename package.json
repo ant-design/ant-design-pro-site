@@ -24,7 +24,11 @@
     "test": "npm run lint"
   },
   "dependencies": {
+    "@alipay/gaussian-background": "^1.0.0",
     "@ant-design/icons": "^4.0.5",
+    "@ant-design/pro-layout": "^6.5.0",
+    "@umijs/preset-react": "1.x",
+    "animejs": "^3.2.1",
     "antd": "^4.1.1",
     "classnames": "^2.2.6",
     "dumi": "^1.1.18",
@@ -32,6 +36,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-github-button": "^0.1.11",
     "react-helmet-async": "^1.0.9",
     "umi": "^3.4.24"
   },
