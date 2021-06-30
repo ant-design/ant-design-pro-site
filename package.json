@@ -24,7 +24,6 @@
     "test": "npm run lint"
   },
   "dependencies": {
-    "@alipay/gaussian-background": "^1.0.0",
     "@ant-design/icons": "^4.0.5",
     "@ant-design/pro-layout": "^6.5.0",
     "@umijs/preset-react": "1.x",
