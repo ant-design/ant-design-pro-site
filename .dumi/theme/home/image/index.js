@@ -4,11 +4,8 @@ import anime from 'animejs';
 import GitHubButton from 'react-github-button';
 import * as utils from '../../utils';
 import { FormattedMessage } from 'react-intl';
-
 import '../../../../node_modules/react-github-button/assets/style.less';
-export default ({ location }) => {
-  const isZhCN = utils.isZhCN(location?.pathname);
-
+export default () => {
   const aniBg = useRef();
   const btn = useRef();
   const menu = useRef();

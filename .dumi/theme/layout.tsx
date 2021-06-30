@@ -10,7 +10,6 @@ import useDarkreader from './useDarkreader';
 import 'moment/locale/zh-cn';
 import './layout.less';
 import Dashboard from './dashboard';
-import Home from './home/index';
 moment.locale('zh-cn');
 
 const DarkButton = () => {
@@ -52,16 +51,6 @@ const DarkButton = () => {
 
 export default ({ children, ...props }: IRouteComponentProps) => {
   const context = useContext(dumiContext);
-  const { location } = props;
-  const { pathname = '/' } = location;
-  if (pathname === '/') {
-    return null;
-  }
-  let style: { paddingLeft?; paddingRight? } = {};
-  if (pathname.includes('/index')) {
-    style.paddingLeft = 0;
-    style.paddingRight = 0;
-  }
   return (
     <HelmetProvider>
       <ConfigProvider locale={zhCN}>
@@ -70,7 +59,6 @@ export default ({ children, ...props }: IRouteComponentProps) => {
             <Helmet>
               <title>{`${context.meta.title} - Ant Design Pro`}</title>
             </Helmet>
-            {!props.location.pathname.includes('/index') && <h1>{context.meta.title}</h1>}
             {children}
             <div
               style={{
@@ -85,7 +73,6 @@ export default ({ children, ...props }: IRouteComponentProps) => {
             >
               {isBrowser() ? <DarkButton /> : null}
             </div>
-            {props.location.pathname.includes('/index') && <Home location={location} />}
             {props.location.pathname.includes('/docs/overview') ? (
               <Dashboard
                 menuData={[
