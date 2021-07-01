@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="480px" height="320px" viewBox="0 0 480 320" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组备份 3</title>
+    <defs>
+        <path d="M20.5110816,9.84996032e-16 L459.488918,8.28672246e-16 C466.621068,-4.81482439e-16 469.207358,0.742604889 471.814766,2.13706163 C474.422173,3.53151837 476.468482,5.57782696 477.862938,8.18523437 C479.257395,10.7926418 480,13.3789317 480,20.5110816 L480,299.488918 C480,306.621068 479.257395,309.207358 477.862938,311.814766 C476.468482,314.422173 474.422173,316.468482 471.814766,317.862938 C469.207358,319.257395 466.621068,320 459.488918,320 L20.5110816,320 C13.3789317,320 10.7926418,319.257395 8.18523437,317.862938 C5.57782696,316.468482 3.53151837,314.422173 2.13706163,311.814766 C0.742604889,309.207358 -7.32805207e-16,306.621068 1.26122011e-15,299.488918 L5.52448164e-16,20.5110816 C-3.20988293e-16,13.3789317 0.742604889,10.7926418 2.13706163,8.18523437 C3.53151837,5.57782696 5.57782696,3.53151837 8.18523437,2.13706163 C10.7926418,0.742604889 13.3789317,-5.72311061e-16 20.5110816,9.84996032e-16 Z" id="path-1"></path>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组备份-3">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="矩形" fill="#FFFFFF" xlink:href="#path-1"></use>
+            <g id="编组-3" mask="url(#mask-2)">
+                <g transform="translate(144.000000, 180.000000)">
+                    <rect id="矩形备份-15" fill="#E1E9EE" x="0" y="0" width="65" height="12" rx="6"></rect>
+                    <g id="编组-4" stroke-width="1" fill="none" transform="translate(151.000000, 0.000000)">
+                        <rect id="矩形备份-21" fill="#E1E9EE" x="0" y="0" width="40" height="12" rx="6"></rect>
+                        <rect id="矩形备份-25" fill="#E1E9EE" x="0" y="40" width="40" height="12" rx="6"></rect>
+                        <rect id="矩形备份-22" fill="#EAEEF0" x="0" y="16" width="40" height="8" rx="4"></rect>
+                        <rect id="矩形备份-27" fill="#EAEEF0" x="0" y="56" width="40" height="8" rx="4"></rect>
+                        <rect id="矩形备份-32" fill="#E1E9EE" x="0" y="80" width="40" height="12" rx="6"></rect>
+                        <rect id="矩形备份-30" fill="#EAEEF0" x="0" y="96" width="40" height="8" rx="4"></rect>
+                    </g>
+                    <g id="编组-5" stroke-width="1" fill="none" transform="translate(223.000000, 0.000000)">
+                        <rect id="矩形备份-23" fill="#E1E9EE" x="0" y="0" width="40" height="12" rx="6"></rect>
+                        <rect id="矩形备份-26" fill="#E1E9EE" x="0" y="40" width="40" height="12" rx="6"></rect>
+                        <rect id="矩形备份-24" fill="#EAEEF0" x="0" y="16" width="40" height="8" rx="4"></rect>
+                        <rect id="矩形备份-28" fill="#EAEEF0" x="0" y="56" width="40" height="8" rx="4"></rect>
+                        <rect id="矩形备份-31" fill="#E1E9EE" x="0" y="80" width="40" height="12" rx="6"></rect>
+                        <rect id="矩形备份-29" fill="#EAEEF0" x="0" y="96" width="40" height="8" rx="4"></rect>
+                    </g>
+                    <rect id="矩形备份-17" fill="#E1E9EE" x="0" y="40" width="56" height="12" rx="6"></rect>
+                    <rect id="矩形备份-16" fill="#EAEEF0" x="0" y="16" width="80" height="8" rx="4"></rect>
+                    <rect id="矩形备份-18" fill="#EAEEF0" x="0" y="56" width="65" height="8" rx="4"></rect>
+                    <rect id="矩形备份-20" fill="#E1E9EE" x="0" y="80" width="62" height="12" rx="6"></rect>
+                    <rect id="矩形备份-19" fill="#EAEEF0" x="0" y="96" width="76" height="8" rx="4"></rect>
+                </g>
+            </g>
+            <g id="编组-7" mask="url(#mask-2)">
+                <g transform="translate(295.000000, 56.000000)">
+                    <rect id="矩形" fill="#E1E9EE" x="0" y="0" width="160" height="92" rx="4"></rect>
+                    <rect id="矩形备份-7" fill="#FFFFFF" x="23" y="60" width="114" height="20" rx="4"></rect>
+                    <rect id="矩形备份-9" fill="#FFFFFF" x="23" y="16" width="114" height="8" rx="4"></rect>
+                    <rect id="矩形备份-11" fill="#FFFFFF" x="23" y="28" width="114" height="8" rx="4"></rect>
+                    <rect id="矩形备份-13" fill="#FFFFFF" x="42" y="40" width="76" height="8" rx="4"></rect>
+                </g>
+            </g>
+            <g id="编组-6" mask="url(#mask-2)">
+                <g transform="translate(112.000000, 56.000000)">
+                    <rect id="矩形备份-5" fill="#E1E9EE" x="0" y="0" width="160" height="92" rx="4"></rect>
+                    <rect id="矩形" fill="#FFFFFF" x="14" y="36" width="12" height="44" rx="6"></rect>
+                    <rect id="矩形备份-6" fill="#FFFFFF" x="38" y="42" width="12" height="38" rx="6"></rect>
+                    <rect id="矩形备份-8" fill="#FFFFFF" x="62" y="50" width="12" height="30" rx="6"></rect>
+                    <rect id="矩形备份-10" fill="#FFFFFF" x="86" y="34" width="12" height="46" rx="6"></rect>
+                    <rect id="矩形备份-12" fill="#FFFFFF" x="110" y="44" width="12" height="36" rx="6"></rect>
+                    <rect id="矩形备份-14" fill="#FFFFFF" x="134" y="24" width="12" height="56" rx="6"></rect>
+                </g>
+            </g>
+            <line x1="0.5" y1="32.5" x2="480.5" y2="32.5" id="直线" stroke="#F3F5F6" stroke-linecap="square" mask="url(#mask-2)"></line>
+            <line x1="90.5" y1="32.5" x2="90.5" y2="320.5" id="直线备份" stroke="#F3F5F6" stroke-linecap="square" mask="url(#mask-2)"></line>
+            <rect id="矩形" fill="#FFFFFF" mask="url(#mask-2)" x="0" y="0" width="480" height="32"></rect>
+        </g>
+    </g>
+</svg>

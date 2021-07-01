@@ -1,7 +1,13 @@
 ---
 order: 8
 title: Layout 的全新样式
-type: Blog
+group:
+  title: Blog
+  path: /
+nav:
+  title: Blog
+  path: /blog
+  order: 3
 time: 2020-04-21
 ---
 
@@ -69,7 +75,7 @@ time: 2020-04-21
 
 ## 混合菜单新模式
 
-顶部全局导航+侧边导航混合模式，支持 Ant Design Pro 已有导航模式切换到此模式。
+新的模式混合菜单：可以让顶部全局导航+侧边导航混合模式同时出现
 
 ![image.png](https://gw.alipayobjects.com/zos/antfincdn/HSeAGqaEwn/1586504755352-479bf47d-97a6-4080-afed-d38ffe905e57.png)
 

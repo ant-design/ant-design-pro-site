@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: 'https://pro.ant.design',
   },
   plugins: [
+    `gatsby-plugin-meta-redirect`,
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -46,6 +47,14 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: '/config',
+        path: `${__dirname}/config/`,
+        ignore: [`**/\.*`],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: '/blog',
         path: `${__dirname}/blog/`,
         ignore: [`**/\.*`],
@@ -66,6 +75,5 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-sitemap',
   ],
 };

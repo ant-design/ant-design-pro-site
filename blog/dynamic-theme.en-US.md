@@ -1,7 +1,13 @@
 ---
 order: 8
 title: Black theme and dynamic switching
-type: Blog
+group:
+  title: Blog
+  path: /
+nav:
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-12-25
 ---
 

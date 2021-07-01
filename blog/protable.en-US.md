@@ -1,7 +1,13 @@
 ---
 order: 7
 title: Quickly Builds CRUD's
-type: Blog
+group:
+  title: Blog
+  path: /
+nav:
+  title: Blog
+  path: /blog
+  order: 3
 time: 2020-03-01
 ---
 
@@ -11,11 +17,11 @@ Most background pages are made up of very homogenized CRUDs, many times a Table,
 
 ## 🤷‍♂️ Why Do You Make ProTable
 
-Antd, as a component library serving the design system for enterprise-class products, has provided a powerful Table, but the differences in business still require some customization, with many different data formats, amounts, dates, numbers, etc., including some commonly used operations, page number switching, re-requests, Refreshing data, etc., these are simple duplications, but they are inevitable.
+Antd, as a component library serving the design system for enterprise-class products, has provided a powerful Table, but the differences in business still require some customization, with many different data formats, amounts, dates, numbers, etc., including some commonly used operations, page number switching, re-requests, Refreshing data, etc., these are easy duplications, but they are inevitable.
 
 ProTable is designed to address these issues by providing presets at the Table level that you can support [`valueType` ](https://procomponents.ant.design/components/tablevalue-type) of data, such as amounts, dates, serial numbers, progress bars, etc., and can greatly simplify the code with the hashtags `valueEnum`.
 
-```typescript
+```tsx | pure
 const columns = [
   {
     title: 'status',
@@ -36,7 +42,7 @@ ProTable takes over page-turning, page code changes, and in theory you can gener
 
 In many projects Table's action buttons and title positions are inconsistent, even in a project can be somewhat different, ProTable provides the corresponding specifications, toolBarRender and headerTitle implementation specification, toolBarRenderRender Supports the return of an ReactNode array, automatic additions and other styles, and toolBarRender provides data such as actions and columns currently selected for some quick action. The code looks like this.
 
-```typescript
+```tsx | pure
 toolBarRender = (_, { selectedRowKeys }) => [
   <Button key="3" type="primary">
     <PlusOutlined />
@@ -63,7 +69,7 @@ A complete page requires a query form in addition to Table, which is largely gen
 
 Depending on the value type, the form generates different input boxes, and the data that succeeds automatically initiates the query through the params parameter of the request, without any data binding.
 
-If your form is simple, there aren't too many special components, or you've encapsulated a lot of antd-compliant components (i.e. having a controlled value and onChange method), you can generate form elements from rows from the renderFormItem, and then configure 'type-FormForm' 'You can generate an add form.
+If your form is easy, there aren't too many special components, or you've encapsulated a lot of antd-compliant components (i.e. having a controlled value and onChange method), you can generate form elements from rows from the renderFormItem, and then configure 'type-FormForm' 'You can generate an add form.
 
 ![image.png](https://gw.alipayobjects.com/zos/antfincdn/p3YxxMOlwz/1582130440043-71722655-42e6-4698-a37a-14d69f6008b8%252520%281%29.png)
 

@@ -3,3 +3,5 @@ package.json
 .umi
 .umi-production
 .cache
+dist
+public

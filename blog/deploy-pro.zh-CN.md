@@ -1,7 +1,13 @@
 ---
 order: 6
 title: 我们是如何部署开源项目的?
-type: Blog
+group:
+  title: Blog
+  path: /
+nav:
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-11-02
 ---
 
@@ -11,7 +17,7 @@ time: 2019-11-02
 
 ### 技术选型
 
-静态网站部署起来非常简单，市面上很多种方案来实现。比较常用的有：
+静态网站部署起来相对成熟且容易，市面上很多种方案来实现。比较常用的有：
 
 - [Netlify](https://docs.netlify.com/)  支持静态站点 与 function，用户体验很棒。
 - [Github pages](https://pages.github.com/) 完全免费，但是只支持静态。

@@ -1,7 +1,13 @@
 ---
 order: 8
 title: 黑色主题和动态切换
-type: Blog
+group:
+  title: Blog
+  path: /
+nav:
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-12-25
 ---
 

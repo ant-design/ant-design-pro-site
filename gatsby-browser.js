@@ -83,13 +83,18 @@ export const onClientEntry = () => {
   NProgress.configure(options);
 };
 
-export const onPreRouteUpdate = () => {
-  NProgress.start();
-  NProgress.set(0.6);
+export const onPreRouteUpdate = ({ location, prevLocation }) => {
+  if (location?.pathname !== prevLocation?.pathname) {
+    NProgress.start();
+    NProgress.set(0.6);
+  }
 };
 
-export const onRouteUpdate = () => {
-  NProgress.done(true);
+export const onRouteUpdate = ({ location, prevLocation }) => {
+  if (location?.pathname !== prevLocation?.pathname) {
+    NProgress.done(true);
+    window.scrollTo(0, 0);
+  }
 };
 
 export const shouldUpdateScroll = () => false;

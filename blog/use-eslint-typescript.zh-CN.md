@@ -1,7 +1,13 @@
 ---
 order: 1
 title: 一起来用 eslint 吧
-type: Blog
+group:
+  title: Blog
+  path: /
+nav:
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-06-21
 ---
 
@@ -27,7 +33,7 @@ time: 2019-06-21
 
 ## 使用
 
-**umi-fabric** 的使用非常简单。
+项目中接入 **umi-fabric**
 
 ```bash
 npm install eslint @umijs/fabric --save-dev
@@ -35,7 +41,7 @@ npm install eslint @umijs/fabric --save-dev
 
 并且在根目录 `.eslintrc.js`  中做如下配置。
 
-```tsx
+```tsx | pure
 const fabric = require('@umijs/fabric');
 
 module.exports = fabric.eslint;
@@ -43,13 +49,13 @@ module.exports = fabric.eslint;
 
 在 vscode 中 eslint 的插件并不会默认的去 lint .ts 文件，我们需要在 `settings.json`  中设置
 
-```jsx
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+```tsx | pure
+"eslint.validate": [
+  "javascript",
+  "javascriptreact",
+  "typescript",
+  "typescriptreact"
+],
 ```
 
 接下来就可以愉快的使用了。使用 `eslint fix`  一下老的 ts 代码有奇效哦。

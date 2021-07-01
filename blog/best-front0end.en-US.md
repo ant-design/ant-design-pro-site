@@ -1,7 +1,13 @@
 ---
 order: 7
 title: Front-end best practices coming soon
-type: Blog
+group:
+  title: Blog
+  path: /
+nav:
+  title: Blog
+  path: /blog
+  order: 3
 time: 2020-02-29
 ---
 

@@ -20,5 +20,5 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=4096
           GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: "public/"
+          FOLDER: 'public/'
           BUILD_SCRIPT: yarn && npm uninstall husky && npm run build && git checkout . && git clean -df

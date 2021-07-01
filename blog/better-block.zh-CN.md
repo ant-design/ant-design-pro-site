@@ -1,7 +1,13 @@
 ---
 order: 5
 title: Block 新升级
-type: Blog
+group:
+  title: Blog
+  path: /
+nav:
+  title: Blog
+  path: /blog
+  order: 3
 time: 2019-06-28
 ---
 

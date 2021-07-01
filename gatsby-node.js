@@ -5,11 +5,23 @@ exports.createPages = require('./gatsby/createPages');
 exports.onCreateNode = require('./gatsby/onCreateNode');
 exports.onCreatePage = require('./gatsby/onCreatePage');
 
-exports.onPostBuild = () => {
-  // 复制 CNAME
-  fsExtra.copyFileSync(`${__dirname}/CNAME`, `${__dirname}/public/CNAME`, (err) => {
-    if (err) {
-      console.error('Error copying file', err);
-    }
-  });
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === 'build-javascript') {
+    // Turn off source maps
+    actions.setWebpackConfig({
+      devtool: false,
+    });
+  }
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /react-darkreader/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  }
 };
