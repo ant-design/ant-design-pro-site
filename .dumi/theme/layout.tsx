@@ -10,6 +10,8 @@ import useDarkreader from './useDarkreader';
 import 'moment/locale/zh-cn';
 import './layout.less';
 import Dashboard from './dashboard';
+import Footer from './home/Footer';
+
 moment.locale('zh-cn');
 
 const DarkButton = () => {
@@ -107,6 +109,7 @@ export default ({ children, ...props }: IRouteComponentProps) => {
             ) : null}
           </>
         </Layout>
+        <Footer />
       </ConfigProvider>
     </HelmetProvider>
   );

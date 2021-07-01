@@ -85,7 +85,7 @@ export default () => {
       .add(
         {
           targets: stfFolder.current,
-          right: 340,
+          right: 240,
           top: 140,
           width: 40,
           opacity: 0,

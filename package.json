@@ -33,6 +33,7 @@
     "dumi": "^1.1.18",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
+    "rc-footer": "^0.6.6",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-github-button": "^0.1.11",
