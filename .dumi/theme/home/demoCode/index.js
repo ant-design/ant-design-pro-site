@@ -10,7 +10,7 @@ function Page2({ location }) {
     <div className="home-page page2">
       <div className="home-page-wrapper">
         <h2>
-          Let’s <span>Pro</span>
+          Let’s <span> Pro </span>
         </h2>
         <p key="p" className="page-content">
           <FormattedMessage id="app.home.letspro" />
@@ -87,7 +87,14 @@ function Page2({ location }) {
             rel="noopener noreferrer"
           >
             <Button type="primary">
-              <FormattedMessage id="app.home.download" /> Pro
+              <FormattedMessage id="app.home.download" />
+              <span
+                style={{
+                  marginLeft: 8,
+                }}
+              >
+                Pro
+              </span>
             </Button>
           </a>
         </div>
