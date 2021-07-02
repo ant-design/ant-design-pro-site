@@ -49,3 +49,4 @@ config/components/package.json
 false
 .eslintcache
 .umi
+.umi-production
