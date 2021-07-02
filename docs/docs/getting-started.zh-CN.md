@@ -103,7 +103,7 @@ $ npm install --save-dev @umijs/preset-ui
 
 ![build](https://gw.alipayobjects.com/zos/antfincdn/DVK9LCd9Te/75ED2D26-2984-4A8C-886D-C106D9BE4B70.png)
 
-如果你需要部署，可以查阅[部署](/docs/deploy-cn)。
+如果你需要部署，可以查阅[部署](/docs/deploy)。
 
 ### `analyze`
 
