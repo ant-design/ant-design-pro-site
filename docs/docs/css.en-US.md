@@ -4,7 +4,7 @@ title: Using css
 group:
   title: styles and resources
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

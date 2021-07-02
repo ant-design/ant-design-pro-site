@@ -4,7 +4,7 @@ title: Document overview
 group:
   title: Introduction
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

@@ -4,7 +4,7 @@ title: Request
 group:
   title: Network Request
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

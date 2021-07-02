@@ -4,7 +4,7 @@ title: Build
 group:
   title: Build & Deployment
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

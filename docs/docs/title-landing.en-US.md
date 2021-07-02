@@ -4,7 +4,7 @@ title: Title and loading page
 group:
   title: Basic Usage
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

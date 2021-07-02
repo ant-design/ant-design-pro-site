@@ -4,7 +4,7 @@ title: Lint
 group:
   title: Quality
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

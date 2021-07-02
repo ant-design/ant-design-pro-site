@@ -4,7 +4,7 @@ title: Permission Management
 group:
   title: Data Management
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

@@ -4,7 +4,7 @@ title: easy Model
 group:
   title: Data Management
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

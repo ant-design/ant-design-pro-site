@@ -4,7 +4,7 @@ title: Use Pro's Assets
 group:
   title: Advanced Usage
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

@@ -4,7 +4,7 @@ title: Upgrade to V5
 group:
   title: Other
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

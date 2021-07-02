@@ -4,7 +4,7 @@ title: Router and Nav
 group:
   title: Page Development
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---

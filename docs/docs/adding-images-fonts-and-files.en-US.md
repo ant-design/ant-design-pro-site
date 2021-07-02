@@ -4,7 +4,7 @@ title: Add pictures, fonts and files
 group:
   title: styles and resources
 nav:
-  title: 文档
+  title: Documents
   path: /docs
   order: 1
 ---
