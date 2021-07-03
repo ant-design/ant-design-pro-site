@@ -13,7 +13,7 @@ export default function Grade({ location }) {
     {
       icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
       title: '模板组件',
-      zhDdescesc: '内置模板组件，高效开发',
+      desc: '内置模板组件，高效开发',
       enDesc: 'Built-in template components for efficient development',
       enTitle: 'ProComponents',
     },
