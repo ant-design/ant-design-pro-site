@@ -25,7 +25,7 @@ Ant Design Pro 以 umi 作为脚手架，启动和开发与 umi 基本相同。
 
 ## 区分环境
 
-详情查看 [环境变量](/docs/environment-manage-cn)
+详情查看 [环境变量](/zh-CN/docs/environment-manage/)
 
 ## MOCK
 

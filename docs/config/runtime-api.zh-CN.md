@@ -9,7 +9,7 @@ nav:
 
 在构建时是无法使用 dom 的，所以有些配置可能需要运行时来配置，一般而言我们都是在 `src/app.tsx` 中管理运行时配置。
 
-## [getInitialState](http://localhost:8000/docs/simple-model-cn)
+## getInitialState
 
 `getInitialState` 用于获取初始化数据，初始化数据使用 `useModel` 在各个组件中使用，在请求中 `getInitialState` 会堵塞页面加载。
 
@@ -39,7 +39,7 @@ export const initialStateConfig = {
 };
 ```
 
-## [request](http://localhost:8000/docs/request-cn)
+## request
 
 `request` 用于配置全局的网络请求，你可以在这里做拦截器，全局错误处理，鉴权的配置。
 

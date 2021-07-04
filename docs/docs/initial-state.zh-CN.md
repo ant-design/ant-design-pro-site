@@ -58,9 +58,3 @@ API:
 | loading         | boolean               | 是否处在加载状态              |
 | refresh         | () => void            | 重新执行 getInitialState 方法 |
 | setInitialState | (newState: T) => void | 手动设置初始值                |
-
-### 相关 umi 插件
-
-- [plugin-model](./easy-model-cn) 配合 plugin-initial-state 可以快速在组件内获取到全局初始状态
-- [plugin-layout](./layout-cn) layout 中可以获取到 initialState 的状态，用于展示用户信息
-- [plugin-access](./authority-management-cn) plugin-access 中可以获取到 initialState 的状态，用于决定用户权限

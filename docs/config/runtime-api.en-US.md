@@ -9,7 +9,7 @@ nav:
 
 It is not possible to use dom during construction, so some configurations may need to be configured at runtime. Generally speaking, we manage runtime configuration in `src/app.tsx`.
 
-## [getInitialState](http://localhost:8000/docs/simple-model-cn)
+## getInitialState
 
 `getInitialState` is used to obtain initial data, and the initial data is used in various components using `useModel`. In the request, `getInitialState` will block the page loading.
 
@@ -39,7 +39,7 @@ export const initialStateConfig = {
 };
 ```
 
-## [request](http://localhost:8000/docs/request-cn)
+## request
 
 `request` is used to configure global network requests. You can configure interceptors, global error handling, and authentication here.
 

@@ -19,7 +19,7 @@ Ant Design Pro 使用 [Umi](https://umijs.org/zh-CN) 作为开发工具，建议
 
 ### 如何使用 Ant Design Pro？
 
-请阅读文档 [开始使用](/docs/getting-started-cn)，蚂蚁金服内网用户请阅读 [开始使用（蚂蚁金服用户）](/docs/getting-start-inner-cn)。
+请阅读文档 [开始使用](/docs/getting-started)，蚂蚁金服内网用户请阅读 [开始使用（蚂蚁金服用户）](/docs/getting-start-inner)。
 
 ### 是否可以在生产环境中使用 Ant Design Pro？
 
@@ -238,7 +238,7 @@ $ npm i node-sass sass-loader --save
 
 ### 站点是否支持国际化？
 
-pro 通过 umi 插件 [@umijs/plugin-locale](https://github.com/umijs/@umijs/plugin-locale) 来实现全球化的功能，详情请见 [国际化](/docs/i18n-cn)。
+pro 通过 umi 插件 [@umijs/plugin-locale](https://github.com/umijs/@umijs/plugin-locale) 来实现全球化的功能，详情请见 [国际化](/zh-CN/docs/i18n/)。
 
 ### npm 安装 puppeteer 失败
 

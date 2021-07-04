@@ -87,7 +87,7 @@ export default () => {
 
 ### 相关 umi 插件
 
-- [plugin-initial-state](./initial-state-cn) 配合 plugin-initial-state 可以快速在组件内获取到全局初始状态
+- [plugin-initial-state](https://umijs.org/plugins/plugin-initial-state) 配合 plugin-initial-state 可以快速在组件内获取到全局初始状态
 - [plugin-qiankun](https://github.com/umijs/plugins/tree/master/packages/plugin-qiankun) 配合 plugin-qiankun 可以在子应用中获取到主应用传递的 props
 
 ### VSCode 插件

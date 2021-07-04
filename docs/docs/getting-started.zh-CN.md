@@ -13,7 +13,7 @@ Ant Design Pro 是基于 Ant Design 和 umi 的封装的一整套企业级中后
 
 ## 开发前的输入
 
-Ant Design Pro 作为一个前端脚手架，默认读者已经懂了一些前端的基础知识，并且了解 umi 和 Ant Design, 如果你是纯粹的新手，第一次来跑项目建议读一下 [新手需知](/docs/introduction-cn)。磨刀不误砍柴工，了解一些基础知识可以让学习曲线更加平滑。
+Ant Design Pro 作为一个前端脚手架，默认读者已经懂了一些前端的基础知识，并且了解 umi 和 Ant Design, 如果你是纯粹的新手，第一次来跑项目建议读一下 [新手需知](/zh-CN/docs/introduction)。磨刀不误砍柴工，了解一些基础知识可以让学习曲线更加平滑。
 
 ## 准备工作
 
@@ -103,7 +103,7 @@ $ npm install --save-dev @umijs/preset-ui
 
 ![build](https://gw.alipayobjects.com/zos/antfincdn/DVK9LCd9Te/75ED2D26-2984-4A8C-886D-C106D9BE4B70.png)
 
-如果你需要部署，可以查阅[部署](/docs/deploy)。
+如果你需要部署，可以查阅[部署](/zh-CN/docs/deploy)。
 
 ### `analyze`
 
