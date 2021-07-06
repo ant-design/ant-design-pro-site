@@ -66,12 +66,46 @@ export default {
     'en-US': [
       null,
       {
+        title: 'version',
+        children: [
+          {
+            title: 'ANT DESIGN PRO V1',
+            path: 'https://v1.pro.ant.design/',
+          },
+          {
+            title: 'ANT DESIGN PRO V2',
+            path: 'https://v2-pro.ant.design/',
+          },
+          {
+            title: 'ANT DESIGN PRO V4',
+            path: 'https://v4-pro.ant.design/',
+          },
+        ],
+      },
+      {
         title: 'GitHub',
         path: 'https://github.com/ant-design/ant-design-pro',
       },
     ],
     'zh-CN': [
       null,
+      {
+        title: '历史版本',
+        children: [
+          {
+            title: 'ANT DESIGN PRO V1',
+            path: 'https://v1.pro.ant.design/',
+          },
+          {
+            title: 'ANT DESIGN PRO V2',
+            path: 'https://v2-pro.ant.design/',
+          },
+          {
+            title: 'ANT DESIGN PRO V4',
+            path: 'https://v4-pro.ant.design/',
+          },
+        ],
+      },
       {
         title: 'GitHub',
         path: 'https://github.com/ant-design/ant-design-pro',
