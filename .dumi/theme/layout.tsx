@@ -2,7 +2,7 @@
 import Layout from 'dumi-theme-default/src/layout';
 import dumiContext from '@umijs/preset-dumi/lib/theme/context';
 import { ConfigProvider, Switch } from 'antd';
-import { IRouteComponentProps, isBrowser } from 'umi';
+import { IRouteComponentProps, isBrowser, useHistory } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import moment from 'moment';
@@ -53,9 +53,25 @@ const DarkButton = () => {
 
 export default ({ children, ...props }: IRouteComponentProps) => {
   const context = useContext(dumiContext);
+  const history = useHistory();
+
+  useEffect(() => {
+    // @ts-ignore
+    const lang = navigator.language || navigator.browserLanguage;
+    const isChina = /^zh/.test(lang);
+    if (isChina && props?.location?.pathname === '/') {
+      history.push('/zh-CN/');
+      return;
+    }
+    return;
+  }, []);
 
   const hasTitle = useMemo(() => {
-    return props?.location?.pathname !== '/' && props?.location?.pathname !== '/zh-CN/';
+    return (
+      props?.location?.pathname !== '/' &&
+      props?.location?.pathname !== '/zh-CN/' &&
+      props?.location?.pathname !== '/zh-CN'
+    );
   }, [props?.location?.pathname]);
   return (
     <HelmetProvider>
