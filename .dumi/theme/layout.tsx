@@ -59,8 +59,10 @@ export default ({ children, ...props }: IRouteComponentProps) => {
         <Layout {...props}>
           <>
             <Helmet>
+              <link rel="icon" href="https://pro.ant.design/favicon.png" type="image/x-icon" />
               <title>{`${context.meta.title} - Ant Design Pro`}</title>
             </Helmet>
+            {context.meta.title && <h1>{context.meta.title}</h1>}
             {children}
             <div
               style={{

@@ -28,7 +28,7 @@ export default {
     {
       'data-rh': 'keywords',
       property: 'og:image',
-      content: 'https://procomponents.ant.design/icon.png',
+      content: 'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
     },
     {
       property: 'og:description',
@@ -47,7 +47,7 @@ export default {
       content: 'yes',
     },
     {
-      name: 'apple-mobile-web-app-status-bar-style"',
+      name: 'apple-mobile-web-app-status-bar-style',
       content: 'black-translucent',
     },
   ],
