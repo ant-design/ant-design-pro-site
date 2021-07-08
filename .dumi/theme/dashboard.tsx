@@ -71,7 +71,8 @@ const Dashboard: React.FC<{ menuData: IMenuItem[] }> = ({ menuData }) => {
                             whiteSpace: 'nowrap',
                             overflow: 'hidden',
                             textOverflow: 'ellipsis',
-                            maxWidth: '11vw',
+                            maxWidth: '100%',
+                            flex: 1,
                           }}
                         >
                           {component.title}

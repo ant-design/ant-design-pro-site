@@ -53,6 +53,10 @@ const DarkButton = () => {
 
 export default ({ children, ...props }: IRouteComponentProps) => {
   const context = useContext(dumiContext);
+
+  const hasTitle = useMemo(() => {
+    return props?.location?.pathname !== '/';
+  }, [props?.location?.pathname]);
   return (
     <HelmetProvider>
       <ConfigProvider locale={zhCN}>
@@ -62,7 +66,7 @@ export default ({ children, ...props }: IRouteComponentProps) => {
               <link rel="icon" href="https://pro.ant.design/favicon.png" type="image/x-icon" />
               <title>{`${context.meta.title} - Ant Design Pro`}</title>
             </Helmet>
-            {context.meta.title && <h1>{context.meta.title}</h1>}
+            {context.meta.title && hasTitle ? <h1>{context.meta.title}</h1> : null}
             {children}
             <div
               style={{
