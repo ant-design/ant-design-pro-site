@@ -55,7 +55,7 @@ export default ({ children, ...props }: IRouteComponentProps) => {
   const context = useContext(dumiContext);
 
   const hasTitle = useMemo(() => {
-    return props?.location?.pathname !== '/';
+    return props?.location?.pathname !== '/' && props?.location?.pathname !== '/zh-CN/';
   }, [props?.location?.pathname]);
   return (
     <HelmetProvider>
