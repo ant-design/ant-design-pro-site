@@ -19,8 +19,6 @@ Then visit http://localhost:8000 .
 $ npm run site
 ```
 
-### Publish Components
+### docs
 
-```
-$ npm run publish-components
-```
+[dumi](https://d.umijs.org/)
