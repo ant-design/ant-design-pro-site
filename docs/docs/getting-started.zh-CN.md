@@ -57,13 +57,19 @@ yarn create umi myapp
   plugin          - Create a umi plugin.
 ```
 
-选择 antd 的版本，4 或者 5。
+选择 antd 的语言版本，TypeScript 或 JavaScript
 
 ```shell
-? Select the boilerplate type ant-design-pro
-? 🧙 Be the first to experience the new umi@3 ?
-❯ Pro V5
-  Pro V4
+? 🤓 Which language do you want to use? (Use arrow keys)
+❯ TypeScript
+  JavaScript
+```
+
+选择 antd 的模板，simple 是基础模板，只提供了框架运行的基本内容，complete 包含 antd 的集成方案，不太适合当基础模板来进行二次开发
+```shell
+? 🚀 Do you need all the blocks or a simple scaffold? (Use arrow keys)
+❯ simple
+  complete
 ```
 
 安装依赖：
