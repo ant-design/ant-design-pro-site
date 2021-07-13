@@ -6,8 +6,8 @@ export default function Grade({ location }) {
     {
       icon: 'https://gw.alipayobjects.com/zos/antfincdn/%24BtlIJEaI9/shandian.svg',
       title: '高效快速',
-      desc: '基于 umi 封装，项目秒启动',
-      enDesc: 'Based on the umi package, the project starts in seconds',
+      desc: '基于 Module Federation ，项目秒启动',
+      enDesc: 'Based on the Module Federation, the project starts in seconds',
       enTitle: 'Fast',
     },
     {
