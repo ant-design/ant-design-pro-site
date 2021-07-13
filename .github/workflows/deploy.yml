@@ -36,9 +36,9 @@ jobs:
       - name: site
         env:
           CI: true
-          GA_KEY: G-RMBLDHGL1N
+          GA_KEY: UA-72788897-5
           PROGRESS: none
-        run: npm run site
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
