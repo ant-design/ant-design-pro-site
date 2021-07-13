@@ -13,6 +13,8 @@ Pro 中默认会读取 `config/config.tsx` 中的 routes 配置作为 ProLayout 
 
 ## 从服务端请求菜单
 
+> 服务端获取的菜单重定向不生效且 icon 不会自动转化。重定向需要配置在路由中才会生效。 icon 需要[手工映射](https://github.com/ant-design/ant-design-pro/issues/8101)。
+
 在某些情况下，写死的菜单数据可能满足不了我们的需求，Pro 也提供了相应的解决方案来进行远程的菜单数据请求。我们这里需要用到两个 API, `menu.request` 和 `menu.params`，request 需要传入一个 promise，它会自动托管 loading，params 修改会触发 request 方便重新请求菜单。
 
 具体的代码实现如下，我们可以在 `src/app.tsx` 定义 layout 对象，并且导出。看起来可能是这样的：
