@@ -194,7 +194,7 @@ $ umi-serve
 
 ### 如何代理到后端服务器？
 
-Ant Design Pro 内置了 umi，umi 使用了 [webpack-dev-server](https://webpack.docschina.org/configuration/dev-server/) 来代理网络骑牛。你可以在 `config.js` 中配置 `proxy` 属性。`proxy` 和 `mock` 如果路径相同会优先使用 mock，如果不想使用 mock 可以用 `MOCK=none umi dev` 的方式关闭。
+Ant Design Pro 内置了 umi，umi 使用了 [webpack-dev-server](https://webpack.docschina.org/configuration/dev-server/) 来代理网络请求。你可以在 `config.js` 中配置 `proxy` 属性。`proxy` 和 `mock` 如果路径相同会优先使用 mock，如果不想使用 mock 可以用 `MOCK=none umi dev` 的方式关闭。
 
 ```tsx | pure
 {
@@ -246,7 +246,7 @@ pro 通过 umi 插件 [@umijs/plugin-locale](https://github.com/umijs/@umijs/plu
 
 ### English Documentation？
 
-English Documentation will be translated in next couple of monthes， trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) 和 [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) 了解更多细节。
+English Documentation will be translated in next couple of monthes， trace [ant-design/ant-design-pro#54](https://github.com/ant-design/ant-design-pro/issues/54#issuecomment-340804479) and [ant-design-pro/issues/120](https://github.com/ant-design/ant-design-pro/issues/120) for more details。
 
 ### Ant Design Pro 从 1.X 升级到 2.X 以及之后版本，页面进行重定向（redirect）时，页面布局组件（如 BasicLayout）会重新加载
 
@@ -260,7 +260,7 @@ export default {
 }
 ```
 
-This is a problem introduced using the umijs framework. For details, please refer to [Official Document] of umijs (https://umijs.org/zh/config/#disableredirecthoist).
+这个是使用的 umijs 框架引起的问题，更多细节请参考 umijs 的[官方文档](https://v2.umijs.org/zh/config/#disableredirecthoist)。
 
 ---
 
