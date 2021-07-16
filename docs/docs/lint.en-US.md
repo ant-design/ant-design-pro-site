@@ -86,7 +86,7 @@ this.setState((prevState) => ({ value: prevState.value + 1 }));
 
 #### [consistent-return]() does not support fix
 
-Use consistent return, if there is a return value, each render should provide a return value
+Use consistent return, if there is a return value, each return should provide a return value
 
 ```tsx | pure
 // 🔴 wrong usage
@@ -177,7 +177,7 @@ var foo = array[0];
 var foo = object.foo;
 var foo = object['foo'];
 
-// 🔴 wrong usage
+// ✅ correct usage
 var [foo] = array;
 var foo = array[someIndex];
 
