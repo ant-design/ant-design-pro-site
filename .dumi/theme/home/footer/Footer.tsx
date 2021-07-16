@@ -4,6 +4,7 @@ import { Modal } from 'antd';
 import RcFooter from 'rc-footer';
 import 'rc-footer/assets/index.css';
 import { presetPalettes } from '@ant-design/colors';
+import './index.less';
 import {
   AntDesignOutlined,
   MediumOutlined,
@@ -15,7 +16,7 @@ import {
   BookOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { isLocalStorageNameSupported } from '../utils';
+import { isLocalStorageNameSupported } from '../../utils';
 
 class Footer extends React.Component<any & { location: any }> {
   lessLoaded = false;
@@ -323,18 +324,20 @@ class Footer extends React.Component<any & { location: any }> {
 
   render() {
     return (
-      <RcFooter
-        columns={this.getColumns()}
-        bottom={
-          <>
-            Made with <span style={{ color: '#fff' }}>❤</span> by
-            {/* eslint-disable-next-line react/jsx-curly-brace-presence */}{' '}
-            <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
-              <FormattedMessage id="app.footer.company" />
-            </a>
-          </>
-        }
-      />
+      <div className="footer">
+        <RcFooter
+          columns={this.getColumns()}
+          bottom={
+            <>
+              Made with <span style={{ color: '#fff' }}>❤</span> by
+              {/* eslint-disable-next-line react/jsx-curly-brace-presence */}{' '}
+              <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
+                <FormattedMessage id="app.footer.company" />
+              </a>
+            </>
+          }
+        />
+      </div>
     );
   }
 }

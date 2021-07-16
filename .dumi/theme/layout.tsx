@@ -10,7 +10,7 @@ import useDarkreader from './useDarkreader';
 import 'moment/locale/zh-cn';
 import './layout.less';
 import Dashboard from './dashboard';
-import Footer from './home/Footer';
+import Footer from './home/footer/Footer';
 
 moment.locale('zh-cn');
 
