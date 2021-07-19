@@ -18,7 +18,7 @@ import {
 } from '@ant-design/icons';
 import { isLocalStorageNameSupported } from '../../utils';
 
-class Footer extends React.Component<any & { location: any }> {
+class Footer extends React.Component<any & { location: any; isHome: boolean }> {
   lessLoaded = false;
 
   state = {
@@ -43,25 +43,23 @@ class Footer extends React.Component<any & { location: any }> {
   }
 
   getColumns() {
-    const { intl, location } = this.props;
-
-    const isZhCN = intl.locale === 'zh-CN';
-
+    const { intl } = this.props;
     const col1 = {
       title: <FormattedMessage id="app.footer.resources" />,
       items: [
+        {
+          title: 'Ant Design',
+          url: 'https://ant.design',
+          openExternal: true,
+        },
         {
           title: 'Ant Design Charts',
           url: 'https://charts.ant.design',
           openExternal: true,
         },
         {
-          title: 'Ant Design Pro',
-          url: 'https://pro.ant.design',
-          openExternal: true,
-        },
-        {
-          title: 'Ant Design Pro Components',
+          title: 'Pro Components',
+          description: '模板组件',
           url: 'https://procomponents.ant.design',
           openExternal: true,
         },
@@ -323,8 +321,9 @@ class Footer extends React.Component<any & { location: any }> {
   }
 
   render() {
+    const { isHome } = this.props;
     return (
-      <div className="footer">
+      <div className={`footer ${isHome ? 'home-page-footer' : ''}`}>
         <RcFooter
           columns={this.getColumns()}
           bottom={

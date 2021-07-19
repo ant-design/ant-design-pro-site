@@ -131,7 +131,7 @@ export default ({ children, ...props }: IRouteComponentProps) => {
             ) : null}
           </>
         </Layout>
-        <Footer />
+        <Footer isHome={!hasTitle} />
       </ConfigProvider>
     </HelmetProvider>
   );
