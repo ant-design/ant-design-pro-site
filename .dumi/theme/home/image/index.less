@@ -62,7 +62,13 @@
     transform: none;
   }
 }
-
+html[data-darkreader-scheme='dark'] {
+  .banner {
+    .background {
+      display: none;
+    }
+  }
+}
 //banner 框架
 .banner {
   width: 100%;
@@ -74,7 +80,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    z-index: -1;
+    z-index: 9;
   }
   .content {
     width: 100%;
@@ -84,6 +90,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: relative;
+    z-index: 10;
     .banner-title-wrapper {
       width: 40%;
       height: 245px;
