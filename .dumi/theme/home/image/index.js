@@ -2,9 +2,27 @@ import React, { useEffect, useRef } from 'react';
 import styles from './index.less';
 import anime from 'animejs';
 import GitHubButton from 'react-github-button';
-import * as utils from '../../utils';
 import { FormattedMessage } from 'react-intl';
 import '../../../../node_modules/react-github-button/assets/style.less';
+import { GaussianBackground } from '../gaussian-background/index';
+
+const bannerColors = [
+  {
+    orbs: 2,
+    radius: 2,
+    maxVelocity: 0.1,
+    color: '#fbfeff',
+  },
+  {
+    orbs: 2,
+    radius: 7,
+    maxVelocity: 0.11,
+    color: '#98b3fd',
+  },
+  {
+    color: '#fca08d',
+  },
+];
 export default () => {
   const aniBg = useRef();
   const btn = useRef();
@@ -205,6 +223,9 @@ export default () => {
 
   return (
     <div className={styles.banner}>
+      <div className={styles.background}>
+        <GaussianBackground colors={bannerColors} blurRadius={16} height={520} />
+      </div>
       <div className={styles.content}>
         <div className={styles['banner-title-wrapper']}>
           <h1 style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>ANT DESIGN PRO</h1>
