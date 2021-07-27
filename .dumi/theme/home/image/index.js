@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styles from './index.less';
+import './index.less';
 import anime from 'animejs';
 import GitHubButton from 'react-github-button';
 import { FormattedMessage } from 'react-intl';
@@ -222,29 +222,26 @@ export default () => {
   }, []);
 
   return (
-    <div className={styles.banner}>
-      <div className={styles.background}>
+    <div className="banner">
+      <div className="background">
         <GaussianBackground colors={bannerColors} blurRadius={16} height={520} />
       </div>
-      <div className={styles.content}>
-        <div className={styles['banner-title-wrapper']}>
+      <div className="content">
+        <div className="banner-title-wrapper">
           <h1 style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>ANT DESIGN PRO</h1>
           <p style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>
             <FormattedMessage id="app.home.slogan" />
           </p>
-          <div
-            className={styles['button-wrapper']}
-            style={{ opacity: 1, transform: 'translate(0px, 0px)' }}
-          >
+          <div className="button-wrapper" style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>
             <a href="http://preview.pro.ant.design" target="_blank" rel="noopener noreferrer">
-              <button type="button" className="ant-btn ant-btn-primary">
+              <button type="button" className="ant-btn ant-btn-primary custom-ant-btn">
                 <FormattedMessage id="app.home.preview" />
               </button>
             </a>
             <a href="/docs/getting-started">
               <button
                 type="button"
-                className="ant-btn ant-btn-primary ant-btn-background-ghost"
+                className="ant-btn ant-btn-primary ant-btn-background-ghost custom-ant-btn"
                 style={{ margin: '0px 16px' }}
               >
                 <FormattedMessage id="app.home.start" />
@@ -258,26 +255,26 @@ export default () => {
             />
           </div>
         </div>
-        <div className={styles.con_right} onMouseEnter={handleOver} onMouseLeave={handleOut}>
-          <div ref={aniBg} className={styles.animate}>
-            <ul ref={btn} className={styles.ani_btn}>
+        <div className="con_right" onMouseEnter={handleOver} onMouseLeave={handleOut}>
+          <div ref={aniBg} className="animate">
+            <ul ref={btn} className="ani_btn">
               <li /> <li /> <li />
             </ul>
-            <ul ref={menu} className={styles.ani_menu}>
+            <ul ref={menu} className="ani_menu">
               <li /> <li /> <li />
               <li /> <li />
             </ul>
-            <ul ref={icnFolder} className={styles.ani_icn_folder}>
+            <ul ref={icnFolder} className="ani_icn_folder">
               <li /> <li /> <li />
             </ul>
-            <div ref={stfCircle} className={styles.ani_stf_circle} />
-            <div ref={stfCode} className={styles.ani_stf_code} />
-            <div ref={stfPie} className={styles.ani_stf_pie} />
-            <div ref={stfFolder} className={styles.ani_stf_folder} />
-            <div ref={stfDot} className={styles.ani_stf_dot} />
-            <div ref={stfInput} className={styles.ani_stf_input} />
-            <div ref={pnChart} className={styles.ani_pn_chart} />
-            <div ref={pnCode} className={styles.ani_pn_code} />
+            <div ref={stfCircle} className="ani_stf_circle" />
+            <div ref={stfCode} className="ani_stf_code" />
+            <div ref={stfPie} className="ani_stf_pie" />
+            <div ref={stfFolder} className="ani_stf_folder" />
+            <div ref={stfDot} className="ani_stf_dot" />
+            <div ref={stfInput} className="ani_stf_input" />
+            <div ref={pnChart} className="ani_pn_chart" />
+            <div ref={pnCode} className="ani_pn_code" />
           </div>
         </div>
       </div>
