@@ -75,7 +75,7 @@ export type UserProps = {
 
 ## 泛型
 
-在业代码中开发时我们并不推荐大家写泛型，但是为了得到更好的 typescript 体验我们可能需要了解一下常用组件库的泛型提示，这里做个简单列举。
+在业务代码中开发时我们并不推荐大家写泛型，但是为了得到更好的 typescript 体验我们可能需要了解一下常用组件库的泛型提示，这里做个简单列举。
 
 ```tsx | pure
 import ProForm from '@ant-design/pro-form';
