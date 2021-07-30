@@ -255,8 +255,8 @@ const rowSelection: TableRowSelection = {
 
 If we use the function component, it may report an error that ref cannot be found. At this time, we need to use `React.forwardRef`, but it should be noted that the type must also be modified accordingly.
 
-```tsx | pure
--React.FC<CategorySelectProps>
+```diff
+- React.FC<CategorySelectProps>
 + React.ForwardRefRenderFunction<HTMLElement, CategorySelectProps>
 ```
 
