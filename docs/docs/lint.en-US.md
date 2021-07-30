@@ -65,12 +65,12 @@ React label opening and closing should be aligned
 // 🔴 wrong usage
 <Hello>
   marklar
-  </ Hello>
+  </Hello>
 
 // ✅ correct usage
 <Hello>
   marklar
-</ Hello>
+</Hello>
 ```
 
 no-restricted-globals [react / no-access-state-in-setstate] (https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-access-state-in -setstate.md) Does not support fix Do not use this.state in this.setState
@@ -84,7 +84,7 @@ setState({ value: this.state.value + 1 }); // 2, because setState is asynchronou
 this.setState((prevState) => ({ value: prevState.value + 1 }));
 ```
 
-#### [consistent-return]() does not support fix
+#### [consistent-return](https://github.com/eslint/eslint/blob/master/docs/rules/consistent-return.md) does not support fix
 
 Use consistent return, if there is a return value, each return should provide a return value
 

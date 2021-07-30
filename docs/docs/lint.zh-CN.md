@@ -64,12 +64,12 @@ react 的标签开合应该对齐
 ```tsx | pure
 // 🔴 错误的用法
 <Hello>
-marklar
-</Hello>
+  marklar
+  </Hello>
 
 // ✅ 正确的用法
 <Hello>
-marklar
+  marklar
 </Hello>
 ```
 
@@ -84,7 +84,7 @@ setState({ value: this.state.value + 1 }); // 2, 因为 setState 为异步所以
 this.setState((prevState) => ({ value: prevState.value + 1 }));
 ```
 
-#### [consistent-return]()  不支持 fix
+#### [consistent-return](https://github.com/eslint/eslint/blob/master/docs/rules/consistent-return.md)  不支持 fix
 
 使用一致的返回，如果有返回值应该每个 return 都提供返回值
 
