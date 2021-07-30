@@ -46,7 +46,7 @@ export default () => {
 
 ### 2. Using the Model
 
-To use the model in code, you need to export useModel from umi. useModel is a React Custom Hook that can accept 1-2 parameters. The easyst usage scenario is as follows:
+To use the model in code, you need to export useModel from umi. useModel is a React Custom Hook that can accept 1-2 parameters. The easiest usage scenario is as follows:
 
 ```
 import { useModel } from 'umi';
