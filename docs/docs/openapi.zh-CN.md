@@ -50,7 +50,7 @@ openAPI 对于后端是有一些工作量的，但是工作量远远小于维护
 
 ![swagger-ui](https://gw.alipayobjects.com/zos/antfincdn/c0uvca5Mx4/184D8866-6067-43DC-8395-0DC031D1A873.png)
 
-我们需要复制 swagger 的 url 到 openapi 的配置中,以 pro 的 openapi 为例，我们配置一下：
+我们需要复制 swagger 的 url 到 openapi 的配置中，以 pro 的 openapi 为例，我们配置一下：
 
 ```tsx | pure
 openAPI: {
