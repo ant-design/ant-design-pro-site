@@ -167,7 +167,7 @@ export default {
 
 ### 文档
 
-在开发中我们不能只看代码，也是需要的看文档的。Pro 中也默认集成了一下 `swagger-ui` ，提供了一个界面可以读取当前项目中的 openapi 配置，我们可以在 Layout 右下角找到一个快捷操作:
+在开发中我们不能只看代码，也是需要看文档的。Pro 中也默认集成了以下 `swagger-ui` ，提供了一个界面可以读取当前项目中的 openapi 配置，我们可以在 Layout 右下角找到一个快捷操作:
 
 ![options](https://gw.alipayobjects.com/zos/antfincdn/htZYO3ojsm/957C1E97-466B-48aa-B107-FA7C4EFF6971.png)
 
