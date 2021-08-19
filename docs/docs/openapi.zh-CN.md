@@ -122,7 +122,7 @@ declare namespace API {
 }
 ```
 
-这样我们就可以配合 ProTable，快速搞个 CURD。
+这样我们就可以配合 ProTable，快速搞个 CRUD。
 
 ```tsx | pure
 import { rule } from '@/services/ant-design-pro/rule';
