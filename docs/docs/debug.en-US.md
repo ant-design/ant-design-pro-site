@@ -9,7 +9,7 @@ nav:
   order: 1
 ---
 
-Writing code is really only a small part of the developer's work. To make our work more efficient, we must also be proficient in debug. The best tool for front-end development right now is google's [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools?utm_source=dcc&utm_medium=redirect&utm_campaign=2018Q2), and it's also a thoughtful, multilingual version.
+Writing code is really only a small part of the developer's work. To make our work more efficient, we must also be proficient in debug. The best tool for front-end development right now is Google's [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools?utm_source=dcc&utm_medium=redirect&utm_campaign=2018Q2), and it's also a thoughtful, multilingual version.
 
 We will briefly introduce a few commonly used functions here, more functions can view the official website, look at it again can greatly improve efficiency.
 
@@ -45,7 +45,7 @@ The first is the output state, of course, in the hooks we generally output some 
 console.assert(expression, message);
 ```
 
-More detailed api to see [here](https://developer.mozilla.org/zh-CN/docs/Web/API/Console)。
+More detailed api to see [here](https://developer.mozilla.org/zh-CN/docs/Web/API/Console).
 
 Add a `debugger;` to your code; You can stop the project while the source code panel is aligned for debug, and he automatically generates a breakpoint.
 
@@ -73,15 +73,15 @@ Once you've turned on SourceMap, you can open the file selection on the source c
 
 In our development, due to the underlying understanding or compatibility issues, there is a good chance of white screen or OMM problems, there are some problems that do not have any way to debug to start. This is the time to use some debug scenarios.
 
-### The dicot positioning
+### The bisection method
 
-The disciple is the most commonly used and best-used way of debug, and it works well for my code yesterday or good and all kinds of OMM errors. We can note the program logic a little bit, constantly misnomer, completely narrow the scope of the problem, and then find out the culprit. Then use the conventional means of debugging.
+The disciple is the most commonly used and best-used way of debugging, and it works well for my code yesterday or good and all kinds of OMM errors. We can note the program logic a little bit, constantly misnomer, completely narrow the scope of the problem, and then find out the culprit. Then use the conventional means of debugging.
 
 The most common way for OMM in node is to remove half of the dependencies and try again to narrow it down until you find a problem. Two-point debugging method every time encountering a tricky bug, basically can solve, the programmer must have skills, regardless of language.
 
 ### The duckling method
 
-The most difficult process to deal with bugs is not how to solve the problem, but how to locate the code of the bug, if it is really a problem, especially the problem of algorithmclass. We can do debug through the duckling method. We can find any thing can also be colleagues to talk or discuss it again, of course, online posting is also a good way.
+The most difficult process to deal with bugs is not how to solve the problem, but how to locate the code of the bug, if it is really a problem, especially the problem of algorithmclass. We can do debug through the duckling method. We can find anything can also be colleagues to talk or discuss it again, of course, online posting is also a good way.
 
 ### Rewrite it again
 
