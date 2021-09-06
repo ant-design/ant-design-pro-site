@@ -23,7 +23,7 @@ After we just started running the project, we can see an interface. Although eas
 
 # [web technology](https://developer.mozilla.org/zh-CN/docs/Web/Reference)
 
-Web technology refers to the use of [JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference), [HTML](https://developer.mozilla.org/zh-CN/ docs/Glossary/HTML), [css](https://developer.mozilla.org/zh-CN/docs/Glossary/CSS) to build website technology, [mdn](https://developer.mozilla.org /zh-CN/docs/Web/Guide) provides a very convenient document to help us learn this knowledge.
+Web technology refers to the use of [JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference), [HTML](https://developer.mozilla.org/zh-CN/docs/Glossary/HTML), [css](https://developer.mozilla.org/zh-CN/docs/Glossary/CSS) to build website technology, [mdn](https://developer.mozilla.org/zh-CN/docs/Web/Guide) provides a very convenient document to help us learn this knowledge.
 
 ## [Node.js](https://nodejs.org/en/) Basic front-end development environment
 
