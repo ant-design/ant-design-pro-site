@@ -212,7 +212,7 @@ proxy:{
 
 在浏览器中输入 http://localhost:8000/server/api/currentUser 预览。注意，配置了 proxy 之后，本地浏览器内的请求路径不会变（依然是 localhost），但是发送的请求会被反向代理的你配置的 `target` 后端服务上。
 
-### 如何添加 scss 支持？
+### 如何添加 sass 支持？
 
 先安装额外的依赖，
 
