@@ -122,7 +122,7 @@ declare namespace API {
 }
 ```
 
-In this way, we can cooperate with ProTable to quickly make a CURD, the code is easy.
+In this way, we can cooperate with ProTable to quickly make a CRUD, the code is easy.
 
 ```tsx | pure
 import { rule } from '@/services/ant-design-pro/rule';
