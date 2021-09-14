@@ -22,7 +22,7 @@ console.log(logo); //logo.84287d09.png
 return <Image src={logo} />;
 ```
 
-In order to speed up the loading speed and reduce network requests, we will convert less than 1000k into [base64] (https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs), this version Only valid for pictures.
+In order to speed up the loading speed and reduce network requests, we will convert less than 1000k into [base64](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs), this version Only valid for pictures.
 
 You may notice that the final generated `logo.png` will become `logo.84287d09.png`. This is to ensure that the image will be updated every time the version is released. If the name is not changed, it will hit the cache of `logo.png` , You can use import without worrying about caching.
 
@@ -37,7 +37,7 @@ When compiling, all public will be moved to dist without any processing. Be sure
 
 ## Add SVG
 
-svg is a special tag, in order to facilitate management, we recommend that you convert it into a component to use. There are many [tools] (https://github.com/sairion/svg-inline-react) for converting svg into react components on the Internet. The final result is this:
+svg is a special tag, in order to facilitate management, we recommend that you convert it into a component to use. There are many [tools](https://github.com/sairion/svg-inline-react) for converting svg into react components on the Internet. The final result is this:
 
 ```tsx | pure
 return (
