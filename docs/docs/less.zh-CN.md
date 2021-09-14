@@ -11,7 +11,7 @@ nav:
 
 这篇文档主要针对如何在项目中使用和规划样式文件进行介绍，如果想获取基础的 CSS 知识或查阅属性，可以参考 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)。
 
-umi 自带了 less，css 的解析工具，所以我们可以自由的使用量两种中的任意一种。这里主要讲一下 less 的使用方式。Ant Design Pro 默认使用 less 作为样式语言，建议在使用前或者遇到疑问时学习一下 [less](http://lesscss.org/) 的相关特性。
+umi 自带了 less，css 的解析工具，所以我们可以自由的使用两种中的任意一种。这里主要讲一下 less 的使用方式。Ant Design Pro 默认使用 less 作为样式语言，建议在使用前或者遇到疑问时学习一下 [less](http://lesscss.org/) 的相关特性。
 
 ## `index.less`
 
