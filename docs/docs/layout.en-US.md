@@ -71,20 +71,18 @@ We can configure the menu in the route to determine whether the current route wi
   ];
   ```
 
-````
-
 ### Menu internationalization
 
 Enable internationalization through the [locale](https://umijs.org/plugins/plugin-layout#locale) configuration of the layout configuration.
 
 After opening, the menu name configured in the route will be used as the key for the internationalization of the menu name, and the plug-in will search for the text corresponding to menu.[key] in the locales file. The default value is to change the key.
 
-  ```tsx | pure
+```tsx | pure
 // locale/zh-CN.js
 export default {
   'menu.overview': 'Overview',
 };
-````
+```
 
 ### Navigate the upper right corner
 
@@ -308,11 +306,9 @@ Sometimes our menu may display at top, left or left and top either, This can be 
   };
   ```
 
-````
+Tips: When the layout mode is `mix`，click the first menu, page cannot route they first children menu page, you can add `redirect` at route.
 
-> Tips: When the layout mode is `mix`，click the first menu, page cannot route they first children menu page, you can add `redirect` at route.
-
-  ```tsx | pure
+```tsx | pure
 [
   {
     "path": "/test/list",
@@ -326,7 +322,7 @@ Sometimes our menu may display at top, left or left and top either, This can be 
     "redirect": "./test/list"
   }
 ]
-````
+```
 
 ## Custom layout
 
