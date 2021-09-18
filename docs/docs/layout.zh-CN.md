@@ -19,7 +19,7 @@ Pro 中内置了 [plugin-layout](https://umijs.org/zh-CN/plugins/plugin-layout) 
 
 layout 插件 与[pro-layout](https://github.com/ant-design/ant-design-pro-layout) 配置的配置形同。
 
-推荐先使用 [Pro 站点](https://preview.pro.ant.design/dashboard/analysis?primaryColor=daybreak) 的右侧抽屉来帮助你完成布局相关的整体风格、主题色、导航模式、内容区域宽度、固定 Header、固定侧边菜单、色弱模式等配置选择。然后将拷贝的配置粘贴与 layout 配置中。
+推荐先使用 [Pro 站点](https://preview.pro.ant.design/dashboard/analysis?primaryColor=daybreak) 的右侧抽屉来帮助你完成布局相关的整体风格、主题色、导航模式、内容区域宽度、固定 Header、固定侧边菜单、色弱模式等配置选择。然后将拷贝的配置粘贴在 layout 配置中。
 
 ![Pro 站点](https://gw.alipayobjects.com/mdn/rms_30ab81/afts/img/A*NhA4To_Ccn8AAAAAAAAAAABkARQnAQ)
 
@@ -49,7 +49,7 @@ export const config = defineConfig({
 
 我们可以在 route 中进行 menu 相关配置，来决定当前路由是否会被渲染在菜单中。[详细配置说明](https://umijs.org/zh-CN/plugins/plugin-layout)
 
-- 当不需要展示在菜单中展示时，可以在路由上配置 hideInMenu 或者删除 menu 相关的配置；
+- 当不需要在菜单中展示时，可以在路由上配置 hideInMenu 或者删除 menu 相关的配置；
 - 当不需要展示 children 时，可以在路由上配置 hideChildrenInMenu；
 - 当不需要展示自己，只展示 children，可以在路由上配置 flatMenu；
 - 如果没有配置 menu，没有配置 name 的话，则该路由不会在侧边栏中出现。
