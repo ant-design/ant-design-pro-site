@@ -13,7 +13,7 @@ nav:
 
 Ant Design Pro 在力求提供开箱即用的开发体验，为此我们提供完整的脚手架，涉及[国际化](https://umijs.org/zh-CN/plugins/plugin-locale)，[权限](https://umijs.org/zh-CN/plugins/plugin-access)，mock，[数据流](https://umijs.org/zh-CN/plugins/plugin-model)，[网络请求](https://umijs.org/zh-CN/plugins/plugin-request)等各个方面。为这些中后台中常见的方案提供了最佳实践来减少学习和开发成本。
 
-同时为了提供更加高效的开发体验，我们提供了一些列模板组件，[ProLayout](https://procomponents.ant.design/components/layout)，[ProTable](https://procomponents.ant.design/components/table)，[ProList](https://procomponents.ant.design/components/list) 都是开发中后台的好帮手，可以显著的减少样板代码。
+同时为了提供更加高效的开发体验，我们提供了一系列模板组件，[ProLayout](https://procomponents.ant.design/components/layout)，[ProTable](https://procomponents.ant.design/components/table)，[ProList](https://procomponents.ant.design/components/list) 都是开发中后台的好帮手，可以显著的减少样板代码。
 
 我们可以通过下面的大图来了解整个 Ant Design Pro 的架构。
 
