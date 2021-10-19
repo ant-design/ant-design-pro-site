@@ -69,7 +69,7 @@ openAPI: {
 
 ```tsx | pure
 openAPI: {
-   requestLibPath: "import request from '@utils/request",
+   requestLibPath: "import request from '@utils/request'",
    // 这里使用 copy 的 url
    schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json",
    mock: false,
