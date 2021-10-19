@@ -73,6 +73,14 @@ export default ({ children, ...props }: IRouteComponentProps) => {
       props?.location?.pathname !== '/zh-CN'
     );
   }, [props?.location?.pathname]);
+
+  const title = useMemo(() => {
+    if (context?.meta?.title) {
+      return `${context.meta.title} - Ant Design Pro`;
+    }
+    return `Ant Design Pro`;
+  }, [context?.meta?.title]);
+
   return (
     <HelmetProvider>
       <ConfigProvider locale={zhCN}>
@@ -80,7 +88,7 @@ export default ({ children, ...props }: IRouteComponentProps) => {
           <>
             <Helmet>
               <link rel="icon" href="https://pro.ant.design/favicon.png" type="image/x-icon" />
-              <title>{`${context.meta.title} - Ant Design Pro`}</title>
+              <title>{title}</title>
             </Helmet>
             {context.meta.title && hasTitle ? <h1>{context.meta.title}</h1> : null}
             {children}
