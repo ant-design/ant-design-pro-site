@@ -86,8 +86,28 @@ const Page: React.FC = () => {
     yField: 'value',
     point: {
       size: 5,
-      shape: 'diamond',
+      shape: 'diamond | circule',
     },
+       tooltip: {
+      formatter: (data) => {
+        return {
+          name:"",
+          value: any,
+        };
+      },
+      customContent: (name, data) =>
+        `<div>${data?.map((item) => {
+          return `<div class="tooltip-chart" >
+              <span class="tooltip-item-name">${item?.name}</span>
+              <span class="tooltip-item-value">${item?.value}</span>
+            </div>`;
+        })}</div>`,
+      showMarkers: boolean,
+      showContent: boolean,
+      position: "right | left",
+      showCrosshairs: boolean,
+    },
+
   };
   return <Line {...config} />;
 };
