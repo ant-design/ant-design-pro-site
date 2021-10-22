@@ -37,10 +37,10 @@ If you use yarn or npm, you can install it directly:
 
 Sometimes the chart size is relatively large, and CDN is needed to speed up the loading. In the CDN mode, due to the different underlying dependencies, in order to reduce the package volume, starting from version 1.0.5, the organization chart, flowchart, capital flow chart, and indented tree chart are packaged into charts_g6.min.js, and other charts are packaged into In charts.min.js, you can import it on demand when you use it.
 
-We first need to configure in the script in config/config.ts:
+We first need to configure in the scripts in config/config.ts:
 
 ```tsx | pure
-script: [
+scripts: [
   'https://unpkg.com/react@17/umd/react.production.min.js',
   'https://unpkg.com/react-dom@17/umd/react-dom.production.min.js',
   'https://unpkg.com/@ant-design/charts@1.0.5/dist/charts.min.js',
