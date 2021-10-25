@@ -37,10 +37,10 @@ nav:
 
 有些时候图表体积比较大就需要通过 CDN 的方式来加快加载。 CDN 模式下由于底层依赖不一样，为了降低包体积，从 1.0.5 版本开始，组织架构图、流程图、资金流向图、缩进树图被打包到 charts_g6.min.js 里，其它图表打包到 charts.min.js 里，使用时按需引入即可。
 
-我们首先需要在 `config/config.ts` 中的 `script` 中配置:
+我们首先需要在 `config/config.ts` 中的 `scripts` 中配置:
 
 ```tsx | pure
-script: [
+scripts: [
   'https://unpkg.com/react@17/umd/react.production.min.js',
   'https://unpkg.com/react-dom@17/umd/react-dom.production.min.js',
   'https://unpkg.com/@ant-design/charts@1.0.5/dist/charts.min.js',
