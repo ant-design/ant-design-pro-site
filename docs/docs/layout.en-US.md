@@ -49,7 +49,7 @@ export const config = defineConfig({
 
 We can configure the menu in the route to determine whether the current route will be rendered in the menu. [Detailed configuration instructions](https://umijs.org/plugins/plugin-layout#menu)
 
-- hen you do not need to display in the menu, you can configure hideInMenu on the route or delete the menu-related configuration;
+- When you do not need to display in the menu, you can configure hideInMenu on the route or delete the menu-related configuration;
 - When you don't need to show children, you can configure hideChildrenInMenu on the route;
 - When you do not need to show yourself, only show children, you can configure flatMenu on the route;
 - If the menu is not configured, and the name is not configured, the route will not appear in the sidebar.
