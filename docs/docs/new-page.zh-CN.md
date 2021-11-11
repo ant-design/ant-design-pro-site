@@ -116,7 +116,7 @@ export default [
 具体值如下：
 
 - `name:string` 配置菜单的 name，如果配置了国际化，name 为国际化的 key。
-- `icon:string` 配置菜单的图表，默认使用 antd 的 icon 名，默认不适用二级菜单的 icon。
+- `icon:string` 配置菜单的图标，默认使用 antd 的 icon 名，默认不适用二级菜单的 icon。
 - `access:string` 权限配置，需要预先配置权限
 - `hideChildrenInMenu:true` 用于隐藏不需要在菜单中展示的子路由。
 - `hideInMenu:true` 可以在菜单中不展示这个路由，包括子路由。
