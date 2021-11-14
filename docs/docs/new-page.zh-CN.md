@@ -51,6 +51,8 @@ export default () => {
 
 在脚手架中我们通过嵌套路由来实现布局模板。[`config.ts`](https://github.com/ant-design/ant-design-pro/blob/33f562974d1c72e077652223bd816a57933fe242/config/config.ts) 是一个数组，其中第一级数据就是我们的布局，如果你需要新增布局可以再直接增加一个新的一级数据。
 
+> layouts 文件时一个约定，layout 都应该放入其中。v5 没有了内置的布局，所以没有这个文件夹，如果你的项目中没有手动创建即可。
+
 ```tsx | pure | pure
 export default [
  // user
