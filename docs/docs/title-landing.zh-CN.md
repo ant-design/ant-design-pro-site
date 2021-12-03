@@ -75,7 +75,7 @@ Pro 的默认 favicon 的配置存在于 `src\pages\document.ejs`, 我们可以�
 
 ### js 加载前
 
-首先是的在 js 还没加载成功，但是 html 已经加载成功的 landing 页面。这个页面的配置存在于 `src\pages\document.ejs` 中。它使用了 `home_bg.png` ,`pro_icon.svg` 和 `KDpgvguMpGfqaHPjicRK.svg` 三个带有品牌信息的图片，你可以按需修改他们。
+首先是在 js 还没加载成功，但是 html 已经加载成功的 landing 页面。这个页面的配置存在于 `src\pages\document.ejs` 中。它使用了 `home_bg.png` ,`pro_icon.svg` 和 `KDpgvguMpGfqaHPjicRK.svg` 三个带有品牌信息的图片，你可以按需修改他们。
 
 ![首页加载图](https://gw.alipayobjects.com/zos/antfincdn/xp9h2lyw8d/500D5525-C5A4-4ce8-9CB3-B76D14B50B98.png)
 
