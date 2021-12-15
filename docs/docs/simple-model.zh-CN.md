@@ -67,7 +67,7 @@ useModel 可以接受一个可选的第二个参数，可以用于性能优化�
 import { useModel } from 'umi';
 
 export default () => {
-  const { add, minus } = useModel('model', (ret) => ({
+  const { add, minus } = useModel('counter', (ret) => ({
     add: ret.increment,
     minus: ret.decrement,
   }));
