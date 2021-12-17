@@ -19,7 +19,9 @@ If you need it, you may need to write e2e test scripts specifically. Instead of 
 
 Jest will find all files in the following paradigm:
 
--Files with the suffix `.js` `__tests__` in the folder -Files with the suffix of `.test.js` -`.spec.js` suffix file
+- Files with `.js` suffix in `__tests__` folders
+- Files with `.test.js` suffix
+- Files with `.spec.js` suffix
 
 These files and folders can be located at any depth, but we recommend placing the test files (or folders) next to the code they are testing, so that the relative path import looks shorter. Putting the same path also helps Find tests faster in large projects.
 
