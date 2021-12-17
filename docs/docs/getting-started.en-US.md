@@ -48,6 +48,10 @@ A successful scaffold log.
 
 The development can begin after the initialization of the scaffolding is successful, and we have provided some commands to assist in the development.
 
+### `cd myapp` && `npm install`
+
+Run this first to install/update any required dependencies.
+
 ### `start`
 
 Running this script starts the service and automatically opens the default browser to show your page. When you re-edit the code, the page will also refresh automatically.
