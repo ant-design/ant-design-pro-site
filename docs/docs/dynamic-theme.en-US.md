@@ -1,6 +1,6 @@
 ---
 order: 22
-title: Dynamic-Theme
+title: Dynamic Theme
 group:
   title: styles and resources
 nav:
@@ -9,73 +9,158 @@ nav:
   order: 1
 ---
 
-## CSS Modules
+In addition to less custom themes, we also provide the [CSS Variable](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) version to support the ability to dynamically switch themes. This function has been built in the new version of the layout.
 
-Two issues stand out in the style development process.
+> The dynamic theme based on CSS Variable has many advantages. It has better performance and can be dynamically updated, but it is not compatible with ie11. If you want to support ie, you cannot use this feature.
 
-- global contamination -- selectors in CSS files are globally valid, and selectors of the same name in different files, depending on the order in which they are generated in the file after build, will be overwritten by the styles that follow.
-- Selector complexity -- to avoid the above problems, we have to be careful when writing styles, class names will take on the scope of the marker, become longer and longer, multi-person development can also easily lead to naming style confusion, the number of selectors used on an element may also be more and more.
+## how to use
 
-To solve these problems, our scaffolding defaults to the CSS Modules modularity scheme, so let's look at how to write styles in this mode.
+### All variables supported
+
+```css | pure
+html {
+  --ant-primary-color: #1890ff;
+  --ant-primary-color-hover: #40a9ff;
+  --ant-primary-color-active: #096dd9;
+  --ant-primary-color-outline: rgba(24, 144, 255, 0.2);
+  --ant-primary-1: #e6f7ff;
+  --ant-primary-2: #bae7ff;
+  --ant-primary-3: #91d5ff;
+  --ant-primary-4: #69c0ff;
+  --ant-primary-5: #40a9ff;
+  --ant-primary-6: #1890ff;
+  --ant-primary-7: #096dd9;
+  --ant-primary-color-deprecated-pure: ;
+  --ant-primary-color-deprecated-l-35: #cbe6ff;
+  --ant-primary-color-deprecated-l-20: #7ec1ff;
+  --ant-primary-color-deprecated-t-20: #46a6ff;
+  --ant-primary-color-deprecated-t-50: #8cc8ff;
+  --ant-primary-color-deprecated-f-12: rgba(24, 144, 255, 0.12);
+  --ant-primary-color-active-deprecated-f-30: rgba(230, 247, 255, 0.3);
+  --ant-primary-color-active-deprecated-d-02: #dcf4ff;
+  --ant-success-color: #52c41a;
+  --ant-success-color-hover: #73d13d;
+  --ant-success-color-active: #389e0d;
+  --ant-success-color-outline: rgba(82, 196, 26, 0.2);
+  --ant-success-color-deprecated-bg: #f6ffed;
+  --ant-success-color-deprecated-border: #b7eb8f;
+  --ant-error-color: #ff4d4f;
+  --ant-error-color-hover: #ff7875;
+  --ant-error-color-active: #d9363e;
+  --ant-error-color-outline: rgba(255, 77, 79, 0.2);
+  --ant-error-color-deprecated-bg: #fff2f0;
+  --ant-error-color-deprecated-border: #ffccc7;
+  --ant-warning-color: #faad14;
+  --ant-warning-color-hover: #ffc53d;
+  --ant-warning-color-active: #d48806;
+  --ant-warning-color-outline: rgba(250, 173, 20, 0.2);
+  --ant-warning-color-deprecated-bg: #fffbe6;
+  --ant-warning-color-deprecated-border: #ffe58f;
+  --ant-info-color: #1890ff;
+  --ant-info-color-deprecated-bg: #e6f7ff;
+  --ant-info-color-deprecated-border: #91d5ff;
+}
+```
+
+### umd method
+
+If you are using the umd package, you need to modify the css reference.
 
 ```tsx | pure
-// example.ts
-import styles from '. /example.less';
-export default ({ title }) => <div className={styles.title}>{title}</div>;
+- import'antd/dist/antd.min.css';
+++ import'antd/dist/antd.variable.min.css';
 ```
 
-```css
-/* example.less */
-.title {
-  margin-bottom: 16px;
-  color: @heading-color;
-  font-weight: 600;
+Then you can use static methods to configure the theme:
+
+```tsx | pure
+import { ConfigProvider } from 'antd';
+
+ConfigProvider.config({
+  theme: {
+    primaryColor: '#25b864',
+  },
+});
+```
+
+### less method
+
+If you use the less method, first you set `@root-entry-name: default;` at the entry. The entry file of less may be difficult to find, you can configure it in the theme configuration of `config/config.ts`
+
+```tsx | pure
+theme: {
+    'root-entry-name':'variable',
 }
 ```
 
-Writing styles in less doesn't seem to change much, just the class name is easy (as it is in the actual project), the change in the js file is that when setting the className, the original string is replaced with an object property, the property name is the same as the corresponding class name in the less file, and the object is introduced from the less file.
+If you manually imported antd's less, it is recommended to use the following replacement
 
-In the style file above, `.title` will only take effect in this file, you can use the selector with the same name in any other file and it will not affect it. But sometimes we just want a style that takes effect globally? You can use `:global`.
+```less | pure
+- @import'~antd/es/style/themes/default.less';
+++ @import (reference)'~antd/es/style/themes/index';
+```
 
-```css
-/* example.less */
-.title {
-  margin-bottom: 16px;
-  color: @heading-color;
-  font-weight: 600;
-}
+Then you can use static methods to configure the theme:
 
-/* Define global styles */
-:global(.text) {
-  font-size: 16px;
-}
+```tsx | pure
+import { ConfigProvider } from 'antd';
 
-/* Define multiple global styles */
-:global {
-  .footer {
-    color: #ccc;
-  }
-  .sider {
-    background: #ebebeb;
-  }
+ConfigProvider.config({
+  theme: {
+    primaryColor: '#25b864',
+  },
+});
+```
+
+## Pro comes with components
+
+After v5.2.0, Pro has built-in SettingDrawer. After opening, you can directly see the small gear on the right. After opening, some dynamic theme functions are added.
+
+![img](https://gw.alipayobjects.com/zos/antfincdn/7%269blFI8X/0C9925F5-9479-443A-B71D-65CCDAF69B80.png)
+
+This component can also control the state of the layout through the control of `initialValues`.
+
+### How to turn off the dynamic setting of SettingDrawer?
+
+SettingDrawer is actually built-in in `src/app.tsx`, if you want to delete it, you can delete it in `app.tsx`.
+
+```tsx | pure
+childrenRender: (children, props) => {
+      // if (initialState?.loading) return <PageLoading />;
+      return (
+        <>
+          {children}
+          {!props.location?.pathname?.includes('/login') && (
+            <SettingDrawer
+              enableDarkTheme
+              settings={initialState?.settings}
+              onSettingChange={(settings) => {
+                setInitialState((preInitialState) => ({
+                  ...preInitialState,
+                  settings,
+                }));
+              }}
+            />
+          )}
+        </>
+      );
+    },
+```
+
+### IE11 compatible
+
+CSS Variable does not support IE11. In order to support IE11, we have to turn off the default dynamic theme.
+
+First, we have to turn off the theme configuration, you can find it in the theme field of `config/config.ts`,
+
+```tsx | pure
+theme: {
+    'root-entry-name':'variable',
 }
 ```
 
-The basic principle of CSS Modules is easy: each class name (not declared by :global) is transformed according to certain rules to ensure that it is unique. If you look at the dom structure of this example in your browser, you'll see that it actually renders like this
+Delete it, or set it to `'root-entry-name':'default'`, then you need to delete the SettingDrawer in `src/app.tsx`, so that you can play "happily" under ie11.
 
-```html
-<div class="title___3TqAx">title</div>
-```
+### Black theme
 
-The class name is automatically added with a hash value, which ensures that it is unique.
-
-In addition to the basics above, there are some key points to note.
-
-- CSS Modules only converts `className` and `id`, other things like attribute selectors, tag selectors are not handled, and it is recommended to use className as much as possible.
-- Since you don't have to worry about duplicate class names, your className can be as easy as possible with basic semantics.
-
-The above is only a very basic introduction to CSS Modules, for those interested you can refer to the following other documentation.
-
-- [github/css-modules](https://github.com/css-modules/css-modules)
-- [CSS Modules Usage Tutorial](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)
-- [CSS Modules Explained and Practiced in React](https://github.com/camsong/blog/issues/5)
+Pro’s dynamic black theme is based on [darkreader](https://github.com/darkreader/darkreader), you can configure `enableDarkTheme={false}` to turn it off.

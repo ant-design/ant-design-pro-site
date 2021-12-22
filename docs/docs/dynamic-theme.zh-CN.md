@@ -116,7 +116,7 @@ ConfigProvider.config({
 
 在 v5.2.0 之后 Pro 内置了 SettingDrawer ，在打开之后就可以直接看到右边的小齿轮，打开之后增加了一些动态主题的功能。
 
-![](这里是一张图)
+![img](https://gw.alipayobjects.com/zos/antfincdn/7%269blFI8X/0C9925F5-9479-443A-B71D-65CCDAF69B80.png)
 
 这个组件通过对 `initialValues` 的控制还可以控制 layout 的状态。
 
