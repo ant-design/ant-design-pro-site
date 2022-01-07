@@ -20,7 +20,7 @@ const settings: LayoutSettings & {
   pwa?: boolean;
   logo?: string;
 } = {
-  // Modify the logo in the upper right corner
+  // Modify the logo in the upper left corner
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   // Set the title of the title
   title: 'Ant Design Pro',
