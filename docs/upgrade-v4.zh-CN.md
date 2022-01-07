@@ -26,6 +26,6 @@ yarn add @ant-design/pro-layout
 
 ### 替换 BasicLayout
 
-于 `src/layouts` 目录下，删除 `BasicLayout.js` 和 `BasicLayout.less`。用 [新版 `BasicLayout.tsx`](https://github.com/ant-design/ant-design-pro/blob/master/src/layouts/BasicLayout.tsx) 替换掉。
+于 `src/layouts` 目录下，删除 `BasicLayout.js` 和 `BasicLayout.less`。用 [新版 `BasicLayout.tsx`](https://github.com/ant-design/ant-design-pro/blob/v4/src/layouts/BasicLayout.tsx) 替换掉。
 
 > 如果你修改了原 `BasicLayout`，记得将更改的逻辑应用到替换后的文件中。
