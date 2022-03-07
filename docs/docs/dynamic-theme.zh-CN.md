@@ -122,7 +122,7 @@ ConfigProvider.config({
 
 ### 如何关掉 SettingDrawer 动态设置？
 
-SettingDrawer 实在 `src/app.tsx` 中内置的，如果要删除可以在 `app.tsx` 中删除它。
+SettingDrawer 是在 `src/app.tsx` 中内置的，如果要删除可以在 `app.tsx` 中删除它。
 
 ```tsx | pure
 childrenRender: (children, props) => {
