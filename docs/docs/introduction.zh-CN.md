@@ -57,7 +57,7 @@ TypeScript 是 javascript 的超集，TypeScript 不仅包含 [JavaScript](https
 
 Ant Design 是一套企业级 UI 设计语言和 React 组件库。作为西湖区最好的组件库，它极大的提升了中后台开发的效率，广受国内外开发者的喜爱。
 
-## [Ant Design Chart](https://charts.ant.design/zh-CN)简单好用的 React 图表库
+## [Ant Design Chart](https://charts.ant.design/zh)简单好用的 React 图表库
 
 Ant Design Charts 是开箱即用、易于配置、具有良好视觉和交互体验的通用统计图表库，基于 g2 的高交互可视化图形语法的同时预设了配置，一个组件即可实现多种复杂的图表。
 
