@@ -75,7 +75,7 @@ export const config = defineConfig({
 
 通过 layout 配置的 [locale](https://umijs.org/zh-CN/plugins/plugin-layout#locale) 配置开启国际化。
 
-开启后路由里配置的菜单名会被当作菜单名国际化的 key，插件会去 locales 文件中查找 menu.[key]对应的文案，默认值为改 key。
+开启后路由里配置的菜单名会被当作菜单名国际化的 key，插件会去 locales 文件中查找 menu.[key]对应的文案，默认值为该 key。
 
 ```tsx | pure
 // locale/zh-CN.js
