@@ -9,7 +9,7 @@ nav:
   order: 1
 ---
 
-Pro 中是用 TypeScript 来作为默认的开发语言，TypeScript 的好处已经无须赘述，无论是开发成本还是维护成本都能大大减少，是中后台开发的必选。这里分几个维度来聊一下 Pro 中对于 TypeScript 的最佳实践。
+Pro 中使用 TypeScript 来作为默认的开发语言，TypeScript 的好处已经无须赘述，无论是开发成本还是维护成本都能大大减少，是中后台开发的必选。这里分几个维度来聊一下 Pro 中对于 TypeScript 的最佳实践。
 
 ## 什么时候推荐用 type 什么时候用 interface ？
 
