@@ -22,7 +22,7 @@ nav:
  npm i @umijs/plugin-openapi --save
 ```
 
-然后再 `config/config.ts` 中配置 openAPI 的相关配置。
+然后在 `config/config.ts` 中配置 openAPI 的相关配置。
 
 ```tsx | pure
 openAPI: {
@@ -34,7 +34,7 @@ openAPI: {
  }
 ```
 
-还需要再 package.json 的 scripts 中增加一个命令。
+还需要在 package.json 的 scripts 中增加一个命令。
 
 ```ts
 "openapi": "umi openapi",
