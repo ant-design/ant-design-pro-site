@@ -75,7 +75,7 @@ yarn create umi myapp
 安装依赖：
 
 ```shell
-$ cd myapp && tyarn
+$ cd myapp && yarn
 // 或
 $ cd myapp && npm install
 ```
