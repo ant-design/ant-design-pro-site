@@ -75,7 +75,7 @@ yarn create umi myapp
 安装依赖：
 
 ```shell
-$ cd myapp && tyarn
+$ cd myapp && yarn
 // 或
 $ cd myapp && npm install
 ```
@@ -84,7 +84,7 @@ $ cd myapp && npm install
 
 ```shell
 // 打开开发模式下页面右下角的小气泡，方便添加区块和模版等pro资产
-$ tyarn add @umijs/preset-ui -D
+$ yarn add @umijs/preset-ui -D
 // 或
 $ npm install --save-dev @umijs/preset-ui
 ```
