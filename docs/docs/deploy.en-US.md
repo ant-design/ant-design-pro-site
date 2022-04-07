@@ -66,7 +66,7 @@ server {
 
     location / {
         # 用于配合 browserHistory使用
-        try_files $uri $uri/ /index.html;
+        try_files $uri $uri/index.html /index.html;
 
         # 如果有资源，建议使用 https + http2，配合按需加载可以获得更好的体验
         # rewrite ^/(.*)$ https://preview.pro.ant.design/$1 permanent;
@@ -89,7 +89,7 @@ server {
 
   location / {
         # 用于配合 browserHistory使用
-        try_files $uri $uri/ /index.html;
+        try_files $uri $uri/index.html /index.html;
 
   }
   location /api {
