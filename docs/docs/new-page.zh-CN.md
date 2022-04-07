@@ -127,6 +127,7 @@ export default [
 - `footerRender:false` 当前路由不展示页脚
 - `menuRender: false` 当前路由不展示菜单
 - `menuHeaderRender: false` 当前路由不展示菜单顶栏
+- `parentKeys: string[]` 当此节点被选中的时候也会选中 parentKeys 的节点
 - `flatMenu` 子项往上提，只是不展示父菜单
 
 ### 在菜单中使用 iconFont
