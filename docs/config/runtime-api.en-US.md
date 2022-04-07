@@ -81,6 +81,9 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
     // Customize the 403 page
     // unAccessible: <div>unAccessible</div>,
     ...initialState?.settings,
+    childrenRender: (children) => {
+      return <div>{children}</div>;
+    },
   };
 };
 ```
