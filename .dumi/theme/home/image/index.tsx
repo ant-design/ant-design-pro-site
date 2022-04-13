@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import './index.less';
-import anime from 'animejs';
+import anime, { AnimeTimelineInstance } from 'animejs';
 import GitHubButton from 'react-github-button';
 import { FormattedMessage } from 'react-intl';
-import '../../../../node_modules/react-github-button/assets/style.less';
 import { GaussianBackground } from '../gaussian-background/index';
+import useHover from 'ahooks/es/useHover';
+import '../../../../node_modules/react-github-button/assets/style.less';
+import './index.less';
 
 const bannerColors = [
   {
@@ -23,36 +24,50 @@ const bannerColors = [
     color: '#fca08d',
   },
 ];
-export default () => {
-  const aniBg = useRef();
-  const btn = useRef();
-  const menu = useRef();
-  const stfCircle = useRef();
-  const stfCode = useRef();
-  const stfPie = useRef();
-  const stfFolder = useRef();
 
-  const stfInput = useRef();
-  const icnFolder = useRef();
-  const stfDot = useRef();
-  const pnChart = useRef();
-  const pnCode = useRef();
+const Image: React.FC = () => {
+  const aniBg = useRef<HTMLDivElement>(null);
+  const btn = useRef<HTMLUListElement>(null);
+  const menu = useRef<HTMLUListElement>(null);
+  const stfCircle = useRef<HTMLDivElement>(null);
+  const stfCode = useRef<HTMLDivElement>(null);
+  const stfPie = useRef<HTMLDivElement>(null);
+  const stfFolder = useRef<HTMLDivElement>(null);
 
-  const animationRef = useRef();
-  const handleOver = () => {
-    if (animationRef.current.reversed) animationRef.current.reverse();
-    animationRef.current.play();
-    // console.log(btn);
+  const stfInput = useRef<HTMLDivElement>(null);
+  const icnFolder = useRef<HTMLUListElement>(null);
+  const stfDot = useRef<HTMLDivElement>(null);
+  const pnChart = useRef<HTMLDivElement>(null);
+  const pnCode = useRef<HTMLDivElement>(null);
+
+  const animationRef = useRef<AnimeTimelineInstance | null>(null);
+  const hoverElementRef = useRef<HTMLDivElement>(null);
+
+  const handleOver = (): void => {
+    if (animationRef.current?.reversed) {
+      animationRef.current.reverse();
+    }
+    if (animationRef.current) {
+      animationRef.current.play();
+    }
   };
-  const handleOut = () => {
-    if (!animationRef.current.reversed) animationRef.current.reverse();
-    animationRef.current.play();
-    // console.log(animationRef.current);
+  const handleOut = (): void => {
+    if (!animationRef.current?.reversed) {
+      animationRef.current.reverse();
+    }
+    if (animationRef.current) {
+      animationRef.current.play();
+    }
   };
+
+  useHover(hoverElementRef, {
+    onEnter: handleOver,
+    onLeave: handleOut,
+  });
 
   useEffect(() => {
     animationRef.current = anime.timeline({
-      easing: 'easeInElastic(2,1)',
+      easing: 'easeInElastic(2, 1)',
       duration: 400,
       autoplay: false,
     });
@@ -114,9 +129,12 @@ export default () => {
       .add(
         {
           targets: menu.current.children,
-          backgroundColor: function (el, i) {
-            if (i == 1) return '#3E64F0';
-            else return '#E1E9EE';
+          backgroundColor(el: Element, i: number) {
+            if (i === 1) {
+              return '#3E64F0';
+            } else {
+              return '#E1E9EE';
+            }
           },
           width: [56, 32, 52],
           translateX: 4,
@@ -228,11 +246,11 @@ export default () => {
       </div>
       <div className="content">
         <div className="banner-title-wrapper">
-          <h1 style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>ANT DESIGN PRO</h1>
-          <p style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>
+          <h1 style={{ opacity: 1, transform: 'translate(0, 0)' }}>ANT DESIGN PRO</h1>
+          <p style={{ opacity: 1, transform: 'translate(0, 0)' }}>
             <FormattedMessage id="app.home.slogan" />
           </p>
-          <div className="button-wrapper" style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>
+          <div className="button-wrapper" style={{ opacity: 1, transform: 'translate(0, 0)' }}>
             <a href="http://preview.pro.ant.design" target="_blank" rel="noopener noreferrer">
               <button type="button" className="ant-btn ant-btn-primary custom-ant-btn">
                 <FormattedMessage id="app.home.preview" />
@@ -242,7 +260,7 @@ export default () => {
               <button
                 type="button"
                 className="ant-btn ant-btn-primary ant-btn-background-ghost custom-ant-btn"
-                style={{ margin: '0px 16px' }}
+                style={{ margin: '0 16px' }}
               >
                 <FormattedMessage id="app.home.start" />
               </button>
@@ -255,17 +273,24 @@ export default () => {
             />
           </div>
         </div>
-        <div className="con_right" onMouseEnter={handleOver} onMouseLeave={handleOut}>
+        <div className="con_right" ref={hoverElementRef}>
           <div ref={aniBg} className="animate">
             <ul ref={btn} className="ani_btn">
-              <li /> <li /> <li />
+              <li />
+              <li />
+              <li />
             </ul>
             <ul ref={menu} className="ani_menu">
-              <li /> <li /> <li />
-              <li /> <li />
+              <li />
+              <li />
+              <li />
+              <li />
+              <li />
             </ul>
             <ul ref={icnFolder} className="ani_icn_folder">
-              <li /> <li /> <li />
+              <li />
+              <li />
+              <li />
             </ul>
             <div ref={stfCircle} className="ani_stf_circle" />
             <div ref={stfCode} className="ani_stf_code" />
@@ -281,3 +306,5 @@ export default () => {
     </div>
   );
 };
+
+export default Image;
