@@ -19,7 +19,7 @@ nav:
 
 ### 一、新建 Model
 
-在 `src/models` 目录下新建文件，文件名会成为 model 的 namespace. 允许使用 ts, js, tsx(不推荐), jsx(不推荐) 四种后缀。
+在 `src/models` 目录下新建文件，文件名会成为 model 的 namespace. 允许使用 ts, js, tsx(推荐), jsx(不推荐) 四种后缀。
 
 > eg. `demo.ts` 的 namespace 是 `demo`
 
