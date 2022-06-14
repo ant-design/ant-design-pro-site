@@ -11,7 +11,7 @@ nav:
 
 很多时候我们都需要一个美观大方的图表页来充当首页，在快速展示大盘信息的同时还能吸引眼球，提升系统的质感。所以我们也做了一个图表库 Ant Design Charts。
 
-[Ant Design Charts](https://charts.ant.design/zh-CN/guide) 是 [G2Plot](https://antv-g2plot.gitee.io/zh/examples/gallery) 的 React 版本，基于 React、TypeScript 封装了所有的 G2Plot 图表，继承了 G2Plot 的所有配置，对 React 技术栈的同学更加友好，<b>同一团队开发</b>。
+[Ant Design Charts](https://charts.ant.design/zh-CN/guide) 是 [G2Plot](https://antv-g2plot.gitee.io/zh/examples/gallery) 的 React 版本，基于 React、TypeScript 封装了所有的 G2Plot 图表，继承了 G2Plot 的所有配置，对 React 技术栈的同学更加友好，<b>统一团队开发</b>。
 
 - 开箱即用：默认呈现高质量图表，将对开发体验及用户体验的研究沉淀入图表的默认配置项
 
