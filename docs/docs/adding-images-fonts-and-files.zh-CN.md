@@ -51,9 +51,9 @@ return (
 );
 ```
 
-### TypesScript
+### TypeScript
 
-TypesScript 只支持 json 和 js ，要使用别的资源可能会报错。所以需要进行一些特殊配置。Pro 中默认设置了常用的，如果你有需要可以修改 `src/typing` 的代码。
+TypeScript 只支持 json 和 js ，要使用别的资源可能会报错。所以需要进行一些特殊配置。Pro 中默认设置了常用的，如果你有需要可以修改 `src/typing` 的代码。
 
 ```tsx | pure
 declare module 'slash2';
