@@ -15,7 +15,7 @@ Pro provides mock data by default, but mock data will no longer work after build
 
 For release purposes, you only need publish the resulting static file, which is usually the static file in the `dist` folder, to your CDN or static server. It should be noted that`index.html` will be your application's entry page.
 
-### Routing and server integration
+## Routing and server integration
 
 Umi has two modes of router, `browserHistory` and `hashHistory`.
 
