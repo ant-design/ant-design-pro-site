@@ -171,6 +171,19 @@ html[data-darkreader-scheme='dark'] {
       }
     }
     .con_right {
+      position: relative;
+      .hover_layer {
+        z-index: 10;
+        width: 480px;
+        height: 320px;
+        position: absolute;
+        &:hover {
+          & + .animate {
+            box-shadow: 4px 4px 32px rgba(204, 218, 233, 0.2);
+            background-image: url(../assets/background_hover.svg);
+          }
+        }
+      }
       width: 40%;
       @media screen and (max-width: 768px) {
         display: none;
@@ -179,10 +192,6 @@ html[data-darkreader-scheme='dark'] {
       justify-content: center;
       align-items: center;
       // border: 1px solid red;
-      &:hover .animate {
-        box-shadow: 4px 4px 32px rgba(204, 218, 233, 0.2);
-        background-image: url(../assets/background_hover.svg);
-      }
     }
   }
 }

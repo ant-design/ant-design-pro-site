@@ -255,7 +255,8 @@ export default () => {
             />
           </div>
         </div>
-        <div className="con_right" onMouseEnter={handleOver} onMouseLeave={handleOut}>
+        <div className="con_right">
+          <div className="hover_layer" onMouseEnter={handleOver} onMouseLeave={handleOut}></div>
           <div ref={aniBg} className="animate">
             <ul ref={btn} className="ani_btn">
               <li /> <li /> <li />
