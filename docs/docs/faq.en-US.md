@@ -196,7 +196,7 @@ Absolute paths can be used directly (map support is required). If you want to us
 
 ### Why is there a `#` character in my url? How do I get rid of?
 
-Please refer to the deploy document [Routing and server integration](/docs/deploy#Routing-and-server-integration).
+Please refer to the deploy document [Routing and server integration](/docs/deploy#routing-and-server-integration).
 
 ### How do I proxy the server url?
 
