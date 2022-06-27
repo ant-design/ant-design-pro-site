@@ -80,6 +80,10 @@ export default {
             title: 'ANT DESIGN PRO V4',
             path: 'https://v4-pro.ant.design/',
           },
+          {
+            title: 'ANT DESIGN PRO V5',
+            path: 'https://v5-pro.ant.design/',
+          },
         ],
       },
       {
