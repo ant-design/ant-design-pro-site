@@ -51,7 +51,7 @@ src
     ├── Order          // 路由组件下不应该再包含其他路由组件，基于这个约定就能清楚的区分路由组件和非路由组件了
     |   ├── index.tsx
     |   └── index.less
-    ├── user           // 一系列页面推荐通过小写的单一字母做 group 目录
+    ├── User
     |   ├── components // group 下公用的组件集合
     |   ├── Login      // group 下的页面 Login
     |   ├── Register   // group 下的页面 Register

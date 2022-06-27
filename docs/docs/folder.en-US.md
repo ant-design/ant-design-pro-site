@@ -49,7 +49,7 @@ src
     ├── Order // No other routing components should be included under routing components. Based on this agreement, routing components and non-routing components can be clearly distinguished
     | ├── index.tsx
     | └── index.less
-    ├── user // A series of pages recommend using a single lowercase letter as the group directory
+    ├── User
     | ├── components // public component collection under group
     | ├── Login // page under group Login
     | ├── Register // page under group Register
