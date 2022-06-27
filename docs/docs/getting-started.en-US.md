@@ -15,34 +15,42 @@ Ant Design Pro is a production-ready solution for admin interfaces. Built on the
 
 Ant Design Pro is a front-end scaffolding. By default, readers have already understood some basic front-end knowledge, and understand umi and Ant Design. If you are a pure novice, it is recommended to read [Beginner's Need to know](/docs/introduction). Sharpen the knife and chop wood by mistake. Knowing some basic knowledge can make the learning curve smoother.
 
-## Init
+## initialization
 
-We provide create umi to quickly initialize scaffolding.
+We have pro-cli to quickly provide initial scaffolding.
 
-```bash
-# use by npm
-npx create-umi myapp
-# use by yarn
-yarn create umi myapp
+```Bash
+# use npm
+npm i @ant-design/pro-cli -g
+# use yarn
+pro create myapp
 ```
 
-<video src="https://gw.alipayobjects.com/os/antfincdn/0wSaPUs36y/My%252520Sequence_1.mp4" controls width="100%"></video>
+Select the version of umi
 
-Create umi offers a wide range of options to meet the scaffolding needs of different users, and we can choose to develop the language JavaScript or TypeScript.
+```shell
+🐂 Use umi@4 or umi@3 ? (use arrow keys)
+❯ umi@4
+  umi@3
+```
 
-![language](https://gw.alipayobjects.com/zos/antfincdn/fvy3icO6IL/sshot-4.png)
+> If there is a umi@4 version, the display does not support full block selection.
 
-You can also choose whether to get all the chunks.
+With umi@3, it's a good template, pro is the basic template, it only provides the content of the framework operation, and completely includes all the plates, if the pro is suitable as a basic template for secondary development selection
 
-![easy](https://gw.alipayobjects.com/zos/antfincdn/Kqlh5sQslh/sshot-1.png)
+```shell
+🚀 Do you want the full amount or a simple scaffolding? (use arrow keys)
+❯ simple
+  complete
+```
 
-Select the version of antd, 3 or 4.
+Install dependencies:
 
-![antd](https://gw.alipayobjects.com/zos/antfincdn/oPREL%26PSX9/sshot-2.png)
-
-A successful scaffold log.
-
-![end](https://gw.alipayobjects.com/zos/antfincdn/c7f3Y9B5Om/sshot-3.png)
+```shell
+$ cd myapp && tyarn
+// or
+$ cd myapp && npm install
+```
 
 ## Development
 

@@ -16,36 +16,9 @@ function Page2({ location }) {
           <FormattedMessage id="app.home.letspro" />
         </p>
         <div key="code1" className="home-code">
-          <div>$ yarn create umi my-app</div>
-
-          {/* Select Pro */}
+          <div>$ npm i @ant-design/pro-cli -g</div>
+          <div>$ pro create my-app</div>
           <br />
-          <div>
-            {' '}
-            Select the boilerplate type:{' '}
-            <span className="home-code-comment">
-              <FormattedMessage id="app.home.selectpro" />
-            </span>
-          </div>
-          <div>
-            <span className="home-code-selection">❯</span> ant-design-pro{' '}
-          </div>
-
-          {/* Select TypeScript */}
-          <br />
-          <div>
-            {' '}
-            Which language do you want to use?{' '}
-            <span className="home-code-comment">
-              <FormattedMessage id="app.home.selectlanguage" />
-            </span>
-          </div>
-          <div>
-            <span className="home-code-selection">❯</span> TypeScript
-          </div>
-          <div>
-            <span className="home-code-selection" /> JavaScript
-          </div>
 
           {/* Start */}
           <br />

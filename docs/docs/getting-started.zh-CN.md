@@ -37,38 +37,29 @@ Ant Design Pro 作为一个前端脚手架，默认读者已经懂了一些前�
 
 ## 初始化
 
-我们提供了 create umi 来快速的初始化脚手架。
+我们提供了 pro-cli 来快速的初始化脚手架。
 
 ```bash
 # 使用 npm
-npx create-umi myapp
+npm i @ant-design/pro-cli -g
 # 使用 yarn
-yarn create umi myapp
+pro create myapp
 ```
 
-按照 umi 脚手架的引导，第一步先选择 ant-design-pro：
+选择 umi 的版本
 
 ```shell
-? Select the boilerplate type (Use arrow keys)
-❯ ant-design-pro  - Create project with a layout-only ant-design-pro boilerplate, use together with umi block.
-  app             - Create project with a easy boilerplate, support typescript.
-  block           - Create a umi block.
-  library         - Create a library with umi.
-  plugin          - Create a umi plugin.
+? 🐂 使用 umi@4 还是 umi@3 ? (Use arrow keys)
+❯ umi@4
+  umi@3
 ```
 
-选择 antd 的语言版本，TypeScript 或 JavaScript
+> 如果选择了 umi@4 版本，展示还不支持全量区块。
+
+如果选择了 umi@3，还可以选择 pro 的模板，pro 是基础模板，只提供了框架运行的基本内容，complete 包含所有区块，不太适合当基础模板来进行二次开发
 
 ```shell
-? 🤓 Which language do you want to use? (Use arrow keys)
-❯ TypeScript
-  JavaScript
-```
-
-选择 antd 的模板，simple 是基础模板，只提供了框架运行的基本内容，complete 包含 antd 的集成方案，不太适合当基础模板来进行二次开发
-
-```shell
-? 🚀 Do you need all the blocks or a simple scaffold? (Use arrow keys)
+? 🚀 要全量的还是一个简单的脚手架? (Use arrow keys)
 ❯ simple
   complete
 ```
@@ -80,19 +71,6 @@ $ cd myapp && tyarn
 // 或
 $ cd myapp && npm install
 ```
-
-开启 Umi UI（可选）：
-
-```shell
-// 打开开发模式下页面右下角的小气泡，方便添加区块和模版等pro资产
-$ tyarn add @umijs/preset-ui -D
-// 或
-$ npm install --save-dev @umijs/preset-ui
-```
-
-操作视频：
-
-<video src="https://gw.alipayobjects.com/os/antfincdn/0wSaPUs36y/My%252520Sequence_1.mp4" controls width="100%"></video>
 
 ## 开发
 
