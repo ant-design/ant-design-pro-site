@@ -66,6 +66,7 @@ yarn create umi myapp
 ```
 
 选择 antd 的模板，simple 是基础模板，只提供了框架运行的基本内容，complete 包含 antd 的集成方案，不太适合当基础模板来进行二次开发
+
 ```shell
 ? 🚀 Do you need all the blocks or a simple scaffold? (Use arrow keys)
 ❯ simple

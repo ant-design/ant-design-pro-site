@@ -311,17 +311,17 @@ Tips: When the layout mode is `mix`，click the first menu, page cannot route th
 ```tsx | pure
 [
   {
-    "path": "/test/list",
-    "component": "./test/list"
+    path: '/test/list',
+    component: './test/list',
   },
   {
-    "path": "/test/list/testAdd",
-    "component": "./test/list/testAdd"
+    path: '/test/list/testAdd',
+    component: './test/list/testAdd',
   },
   {
-    "redirect": "./test/list"
-  }
-]
+    redirect: './test/list',
+  },
+];
 ```
 
 ## Custom layout

@@ -276,17 +276,17 @@ export default [
 ```tsx | pure
 [
   {
-    "path": "/test/list",
-    "component": "./test/list"
+    path: '/test/list',
+    component: './test/list',
   },
   {
-    "path": "/test/list/testAdd",
-    "component": "./test/list/testAdd"
+    path: '/test/list/testAdd',
+    component: './test/list/testAdd',
   },
   {
-    "redirect": "./test/list"
-  }
-]
+    redirect: './test/list',
+  },
+];
 ```
 
 ## 自定义布局

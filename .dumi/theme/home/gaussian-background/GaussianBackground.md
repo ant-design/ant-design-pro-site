@@ -15,12 +15,12 @@ import React from 'react';
 import { GaussianBackground } from '@alipay/gaussian-background';
 
 const colors = [
-	{color: '#2f54eb', orbs: 4, radius: 16, maxVelocity: 0.2, },
-	{color: '#1890ff', orbs: 4, radius: 8, maxVelocity: 0.2, },
-	{color: '#fadb14'}
+  { color: '#2f54eb', orbs: 4, radius: 16, maxVelocity: 0.2 },
+  { color: '#1890ff', orbs: 4, radius: 8, maxVelocity: 0.2 },
+  { color: '#fadb14' },
 ];
 
-export default () => <GaussianBackground colors={colors}/>;
+export default () => <GaussianBackground colors={colors} />;
 ```
 
 <API src="/GaussianBackground.tsx"></API>
@@ -29,9 +29,9 @@ export default () => <GaussianBackground colors={colors}/>;
 
 ```js
 const colors = [
-	{color: '#2f54eb', orbs: 4, radius: 16, maxVelocity: 0.2, },
-	{color: '#1890ff', orbs: 4, radius: 8, maxVelocity: 0.2, },
-	{color: '#fadb14'}
+  { color: '#2f54eb', orbs: 4, radius: 16, maxVelocity: 0.2 },
+  { color: '#1890ff', orbs: 4, radius: 8, maxVelocity: 0.2 },
+  { color: '#fadb14' },
 ];
 ```
 

@@ -41,7 +41,7 @@ app.listen(3000);
 // http://localhost:3000/api/foo/bar -> http://www.example.org/api/foo/bar
 ```
 
-这个配置可以将所有 `/api`  开头的请求转发到 `http://www.example.org/` ,并且附带所有的参数，包括头信息和 cookie。有一点需要注意的是，在浏览器控制台里看到的仍然是   `http://localhost:3000/api/xxx` ,转化的步骤是在 node.js 中完成。
+这个配置可以将所有 `/api` 开头的请求转发到 `http://www.example.org/` ,并且附带所有的参数，包括头信息和 cookie。有一点需要注意的是，在浏览器控制台里看到的仍然是 `http://localhost:3000/api/xxx` ,转化的步骤是在 node.js 中完成。
 
 在 Pro 中是用 proxy 更加简单在 [config.ts](https://github.com/ant-design/ant-design-pro/blob/4c6a11eedad8baee97022ee452cedc76f097421a/config/config.ts#L185)  中配置即可，配置出来可能是这样的：
 

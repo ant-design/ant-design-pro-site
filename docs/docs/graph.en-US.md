@@ -88,10 +88,10 @@ const Page: React.FC = () => {
       size: 5,
       shape: 'diamond | circule',
     },
-       tooltip: {
+    tooltip: {
       formatter: (data) => {
         return {
-          name:"",
+          name: '',
           value: any,
         };
       },
@@ -104,10 +104,9 @@ const Page: React.FC = () => {
         })}</div>`,
       showMarkers: boolean,
       showContent: boolean,
-      position: "right | left",
+      position: 'right | left',
       showCrosshairs: boolean,
     },
-
   };
   return <Line {...config} />;
 };
