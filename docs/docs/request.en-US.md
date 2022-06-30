@@ -87,7 +87,6 @@ const demo2Middleware = async (ctx: Context, next: () => void) => {
 };
 
 export const request: RequestConfig = {
-  errorHandler,
   middlewares: [demo1Middleware, demo2Middleware],
 };
 ```
