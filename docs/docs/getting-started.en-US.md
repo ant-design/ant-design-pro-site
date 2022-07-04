@@ -22,7 +22,6 @@ We have pro-cli to quickly provide initial scaffolding.
 ```Bash
 # use npm
 npm i @ant-design/pro-cli -g
-# use yarn
 pro create myapp
 ```
 
