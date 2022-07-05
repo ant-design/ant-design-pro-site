@@ -73,7 +73,7 @@ export default () => {
 示例代码如下：
 
 ```tsx | pure
-// src/app.ts
+// src/app.tsx
 const demo1Middleware = async (ctx: Context, next: () => void) => {
   console.log('request1');
   await next();
@@ -87,7 +87,6 @@ const demo2Middleware = async (ctx: Context, next: () => void) => {
 };
 
 export const request: RequestConfig = {
-  errorHandler,
   middlewares: [demo1Middleware, demo2Middleware],
 };
 ```
@@ -100,11 +99,10 @@ export const request: RequestConfig = {
 
 ### 请求前拦截：requestInterceptors
 
-在网络请求的 `.then` 或 `catch` 处理前拦截，你可以在 `src/app.ts` 网络请求配置内增加如下配置：
+在网络请求的 `.then` 或 `catch` 处理前拦截，你可以在 `src/app.tsx` 网络请求配置内增加如下配置：
 
 ```tsx | pure
 export const request: RequestConfig = {
-  errorHandler,
   // 新增自动添加AccessToken的请求前拦截器
   requestInterceptors: [authHeaderInterceptor],
 };
@@ -115,8 +113,8 @@ export const request: RequestConfig = {
 拦截器示例代码如下：
 
 ```tsx | pure
-// src/app.ts
-const authHeaderInterceptor = (url: string, options: RequestOptionsInit) => {
+// src/app.tsx
+const authHeaderInterceptor = (url: string, options: RequestConfig) => {
   const authHeader = { Authorization: 'Bearer xxxxxx' };
   return {
     url: `${url}`,
@@ -134,14 +132,13 @@ const authHeaderInterceptor = (url: string, options: RequestOptionsInit) => {
 具体示例代码如下：
 
 ```tsx | pure
-// src/app.ts
-const demoResponseInterceptors = (response: Response, options: RequestOptionsInit) => {
+// src/app.tsx
+const demoResponseInterceptors = (response: Response, options: RequestConfig) => {
   response.headers.append('interceptors', 'yes yo');
   return response;
 };
 
 export const request: RequestConfig = {
-  errorHandler,
   responseInterceptors: [demoResponseInterceptors],
 };
 ```
@@ -168,7 +165,7 @@ export interface response {
 }
 ```
 
-当然你也可以通过 `app.ts`  中暴露的 `request`  的运行时配置来修改或者自定义自己项目的一些逻辑，具体参考 `@umijs/plugin-request`  的[文档](https://umijs.org/zh-CN/plugins/plugin-request)。
+当然你也可以通过 `app.tsx`  中暴露的 `request`  的运行时配置来修改或者自定义自己项目的一些逻辑，具体参考 `@umijs/plugin-request`  的[文档](https://umijs.org/zh-CN/plugins/plugin-request)。
 
 当出现 HTTP 错误或者返回的数据中 `success`  为 `false`  的情况下 request 会抛出一个异常，当你使用 useRequest 的时候该异常会被 useRequest 捕获，大部分情况下你不需要关心异常的情况，统一的错误处理会做统一的错误提示。对于部分场景需要手动处理错误的时候你可以通过 useRequest 暴露的 `onError`  方法或者 `error`  对象来做自定义处理。
 

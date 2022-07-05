@@ -73,7 +73,7 @@ Middlewares, like interceptors, also allow developers to gracefully do enhanced 
 The sample code is as follows.
 
 ```tsx | pure
-// src/app.ts
+// src/app.tsx
 const demo1Middleware = async (ctx: Context, next: () => void) => {
   console.log('request1');
   await next();
@@ -87,7 +87,6 @@ const demo2Middleware = async (ctx: Context, next: () => void) => {
 };
 
 export const request: RequestConfig = {
-  errorHandler,
   middlewares: [demo1Middleware, demo2Middleware],
 };
 ```
@@ -100,11 +99,10 @@ It is strongly recommended that you take a closer look at [umi-request](https://
 
 ### Pre-request interception: requestInterceptors
 
-To intercept web requests before they are processed by `.then` or `catch`, you can add the following configuration inside the `src/app.ts` web request configuration.
+To intercept web requests before they are processed by `.then` or `catch`, you can add the following configuration inside the `src/app.tsx` web request configuration.
 
 ```tsx | pure
 export const request: RequestConfig = {
-  errorHandler,
   // Add a pre-request interceptor that automatically adds an AccessToken
   requestInterceptors: [authHeaderInterceptor],
 };
@@ -115,8 +113,8 @@ export const request: RequestConfig = {
 The sample interceptor code is as follows.
 
 ```tsx | pure
-// src/app.ts
-const authHeaderInterceptor = (url: string, options: RequestOptionsInit) => {
+// src/app.tsx
+const authHeaderInterceptor = (url: string, options: RequestConfig) => {
 const authHeader = { Authorization: 'Bearer xxxxxx' };
 return {
   url: `${url}`,
@@ -134,14 +132,13 @@ In the network request response `.then` or `catch` processing interception befor
 The specific sample code is as follows.
 
 ```tsx | pure
-// src/app.ts
-const demoResponseInterceptors = (response: Response, options: RequestOptionsInit) => {
+// src/app.tsx
+const demoResponseInterceptors = (response: Response, options: RequestConfig) => {
   response.headers.append('interceptors', 'yes yo');
   return response;
 };
 
 export const request: RequestConfig = {
-  errorHandler,
   responseInterceptors: [demoResponseInterceptors],
 };
 ```
@@ -168,7 +165,7 @@ export interface response {
 }
 ```
 
-Of course you can also modify or customize some of the logic of your project through the runtime configuration of `request` exposed in `app.ts`, see `@umijs/plugin-request`'s [documentation](https://umijs.org/plugins/plugin- request).
+Of course you can also modify or customize some of the logic of your project through the runtime configuration of `request` exposed in `app.tsx`, see `@umijs/plugin-request`'s [documentation](https://umijs.org/plugins/plugin- request).
 
 When there is an HTTP error or `success` is `false` in the returned data request will throw an exception which will be caught by useRequest when you use it, in most cases you don't need to care about the exception, the uniform error handling will do a uniform error hints. For some scenarios where you need to handle errors manually, you can use the `onError` method or the `error` object exposed by useRequest to do custom handling.
 
