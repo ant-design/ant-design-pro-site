@@ -238,7 +238,7 @@ export default () => {
                 <FormattedMessage id="app.home.preview" />
               </button>
             </a>
-            <a href="/docs/getting-started">
+            <a href="docs/getting-started">
               <button
                 type="button"
                 className="ant-btn ant-btn-primary ant-btn-background-ghost custom-ant-btn"
