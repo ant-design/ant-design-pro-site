@@ -42,7 +42,6 @@ Ant Design Pro 作为一个前端脚手架，默认读者已经懂了一些前�
 ```bash
 # 使用 npm
 npm i @ant-design/pro-cli -g
-# 使用 yarn
 pro create myapp
 ```
 
