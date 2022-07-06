@@ -18,7 +18,7 @@
     "lint:fix": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src --fix",
     "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "prettier": "prettier --write \"**/**\"",
-    "presite": "npm run build",
+    "presite": "npm run build && node scripts/ssr.js",
     "site": "npm run gh-pages",
     "start": "dumi dev",
     "test": "npm run lint"
