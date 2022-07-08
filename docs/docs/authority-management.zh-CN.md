@@ -42,7 +42,8 @@ export default function (initialState) {
 其中的 `initialState`  来自于[全局初始化数据](initial-state)，你可以基于这些数据来初始化用户权限。
 
 ### 页面内的权限控制
-
+> 【注意】使用 useAccess, Access 前，需要在 config/config.ts 存在配置 *access: {},*，其他配置详见 [@umijs/plugin-access](https://v3.umijs.org/zh-CN/plugins/plugin-access)
+> 
 使用示例如下：
 
 ```tsx | pure
