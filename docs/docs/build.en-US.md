@@ -21,7 +21,7 @@ $ npm run build
 
 Since Ant Design Pro use [Umi](https://umijs.org/) as development tool, complex processes have been encapsulated and for most scenarios only one command `umi build` is required to build the package, after build successfully, it will generate the `dist` folder in the root directory, which contains packaged files, usually static files like `*.js`, `*.css`, `index.html`.
 
-But if you want to custom the build result, like specify the result directory, you can configure it in `config/config.js`, refer to [Umi configuration](https://umijs.org/guide/config.html) for more details.
+But if you want to custom the build result, like specify the result directory, you can configure it in `config/config.ts`, refer to [Umi configuration for v3](https://v3.umijs.org/config) or [Umi configuration for v4](https://umijs.org/docs/api/config) for more details.
 
 ### Analyze build result
 
