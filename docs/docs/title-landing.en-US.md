@@ -61,23 +61,19 @@ If you need to dynamically update the page title based on the content, you can u
 
 ## favicon
 
-A favicon is the content displayed on the browser tab. Strictly speaking, it is part of the browser meta. The browser believes that favicon will not be changed frequently and has a very strong cache. So we did not make a plan to dynamically modify the favicon.
+Favicon is the content displayed on the browser tab. Strictly speaking, it is part of the browser meta. The browser thinks that favicon will not change frequently and does a very strong cache. So we did not do a dynamic modification of the favicon scheme.
 
-The default favicon configuration of Pro exists in `src\pages\document.ejs`, we can write html related code here, we configure the `favicon.ico` file in the public folder by default, you can directly overwrite it to modify . Of course, you can also modify the href to the cdn address you want.
+We can configure `favicon` in `config/config.ts`, which supports configuring multiple favicon files. Configure the favicons path, which can be an absolute path or a relative path based on the project root directory. for example:
 
-```tsx | pure
-<link rel="icon" href="<%= context.config.publicPath +'favicon.ico'%>" type="image/x-icon" />
-```
+favicons: ['/assets/favicon.ico']
+
+HTML will generate
+
+`<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />`
 
 ## Load page
 
 Due to different scenes, there are many loading pages preset in Pro. It can be a bit confusing to use.
-
-### js before loading
-
-The first is the landing page where js has not been loaded successfully, but html has been loaded successfully. The configuration of this page exists in `src\pages\document.ejs`. It uses `home_bg.png`, `pro_icon.svg` and `KDpgvguMpGfqaHPjicRK.svg` three pictures with brand information, you can modify them as needed.
-
-![Home page loading map](https://gw.alipayobjects.com/zos/antfincdn/xp9h2lyw8d/500D5525-C5A4-4ce8-9CB3-B76D14B50B98.png)
 
 ### js after loading
 

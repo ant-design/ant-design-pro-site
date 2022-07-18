@@ -63,21 +63,17 @@ export const layout: RunTimeLayoutConfig = ({ initialState }) => {
 
 favicon 是展示在浏览器标签页上的内容，严格来说它是属于浏览器 meta 的一部分，浏览器认为 favicon 不会经常改动做了非常强的缓存。所以我们并没有做动态修改 favicon 的方案。
 
-Pro 的默认 favicon 的配置存在于 `src\pages\document.ejs`, 我们可以在这里写 html 相关的代码, 我们默认配置了 public 文件夹中的 `favicon.ico` 文件，你可以直接覆盖来修改。当然也可以修改 href 为你想要的 cdn 地址。
+我们可以在 `config/config.ts` 中配置 `favicon` ，支持配置多个 favicon 文件。配置 favicons 路径，可以是绝对路径，也可以是基于项目根目录的相对路径。比如：
 
-```tsx | pure
-<link rel="icon" href="<%= context.config.publicPath +'favicon.ico'%>" type="image/x-icon" />
-```
+favicons: ['/assets/favicon.ico']
+
+HTML 中会生成
+
+`<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico" />。`
 
 ## 加载页
 
 由于场景的不同，Pro 中预设了不少的加载页。使用起来可能会有点混淆。
-
-### js 加载前
-
-首先是在 js 还没加载成功，但是 html 已经加载成功的 landing 页面。这个页面的配置存在于 `src\pages\document.ejs` 中。它使用了 `home_bg.png` ,`pro_icon.svg` 和 `KDpgvguMpGfqaHPjicRK.svg` 三个带有品牌信息的图片，你可以按需修改他们。
-
-![首页加载图](https://gw.alipayobjects.com/zos/antfincdn/xp9h2lyw8d/500D5525-C5A4-4ce8-9CB3-B76D14B50B98.png)
 
 ### js 加载后
 
