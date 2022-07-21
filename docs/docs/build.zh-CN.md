@@ -21,7 +21,7 @@ $ npm run build
 
 由于 Ant Design Pro 使用的工具 [Umi](https://umijs.org/zh-CN) 已经将复杂的流程封装完毕，构建打包文件只需要一个命令 `umi build`，构建打包成功之后，会在根目录生成 `dist` 文件夹，里面就是构建打包好的文件，通常是 `*.js`、`*.css`、`index.html` 等静态文件。
 
-如果需要自定义构建，比如指定 `dist` 目录等，可以通过 `config/config.ts` 进行配置，详情参看：[Umi 配置](https://umijs.org/zh-CN/guide/config.html)。
+如果需要自定义构建，比如指定 `dist` 目录等，可以通过 `config/config.ts` 进行配置，详情参看：[Umi 配置v3](https://v3.umijs.org/zh-CN/config)或者[Umi 配置v4](https://umijs.org/docs/api/config)。
 
 ### 分析构建文件体积
 
