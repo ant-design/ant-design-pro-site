@@ -184,7 +184,7 @@ If you enable `exportStatic`, html files will be output for each route.
 
 Contains the following attributes:
 
--htmlSuffix, enable the `.html` suffix. -dynamicRoot, deploy to any path. -extraRoutePaths, generate additional route pages, see [Pre-rendering dynamic routing](/zh-CN/docs/ssr#Pre-rendering dynamic routing)
+-htmlSuffix, enable the `.html` suffix. -dynamicRoot, deploy to any path. -extraRoutePaths, generate additional route pages, see [Pre-rendering dynamic routing](https://v3.umijs.org/docs/ssr#%E9%A2%84%E6%B8%B2%E6%9F%93%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1)
 
 ## externals
 
@@ -356,7 +356,7 @@ export default defineConfig({
 
 Configure routing.
 
-umi's routing is implemented based on [react-router@5](https://reacttraining.com/react-router/web/guides/quick-start), and the configuration is basically the same as that of react-router, see [Routing Configuration](. /docs/routing) chapter.
+umi's routing is implemented based on [react-router@5](https://reacttraining.com/react-router/web/guides/quick-start), and the configuration is basically the same as that of react-router, see [Routing Configuration](https://v3.umijs.org/docs/routing) chapter.
 
 such as:
 

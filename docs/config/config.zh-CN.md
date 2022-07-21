@@ -199,7 +199,7 @@ export default {
 
 - htmlSuffix，启用 `.html` 后缀。
 - dynamicRoot，部署到任意路径。
-- extraRoutePaths，生成额外的路径页面，用法和场景见 [预渲染动态路由](/zh-CN/docs/ssr#预渲染动态路由)
+- extraRoutePaths，生成额外的路径页面，用法和场景见 [预渲染动态路由](https://v3.umijs.org/zh-CN/docs/ssr#%E9%A2%84%E6%B8%B2%E6%9F%93%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1)
 
 ## externals
 
@@ -381,7 +381,7 @@ export default defineConfig({
 
 配置路由。
 
-umi 的路由基于 [react-router@5](https://reacttraining.com/react-router/web/guides/quick-start) 实现，配置和 react-router 基本一致，详见[路由配置](./docs/routing)章节。
+umi 的路由基于 [react-router@5](https://reacttraining.com/react-router/web/guides/quick-start) 实现，配置和 react-router 基本一致，详见[路由配置](https://v3.umijs.org/zh-CN/docs/routing)章节。
 
 比如：
 
