@@ -51,9 +51,9 @@ return (
 );
 ```
 
-### TypesScript
+### TypeScript
 
-TypesScript only supports json and js. If you want to use other resources, you may get an error. So some special configuration is required. Commonly used ones are set by default in Pro, if you need to, you can modify the code of `src/typing`.
+TypeScript only supports json and js. If you want to use other resources, you may get an error. So some special configuration is required. Commonly used ones are set by default in Pro, if you need to, you can modify the code of `src/typing`.
 
 ```tsx | pure
 declare module 'slash2';
