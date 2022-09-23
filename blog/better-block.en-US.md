@@ -24,7 +24,7 @@ In the new umi block we will help the user to automatically select the appropria
 If you want to use your own package management tools and sources, you can customize them with `--npm-client` and `--registry`.
 
 ```bash
-npx umi block add AccountSettings --npm-client=tyarn --registry=https://registry.npm.taobao.org
+npx umi block add AccountSettings --npm-client=yarn --registry=https://registry.npm.taobao.org
 ```
 
 > 🌟 Block comes with npm and taobao sources, depending on the network to decide which source to use. Also, if your project contains a yarn.lock file, the block will use yarn to install the block.
