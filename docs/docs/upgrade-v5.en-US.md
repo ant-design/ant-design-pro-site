@@ -28,7 +28,7 @@ export async function getInitialState(): Promise<{
   settings?: ProSettings;
 }> {
   // If it is a login page, do not execute
-  if (history.location.pathname! == '/ user/login') {
+  if (history.location.pathname !== '/user/login') {
     try {
       const currentUser = await queryCurrent();
       return {
@@ -36,7 +36,7 @@ export async function getInitialState(): Promise<{
         settings: defaultSettings,
       };
     } catch (error) {
-      history.push('/ user/login');
+      history.push('/user/login');
     }
   }
   return {
@@ -52,7 +52,7 @@ In the new architecture, Layout is used as a plug-in. As an alternative, we prov
 ```tsx | pure
 import React from 'react';
 import {history} from 'umi';
-import {BasicLayoutProps, Settings as ProSettings} from '@ ant-design/pro-layout';
+import {BasicLayoutProps, Settings as ProSettings} from '@ant-design/pro-layout';
 import RightContent from '@/components/RightContent';
 import Footer from '@/components/Footer';
 
@@ -79,7 +79,7 @@ export async function getInitialState(): Promise<{
   settings?: ProSettings;
 }> {
   // If it is a login page, do not execute
-  if (history.location.pathname! == '/ user/login') {
+  if (history.location.pathname !== '/user/login') {
     try {
       const currentUser = await queryCurrent();
       return {
@@ -87,7 +87,7 @@ export async function getInitialState(): Promise<{
         settings: defaultSettings,
       };
     } catch (error) {
-      history.push('/ user/login');
+      history.push('/user/login');
     }
   }
   return {
@@ -100,8 +100,8 @@ Here is the configuration of Footer can be modified to your needs.
 
 ```ts
 import React from 'react';
-import { GithubOutlined } from '@ ant-design/icons';
-import { DefaultFooter } from '@ ant-design/pro-layout';
+import { GithubOutlined } from '@ant-design/icons';
+import { DefaultFooter } from '@ant-design/pro-layout';
 
 export default () => (
   <DefaultFooter
@@ -144,7 +144,7 @@ export default function (initialState: { currentUser?: API.CurrentUser | undefin
 }
 ```
 
-After the migration, we can delete the original permission component. `src / utils / Authorized.ts`,`src / utils / authority.ts`, `src / components / Authorized / **`.
+After the migration, we can delete the original permission component. `src/utils/Authorized.ts`,`src/utils/authority.ts`, `src/components/Authorized/**`.
 
 In the router of config.ts we need to delete `authority` and change it to`access: 'canAdmin'` and at the same time we can use all the methods about permissions in util.
 
@@ -164,20 +164,20 @@ const PageA = (props) => {
 
   return (
     <div>
-      <Access accessible = {access.canAdmin} fallback = {<div> Can not read foo content. </ Div>}>
+      <Access accessible = {access.canAdmin} fallback = {<div> Can not read foo content. </div>}>
         Foo content.
-      </ Access>
-      <Access accessible = {access.canDeleteFoo (foo)} fallback = {<div> Can not delete foo. </ Div>}>
+      </Access>
+      <Access accessible = {access.canDeleteFoo (foo)} fallback = {<div> Can not delete foo. </div>}>
         Delete foo.
-      </ Access>
-    </ div>
+      </Access>
+    </div>
   );
 };
 ```
 
 ## Request
 
-In the original project, request is defined in `src / utils / request.ts`. In V5, you need to use umi to import. Each configuration needs to be written in app.ts for implementation.
+In the original project, request is defined in `src/utils/request.ts`. In V5, you need to use umi to import. Each configuration needs to be written in app.ts for implementation.
 
 ```tsx | pure
 import { RequestConfig } from 'umi';
@@ -199,7 +199,7 @@ import { useRequest } from 'umi';
 
 export default () => {
   const { data, error, loading } = useRequest(() => {
-    return services.getUserList('/ api / test');
+    return services.getUserList('/api/test');
   });
   if (loading) {
     return <div> loading ... </div>;
