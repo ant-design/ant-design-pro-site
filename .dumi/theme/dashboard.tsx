@@ -60,6 +60,7 @@ const Dashboard: React.FC<{ menuData: IMenuItem[] }> = ({ menuData }) => {
                       <Space
                         style={{
                           display: 'flex',
+                          overflow: 'hidden',
                         }}
                       >
                         <LinkOutlined />
