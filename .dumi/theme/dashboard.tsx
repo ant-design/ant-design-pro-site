@@ -42,7 +42,7 @@ const Dashboard: React.FC<{ menuData: IMenuItem[] }> = ({ menuData }) => {
                 component.title.toLowerCase().includes(search.trim().toLowerCase()),
             ) || [];
           return components.length ? (
-            <Col xs={24} sm={12} lg={8} xl={6} key={group.path}>
+            <Col xs={24} sm={12} lg={8} xl={6} key={group.title}>
               <Card
                 bodyStyle={{
                   height: 134,
@@ -56,10 +56,11 @@ const Dashboard: React.FC<{ menuData: IMenuItem[] }> = ({ menuData }) => {
                     .replace(/(\/index)?((\.zh-CN)|(\.en-us))?\.md$/i, '')
                     .toLowerCase()}/`;
                   return (
-                    <a href={url}>
+                    <a href={url} key={url}>
                       <Space
                         style={{
                           display: 'flex',
+                          overflow: 'hidden',
                         }}
                       >
                         <LinkOutlined />
