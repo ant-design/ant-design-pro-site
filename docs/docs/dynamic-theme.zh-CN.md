@@ -30,7 +30,7 @@ html {
   --ant-primary-5: #40a9ff;
   --ant-primary-6: #1890ff;
   --ant-primary-7: #096dd9;
-  --ant-primary-color-deprecated-pure: ;
+  --ant-primary-color-deprecated-pure: '';
   --ant-primary-color-deprecated-l-35: #cbe6ff;
   --ant-primary-color-deprecated-l-20: #7ec1ff;
   --ant-primary-color-deprecated-t-20: #46a6ff;
