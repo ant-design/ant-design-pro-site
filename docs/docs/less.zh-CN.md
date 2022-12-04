@@ -36,7 +36,7 @@ const Page = () => {
 
 ## 使用变量
 
-less 作为 css 的超集，提供了很多 css 没有功能，其中最方便的就是变量。antd 中提供了丰富的变量来帮助我们进行开发。同时也让我的自定义主题变得更加简单，以下是 antd 提供的一些常用变量。所有样式变量可以在 [这里](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) 找到。
+less 作为 css 的超集，提供了很多 css 没有功能，其中最方便的就是变量。antd 中提供了丰富的变量来帮助我们进行开发。同时也让我的自定义主题变得更加简单，以下是 antd 提供的一些常用变量。所有样式变量可以在 [这里](https://github.com/ant-design/ant-design/blob/4.x-stable/components/style/themes/default.less) 找到。
 
 ```less
 @primary-color: #1890ff; // 全局主色
