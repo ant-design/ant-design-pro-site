@@ -229,8 +229,14 @@ export default [
   },
 ];
 
-// src/layout/index.tsx
-const Layout = ({ children }) => children;
+// 如果使用的是 umi@3 src/layout/index.tsx 应该是这样的
+// 具体的实现可以参考：https://v3.umijs.org/zh-CN/docs/routing#routes
+const layout = ({ children }) => children;
+export default layout;
+
+// 如果使用的是 umi@4 src/layout/index.tsx 应该是这样的
+// 具体的实现可以参考：https://umijs.org/docs/guides/routes#routes
+const Layout = () => <Outlet />;
 export default Layout;
 ```
 

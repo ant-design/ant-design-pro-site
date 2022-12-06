@@ -328,13 +328,18 @@ Tips: When the layout mode is `mix`，click the first menu, page cannot route th
 
 Sometimes we don't want to use the built-in layout and want to do more customization. We also provide flexible customization solutions.
 
-The layout is essentially a special component, and the child pages will be passed to the layout component as attributes. The easyst layout is this:
+The layout is essentially a special component, and the child pages will be passed to the layout component as attributes. The easiest layout is this:
 
 ```tsx | pure
-// Children must be rendered, otherwise the child routes cannot be displayed
-// Here you can also set global provision
+// if you use umi@3, you can use the following code
+// Detail: https://v3.umijs.org/docs/routing#routes
 const layout = ({ children }) => children;
 export default layout;
+
+// if you use umi@4, you should use the following code
+// Detail: https://umijs.org/docs/guides/routes#routes
+const Layout = () => <Outlet />;
+export default Layout;
 ```
 
 We create a new BaseLayout.tsx in `src/layouts/`, copy the above code, and add the following code in `config/config.ts`:
