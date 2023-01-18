@@ -207,4 +207,4 @@ import { Link } from 'umi';
 
 In the routing component, routing parameters can be obtained via `this.props.match.params`.
 
-See more details:[umi#router](https://umijs.org/guide/router.html#%E7%BA%A6%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1)
+See more details:[umi#router](https://umijs.org/docs/guides/routes)
