@@ -56,7 +56,7 @@ declare namespace API {
 }
 ```
 
-> There are no type definitions in many projects, and websites such as [json2ts](http://json2ts.com/) are recommended for automatic conversion.
+> There are no type definitions in many projects, and websites such as [json2ts](https://json2ts-plum.vercel.app/) are recommended for automatic conversion.
 
 We can use it easily when using it. Files ending with `d.ts` will be imported to the global by TypeScript by default, but the `import` syntax cannot be used. If you need to quote, you need to use triple slashes.
 
