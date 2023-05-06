@@ -58,7 +58,7 @@ declare namespace API {
 }
 ```
 
-> 很多项目中是没有类型定义的，这里推荐 [json2ts](http://json2ts.com/) 等网站来自动转化。
+> 很多项目中是没有类型定义的，这里推荐 [json2ts](https://json2ts-plum.vercel.app/) 等网站来自动转化。
 
 在使用时我们就可以很简单的来使用, `d.ts` 结尾的文件会被 TypeScript 默认导入到全局，但是其中不能使用 `import` 语法，如果需要引用需要使用三斜杠。
 
