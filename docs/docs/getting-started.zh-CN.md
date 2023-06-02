@@ -27,13 +27,13 @@ Ant Design Pro 作为一个前端脚手架，默认读者已经懂了一些前�
 
 ### Terminal
 
-非 windows 用户没什么好说的，iTerm2 和 Oh My Zsh 是最强选择。
+非 Windows 用户没什么好说的，iTerm2 和 Oh My Zsh 是最强选择。
 
-对于 windows 用户而言，bash on linux 是最好的选择，但是可能会造成一些性能问题。这里推荐使用 [Windows Terminal](https://github.com/microsoft/terminal) 和 [Powershell](https://github.com/PowerShell/Powershell)。Windows Terminal 可以直接在微软商店中下载，美貌与实力并存，不逊于 iTerm2，微软官方维护品质也值得信赖。PowerShell 是 Windows 7 以来内置的命令行工具，被 linux 创始人称赞为不那么烂的命令行。并且可以配置 [posh-git](http://dahlbyk.github.io/posh-git/)，能得到部分 zsh 的能力。
+对于 Windows 用户而言，Bash on Linux 是最好的选择，但是可能会造成一些性能问题。这里推荐使用 [Windows Terminal](https://github.com/microsoft/terminal) 和 [PowerShell](https://github.com/PowerShell/Powershell)。Windows Terminal 可以直接在微软商店中下载，美貌与实力并存，不逊于 iTerm2，微软官方维护品质也值得信赖。PowerShell 是 Windows 7 以来内置的命令行工具，被 Linux 创始人称赞为不那么烂的命令行。并且可以配置 [posh-git](http://dahlbyk.github.io/posh-git/)，能得到部分 zsh 的能力。
 
 配置好后效果
 
-![Powershell](https://store-images.s-microsoft.com/image/apps.49728.13926773940052066.d057d8b2-5284-497c-95a9-c3db62fd5ed8.9fe6d0d6-c148-4742-8275-61d2d69a7ab1?w=1399&h=810&q=90&format=jpg)
+![PowerShell](https://store-images.s-microsoft.com/image/apps.49728.13926773940052066.d057d8b2-5284-497c-95a9-c3db62fd5ed8.9fe6d0d6-c148-4742-8275-61d2d69a7ab1?w=1399&h=810&q=90&format=jpg)
 
 ## 初始化
 
