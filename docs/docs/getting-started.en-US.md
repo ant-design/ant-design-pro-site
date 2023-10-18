@@ -75,7 +75,7 @@ If you need to deploy, you can review the [deployment]((/docs/deploy).
 
 ### `analyze`
 
-The analyze script does the same thing as build, but he opens a page showing your dependency information. If you need to optimize performance and package size, you need it.
+The analyze script does the same thing as build, but it opens a page showing your dependency information. If you need to optimize performance and package size, you need it.
 
 ![analyze](https://gw.alipayobjects.com/zos/antfincdn/ZTXFIYGGr%24/F8302DCB-DA37-4EDE-B6FF-76E35F727BBC.png)
 
