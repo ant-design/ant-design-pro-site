@@ -16,7 +16,7 @@ nav:
 - 不同的用户在页面中可以看到的元素和操作不同
 - 不同的用户对页面的访问权限不同
 
-> 针对这些场景，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案。实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](https://umijs.org/zh-CN/plugins/plugin-access)。通过定义权限，使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@alipay/umi-plugin-layout](https://umijs.org/zh-CN/plugins/plugin-layout) 插件一起使用，还可以进一步完成对**路由权限**的控制。
+> 针对这些场景，我们为中台场景下常用的权限控制提供了一种更加简单、易用、通用的解决方案。实现了一个基于 umi 插件的权限管理方案 - [@umijs/plugin-access](https://umijs.org/docs/max/access)。通过定义权限，使用权限，完成 **React 组件内的执行权限控制，渲染权限控制。**搭配 [@umijs/umi-plugin-layout](https://umijs.org/docs/max/layout-menu) 插件一起使用，还可以进一步完成对**路由权限**的控制。
 
 ## 二、如何使用
 

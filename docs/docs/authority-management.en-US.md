@@ -16,7 +16,7 @@ There are often scenarios in the project where different users have different pe
 - Different users can see different elements and do different operations.
 - Different users have different access rights to the page.
 
-> To deal with these problems, we provide a easy, easier-to-use, and universal solution, an umi plugin - [@umijs/plugin-access](https://umijs.org/plugins/plugin-access). By the steps of: 1. define permissions; 2. use permissions, you can **control the permissions in React component.** With another convenient plugin - [@umijs/plugin-layout](https://umijs.org/plugins/plugin-layout), you could control permissions of page access.
+> To deal with these problems, we provide a easy, easier-to-use, and universal solution, an umi plugin - [@umijs/plugin-access](https://umijs.org/docs/max/access). By the steps of: 1. define permissions; 2. use permissions, you can **control the permissions in React component.** With another convenient plugin - [@umijs/plugin-layout](https://umijs.org/docs/max/layout-menu), you could control permissions of page access.
 
 ## 2. Usage
 
