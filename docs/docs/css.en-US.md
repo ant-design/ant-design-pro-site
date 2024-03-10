@@ -23,7 +23,7 @@ umi comes with less and css parsing tools, so we are free to use either of the t
 }
 ```
 
-``index.ts`
+`index.ts`
 
 ```tsx | pure
 import styles from 'index.css'; // tell umi to compile this css
