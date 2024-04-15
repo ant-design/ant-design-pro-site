@@ -22,7 +22,7 @@ console.log(logo); //logo.84287d09.png
 return <Image src={logo} />;
 ```
 
-为了加快加载速度，并且减少网络请求，我们会把小于 1000k 的转化为 [base64](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)，这一版只对图片有效。
+为了加快加载速度，并且减少网络请求，我们会把小于 1000k 的转化为 [base64](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)，这一般只对图片有效。
 
 你可能注意到最后生成的 `logo.png` 会变成 `logo.84287d09.png` ，这个是为了保证每次发布版本都会更新图片，如果不改名字的话，会命中 `logo.png` 的缓存，你可以放心的使用 import 而不用担心缓存。
 
