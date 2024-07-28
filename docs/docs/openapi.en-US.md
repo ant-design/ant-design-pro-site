@@ -42,7 +42,7 @@ You also need to add a command to the scripts of package.json.
 
 Finally, we can execute `npm run openapi` to generate related interfaces and documents.
 
-## 如何使用
+## How to use
 
 openAPI has some workload for the backend, but the workload is far less than the cost of maintaining a document. If you maintain a document, you need to edit the document every time you update the code. With openAPI, you only need to access swagger and do some configuration to generate an interface. If you are using python or java, then access will become easy. For detailed access steps, please see the official document of [swagger](https://swagger.io/). Here mainly introduces how to use the front end.
 
