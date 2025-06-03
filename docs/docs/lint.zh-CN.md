@@ -333,10 +333,10 @@ useEffect(function persistForm() {
 
 ```tsx | pure
 {
-"extends": "@alipay/bigfish/softyEslint",
-"rules": {
-  // 你的自定义规则
-  "no-nested-ternary": 0,
-}
+  "extends": "@alipay/bigfish/softyEslint",
+  "rules": {
+    // 你的自定义规则
+    "no-nested-ternary": 0,
+  }
 }
 ```
