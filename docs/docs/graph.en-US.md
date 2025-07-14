@@ -11,7 +11,7 @@ nav:
 
 In many cases, we need a beautiful and generous icon page to serve as the home page, which can quickly display market information while also attracting attention and enhancing the texture of the system. So we also made an icon library <b>Ant Design Charts</b>.
 
-[Ant Design Charts](https://charts.ant.design/zh-CN/guide) is the React version of [G2Plot](https://antv-g2plot.gitee.io/zh/examples/gallery), based on React and TypeScript encapsulate all G2Plot charts, inherit all the configurations of G2Plot, and are more friendly to students of the React technology stack. <b>Developed by the same team</b>.
+[Ant Design Charts](https://ant-design-charts.antgroup.com) is the React version of [G2Plot](https://g2plot.antv.antgroup.com), based on React and TypeScript encapsulate all G2Plot charts, inherit all the configurations of G2Plot, and are more friendly to students of the React technology stack. <b>Developed by the same team</b>.
 
 -Out of the box: High-quality charts are presented by default, and the research on development experience and user experience is deposited into the default configuration items of the chart
 
@@ -119,4 +119,4 @@ The effect is as follows:
 
 ### Chart type
 
-The ant design chart has 27 chart types, and hundreds of charts can basically meet all development needs. You can see all the charts on [Official Website](https://charts.ant.design/zh-CN/demos/global) and query their API.
+The ant design chart has 27 chart types, and hundreds of charts can basically meet all development needs. You can see all the charts on [Official Website](https://ant-design-charts.antgroup.com) and query their API.
