@@ -11,6 +11,7 @@ import 'dayjs/locale/zh-cn';
 import './layout.less';
 import Dashboard from './dashboard';
 import Footer from './home/footer/Footer';
+import 'antd/dist/reset.css';
 
 dayjs.locale('zh-cn');
 
