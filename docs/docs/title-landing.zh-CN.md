@@ -13,7 +13,7 @@ Pro 默认提供标题 Logo 和 loading 页面的配置，默认情况下你不�
 
 ## 标题和 Logo
 
-在实际使用中我们一般会通过 `config\defaultSettings.ts` 来控制标题和 Logo，这部分功能来自 [ProLayout](https://procomponents.ant.design/components/layout) 的功能。我们可以在[预览界面](https://preview.pro.ant.design/) 中拷贝设置覆盖到 `config\defaultSettings.ts` 中来修改配置。
+在实际使用中我们一般会通过 `config/defaultSettings.ts` 来控制标题和 Logo，这部分功能来自 [ProLayout](https://procomponents.ant.design/components/layout) 的功能。我们可以在[预览界面](https://preview.pro.ant.design/) 中拷贝设置覆盖到 `config/defaultSettings.ts` 中来修改配置。
 
 ```tsx | pure
 const settings: LayoutSettings & {
@@ -37,7 +37,7 @@ export default settings;
 
 > defaultSettings 不在 config 中，是不能 import js 和 json 以外的任何文件的，如果需要使用项目中的 logo，可以用动态修改的方式。
 
-如果你需要动态的修改标题或者 Logo，就需要使用运行时的能力了。我们可以在 `src\app.tsx` 中做如下配置：
+如果你需要动态的修改标题或者 Logo，就需要使用运行时的能力了。我们可以在 `src/app.tsx` 中做如下配置：
 
 ```tsx | pure
 // https://umijs.org/zh-CN/plugins/plugin-layout
