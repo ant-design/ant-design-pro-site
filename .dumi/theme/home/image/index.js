@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import './index.less';
 import anime from 'animejs';
 import GitHubButton from 'react-github-button';
+import { Button } from 'antd';
 import { FormattedMessage } from 'react-intl';
-import '../../../../node_modules/react-github-button/assets/style.less';
+import 'react-github-button/assets/style.less';
 import { GaussianBackground } from '../gaussian-background/index';
 
 const bannerColors = [
@@ -234,18 +235,19 @@ export default () => {
           </p>
           <div className="button-wrapper" style={{ opacity: 1, transform: 'translate(0px, 0px)' }}>
             <a href="http://preview.pro.ant.design" target="_blank" rel="noopener noreferrer">
-              <button type="button" className="ant-btn ant-btn-primary custom-ant-btn">
+              <Button type="primary" className="custom-ant-btn">
                 <FormattedMessage id="app.home.preview" />
-              </button>
+              </Button>
             </a>
             <a href="docs/getting-started">
-              <button
-                type="button"
-                className="ant-btn ant-btn-primary ant-btn-background-ghost custom-ant-btn"
+              <Button
+                type="primary"
+                ghost
+                className="custom-ant-btn"
                 style={{ margin: '0px 16px' }}
               >
                 <FormattedMessage id="app.home.start" />
-              </button>
+              </Button>
             </a>
             <GitHubButton
               key="github-button"
