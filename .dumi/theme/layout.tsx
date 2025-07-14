@@ -83,7 +83,15 @@ export default ({ children, ...props }: IRouteComponentProps) => {
 
   return (
     <HelmetProvider>
-      <ConfigProvider locale={zhCN} theme={{ cssVar: true }}>
+      <ConfigProvider
+        locale={zhCN}
+        theme={{
+          cssVar: true,
+          token: {
+            fontFamily: 'AlibabaSans, sans-serif',
+          },
+        }}
+      >
         <Layout {...props}>
           <>
             <Helmet>
