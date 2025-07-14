@@ -21,7 +21,7 @@ nav:
 
 通过 `import { request } from 'umi';` 你可以使用内置的请求方法。 [request](https://umijs.org/zh-CN/plugins/plugin-request#request) 接收两个参数，第一个参数是 url，第二个参数是请求的 options。options 具体格式参考 umi-request。
 
-[request](https://umijs.org/zh-CN/plugins/plugin-request#request) 的大部分用法等同于 umi-request，一个不同的是 options 扩展了一个配置 skipErrorHandler，该配置为 true 是会跳过默认的错误处理，用于项目中部分特殊的接口。
+[request](https://umijs.org/zh-CN/plugins/plugin-request#request) 的大部分用法等同于 umi-request，一个不同的是 options 扩展了一个配置 skipErrorHandler，该配置为 true 时会跳过默认的错误处理，用于项目中部分特殊的接口。
 
 示例代码如下：
 
