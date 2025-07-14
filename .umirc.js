@@ -5,18 +5,9 @@ export default {
   title: 'Ant Design Pro',
   mode: 'site',
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-  extraBabelPlugins: [
-    [
-      'import',
-      {
-        libraryName: 'antd',
-        libraryDirectory: 'es',
-        style: true,
-      },
-    ],
-  ],
   locale: {
     default: 'zh-CN',
+    antd: true,
     // default true, when it is true, will use `navigator.language` overwrite default
     baseNavigator: true,
   },
@@ -126,10 +117,6 @@ export default {
   exportStatic: {},
   targets: {
     chrome: 80,
-    firefox: false,
-    safari: false,
-    edge: false,
-    ios: false,
   },
   theme: {
     '@s-site-menu-width': '242px',

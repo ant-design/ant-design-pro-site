@@ -1,5 +1,3 @@
-@import '~antd/lib/style/themes/default.less';
-
 .home-wrapper {
   width: 100%;
   color: #697b8c;
@@ -68,7 +66,7 @@ svg g {
           border: 1px solid #ebedf0;
           border-radius: 4px;
           &:hover {
-            color: @primary-color;
+            color: var(--ant-primary-color);
           }
           .gh-ico {
             margin-right: 8px;
@@ -267,7 +265,7 @@ svg g {
   padding: 20px 50px;
   color: #151e26;
   font-size: 16px;
-  font-family: @code-family;
+  font-family: var(--ant-code-family);
   line-height: 28px;
   text-align: left;
   background: #f2f4f5;
@@ -280,7 +278,7 @@ svg g {
 .home-code-selection {
   display: inline-block;
   width: 16px;
-  color: @primary-color !important;
+  color: var(--ant-primary-color) !important;
   text-align: right;
 }
 

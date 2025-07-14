@@ -5,14 +5,14 @@ import { ConfigProvider, Switch } from 'antd';
 import { IRouteComponentProps, isBrowser, useHistory } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import useDarkreader from './useDarkreader';
-import 'moment/locale/zh-cn';
+import 'dayjs/locale/zh-cn';
 import './layout.less';
 import Dashboard from './dashboard';
 import Footer from './home/footer/Footer';
 
-moment.locale('zh-cn');
+dayjs.locale('zh-cn');
 
 const DarkButton = () => {
   const colorScheme = useMemo(() => {
@@ -83,7 +83,7 @@ export default ({ children, ...props }: IRouteComponentProps) => {
 
   return (
     <HelmetProvider>
-      <ConfigProvider locale={zhCN}>
+      <ConfigProvider locale={zhCN} theme={{ cssVar: true }}>
         <Layout {...props}>
           <>
             <Helmet>

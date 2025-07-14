@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'dumi';
 import { Button } from 'antd';
+import { DownloadOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'react-intl';
 import * as utils from '../../utils';
 import './index.less';
+
 function Page2({ location }) {
   const isZhCN = utils.isZhCN(location?.pathname);
   return (
@@ -59,15 +61,9 @@ function Page2({ location }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button type="primary">
+            <Button type="primary" icon={<DownloadOutlined />} size="large">
               <FormattedMessage id="app.home.download" />
-              <span
-                style={{
-                  marginLeft: 8,
-                }}
-              >
-                Pro
-              </span>
+              <span>Pro</span>
             </Button>
           </a>
         </div>
