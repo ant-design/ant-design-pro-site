@@ -52,9 +52,10 @@ const Dashboard: React.FC<{ menuData: IMenuItem[] }> = ({ menuData }) => {
                 title={group.title}
               >
                 {components.map((component) => {
-                  const url = `${component.path
-                    .replace(/(\/index)?((\.zh-CN)|(\.en-us))?\.md$/i, '')
-                    .toLowerCase()}/`;
+                  const url = `${component.path?.replace(
+                    /(\/index)?((\.zh-CN)|(\.en-us))?\.md$/i,
+                    '',
+                  )}/`;
                   return (
                     <a href={url} key={url}>
                       <Space
