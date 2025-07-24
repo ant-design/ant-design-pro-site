@@ -59,8 +59,8 @@ umi block list 的初衷是希望大家可以快速的查到区块，但是在�
 
 #### 参考文档
 
-_umi block_ [https://umijs.org/zh/guide/block.html](https://umijs.org/zh/guide/block.html)
+_umi block_ [https://github.com/umijs/umi-blocks](https://github.com/umijs/umi-blocks)
 
 *pro-blocks*  [https://github.com/ant-design/pro-blocks/pulls](https://github.com/ant-design/pro-blocks/pulls)
 
-_Ant Design Pro_ [https://pro.ant.design/index-cn](https://pro.ant.design/index-cn)
+_Ant Design Pro_ [https://pro.ant.design](https://pro.ant.design/zh-CN/)
