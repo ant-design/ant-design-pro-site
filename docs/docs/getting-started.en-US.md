@@ -46,7 +46,7 @@ With umi@3, it's a good template, pro is the basic template, it only provides th
 Install dependencies:
 
 ```shell
-$ cd myapp && yarn
+$ cd myapp && yarn install
 // or
 $ cd myapp && npm install
 ```
