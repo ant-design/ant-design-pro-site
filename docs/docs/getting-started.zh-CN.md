@@ -21,9 +21,9 @@ Ant Design Pro 作为一个前端脚手架，默认读者已经懂了一些前�
 
 ### 包管理器
 
-推荐使用 [tyarn](https://www.npmjs.com/package/tyarn) 来进行包管理，可以极大地减少 install 的时间和失败的概率，并且完全兼容 npm。
+推荐使用 [yarn](https://www.npmjs.com/package/yarn) 来进行包管理，可以极大地减少 install 的时间和失败的概率，并且完全兼容 npm。
 
-如果喜欢使用 npm 而不是 yarn，可以使用 [cnpm](https://www.npmjs.com/package/cnpm), 安装速度比 `tyarn` 更快，但是与 npm 不是完全兼容。
+如果喜欢使用 npm 而不是 yarn，可以使用 [cnpm](https://www.npmjs.com/package/cnpm), 安装速度比 `yarn` 更快，但是与 npm 不是完全兼容。
 
 ### Terminal
 
@@ -66,7 +66,7 @@ pro create myapp
 安装依赖：
 
 ```shell
-$ cd myapp && tyarn
+$ cd myapp && yarn
 // 或
 $ cd myapp && npm install
 ```
